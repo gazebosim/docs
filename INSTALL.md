@@ -12,7 +12,7 @@ source code.
 
 ## Acropolis Libraries
 
-The acropolis collection is composed by many different ignition libraries. The
+The Acropolis collection is composed by many different Ignition libraries. The
 collection assures that all libraries all compatible and can be used together.
 
 | Library name       | Version       |
@@ -35,8 +35,8 @@ collection assures that all libraries all compatible and can be used together.
 
 # Option 1: installation on Ubuntu Bionic
 
-All the acropolis binaries are hosted in the osrfoundation repository. To install
-all them, the metapackage `ignition-acropolis` can be installed:
+All the Acropolis binaries are hosted in the osrfoundation repository. To install
+all of them, the metapackage `ignition-acropolis` can be installed:
 
 ```bash
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
@@ -52,6 +52,11 @@ All libraries should be ready to use and  the `ignition-gazebo` app ready to be 
 To help with the source compilation the use of some tools is recommended although
 other ways of correctly getting the sources and build in order the libraries are
 also possible.
+
+colcon supports python 3.5 (or higher) which is not the default option in some
+platforms (like Ubuntu Bionic). In cases where the default option can not be
+easily change the python [virtualenv](https://virtualenv.pypa.io/en/latest/)
+could be a useful solution.
 
 ## Installing vcstool and colcon
 
@@ -94,18 +99,18 @@ cd ~/workspace/src
 All the sources of ignition-acropolis are declared in a yaml file. Download
 it to the workspace.
 
-```wget https://bitbucket.org/osrf/gazebodistro/src/default/collection-acropolis.yml```
+```wget https://bitbucket.org/osrf/gazebodistro/raw/default/collection-acropolis.yaml```
 
-Use `vcstool` to automatically retrieve all the ignition libraries sources from
+Use `vcstool` to automatically retrieve all the Ignition libraries sources from
 their repositories:
 
-```vcs import < collection-acropolis.yml```
+```vcs import < collection-acropolis.yaml```
 
 The src subdirectory should contain all the sources ready to be built.
 
-## Building the ignition libraries
+## Building the Ignition Libraries
 
-Once all the sources are in place it is time of compiling them. Start the
+Once all the sources are in place it is time to compile them. Start the
 procedure by locating into the workspace and listing the packages recognized
 by `colcon`:
 
@@ -114,8 +119,8 @@ cd ~/workspace/
 colcon list -g
 ```
 
-`colcon` should list all the ignition family in the output with their
-interdependecies. If that is the case, all is ready to 
+`colcon` should list all the Ignition family in the output with their
+interdependencies. If that is the case, all is ready to
 to build the whole set of libraries:
 
 ```colcon build```
@@ -125,7 +130,7 @@ If there are no errors, all the binaries should be ready to use.
 ## Using the workspace
 
 The workspace binaries are ready but everytime that `ign-gazebo` needs to be
-executed or third party code is going to be developed using the ignition
+executed or third party code is going to be developed using the Ignition
 libraries, one command is needed:
 
 ```
@@ -133,5 +138,5 @@ libraries, one command is needed:
 (or call install/local_setup.bat on Windows)
 ```
 
-After running the command all paths for running apps or developing code 
+After running the command all paths for running apps or developing code
 will be set in the current shell.
