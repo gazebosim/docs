@@ -33,17 +33,22 @@ collection assures that all libraries all compatible and can be used together.
 |   ign-transport    |       6.x     |
 |   sdformat         |       8.x     |
 
-# Installation on Ubuntu Bionic
+# Option 1: installation on Ubuntu Bionic
 
 All the acropolis binaries are hosted in the osrfoundation repository. To install
 all them, the metapackage `ignition-acropolis` can be installed:
 
 > sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
+
 > wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+
 > sudo apt-get update
+
 > sudo apt-get install ignition-acropolis
 
-# Source code installation
+All libraries should be ready to use and  the `ignition-gazebo` app ready to be executed.
+
+# Option 2: from source installation
 
 To help with the source compilation the use of some tools is recommended although
 other ways of correctly getting the sources and build in order the libraries are
@@ -68,8 +73,11 @@ The tool is available in all platforms using pip:
 As an alternative method there are .deb packages available for Debian or Ubuntu:
 
 > sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+
 > sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116
+
 > sudo apt-get update
+
 > sudo apt-get install python3-vcstool python3-colcon-common-extensions
 
 ## Getting the sources
@@ -81,6 +89,7 @@ The first step would be to create a developer workspace in which `vcstool` and
 `colcon` can work.
 
 > mkdir -p ~/workspace/src
+
 > cd ~/workspace/src
 
 All the sources of ignition-acropolis are declared in a yaml file. Download
@@ -91,7 +100,7 @@ it to the workspace.
 Use `vcstool` to automatically retrieve all the ignition libraries sources from
 their repositories:
 
-> vcstool import < collection-acropolis.yml
+> vcs import < collection-acropolis.yml
 
 The src subdirectory should contain all the sources ready to be built.
 
