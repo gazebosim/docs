@@ -38,13 +38,12 @@ collection assures that all libraries all compatible and can be used together.
 All the acropolis binaries are hosted in the osrfoundation repository. To install
 all them, the metapackage `ignition-acropolis` can be installed:
 
-> sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
-
-> wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
-
-> sudo apt-get update
-
-> sudo apt-get install ignition-acropolis
+```bash
+sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
+wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install ignition-acropolis
+```
 
 All libraries should be ready to use and  the `ignition-gazebo` app ready to be executed.
 
@@ -60,25 +59,24 @@ For getting the sources of all libraries the easiest way is to use
 [vcstool](https://github.com/dirk-thomas/vcstool). The tool is available from pip
 in all platforms:
 
-> pip install vcstool
+```pip install vcstool```
 
 To compile all the different libraries and ignition-gazebo in the right order
 it is recommended to use the tool [colcon](https://colcon.readthedocs.io/en/released/).
 The tool is available in all platforms using pip:
 
-> pip install -U colcon-common-extensions
+```pip install -U colcon-common-extensions```
 
 ### Use .deb packages in Ubuntu to install vcstool and colcon
 
 As an alternative method there are .deb packages available for Debian or Ubuntu:
 
-> sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-
-> sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116
-
-> sudo apt-get update
-
-> sudo apt-get install python3-vcstool python3-colcon-common-extensions
+```
+sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116
+sudo apt-get update
+sudo apt-get install python3-vcstool python3-colcon-common-extensions
+```
 
 ## Getting the sources
 
@@ -88,19 +86,20 @@ obvious alternatives on Windows should provide the same result.
 The first step would be to create a developer workspace in which `vcstool` and
 `colcon` can work.
 
-> mkdir -p ~/workspace/src
-
-> cd ~/workspace/src
+```
+mkdir -p ~/workspace/src
+cd ~/workspace/src
+```
 
 All the sources of ignition-acropolis are declared in a yaml file. Download
 it to the workspace.
 
-> wget https://bitbucket.org/osrf/gazebodistro/src/default/collection-acropolis.yml
+```wget https://bitbucket.org/osrf/gazebodistro/src/default/collection-acropolis.yml```
 
 Use `vcstool` to automatically retrieve all the ignition libraries sources from
 their repositories:
 
-> vcs import < collection-acropolis.yml
+```vcs import < collection-acropolis.yml```
 
 The src subdirectory should contain all the sources ready to be built.
 
@@ -110,14 +109,16 @@ Once all the sources are in place it is time of compiling them. Start the
 procedure by locating into the workspace and listing the packages recognized
 by `colcon`:
 
-> cd ~/workspace/
-> colcon list -g
+```bash
+cd ~/workspace/
+colcon list -g
+```
 
 `colcon` should list all the ignition family in the output with their
 interdependecies. If that is the case, all is ready to 
 to build the whole set of libraries:
 
-> colcon build
+```colcon build```
 
 If there are no errors, all the binaries should be ready to use.
 
@@ -127,8 +128,10 @@ The workspace binaries are ready but everytime that `ign-gazebo` needs to be
 executed or third party code is going to be developed using the ignition
 libraries, one command is needed:
 
-> . install/local_setup.bash
-> (or call install/local_setup.bat on Windows)
+```
+. install/local_setup.bash
+(or call install/local_setup.bat on Windows)
+```
 
 After running the command all paths for running apps or developing code 
 will be set in the current shell.
