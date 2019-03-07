@@ -108,6 +108,18 @@ their repositories:
 
 The src subdirectory should contain all the sources ready to be built.
 
+## Install dependencies
+
+Before compiling it is necessary to install all the dependencies of the diferent
+packages that compose the Acropolis collection. Every platform has a different
+method to install software dependencies. As reference the command below will
+install all dependencies in Ubuntu Bionic (osrfoundation repository needs to
+be installed):
+
+```
+sudo apt-get install cmake freeglut3-dev libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev libdart6-collision-ode-dev libdart6-dev libdart6-utils-urdf-dev libfreeimage-dev libgflags-dev libglew-dev libgts-dev libogre-1.9-dev libogre-2.1-dev libprotobuf-dev libprotobuf-dev libprotoc-dev libqt5core5a libswscale-dev libtinyxml2-dev libtinyxml-dev pkg-config protobuf-compiler python qml-module-qt-labs-folderlistmodel qml-module-qt-labs-settings qml-module-qtquick2 qml-module-qtquick-controls qml-module-qtquick-controls2 qml-module-qtquick-dialogs qml-module-qtquick-layouts qtbase5-dev qtdeclarative5-dev qtquickcontrols2-5-dev ruby ruby-ronn uuid-dev
+```
+
 ## Building the Ignition Libraries
 
 Once all the sources are in place it is time to compile them. Start the
