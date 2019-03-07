@@ -47,7 +47,23 @@ sudo apt-get install ignition-acropolis
 
 All libraries should be ready to use and  the `ignition-gazebo` app ready to be executed.
 
-# Option 2: from source installation
+# Option 2: install on MacOS HighSierra
+
+All the Acropolis binaries are available in HighSierra using the [homebrew package manager](https://brew.sh/).
+The homebrew tool can easily be installed using:
+
+```ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"```
+
+After installing the homebrew package manager ignition acropolis can be installed running:
+
+```
+brew tap osrf/simulation
+brew install ignition-acropolis
+```
+
+All libraries should be ready to use and  the `ignition-gazebo` app ready to be executed.
+
+# Option 3: from source installation (any platform)
 
 To help with the source compilation the use of some tools is recommended although
 other ways of correctly getting the sources and build in order the libraries are
