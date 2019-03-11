@@ -22,7 +22,7 @@ collection assures that all libraries all compatible and can be used together.
 |   ign-fuel-tools   |       3.x     |
 |   ign-gazebo       |       1.x     |
 |   ign-gui          |       1.x     |
-|   ign-launch       |       1.x     |
+|   ign-launch       |       0.x     |
 |   ign-math         |       6.x     |
 |   ign-msgs         |       3.x     |
 |   ign-physics      |       1.x     |
