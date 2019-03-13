@@ -35,6 +35,9 @@ The first major release of Ignition Robotics focused on the basics of simulation
 7. Distributed simulation using lock-stepping.
 8. Dynamic loading/unloading of simulation models based on the location of performer, usually a robot. 
 9. Simulation state logging.
+10. Plugin-based GUI system based on [QtQuick](https://en.wikipedia.org/wiki/Qt_Quick) and [Material Design](https://material.io/design/). Available
+    plugins include 3D scene viewer, image viewer, topic echo, topic
+    publisher, world control, and world statistics.
 
 ## Blueprint (May, 2019)
 **Release** May, 2019
