@@ -2,6 +2,7 @@
 
 This page describes planned work on Ignition Robotics. The set of planned features and development efforts are kept vague, but should provide insight into the overall direction of Ignition Robotics. Currently, and until around 2021, development of Ignition Robotics is closely tied to the [DARPA Subterranean Challenge (SubT)](https://subtchallenge.com). Therefore, you will see features on the roadmap designed to support large environments in which dozens of ground and aerial vehicles can operate in real-time.
 
+
 ## Planned releases
 
 1. Feb, 2019: Ignition Acropolis
@@ -19,12 +20,18 @@ This page describes planned work on Ignition Robotics. The set of planned featur
 7. Sep, 2021: Ignition G
     * Support duration: 3+years. This is the first LTS release.
 
-## Acropolis
-**Release** Feb, 2019
+## Release Features
+
+Features planned for a particular release may appear in an
+earlier release depending on schedule and adherence to semantic versioning.
+For example, if a new feature does not break API/ABI then we will strive to
+target the feature to the oldest compatible non-EOL release and propagate the feature forward.
+
+### Acropolis
 
 The first major release of Ignition Robotics focused on the basics of simulation. The basics primarily encompassed integration of physics, sensors, graphical tools, and programmatic interfaces.
 
-### Features
+#### Features
 
 1. Support for [DART](https://dartsim.github.io/) in [Ignition Physics](/libs/physics).
 2. Ogre1.9 and Ogre2.1 support in [Ignition Rendering](/libs/rendering)
@@ -39,12 +46,11 @@ The first major release of Ignition Robotics focused on the basics of simulation
     plugins include 3D scene viewer, image viewer, topic echo, topic
     publisher, world control, and world statistics.
 
-## Blueprint (May, 2019)
-**Release** May, 2019
+### Blueprint
 
 The second release of Ignition Robotics will add features necessary to support [SubT](https://subtchallenge.com) for the upcoming circuit events in Aug, 2019.
 
-### Planned Features
+#### Planned Features
 
 1. [PBR](https://en.wikipedia.org/wiki/Physically_based_rendering) materials.
 2. Particle effects for smoke and gas.
@@ -57,7 +63,7 @@ The second release of Ignition Robotics will add features necessary to support [
 9. Cloud-hosted simulation.
 10. Performance metrics and analysis.
 
-## Future Releases
+### Future Releases
 
 1. Additional graphical tools for model and world creation and editing.
 2. Enhanced distributed simulation, i.e. distributed simulation that is not constrained to lock-stepping.
