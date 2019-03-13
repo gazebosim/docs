@@ -2,7 +2,7 @@
 
 Ignition Robotics is a curated set of open-source libraries that encapsulate all the essentials for robotic simulation. The goal of Ignition is to make simulation easy, and empower developers to utilize simulation in their daily work, on continuous integration systems, or even in machine learning applications.
 
-The gensis of Ignition Robotics came from need to dramatically update and restructure [Gazebo](http://gazebosim.org), based on community feedback, observerd needs, and developer goals. You can think of Ignition Robotics as a decomposition of Gazebo into its constiutent parts, such as physics and sensing, along with a major update to use modern development practices and design patterns.
+The genesis of Ignition Robotics came from need to dramatically update and restructure [Gazebo](http://gazebosim.org), based on community feedback, observed needs, and developer goals. You can think of Ignition Robotics as a decomposition of Gazebo into its constituent parts, such as physics and sensing, along with a major update to use modern development practices and design patterns.
 
 ## Releases and Naming
 
