@@ -5,20 +5,7 @@ This page describes planned work on Ignition Robotics. The set of planned featur
 
 ## Planned releases
 
-1. Feb, 2019: Ignition Acropolis
-    * EOL: Sep, 2019
-2. May, 2019: Ignition Blueprint
-    * EOL: Sep, 2020
-3. Sep, 2019: Ignition Citadel
-    * Support duration: 1 year. 
-4. Mar, 2020: Ignition D
-    * Support duration: 1 year. 
-5. Sep, 2020: Ignition E
-    * Support duration: 2-years.
-6. Mar, 2021: Ignition F
-    * Support duration: 1-year.
-7. Sep, 2021: Ignition G
-    * Support duration: 3+years. This is the first LTS release.
+See the [Releases](/docs/releases) page.
 
 ## Release Features
 
