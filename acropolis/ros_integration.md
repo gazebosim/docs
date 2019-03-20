@@ -27,7 +27,7 @@ of the bridge documentation. This tutorial requires Ubuntu Melodic or newer.
 
 Assuming that you have ROS Melodic, you can install all dependencies with:
 
-```
+```bash
 sudo apt install ros-melodic-desktop ros-melodic-rqt-image-view libignition-common3-dev libignition-transport6-dev
 ```
 
@@ -37,7 +37,7 @@ In this example, we're going to generate Ignition Transport images using Gazebo,
 
 First we start a ROS 1 `roscore`:
 
-```
+```bash
 # Shell A:
 . /opt/ros/melodic/setup.bash
 roscore
@@ -45,7 +45,7 @@ roscore
 
 Then we start Gazebo.
 
-```
+```bash
 # Shell B:
 ign-gazebo -r -f camera_sensor.sdf
 ```
@@ -53,7 +53,7 @@ ign-gazebo -r -f camera_sensor.sdf
 Gazebo should be running and publishing images over the `/camera` topic.
 Let's verify it:
 
-```
+```bash
 # Shell C:
 ign topic -l | grep "^/camera"
 /camera
@@ -61,7 +61,7 @@ ign topic -l | grep "^/camera"
 
 Then we start the parameter bridge with the previous topic.
 
-```
+```bash
 # Shell D:
 . ~/bridge_ws/install/setup.bash
 rosrun ros1_ign_bridge parameter_bridge /camera@sensor_msgs/Image@ignition.msgs.Image
@@ -69,7 +69,7 @@ rosrun ros1_ign_bridge parameter_bridge /camera@sensor_msgs/Image@ignition.msgs.
 
 Now we start the ROS 1 GUI:
 
-```
+```bash
 # Shell E:
 . /opt/ros/melodic/setup.bash
 rqt_image_view /camera

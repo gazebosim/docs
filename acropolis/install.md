@@ -52,11 +52,13 @@ All libraries should be ready to use and  the `ign-gazebo` app ready to be execu
 All the Acropolis binaries are available in HighSierra using the [homebrew package manager](https://brew.sh/).
 The homebrew tool can easily be installed using:
 
-```ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"```
+```bash
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
 
 After installing the homebrew package manager ignition acropolis can be installed running:
 
-```
+```bash
 brew tap osrf/simulation
 brew install ignition-acropolis
 ```
@@ -76,7 +78,7 @@ For getting the sources of all libraries the easiest way is to use
 [vcstool](https://github.com/dirk-thomas/vcstool). The tool is available from pip
 in all platforms:
 
-```
+```bash
 pip install vcstool
 ```
 
@@ -84,7 +86,7 @@ To compile all the different libraries and ign-gazebo in the right order
 it is recommended to use [colcon](https://colcon.readthedocs.io/en/released/).
 The colcon tool is available in all platforms using pip:
 
-```
+```bash
 pip install -U colcon-common-extensions
 ```
 
@@ -92,7 +94,7 @@ pip install -U colcon-common-extensions
 
 An alternative method is to use the .deb packages available on Debian or Ubuntu:
 
-```
+```bash
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo apt-key adv --keyserver hkp://pool.sks-keyservers.net --recv-key 0xB01FA116
 sudo apt-get update
@@ -107,7 +109,7 @@ obvious alternatives on Windows should provide the same result.
 The first step would be to create a developer workspace in which `vcstool` and
 `colcon` can work.
 
-```
+```bash
 mkdir -p ~/workspace/src
 cd ~/workspace/src
 ```
@@ -115,14 +117,14 @@ cd ~/workspace/src
 All the sources of ignition-acropolis are declared in a yaml file. Download
 it to the workspace.
 
-```
+```bash
 wget https://bitbucket.org/osrf/gazebodistro/raw/default/collection-acropolis.yaml
 ```
 
 Use `vcstool` to automatically retrieve all the Ignition libraries sources from
 their repositories:
 
-```
+```bash
 vcs import < collection-acropolis.yaml
 ```
 
@@ -136,7 +138,7 @@ method to install software dependencies. As reference the command below will
 install all dependencies in Ubuntu Bionic (osrfoundation repository needs to
 be installed):
 
-```
+```bash
 sudo apt-get install cmake freeglut3-dev libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev libdart6-collision-ode-dev libdart6-dev libdart6-utils-urdf-dev libfreeimage-dev libgflags-dev libglew-dev libgts-dev libogre-1.9-dev libogre-2.1-dev libprotobuf-dev libprotobuf-dev libprotoc-dev libqt5core5a libswscale-dev libtinyxml2-dev libtinyxml-dev pkg-config protobuf-compiler python qml-module-qt-labs-folderlistmodel qml-module-qt-labs-settings qml-module-qtquick2 qml-module-qtquick-controls qml-module-qtquick-controls2 qml-module-qtquick-dialogs qml-module-qtquick-layouts qtbase5-dev qtdeclarative5-dev qtquickcontrols2-5-dev ruby ruby-ronn uuid-dev
 ```
 
@@ -155,7 +157,9 @@ colcon list -g
 interdependencies. If that is the case, then you are ready 
 to build the whole set of libraries:
 
-```colcon build```
+```bash
+colcon build
+```
 
 If there are no errors, all the binaries should be ready to use.
 
@@ -165,7 +169,7 @@ The workspace binaries are ready but every time that `ign-gazebo` needs to be
 executed or third party code is going to be developed using the Ignition
 libraries, one command is needed:
 
-```
+```bash
 . install/local_setup.bash
 (or call install/local_setup.bat on Windows)
 ```
