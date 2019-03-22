@@ -9,7 +9,8 @@ sudo apt-get install -y \
   gnupg \
   lsb-release \
   software-properties-common \
-  wget
+  wget \
+  s3cmd
 
 sudo apt-get install -y \
   build-essential \
