@@ -144,7 +144,27 @@ sudo apt-get install cmake freeglut3-dev libavcodec-dev libavdevice-dev libavfor
 
 ## Building the Ignition Libraries
 
-Once all the sources are in place it is time to compile them. Start the
+You will need `gcc` version 8 to compile the Ignition Libraries. 
+
+```bash
+sudo apt-get install g++-8
+```
+
+Set `gcc-8` and `g++-8` to be the default compilers.
+
+```bash
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /usr/bin/g++ g++ /usr/bin/g++-8 --slave /usr/bin/gcov gcov /usr/bin/gcov-8
+```
+
+At this point `gcc`  and `g++` should both report version 8. Test this with
+the following commands.
+
+```bash
+gcc -v
+g++ -v
+```
+
+Once gcc8 and all the sources are in place it is time to compile them. Start the
 procedure by changing into the workspace and listing the packages recognized
 by `colcon`:
 
