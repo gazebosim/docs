@@ -55,7 +55,11 @@ to get started.
 Modifying an existing SDF world is also a good way to get started. Ignition
 Gazebo ships with a number of [example SDF
 worlds](https://bitbucket.org/ignitionrobotics/ign-gazebo/src/default/examples/worlds)
-that you can freely copy and modify.  
+that you can freely copy and modify. These example SDF files are 
+installed, and can be run using the `-f ` command line argument to
+`ign-gazebo`. Many of the SDF files also have instructions located at the
+top of the SDF file. The instructions typically contain information about how to
+run Gazebo with the SDF file in order to experience a particular feature.
 
 There are a wide variety of simulation resources at your disposal on
 [https://app.ignitionrobotics.org/fuel](https://app.ignitionrobotics.org/fuel).
