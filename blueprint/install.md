@@ -114,7 +114,7 @@ mkdir -p ~/workspace/src
 cd ~/workspace/src
 ```
 
-All the sources of ignition-Blueprint are declared in a yaml file. Download
+All the sources of ignition-blueprint are declared in a yaml file. Download
 it to the workspace.
 
 ```bash
