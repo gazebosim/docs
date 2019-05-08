@@ -173,7 +173,7 @@ transport bridge instead of plugins.
 Feature | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 Nested models | ✓ | Partial support
-Log / playback | ✓ | Partial support
+Log / playback | ✓ | ✓
 Web client (GzWeb) | ✓ |
 Populations | ✓ |
 Actors | ✓ |
