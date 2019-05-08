@@ -29,8 +29,8 @@ Wireless transmitter | ✓ |
 
 Sensor features | Gazebo-classic | Ignition Gazebo
 -- | -- | --
-Custom update rate | ✓ | Some sensors do, others need upgrading
-Gaussian noise | ✓ | Some sensors do, others need upgrading
+Custom update rate | ✓ | ✓
+Gaussian noise | ✓ | ✓
 Custom sensors | ✓ | ✓
 
 ## Plugins
