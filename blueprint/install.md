@@ -23,10 +23,10 @@ collection assures that all libraries all compatible and can be used together.
 |   ign-gazebo       |       2.x     |
 |   ign-gui          |       2.x     |
 |   ign-launch       |       1.x     |
-|   ign-math         |       7.x     |
+|   ign-math         |       6.x     |
 |   ign-msgs         |       4.x     |
-|   ign-physics      |       2.x     |
-|   ign-plugin       |       2.x     |
+|   ign-physics      |       1.x     |
+|   ign-plugin       |       1.x     |
 |   ign-rendering    |       2.x     |
 |   ign-sensors      |       2.x     |
 |   ign-tools        |       0.x     |

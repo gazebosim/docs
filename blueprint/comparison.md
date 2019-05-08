@@ -49,7 +49,7 @@ BuoyancyPlugin | ✓ |
 CameraPlugin | ✓ |
 CartDemoPlugin | ✓ |
 CessnaPlugin | ✓ |
-ContactPlugin | ✓ |
+ContactPlugin | ✓ | ✓
 ContainPlugin | ✓ |
 DepthCameraPlugin | ✓ |
 DiffDrivePlugin | ✓ | ✓
@@ -64,11 +64,12 @@ HeightmapLODPlugin | ✓ |
 ImuSensorPlugin | ✓ |
 InitialVelocityPlugin | ✓ |
 JointControlPlugin | ✓ |
+JointStatePublisher | | ✓
 JointTrajectoryPlugin | ✓ |
 KeysToJointsPlugin | ✓ |
 LedPlugin | ✓ |
 LensFlareSensorPlugin | ✓ |
-LiftDragPlugin | ✓ |
+LiftDragPlugin | ✓ | ✓
 LinearBatteryConsumerPlugin | ✓ |
 LinearBatteryPlugin | ✓ |
 LinkPlot3DPlugin | ✓ |
@@ -76,11 +77,11 @@ ModelPropShop | ✓ |
 MudPlugin | ✓ |
 PlaneDemoPlugin | ✓ |
 PressurePlugin | ✓ |
-RayPlugin | ✓ |
+RayPlugin | ✓ | Provided through Ignition Sensors
 RaySensorNoisePlugin | ✓ |
 RubblePlugin | ✓ |
 ShaderParamVisualPlugin | ✓ |
-SkidSteerDrivePlugin | ✓ |
+SkidSteerDrivePlugin | ✓ | ✓
 SonarPlugin | ✓ |
 SphereAtlasDemoPlugin | ✓ |
 StaticMapPlugin | ✓ |
@@ -88,13 +89,13 @@ StopWorldPlugin | ✓ |
 TouchPlugin | ✓ | ✓
 VehiclePlugin | ✓ |
 WheelSlipPlugin | ✓ |
-WindPlugin | ✓ |
+WindPlugin | ✓ | ✓
 ElevatorPlugin | ✓ |
 RandomVelocityPlugin | ✓ |
 TransporterPlugin | ✓ |
 HydraPlugin | ✓ |
 HydraDemoPlugin | ✓ |
-JoyPlugin | ✓ | ✓ Migrated as standalone program
+JoyPlugin | ✓ | ✓ Migrated as an Ignition Launch plugin
 CessnaGUIPlugin | ✓ |
 KeyboardGUIPlugin | ✓ |
 LookAtDemoPlugin | ✓ |
@@ -110,10 +111,11 @@ Reset world / models | ✓ |
 World stats | ✓ | ✓
 Topic echo | ✓ | ✓
 Image viewer | ✓ | ✓
-Translate / rotate / scale models | ✓ |
+Translate / rotate | ✓ | ✓
+Scale models | ✓ |
 Insert models / lights | ✓ |
 Delete models | ✓ |
-World tree | ✓ |
+World tree | ✓ | ✓ (no properties yet)
 Log recording / playback | ✓ |
 Plotting | ✓ |
 Video recording | ✓ |
@@ -180,12 +182,12 @@ DEM (Digital Elevation Models) | ✓ |
 COLLADA meshes | ✓ | ✓
 OBJ meshes | ✓ | ✓
 STL meshes | ✓ | ✓
-Code introspection | ✓ | All simulation state is accessible from any system plugin, soon it will be published
+Code introspection | ✓ | All simulation state is accessible from system plugins or through the `SceneBroadcaster`'s state topic
 World plugins | ✓ | ✓ Now called System plugin
 Model plugins | ✓ | ✓ Now called System plugin
 Sensor plugins | ✓ |
 Visual plugins | ✓ |
-GUI plugins | ✓ | ✓ Ignition GUI plugins
+GUI plugins | ✓ | ✓ Ignition GUI plugins and Gazebo GUI systems
 System plugins | ✓ |
 Distribute simulation across processes | ✕ | ✓
 Incrementally load levels | ✕ | ✓
