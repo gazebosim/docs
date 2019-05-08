@@ -31,7 +31,7 @@ Sensor features | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 Custom update rate | ✓ | ✓
 Gaussian noise | ✓ | ✓
-Custom sensors | ✓ | ✓
+Custom sensors | ✓ | ✓ (barrel and pincushion distorsions not supported yet)
 
 ## Plugins
 
@@ -192,4 +192,6 @@ System plugins | ✓ |
 Distribute simulation across processes | ✕ | ✓
 Incrementally load levels | ✕ | ✓
 Online model database | [gazebo_models repository](https://bitbucket.org/osrf/gazebo_models/) | [Ignition Fuel](https://app.ignitionrobotics.org/fuel/models)
-
+Sky | ✓ |
+Fog | ✓ |
+Polylines | ✓ |
