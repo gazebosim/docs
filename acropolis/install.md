@@ -144,7 +144,15 @@ sudo apt-get install cmake freeglut3-dev libavcodec-dev libavdevice-dev libavfor
 
 ## Building the Ignition Libraries
 
-You will need `gcc` version 8 to compile the Ignition Libraries. 
+The Ignition Libraries require the following compilers on each platform:
+
+* Ubuntu Bionic: gcc 8
+* MacOS Mojave: Xcode 10
+* Windows: Visual Studio 2017
+
+### Installing gcc version 8 on Ubuntu Bionic
+
+To install `gcc` version 8 on Ubuntu Bionic:
 
 ```bash
 sudo apt-get install g++-8
@@ -164,9 +172,11 @@ gcc -v
 g++ -v
 ```
 
-Once gcc8 and all the sources are in place it is time to compile them. Start the
-procedure by changing into the workspace and listing the packages recognized
-by `colcon`:
+### Building the colcon workspace
+
+Once the compiler and all the sources are in place it is time to compile them.
+Start the procedure by changing into the workspace and listing the packages
+recognized by `colcon`:
 
 ```bash
 cd ~/workspace/
