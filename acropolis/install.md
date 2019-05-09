@@ -56,7 +56,7 @@ The homebrew tool can easily be installed using:
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-After installing the homebrew package manager ignition acropolis can be installed running:
+After installing the homebrew package manager, ignition acropolis can be installed running:
 
 ```bash
 brew tap osrf/simulation
@@ -103,7 +103,7 @@ sudo apt-get install python3-vcstool python3-colcon-common-extensions
 
 ## Getting the sources
 
-The instructions bellow use some UNIX commands to manage directories but the
+The instructions below use some UNIX commands to manage directories but the
 obvious alternatives on Windows should provide the same result.
 
 The first step would be to create a developer workspace in which `vcstool` and
@@ -135,8 +135,8 @@ The src subdirectory should contain all the sources ready to be built.
 Before compiling it is necessary to install all the dependencies of the diferent
 packages that compose the Acropolis collection. Every platform has a different
 method to install software dependencies. As reference the command below will
-install all dependencies in Ubuntu Bionic (osrfoundation repository needs to
-be installed):
+install all dependencies in Ubuntu Bionic (assuming packages.osrfoundation.org
+is already in your apt sources list):
 
 ```bash
 sudo apt-get install cmake freeglut3-dev libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev libdart6-collision-ode-dev libdart6-dev libdart6-utils-urdf-dev libfreeimage-dev libgflags-dev libglew-dev libgts-dev libogre-1.9-dev libogre-2.1-dev libprotobuf-dev libprotobuf-dev libprotoc-dev libqt5core5a libswscale-dev libtinyxml2-dev libtinyxml-dev pkg-config protobuf-compiler python qml-module-qt-labs-folderlistmodel qml-module-qt-labs-settings qml-module-qtquick2 qml-module-qtquick-controls qml-module-qtquick-controls2 qml-module-qtquick-dialogs qml-module-qtquick-layouts qtbase5-dev qtdeclarative5-dev qtquickcontrols2-5-dev ruby ruby-ronn uuid-dev
@@ -200,8 +200,8 @@ executed or third party code is going to be developed using the Ignition
 libraries, one command is needed:
 
 ```bash
-. install/local_setup.bash
-(or call install/local_setup.bat on Windows)
+. ~/workspace/install/local_setup.bash
+(or call ~/workspace/install/local_setup.bat on Windows)
 ```
 
 After running the command all paths for running apps or developing code
