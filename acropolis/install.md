@@ -3,7 +3,7 @@
 Acropolis supports the following platforms:
 
  * Ubuntu Bionic on amd64/i386
- * MacOS HighSierra
+ * MacOS Mojave
 
 Windows support is still experimental although most of the packages should work
 as expected. There are no binaries for Windows at this moment. The `ign-gazebo`
@@ -47,9 +47,9 @@ sudo apt-get install ignition-acropolis
 
 All libraries should be ready to use and  the `ign-gazebo` app ready to be executed.
 
-# Option 2: Install on MacOS HighSierra
+# Option 2: Install on MacOS Mojave (10.14)
 
-All the Acropolis binaries are available in HighSierra using the [homebrew package manager](https://brew.sh/).
+All the Acropolis binaries are available in Mojave using the [homebrew package manager](https://brew.sh/).
 The homebrew tool can easily be installed using:
 
 ```bash
