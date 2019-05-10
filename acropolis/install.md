@@ -184,7 +184,7 @@ colcon list -g
 ```
 
 `colcon` should list the Ignition libraries with their
-interdependencies. If that is the case, then you are ready 
+interdependencies. If that is the case, then you are ready
 to build the whole set of libraries:
 
 ```bash

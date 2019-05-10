@@ -3,7 +3,7 @@
 Blueprint supports the following platforms:
 
  * Ubuntu Bionic on amd64/i386
- * MacOS HighSierra
+ * MacOS Mojave
 
 Windows support is still experimental although most of the packages should work
 as expected. There are no binaries for Windows at this moment. The `ign-gazebo`
@@ -47,9 +47,9 @@ sudo apt-get install ignition-blueprint
 
 All libraries should be ready to use and the `ign gazebo` app ready to be executed.
 
-# Option 2: Install on MacOS HighSierra
+# Option 2: Install on MacOS Mojave (10.14)
 
-All the Blueprint binaries are available in HighSierra using the [homebrew package manager](https://brew.sh/).
+All the Blueprint binaries are available in Mojave using the [homebrew package manager](https://brew.sh/).
 The homebrew tool can easily be installed using:
 
 ```bash
@@ -63,7 +63,7 @@ brew tap osrf/simulation
 brew install ignition-blueprint
 ```
 
-All libraries should be ready to use and the `ign gazebo` app ready to be executed.
+All libraries should be ready to use and the `ign-gazebo` app ready to be executed.
 
 # Option 3: Source Installation (any platform)
 
@@ -103,7 +103,7 @@ sudo apt-get install python3-vcstool python3-colcon-common-extensions
 
 ## Getting the sources
 
-The instructions bellow use some UNIX commands to manage directories but the
+The instructions below use some UNIX commands to manage directories but the
 obvious alternatives on Windows should provide the same result.
 
 The first step would be to create a developer workspace in which `vcstool` and
@@ -135,8 +135,8 @@ The src subdirectory should contain all the sources ready to be built.
 Before compiling it is necessary to install all the dependencies of the diferent
 packages that compose the Blueprint collection. Every platform has a different
 method to install software dependencies. As reference the command below will
-install all dependencies in Ubuntu Bionic (osrfoundation repository needs to
-be installed):
+install all dependencies in Ubuntu Bionic (assuming packages.osrfoundation.org
+is already in your apt sources list):
 
 ```bash
 sudo apt-get install cmake freeglut3-dev libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev libdart6-collision-ode-dev libdart6-dev libdart6-utils-urdf-dev libfreeimage-dev libgflags-dev libglew-dev libgts-dev libogre-1.9-dev libogre-2.1-dev libprotobuf-dev libprotobuf-dev libprotoc-dev libqt5core5a libswscale-dev libtinyxml2-dev libtinyxml-dev pkg-config protobuf-compiler python qml-module-qt-labs-folderlistmodel qml-module-qt-labs-settings qml-module-qtquick2 qml-module-qtquick-controls qml-module-qtquick-controls2 qml-module-qtquick-dialogs qml-module-qtquick-layouts qtbase5-dev qtdeclarative5-dev qtquickcontrols2-5-dev ruby ruby-ronn uuid-dev
@@ -144,9 +144,39 @@ sudo apt-get install cmake freeglut3-dev libavcodec-dev libavdevice-dev libavfor
 
 ## Building the Ignition Libraries
 
-Once all the sources are in place it is time to compile them. Start the
-procedure by changing into the workspace and listing the packages recognized
-by `colcon`:
+The Ignition Libraries require the following compilers on each platform:
+
+* Ubuntu Bionic: gcc 8
+* MacOS Mojave: Xcode 10
+* Windows: Visual Studio 2017
+
+### Installing gcc version 8 on Ubuntu Bionic
+
+To install `gcc` version 8 on Ubuntu Bionic:
+
+```bash
+sudo apt-get install g++-8
+```
+
+Set `gcc-8` and `g++-8` to be the default compilers.
+
+```bash
+sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /usr/bin/g++ g++ /usr/bin/g++-8 --slave /usr/bin/gcov gcov /usr/bin/gcov-8
+```
+
+At this point `gcc`  and `g++` should both report version 8. Test this with
+the following commands.
+
+```bash
+gcc -v
+g++ -v
+```
+
+### Building the colcon workspace
+
+Once the compiler and all the sources are in place it is time to compile them.
+Start the procedure by changing into the workspace and listing the packages
+recognized by `colcon`:
 
 ```bash
 cd ~/workspace/
@@ -170,8 +200,8 @@ executed or third party code is going to be developed using the Ignition
 libraries, one command is needed:
 
 ```bash
-. install/local_setup.bash
-(or call install/local_setup.bat on Windows)
+. ~/workspace/install/local_setup.bash
+(or call ~/workspace/install/local_setup.bat on Windows)
 ```
 
 After running the command all paths for running apps or developing code
