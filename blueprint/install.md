@@ -188,7 +188,7 @@ interdependencies. If that is the case, then you are ready
 to build the whole set of libraries:
 
 ```bash
-colcon build
+colcon build --merge-install
 ```
 
 If there are no errors, all the binaries should be ready to use.
