@@ -22,7 +22,7 @@ After installing Ignition in Step 1, you can launch Gazebo, a 3D robotics
 simulator, from a terminal using
 
 ```
-ign-gazebo -f shapes.sdf
+ign gazebo shapes.sdf
 ```
 
 This command will launch both the Gazebo server and Gazebo GUI with a world
@@ -32,10 +32,10 @@ Add the `-v 4` command line argument to generate error, warning,
 informational, and debugging messages on the console.
 
 ```
-ign-gazebo -f shapes.sdf -v 4
+ign gazebo shapes.sdf -v 4
 ```
 
-Gazebo can also be run headless, i.e. without the GUI, by using `ign-gazebo-server` instead of `ign-gazebo`. For example,
+Gazebo can also be run headless, i.e. without the GUI, by using `ign-gazebo-server` instead of `ign gazebo`. For example,
 
 ```
 ign-gazebo-server -f shapes.sdf -v 4
@@ -56,8 +56,7 @@ Modifying an existing SDF world is also a good way to get started. Ignition
 Gazebo ships with a number of [example SDF
 worlds](https://bitbucket.org/ignitionrobotics/ign-gazebo/src/default/examples/worlds)
 that you can freely copy and modify. These example SDF files are 
-installed, and can be run using the `-f ` command line argument to
-`ign-gazebo`. Many of the SDF files also have instructions located at the
+installed. Many of the SDF files also have instructions located at the
 top of the SDF file. The instructions typically contain information about how to
 run Gazebo with the SDF file in order to experience a particular feature.
 

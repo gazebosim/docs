@@ -63,7 +63,7 @@ brew tap osrf/simulation
 brew install ignition-blueprint
 ```
 
-All libraries should be ready to use and the `ign-gazebo` app ready to be executed.
+All libraries should be ready to use and the `ign gazebo` app ready to be executed.
 
 # Option 3: Source Installation (any platform)
 
