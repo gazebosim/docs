@@ -79,7 +79,6 @@ Run the bridge:
 
 ```bash
 # Shell D:
-. ~/bridge_ws/install/setup.bash
 rosrun ros1_ign_bridge parameter_bridge /camera@sensor_msgs/Image@ignition.msgs.Image
 ```
 
