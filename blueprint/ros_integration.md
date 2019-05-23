@@ -17,7 +17,13 @@ to verify if your message type is supported by the bridge.
 
 ## Binary install
 
-Not available yet.
+The repository `packages.osrfoundation.org` hosts binary packages for Ubuntu Bionic.
+To install the binaries
+
+```bash
+sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
+sudo apt-get install ros1-ign-bridge
+```
 
 ## Source install
 
@@ -61,9 +67,18 @@ ign topic -l | grep "^/camera"
 
 Then we start the parameter bridge with the previous topic.
 
+If you perform a from source installation, please source the
+setup.bash (not needed for binary packages):
+
 ```bash
 # Shell D:
 . ~/bridge_ws/install/setup.bash
+```
+
+Run the bridge:
+
+```bash
+# Shell D:
 rosrun ros1_ign_bridge parameter_bridge /camera@sensor_msgs/Image@ignition.msgs.Image
 ```
 
