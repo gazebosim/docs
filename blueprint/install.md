@@ -4,6 +4,7 @@ Blueprint supports the following platforms:
 
  * Ubuntu Bionic on amd64/i386
  * MacOS Mojave
+     * Gazebo currently only works in headless mode
 
 Windows support is still experimental although most of the packages should work
 as expected. There are no binaries for Windows at this moment. The `ign-gazebo`
