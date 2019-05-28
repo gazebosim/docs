@@ -16,8 +16,8 @@ found under the `API Reference` section of [https://ignitionrobotics.org/docs](h
 
 ## Main docs
 
-The documentation in this repository is updated whenever the ign-webserver
-is deployed. The ign-webserver maintains a clone of this repository, and
+The documentation in this repository is updated whenever the ign-webserver,
+a private repository to Open Robotics, is deployed. The ign-webserver maintains a clone of this repository, and
 serves the markdown pages to https://ignitionrobotics.org.
 
 ## Library docs
