@@ -40,19 +40,24 @@ The second release of Ignition Robotics will add features necessary to support [
 #### Planned Features
 
 1. [PBR](https://en.wikipedia.org/wiki/Physically_based_rendering) materials.
-2. Particle effects for smoke and gas.
-3. Additional GUI tools for model placement and visualization of simulation state.
-4. Thermal camera and oxygen/gas sensors.
-5. Tracked vehicle support.
+2. GUI tools for model placement, and a new Scene Tree widget.
+3. Air pressure and RGBD sensors.
+4. Global wind model.
+5. Joint state publisher.
 6. Support for UAV vehicles.
-7. Command line tools for logging.
-8. Battery model based on vehicle payload and motion.
-9. Cloud-hosted simulation.
-10. Performance metrics and analysis.
+7. Integration of `ign` command line tool into Ignition Gazebo.
+8. Command line tools for logging.
+9. Battery model based on vehicle payload and motion.
+10. Integration of [Google benchmark](https://github.com/google/benchmark) for performance metrics and analysis.
 
 ### Future Releases
 
-1. Additional graphical tools for model and world creation and editing.
-2. Enhanced distributed simulation, i.e. distributed simulation that is not constrained to lock-stepping.
-3. Sonar, force-torque, wide-angle camera sensors.
-4. Support for the Bullet physics engine.
+1. Particle effects for smoke and gas.
+2. Thermal camera and oxygen/gas sensors.
+3. Additional graphical tools for model and world creation and editing.
+4. Enhanced distributed simulation, i.e. distributed simulation that is not constrained to lock-stepping.
+5. Sonar, force-torque, wide-angle camera sensors.
+6. Support for the Bullet physics engine.
+7. Tracked vehicle support.
+8. Additional GUI tools for model placement and visualization of simulation state.
+9. Cloud-hosted simulation.
