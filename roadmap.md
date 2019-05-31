@@ -39,7 +39,7 @@ The second release of Ignition Robotics will add features necessary to support [
 
 #### Planned Features
 
-1. [PBR](https://en.wikipedia.org/wiki/Physically_based_rendering) materials.
+1. [Physically based rendering (PBR)](https://en.wikipedia.org/wiki/Physically_based_rendering) materials.
 2. GUI tools for model placement, and a new Scene Tree widget.
 3. Air pressure and RGBD sensors.
 4. Global wind model.
