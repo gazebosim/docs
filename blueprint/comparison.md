@@ -7,6 +7,7 @@ the status of their migration to [Ignition](https://ignitionrobotics.org/).
 
 Sensor | Gazebo-classic | Ignition Gazebo
 -- | -- | --
+Air pressure | ✕  | ✓
 Altimeter | ✓ | ✓
 Camera | ✓ | ✓
 Contact sensor | ✓ | ✓
@@ -63,19 +64,21 @@ HarnessPlugin | ✓ |
 HeightmapLODPlugin | ✓ |
 ImuSensorPlugin | ✓ |
 InitialVelocityPlugin | ✓ |
-JointControlPlugin | ✓ |
-JointStatePublisher | | ✓
+JointControlPlugin | ✓ (force / pos / vel, from SDF) | ✓ (vel, from msg)
+JointStatePublisher | ✕ | ✓
 JointTrajectoryPlugin | ✓ |
 KeysToJointsPlugin | ✓ |
 LedPlugin | ✓ |
 LensFlareSensorPlugin | ✓ |
 LiftDragPlugin | ✓ | ✓
-LinearBatteryConsumerPlugin | ✓ |
-LinearBatteryPlugin | ✓ |
+LinearBatteryConsumerPlugin | ✓ | ✓
+LinearBatteryPlugin | ✓ | ✓
 LinkPlot3DPlugin | ✓ |
 ModelPropShop | ✓ |
 MudPlugin | ✓ |
+MulticopterMotorModel | ✕ | ✓
 PlaneDemoPlugin | ✓ |
+PosePublisher | ✕ | ✓
 PressurePlugin | ✓ |
 RayPlugin | ✓ | Provided through Ignition Sensors
 RaySensorNoisePlugin | ✓ |
@@ -116,9 +119,9 @@ Scale models | ✓ |
 Insert models / lights | ✓ |
 Delete models | ✓ |
 World tree | ✓ | ✓ (no properties yet)
-Log recording / playback | ✓ |
+Log recording / playback | ✓ | ✓
 Plotting | ✓ |
-Video recording | ✓ |
+Video recording | ✓ | ✓
 Screenshot | ✓ |
 View angles | ✓ |
 Apply force / torque | ✓ |
@@ -133,6 +136,7 @@ Save world | ✓ |
 Save GUI configuration | ✓ | ✓
 Color scheme and themes | ✕ | ✓
 Position, resize and configure widgets | ✕ | ✓
+Load plugins from menu | ✕ | ✓
 
 ## Physics
 
@@ -165,8 +169,8 @@ Custom engine plugins | ✕ | ✓
 ROS integration with Ignition will be done primarily via a
 transport bridge instead of plugins.
 
-* **ROS 1**: See full message list at [ros1_ign_bridge](https://github.com/osrf/ros1_ign_bridge)
-* **ROS 2**: TODO
+* **ROS 1**: See [ros1_ign](https://github.com/osrf/ros1_ign)
+* **ROS 2**: Coming up soon
 
 ## Others
 
@@ -185,11 +189,11 @@ STL meshes | ✓ | ✓
 Code introspection | ✓ | All simulation state is accessible from system plugins or through the `SceneBroadcaster`'s state topic
 World plugins | ✓ | ✓ Now called System plugin
 Model plugins | ✓ | ✓ Now called System plugin
-Sensor plugins | ✓ |
+Sensor plugins | ✓ | ✓ Now called System plugin
 Visual plugins | ✓ |
 GUI plugins | ✓ | ✓ Ignition GUI plugins and Gazebo GUI systems
-System plugins | ✓ |
-Distribute simulation across processes | ✕ | ✓
+System plugins | ✓ | ✓ Through Ignition Launch
+Distribute simulation across processes | ✕ | (coming up)
 Incrementally load levels | ✕ | ✓
 Online model database | [gazebo_models repository](https://bitbucket.org/osrf/gazebo_models/) | [Ignition Fuel](https://app.ignitionrobotics.org/fuel/models)
 Sky | ✓ |
