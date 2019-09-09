@@ -56,12 +56,13 @@ The first major release of Ignition Robotics focused on the basics of simulation
 8. Localized wind (wind that is contrainsed to a region of influence).
 9. GUI tools for moving to and following models.
 
-## Future Releases
+## Planned Features
 
 1. Particle effects for smoke and gas.
 2. Thermal camera sensors.
 3. Enhanced distributed simulation, i.e. distributed simulation that is not constrained to lock-stepping.
 4. Sonar, force-torque, wide-angle camera sensors.
 5. GUI tools for visualization of collision entities and inertia.
-2. Additional graphical tools for model and world creation and editing.
-6. Cloud-hosted simulation.
+6. Additional graphical tools for model and world creation and editing.
+7. Cloud-hosted simulation.
+8. Battery model based on vehicle payload.
