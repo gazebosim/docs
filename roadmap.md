@@ -25,7 +25,7 @@ The first major release of Ignition Robotics focused on the basics of simulation
 5. [Launch system](/libs/launch) capable of running and managing a set of plugins and executables.
 6. Cloud-hosted simulation assets provided by [app.ignitionrobotics.org](https://app.ignitionrobotics.org).
 7. Distributed simulation using lock-stepping.
-8. Dynamic loading/unloading of simulation models based on the location of performer, usually a robot. 
+8. Dynamic loading/unloading of simulation models based on the location of performer, usually a robot.
 9. Simulation state logging.
 10. Plugin-based GUI system based on [QtQuick](https://en.wikipedia.org/wiki/Qt_Quick) and [Material Design](https://material.io/design/). Available
     plugins include 3D scene viewer, image viewer, topic echo, topic
@@ -35,7 +35,7 @@ The first major release of Ignition Robotics focused on the basics of simulation
 
 1. [Physically based rendering (PBR)](https://en.wikipedia.org/wiki/Physically_based_rendering) materials.
 2. GUI tools for model placement, and a new Scene Tree widget.
-3. Air pressure and RGBD sensors.
+3. Air pressure, RGBD and stereo camera sensors.
 4. Global wind model.
 5. Joint state publisher.
 6. Support for UAV vehicles.
@@ -43,6 +43,11 @@ The first major release of Ignition Robotics focused on the basics of simulation
 8. Logging and playback of simulation state.
 9. Battery model based on vehicle motion.
 10. Integration of [Google benchmark](https://github.com/google/benchmark) for performance metrics and analysis.
+11. GUI tools:
+    * Translate and rotate models.
+    * Entity tree.
+    * Video recorder.
+    * Move to models.
 
 ### Citadel
 
@@ -51,20 +56,21 @@ The first major release of Ignition Robotics focused on the basics of simulation
 3. Tracked vehicle support.
 4. Command line tools to control log playback.
 5. Visual Markers.
-6. Rechargable batteries
+6. Rechargeable batteries.
 7. Nested models.
-8. Localized wind (wind that is contrainsed to a region of influence).
-9. GUI tools for moving to and following models.
+8. Localized wind (wind that is constrained to a region of influence).
+9. GUI tool for following models.
 10. SDFormat frame semantics.
+11. Animated actors.
+12. Thermal camera sensors.
 
 ## Planned Features
 
 1. Particle effects for smoke and gas.
-2. Thermal camera sensors.
-3. Enhanced distributed simulation, i.e. distributed simulation that is not constrained to lock-stepping.
-4. Sonar, force-torque, wide-angle camera sensors.
-5. GUI tools for visualization of collision entities and inertia.
-6. Additional graphical tools for model and world creation and editing.
-7. GUI tool to insert models from online sources and local directories.
+2. Enhanced distributed simulation, i.e. distributed simulation that is not constrained to lock-stepping.
+3. Sonar, force-torque, wide-angle camera sensors.
+4. GUI tools for visualization of collision entities and inertia.
+5. Additional graphical tools for model and world creation and editing.
+6. GUI tool to insert models from online sources and local directories.
 7. Cloud-hosted simulation.
 8. Battery model based on vehicle payload.
