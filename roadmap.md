@@ -51,25 +51,26 @@ The first major release of Ignition Robotics focused on the basics of simulation
 
 ### Citadel
 
-1. Thermal and Oxygen/gas sensors.
-4. Command line tools to control log playback.
-5. Visual Markers.
-6. Rechargeable batteries.
-7. Nested models.
-8. Localized wind (wind that is constrained to a region of influence).
-9. GUI tool for following models.
-10. SDFormat frame semantics.
-11. Animated actors.
+1. Oxygen/gas sensor.
+1. Command line tools to control log playback.
+1. Visual markers.
+1. Detachable joints.
+1. Localized wind (wind that is constrained to a region of influence).
+1. GUI tool for following models.
+1. Animated actors.
 
 ## Planned Features
 
 1. Particle effects for smoke and gas.
-2. Enhanced distributed simulation, i.e. distributed simulation that is not constrained to lock-stepping.
-3. Sonar, force-torque, wide-angle camera sensors.
-4. GUI tools for visualization of collision entities and inertia.
-5. Additional graphical tools for model and world creation and editing.
-6. GUI tool to insert models from online sources and local directories.
-7. Cloud-hosted simulation.
-8. Battery model based on vehicle payload.
-9. Support for the Bullet physics engine.
-10. Tracked vehicle support.
+1. Enhanced distributed simulation, i.e. distributed simulation that is not constrained to lock-stepping.
+1. Sonar, force-torque, wide-angle camera sensors.
+1. GUI tools for visualization of collision entities and inertia.
+1. Additional graphical tools for model and world creation and editing.
+1. GUI tool to insert models from online sources and local directories.
+1. Cloud-hosted simulation.
+1. Battery model based on vehicle payload.
+1. Support for the Bullet physics engine.
+1. Tracked vehicle support.
+1. Thermal camera sensor.
+1. Rechargeable batteries.
+1. SDFormat frame semantics.
