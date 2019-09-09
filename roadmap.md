@@ -51,9 +51,7 @@ The first major release of Ignition Robotics focused on the basics of simulation
 
 ### Citadel
 
-1. Oxygen/gas sensor.
-2. Support for the Bullet physics engine.
-3. Tracked vehicle support.
+1. Thermal and Oxygen/gas sensors.
 4. Command line tools to control log playback.
 5. Visual Markers.
 6. Rechargeable batteries.
@@ -62,7 +60,6 @@ The first major release of Ignition Robotics focused on the basics of simulation
 9. GUI tool for following models.
 10. SDFormat frame semantics.
 11. Animated actors.
-12. Thermal camera sensors.
 
 ## Planned Features
 
@@ -74,3 +71,5 @@ The first major release of Ignition Robotics focused on the basics of simulation
 6. GUI tool to insert models from online sources and local directories.
 7. Cloud-hosted simulation.
 8. Battery model based on vehicle payload.
+9. Support for the Bullet physics engine.
+10. Tracked vehicle support.
