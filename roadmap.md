@@ -55,6 +55,7 @@ The first major release of Ignition Robotics focused on the basics of simulation
 7. Nested models.
 8. Localized wind (wind that is contrainsed to a region of influence).
 9. GUI tools for moving to and following models.
+10. SDFormat frame semantics.
 
 ## Planned Features
 
@@ -64,5 +65,6 @@ The first major release of Ignition Robotics focused on the basics of simulation
 4. Sonar, force-torque, wide-angle camera sensors.
 5. GUI tools for visualization of collision entities and inertia.
 6. Additional graphical tools for model and world creation and editing.
+7. GUI tool to insert models from online sources and local directories.
 7. Cloud-hosted simulation.
 8. Battery model based on vehicle payload.
