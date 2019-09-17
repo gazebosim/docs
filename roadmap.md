@@ -51,7 +51,6 @@ The first major release of Ignition Robotics focused on the basics of simulation
 
 ### Citadel
 
-1. Oxygen/gas sensor.
 1. Command line tools to control log playback.
 1. Visual markers.
 1. Detachable joints.
