@@ -1,7 +1,6 @@
 # Ignition Robotics Roadmap
 
-This page describes planned work on Ignition Robotics. The set of planned features and development efforts are kept vague, but should provide insight into the overall direction of Ignition Robotics. Currently, and until around 2021, development of Ignition Robotics is closely tied to the [DARPA Subterranean (SubT) Challenge](https://subtchallenge.com). Therefore, you will see features on the roadmap designed to support large environments in which dozens of ground and aerial vehicles can operate in real-time.
-
+This page describes completed and planned work for Ignition Robotics. The set of planned features and development efforts should provide insight into the overall direction of Ignition Robotics. Currently, and until around 2021, development of Ignition Robotics is closely tied to the [DARPA Subterranean (SubT) Challenge](https://subtchallenge.com). Therefore, you will see features on the roadmap designed to support large environments in which dozens of ground and aerial vehicles can operate in real-time.
 
 ## Planned releases
 
@@ -9,10 +8,11 @@ See the [Releases](/docs/releases) page.
 
 ## Release Features
 
-Features planned for a particular release may appear in an
-earlier release depending on schedule and adherence to semantic versioning.
-For example, if a new feature does not break API/ABI then we will strive to
-target the feature to the oldest compatible non-EOL release and propagate the feature forward.
+A named release of Ignition, such as Acropolis or Blueprint, is tied to
+a set of [library](/libs) major versions. Each library follows
+[semantic versioning](https://semver.org/), and we make use of the [PImpl
+idom](https://en.cppreference.com/w/cpp/language/pimpl). This development
+and release pattern allows us to distribute patch and minor updates into an already released Ignition version. For example, if a new feature does not break API/ABI then we will target the feature to the oldest compatible non-EOL release and propagate the feature forward.
 
 ### Acropolis
 
@@ -34,28 +34,29 @@ The first major release of Ignition Robotics focused on the basics of simulation
 ### Blueprint
 
 1. [Physically based rendering (PBR)](https://en.wikipedia.org/wiki/Physically_based_rendering) materials.
-2. GUI tools for model placement, and a new Scene Tree widget.
-3. Air pressure, RGBD and stereo camera sensors.
-4. Global wind model.
-5. Joint state publisher.
-6. Support for UAV vehicles.
-7. Integration of `ign` command line tool into Ignition Gazebo.
-8. Logging and playback of simulation state.
-9. Battery model based on vehicle motion.
-10. Integration of [Google benchmark](https://github.com/google/benchmark) for performance metrics and analysis.
-11. GUI tools:
+1. GUI tools for model placement, and a new Scene Tree widget.
+1. Air pressure, RGBD and stereo camera sensors.
+1. Global wind model.
+1. Joint state publisher.
+1. Support for UAV vehicles.
+1. Integration of `ign` command line tool into Ignition Gazebo.
+1. Logging and playback of simulation state.
+1. Command line tools to control log playback.
+1. Battery model based on vehicle motion.
+1. Integration of [Google benchmark](https://github.com/google/benchmark) for performance metrics and analysis.
+1. GUI tools:
     * Translate and rotate models.
     * Entity tree.
     * Video recorder.
     * Move to models.
+    * Follow model.
+1. **In Development**
+    1. Localized wind (wind that is constrained to a region of influence).
+    1. Detachable joints.
 
-### Citadel
+### Citadel: Under development
 
-1. Command line tools to control log playback.
 1. Visual markers.
-1. Detachable joints.
-1. Localized wind (wind that is constrained to a region of influence).
-1. GUI tool for following models.
 1. Animated actors.
 
 ## Planned Features
