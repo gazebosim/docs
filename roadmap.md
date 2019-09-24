@@ -1,7 +1,6 @@
 # Ignition Robotics Roadmap
 
-This page describes planned work on Ignition Robotics. The set of planned features and development efforts are kept vague, but should provide insight into the overall direction of Ignition Robotics. Currently, and until around 2021, development of Ignition Robotics is closely tied to the [DARPA Subterranean (SubT) Challenge](https://subtchallenge.com). Therefore, you will see features on the roadmap designed to support large environments in which dozens of ground and aerial vehicles can operate in real-time.
-
+This page describes completed and planned work for Ignition Robotics. The set of planned features and development efforts should provide insight into the overall direction of Ignition Robotics. Currently, and until around 2021, development of Ignition Robotics is closely tied to the [DARPA Subterranean (SubT) Challenge](https://subtchallenge.com). Therefore, you will see features on the roadmap designed to support large environments in which dozens of ground and aerial vehicles can operate in real-time.
 
 ## Planned releases
 
@@ -9,16 +8,15 @@ See the [Releases](/docs/releases) page.
 
 ## Release Features
 
-Features planned for a particular release may appear in an
-earlier release depending on schedule and adherence to semantic versioning.
-For example, if a new feature does not break API/ABI then we will strive to
-target the feature to the oldest compatible non-EOL release and propagate the feature forward.
+A named release of Ignition, such as Acropolis or Blueprint, is tied to
+a set of [library](/libs) major versions. Each library follows
+[semantic versioning](https://semver.org/), and we make use of the [PImpl
+idom](https://en.cppreference.com/w/cpp/language/pimpl). This development
+and release pattern allows us to distribute patch and minor updates into an already released Ignition version. For example, if a new feature does not break API/ABI then we will target the feature to the oldest compatible non-EOL release and propagate the feature forward.
 
 ### Acropolis
 
 The first major release of Ignition Robotics focused on the basics of simulation. The basics primarily encompassed integration of physics, sensors, graphical tools, and programmatic interfaces.
-
-#### Features
 
 1. Support for [DART](https://dartsim.github.io/) in [Ignition Physics](/libs/physics).
 2. Ogre1.9 and Ogre2.1 support in [Ignition Rendering](/libs/rendering)
@@ -27,7 +25,7 @@ The first major release of Ignition Robotics focused on the basics of simulation
 5. [Launch system](/libs/launch) capable of running and managing a set of plugins and executables.
 6. Cloud-hosted simulation assets provided by [app.ignitionrobotics.org](https://app.ignitionrobotics.org).
 7. Distributed simulation using lock-stepping.
-8. Dynamic loading/unloading of simulation models based on the location of performer, usually a robot. 
+8. Dynamic loading/unloading of simulation models based on the location of performer, usually a robot.
 9. Simulation state logging.
 10. Plugin-based GUI system based on [QtQuick](https://en.wikipedia.org/wiki/Qt_Quick) and [Material Design](https://material.io/design/). Available
     plugins include 3D scene viewer, image viewer, topic echo, topic
@@ -35,29 +33,44 @@ The first major release of Ignition Robotics focused on the basics of simulation
 
 ### Blueprint
 
-The second release of Ignition Robotics will add features necessary to support [SubT](https://subtchallenge.com) for the upcoming circuit events in Aug, 2019.
-
-#### Planned Features
-
 1. [Physically based rendering (PBR)](https://en.wikipedia.org/wiki/Physically_based_rendering) materials.
-2. GUI tools for model placement, and a new Scene Tree widget.
-3. Air pressure and RGBD sensors.
-4. Global wind model.
-5. Joint state publisher.
-6. Support for UAV vehicles.
-7. Integration of `ign` command line tool into Ignition Gazebo.
-8. Command line tools for logging.
-9. Battery model based on vehicle payload and motion.
-10. Integration of [Google benchmark](https://github.com/google/benchmark) for performance metrics and analysis.
+1. GUI tools for model placement, and a new Scene Tree widget.
+1. Air pressure, RGBD and stereo camera sensors.
+1. Global wind model.
+1. Joint state publisher.
+1. Support for UAV vehicles.
+1. Integration of `ign` command line tool into Ignition Gazebo.
+1. Logging and playback of simulation state.
+1. Command line tools to control log playback.
+1. Battery model based on vehicle motion.
+1. Integration of [Google benchmark](https://github.com/google/benchmark) for performance metrics and analysis.
+1. GUI tools:
+    * Translate and rotate models.
+    * Entity tree.
+    * Video recorder.
+    * Move to models.
+    * Follow model.
+1. **In Development**
+    1. Localized wind (wind that is constrained to a region of influence).
+    1. Detachable joints.
 
-### Future Releases
+### Citadel: Under development
+
+1. Visual markers.
+1. Animated actors.
+
+## Planned Features
 
 1. Particle effects for smoke and gas.
-2. Thermal camera and oxygen/gas sensors.
-3. Additional graphical tools for model and world creation and editing.
-4. Enhanced distributed simulation, i.e. distributed simulation that is not constrained to lock-stepping.
-5. Sonar, force-torque, wide-angle camera sensors.
-6. Support for the Bullet physics engine.
-7. Tracked vehicle support.
-8. Additional GUI tools for model placement and visualization of simulation state.
-9. Cloud-hosted simulation.
+1. Enhanced distributed simulation, i.e. distributed simulation that is not constrained to lock-stepping.
+1. Sonar, force-torque, wide-angle camera sensors.
+1. GUI tools for visualization of collision entities and inertia.
+1. Additional graphical tools for model and world creation and editing.
+1. GUI tool to insert models from online sources and local directories.
+1. Cloud-hosted simulation.
+1. Battery model based on vehicle payload.
+1. Support for the Bullet physics engine.
+1. Tracked vehicle support.
+1. Thermal camera sensor.
+1. Rechargeable batteries.
+1. SDFormat frame semantics.
