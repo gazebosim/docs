@@ -28,7 +28,9 @@ s3cmd --dump-config > s3.cfg
 # Build the docker container, which also uploads all documentation.
 # We are using docker because a library's documentation links to other
 # library documentation, and we want to guarantee a clean system.
-docker build -t ign-docs -f Dockerfile.acropolis --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
+docker build -t ign-acropolis-docs -f Dockerfile.acropolis --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
+
+docker build -t ign-blueprint-docs -f Dockerfile.blueprint --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
 
 # Reminder to tic over cloudfront.
 echo "WARNING"
