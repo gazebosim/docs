@@ -126,7 +126,7 @@ Screenshot | ✓ |
 View angles | ✓ |
 Apply force / torque | ✓ |
 Introspection visualizations (transparent, joints...) | ✓ |
-Follow / move to | ✓ |
+Follow / move to | ✓ | ✓ |
 Copy / paste | ✓ |
 Building editor | ✓ |
 Model editor | ✓ |
