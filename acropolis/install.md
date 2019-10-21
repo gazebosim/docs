@@ -1,3 +1,7 @@
+**Acropolis has reached end-of-life on September 2019.
+This page exists for archival purposes.
+Please refer to the latest supported version.**
+
 # Acropolis Installation
 
 Acropolis supports the following platforms:
