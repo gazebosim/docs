@@ -31,8 +31,8 @@ sudo apt-get install ros1-ign-bridge
 
 ## Source install
 
-See the [prerequisites](https://github.com/osrf/ros_ign_bridge#prerequisites)
-and [install section](https://github.com/osrf/ros_ign_bridge#building-the-bridge-from-source)
+See the [prerequisites](https://github.com/osrf/ros_ign/tree/melodic/ros_ign_bridge#prerequisites)
+and [install section](https://github.com/osrf/ros_ign/tree/melodic/ros_ign_bridge#building-the-bridge-from-source)
 of the bridge documentation. This tutorial requires Ubuntu Bionic or newer.
 
 Assuming that you have ROS Melodic, you can install all dependencies with:
