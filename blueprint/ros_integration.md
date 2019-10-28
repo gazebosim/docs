@@ -26,7 +26,7 @@ To install the binaries
 
 ```bash
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
-sudo apt-get install ros1-ign-bridge
+sudo apt-get install ros-ign-bridge
 ```
 
 ## Source install
