@@ -6,14 +6,18 @@ how to interface with [ROS](http://www.ros.org/), enabling the ability to use
 tools such as [Rviz](http://wiki.ros.org/rviz) for robot or sensor
 visualization.
 
-# ros1_ign_bridge to the rescue
+> **Important**: The packages documented here used to have the `ros1_` prefix
+> instead of `ros_`. Please update your code accordingly in order to avoid
+> adverse effects.
 
-ros1_ign_bridge provides a network bridge which enables the exchange of messages
+# ros_ign_bridge to the rescue
+
+ros_ign_bridge provides a network bridge which enables the exchange of messages
 between ROS 1 and Ignition Transport. Its support is limited to only certain
-message types. Please, read this [README](https://github.com/osrf/ros1_ign_bridge)
+message types. Please, read this [README](https://github.com/osrf/ros_ign_bridge)
 to verify if your message type is supported by the bridge.
 
-# How to install ros1_ign_bridge
+# How to install ros_ign_bridge
 
 ## Binary install
 
@@ -22,13 +26,13 @@ To install the binaries
 
 ```bash
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
-sudo apt-get install ros1-ign-bridge
+sudo apt-get install ros-ign-bridge
 ```
 
 ## Source install
 
-See the [prerequisites](https://github.com/osrf/ros1_ign_bridge#prerequisites)
-and [install section](https://github.com/osrf/ros1_ign_bridge#building-the-bridge-from-source)
+See the [prerequisites](https://github.com/osrf/ros_ign/tree/melodic/ros_ign_bridge#prerequisites)
+and [install section](https://github.com/osrf/ros_ign/tree/melodic/ros_ign_bridge#building-the-bridge-from-source)
 of the bridge documentation. This tutorial requires Ubuntu Bionic or newer.
 
 Assuming that you have ROS Melodic, you can install all dependencies with:
@@ -79,7 +83,7 @@ Run the bridge:
 
 ```bash
 # Shell D:
-rosrun ros1_ign_bridge parameter_bridge /camera@sensor_msgs/Image@ignition.msgs.Image
+rosrun ros_ign_bridge parameter_bridge /camera@sensor_msgs/Image@ignition.msgs.Image
 ```
 
 Now we start the ROS 1 GUI:
