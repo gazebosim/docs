@@ -91,7 +91,7 @@ sudo apt-get install mercurial
 
 To compile all the different libraries and ign-gazebo in the right order
 it is recommended to use [colcon](https://colcon.readthedocs.io/en/released/).
-The colcon tool is available in all platforms using pip:
+The colcon tool is available in all platforms using pip (or pip3, if pip fails):
 
 ```bash
 pip install -U colcon-common-extensions
