@@ -248,5 +248,6 @@ that's working by running a world which uses Ogre 1 instead of Ogre 2, such as:
 If that loads, you can continue to use Ignition with Ogre 1, just be sure to
 specify `ogre` in your SDF files instead of `ogre2`.
 
-To enable Ogre 2 support, you'll need to update your computer's OpenGL version,
-which may require updating graphics card drivers.
+To enable Ogre 2 support, you'll need to update your computer's OpenGL version.
+As suggested on the Ogre logs, this may require updating your graphics card
+drivers.
