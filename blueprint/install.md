@@ -141,7 +141,7 @@ The src subdirectory should contain all the sources ready to be built.
 
 Before compiling it is necessary to install all the dependencies of the diferent
 packages that compose the Blueprint collection. Every platform has a different
-method to install software dependencies. 
+method to install software dependencies.
 
 Add packages.osrfoundation.org to the apt sources list:
 
@@ -222,3 +222,31 @@ libraries, one command is needed:
 
 After running the command all paths for running apps or developing code
 will be set in the current shell.
+
+# Troubleshooting
+
+## Unable to create the rendering window
+
+If you're getting errors like "Unable to create the rendering window", it could
+mean you're using an old OpenGL version. Ignition Gazebo uses the Ogre 2
+rendering engine by default, which requires an OpenGL version higher than 3.3.
+
+This can be confirmed by checking the Ogre 2 logs at `~/.ignition/rendering/ogre2.log`,
+which should have an error like:
+
+"OGRE EXCEPTION(3:RenderingAPIException): OpenGL 3.3 is not supported. Please update your graphics card drivers."
+
+You can also check your OpenGL version running:
+
+    glxinfo | grep "OpenGL version"
+
+You should be able to use Ogre 1 without any issues however. You can check if
+that's working by running a world which uses Ogre 1 instead of Ogre 2, such as:
+
+    ign gazebo -v 3 lights.sdf
+
+If that loads, you can continue to use Ignition with Ogre 1, just be sure to
+specify `ogre` in your SDF files instead of `ogre2`.
+
+To enable Ogre 2 support, you'll need to update your computer's OpenGL version,
+which may require updating graphics card drivers.
