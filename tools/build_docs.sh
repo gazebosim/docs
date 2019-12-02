@@ -32,6 +32,8 @@ docker build -t ign-acropolis-docs -f Dockerfile.acropolis --build-arg IGN_VERSI
 
 docker build -t ign-blueprint-docs -f Dockerfile.blueprint --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
 
+docker build -t ign-citadel-docs -f Dockerfile.citadel --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
+
 # Reminder to tic over cloudfront.
 echo "WARNING"
 echo "  A CloudFront invalidation is required. Run the following command with the appropriate \$CLOUDFRONT_DISTRIBUTION_ID:\n"
