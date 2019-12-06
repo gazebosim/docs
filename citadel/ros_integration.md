@@ -14,19 +14,19 @@ visualization.
 
 ros_ign_bridge provides a network bridge which enables the exchange of messages
 between ROS 1 and Ignition Transport. Its support is limited to only certain
-message types. Please, read this [README](https://github.com/osrf/ros_ign_bridge)
+message types. Please, read this [README](https://github.com/osrf/ros_ign/blob/melodic/ros_ign_bridge/README.md)
 to verify if your message type is supported by the bridge.
 
 # How to install ros_ign_bridge
 
 ## Binary install
 
-The repository `packages.osrfoundation.org` hosts binary packages for Ubuntu Bionic.
-To install the binaries
+The repository `packages.osrfoundation.org` hosts binary packages for ROS
+Melodic on Ubuntu Bionic.  To install the binaries
 
 ```bash
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
-sudo apt-get install ros-ign-bridge
+sudo apt-get install ros-melodic-ign-bridge
 ```
 
 ## Source install
@@ -38,7 +38,7 @@ of the bridge documentation. This tutorial requires Ubuntu Bionic or newer.
 Assuming that you have ROS Melodic, you can install all dependencies with:
 
 ```bash
-sudo apt install ros-melodic-desktop ros-melodic-rqt-image-view libignition-common3-dev libignition-transport7-dev
+sudo apt build-dep ros-melodic-ros-ign-bridge
 ```
 
 # Run the bridge and exchange images
@@ -83,6 +83,7 @@ Run the bridge:
 
 ```bash
 # Shell D:
+. /opt/ros/melodic/setup.bash
 rosrun ros_ign_bridge parameter_bridge /camera@sensor_msgs/Image@ignition.msgs.Image
 ```
 
@@ -91,6 +92,7 @@ Now we start the ROS 1 GUI:
 ```bash
 # Shell E:
 . /opt/ros/melodic/setup.bash
+sudo apt-get install ros-melodic-rqt-image-view
 rqt_image_view /camera
 ```
 
