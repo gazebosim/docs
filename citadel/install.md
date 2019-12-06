@@ -329,3 +329,34 @@ or in zsh
 ```zsh
 . ~/workspace/install/setup.zsh
 ```
+
+## TroubleShooting
+
+### Unable to find `urdf_model.f` error
+
+After installing all the dependencies and starting the build process, you may encounter an error looks like this:
+
+```bash
+/Users/user/citadel_ws/src/sdformat/src/parser_urdf.cc:30:10: fatal error: 'urdf_model/model.h' file not found
+#include <urdf_model/model.h>
+         ^~~~~~~~~~~~~~~~~~~~
+1 error generated.
+make[2]: *** [src/CMakeFiles/sdformat9.dir/parser_urdf.cc.o] Error 1
+make[1]: *** [src/CMakeFiles/sdformat9.dir/all] Error 2
+make: *** [all] Error 2
+Failed   <<< sdformat9	[ Exited with code 2 ]
+```
+
+First check if `urdfdom` and `urdfdom_headers` are installed by running
+
+```bash
+brew install urdfdom urdfdom_headers
+```
+
+Then if the error persists, compile with the internal version of `urdfdom` by running
+
+```bash
+colcon build --cmake-args -DUSE_INTERNAL_URDF=ON --merge-install
+```
+
+This command will ignore the system installation of `urdfdom` and use the internal version instead.
