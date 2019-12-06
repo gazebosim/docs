@@ -114,7 +114,8 @@ Reset world / models | ✓ |
 World stats | ✓ | ✓
 Topic echo | ✓ | ✓
 Image viewer | ✓ | ✓
-Translate / rotate / scale models | ✓ |
+Translate / rotate | ✓ |
+Scale models | ✓ |
 Insert models / lights | ✓ |
 Delete models | ✓ |
 World tree | ✓ |
@@ -161,11 +162,14 @@ Ogre 1.x engine | ✓ | ✓
 Ogre 2.x engine | ✕ | ✓
 Optix engine | ✕ | ✓ Partial support
 Custom engine plugins | ✕ | ✓
+Sky | ✓ |
+Fog | ✓ |
 
 ## ROS integration
 
 ROS integration with Ignition will be done primarily via a
-transport bridge instead of plugins.
+transport bridge instead of plugins, contained in the
+[ros_ign](https://github.com/osrf/ros1_ign) package.
 
 * **ROS 1**: See full message list at [ros_ign](https://github.com/osrf/ros_ign)
 * **ROS 2**: TODO

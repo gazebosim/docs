@@ -20,9 +20,3 @@ An Ignition release follows the form "Ignition Codename", for example Ignition A
 | Dome       | Sep, 2020 | Sep, 2021 |       |
 | Ignition-E | Mar, 2021 | Mar, 2022 |       |
 | Ignition-F | Sep, 2021 | Sep, 2026 | LTS   |
-
-## Library versions
-
-
-
-
