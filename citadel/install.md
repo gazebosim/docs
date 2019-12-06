@@ -332,7 +332,7 @@ or in zsh
 
 ## TroubleShooting
 
-### Unable to find `urdf_model.f` error
+### OSX: Unable to find `urdf_model.f` error
 
 After installing all the dependencies and starting the build process, you may encounter an error looks like this:
 
