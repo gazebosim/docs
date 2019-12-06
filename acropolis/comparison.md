@@ -167,7 +167,7 @@ Custom engine plugins | ✕ | ✓
 ROS integration with Ignition will be done primarily via a
 transport bridge instead of plugins.
 
-* **ROS 1**: See full message list at [ros1_ign_bridge](https://github.com/osrf/ros1_ign_bridge)
+* **ROS 1**: See full message list at [ros_ign](https://github.com/osrf/ros_ign)
 * **ROS 2**: TODO
 
 ## Others
@@ -179,11 +179,13 @@ Log / playback | ✓ | Partial support
 Web client (GzWeb) | ✓ |
 Populations | ✓ |
 Actors | ✓ |
+Markers | ✓ |
 Heightmaps | ✓ |
 DEM (Digital Elevation Models) | ✓ |
 COLLADA meshes | ✓ | ✓
 OBJ meshes | ✓ | ✓
 STL meshes | ✓ | ✓
+Polylines | ✓ |
 Code introspection | ✓ | All simulation state is accessible from any system plugin, soon it will be published
 World plugins | ✓ | ✓ Now called System plugin
 Model plugins | ✓ | ✓ Now called System plugin
@@ -191,7 +193,7 @@ Sensor plugins | ✓ |
 Visual plugins | ✓ |
 GUI plugins | ✓ | ✓ Ignition GUI plugins
 System plugins | ✓ |
-Distribute simulation across processes | ✕ | ✓
+Distribute simulation across processes | ✕ | (coming up)
 Incrementally load levels | ✕ | ✓
 Online model database | [gazebo_models repository](https://bitbucket.org/osrf/gazebo_models/) | [Ignition Fuel](https://app.ignitionrobotics.org/fuel/models)
-
+SDF frame semantics | | 

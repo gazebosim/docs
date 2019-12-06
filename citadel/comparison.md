@@ -23,6 +23,7 @@ Ray | ✓ |
 RFID | ✓ |
 RFIDTag | ✓ |
 Sonar | ✓ |
+Thermal camera | ✕  | ✓
 Wide-angle camera | ✓ |
 Wireless receiver | ✓ |
 Wireless transceiver | ✓ |
@@ -45,6 +46,7 @@ ArduCopterPlugin | ✓ |
 ArrangePlugin | ✓ |
 AttachLightPlugin | ✓ | ✕ Does not apply, use SDF
 BlinkVisualPlugin | ✓ |
+Breadcrumbs | ✕ | ✓
 BreakableJointPlugin | ✓ |
 BuoyancyPlugin | ✓ |
 CameraPlugin | ✓ |
@@ -116,8 +118,8 @@ Topic echo | ✓ | ✓
 Image viewer | ✓ | ✓
 Translate / rotate | ✓ | ✓
 Scale models | ✓ |
-Insert models / lights | ✓ |
-Delete models | ✓ |
+Insert models / lights | ✓ | ✓ (dragging Fuel URL)
+Delete models | ✓ | ✓
 World tree | ✓ | ✓ (no properties yet)
 Log recording / playback | ✓ | ✓
 Plotting | ✓ |
@@ -126,7 +128,7 @@ Screenshot | ✓ |
 View angles | ✓ |
 Apply force / torque | ✓ |
 Introspection visualizations (transparent, joints...) | ✓ |
-Follow / move to | ✓ | ✓ |
+Follow / move to | ✓ | ✓
 Copy / paste | ✓ |
 Building editor | ✓ |
 Model editor | ✓ |
@@ -163,14 +165,19 @@ Ogre 1.x engine | ✓ | ✓
 Ogre 2.x engine | ✕ | ✓
 Optix engine | ✕ | ✓ Partial support
 Custom engine plugins | ✕ | ✓
+Sky | ✓ |
+Fog | ✓ |
 
 ## ROS integration
 
 ROS integration with Ignition will be done primarily via a
-transport bridge instead of plugins.
+transport bridge instead of plugins, contained in the
+[ros_ign](https://github.com/osrf/ros1_ign) package.
 
-* **ROS 1**: See [ros1_ign](https://github.com/osrf/ros1_ign)
-* **ROS 2**: Coming up soon
+Supported versions:
+
+* ROS 1 Melodic
+* ROS 2 Dashing
 
 ## Others
 
@@ -180,12 +187,14 @@ Nested models | ✓ | Partial support
 Log / playback | ✓ | ✓
 Web client (GzWeb) | ✓ |
 Populations | ✓ |
-Actors | ✓ |
+Actors | ✓ | ✓
+Markers | ✓ | ✓
 Heightmaps | ✓ |
 DEM (Digital Elevation Models) | ✓ |
 COLLADA meshes | ✓ | ✓
 OBJ meshes | ✓ | ✓
 STL meshes | ✓ | ✓
+Polylines | ✓ |
 Code introspection | ✓ | All simulation state is accessible from system plugins or through the `SceneBroadcaster`'s state topic
 World plugins | ✓ | ✓ Now called System plugin
 Model plugins | ✓ | ✓ Now called System plugin
@@ -196,6 +205,4 @@ System plugins | ✓ | ✓ Through Ignition Launch
 Distribute simulation across processes | ✕ | (coming up)
 Incrementally load levels | ✕ | ✓
 Online model database | [gazebo_models repository](https://bitbucket.org/osrf/gazebo_models/) | [Ignition Fuel](https://app.ignitionrobotics.org/fuel/models)
-Sky | ✓ |
-Fog | ✓ |
-Polylines | ✓ |
+SDF frame semantics | | ✓
