@@ -172,7 +172,7 @@ transport bridge instead of plugins, contained in the
 [ros_ign](https://github.com/osrf/ros1_ign) package.
 
 * **ROS 1**: See full message list at [ros_ign](https://github.com/osrf/ros_ign)
-* **ROS 2**: Availale from Blueprint
+* **ROS 2**: Available from Blueprint
 
 ## Others
 
