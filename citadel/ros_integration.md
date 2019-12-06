@@ -21,13 +21,10 @@ to verify if your message type is supported by the bridge.
 
 ## Binary install
 
-The repository `packages.osrfoundation.org` hosts binary packages for ROS
-Melodic on Ubuntu Bionic.  To install the binaries
+**Not available at the moment**
 
-```bash
-sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
-sudo apt-get install ros-melodic-ign-bridge
-```
+The repository `packages.osrfoundation.org` hosts binary packages for Blueprint
+but for Citadel the recommended method is to build from source
 
 ## Source install
 
@@ -38,7 +35,7 @@ of the bridge documentation. This tutorial requires Ubuntu Bionic or newer.
 Assuming that you have ROS Melodic, you can install all dependencies with:
 
 ```bash
-sudo apt build-dep ros-melodic-ros-ign-bridge
+sudo apt install ros-melodic-desktop ros-melodic-rqt-image-view libignition-common3-dev libignition-transport8-dev libignition-msgs5-dev
 ```
 
 # Run the bridge and exchange images
@@ -58,6 +55,7 @@ Then we start Gazebo.
 ```bash
 # Shell B:
 ign gazebo -r camera_sensor.sdf
+# if you don't see the camera image in the Image Display and it stays grey, press the orange refresh button
 ```
 
 Gazebo should be running and publishing images over the `/camera` topic.
