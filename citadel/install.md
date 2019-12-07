@@ -141,7 +141,7 @@ The src subdirectory should contain all the sources ready to be built.
 
 Before compiling it is necessary to install all the dependencies of the diferent
 packages that compose the Citadel collection. Every platform has a different
-method to install software dependencies. 
+method to install software dependencies.
 
 Add packages.osrfoundation.org to the apt sources list:
 
@@ -196,11 +196,12 @@ recognized by `colcon`:
 
 ```bash
 cd ~/workspace/
-colcon list -g
+colcon list
+colcon graph
 ```
 
-`colcon` should list the Ignition libraries with their
-interdependencies. If that is the case, then you are ready
+`colcon list` should list the Ignition libraries. `colcon graph` should show
+their interdependencies. If that is the case, then you are ready
 to build the whole set of libraries:
 
 ```bash
