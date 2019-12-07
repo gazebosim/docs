@@ -196,12 +196,12 @@ recognized by `colcon`:
 
 ```bash
 cd ~/workspace/
-colcon list
 colcon graph
 ```
 
-`colcon list` should list the Ignition libraries. `colcon graph` should show
-their interdependencies. If that is the case, then you are ready
+`colcon graph` should list the Ignition libraries with an
+[interdependency diagram](https://colcon.readthedocs.io/en/released/reference/verb/graph.html#example-output).
+If that is the case, then you are ready
 to build the whole set of libraries:
 
 ```bash
