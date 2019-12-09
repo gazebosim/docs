@@ -372,3 +372,27 @@ colcon build --cmake-args -DUSE_INTERNAL_URDF=ON --merge-install
 ```
 
 This command will ignore the system installation of `urdfdom` and use the internal version instead.
+
+### OSX: Unable to load .dylib file
+
+When running `ign gazebo -s` command, an error like the one below may show up
+
+```bash
+Error while loading the library [/Users/citadel/citadel_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib]: dlopen(/Users/citadel/citadel_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib, 5): Library not loaded: @rpath/libIrrXML.dylib
+  Referenced from: /usr/local/opt/assimp/lib/libassimp.5.dylib
+  Reason: image not found
+[Err] [Physics.cc:275] Unable to load the /Users/citadel/citadel_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib library.
+Escalating to SIGKILL on [Ignition Gazebo Server]
+```
+
+The issue is related to OSX System Integrity Protection(SIP). The workaround is to run `ign` with a different ruby then make sure that ruby is loaded. 
+
+```bash
+brew install ruby
+
+# Add the following to ~/.bashrc
+export PATH=/usr/local/Cellar/ruby/2.6.5/bin:$PATH
+
+# Source ~/.bashrc in terminal
+. ~/.bashrc
+```
