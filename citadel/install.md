@@ -292,7 +292,7 @@ colcon build --merge-install
 To speed up the build process, you could also disable tests by using 
 
 ```bash
-colcon build cmake-args -DBUILD_TESTING=OFF --merge-install
+colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install
 ```
 
 To build a package with all its dependent packages:
