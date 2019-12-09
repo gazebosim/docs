@@ -267,7 +267,7 @@ g++ -v
 
 ### Mac OS: Installing gcc
 
-gcc on Mac is installed by installing Xcode command line tools, which can be downloaded [here](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=12&cad=rja&uact=8&ved=2ahUKEwiF4fvbjaLmAhVCMH0KHXDbAcMQFjALegQIARAB&url=https%3A%2F%2Fdeveloper.apple.com%2Fdownload%2Fmore%2F&usg=AOvVaw1zFr5JUh9NzZ2OMFeNOaGG). You will need to sign in to your Apple account and download the Mojave version of Xcode command line tools. Command line tools can also be obtained by downloading Xcode from the Apple App Store, but installing the full app may take over an hour.
+On Mac machines, gcc is acquired by installing Xcode command line tools. The required version of Xcode for Citadel is Xcode 10.3, which can be downloaded from [Apple Developer Site](https://developer.apple.com/download/more/). You will need to sign in to your Apple account and download the Mojave version of Xcode command line tools. Command line tools can also be obtained by downloading Xcode from the Apple App Store, but installing the full app may take over an hour.
 
 
 ### Building the colcon workspace
