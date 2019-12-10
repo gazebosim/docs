@@ -181,7 +181,7 @@ The command below will install all dependencies in Ubuntu Bionic:
 sudo apt-get install cmake freeglut3-dev libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev libdart6-collision-ode-dev libdart6-dev libdart6-utils-urdf-dev libfreeimage-dev libgflags-dev libglew-dev libgts-dev libogre-1.9-dev libogre-2.1-dev libprotobuf-dev libprotobuf-dev libprotoc-dev libqt5core5a libswscale-dev libtinyxml2-dev libtinyxml-dev pkg-config protobuf-compiler python qml-module-qt-labs-folderlistmodel qml-module-qt-labs-settings qml-module-qtquick2 qml-module-qtquick-controls qml-module-qtquick-controls2 qml-module-qtquick-dialogs qml-module-qtquick-layouts qml-module-qtqml-models2 qtbase5-dev qtdeclarative5-dev qtquickcontrols2-5-dev ruby ruby-ronn uuid-dev libzip-dev libjsoncpp-dev libcurl4-openssl-dev libyaml-dev libzmq3-dev libsqlite3-dev libwebsockets-dev swig ruby-dev -y
 ```
 
-### Building the Ignition Libraries
+#### Install compiler requirements
 
 The Ignition Libraries require the gcc 8 compiler on Ubuntu Bionic.
 (Windows requires Visual Studio 2017).
@@ -207,7 +207,7 @@ g++ -v
 ```
 
 This is the end of the Ubuntu-specific source installation instructions. Continue
-to the section "Building the colcon workspace" to complete the installation.
+to the section "Building the Ignition Libraries" to complete the installation.
 
 ## MacOS Mojave (10.14)
 
@@ -322,7 +322,7 @@ export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:/usr/local/opt/dartsim@6.10.0/lib/pkgc
 export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/usr/local/opt/qt
 ```
 
-### Building the Ignition Libraries
+#### Install compiler requirements
 
 The Ignition Libraries require the Xcode 10 compiler on MacOS Mojave.
 
@@ -334,9 +334,9 @@ Xcode command line tools. Command line tools can also be obtained by downloading
 Xcode from the Apple App Store, but installing the full app may take over an hour.
 
 This is the end of the MacOS-specific source installation instructions. Continue
-to the section "Building the colcon workspace" to complete the installation.
+to the section "Building the Ignition Libraries" to complete the installation.
 
-## Building the colcon workspace
+## Building the Ignition Libraries
 
 Once the compiler and all the sources are in place it is time to compile them.
 Start the procedure by changing into the workspace and listing the packages
