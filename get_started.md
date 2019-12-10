@@ -11,7 +11,7 @@ simulation using Ignition Robotics.
 ## Step 1: Install
 
 Each release of Ignition ships with a new installation tutorial. You can
-read [the latest installation tutorial at here](/docs/latest/install). Please
+read [the latest installation tutorial here](/docs/latest/install). Please
 visit the [main documentation](/docs) pages for a list of all releases,
 along with links to their respective installation tutorials.
 
