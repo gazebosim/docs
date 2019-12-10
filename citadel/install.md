@@ -211,7 +211,7 @@ to the section "Building the Ignition Libraries" to complete the installation.
 
 ## MacOS Mojave (10.14)
 
-### Install Tools
+### Install tools
 
 The use of some additional tools is recommended to help with the source compilation,
 although other ways of correctly getting and building the sources are also possible.
@@ -396,6 +396,17 @@ Or in zsh:
 
 This is the end of the source install instructions; head back to the [Getting started](getting_started.html)
 page to start using Ignition!
+
+## Uninstalling source-based install
+
+If you need to uninstall Ignition or switch to a binary-based install once you
+have already installed the library from source, navigate to your source code
+directory's build folders and run `make uninstall`:
+
+```bash
+cd /workspace
+sudo make uninstall
+```
 
 ## Troubleshooting
 
