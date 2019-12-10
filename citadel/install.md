@@ -184,7 +184,7 @@ sudo apt-get install cmake freeglut3-dev libavcodec-dev libavdevice-dev libavfor
 #### Install compiler requirements
 
 The Ignition Libraries require the gcc 8 compiler on Ubuntu Bionic.
-(Windows requires Visual Studio 2017).
+(Windows requires Visual Studio 2019).
 
 To install `gcc` version 8 on Ubuntu Bionic:
 
