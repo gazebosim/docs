@@ -15,7 +15,7 @@ source code.
 ## Citadel Libraries
 
 The Citadel collection is composed by many different Ignition libraries. The
-collection assures that all libraries all compatible and can be used together.
+collection assures that all libraries are compatible and can be used together.
 
 | Library name       | Version       |
 | ------------------ |:-------------:|
