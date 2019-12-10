@@ -44,6 +44,7 @@ The first major release of Ignition Robotics focused on the basics of simulation
 1. Command line tools to control log playback.
 1. Battery model based on vehicle motion.
 1. Integration of [Google benchmark](https://github.com/google/benchmark) for performance metrics and analysis.
+1. Tracked vehicle support.
 1. GUI tools:
     * Translate and rotate models.
     * Entity tree.
@@ -53,11 +54,14 @@ The first major release of Ignition Robotics focused on the basics of simulation
 1. **In Development**
     1. Localized wind (wind that is constrained to a region of influence).
     1. Detachable joints.
+    1. Rechargeable batteries.
 
 ### Citadel: Under development
 
 1. Visual markers.
-1. Animated actors.
+1. Animated actors for Ogre 1.
+1. Thermal camera sensor.
+1. Emissive texture maps.
 
 ## Planned Features
 
@@ -70,7 +74,4 @@ The first major release of Ignition Robotics focused on the basics of simulation
 1. Cloud-hosted simulation.
 1. Battery model based on vehicle payload.
 1. Support for the Bullet physics engine.
-1. Tracked vehicle support.
-1. Thermal camera sensor.
-1. Rechargeable batteries.
 1. SDFormat frame semantics.
