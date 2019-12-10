@@ -6,7 +6,7 @@ Citadel supports the following platforms:
  * MacOS Mojave
      * Ignition currently only works in headless mode
       (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use
-      `ign gazebo -s fuel.sdf` to start the server only.
+      `ign gazebo -s fuel.sdf` to start the server only).
 
 Windows support is still experimental although most of the packages should work
 as expected. There are no binaries for Windows at this time. The `ign-gazebo`
@@ -15,7 +15,7 @@ source code.
 
 ## Citadel Libraries
 
-The Citadel collection is composed by many different Ignition libraries. The
+The Citadel collection is composed of many different Ignition libraries. The
 collection assures that all libraries are compatible and can be used together.
 
 | Library name       | Version       |
@@ -86,17 +86,17 @@ Source installation is recommended for users planning on altering Ignition's sou
 The use of some additional tools is recommended to help with the source compilation,
 although other ways of correctly getting and building the sources are also possible.
 
-For getting the sources of all libraries the easiest way is to use
+The easiest way to get the sources of all libraries is to use
 [vcstool](https://github.com/dirk-thomas/vcstool).
 
 To compile all the different libraries and ign-gazebo in the right order
-it is recommended to use [colcon](https://colcon.readthedocs.io/en/released/).
-The colcon tool is available in all platforms using pip (or pip3, if pip fails).
+[colcon](https://colcon.readthedocs.io/en/released/) is recommended.
+The colcon tool is available on all platforms using pip (or pip3, if pip fails).
 
-Some tools require Python 3.5 (or higher) which is not the default option in some
+Some tools require Python 3.5 (or higher) which is not the default option on some
 platforms (like Ubuntu Bionic). The Python
 [virtualenv](https://virtualenv.pypa.io/en/latest/) could be a useful solution in
-cases where the default option can not be easily changed.
+cases where the default option cannot be easily changed.
 
 ### vcstool and colcon from pip
 
@@ -126,7 +126,7 @@ sudo apt-get install python3-vcstool python3-colcon-common-extensions mercurial
 Ignition libraries use `mercurial` for version control, so it must be available
 in the system for `vcstool` to work properly. While `mercurial` is available via pip,
 Python 3 support is currently in beta. Therefore a different means of installation
-is recommended. In Ubuntu:
+is recommended.
 
 ```bash
 sudo apt-get install mercurial
@@ -138,7 +138,7 @@ The instructions below use some UNIX commands to manage directories but the
 equivalent alternatives on Windows should provide the same result.
 
 The first step is to create a developer workspace in which `vcstool` and
-`colcon` can work.
+`colcon` can work:
 
 ```bash
 mkdir -p ~/workspace/src
@@ -146,7 +146,7 @@ cd ~/workspace/src
 ```
 
 All the sources of ignition-citadel are declared in a yaml file. Download
-it to the workspace.
+it to the workspace:
 
 ```bash
 wget https://bitbucket.org/osrf/gazebodistro/raw/default/collection-citadel.yaml
@@ -217,13 +217,12 @@ to the section "Building the Ignition Libraries" to complete the installation.
 The use of some additional tools is recommended to help with the source compilation,
 although other ways of correctly getting and building the sources are also possible.
 
-For getting the sources of all libraries the easiest way is to use
+The easiest way to get the sources of all libraries is to use
 [vcstool](https://github.com/dirk-thomas/vcstool).
 
 To compile all the different libraries and ign-gazebo in the right order
-it is recommended to use [colcon](https://colcon.readthedocs.io/en/released/).
-The colcon tool is available in all platforms using pip (or pip3, if pip fails).
-
+[colcon](https://colcon.readthedocs.io/en/released/) is recommended.
+The colcon tool is available on all platforms using pip (or pip3, if pip fails).
 
 ### Python3 and mercurial from homebrew
 
@@ -243,7 +242,7 @@ brew install python3
 Ignition libraries use `mercurial` for version control, so it must be available
 in the system for `vcstool` to work properly. While `mercurial` is available via pip,
 Python 3 support is currently in beta. Therefore a different means of installation
-is recommended. In MacOS:
+is recommended.
 
 ```bash
 brew install mercurial
@@ -264,7 +263,7 @@ python3 -m pip install -U colcon-common-extensions
 ### Getting the sources
 
 The first step is to create a developer workspace in which `vcstool` and
-`colcon` can work.
+`colcon` can work:
 
 ```bash
 mkdir -p ~/workspace/src
@@ -272,7 +271,7 @@ cd ~/workspace/src
 ```
 
 All the sources of ignition-citadel are declared in a yaml file. Download
-it to the workspace.
+it to the workspace:
 
 ```bash
 wget https://bitbucket.org/osrf/gazebodistro/raw/default/collection-citadel.yaml
@@ -297,7 +296,7 @@ brew update
 brew tap osrf/simulation
 ```
 
-Install all dependencies
+Install all dependencies:
 
 Dependency for Ogre:
 
@@ -311,7 +310,7 @@ General dependencies:
 brew install assimp boost bullet cmake cppzmq dartsim@6.10.0 doxygen eigen fcl ffmpeg flann freeimage freetype gflags google-benchmark gts ipopt irrlicht jsoncpp libccd libyaml libzzip libzip nlopt ode open-scene-graph ossp-uuid ogre1.9 ogre2.1 pkg-config protobuf qt qwt rapidjson ruby tbb tinyxml tinyxml2 urdfdom zeromq
 ```
 
-`dartsim@6.10.0` and `qt5` are not sym-linked, to use those dependencies when building
+`dartsim@6.10.0` and `qt5` are not sym-linked. To use those dependencies when building
 `ignition-physics2` and `ignition-gui3`, run the following after installation to add them to `/use/local`:
 
 ```bash
@@ -332,7 +331,7 @@ The required version of Xcode for Citadel is Xcode 10.3, which can be downloaded
 [Apple Developer Site](https://developer.apple.com/download/more/).
 You will need to sign in to your Apple account and download the Mojave version of
 Xcode command line tools. Command line tools can also be obtained by downloading
-Xcode from the Apple App Store, but installing the full app may take over an hour.
+Xcode from the Apple App Store (installing the full app may take over an hour).
 
 This is the end of the MacOS-specific source installation instructions. Continue
 to the section "Building the Ignition Libraries" to complete the installation.
@@ -363,7 +362,7 @@ To speed up the build process, you could also disable tests by using
 colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install
 ```
 
-To build a package with all its dependent packages:
+To build a specific package with all its dependent packages:
 
 ```bash
 colcon build --merge-install --packages-up-to PACKAGE_NAME
@@ -442,7 +441,7 @@ drivers.
 
 #### Unable to find `urdf_model.h` error
 
-After installing all the dependencies and starting the build process, you may encounter an error looks like this:
+After installing all the dependencies and starting the build process, you may encounter an error that looks like this:
 
 ```bash
 /Users/user/citadel_ws/src/sdformat/src/parser_urdf.cc:30:10: fatal error: 'urdf_model/model.h' file not found
@@ -455,13 +454,13 @@ make: *** [all] Error 2
 Failed   <<< sdformat9	[ Exited with code 2 ]
 ```
 
-First check if `urdfdom` and `urdfdom_headers` are installed by running
+First check if `urdfdom` and `urdfdom_headers` are installed by running:
 
 ```bash
 brew install urdfdom urdfdom_headers
 ```
 
-Then if the error persists, compile with the internal version of `urdfdom` by running
+Then if the error persists, compile with the internal version of `urdfdom` by running:
 
 ```bash
 colcon build --cmake-args -DUSE_INTERNAL_URDF=ON --merge-install
@@ -471,7 +470,7 @@ This command will ignore the system installation of `urdfdom` and use the intern
 
 #### Unable to load .dylib file
 
-When running `ign gazebo -s` command, an error like the one below may show up
+When running the `ign gazebo -s` command, an error like the one below may show up:
 
 ```bash
 Error while loading the library [/Users/citadel/citadel_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib]: dlopen(/Users/citadel/citadel_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib, 5): Library not loaded: @rpath/libIrrXML.dylib
