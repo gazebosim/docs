@@ -78,43 +78,40 @@ page to start using Ignition!
 
 Source installation is recommended for users planning on altering Ignition's source code (advanced).
 
-The use of some additional tools is recommended to help with the source compilation, although other ways of correctly getting and building the sources are also possible.
-
-Colcon supports Python 3.5 (or higher) which is not the default option in some
-platforms (like Ubuntu Bionic). The Python [virtualenv](https://virtualenv.pypa.io/en/latest/) could be a useful solution in cases where the default option can not be easily changed.
-
 ## Ubuntu Bionic
 
-### Installing vcstool and colcon
+### Install tools
+
+The use of some additional tools is recommended to help with the source compilation,
+although other ways of correctly getting and building the sources are also possible.
 
 For getting the sources of all libraries the easiest way is to use
-[vcstool](https://github.com/dirk-thomas/vcstool). The tool is available from pip
-in all platforms:
+[vcstool](https://github.com/dirk-thomas/vcstool).
+
+To compile all the different libraries and ign-gazebo in the right order
+it is recommended to use [colcon](https://colcon.readthedocs.io/en/released/).
+The colcon tool is available in all platforms using pip (or pip3, if pip fails).
+
+> Some tools require Python 3.5 (or higher) which is not the default option in some
+platforms (like Ubuntu Bionic). The Python
+[virtualenv](https://virtualenv.pypa.io/en/latest/) could be a useful solution in
+cases where the default option can not be easily changed.
+
+### vcstool and colcon from pip
+
+PIP is available on all platforms:
 
 ```bash
 pip install vcstool
 ```
 
-Since Ignition libraries use `mercurial` for version control it must be available
-in the system for `vcstool` to work properly. While `mercurial` is available via pip,
-Python 3 support is currently in beta. Therefore a different means of installation
-is recommended. In Ubuntu:
-
-```bash
-sudo apt-get install mercurial
-```
-
-To compile all the different libraries and ign-gazebo in the right order
-it is recommended to use [colcon](https://colcon.readthedocs.io/en/released/).
-The colcon tool is available in all platforms using pip (or pip3, if pip fails):
-
 ```bash
 pip install -U colcon-common-extensions
 ```
 
-#### Use .deb packages in Ubuntu to install vcstool and colcon
+### vcstool and colcon from apt
 
-An alternative method is to use the .deb packages available on Debian or Ubuntu:
+An alternative method is to use the `.deb` packages available on Debian or Ubuntu:
 
 ```bash
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
@@ -123,10 +120,21 @@ sudo apt-get update
 sudo apt-get install python3-vcstool python3-colcon-common-extensions mercurial
 ```
 
+### Mercurial
+
+Ignition libraries use `mercurial` for version control, so it must be available
+in the system for `vcstool` to work properly. While `mercurial` is available via pip,
+Python 3 support is currently in beta. Therefore a different means of installation
+is recommended. In Ubuntu:
+
+```bash
+sudo apt-get install mercurial
+```
+
 ### Getting the sources
 
 The instructions below use some UNIX commands to manage directories but the
-obvious alternatives on Windows should provide the same result.
+equivalent alternatives on Windows should provide the same result.
 
 The first step is to create a developer workspace in which `vcstool` and
 `colcon` can work.
