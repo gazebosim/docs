@@ -5,11 +5,12 @@ Citadel supports the following platforms:
  * Ubuntu Bionic on amd64/i386
  * MacOS Mojave
      * Ignition currently only works in headless mode
-     * Headless mode: GUI does not render; instead of using `ign gazebo fuel.sdf` command, use `ign gazebo -s fuel.sdf` to start the server only.
+      (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use
+      `ign gazebo -s fuel.sdf` to start the server only.
 
 Windows support is still experimental although most of the packages should work
-as expected. There are no binaries for Windows at this moment. The `ign-gazebo`
-package is still not available for Windows, the installation should be done from
+as expected. There are no binaries for Windows at this time. The `ign-gazebo`
+package is still not available for Windows; the installation should be done from
 source code.
 
 ## Citadel Libraries
