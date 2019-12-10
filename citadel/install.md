@@ -274,6 +274,7 @@ All the sources of ignition-citadel are declared in a yaml file. Download
 it to the workspace:
 
 ```bash
+brew install wget
 wget https://bitbucket.org/osrf/gazebodistro/raw/default/collection-citadel.yaml
 ```
 
