@@ -11,8 +11,7 @@ simulation using Ignition Robotics.
 ## Step 1: Install
 
 Each release of Ignition ships with a new installation tutorial. You can
-read the latest installation tutorial at
-[ignitionrobotics.org/docs/latest/install](/docs/latest/install). Please
+read [the latest installation tutorial at here](/docs/latest/install). Please
 visit the [main documentation](/docs) pages for a list of all releases,
 along with links to their respective installation tutorials.
 
@@ -55,7 +54,7 @@ to get started.
 Modifying an existing SDF world is also a good way to get started. Ignition
 Gazebo ships with a number of [example SDF
 worlds](https://bitbucket.org/ignitionrobotics/ign-gazebo/src/default/examples/worlds)
-that you can freely copy and modify. These example SDF files are 
+that you can freely copy and modify. These example SDF files are
 installed. Many of the SDF files also have instructions located at the
 top of the SDF file. The instructions typically contain information about how to
 run Gazebo with the SDF file in order to experience a particular feature.
