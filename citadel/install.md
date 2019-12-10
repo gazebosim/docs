@@ -71,18 +71,6 @@ brew install ignition-citadel
 
 All libraries should be ready to use and the `ign gazebo` app ready to be executed.
 
-## Using the workspace
-
-The workspace needs to be sourced every time a new terminal is used.
-
-```bash
-. ~/workspace/install/local_setup.bash
-(or call ~/workspace/install/local_setup.bat on Windows)
-```
-
-After running the command all paths for running apps or developing code
-will be set in the current shell.
-
 This is the end of the binary install instructions; head back to the [Getting started](getting_started.html)
 page to start using Ignition!
 
