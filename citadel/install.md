@@ -92,7 +92,7 @@ To compile all the different libraries and ign-gazebo in the right order
 it is recommended to use [colcon](https://colcon.readthedocs.io/en/released/).
 The colcon tool is available in all platforms using pip (or pip3, if pip fails).
 
-> Some tools require Python 3.5 (or higher) which is not the default option in some
+Some tools require Python 3.5 (or higher) which is not the default option in some
 platforms (like Ubuntu Bionic). The Python
 [virtualenv](https://virtualenv.pypa.io/en/latest/) could be a useful solution in
 cases where the default option can not be easily changed.
@@ -211,14 +211,27 @@ to the section "Building the colcon workspace" to complete the installation.
 
 ## MacOS Mojave (10.14)
 
-Tools and dependencies for Citadel will be installed using the [homebrew package manager](https://brew.sh/).
-The homebrew tool can easily be installed by entering the following in a terminal:
+### Install Tools
+
+The use of some additional tools is recommended to help with the source compilation,
+although other ways of correctly getting and building the sources are also possible.
+
+For getting the sources of all libraries the easiest way is to use
+[vcstool](https://github.com/dirk-thomas/vcstool).
+
+To compile all the different libraries and ign-gazebo in the right order
+it is recommended to use [colcon](https://colcon.readthedocs.io/en/released/).
+The colcon tool is available in all platforms using pip (or pip3, if pip fails).
+
+
+### Python3 and mercurial from homebrew
+
+Tools and dependencies for Citadel can be installed using the [homebrew package manager](https://brew.sh/).
+The homebrew tool can be installed by entering the following in a terminal:
 
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
-
-### Install python3, vcstool, mercurial and colcon
 
 Citadel is compatible with Python3; it can be installed by running the following in a terminal:
 
@@ -226,15 +239,7 @@ Citadel is compatible with Python3; it can be installed by running the following
 brew install python3
 ```
 
-For getting the sources of all libraries the easiest way is to use
-[vcstool](https://github.com/dirk-thomas/vcstool). The tool is available from pip
-in all platforms:
-
-```bash
-python3 -m pip install vcstool
-```
-
-Since Ignition libraries use `mercurial` for version control it must be available
+Ignition libraries use `mercurial` for version control, so it must be available
 in the system for `vcstool` to work properly. While `mercurial` is available via pip,
 Python 3 support is currently in beta. Therefore a different means of installation
 is recommended. In MacOS:
@@ -243,9 +248,13 @@ is recommended. In MacOS:
 brew install mercurial
 ```
 
-To compile all the different libraries and ign-gazebo in the right order
-it is recommended to use [colcon](https://colcon.readthedocs.io/en/released/).
-The colcon tool is available in all platforms using pip (or pip3, if pip fails):
+### vcstool and colcon from pip
+
+PIP is available on all platforms:
+
+```bash
+python3 -m pip install vcstool
+```
 
 ```bash
 python3 -m pip install -U colcon-common-extensions
