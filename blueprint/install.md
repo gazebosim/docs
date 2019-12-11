@@ -251,3 +251,9 @@ specify `ogre` in your SDF files instead of `ogre2`.
 To enable Ogre 2 support, you'll need to update your computer's OpenGL version.
 As suggested on the Ogre logs, this may require updating your graphics card
 drivers.
+
+The Ogre 2 debs from the osrfoundation repository are built from a fork of
+Ogre's `v2-1` branch with changes needed for deb packaging and allowing it to
+be co-installable with Ogre 1.x. The code can be found here:
+
+https://github.com/osrf/ogre-2.1-release
