@@ -11,22 +11,22 @@ Citadel supports the following platforms:
 Windows support is still experimental although most of the packages should work
 as expected. There are no binaries for Windows at this time. The `ign-gazebo`
 package is still not available for Windows; the installation should be done from
-source code. The [Source Installation on Ubuntu Bionic](install_ubuntu_src.html)
+source code. The [Source Installation on Ubuntu Bionic](install_ubuntu_src)
 contains some tips for Windows.
 
 ## Binary installation instructions
 
 Binary installation is the recommended method of installing Ignition.
 
- * [Binary Installation on Ubuntu Bionic](install_ubuntu.html)
- * [Binary Installation on MacOS Mojave (10.14)](install_osx.html)
+ * [Binary Installation on Ubuntu Bionic](install_ubuntu)
+ * [Binary Installation on MacOS Mojave (10.14)](install_osx)
 
 ## Source Installation instructions
 
 Source installation is recommended for users planning on altering Ignition's source code (advanced).
 
- * [Source Installation on Ubuntu Bionic](install_ubuntu_src.html)
- * [Source Installation on MacOS Mojave (10.14)](install_osx_src.html)
+ * [Source Installation on Ubuntu Bionic](install_ubuntu_src)
+ * [Source Installation on MacOS Mojave (10.14)](install_osx_src)
 
 ## Citadel Libraries
 
