@@ -20,3 +20,10 @@ Head back to the [Getting started](getting_started.html)
 page to start using Ignition!
 
 ## Uninstalling binary install
+
+If you need to uninstall Ignition or switch to a source-based install once you
+have already installed the library from binaries, run the following command:
+
+```bash
+brew uninstall ignition-citadel
+```
