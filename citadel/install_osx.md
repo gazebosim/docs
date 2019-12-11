@@ -1,7 +1,7 @@
 # Binary Installation on MacOS Mojave (10.14)
 
 All the Citadel binaries are available in Mojave using the [homebrew package manager](https://brew.sh/).
-The homebrew tool can easily be installed using:
+The homebrew tool can be installed using:
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

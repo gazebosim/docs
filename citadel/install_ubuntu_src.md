@@ -37,7 +37,7 @@ An alternative method is to use the `.deb` packages available on Debian or Ubunt
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo -E apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 sudo apt-get update
-sudo apt-get install python3-vcstool python3-colcon-common-extensions mercurial
+sudo apt-get install python3-vcstool python3-colcon-common-extensions
 ```
 
 ## Mercurial
@@ -86,7 +86,7 @@ Before compiling it is necessary to install all the dependencies of the differen
 packages that compose the Citadel collection. Every platform has a different
 method to install software dependencies.
 
-Add packages.osrfoundation.org to the apt sources list:
+Add `packages.osrfoundation.org` to the apt sources list:
 
 ```bash
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
@@ -188,14 +188,19 @@ page to start using Ignition!
 
 ## Uninstalling source-based install
 
-If you need to uninstall Ignition or switch to a binary-based install once you
-have already installed the library from source, navigate to your source code
-directory's build folders and run `make uninstall`:
+If you installed your workspace with `colcon` as instructed above, uninstalling
+it may be just a matter of opening a new terminal and not sourcing the
+workspace's `setup.sh`.
+
+If besides not using the libraries you're also trying to free up space, you can
+delete the entire workspace directory with:
 
 ```bash
-cd /workspace
-sudo make uninstall
+rm -rf ~/workspace
 ```
+
+Or if you want to keep the source code, you can remove the
+`install` / `build` / `log` directories as desired, leaving the `src` directory.
 
 ## Troubleshooting
 
