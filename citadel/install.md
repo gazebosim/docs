@@ -26,7 +26,7 @@ Binary installation is the recommended method of installing Ignition.
 Source installation is recommended for users planning on altering Ignition's source code (advanced).
 
  * [Source Installation on Ubuntu Bionic](install_ubuntu_src)
- * [Source Installation on MacOS Mojave (10.14)](install_osx_src)
+ * [Source Installation on MacOS](install_osx_src)
 
 ## Citadel Libraries
 
