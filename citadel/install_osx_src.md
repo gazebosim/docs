@@ -1,44 +1,6 @@
 # Source Installation on MacOS
 
-This tutorial will work for MacOS Mojave 10.14 but with some modifications we will be able to compile it in MacOS Catalina 10.15
-
-# MacOS Catalina (10.15)
-
-
-
- - /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Ruby.framework/Headers/ruby/ruby/intern.h
-
-```patch
---- intern.h    2019-12-16 18:17:08.000000000 +0100
-+++ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Develo$
-@@ -14,6 +14,10 @@
- #ifndef RUBY_INTERN_H
- #define RUBY_INTERN_H 1
-
-+#if __cplusplus > 199711L
-+#define register      // Deprecated in C++11.
-+#endif  // #if __cplusplus > 199711L
-+
- #if defined(__cplusplus)
- extern "C" {
- #if 0
-```
-
- - Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Ruby.framework/Headers/ruby/ruby/config.h
-
-```
---- config.h    2019-12-16 18:19:13.000000000 +0100
-+++ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Develo$
-@@ -410,6 +410,6 @@
- #define RUBY_PLATFORM_CPU "x86_64"
- #endif /* defined __x86_64__ &&! defined RUBY_PLATFORM_CPU */
- #define RUBY_PLATFORM_OS "darwin19"
--#define RUBY_ARCH"universal-"RUBY_PLATFORM_OS
--#define RUBY_PLATFORM"universal."RUBY_PLATFORM_CPU"-"RUBY_PLATFORM_OS
-+#define RUBY_ARCH "universal-" RUBY_PLATFORM_OS
-+#define RUBY_PLATFORM "universal." RUBY_PLATFORM_CPU "-" RUBY_PLATFORM_OS
- #endif /* INCLUDE_RUBY_CONFIG_H */
-```
+This tutorial will work for MacOS Mojave 10.14 and MacOS Catalina 10.15.
 
 ## Install tools
 
@@ -160,6 +122,60 @@ The required version of Xcode for Citadel is Xcode 10.3, which can be downloaded
 You will need to sign in to your Apple account and download the Mojave version of
 Xcode command line tools. Command line tools can also be obtained by downloading
 Xcode from the Apple App Store (installing the full app may take over an hour).
+
+## Building the Ignition Libraries in MacOS Catalina (10.15)
+
+If you want to compile Ignition Libraries in MacOS Catalina (10.15) you will need to apply some patches in your filesystem:
+
+ - `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Ruby.framework/Headers/ruby/ruby/intern.h`
+
+Create a file called `intern.patch` with the following content:
+
+```patch
+--- intern.h    2019-12-16 18:17:08.000000000 +0100
++++ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Ruby.framework/Headers/ruby/ruby/intern.h
+@@ -14,6 +14,10 @@
+ #ifndef RUBY_INTERN_H
+ #define RUBY_INTERN_H 1
+
++#if __cplusplus > 199711L
++#define register      // Deprecated in C++11.
++#endif  // #if __cplusplus > 199711L
++
+ #if defined(__cplusplus)
+ extern "C" {
+ #if 0
+```
+
+Now we can appply the patch:
+
+```{.sh}
+sudo patch -p0 < intern.patch
+```
+
+ - `Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Ruby.framework/Headers/ruby/ruby/config.h`
+
+Create a file called `config.patch` with the following content:
+
+```
+--- config.h    2019-12-16 18:19:13.000000000 +0100
++++ Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Ruby.framework/Headers/ruby/ruby/config.h
+@@ -410,6 +410,6 @@
+ #define RUBY_PLATFORM_CPU "x86_64"
+ #endif /* defined __x86_64__ &&! defined RUBY_PLATFORM_CPU */
+ #define RUBY_PLATFORM_OS "darwin19"
+-#define RUBY_ARCH"universal-"RUBY_PLATFORM_OS
+-#define RUBY_PLATFORM"universal."RUBY_PLATFORM_CPU"-"RUBY_PLATFORM_OS
++#define RUBY_ARCH "universal-" RUBY_PLATFORM_OS
++#define RUBY_PLATFORM "universal." RUBY_PLATFORM_CPU "-" RUBY_PLATFORM_OS
+ #endif /* INCLUDE_RUBY_CONFIG_H */
+```
+
+Now we can appply the patch:
+
+```{.sh}
+sudo patch -p0 < config.patch
+```
 
 ## Building the Ignition Libraries
 
