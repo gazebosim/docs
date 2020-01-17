@@ -167,6 +167,7 @@ Optix engine | ✕ | ✓ Partial support
 Custom engine plugins | ✕ | ✓
 Sky | ✓ |
 Fog | ✓ |
+Material scripts | ✓ (Ogre 1.x scripts) | ✕
 
 ## ROS integration
 
