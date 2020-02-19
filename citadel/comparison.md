@@ -164,7 +164,7 @@ Feature | Gazebo-classic | Ignition Gazebo
 Ogre 1.x engine | ✓ | ✓
 Ogre 2.x engine | ✕ | ✓
 Optix engine | ✕ | ✓ Partial support
-Custom engine plugins | ✕ | ✓
+Custom engine plugins | ✕ | (coming up)
 Sky | ✓ |
 Fog | ✓ |
 
