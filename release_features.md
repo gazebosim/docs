@@ -25,20 +25,19 @@ The first major release of Ignition Robotics focused on the basics of simulation
 ## Blueprint
 
 1. [Physically based rendering (PBR)](https://en.wikipedia.org/wiki/Physically_based_rendering) materials.
-1. GUI tools for model placement, and a new Scene Tree widget.
 1. Air pressure, RGBD and stereo camera sensors.
 1. Global wind model.
 1. Joint state publisher.
-1. Support for UAV vehicles.
+1. Support for UAVs.
 1. Integration of `ign` command line tool into Ignition Gazebo.
 1. Logging and playback of simulation state.
 1. Command line tools to control log playback.
-1. Battery model based on vehicle motion.
+1. Battery model based on vehicle motion and rechargeable batteries.
 1. Integration of [Google benchmark](https://github.com/google/benchmark) for performance metrics and analysis.
 1. Tracked vehicle support.
-1. Rechargeable batteries.
 1. Breadcrumbs plugin.
 1. GUI tools:
+    * GUI tools for model placement, and a new Scene Tree widget.
     * Translate and rotate models.
     * Entity tree.
     * Video recorder.
