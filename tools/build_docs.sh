@@ -13,7 +13,7 @@
 #      api.ignitionrobotics.org server (see the
 #      bitbucket.org/ignitionrobotics/ign-webserver repository).
 #         
-#           sh ./build_docs.sh
+#           sh ./build_docs.sh <release_name | all>
 #
 #   4. Once complete you'll need to invalidate the Cloudfront distribution using
 #
@@ -28,9 +28,17 @@ s3cmd --dump-config > s3.cfg
 # Build the docker container, which also uploads all documentation.
 # We are using docker because a library's documentation links to other
 # library documentation, and we want to guarantee a clean system.
-docker build -t ign-acropolis-docs -f Dockerfile.acropolis --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
+if [[ $1 == 'all' || $1 == 'acropolis' || $1 == 'Acropolis' ]]; then
+  docker build -t ign-acropolis-docs -f Dockerfile.acropolis --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
+fi
 
-docker build -t ign-blueprint-docs -f Dockerfile.blueprint --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
+if [[ $1 == 'all' || $1 == 'blueprint' || $1 == 'Blueprint' ]]; then
+  docker build -t ign-blueprint-docs -f Dockerfile.blueprint --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
+fi
+
+if [[ $1 == 'all' || $1 == 'citadel' || $1 == 'Citadel' ]]; then
+  docker build -t ign-citadel-docs -f Dockerfile.citadel --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
+fi
 
 # Reminder to tic over cloudfront.
 echo "WARNING"
