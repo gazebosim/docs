@@ -46,14 +46,17 @@ The first major release of Ignition Robotics focused on the basics of simulation
     * Follow model.
     * Delete model.
     * Grid.
+    * Drag-and-drop models from Fuel to Ignition Gazebo UI.
+    * Preset view angles
+    * Hotkeys for transform modes and snapping
+    * Entity selection
 
 ## Citadel (LTS)
 
 1. Visual markers.
-1. Animated actors for Ogre 1.
+1. Animated actors for Ogre 1 and Ogre 2.
 1. Thermal camera sensor.
 1. Emissive texture maps.
 1. SDFormat frame semantics.
-1. Upload models to Fuel from command line.
-
+1. Upload and delete models to Fuel from command line.
 
