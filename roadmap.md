@@ -42,8 +42,13 @@ and release pattern allows us to distribute patch and minor updates into an alre
   1. OpenGL shaders to simulate underwater effects in camera sensors. 
   1. Mesh level of detail support.
 
-## Wish List
+## Contributing to Ignition
 
-1. Wide-angle camera, sonar, and force-torque sensors.
-1. GUI tools for visualization of collision entities and inertia.
-1. Support for the Bullet physics engine.
+Looking for something to work on, or just want to help out? Here are a few
+resources to get you going.
+
+1. [How to contribute](/docs/all/contributing) guide.
+1. [Feature comparision](/docs/citadel/comparison) list. This page lists the
+   feature gaps between Gazebo-classic and Ignition Gazebo.
+1. Take a look at the various [libraries](/libs), and the issue tracker
+   associated with each.
