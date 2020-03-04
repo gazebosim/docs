@@ -26,6 +26,7 @@ and release pattern allows us to distribute patch and minor updates into an alre
 1. GUI tool to insert models from online sources and local directories.
 1. Audio sensor and source.
 1. Improved resource path handling.
+1. Loading custom physics engine plugins.
 
 ### Citadel
 
