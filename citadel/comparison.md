@@ -207,3 +207,4 @@ Distribute simulation across processes | ✕ | (coming up)
 Incrementally load levels | ✕ | ✓
 Online model database | [gazebo_models repository](https://bitbucket.org/osrf/gazebo_models/) | [Ignition Fuel](https://app.ignitionrobotics.org/fuel/models)
 SDF frame semantics |✓| ✓
+Saved simulation states | ✓ |
