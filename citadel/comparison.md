@@ -164,9 +164,10 @@ Feature | Gazebo-classic | Ignition Gazebo
 Ogre 1.x engine | ✓ | ✓
 Ogre 2.x engine | ✕ | ✓
 Optix engine | ✕ | ✓ Partial support
-Custom engine plugins | ✕ | ✓
+Custom engine plugins | ✕ | (coming up)
 Sky | ✓ |
 Fog | ✓ |
+Material scripts | ✓ (Ogre 1.x scripts) | Does not apply
 
 ## ROS integration
 
@@ -205,4 +206,5 @@ System plugins | ✓ | ✓ Through Ignition Launch
 Distribute simulation across processes | ✕ | (coming up)
 Incrementally load levels | ✕ | ✓
 Online model database | [gazebo_models repository](https://bitbucket.org/osrf/gazebo_models/) | [Ignition Fuel](https://app.ignitionrobotics.org/fuel/models)
-SDF frame semantics | | ✓
+SDF frame semantics |✓| ✓
+Saved simulation states | ✓ |
