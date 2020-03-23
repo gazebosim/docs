@@ -13,13 +13,14 @@ Start by getting Ignition up and running with a sample world:
 ign gazebo shapes.sdf
 ```
 
-If you have more than one version of Ignition installed, include the `--force-version` directive to ensure you're working with Blueprint:
+`ign gazebo` will run the latest version of Ignition you have installed.
+You can check if you have more than one version of Ignition installed by running `ign gazebo --versions`.
+
+To ensure you're working with Blueprint, include the `--force-version` directive when starting up:
 
 ```bash
 ign gazebo --force-version 2.15.0 shapes.sdf
 ```
-
-<!-- seems like the above tidbit should go in the getting started guide?-->
 
 ## GUI
 
@@ -37,11 +38,12 @@ The file menu button allows you to save and load interface configurations and cu
 An interface configuration consists of the plugins you have loaded and the style settings in place.
 
 The plugins button lists all the available plugins.
-When you select one, its interface will appear in the left panel.
+You can scroll down this list to see all the plugins, though some may not be available for your version of Ignition.
+When you select one, its interface will appear in the right panel.
 
-### The Left Panel
+### The Right Panel
 
-`shapes.sdf` contains two plugins that you see in the left panel upon starting.
+`shapes.sdf` contains two plugins that you see in the right panel upon starting.
 Transform Control is at the bottom of the panel, and at the top is the entity tree.
 
 Everything in a simulation is considered an "entity".
@@ -54,7 +56,7 @@ You can also hold `ctrl` and click to select multiple.
 
 ![Selecting multiple entities from the entity tree](img/entity_select.png)
 
-You can also right-click on any plugin in the left panel to open basic `Settings` or `Close`.
+You can also right-click on any plugin in the right panel to open basic `Settings` or to `Close`.
 
 ### The Scene
 
@@ -82,10 +84,11 @@ Along the bottom edge of the scene, you'll notice several buttons:
 
 From left to right, the options are `Play`, `Steps` and `RTF` (real time factor).
 
-Pressing `Play` will start the real time world clock in your simulation.
-You can use the same button to pause the clock as well.
+Pressing `Play` will start the simulation.
+You can use the same button to pause the simulation as well.
 
-The `Steps` button allows you to click through the simulation at the rate of a step size, or simulation iteration, that you can customize.
+The `Steps` button allows you to step through the simulation at the rate of a step size, or simulation iteration.
+You can customize step size by hovering over the button.
 
 At the furthest right end of the scene, you can expand `RTF` to see not only the percentage value that compares real time with sim time, but also those individual values themselves, as well as iteration count.
 

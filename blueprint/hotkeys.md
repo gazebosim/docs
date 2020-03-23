@@ -26,9 +26,9 @@
 
   <tr><td>Constrain along axis</td><td>x/y/z</td><td>hold key while manipulating model to constrain movement along that axis</td></tr>
 
-  <tr><td>Snap to 45° when rotating</td><td>Ctrl + drag</td><td>hold Ctrl while rotating model to rotate in 45° increments</td></tr>
+  <tr><td>Snap when rotating</td><td>Ctrl + drag</td><td>hold Ctrl while rotating model to rotate in customizable increments (default 45°)</td></tr>
 
-  <tr><td>Snap to grid when translating</td><td>Ctrl + drag</td><td>hold Ctrl while translating model to snap to grid</td></tr>
+  <tr><td>Snap when translating</td><td>Ctrl + drag</td><td>hold Ctrl while translating model to move in customizable increments (default 1m)</td></tr>
 
   <tr><td>Align to world frame</td><td>Shift</td><td>hold Shift while manipulating model to align axis to the world frame</td></tr>
 

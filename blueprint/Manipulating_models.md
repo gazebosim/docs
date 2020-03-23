@@ -20,7 +20,7 @@ ign gazebo shapes.sdf
 ## Transform Control
 
 The `shapes.sdf` file contains the Transform Control plugin, which is why the plugin is already at the bottom of the screen when you start.
-If you wanted to use the plugin in a world where it isn't already included, you would press the plugins button and select it from the list:
+If you wanted to use the plugin in a world where it isn't already included, you would open the plugin drop-down menu and select it from the list:
 
 ![Choosing Transform Control from the plugin list](img/plugin.png)
 
@@ -51,7 +51,7 @@ Click and hold on any of the arrows while moving your mouse to move the entity i
 
 ![Translate mode](img/translate.gif)
 
-Holding down any one of the `X`, `Y` or `Z` keys, or a combination of them, while clicking and dragging will constrain the model's movement along those axes, regardless of the direction you move your mouse.
+Holding down any one of the `X`, `Y` or `Z` keys, or a combination of them, while clicking and dragging will constrain the model's movement along those axes, regardless of the direction you move your mouse or the axis arrow you select.
 
 ### Rotate Mode
 
@@ -70,7 +70,7 @@ Click and hold on any of the circles while moving your mouse to rotate the entit
 #### Align to World frame
 
 An entity's local axes can become unaligned from the world frame after rotation.
-To align an entity's translation axes to the world frame, simply hold `Shift`.
+If you would like to translate about the world frame axis, simply hold `Shift`.
 
 This isn't a permanent realignment; you can move the entity while holding `Shift`, but once you let go it will return to it's local translation frame.
 
@@ -87,18 +87,18 @@ By default, the snap value is 1 meter for translation and 45° for rotation.
 
 ![Snap rotation](img/snap.gif)
 
-You can customize snap values by clicking on the furthest-right icon in the Transform Control plugin.
+You can customize snap values by clicking on the furthest-right magnet icon in the Transform Control plugin.
 
-Try holding `Shift` and `Ctrl` to snap a model along the world frame is if isn't already aligned.
+Try holding `Shift` and `Ctrl` simultaneously to snap a model along the world frame is if isn't already aligned.
 
 ## View Angle
 
 The View Angle plugin does not come pre-loaded with ``shapes.sdf``, so you will have to select it from the plugins button on the toolbar.
 
 You can choose which angle you want to view the scene from, relative to a selected entity or the world frame if no entity is selected.
-The home button will return you to the view position you were in before using the plugin.
+The home button will return you to the original view pose from when the scene was loaded.
 
-You can also select multiple entities, and the view will average the coordinates of each and face towards that value.
+You can also select multiple entities to face simultaneously from each view angle.
 
 ![View angle for multiple entities](img/View_angle.gif)
 
