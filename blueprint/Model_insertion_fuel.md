@@ -1,7 +1,7 @@
 # Model Insertion from Fuel
 
 Ignition Fuel hosts hundreds of models that can easily be added to a world running in the Ignition GUI.
-Adding models to a world typically means writing them into your world `sdf` file, but with Fuel you can drag and drop existing models directly into the scene.
+Adding models to a world typically means adding them into your world `sdf` file, but with Fuel you can drag and drop existing models directly into the scene.
 
 ## Prerequisites
 
