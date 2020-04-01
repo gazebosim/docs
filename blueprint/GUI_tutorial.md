@@ -15,11 +15,17 @@ ign gazebo shapes.sdf
 
 `ign gazebo` will run the latest version of Ignition you have installed.
 You can check if you have more than one version of Ignition installed by running `ign gazebo --versions`.
+For example, if you have Blueprint and Citadel installed, `--versions` might return:
+
+```bash
+3.0.0
+2.16.0
+```
 
 To ensure you're working with Blueprint, include the `--force-version` directive when starting up:
 
 ```bash
-ign gazebo --force-version 2.15.0 shapes.sdf
+ign gazebo --force-version 2.16.0 shapes.sdf
 ```
 
 ## GUI
@@ -43,8 +49,8 @@ When you select one, its interface will appear in the right panel.
 
 ### The Right Panel
 
-`shapes.sdf` contains two plugins that you see in the right panel upon starting.
-Transform Control is at the bottom of the panel, and at the top is the entity tree.
+`shapes.sdf` contains three plugins that you see in the right panel upon starting.
+At the top is the Entity Tree, followed by the Component Inspector, and then Transform Control.
 
 Everything in a simulation is considered an "entity".
 In `shapes.sdf`, the entities listed are the ground plane, each of the shape models, and the sun.
@@ -52,7 +58,7 @@ In `shapes.sdf`, the entities listed are the ground plane, each of the shape mod
 Items in the list can be expanded to reveal their links, as well as corresponding visuals and collisions, and joints, if they exist.
 
 You can select entities in the simulation by clicking on their names in the entity tree.
-You can also hold `ctrl` and click to select multiple.
+You can also hold `Ctrl` and click to select multiple.
 
 ![Selecting multiple entities from the entity tree](img/entity_select.png)
 

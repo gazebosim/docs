@@ -20,9 +20,10 @@ Head over and browse the available content.
 
 ![Fuel models preview](img/fuel.png)
 
-Click on any one of the thumbnails, for example the [X2 UGV](https://app.ignitionrobotics.org/openrobotics/fuel/models/SOPHISTICATED_ENGINEERING_X2_SENSOR_CONFIG_1).
+Click on any one of the thumbnails, or use the search bar.
+For example, let's find the [Vent](https://app.ignitionrobotics.org/openrobotics/fuel/models/Vent).
 
-![X2 UCV](img/X2.png)
+![Vent](img/vent_detail.png)
 
 Note that some of the model files are quite large and will take lots of time to download into your world.
 Check that the file size on the right is reasonable before moving on.
@@ -32,9 +33,9 @@ Check that the file size on the right is reasonable before moving on.
 The only thing left to do is drag and drop.
 Click and hold the `Drag me!` button and do just that: drag your mouse into the GUI scene area.
 
-![Drag and drop](img/dragdrop.gif)
+![Drag and drop](img/vent.gif)
 
-Now you can add more models, or even load in the Transform Control or View Angle plugins to interact with the model the same way you could with the shapes in the previous tutorial.
+Now you can add more models, or even load in any one of the plugins you learned about to interact with the model the same way you could with the shapes in the previous tutorial.
 
 If you prefer to add a Fuel model permanently to an `sdf` file, you can just as easily download the code by clicking the download-arrow icon to the right of the model's image.
 

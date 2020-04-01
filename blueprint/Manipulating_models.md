@@ -1,11 +1,13 @@
 # Manipulating Models
 
-This tutorial will walk you through using two important plugins vital to model and scene manipulation in the Ignition GUI.
+This tutorial will walk you through using various plugins to assist model and scene manipulation in the Ignition GUI.
 
 The Transform Control plugin is a combination of keybindings and transform control options: selection, translation, rotation and custom snap values.
 This chart of [Ignition's keyboard shortcuts](/blueprint/hotkeys) may be helpful for this tutorial.
 
 The View Angle plugin allows you to quickly and easily adjust the direction from which your scene faces an entity in the simulation.
+
+The Component Inspector plugin displays a variety of of object attributes.
 
 ## Prerequisites
 
@@ -15,14 +17,14 @@ Start by getting Ignition up and running with a sample world:
 ign gazebo shapes.sdf
 ```
 
-[Understanding the GUI](/blueprint/GUI_tutorial) explains the basics of navigating the Ignition GUI.
+The previous tutorial, [Understanding the GUI](/blueprint/GUI_tutorial), explains the basics of navigating the Ignition GUI.
 
 ## Transform Control
 
 The `shapes.sdf` file contains the Transform Control plugin, which is why the plugin is already at the bottom of the screen when you start.
 If you wanted to use the plugin in a world where it isn't already included, you would open the plugin drop-down menu and select it from the list:
 
-![Choosing Transform Control from the plugin list](img/plugin.png)
+![Choosing Transform Control from the plugin list](img/plugins.png)
 
 ### Select Mode
 
@@ -39,7 +41,7 @@ You can always return to selection mode from any other mode by pressing `Esc`.
 
 ### Translate Mode
 
-Enter into translate mode by clicking the second icon from the left in the Transform Control plugin, or by hitting the keyboard short cut: `T`.
+Enter into translate mode by clicking the second icon from the left in the Transform Control plugin, or by hitting the keyboard shortcut: `T`.
 
 ![Translate mode icon](img/translate_icon.png)
 
@@ -55,7 +57,7 @@ Holding down any one of the `X`, `Y` or `Z` keys, or a combination of them, whil
 
 ### Rotate Mode
 
-Enter into rotate mode by clicking the third icon from the left in the Transform Control plugin, or by hitting the keyboard short cut: `R`.
+Enter into rotate mode by clicking the third icon from the left in the Transform Control plugin, or by hitting the keyboard shortcut: `R`.
 
 ![Rotate mode icon](img/rotate_icon.png)
 
@@ -89,18 +91,37 @@ By default, the snap value is 1 meter for translation and 45° for rotation.
 
 You can customize snap values by clicking on the furthest-right magnet icon in the Transform Control plugin.
 
+![Custom snap values](img/custom_snap.png)
+
 Try holding `Shift` and `Ctrl` simultaneously to snap a model along the world frame is if isn't already aligned.
+
+## Component Inspector
+
+The Component Inspector plugin is included in `shapes.sdf`.
+The plugin displays the gravitational and magnetic fields of your world.
+You can select an entity to display some of its attributes, including its pose, whether or not wind is acting on it, whether or not it's static, and more.
+
+Expanding the `Pose` attribute will show the coordinate values for a selected object.
+The values will update as the object is moved around (translated or rotated).
+
+![Updating pose values](img/pose_value.gif)
+
+You can also pause the plugin so an object's pose values don't update in the inspector while the simulation is playing.
+
+Additionally, the Component Inspector can be locked on one object so you can open another Component Inspector to simultaneously observe another object.
+
+![Two Component Inspectors](img/pose2.gif)
 
 ## View Angle
 
-The View Angle plugin does not come pre-loaded with ``shapes.sdf``, so you will have to select it from the plugins button on the toolbar.
+The View Angle plugin does not come pre-loaded with `shapes.sdf`, so you will have to select it from the plugins button on the toolbar.
 
 You can choose which angle you want to view the scene from, relative to a selected entity or the world frame if no entity is selected.
 The home button will return you to the original view pose from when the scene was loaded.
 
 You can also select multiple entities to face simultaneously from each view angle.
 
-![View angle for multiple entities](img/View_angle.gif)
+![View angle for multiple entities](img/view.gif)
 
 ## Next Up
 
