@@ -5,7 +5,9 @@ This guide is an introduction to the Ignition Graphical User Interface (GUI).
 ## Prerequisites
 
 Before beginning, you should have [Ignition installed](/docs/blueprint/install).
-If you installed [from source](/docs/blueprint/install#option-3-source-installation-any-platform-) you will need to [source](/docs/blueprint/install#using-the-workspace) the workspace; otherwise, you're good to go!
+If you installed [from source](/docs/blueprint/install#option-3-source-installation-any-platform-)
+you will need to [source](/docs/blueprint/install#using-the-workspace) the workspace;
+otherwise, you're good to go!
 
 Start by getting Ignition up and running with a sample world:
 
@@ -52,7 +54,7 @@ When you select one, its interface will appear in the right panel.
 `shapes.sdf` contains three plugins that you see in the right panel upon starting.
 At the top is the Entity Tree, followed by the Component Inspector, and then Transform Control.
 
-Everything in a simulation is considered an "entity".
+Everything in a simulation is considered an "entity."
 In `shapes.sdf`, the entities listed are the ground plane, each of the shape models, and the sun.
 
 Items in the list can be expanded to reveal their links, as well as corresponding visuals and collisions, and joints, if they exist.

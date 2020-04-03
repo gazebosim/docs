@@ -25,8 +25,8 @@ For example, let's find the [Vent](https://app.ignitionrobotics.org/openrobotics
 
 ![Vent](img/vent_detail.png)
 
-Note that some of the model files are quite large and will take lots of time to download into your world.
-Check that the file size on the right is reasonable before moving on.
+Note that some of the model files are quite large and may take some time to download into your world.
+Check that the file size on the right is reasonable for your application before moving on.
 
 ## Drag and Drop
 

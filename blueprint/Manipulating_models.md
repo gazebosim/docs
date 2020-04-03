@@ -53,7 +53,7 @@ Click and hold on any of the arrows while moving your mouse to move the entity i
 
 ![Translate mode](img/translate.gif)
 
-Holding down any one of the `X`, `Y` or `Z` keys, or a combination of them, while clicking and dragging will constrain the model's movement along those axes, regardless of the direction you move your mouse or the axis arrow you select.
+Additionally, holding down any one of the `X`, `Y` or `Z` keys, or a combination of them, while clicking and dragging will constrain the model's movement along those axes, regardless of the direction you move your mouse or the axis arrow you select.
 
 ### Rotate Mode
 
@@ -72,9 +72,9 @@ Click and hold on any of the circles while moving your mouse to rotate the entit
 #### Align to World frame
 
 An entity's local axes can become unaligned from the world frame after rotation.
-If you would like to translate about the world frame axis, simply hold `Shift`.
+If you would like to translate along the world frame axis, simply hold `Shift`.
 
-This isn't a permanent realignment; you can move the entity while holding `Shift`, but once you let go it will return to it's local translation frame.
+This isn't a permanent realignment; you can move the entity while holding `Shift`, but once you let go it will return to it's local translational frame.
 
 ![World frame alignment - translation](img/translate_worldframe.png)
 
@@ -87,6 +87,8 @@ The same can be done for an entity's local rotational frame.
 When translating or rotating, you can "snap" an entity's movement to preset increments by holding `Ctrl` and then clicking and dragging.
 By default, the snap value is 1 meter for translation and 45° for rotation.
 
+Translational snaps will snap relative to the world frame, whereas rotational snaps will snap relative to the object's current orientation.
+
 ![Snap rotation](img/snap.gif)
 
 You can customize snap values by clicking on the furthest-right magnet icon in the Transform Control plugin.
@@ -98,8 +100,8 @@ Try holding `Shift` and `Ctrl` simultaneously to snap a model along the world fr
 ## Component Inspector
 
 The Component Inspector plugin is included in `shapes.sdf`.
-The plugin displays the gravitational and magnetic fields of your world.
-You can select an entity to display some of its attributes, including its pose, whether or not wind is acting on it, whether or not it's static, and more.
+With it, you can select an entity to display some of its attributes, including its pose, whether or not wind is acting on it, whether or not it's static, and more.
+The plugin also displays the gravitational and magnetic fields of your world.
 
 Expanding the `Pose` attribute will show the coordinate values for a selected object.
 The values will update as the object is moved around (translated or rotated).
