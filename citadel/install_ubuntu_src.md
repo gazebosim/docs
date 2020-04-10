@@ -68,7 +68,7 @@ All the sources of ignition-citadel are declared in a yaml file. Download
 it to the workspace:
 
 ```bash
-wget https://bitbucket.org/osrf/gazebodistro/raw/default/collection-citadel.yaml
+wget https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-citadel.yaml
 ```
 
 Use `vcstool` to automatically retrieve all the Ignition libraries sources from
