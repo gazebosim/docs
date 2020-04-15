@@ -83,10 +83,10 @@ in all platforms:
 pip install vcstool
 ```
 
-Since Ignition libraries use `mercurial` for version control it must be available in the system for `vcstool` to work properly. While `mercurial` is available via pip, Python 3 support is currently in beta. Therefore a different means of installation is recommended. In Ubuntu:
+Since Ignition libraries use `git` for version control it must be available in the system for `vcstool` to work properly. In Ubuntu:
 
 ```bash
-sudo apt-get install mercurial
+sudo apt-get install git
 ```
 
 To compile all the different libraries and ign-gazebo in the right order
@@ -105,7 +105,7 @@ An alternative method is to use the .deb packages available on Debian or Ubuntu:
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
 sudo -E apt-key adv --keyserver hkp://ha.pool.sks-keyservers.net:80 --recv-key C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654
 sudo apt-get update
-sudo apt-get install python3-vcstool python3-colcon-common-extensions mercurial
+sudo apt-get install python3-vcstool python3-colcon-common-extensions git
 ```
 
 ## Getting the sources

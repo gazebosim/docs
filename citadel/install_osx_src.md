@@ -14,7 +14,7 @@ To compile all the different libraries and ign-gazebo in the right order
 [colcon](https://colcon.readthedocs.io/en/released/) is recommended.
 The colcon tool is available on all platforms using pip (or pip3, if pip fails).
 
-## Python3 and mercurial from homebrew
+## Python3 from homebrew
 
 Tools and dependencies for Citadel can be installed using the [homebrew package manager](https://brew.sh/).
 The homebrew tool can be installed by entering the following in a terminal:
@@ -27,15 +27,6 @@ Citadel is compatible with Python3; it can be installed by running the following
 
 ```bash
 brew install python3
-```
-
-Ignition libraries use `mercurial` for version control, so it must be available
-in the system for `vcstool` to work properly. While `mercurial` is available via pip,
-Python 3 support is currently in beta. Therefore a different means of installation
-is recommended.
-
-```bash
-brew install mercurial
 ```
 
 ## vcstool and colcon from pip

@@ -40,15 +40,13 @@ sudo apt-get update
 sudo apt-get install python3-vcstool python3-colcon-common-extensions
 ```
 
-## Mercurial
+## Git
 
-Ignition libraries use `mercurial` for version control, so it must be available
-in the system for `vcstool` to work properly. While `mercurial` is available via pip,
-Python 3 support is currently in beta. Therefore a different means of installation
-is recommended.
+Ignition libraries use `git` for version control, so it must be available
+in the system for `vcstool` to work properly.
 
 ```bash
-sudo apt-get install mercurial
+sudo apt-get install git
 ```
 
 ## Getting the sources

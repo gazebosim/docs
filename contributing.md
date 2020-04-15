@@ -4,7 +4,7 @@ Thank you for your interest in contributing to Ignition Robotics!
 
 The following is a set of guidelines for contributing to Ignition Robotics
 and its components, which are hosted in the [Ignition Robotics
-Organization](https://bitbucket.org/ignitionrobotics) on Bitbucket. These
+Organization](https://github.com/ignitionrobotics) on GitHub. These
 are mostly guidelines, not rules. Use your best judgment, and feel free to
 propose changes to this document in a pull request.
 
@@ -33,41 +33,43 @@ propose changes to this document in a pull request.
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the [Ignition
-Robotics Code of Conduct](https://bitbucket.org/ignitionrobotics/ign-gazebo/src/default/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this
+Robotics Code of Conduct](https://github.com/ignitionrobotics/ign-gazebo/src/master/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this
 code. Please report unacceptable behavior at [https://ignitionrobotics.org/support](https://ignitionrobotics.org/support).
 
 ## Project Design
 
 ### Repository List
 
-The following is a list of the major Ignition Robotics repositories. A complete list can be found at [https://bitbucket.org/ignitionrobotics/](https://bitbucket.org/ignitionrobotics/).
+The following is a list of the major Ignition Robotics repositories.
+A complete list can be found at
+[https://github.com/ignitionrobotics/](https://github.com/ignitionrobotics/).
 
-* [ign-cmake](https://bitbucket.org/ignitionrobotics/ign-cmake): CMake
+* [ign-cmake](https://github.com/ignitionrobotics/ign-cmake): CMake
 modules used to configure and build Ignition libraries.
-* [ign-common](https://bitbucket.org/ignitionrobotics/ign-common): Set of
+* [ign-common](https://github.com/ignitionrobotics/ign-common): Set of
 general purpose components and utilities, such as 3D mesh processing, console
 logging, and signal handling.
-* [ign-gazebo](https://bitbucket.org/ignitionrobotics/ign-gazebo):
+* [ign-gazebo](https://github.com/ignitionrobotics/ign-gazebo):
 A high-fidelity 3D rigid-body dynamic simulator.
-* [ign-gui](https://bitbucket.org/ignitionrobotics/ign-gui): QT-based
+* [ign-gui](https://github.com/ignitionrobotics/ign-gui): QT-based
 library to configure and manage graphical applications.
-* [ign-math](https://bitbucket.org/ignitionrobotics/ign-math): A math
+* [ign-math](https://github.com/ignitionrobotics/ign-math): A math
 library targeted toward robotic applications.
-* [ign-msgs](https://bitbucket.org/ignitionrobotics/ign-msgs): Protobuf
+* [ign-msgs](https://github.com/ignitionrobotics/ign-msgs): Protobuf
 messages and utilities for simulation and robotics.
-* [ign-physics](https://bitbucket.org/ignitionrobotics/ign-physics):
+* [ign-physics](https://github.com/ignitionrobotics/ign-physics):
 Plugin based library for physics simulation.
-* [ign-plugin](https://bitbucket.org/ignitionrobotics/ign-plugin): Library
+* [ign-plugin](https://github.com/ignitionrobotics/ign-plugin): Library
 for registering, loading, and managing plugin libraries.
-* [ign-rendering](https://bitbucket.org/ignitionrobotics/ign-rendering):
+* [ign-rendering](https://github.com/ignitionrobotics/ign-rendering):
 Library that supports rendering through different engines, such as
 [OGRE](https://www.ogre3d.org/) and [Optix](https://developer.nvidia.com/optix).
-* [ign-sensors](https://bitbucket.org/ignitionrobotics/ign-sensors): A set
+* [ign-sensors](https://github.com/ignitionrobotics/ign-sensors): A set
 of models that generate realistic sensor data.
-* [ign-tools](https://bitbucket.org/ignitionrobotics/ign-tools): Provides
+* [ign-tools](https://github.com/ignitionrobotics/ign-tools): Provides
 the `ign` command line interface that can be configured and used by multiple
 libraries.
-* [ign-transport](https://bitbucket.org/ignitionrobotics/ign-transport):
+* [ign-transport](https://github.com/ignitionrobotics/ign-transport):
 High performance inter- and intra-process communication based on
 [ZeroMQ](http://zeromq.org/) and [Protobuf](https://developers.google.com/protocol-buffers/).
 
@@ -132,21 +134,22 @@ existed.
 * **Check if you're using the latest software version**. A more recent version may contain your desired feature.
 * **Check if there's already [a library](https://ignitionrobotics.org/libs) which provides that enhancement.**
 * **Determine [which repository the enhancement should be suggested in](#markdown-header-repository-list).**
-* **Perform a [cursory search](https://bitbucket.org/search?q=&account=%7Bdd3bee6b-ed2f-496a-9634-d99cf5144fc5%7D)** to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
+* **Perform a [cursory search](https://github.com/search?q=org%3Aignitionrobotics&type=Issues)** to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
 * **Ask on the [community forum](https://community.gazebosim.org) about your
 feature.** Someone else might already have started, and you might be able to
 help.
 
 #### How Do I Submit A (Good) Enhancement Suggestion?
 
-Enhancement suggestions are tracked as [Bitbucket
-issues](https://confluence.atlassian.com/bitbucket/issue-trackers-221449750.html).  After you've determined [which repository](#markdown-header-repository-list)
+Enhancement suggestions are tracked as [GitHub
+issues](https://help.github.com/en/github/managing-your-work-on-github/about-issues).
+After you've determined [which repository](#markdown-header-repository-list)
 your enhancement suggestion is related to, create an issue on that
 repository and provide the following information:
 
 * **Use a clear and descriptive title** for the issue to identify the suggestion.
 * **Provide a step-by-step description of the suggested enhancement** in as many details as possible.
-* **Provide specific examples to demonstrate the steps**. Include copy/pasteable snippets which you use in those examples, as [Markdown code blocks](https://confluence.atlassian.com/bitbucketserver/markdown-syntax-guide-776639995.html).
+* **Provide specific examples to demonstrate the steps**. Include copy/pasteable snippets which you use in those examples, as [Markdown code blocks](https://help.github.com/en/github/writing-on-github/creating-and-highlighting-code-blocks).
 * **Describe the current behavior** and **explain which behavior you expected to see instead** and why.
 * **Include screenshots and animated GIFs** which show you following the described steps and clearly demonstrate the problem. See [Creating GIFs](#markdown-header-creating-gifs) for GIF creation utilities.
 * **Explain why this enhancement would be useful** to most users and isn't something that can or should be implemented as a separate application.
@@ -166,12 +169,12 @@ get aquainted with this development process.
    take place in your fork.
 
 1. **Choose a base branch.** If your changes will break API or ABI, then
-   base your new branch off of `default`. If your changes don't break
+   base your new branch off of `master`. If your changes don't break
    API/ABI and you would like them to be released to an existing release
    with major version `N`, then use branch `ign-<library>N` as the base.
 
 1. **Work out of a branch** Always work out of a new branch, one that is not
-   the default/master branch. This is a good habit to get in, and will make
+   a release / master branch. This is a good habit to get in, and will make
    your life easier.
 
 1. **Write your code.** This is the fun part.
@@ -241,7 +244,7 @@ get aquainted with this development process.
 
     * [Too large](https://bitbucket.org/osrf/gazebo/pull-request/30)
 
-1. **Submit a pull request** to the Ignition library through Bitbucket when you're ready.
+1. **Submit a pull request** to the Ignition library through GitHub when you're ready.
 
 1. **Check Continuous integration**
 
@@ -318,34 +321,34 @@ a build folder:
 In general, we follow [Google's style guide](https://google.github.io/styleguide/cppguide.html) and rules set forth by `cppcheck`. However, we have added some extras listed below.
 
 1. **This pointer**
-> All class attributes and member functions must be accessed using the `this->` pointer. Here is an [example](https://bitbucket.org/ignitionrobotics/ign-gazebo/src/3f2be4899c01e60bf5bb323812c281302d538c98/src/Server.cc?at=default&fileviewer=file-view-default#Server.cc-112).
+> All class attributes and member functions must be accessed using the `this->` pointer. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L89).
 
 1. **Underscore function parameters**
-> All function parameters must start with an underscore. Here is an [example](https://bitbucket.org/ignitionrobotics/ign-gazebo/src/3f2be4899c01e60bf5bb323812c281302d538c98/src/Server.cc?at=default&fileviewer=file-view-default#Server.cc-130).
+> All function parameters must start with an underscore. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L173-L174).
 
 1. **Do not cuddle braces**
-> All braces must be on their own line. Here is an [example](https://bitbucket.org/ignitionrobotics/ign-gazebo/src/3f2be4899c01e60bf5bb323812c281302d538c98/src/Server.cc?at=default&fileviewer=file-view-default#Server.cc-159).
+> All braces must be on their own line. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L245-L253).
 
 1. **Multi-line code blocks**
-> If a block of code spans multiple lines and is part of a flow control statement, such as an `if`, then it must be wrapped in braces. Here is an [example](https://bitbucket.org/ignitionrobotics/ign-gazebo/src/3f2be4899c01e60bf5bb323812c281302d538c98/src/Server.cc?at=default&fileviewer=file-view-default#Server.cc-203)
+> If a block of code spans multiple lines and is part of a flow control statement, such as an `if`, then it must be wrapped in braces. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L295-L299).
 
 1. **++ operator**
-> This occurs mostly in `for` loops. Prefix the `++` operator, which is [slightly more efficient than postfix in some cases](https://bitbucket.org/ignitionrobotics/ign-gazebo/src/3f2be4899c01e60bf5bb323812c281302d538c98/src/EntityComponentManager_TEST.cc?at=default&fileviewer=file-view-default#EntityComponentManager_TEST.cc-131).
+> This occurs mostly in `for` loops. Prefix the `++` operator, which is [slightly more efficient than postfix in some cases](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/EntityComponentManager_TEST.cc#L108).
 
 1. **PIMPL/Opaque pointer**
-> If you are writing a new class, it must use a private data pointer. Here is an [example](https://bitbucket.org/ignitionrobotics/ign-gazebo/src/3f2be4899c01e60bf5bb323812c281302d538c98/include/ignition/gazebo/EntityComponentManager.hh?at=default&fileviewer=file-view-default#EntityComponentManager.hh-797), and you can read more [here](https://en.wikipedia.org/wiki/Opaque_pointer).
+> If you are writing a new class, it must use a private data pointer. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/EntityComponentManager.hh#L682), and you can read more [here](https://en.wikipedia.org/wiki/Opaque_pointer).
 
 1. **const functions**
-> Any class function that does not change a member variable should be marked as `const`. Here is an [example](https://bitbucket.org/ignitionrobotics/ign-gazebo/src/3f2be4899c01e60bf5bb323812c281302d538c98/include/ignition/gazebo/EntityComponentManager.hh?at=default&fileviewer=file-view-default#EntityComponentManager.hh-340).
+> Any class function that does not change a member variable should be marked as `const`. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/EntityComponentManager.hh#L453).
 
 1. **const parameters**
-> All parameters that are not modified by a function should be marked as `const`. This applies to parameters that are passed by reference, and pointer. Here is an [example](https://bitbucket.org/ignitionrobotics/ign-gazebo/src/3f2be4899c01e60bf5bb323812c281302d538c98/include/ignition/gazebo/EntityComponentManager.hh?at=default&fileviewer=file-view-default#EntityComponentManager.hh-362).
+> All parameters that are not modified by a function should be marked as `const`, except for "Plain Old Data" (`int`, `bool`, etc). This applies to parameters that are passed by reference, and pointer. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/Model.hh#L111-L112).
 
 1. **Pointer and reference variables**
-> Place the `*` and `&` next to the varaible name, not next to the type. For example: `int &variable` is good, but `int& variable` is not. Here is an [example](https://bitbucket.org/ignitionrobotics/ign-gazebo/src/3f2be4899c01e60bf5bb323812c281302d538c98/include/ignition/gazebo/EntityComponentManager.hh?at=default&fileviewer=file-view-default#EntityComponentManager.hh-362).
+> Place the `*` and `&` next to the varaible name, not next to the type. For example: `int &variable` is good, but `int& variable` is not. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/Model.hh#L96).
 
 1. **Camel case**
-> In general, everything should use camel case. Exceptions include SDF element names, and protobuf variable names. Here is an [example](https://bitbucket.org/ignitionrobotics/ign-gazebo/src/3f2be4899c01e60bf5bb323812c281302d538c98/src/EntityComponentManager.cc?at=default&fileviewer=file-view-default#EntityComponentManager.cc-40).
+> In general, everything should use camel case. Exceptions include SDF element names, and protobuf variable names. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/SdfEntityCreator.hh#L64-L65).
 
 1. **Class function names**
 > Class functions must start with a capital letter, and capitalize every word.
@@ -378,6 +381,4 @@ You can use [LICEcap](https://www.cockos.com/licecap/) to record GIFs on
 macOS and Windows, and [Silent
 Cast](https://github.com/colinkeenan/silentcast) or
 [Byzanz](https://github.com/GNOME/byzanz) or
-[Peek](https://github.com/phw/peek) on Linux. GIFs and videos are limited to
-<= 1MB on Bitbucket. You can also upload media to other hosting services and
-include a link on the issue.
+[Peek](https://github.com/phw/peek) on Linux.
