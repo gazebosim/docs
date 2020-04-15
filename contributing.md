@@ -33,7 +33,7 @@ propose changes to this document in a pull request.
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the [Ignition
-Robotics Code of Conduct](https://github.com/ignitionrobotics/ign-gazebo/src/master/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this
+Robotics Code of Conduct](https://github.com/ignitionrobotics/ign-gazebo/blob/master/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this
 code. Please report unacceptable behavior at [https://ignitionrobotics.org/support](https://ignitionrobotics.org/support).
 
 ## Project Design
