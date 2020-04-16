@@ -23,4 +23,4 @@ serves the markdown pages to https://ignitionrobotics.org.
 ## Library docs
 
 Instructions on how to update all of the library docs is contained in the
-[tools/build_docs.sh](https://bitbucket.org/ignitionrobotics/docs/src/default/tools/build_docs.sh) script.
+[tools/build_docs.sh](https://github.com/ignitionrobotics/docs/blob/master/tools/build_docs.sh) script.

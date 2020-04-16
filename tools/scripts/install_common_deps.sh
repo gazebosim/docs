@@ -19,7 +19,7 @@ sudo apt-get install -y \
   curl \
   git \
   g++-8 \
-  mercurial \
+  git \
   pkg-config \
   libtinyxml-dev
 
