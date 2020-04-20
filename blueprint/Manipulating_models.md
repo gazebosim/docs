@@ -104,7 +104,7 @@ With it, you can select an entity to display some of its attributes, including i
 The plugin also displays the gravitational and magnetic fields of your world.
 
 Expanding the `Pose` attribute will show the coordinate values for a selected object.
-The values will update as the object is moved around (translated or rotated).
+The values will update as the object is moved around (translated or rotated) while the simulation is playing.
 
 ![Updating pose values](img/pose_value.gif)
 
