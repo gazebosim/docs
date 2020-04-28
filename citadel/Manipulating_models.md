@@ -102,11 +102,11 @@ Try holding `Shift` and `Ctrl` simultaneously to snap a model along the world fr
 ## Component Inspector
 
 The Component Inspector plugin is included in `shapes.sdf`.
-With it, you can select an entity to display some of its attributes, including its pose, whether or not wind is acting on it, whether or not it's static, and more.
+With this plugin, you can select an entity to display some of its attributes, including its pose, whether or not wind is acting on it, whether or not it's static, and more.
 The plugin also displays the gravitational and magnetic fields of your world.
 
 Expanding the `Pose` attribute will show the coordinate values for a selected object.
-The values will update as the object is moved around (translated or rotated) while the simulation is playing.
+The values will update as the object is moved around (translated or rotated) while the simulation is running.
 
 ![Updating pose values](img/pose_value.gif)
 
@@ -137,7 +137,7 @@ It can't, however, align a link or anything other than the top-level model up wi
 With `Relative to First` selected, select two models using `Ctrl` + click to see the second model align to the first along either it's x, y or z axis.
 Hovering over the buttons for each axis will show a preview of where the model would end up if aligned along that axis.
 
-You can align more that two models, just select the others with `Ctrl` + click.
+You can align more than two models, just select the others with `Ctrl` + click.
 
 ![Align tool](img/align.gif)
 

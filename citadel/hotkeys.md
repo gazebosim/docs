@@ -10,7 +10,7 @@
 
   <tr><th colspan="3" class="sub"><b>MODE</b></th></tr>
 
-  <tr><td>Enter Selection mode (default mode)</td><td>Esc</td><td>press Esc for mode to select models </td></tr>
+  <tr><td>Enter Selection mode (default mode)</td><td>Esc</td><td>press "Esc" for Select (model) mode </td></tr>
 
   <tr><td>Enter Rotate mode</td><td>r</td><td>press "r" for Rotate (model) mode</td></tr><!-
 
