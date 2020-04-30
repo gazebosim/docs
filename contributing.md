@@ -21,6 +21,7 @@ propose changes to this document in a pull request.
   * [Reporting Bugs](#markdown-header-reporting-bugs)
   * [Suggesting Enhancements](#markdown-header-suggesting-enhancements)
   * [Contributing Code](#markdown-header-contributing-code)
+  * [Tracking Progress](#markdown-header-tracking-progress)
 
 [Writing Tests](#markdown-header-writing-tests)
 
@@ -261,6 +262,107 @@ get aquainted with this development process.
 1. **Respond to reviewers.** At least two other people have to approve your pull request before it can be merged. Please be responsive to any questions and comments.
 
 1. **Done, phew.** Once you have met all the requirements, you're code will be merged. Thanks for improving Ignition Robotics!
+
+### Tracking Progress
+
+Ignition development progress is tracked publicly using a GitHub project board.
+Using project boards ensures the community has visibility to what’s coming up,
+external contributors can understand where they can help, and the reasoning behind
+development decisions are visible to everyone.
+
+The [Core development board](https://github.com/orgs/ignitionrobotics/projects/3) can be seen here.
+
+#### Repositories
+
+The following repositories from [Ignition Robotics](https://github.com/ignitionrobotics/) are tracked:
+
+* ign-cmake
+* ign-common
+* ign-fuel-tools
+* ign-gazebo
+* ign-gui
+* ign-launch
+* ign-math
+* ign-msgs
+* ign-physics
+* ign-plugin
+* ign-rendering
+* ign-sensors         
+* ign-tools          
+* ign-transport          
+* docs
+* design
+
+New issues and pull requests, and issue and pull request statuses, from across the tracked repositories are all automatically synced with the same board.
+
+Unfortunately, GitHub boards' cross-org support is poor.
+The following repos can't be handled automatically and have to be manually tracked on the board along with the ones listed above:
+
+* [sdformat]https://github.com/osrf/sdformat
+* [gazebo]https://github.com/osrf/gazebo
+* [gazebo_ros_pkgs]https://github.com/ros-simulation/gazebo_ros_pkgs/
+* [release-tools]https://github.com/ignition-tooling/release-tools
+* [gazebodistro]https://github.com/ignition-tooling/gazebodistro
+
+#### Board Columns
+
+The project board columns are defined below:
+
+* **Inbox**: New issues and pull requests (automated, but author needs to specify project when creating ticket).
+* **To do**: Issues ready to be worked on.
+* **In progress**: Issues being worked on / pull requests being iterated on.
+* **In review**: Pull requests under review / issues requesting feedback.
+* **Done**: Closed issues / pull requests (cleared from time to time).
+
+#### Process
+
+All Ignition team members actively:
+
+* **Watch** all Ignition repositories to receive email notifications of new issues / pull requests
+* Provide **feedback** to issues as soon as possible
+* **Review** pull requests as soon as possible
+
+  * Team members can review pull requests already under review or approved
+  * Team members can provide some feedback without doing a full review
+
+During weekly simulation meetings, the team:
+
+* Quickly **triages** the inbox, if there’s anything left in it
+
+  * If we won’t work on an issue in the near future, **remove** it from the board.
+  * If we’re going to work on an issue, move it to **To Do**, no assignment necessary initially.
+  * If we won’t review a pull request in the near future, **close** it.
+
+* Discusses **In Review** column and additional tickets that people want to bring up
+* Discusses the **Done** column and archives all tickets
+
+When opening a pull-request:
+
+* Add a **label** according to the targeted collection(s) (blueprint, citadel, etc)
+* Add yourself as the **assignee**
+
+  * Maintainers of each repo will be also automatically assigned
+
+* Add it to the “Core development” **project board**
+* Add **reviewers** as appropriate
+
+  * If reviewers won’t be able to review soon, they can remove themselves and also let the original author know
+
+Pull requests can be merged when:
+
+* They have at least 1 approval from a member of the core team
+* There are no unresolved comments
+* CI is passing
+* DCO check is passing
+
+Merging strategy:
+
+* For internal contributions, give the original author some time to hit the merge button themselves / check directly with them if it’s ok to merge.
+* Default to “squash and merge”
+  * Make sure the commit message captures the core ideas of the pull request.
+* “Rebase and merge” when moving files (do a `git mv` as a separate commit)
+* Refrain from force-pushing while the PR is under review (which includes rebasing and squashing)
+
 
 ## Writing Tests
 
