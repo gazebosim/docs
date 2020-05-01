@@ -345,7 +345,7 @@ When opening a pull-request:
 
   * Maintainers of each repo will be also automatically assigned
 
-* Add it to the “Core development” **project board**
+* It will be automatically triaged to the “Core development” **project board**
 * Add **reviewers** as appropriate
 
   * If reviewers won’t be able to review soon, they can remove themselves and also let the original author know
