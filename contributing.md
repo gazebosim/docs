@@ -270,40 +270,41 @@ Using project boards ensures the community has visibility to what’s coming up,
 external contributors can understand where they can help, and the reasoning behind
 development decisions are visible to everyone.
 
-The [Core development board](https://github.com/orgs/ignitionrobotics/projects/3) can be seen here.
+The Core development board can be seen [here]((https://github.com/orgs/ignitionrobotics/projects/3).
 
 #### Repositories
 
 The following repositories from [Ignition Robotics](https://github.com/ignitionrobotics/) are tracked:
 
-* ign-cmake
-* ign-common
-* ign-fuel-tools
-* ign-gazebo
-* ign-gui
-* ign-launch
-* ign-math
-* ign-msgs
-* ign-physics
-* ign-plugin
-* ign-rendering
-* ign-sensors         
-* ign-tools          
-* ign-transport          
-* docs
-* design
-* ros_ign
+* [ign-cmake](https://github.com/ignitionrobotics/ign-cmake)
+* [ign-common](https://github.com/ignitionrobotics/ign-common)
+* [ign-fuel-tools](https://github.com/ignitionrobotics/ign-fuel-tools)
+* [ign-gazebo](https://github.com/ignitionrobotics/ign-gazebo)
+* [ign-gui](https://github.com/ignitionrobotics/ign-gui)
+* [ign-launch](https://github.com/ignitionrobotics/ign-launch)
+* [ign-math](https://github.com/ignitionrobotics/ign-math)
+* [ign-msgs](https://github.com/ignitionrobotics/ign-msgs)
+* [ign-physics](https://github.com/ignitionrobotics/ign-physics)
+* [ign-plugin](https://github.com/ignitionrobotics/ign-plugin)
+* [ign-rendering](https://github.com/ignitionrobotics/ign-rendering)
+* [ign-sensors](https://github.com/ignitionrobotics/ign-sensors)
+* [ign-tools](https://github.com/ignitionrobotics/ign-tools)
+* [ign-transport](https://github.com/ignitionrobotics/ign-transport)
+* [docs](https://github.com/ignitionrobotics/docs/)
+* [design](https://github.com/ignitionrobotics/design)
+* [ros_ign](https://github.com/ignitionrobotics/ros_ign)
+
 
 New issues and pull requests, and issue and pull request statuses, from across the tracked repositories are all automatically synced with the same board.
 
 Unfortunately, GitHub boards' cross-org support is poor.
 The following repos can't be handled automatically and have to be manually tracked on the board along with the ones listed above:
 
-* [sdformat]https://github.com/osrf/sdformat
-* [gazebo]https://github.com/osrf/gazebo
-* [gazebo_ros_pkgs]https://github.com/ros-simulation/gazebo_ros_pkgs/
-* [release-tools]https://github.com/ignition-tooling/release-tools
-* [gazebodistro]https://github.com/ignition-tooling/gazebodistro
+* [sdformat](https://github.com/osrf/sdformat)
+* [gazebo](https://github.com/osrf/gazebo)
+* [gazebo_ros_pkgs](https://github.com/ros-simulation/gazebo_ros_pkgs/)
+* [release-tools](https://github.com/ignition-tooling/release-tools)
+* [gazebodistro](https://github.com/ignition-tooling/gazebodistro)
 
 #### Board Columns
 
@@ -339,7 +340,7 @@ During weekly simulation meetings, the team:
 
 When opening a pull-request:
 
-* Add a **label** according to the targeted collection(s) (blueprint, citadel, etc)
+* **Labels** according to the targeted collection(s) (blueprint, citadel, etc) will be added automatically
 * Add yourself as the **assignee**
 
   * Maintainers of each repo will be also automatically assigned
@@ -354,7 +355,11 @@ Pull requests can be merged when:
 * They have at least 1 approval from a member of the core team
 * There are no unresolved comments
 * CI is passing
-* DCO check is passing
+* [DCO](https://developercertificate.org/) check is passing
+
+  * See [Docker's DCO guidelines](https://github.com/moby/moby/blob/master/CONTRIBUTING.md#sign-your-work),
+    [Chef's DCO guidelines](https://github.com/chef/chef/blob/master/CONTRIBUTING.md#developer-certification-of-origin-dco) or [rclcpp's DCO guidelines](https://github.com/ros2/rclcpp/blob/master/CONTRIBUTING.md) for more context.
+
 
 Merging strategy:
 
