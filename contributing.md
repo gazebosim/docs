@@ -292,6 +292,7 @@ The following repositories from [Ignition Robotics](https://github.com/ignitionr
 * ign-transport          
 * docs
 * design
+* ros_ign
 
 New issues and pull requests, and issue and pull request statuses, from across the tracked repositories are all automatically synced with the same board.
 
