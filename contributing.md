@@ -302,6 +302,7 @@ The following repos can't be handled automatically and have to be manually track
 
 * [sdformat](https://github.com/osrf/sdformat)
 * [gazebo](https://github.com/osrf/gazebo)
+* [homebrew-simulation](https://github.com/osrf/homebrew-simulation)
 * [gazebo_ros_pkgs](https://github.com/ros-simulation/gazebo_ros_pkgs/)
 * [release-tools](https://github.com/ignition-tooling/release-tools)
 * [gazebodistro](https://github.com/ignition-tooling/gazebodistro)
