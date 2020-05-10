@@ -28,6 +28,7 @@ pip install vcstool
 ```bash
 pip install -U colcon-common-extensions
 ```
+Test the programs installed using PIP, if the system is not recognising the commans, and you're using a sistem that is compatible with Debian or Ubuntu packages, **install using apt is a good idea because the system is automatically configured**.  
 
 ## vcstool and colcon from apt
 
