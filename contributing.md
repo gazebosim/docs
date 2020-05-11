@@ -270,7 +270,7 @@ Using project boards ensures the community has visibility to what’s coming up,
 external contributors can understand where they can help, and the reasoning behind
 development decisions are visible to everyone.
 
-The Core development board can be seen [here](https://github.com/orgs/ignitionrobotics/projects/3).
+Contributors should look at the "Core development" board [here]((https://github.com/orgs/ignitionrobotics/projects/3), though it's possible we may have other boards in our organization at various times.
 
 #### Repositories
 
