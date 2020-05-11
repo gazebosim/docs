@@ -356,10 +356,11 @@ Pull requests can be merged when:
 * They have at least 1 approval from a member of the core team
 * There are no unresolved comments
 * CI is passing
-* [DCO](https://developercertificate.org/) check is passing
+* [Developer Certificate of Origin](https://developercertificate.org/) (DCO) check is passing
 
-  * See [Docker's DCO guidelines](https://github.com/moby/moby/blob/master/CONTRIBUTING.md#sign-your-work),
-    [Chef's DCO guidelines](https://github.com/chef/chef/blob/master/CONTRIBUTING.md#developer-certification-of-origin-dco) or [rclcpp's DCO guidelines](https://github.com/ros2/rclcpp/blob/master/CONTRIBUTING.md) for more context.
+  * DCO is a declaration of ownership, basically saying that you created the contribution and that it is suitable to be covered under an open source license (not proprietary).
+  * All you have to do is end your commit message with `Signed-off-by: Your Full Name <your.name@email.com>`
+  * If your `user.name` and `user.email` configurations are set up in git, then you can simply run `git commit -s` to have your signature automatically appended.
 
 
 Merging strategy:
