@@ -21,6 +21,7 @@ propose changes to this document in a pull request.
   * [Reporting Bugs](#markdown-header-reporting-bugs)
   * [Suggesting Enhancements](#markdown-header-suggesting-enhancements)
   * [Contributing Code](#markdown-header-contributing-code)
+  * [Tracking Progress](#markdown-header-tracking-progress)
 
 [Writing Tests](#markdown-header-writing-tests)
 
@@ -49,10 +50,14 @@ modules used to configure and build Ignition libraries.
 * [ign-common](https://github.com/ignitionrobotics/ign-common): Set of
 general purpose components and utilities, such as 3D mesh processing, console
 logging, and signal handling.
+* [ign-fuel-tools](https://github.com/ignitionrobotics/ign-fuel-tools): Interact
+with Ignition Fuel servers.
 * [ign-gazebo](https://github.com/ignitionrobotics/ign-gazebo):
 A high-fidelity 3D rigid-body dynamic simulator.
 * [ign-gui](https://github.com/ignitionrobotics/ign-gui): QT-based
 library to configure and manage graphical applications.
+* [ign-launch](https://github.com/ignitionrobotics/ign-launch): Launch
+executables and plugins.
 * [ign-math](https://github.com/ignitionrobotics/ign-math): A math
 library targeted toward robotic applications.
 * [ign-msgs](https://github.com/ignitionrobotics/ign-msgs): Protobuf
@@ -72,6 +77,7 @@ libraries.
 * [ign-transport](https://github.com/ignitionrobotics/ign-transport):
 High performance inter- and intra-process communication based on
 [ZeroMQ](http://zeromq.org/) and [Protobuf](https://developers.google.com/protocol-buffers/).
+* [sdformat](https://github.com/osrf/sdformat): World description format.
 
 ## How to Contribute
 
@@ -261,6 +267,118 @@ get aquainted with this development process.
 1. **Respond to reviewers.** At least two other people have to approve your pull request before it can be merged. Please be responsive to any questions and comments.
 
 1. **Done, phew.** Once you have met all the requirements, you're code will be merged. Thanks for improving Ignition Robotics!
+
+### Tracking Progress
+
+Ignition development progress is tracked publicly using a GitHub project board.
+Using project boards ensures the community has visibility to what’s coming up,
+external contributors can understand where they can help, and the reasoning behind
+development decisions are visible to everyone.
+
+Contributors should look at the ["Core development" board](https://github.com/orgs/ignitionrobotics/projects/3), though it's possible we may have other boards in our organization at various times.
+
+#### Repositories
+
+The following repositories from [Ignition Robotics](https://github.com/ignitionrobotics/) are tracked:
+
+* [ign-cmake](https://github.com/ignitionrobotics/ign-cmake)
+* [ign-common](https://github.com/ignitionrobotics/ign-common)
+* [ign-fuel-tools](https://github.com/ignitionrobotics/ign-fuel-tools)
+* [ign-gazebo](https://github.com/ignitionrobotics/ign-gazebo)
+* [ign-gui](https://github.com/ignitionrobotics/ign-gui)
+* [ign-launch](https://github.com/ignitionrobotics/ign-launch)
+* [ign-math](https://github.com/ignitionrobotics/ign-math)
+* [ign-msgs](https://github.com/ignitionrobotics/ign-msgs)
+* [ign-physics](https://github.com/ignitionrobotics/ign-physics)
+* [ign-plugin](https://github.com/ignitionrobotics/ign-plugin)
+* [ign-rendering](https://github.com/ignitionrobotics/ign-rendering)
+* [ign-sensors](https://github.com/ignitionrobotics/ign-sensors)
+* [ign-tools](https://github.com/ignitionrobotics/ign-tools)
+* [ign-transport](https://github.com/ignitionrobotics/ign-transport)
+* [docs](https://github.com/ignitionrobotics/docs/)
+* [design](https://github.com/ignitionrobotics/design)
+* [ros_ign](https://github.com/ignitionrobotics/ros_ign)
+
+
+New issues and pull requests, and issue and pull request statuses, from across the tracked repositories are all automatically synced with the same board.
+
+Unfortunately, GitHub boards' cross-org support is poor.
+The following repos can't be handled automatically and have to be manually tracked on the board along with the ones listed above:
+
+* [sdformat](https://github.com/osrf/sdformat)
+* [gazebo](https://github.com/osrf/gazebo)
+* [homebrew-simulation](https://github.com/osrf/homebrew-simulation)
+* [gazebo_ros_pkgs](https://github.com/ros-simulation/gazebo_ros_pkgs/)
+* [release-tools](https://github.com/ignition-tooling/release-tools)
+* [gazebodistro](https://github.com/ignition-tooling/gazebodistro)
+
+#### Board Columns
+
+The project board columns are defined below:
+
+* **Inbox**: New issues and pull requests
+* **To do**: Issues ready to be worked on.
+* **In progress**: Issues being worked on / pull requests being iterated on.
+* **In review**: Pull requests under review / issues requesting feedback.
+* **Done**: Closed issues / pull requests (cleared from time to time).
+
+If a ticket is not on the board, it means that the core team is not planning
+to work on it, but the community is welcome to do so.
+
+#### Process
+
+All Ignition team members actively:
+
+* **Watch** all Ignition repositories to receive email notifications of new issues / pull requests
+* Provide **feedback** to issues as soon as possible
+* **Review** pull requests as soon as possible
+
+  * Team members can review pull requests already under review or approved
+  * Team members can provide some feedback without doing a full review
+
+During weekly simulation meetings, the team:
+
+* Quickly **triages** the inbox, if there’s anything left in it
+
+  * If we won’t work on an issue in the near future, **remove** it from the board.
+  * If we’re going to work on an issue, move it to **To Do**, no assignment necessary initially.
+  * If we won’t review a pull request in the near future, **close** it.
+
+* Discusses **In Review** column and additional tickets that people want to bring up
+* Discusses the **Done** column and archives all tickets
+
+When opening a pull-request:
+
+* **Labels** according to the targeted collection(s) (blueprint, citadel, etc) will be added automatically
+* Add yourself as the **assignee**
+
+  * Maintainers of each repo will be also automatically assigned
+
+* It will be automatically triaged to the “Core development” **project board**
+* Add **reviewers** as appropriate
+
+  * If reviewers won’t be able to review soon, they can remove themselves and also let the original author know
+
+Pull requests can be merged when:
+
+* They have at least 1 approval from a member of the core team
+* There are no unresolved comments
+* CI is passing
+* [Developer Certificate of Origin](https://developercertificate.org/) (DCO) check is passing
+
+  * DCO is a declaration of ownership, basically saying that you created the contribution and that it is suitable to be covered under an open source license (not proprietary).
+  * All you have to do is end your commit message with `Signed-off-by: Your Full Name <your.name@email.com>`
+  * If your `user.name` and `user.email` configurations are set up in git, then you can simply run `git commit -s` to have your signature automatically appended.
+
+
+Merging strategy:
+
+* For internal contributions, give the original author some time to hit the merge button themselves / check directly with them if it’s ok to merge.
+* Default to “squash and merge”
+  * Make sure the commit message captures the core ideas of the pull request.
+* “Rebase and merge” when moving files (do a `git mv` as a separate commit)
+* Refrain from force-pushing while the PR is under review (which includes rebasing and squashing)
+
 
 ## Writing Tests
 
