@@ -14,7 +14,7 @@ git clone https://github.com/$1/$2 -b $3
 cd $2
 mkdir build
 cd build
-cmake ../
+cmake ../ -DBUILD_TESTING=false
 sudo make install
 
 if [[ ! -z "$4" && "$4" != "n" ]]; then
