@@ -50,10 +50,14 @@ modules used to configure and build Ignition libraries.
 * [ign-common](https://github.com/ignitionrobotics/ign-common): Set of
 general purpose components and utilities, such as 3D mesh processing, console
 logging, and signal handling.
+* [ign-fuel-tools](https://github.com/ignitionrobotics/ign-fuel-tools): Interact
+with Ignition Fuel servers.
 * [ign-gazebo](https://github.com/ignitionrobotics/ign-gazebo):
 A high-fidelity 3D rigid-body dynamic simulator.
 * [ign-gui](https://github.com/ignitionrobotics/ign-gui): QT-based
 library to configure and manage graphical applications.
+* [ign-launch](https://github.com/ignitionrobotics/ign-launch): Launch
+executables and plugins.
 * [ign-math](https://github.com/ignitionrobotics/ign-math): A math
 library targeted toward robotic applications.
 * [ign-msgs](https://github.com/ignitionrobotics/ign-msgs): Protobuf
@@ -73,6 +77,7 @@ libraries.
 * [ign-transport](https://github.com/ignitionrobotics/ign-transport):
 High performance inter- and intra-process communication based on
 [ZeroMQ](http://zeromq.org/) and [Protobuf](https://developers.google.com/protocol-buffers/).
+* [sdformat](https://github.com/osrf/sdformat): World description format.
 
 ## How to Contribute
 
@@ -270,7 +275,7 @@ Using project boards ensures the community has visibility to what’s coming up,
 external contributors can understand where they can help, and the reasoning behind
 development decisions are visible to everyone.
 
-Contributors should look at the "Core development" board [here]((https://github.com/orgs/ignitionrobotics/projects/3), though it's possible we may have other boards in our organization at various times.
+Contributors should look at the ["Core development" board](https://github.com/orgs/ignitionrobotics/projects/3), though it's possible we may have other boards in our organization at various times.
 
 #### Repositories
 
@@ -311,11 +316,14 @@ The following repos can't be handled automatically and have to be manually track
 
 The project board columns are defined below:
 
-* **Inbox**: New issues and pull requests (automated, but author needs to specify project when creating ticket).
+* **Inbox**: New issues and pull requests
 * **To do**: Issues ready to be worked on.
 * **In progress**: Issues being worked on / pull requests being iterated on.
 * **In review**: Pull requests under review / issues requesting feedback.
 * **Done**: Closed issues / pull requests (cleared from time to time).
+
+If a ticket is not on the board, it means that the core team is not planning
+to work on it, but the community is welcome to do so.
 
 #### Process
 
