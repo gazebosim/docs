@@ -19,7 +19,7 @@ Start by getting Ignition up and running with a sample world:
 ign gazebo shapes.sdf
 ```
 
-The previous tutorial, [Understanding the GUI](/docs/citadel/GUI_tutorial), explains the basics of navigating the Ignition GUI.
+The previous tutorial, [Understanding the GUI](/docs/citadel/gui), explains the basics of navigating the Ignition GUI.
 
 ## Transform Control
 
@@ -145,4 +145,4 @@ You can align more than two models, just select the others with `Ctrl` + click.
 
 So far you've interacted with basic shape models to learn about Ignition's GUI.
 It's also possible to insert more detailed models from [Ignition Fuel](https://app.ignitionrobotics.org) into the GUI.
-Check out the [Model Insertion from Fuel](/docs/citadel/Model_insertion_fuel) tutorial to learn how.
+Check out the [Model Insertion from Fuel](/docs/citadel/fuel_insert) tutorial to learn how.
