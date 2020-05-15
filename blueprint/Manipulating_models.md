@@ -49,7 +49,7 @@ Translate mode allows you to translate entities along the x, y and z axes.
 
 Click on any entity while in translate mode to see the arrows representing the axes you can move along.
 The red arrow represents the x-axis, green the y-axis, and blue the z-axis.
-It's easy to remember if you think "XYZ - RGB".
+It's easy to remember if you think "XYZ - RGB."
 Click and hold on any of the arrows while moving your mouse to move the entity in that direction.
 
 ![Translate mode](img/translate.gif)
