@@ -17,7 +17,7 @@ Start by getting Ignition up and running with a sample world:
 ign gazebo shapes.sdf
 ```
 
-The previous tutorial, [Understanding the GUI](GUI_tutorial), explains the basics of navigating the Ignition GUI.
+The previous tutorial, [Understanding the GUI](/docs/blueprint/gui), explains the basics of navigating the Ignition GUI.
 
 ## Transform Control
 
@@ -130,4 +130,4 @@ You can also select multiple entities to face simultaneously from each view angl
 
 So far you've interacted with basic shape models to learn about Ignition's GUI.
 It's also possible to insert more detailed models from [Ignition Fuel](https://app.ignitionrobotics.org) into the GUI.
-Check out the [Model Insertion from Fuel](/docs/blueprint/Model_insertion_fuel) tutorial to learn how.
+Check out the [Model Insertion from Fuel](/docs/blueprint/fuel_insert) tutorial to learn how.
