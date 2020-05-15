@@ -12,9 +12,11 @@
 
   <tr><td>Enter Selection mode (default mode)</td><td>Esc</td><td>press "Esc" for Select (model) mode</td></tr>
 
-  <tr><td>Enter Rotate mode</td><td>r</td><td>press "r" for Rotate (model) mode</td></tr><!-
+  <tr><td>Enter Rotate mode</td><td>r</td><td>press "r" for Rotate (model) mode</td></tr>
 
   <tr><td>Enter Translate mode</td><td>t</td><td>press "t" for Translate (model) mode</td></tr>
+
+  <tr><td>Pause / unpause</td><td>Space</td><td>press the space bar to pause / unpause</td></tr>
 
   <!--Manipulating Models section -->
 

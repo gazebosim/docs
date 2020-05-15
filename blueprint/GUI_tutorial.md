@@ -42,11 +42,11 @@ The interface consists of several sections:
 
 The orange toolbar along the top of the GUI contains two buttons, a file menu button on the left (horizontal stripes), and a plugins button on the right (vertical ellipsis).
 
-The file menu button allows you to save and load interface configurations and customize interface style settings.
+The file menu button allows you to save the world to a file, save and load interface configurations and customize interface style settings.
 An interface configuration consists of the plugins you have loaded and the style settings in place.
 
 The plugins button lists all the available plugins.
-You can scroll down this list to see all the plugins, though some may not be available for your version of Ignition.
+You can scroll down this list to see all the plugins that are available for your version of Ignition.
 When you select one, its interface will appear in the right panel.
 
 ### The Right Panel
@@ -64,7 +64,7 @@ You can also hold `Ctrl` and click to select multiple.
 
 ![Selecting multiple entities from the entity tree](img/entity_select.png)
 
-You can also right-click on any plugin in the right panel to open basic `Settings` or to `Close`.
+You can also right-click on any plugin to open basic `Settings` or to `Close`.
 
 ### The Scene
 
@@ -104,4 +104,4 @@ The function of the World Control options will become clearer once you begin man
 
 ## Next Up
 
-Now that you're comfortable with Ignition GUI navigation and terminology, let's start learning about more meaningful model interactions with the [Manipulating Models](/blueprint/Manipulating_models) tutorial.
+Now that you're comfortable with Ignition GUI navigation and terminology, let's start learning about more meaningful model interactions with the [Manipulating Models](/docs/blueprint/Manipulating_models) tutorial.

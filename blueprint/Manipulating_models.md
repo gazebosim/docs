@@ -3,11 +3,11 @@
 This tutorial will walk you through using various plugins to assist model and scene manipulation in the Ignition GUI.
 
 The Transform Control plugin is a combination of keybindings and transform control options: selection, translation, rotation and custom snap values.
-This chart of [Ignition's keyboard shortcuts](/blueprint/hotkeys) may be helpful for this tutorial.
+This chart of [Ignition's keyboard shortcuts](/docs/blueprint/hotkeys) may be helpful for this tutorial.
 
 The View Angle plugin allows you to quickly and easily adjust the direction from which your scene faces an entity in the simulation.
 
-The Component Inspector plugin displays a variety of of object attributes.
+The Component Inspector plugin displays a variety of object attributes.
 
 ## Prerequisites
 
@@ -17,7 +17,7 @@ Start by getting Ignition up and running with a sample world:
 ign gazebo shapes.sdf
 ```
 
-The previous tutorial, [Understanding the GUI](/blueprint/GUI_tutorial), explains the basics of navigating the Ignition GUI.
+The previous tutorial, [Understanding the GUI](GUI_tutorial), explains the basics of navigating the Ignition GUI.
 
 ## Transform Control
 
@@ -49,6 +49,7 @@ Translate mode allows you to translate entities along the x, y and z axes.
 
 Click on any entity while in translate mode to see the arrows representing the axes you can move along.
 The red arrow represents the x-axis, green the y-axis, and blue the z-axis.
+It's easy to remember if you think "XYZ - RGB."
 Click and hold on any of the arrows while moving your mouse to move the entity in that direction.
 
 ![Translate mode](img/translate.gif)
@@ -128,5 +129,5 @@ You can also select multiple entities to face simultaneously from each view angl
 ## Next Up
 
 So far you've interacted with basic shape models to learn about Ignition's GUI.
-It's also possible to insert more detailed models from [Ignition Fuel](app.ignitionrobotics.org) into the GUI.
-Check out the [Model Insertion from Fuel](/blueprint/Model_insertion_fuel) tutorial to learn how.
+It's also possible to insert more detailed models from [Ignition Fuel](https://app.ignitionrobotics.org) into the GUI.
+Check out the [Model Insertion from Fuel](/docs/blueprint/Model_insertion_fuel) tutorial to learn how.
