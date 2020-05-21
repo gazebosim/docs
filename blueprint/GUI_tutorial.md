@@ -104,4 +104,4 @@ The function of the World Control options will become clearer once you begin man
 
 ## Next Up
 
-Now that you're comfortable with Ignition GUI navigation and terminology, let's start learning about more meaningful model interactions with the [Manipulating Models](/docs/blueprint/Manipulating_models) tutorial.
+Now that you're comfortable with Ignition GUI navigation and terminology, let's start learning about more meaningful model interactions with the [Manipulating Models](/docs/blueprint/manipulating_models) tutorial.
