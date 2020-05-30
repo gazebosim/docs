@@ -4,6 +4,10 @@ A list of features present in [Gazebo-classic](https://bitbucket.org/osrf/gazebo
 version 11 and the status of their migration to
 [Ignition](https://ignitionrobotics.org/).
 
+All the issues below are labeled with
+[close the gap](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22close+the+gap%22&type=Issues)
+on GitHub.
+
 ## Sensors
 
 Sensor | Gazebo-classic | Ignition Gazebo
@@ -46,14 +50,14 @@ ArduCopterPlugin | ✓ | TODO
 AttachLightPlugin | ✓ | ✕ Does not apply, use SDF
 Breadcrumbs | ✕ | ✓
 BuoyancyPlugin | ✓ | [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/159)
-CartDemoPlugin | ✓ | TODO
+CartDemoPlugin | ✓ | ✕
 CessnaPlugin | ✓ | TODO
 DiffDrivePlugin | ✓ | ✓
-ElevatorPlugin | ✓ |
+ElevatorPlugin | ✓ | TODO
 FlashLightPlugin | ✓ | TODO
 FollowerPlugin | ✓ | TODO
 GimbalSmall2dPlugin | ✓ | TODO
-GravityCompensationPlugin | ✓ |
+GravityCompensationPlugin | ✓ | TODO
 HarnessPlugin | ✓ | TODO
 HydraDemoPlugin | ✓ | TODO
 InitialVelocityPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/50)
@@ -109,7 +113,7 @@ GpuRayPlugin | ✓ | TODO
 ImuSensorPlugin | ✓ | TODO
 LensFlareSensorPlugin | ✓ | TODO
 PressurePlugin | ✓ | TODO
-RayPlugin | ✓ | Provided through Ignition Sensors
+RayPlugin | ✓ | TODO
 RaySensorNoisePlugin | ✓ | TODO
 SonarPlugin | ✓ | TODO
 
