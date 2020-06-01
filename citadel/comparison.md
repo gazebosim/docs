@@ -194,10 +194,10 @@ in Gazebo.
 
 Feature | Gazebo-classic | Ignition Gazebo
 -- | -- | --
-ODE engine | ✓ | TODO
+ODE engine | ✓ | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/63)
 Bullet engine | ✓ | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/44)
 DART engine | ✓ | ✓ Plugin shipped with ign-physics
-Simbody engine | ✓ | ✕
+Simbody engine | ✓ | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/63)
 Custom engine plugins | ✕ | ✓
 
 ## Rendering
@@ -225,6 +225,14 @@ Supported versions:
 
 * ROS 1 Melodic
 * ROS 2 Dashing
+
+## Platforms
+
+Platform | Gazebo-classic | Ignition Gazebo
+-- | -- | --
+Ubuntu | ✓ | ✓
+OSX | ✓ | Most of the stack works, outstanding issues: [command line](https://github.com/ignitionrobotics/ign-gazebo/issues/25), [render window](https://github.com/ignitionrobotics/ign-gazebo/issues/44)
+Windows | ✓ | The stack works up to ign-gazebo: [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/168)
 
 ## Others
 
