@@ -18,6 +18,10 @@ Concepts covered
 
 * Create your own robot using SDF file
 * Moving joints using GUI
+Quick summary:
+* Build two wheeled robot
+* download the empty world
+* include the robot in the world
 
 ## Moving the robot
 
