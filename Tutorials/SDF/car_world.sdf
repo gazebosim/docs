@@ -118,6 +118,7 @@
                 <pose relative_to=__model__>1 1 1 0 0 0</pose> 
                 <!--question: we can't refer to world due to scope-->
                 <!--Poses and frames within models cannot refer to the "world" frame.-->
+                <!--also childs of the world can't refer to it as -->
                 <inertial> <!--inertial properties of the link mass, inertia matix-->
                     <mass>1.2</mass>
                     <inertia>
@@ -137,9 +138,9 @@
                     </geometry>
                     <!--let's add color to our link-->
                     <material>
-                        <ambient>0.0 0.0 1.0 1</ambient>
-                        <diffuse>0.0 0.0 1.0 1</diffuse>
-                        <specular>0.0 0.0 1.0 1</specular>
+                        <ambient>0.0 0.0 1.0 0.5</ambient>
+                        <diffuse>0.0 0.0 1.0 0.5</diffuse>
+                        <specular>0.0 0.0 1.0 0.5</specular>
                     </material>
                 </visual>
                 <collision name='collision'> <!--todo: describe why we need the collision-->
@@ -187,7 +188,7 @@
                 </collision>
             </link>   
             <!--copy and paste for right wheel but change position-->
-            <link name='right_wheel'> <!--todo: change the inertia matrix-->
+            <link name='right_wheel'>
                 <pose relative_to="chassis">-0.5 -0.6 0 -1.5707 0 0</pose> <!--angles are in radian-->
                 <inertial>
                     <mass>1</mass>
@@ -224,9 +225,13 @@
 
             </link>
 
+            <frame name="F" attached_to='chassis'>
+                <pose>0.8 0 -0.45 0 0 0</pose>
+            </frame>
+
             <!--caster wheel-->
             <link name='caster'>
-                <pose relative_to='F'/> <!--todo: define a frame and use in the visual and collision-->
+                <pose relative_to='F'/>
                 <inertial>
                     <mass>1</mass>
                     <inertia>
@@ -259,9 +264,6 @@
                 </collision>
             </link>
 
-            <frame name="F" attached_to='chassis'>
-                <pose>0.8 0 -0.45 0 0 0</pose>
-            </frame>
             
             <!--connecting these links together using joints-->
             <joint name='left_wheel_joint' type='revolute'> <!--continous joint is not supported yet-->

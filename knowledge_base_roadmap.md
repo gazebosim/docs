@@ -1,7 +1,7 @@
 # Knowledge base Roadmap
 
 ## Ign gazebo UI
-
+already there: [Understanding the GUI](https://ignitionrobotics.org/docs/citadel/gui)
 Goal: introduction to the user interface of ign gazebo
 Concepts covered
 
