@@ -114,11 +114,8 @@
         <!--Let's build our robot bit by bit-->
         <model name='vehicle_blue' canonical_link='chassis'>
             <pose relative_to=world>0 0 0 0 0 0</pose>   <!--the pose is relative to the world by default-->
-            <link name='chassis'>   <!--todo add canonical link, remove pose-->
+            <link name='chassis'>   
                 <pose relative_to=__model__>1 1 1 0 0 0</pose> 
-                <!--question: we can't refer to world due to scope-->
-                <!--Poses and frames within models cannot refer to the "world" frame.-->
-                <!--also childs of the world can't refer to it as -->
                 <inertial> <!--inertial properties of the link mass, inertia matix-->
                     <mass>1.2</mass>
                     <inertia>
@@ -225,13 +222,13 @@
 
             </link>
 
-            <frame name="F" attached_to='chassis'>
+            <frame name="caster_frame" attached_to='chassis'>
                 <pose>0.8 0 -0.45 0 0 0</pose>
             </frame>
 
             <!--caster wheel-->
             <link name='caster'>
-                <pose relative_to='F'/>
+                <pose relative_to='caster_frame'/>
                 <inertial>
                     <mass>1</mass>
                     <inertia>
