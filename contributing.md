@@ -384,7 +384,7 @@ Porting changes across branches:
 
 * Pull requests should target the lowest possible
   [supported version](https://ignitionrobotics.org/docs/all/releases) where the
-  changes can be added in a backwards-compatible way (no API / ABI behaviour
+  changes can be added in a backwards-compatible way (no API / ABI / behavior
   break in released branches).
 * Periodically, a maintainer will **forward-port** changes to newer release
   branches all the way up to `master`.
@@ -401,9 +401,21 @@ Porting changes across branches:
         git commit -sam"Merge M into N"
         # Open pull request
 
-* When merging the pull request, **do not squash or rebase**, create a merge commit.
 * In the rare event that a pull request needs to be backported (i.e. from a
-  higher version to a lower version), use `git cherry-pick`
+  higher version to a lower version), use `git cherry-pick`, for example:
+
+        git checkout ign-<library>N
+        git pull
+        git checkout ign-<library>M
+        git pull
+        git checkout -b N_to_M_<date>
+        git cherry-pick <commits from verrsion N>
+        # Fix conflicts
+        git commit -sam"Backport from N to M"
+        # Open pull request
+
+* When merging a port pull request, **do not squash or rebase**, create a merge
+  commit instead.
 
 ## Writing Tests
 
