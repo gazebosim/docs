@@ -2,208 +2,129 @@
 
 ## Introduction
 
-In this tutorial we will learn how to build our own in SDFormat. We will build a simple two wheeled two robot which looks like this. You can download the code of this tutorial from [here](car_world).
+In this tutorial we will learn how to build our own in SDFormat. We will build a simple two wheeled two robot which looks like this. You can download the code of this tutorial from [here](car_world).<br/>
 
-![Simple two wheeled robot]()
+## Building the world
 
-Our model will also need a world to spawn into. We can use the `empty.sdf` example as a world and add our model into it. You can download it from [here](https://raw.githubusercontent.com/ignitionrobotics/ign-gazebo/master/examples/worlds/empty.sdf) or copy and paste the code snippet below into your text editor.
+Our model will also need a world to spawn into. We will start by this simple world and add our model to it.
 
 ~~~
 <?xml version="1.0" ?>
-<!--
-  Try inserting a model:
+<sdf version="1.7">
+    <world name="car_world">
+        <physics name="1ms" type="ignored">
+            <max_step_size>0.001</max_step_size>
+            <real_time_factor>1.0</real_time_factor>
+        </physics>
+        <plugin
+            filename="libignition-gazebo-physics-system.so"
+            name="ignition::gazebo::systems::Physics">
+        </plugin>
+        <plugin
+            filename="libignition-gazebo-user-commands-system.so"
+            name="ignition::gazebo::systems::UserCommands">
+        </plugin>
+        <plugin
+            filename="libignition-gazebo-scene-broadcaster-system.so"
+            name="ignition::gazebo::systems::SceneBroadcaster">
+        </plugin>
+        <plugin
+            filename="libignition-gazebo-contact-system.so"
+            name="ignition::gazebo::systems::Contact">
+        </plugin>
 
-ign service -s /world/empty/create \
---reqtype ignition.msgs.EntityFactory \
---reptype ignition.msgs.Boolean \
---timeout 300 \
---req 'sdf: '\
-'"<?xml version=\"1.0\" ?>'\
-'<sdf version=\"1.6\">'\
-'<model name=\"spawned_model\">'\
-'<link name=\"link\">'\
-'<visual name=\"visual\">'\
-'<geometry><sphere><radius>1.0</radius></sphere></geometry>'\
-'</visual>'\
-'<collision name=\"visual\">'\
-'<geometry><sphere><radius>1.0</radius></sphere></geometry>'\
-'</collision>'\
-'</link>'\
-'</model>'\
-'</sdf>" '\
-'pose: {position: {z: 10}} '\
-'name: "new_name" '\
-'allow_renaming: true'
+        <gui fullscreen="0">
 
-  Then try deleting it:
+            <!-- 3D scene -->
+            <plugin filename="GzScene3D" name="3D View">
+                <ignition-gui>
+                <title>3D View</title>
+                <property type="bool" key="showTitleBar">false</property>
+                <property type="string" key="state">docked</property>
+                </ignition-gui>
 
-ign service -s /world/empty/remove \
---reqtype ignition.msgs.Entity \
---reptype ignition.msgs.Boolean \
---timeout 300 \
---req 'name: "new_name" type: MODEL'
+                <engine>ogre2</engine>
+                <scene>scene</scene>
+                <ambient_light>0.4 0.4 0.4</ambient_light>
+                <background_color>0.8 0.8 0.8</background_color>
+            </plugin>
 
-  Try inserting a light:
+            <!-- World control -->
+            <plugin filename="WorldControl" name="World control">
+                <ignition-gui>
+                <title>World control</title>
+                <property type="bool" key="showTitleBar">false</property>
+                <property type="bool" key="resizable">false</property>
+                <property type="double" key="height">72</property>
+                <property type="double" key="width">121</property>
+                <property type="double" key="z">1</property>
 
-ign service -s /world/empty/create --reqtype ignition.msgs.EntityFactory --reptype ignition.msgs.Boolean --timeout 300 --req 'sdf: '\
-'"<?xml version=\"1.0\" ?>'\
-'<sdf version=\"1.6\">'\
-'<light name=\"spawned_light\" type=\"directional\">'\
-'<pose>0 0 10 0.1 1.0 0</pose>'\
-'</light>'\
-'</sdf>"'
+                <property type="string" key="state">floating</property>
+                <anchors target="3D View">
+                    <line own="left" target="left"/>
+                    <line own="bottom" target="bottom"/>
+                </anchors>
+                </ignition-gui>
 
-  Then try deleting it:
+                <play_pause>true</play_pause>
+                <step>true</step>
+                <start_paused>true</start_paused>
+                <service>/world/empty/control</service>
+                <stats_topic>/world/empty/stats</stats_topic>
 
-ign service -s /world/empty/remove \
---reqtype ignition.msgs.Entity \
---reptype ignition.msgs.Boolean \
---timeout 300 \
---req 'name: "spawned_light" type: LIGHT'
+            </plugin>
 
--->
-<sdf version="1.6">
-  <world name="empty">
-    <physics name="1ms" type="ignored">
-      <max_step_size>0.001</max_step_size>
-      <real_time_factor>1.0</real_time_factor>
-    </physics>
-    <plugin
-      filename="libignition-gazebo-physics-system.so"
-      name="ignition::gazebo::systems::Physics">
-    </plugin>
-    <plugin
-      filename="libignition-gazebo-user-commands-system.so"
-      name="ignition::gazebo::systems::UserCommands">
-    </plugin>
-    <plugin
-      filename="libignition-gazebo-scene-broadcaster-system.so"
-      name="ignition::gazebo::systems::SceneBroadcaster">
-    </plugin>
-    <plugin
-      filename="libignition-gazebo-contact-system.so"
-      name="ignition::gazebo::systems::Contact">
-    </plugin>
+            <!-- World statistics -->
+            <plugin filename="WorldStats" name="World stats">
+                <ignition-gui>
+                <title>World stats</title>
+                <property type="bool" key="showTitleBar">false</property>
+                <property type="bool" key="resizable">false</property>
+                <property type="double" key="height">110</property>
+                <property type="double" key="width">290</property>
+                <property type="double" key="z">1</property>
 
-    <gui fullscreen="0">
+                <property type="string" key="state">floating</property>
+                <anchors target="3D View">
+                    <line own="right" target="right"/>
+                    <line own="bottom" target="bottom"/>
+                </anchors>
+                </ignition-gui>
 
-      <!-- 3D scene -->
-      <plugin filename="GzScene3D" name="3D View">
-        <ignition-gui>
-          <title>3D View</title>
-          <property type="bool" key="showTitleBar">false</property>
-          <property type="string" key="state">docked</property>
-        </ignition-gui>
+                <sim_time>true</sim_time>
+                <real_time>true</real_time>
+                <real_time_factor>true</real_time_factor>
+                <iterations>true</iterations>
+                <topic>/world/empty/stats</topic>
 
-        <engine>ogre2</engine>
-        <scene>scene</scene>
-        <ambient_light>0.4 0.4 0.4</ambient_light>
-        <background_color>0.8 0.8 0.8</background_color>
-      </plugin>
+            </plugin>
 
-      <!-- World control -->
-      <plugin filename="WorldControl" name="World control">
-        <ignition-gui>
-          <title>World control</title>
-          <property type="bool" key="showTitleBar">false</property>
-          <property type="bool" key="resizable">false</property>
-          <property type="double" key="height">72</property>
-          <property type="double" key="width">121</property>
-          <property type="double" key="z">1</property>
+            <!-- Entity tree -->
+            <plugin filename="EntityTree" name="Entity tree">
+            </plugin>
 
-          <property type="string" key="state">floating</property>
-          <anchors target="3D View">
-            <line own="left" target="left"/>
-            <line own="bottom" target="bottom"/>
-          </anchors>
-        </ignition-gui>
+        </gui>
 
-        <play_pause>true</play_pause>
-        <step>true</step>
-        <start_paused>true</start_paused>
-        <service>/world/empty/control</service>
-        <stats_topic>/world/empty/stats</stats_topic>
-
-      </plugin>
-
-      <!-- World statistics -->
-      <plugin filename="WorldStats" name="World stats">
-        <ignition-gui>
-          <title>World stats</title>
-          <property type="bool" key="showTitleBar">false</property>
-          <property type="bool" key="resizable">false</property>
-          <property type="double" key="height">110</property>
-          <property type="double" key="width">290</property>
-          <property type="double" key="z">1</property>
-
-          <property type="string" key="state">floating</property>
-          <anchors target="3D View">
-            <line own="right" target="right"/>
-            <line own="bottom" target="bottom"/>
-          </anchors>
-        </ignition-gui>
-
-        <sim_time>true</sim_time>
-        <real_time>true</real_time>
-        <real_time_factor>true</real_time_factor>
-        <iterations>true</iterations>
-        <topic>/world/empty/stats</topic>
-
-      </plugin>
-
-      <!-- Entity tree -->
-      <plugin filename="EntityTree" name="Entity tree">
-      </plugin>
-
-    </gui>
-
-    <light type="directional" name="sun">
-      <cast_shadows>true</cast_shadows>
-      <pose>0 0 10 0 0 0</pose>
-      <diffuse>0.8 0.8 0.8 1</diffuse>
-      <specular>0.2 0.2 0.2 1</specular>
-      <attenuation>
-        <range>1000</range>
-        <constant>0.9</constant>
-        <linear>0.01</linear>
-        <quadratic>0.001</quadratic>
-      </attenuation>
-      <direction>-0.5 0.1 -0.9</direction>
-    </light>
-
-    <model name="ground_plane">
-      <static>true</static>
-      <link name="link">
-        <collision name="collision">
-          <geometry>
-            <plane>
-              <normal>0 0 1</normal>
-            </plane>
-          </geometry>
-        </collision>
-        <visual name="visual">
-          <geometry>
-            <plane>
-              <normal>0 0 1</normal>
-              <size>100 100</size>
-            </plane>
-          </geometry>
-          <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
+        <light type="directional" name="sun">
+            <cast_shadows>true</cast_shadows>
+            <pose>0 0 10 0 0 0</pose>
             <diffuse>0.8 0.8 0.8 1</diffuse>
-            <specular>0.8 0.8 0.8 1</specular>
-          </material>
-        </visual>
-      </link>
-    </model>
-
-  </world>
+            <specular>0.2 0.2 0.2 1</specular>
+            <attenuation>
+                <range>1000</range>
+                <constant>0.9</constant>
+                <linear>0.01</linear>
+                <quadratic>0.001</quadratic>
+            </attenuation>
+            <direction>-0.5 0.1 -0.9</direction>
+        </light>
+    </world>
 </sdf>
 ~~~
 
 ## What is SDF?
 
-Before explaining the `empty.sdf` world let's answer the question, "What is SDFormat?"
+Before explaining the world let's answer the question, "What is SDFormat?"
 SDFormat (Simulation Description Format), sometimes abbreviated as SDF, is an XML format that describes objects and environments for robot simulators, visualization, and control.
 
 ## Building a world in SDF
@@ -464,6 +385,6 @@ The right_wheel_joint is very similar except for the pose of the joint and this 
 
 For the caster we need different type of joint(connection). we used `type='ball'` which gives 3 rotational degrees of freedom.
 
-## Next step
-
+## Conclusion 
+Run the world to see it using this command `ign gazebo car_world.sdf` <br/>
 Hurray we build our first robot. You can know more details about SDFormat tags [here][http://sdformat.org/spec]. In the next tutorial we will learn how to move our robot around.

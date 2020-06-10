@@ -134,8 +134,199 @@
       </link>
     </model>
 
-    <include>
-      <uri>model://car_model</uri>
-    </include>
+    <model name='vehicle_blue' canonical_link='chassis'>
+    <pose relative_to=world>0 0 0 0 0 0</pose>   <!--the pose is relative to the world by default-->
+    <link name='chassis'>   
+        <pose relative_to=__model__>1 1 1 0 0 0</pose> 
+        <inertial> <!--inertial properties of the link mass, inertia matix-->
+            <mass>1.2</mass>
+            <inertia>
+                <ixx>0.125</ixx>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyy>0.425</iyy>
+                <iyz>0</iyz>
+                <izz>0.5</izz>
+            </inertia>
+        </inertial>
+        <visual name='visual'>
+            <geometry>
+                <box>
+                    <size>2.0 1.0 0.5</size> <!--question: this size is in meter-->
+                </box>
+            </geometry>
+            <!--let's add color to our link-->
+            <material>
+                <ambient>0.0 0.0 1.0 0.5</ambient>
+                <diffuse>0.0 0.0 1.0 0.5</diffuse>
+                <specular>0.0 0.0 1.0 0.5</specular>
+            </material>
+        </visual>
+        <collision name='collision'> <!--todo: describe why we need the collision-->
+            <geometry>
+                <box>
+                    <size>2.0 1.0 0.5</size>
+                </box>
+            </geometry>
+        </collision>
+    </link>
+    <!--let's build the left wheel-->
+    <link name='left_wheel'> 
+        <pose relative_to='chassis'>-0.5 0.6 0 -1.5707 0 0</pose> <!--angles are in radian-->
+        <inertial>
+            <mass>1</mass>
+            <inertia>
+                <ixx>0.0433</ixx>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyy>0.0433</iyy>
+                <iyz>0</iyz>
+                <izz>0.0133</izz>
+            </inertia>
+        </inertial>
+        <visual name='visual'>
+            <geometry>
+                <cylinder>
+                    <radius>0.4</radius> 
+                    <length>0.2</length>
+                </cylinder>
+            </geometry>
+            <material>
+                <ambient>1.0 0.0 0.0 1</ambient>
+                <diffuse>1.0 0.0 0.0 1</diffuse>
+                <specular>1.0 0.0 0.0 1</specular>
+            </material>
+        </visual>
+        <collision name='collision'>
+            <geometry>
+                <cylinder>
+                    <radius>0.4</radius>
+                    <length>0.2</length>
+                </cylinder>
+            </geometry>
+        </collision>
+    </link>   
+    <!--copy and paste for right wheel but change position-->
+    <link name='right_wheel'>
+        <pose relative_to="chassis">-0.5 -0.6 0 -1.5707 0 0</pose> <!--angles are in radian-->
+        <inertial>
+            <mass>1</mass>
+            <inertia>
+                <ixx>0.0433</ixx>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyy>0.0433</iyy>
+                <iyz>0</iyz>
+                <izz>0.0133</izz>
+            </inertia>
+        </inertial>
+        <visual name='visual'>
+            <geometry>
+                <cylinder>
+                    <radius>0.4</radius>
+                    <length>0.2</length>
+                </cylinder>
+            </geometry>
+            <material>
+                <ambient>1.0 0.0 0.0 1</ambient>
+                <diffuse>1.0 0.0 0.0 1</diffuse>
+                <specular>1.0 0.0 0.0 1</specular>
+            </material>
+        </visual>
+        <collision name='collision'>
+            <geometry>
+                <cylinder>
+                    <radius>0.4</radius>
+                    <length>0.2</length>
+                </cylinder>
+            </geometry>
+        </collision>
+
+    </link>
+
+    <frame name="caster_frame" attached_to='chassis'>
+        <pose>0.8 0 -0.45 0 0 0</pose>
+    </frame>
+
+    <!--caster wheel-->
+    <link name='caster'>
+        <pose relative_to='caster_frame'/>
+        <inertial>
+            <mass>1</mass>
+            <inertia>
+                <ixx>0.1</ixx>
+                <ixy>0</ixy>
+                <ixz>0</ixz>
+                <iyy>0.1</iyy>
+                <iyz>0</iyz>
+                <izz>0.1</izz>
+            </inertia>
+        </inertial>
+        <visual name='visual'>
+            <geometry>
+                <sphere>
+                    <radius>0.2</radius>
+                </sphere>
+            </geometry>
+            <material>
+                <ambient>0.0 1 0.0 1</ambient>
+                <diffuse>0.0 1 0.0 1 1</diffuse>
+                <specular>0.0 1 0.0 1</specular>
+            </material>
+        </visual>
+        <collision name='collision'>
+            <geometry>
+                <sphere>
+                    <radius>0.2</radius>
+                </sphere>
+            </geometry>
+        </collision>
+    </link>
+
+    
+    <!--connecting these links together using joints-->
+    <joint name='left_wheel_joint' type='revolute'> <!--continous joint is not supported yet-->
+        <pose relative_to='chassis'>-0.5 0.5 0 0 0 0</pose>
+        <parent>chassis</parent>
+        <child>left_wheel</child>
+        <axis>
+            <xyz expressed_in='chassis'>0 1 0</xyz> <!--can be descired to any frame or even arbitrary frames-->
+            <limit>
+                <lower>-1.79769e+308</lower>    <!--negative infinity-->
+                <upper>1.79769e+308</upper>     <!--positive infinity-->
+            </limit>
+        </axis>
+    </joint>
+
+    <joint name='right_wheel_joint' type='revolute'>
+        <pose relative_to='chassis'>-0.5 -0.6 0 -1.5707 0 0</pose>
+        <parent>chassis</parent>
+        <child>right_wheel</child>
+        <axis>
+            <xyz expressed_in='chassis'>0 1 0</xyz>
+            <limit>
+                <lower>-1.79769e+308</lower>    <!--negative infinity-->
+                <upper>1.79769e+308</upper>     <!--positive infinity-->
+            </limit>
+        </axis>
+    </joint>
+
+    <!--different type of joints ball joint--> <!--defult value is the child-->
+    <joint name='caster_wheel' type='ball'>
+        <parent>chassis</parent>
+        <child>caster</child>
+    </joint>
+
+    <plugin
+        filename="libignition-gazebo-diff-drive-system.so"
+        name="ignition::gazebo::systems::DiffDrive">
+        <left_joint>left_wheel_joint</left_joint>
+        <right_joint>right_wheel_joint</right_joint>
+        <wheel_separation>1.2</wheel_separation>
+        <wheel_radius>0.4</wheel_radius>
+        <odom_publish_frequency>1</odom_publish_frequency>
+    </plugin>
+    
+  </model>
   </world>
 </sdf>
