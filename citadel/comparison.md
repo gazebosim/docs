@@ -154,7 +154,7 @@ World stats | ✓ | ✓
 Topic echo | ✓ | ✓
 Image viewer | ✓ | ✓
 Translate / rotate | ✓ | ✓
-Scale models | ✓ | TODO
+Scale models | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/195)
 Insert models from Fuel | Partial support | ✓
 Insert models from disk | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/123)
 Insert simple shapes | ✓ | ✓
@@ -249,7 +249,7 @@ DEM (Digital Elevation Models) | ✓ | TODO
 COLLADA meshes | ✓ | ✓
 OBJ meshes | ✓ | ✓
 STL meshes | ✓ | ✓
-Polylines | ✓ | TODO
+Polylines | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/186)
 Code introspection | ✓ | All simulation state is accessible from system plugins or through the `SceneBroadcaster`'s state topic
 World plugins | ✓ | ✓ Now called System plugin
 Model plugins | ✓ | ✓ Now called System plugin
