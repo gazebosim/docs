@@ -317,6 +317,17 @@
                 <parent>chassis</parent>
                 <child>caster</child>
             </joint>
+
+            <!--differential drive plugin-->
+            <plugin
+                filename="libignition-gazebo-diff-drive-system.so"
+                name="ignition::gazebo::systems::DiffDrive">
+                <left_joint>left_wheel_joint</left_joint>
+                <right_joint>right_wheel_joint</right_joint>
+                <wheel_separation>1.2</wheel_separation>
+                <wheel_radius>0.4</wheel_radius>
+                <odom_publish_frequency>1</odom_publish_frequency>
+            </plugin>
         </model>
     </world>
 </sdf>
