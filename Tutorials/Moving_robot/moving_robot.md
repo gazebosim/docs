@@ -1,7 +1,7 @@
 # Moving our robot
 
 In this tutorial we will learn how to move our robot. We will use the robot we built in [Build your own robot](SDF_tutorial_link) tutorial. You can download the robot from [here](car_world.sdf).
-To run the file open the terminal and write `ign gazebo car_world.sdf`
+To run the file open the terminal and write `ign gazebo car_world.sdf`.
 you should have your robot look like this
 
 [!car_world](screen_shot)
@@ -12,7 +12,7 @@ To make our robot move we will use `diff_drive` plugin. But before doing so Let'
 
 ### diff_drive plugin
 
-`diff_drive` plugin help us to control our robot, specifically a robot that can be differentially driven. Let's setup the plugin on our robot. Open the `car_world.sdf` in your favorite text editor and add the following code inside the `<model>` tag.
+`diff_drive` plugin help us to control our robot, specifically a robot that can be differentially driven. Let's setup the plugin on our robot. Open the `car_demo.sdf` in your favorite text editor and add the following code inside the `<model>` tag.
 
 ```xml
 <plugin
@@ -28,7 +28,7 @@ To make our robot move we will use `diff_drive` plugin. But before doing so Let'
 
 #### Breaking the code down
 
-The `<plugin>` tag has two attributes, `filename` which takes the library name, `name` takes the name of the plugin. In the `<left_joint>` and `<right_joint>` tags we define the joints which connect the left and right wheel with the body of the robot, in our case `left_wheel_joint` and `right_wheel_joint`. `<wheel_separation>` takes the distance between the two wheels in our robot, We have our `left_wheel` at 0.6 and `right-wheel` -0.6 in y-axis with respect to the `chassis`. `<wheel_radius>` takes the radius of the wheel which was defined in the `<radius>` tag. `<odom_publish_frequency>` set the frequency by which our car will accept the moving commands it is in `HZ` unit
+The `<plugin>` tag has two attributes, `filename` which takes the library name, `name` takes the name of the plugin. In the `<left_joint>` and `<right_joint>` tags we define the joints which connect the left and right wheel with the body of the robot, in our case `left_wheel_joint` and `right_wheel_joint`. `<wheel_separation>` takes the distance between the two wheels in our robot, We have our `left_wheel` at 0.6 and `right-wheel` -0.6 in y-axis with respect to the `chassis` so the `wheel_separation` is 1.2 . `<wheel_radius>` takes the radius of the wheel which was defined in the `<radius>` tag. `<odom_publish_frequency>` set the frequency by which our car will accept the moving commands it is in `HZ` unit
 
 ## Messages and Topics
 
@@ -53,6 +53,7 @@ key strokes is an `ign-gui` plugin catches keyboard's keystrokes and send them o
         name="ignition::gazebo::systems::KeyPlugin">
 </plugin>
 ```
+
 Let's try this plugin as follow
 
 * In one terminal type `ign gazebo car_world.sdf`
