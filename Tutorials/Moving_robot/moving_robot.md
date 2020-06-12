@@ -1,8 +1,5 @@
 # Moving our robot
 
-## Introduction
-
-todo: think about remove introduction title
 In this tutorial we will learn how to move our robot. We will use the robot we built in [Build your own robot](SDF_tutorial_link) tutorial. You can download the robot from [here](car_world.sdf).
 To run the file open the terminal and write `ign gazebo car_world.sdf`
 you should have your robot look like this
@@ -47,18 +44,81 @@ For more information about topics and messages in ignition check Transport lib [
 
 Instead of making our robot move in a specific speed we will control our robot using two plugins
 
-### Keystrokes 
+### Keystrokes
 
-key strokes
+key strokes is an `ign-gui` plugin catches keyboard's keystrokes and send them on default topic `/gazebo/keyboard/keypress`. Add the following code between the `<world>` tags.
+
+```xml
+<plugin filename="libignition-gazebo-libKeyPlugin.so"
+        name="ignition::gazebo::systems::KeyPlugin">
+</plugin>
+```
+Let's try this plugin as follow
+
+* In one terminal type `ign gazebo car_world.sdf`
+* Start the simulation(play button at the bottom left)
+* In another terminal type `ign topic -e -t /gazebo/keyboard/keypress`. this command will display all messages sent on `/gazebo/keyboard/keypress` topic.
+* In the ignition window press different keys and should see numbers on the terminal where you run the `ign topic -e -t /gazebo/keyboard/keypress`
+
+[!GIF]
 
 ### Triggered Publisher
 
-The TriggeredPublisher system publishes a user specified message on an output topic in response to an input message that matches user specified criteria. Add the following code inside the `<world>` tag
+The TriggeredPublisher system publishes a user specified message on an output topic in response to an input message that matches user specified criteria. Add the following code between the `<world>` tags
 
 ```xml
+<plugin filename="libignition-gazebo-triggered-publisher-system.so"
+        name="ignition::gazebo::systems::TriggeredPublisher">
+  <input type="ignition.msgs.Empty" topic="/start"/>
+  <output type="ignition.msgs.Twist" topic="/model/vehicle_blue/cmd_vel">
+      linear: {x: 0.5}, angular: {z: -0.05}
+  </output>
+</plugin>
 ```
 
-For more details this tutorial describes how the [Triggered Publisher](triggered publisher md) works
+We defined the `triggered-publisher` plugin, it accepts messages `Empty` message form the `/start` topic and output a `Twist` message with value `x: 3`, `z: -0.05` to the `/model/vehicle_blue/cmd_vel`.
+Let's try to send a message to `/start`<br/>
+`ign topic -t "/start" -m ignition.msgs.Empty -p " "`
+Now we should have our robot move.
+For more details this tutorial describes how the [Triggered Publisher](triggered publisher md) works.
+
+### Combine the two plugins (todo: change the name)
+
+Now we will map the messages sent by the `keyboard_plugin` on topic `/gazebo/keyboard/keypress` to the `/model/vehicle_blue/cmd_vel`
+
+#### Moving using arrow keys
+
+To see what values the arrow keys send on the `/gazebo/keyboard/keypress` we can use `echo` or `-e` option
+Run the model in one terminal.
+In another terminal run the following command 
+`ign topic -e -t /gazebo/keyboard/keypress`
+Start press the arrows keys and see what values they give:
+
+* Up  &#8593;   : 220
+* Down &#8595;  : 220
+* Right &#8594; : 220
+* Left &#8592;  : 220
+
+We will Modify the `Triggered publisher` plugin to move our car using arrows, You can use another keys to move your robot.
+
+```xml
+<plugin filename="libignition-gazebo-triggered-publisher-system.so"
+        name="ignition::gazebo::systems::TriggeredPublisher">
+    <input type="ignition.msgs.Int32" topic="/gazebo/keyboard/keypress">
+        <match>-7.5</match>
+    </input>
+    <output type="ignition.msgs.Twist" topic="/model/vehicle_blue/cmd_vel">
+      linear: {x: 0.5}, angular: {z: -0.05}
+  </output>
+</plugin>
+```
+
+Here we mapped each arrow (key stroke) with the desired movement
+
+* Up --> 220 --> linear: {x: 0.5}
+* Down --> 220 --> linear: {x: 0.5}
+* Right --> 220 --> angular: {z: 0.05}
+* Left --> 220 --> angular: {z: -0.05}
 
 ## TODO
 
@@ -71,3 +131,8 @@ For more details this tutorial describes how the [Triggered Publisher](triggered
 * use either we or you pronoun
 * link to the triggered publisher tutorial
 * we can specify the name of the topic in the diff_drive_plugin(I think default is the name of the model)
+* maybe remove the triggered start example, just keep our problem
+* the blue color of the model in this workspace
+* you can customize keyboard plugin (later in the plugin tutorial) (contributing guide)
+* [Arrows symbols](https://unicode-table.com/en/sets/arrow-symbols/) (done)
+* screen shot, GIF of the output after every stage (eg. trying key plugin) or may do a video.

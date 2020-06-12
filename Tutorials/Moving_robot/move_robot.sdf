@@ -329,5 +329,15 @@
                 <odom_publish_frequency>1</odom_publish_frequency>
             </plugin>
         </model>
+
+        <plugin filename="libignition-gazebo-triggered-publisher-system.so"
+                name="ignition::gazebo::systems::TriggeredPublisher">
+            <input type="ignition.msgs.Int32" topic="/start">
+                <match field="data">3</match>
+            </input>
+            <output type="ignition.msgs.Twist" topic="/model/vehicle_blue/cmd_vel">
+                linear: {x: 0.5}, angular: {z: -0.05}
+            </output>
+        </plugin>
     </world>
 </sdf>
