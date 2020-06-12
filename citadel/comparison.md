@@ -149,7 +149,7 @@ StopWorldPlugin | ✓ | TODO
 Feature | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 Play / pause / step | ✓ | ✓
-Reset world / models | ✓ | TODO
+Reset world / models | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/203)
 World stats | ✓ | ✓
 Topic echo | ✓ | ✓
 Image viewer | ✓ | ✓
@@ -198,7 +198,7 @@ ODE engine | ✓ | [Issue](https://github.com/ignitionrobotics/ign-physics/issue
 Bullet engine | ✓ | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/44)
 DART engine | ✓ | ✓ Plugin shipped with ign-physics
 Simbody engine | ✓ | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/63)
-Custom engine plugins | ✕ | ✓
+Custom engine plugins | ✕ | [Issue](https://github.com/ignitionrobotics/ign-rendering/issues/100)
 
 ## Rendering
 
@@ -211,7 +211,7 @@ Ogre 1.x engine | ✓ | ✓
 Ogre 2.x engine | ✕ | ✓
 Optix engine | ✕ | ✓ Partial support
 Custom engine plugins | ✕ | (coming up)
-Sky | ✓ | TODO
+Sky | ✓ | [Issue](https://github.com/ignitionrobotics/ign-rendering/issues/98)
 Fog | ✓ | TODO
 Material scripts | ✓ (Ogre 1.x scripts) | Does not apply
 
