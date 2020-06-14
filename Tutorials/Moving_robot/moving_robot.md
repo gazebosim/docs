@@ -1,14 +1,17 @@
 # Moving our robot
 
 In this tutorial we will learn how to move our robot. We will use the robot we built in [Build your own robot](SDF_tutorial_link) tutorial. You can download the robot from [here](car_world.sdf).
-To run the file open the terminal and write `ign gazebo car_world.sdf`.
+To run the file open the terminal and write
+
+`ign gazebo car_world.sdf`
+
 you should have your robot look like this
 
 [!car_world](screen_shot)
 
 ## What is a plugin
 
-To make our robot move we will use `diff_drive` plugin. But before doing so Let's answer the question "What is a plugin".A plugin is a chunk of code that is compiled as a shared library and inserted into the simulation. Plugins make us control many aspects of the simulation the world, models and etc.
+To make our robot move we will use the `diff_drive` plugin. But before doing so Let's answer the question "What is a plugin".A plugin is a chunk of code that is compiled as a shared library and inserted into the simulation. Plugins make us control many aspects of the simulation the world, models and etc.
 
 ### diff_drive plugin
 
@@ -28,16 +31,21 @@ To make our robot move we will use `diff_drive` plugin. But before doing so Let'
 
 #### Breaking the code down
 
-The `<plugin>` tag has two attributes, `filename` which takes the library name, `name` takes the name of the plugin. In the `<left_joint>` and `<right_joint>` tags we define the joints which connect the left and right wheel with the body of the robot, in our case `left_wheel_joint` and `right_wheel_joint`. `<wheel_separation>` takes the distance between the two wheels in our robot, We have our `left_wheel` at 0.6 and `right-wheel` -0.6 in y-axis with respect to the `chassis` so the `wheel_separation` is 1.2 . `<wheel_radius>` takes the radius of the wheel which was defined in the `<radius>` tag. `<odom_publish_frequency>` set the frequency by which our car will accept the moving commands it is in `HZ` unit
+The `<plugin>` tag has two attributes, `filename` which takes the library name and `name` takes the name of the plugin. In the `<left_joint>` and `<right_joint>` tags we define the joints which connect the left and right wheel with the body of the robot, in our case `left_wheel_joint` and `right_wheel_joint`. `<wheel_separation>` takes the distance between the two wheels in our robot, We have our `left_wheel` at 0.6 m and `right-wheel` -0.6 m in y-axis with respect to the `chassis` so the `wheel_separation` is 1.2 m. `<wheel_radius>` takes the radius of the wheel which was defined in the `<radius>` tag. `<odom_publish_frequency>` set the frequency by which our car will accept the moving commands it is in `Hz` unit.
 
-## Messages and Topics
+## Nodes, Topics and Messages
 
-One of the main concepts in communication in Ignition is "Topics". A topic is simply a name for grouping a specific set of messages or a particular service. The communication happens between two nodes through topics. All the nodes in the network can act as publishers, subscribers, provide services and request services. A publisher is a node that produces information and a subscriber is a node that consumes information.<br/>
-In our case we will send a message to topic name `/model/vehicle_blue/cmd_vel` and our robot subscribe to this topic to get command that make the robot move. Let's do it<br/> 
-Launch the car world `ign gazebo car_world.sdf`
-In another terminal let's send a message to to our car.<br/>
+A "nodes" isn't really much more than an executable file, Nodes can communicate with each other through "topics". A topic is simply a name for grouping a specific set of messages or a particular service. All the nodes in the network can act as publishers, subscribers, provide services and request services. A publisher is a node that produces information and a subscriber is a node that consumes information.
+
+In our case we will send a message to topic name `/model/vehicle_blue/cmd_vel` and our robot subscribe to this topic to get command that make the robot move. Let's do it. Launch the car world.
+
+`ign gazebo car_world.sdf`
+
+In another terminal let's send a message to to our car.
+
 `ign topic -t "/model/vehicle_blue/cmd_vel" -m ignition.msgs.Twist -p "linear: {x: 0.5}, angular: {z: 0.05}"`
-Now you should have your robot moving in the simulation **Note** don't forget to press the play in the simulation. The command is simple we need to specify topic to publish to after the `-t` option and after the `-m` we specify the message type. Our robot expect message of type `Twist` which consists of two components `linear` and `angular`. after the `-p` option we specify the content(value) of the message. for linear speed `x: 0.5` for angular speed `z: 0.05`.
+
+Now you should have your robot moving in the simulation **Note** don't forget to press the play in the simulation. The command is simple we need to specify topic to publish to after the `-t` option and after the `-m` we specify the message type. Our robot expect message of type `Twist` which consists of two components `linear` and `angular`. After the `-p` option we specify the content(value) of the message. for linear speed `x: 0.5` for angular speed `z: 0.05`.
 For more information about topics and messages in ignition check Transport lib [tutorials](igniton transport)
 
 ## Moving the robot using keyboard
@@ -56,10 +64,19 @@ key strokes is an `ign-gui` plugin catches keyboard's keystrokes and send them o
 
 Let's try this plugin as follow
 
-* In one terminal type `ign gazebo car_world.sdf`
+* In one terminal type
+
+    `ign gazebo car_world.sdf`
+
 * Start the simulation(play button at the bottom left)
-* In another terminal type `ign topic -e -t /gazebo/keyboard/keypress`. this command will display all messages sent on `/gazebo/keyboard/keypress` topic.
-* In the ignition window press different keys and should see numbers on the terminal where you run the `ign topic -e -t /gazebo/keyboard/keypress`
+* In another terminal type 
+
+    `ign topic -e -t /gazebo/keyboard/keypress`
+    
+     this command will display all messages sent on `/gazebo/keyboard/keypress` topic.
+* In the ignition window press different keys and should see numbers on the terminal where you run the
+
+    `ign topic -e -t /gazebo/keyboard/keypress`
 
 [!GIF]
 
@@ -78,9 +95,11 @@ The TriggeredPublisher system publishes a user specified message on an output to
 ```
 
 We defined the `triggered-publisher` plugin, it accepts messages `Empty` message form the `/start` topic and output a `Twist` message with value `x: 3`, `z: -0.05` to the `/model/vehicle_blue/cmd_vel`.
-Let's try to send a message to `/start`<br/>
+Let's try to send a message to `/start`.
+
 `ign topic -t "/start" -m ignition.msgs.Empty -p " "`
-Now we should have our robot move.
+
+Now we should have our robot moving.
 For more details this tutorial describes how the [Triggered Publisher](triggered publisher md) works.
 
 ### Combine the two plugins (todo: change the name)
@@ -91,8 +110,10 @@ Now we will map the messages sent by the `keyboard_plugin` on topic `/gazebo/key
 
 To see what values the arrow keys send on the `/gazebo/keyboard/keypress` we can use `echo` or `-e` option
 Run the model in one terminal.
-In another terminal run the following command 
+In another terminal run the following command.
+
 `ign topic -e -t /gazebo/keyboard/keypress`
+
 Start press the arrows keys and see what values they give:
 
 * Up  &#8593;   : 220
@@ -123,7 +144,7 @@ Here we mapped each arrow (key stroke) with the desired movement
 
 ## TODO
 
-* think about remove introduction header?
+* think about remove introduction header? (done)
 * Link to the tutorial and the sdf
 * screen shot to the finished model
 * link to Plugin future tutorial in the what is a plugin section
@@ -137,3 +158,4 @@ Here we mapped each arrow (key stroke) with the desired movement
 * you can customize keyboard plugin (later in the plugin tutorial) (contributing guide)
 * [Arrows symbols](https://unicode-table.com/en/sets/arrow-symbols/) (done)
 * screen shot, GIF of the output after every stage (eg. trying key plugin) or may do a video.
+* rename the keypublisher plugin
