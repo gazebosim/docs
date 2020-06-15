@@ -17,10 +17,6 @@
             filename="libignition-gazebo-scene-broadcaster-system.so"
             name="ignition::gazebo::systems::SceneBroadcaster">
         </plugin>
-        <plugin
-            filename="libignition-gazebo-contact-system.so"
-            name="ignition::gazebo::systems::Contact">
-        </plugin>
 
         <gui fullscreen="0">
 
@@ -89,6 +85,10 @@
 
             <!-- Entity tree -->
             <plugin filename="EntityTree" name="Entity tree">
+            </plugin>
+
+            <!-- KeyPublisher plugin-->
+            <plugin filename="KeyPublisher" name="Key Publisher">
             </plugin>
 
         </gui>
@@ -329,13 +329,47 @@
             </plugin>
         </model>
 
+        <!-- Moving Forward-->
         <plugin filename="libignition-gazebo-triggered-publisher-system.so"
                 name="ignition::gazebo::systems::TriggeredPublisher">
-            <input type="ignition.msgs.Int32" topic="/start">
-                <match field="data">3</match>
+            <input type="ignition.msgs.Int32" topic="/gazebo/keyboard/keypress">
+                <match field="data">16777235</match>
             </input>
             <output type="ignition.msgs.Twist" topic="/model/vehicle_blue/cmd_vel">
-                linear: {x: 0.5}, angular: {z: -0.05}
+                linear: {x: 0.5}, angular: {z: 0.0}
+            </output>
+        </plugin>
+
+        <!-- Moving Backward-->
+        <plugin filename="libignition-gazebo-triggered-publisher-system.so"
+                name="ignition::gazebo::systems::TriggeredPublisher">
+            <input type="ignition.msgs.Int32" topic="/gazebo/keyboard/keypress">
+                <match field="data">16777237</match>
+            </input>
+            <output type="ignition.msgs.Twist" topic="/model/vehicle_blue/cmd_vel">
+                linear: {x: -0.5}, angular: {z: 0.0}
+            </output>
+        </plugin>
+
+        <!-- Rotating right-->
+        <plugin filename="libignition-gazebo-triggered-publisher-system.so"
+                name="ignition::gazebo::systems::TriggeredPublisher">
+            <input type="ignition.msgs.Int32" topic="/gazebo/keyboard/keypress">
+                <match field="data">16777236</match>
+            </input>
+            <output type="ignition.msgs.Twist" topic="/model/vehicle_blue/cmd_vel">
+                linear: {x: 0.0}, angular: {z: -0.5}
+            </output>
+        </plugin>
+
+        <!--Rotating left-->
+        <plugin filename="libignition-gazebo-triggered-publisher-system.so"
+                name="ignition::gazebo::systems::TriggeredPublisher">
+            <input type="ignition.msgs.Int32" topic="/gazebo/keyboard/keypress">
+                <match field="data">16777234</match>
+            </input>
+            <output type="ignition.msgs.Twist" topic="/model/vehicle_blue/cmd_vel">
+                linear: {x: 0.0}, angular: {z: 0.5}
             </output>
         </plugin>
     </world>

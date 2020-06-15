@@ -137,10 +137,10 @@ We will Modify the `Triggered publisher` plugin to move our car using arrows, Yo
 
 Here we mapped each arrow (key stroke) with the desired movement
 
-* Up --> 220 --> linear: {x: 0.5}
-* Down --> 220 --> linear: {x: 0.5}
-* Right --> 220 --> angular: {z: 0.05}
-* Left --> 220 --> angular: {z: -0.05}
+* Up --> 16777235 --> linear: {x: 0.5}
+* Down --> 16777237 --> linear: {x: 0.5}
+* Right --> 16777236 --> angular: {z: 0.05}
+* Left --> 16777234 --> angular: {z: -0.05}
 
 ## TODO
 
