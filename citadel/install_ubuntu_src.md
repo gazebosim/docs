@@ -28,7 +28,7 @@ pip install vcstool
 ```bash
 pip install -U colcon-common-extensions
 ```
-Test the programs installed using PIP, if the system is not recognising the commans, and you're using a sistem that is compatible with Debian or Ubuntu packages, **install using apt is a good idea because the system is automatically configured**.  
+Check that no errors were printed while installing with PIP. If your system is not recognising the commands, and you're using a system that is compatible with Debian or Ubuntu packages, see the instructions below to install using `apt`.  
 
 ## vcstool and colcon from apt
 
@@ -239,4 +239,3 @@ Ogre's `v2-1` branch with changes needed for deb packaging and allowing it to
 be co-installable with Ogre 1.x. The code can be found here:
 
 https://github.com/osrf/ogre-2.1-release
-
