@@ -32,7 +32,7 @@ To make our robot move we will use the `diff_drive` plugin. But before doing so 
 
 #### Breaking the code down
 
-The `<plugin>` tag has two attributes, `filename` which takes the library name and `name` takes the name of the plugin. In the `<left_joint>` and `<right_joint>` tags we define the joints which connect the left and right wheel with the body of the robot, in our case `left_wheel_joint` and `right_wheel_joint`. `<wheel_separation>` takes the distance between the two wheels in our robot, We have our `left_wheel` at 0.6 m and `right-wheel` at -0.6 m in y-axis with respect to the `chassis` so the `wheel_separation` is 1.2 m. `<wheel_radius>` takes the radius of the wheel which was defined in the `<radius>` tag under the wheel link. `<odom_publish_frequency>` set the frequency by which our car will accept the moving commands it is in `Hz` unit. `cmd_vel` is the input `<topic>` to the `DiffDrive` we cho
+The `<plugin>` tag has two attributes, `filename` which takes the library name, and `name` takes the name of the plugin. In the `<left_joint>` and `<right_joint>` tags we define the joints which connect the left and right wheel with the body of the robot, in our case `left_wheel_joint` and `right_wheel_joint`. `<wheel_separation>` takes the distance between the two wheels in our robot, We have our `left_wheel` at 0.6 m and `right-wheel` at -0.6 m in y-axis with respect to the `chassis` so the `wheel_separation` is 1.2 m. `<wheel_radius>` takes the radius of the wheel which was defined in the `<radius>` tag under the wheel link. `<odom_publish_frequency>` set the frequency by which our car will accept the moving commands, it is in `Hz` unit. `cmd_vel` is the input `<topic>` to the `DiffDrive`.
 
 ## Nodes, Topics and Messages
 
@@ -68,13 +68,12 @@ Let's try this plugin as follow:
 
     `ign gazebo car_demo.sdf`
 
-* Start the simulation(play button at the bottom left)
-* In another terminal type 
+* In another terminal type
 
     `ign topic -e -t /gazebo/keyboard/keypress`
     
      this command will display all messages sent on `/gazebo/keyboard/keypress` topic.
-* In the ignition window press different keys and should see numbers on the terminal where you run the
+* In the ignition window press different keys and you should see data(numbers) on the terminal where you run the
 
     `ign topic -e -t /gazebo/keyboard/keypress`
 
@@ -99,9 +98,9 @@ The TriggeredPublisher system publishes a user specified message on an output to
 </plugin>
 ```
 
-This code defines `triggered-publisher` plugin, it accepts messages of type `ignition.msgs.Int32` on the `/gazebo/keyboard/keypress` topic and if the value in the `data` field matches "16777235"(Up arrow) it outputs a `Twist` message on the `cmd_vel` topic with value `x: 0.5`, `z: 0.0`.
+This code defines `triggered-publisher` plugin, It accepts messages of type `ignition.msgs.Int32` on the `/gazebo/keyboard/keypress` topic and if the value in the `data` field matches "16777235"(Up arrow) it outputs a `Twist` message on the `cmd_vel` topic with value `x: 0.5`, `z: 0.0`.
 
-Now launch the `car_demo.sdf` and our robot should move forward as you press the Up arrow key &#129045;
+Now launch the `car_demo.sdf` and our robot should move forward as you press the Up arrow key &#8593;
 
 There is a demo explains how the [Triggered Publisher](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo2/tutorials/triggered_publisher.md) works.
 
@@ -141,6 +140,8 @@ We mapped each arrow (key stroke) with the desired message(movement)
 * Up &#10142; 16777235 &#10142; linear: {x: 0.5}, angular: {z: 0.0}
 * Right &#10142; 16777236 &#10142; linear: {x: 0.0}, angular: {z: -0.5}
 * Down &#10142; 16777237 &#10142; linear: {x: 0.5}, angular: {z: 0.0}
+
+Now we have our robot moving the keyboard keys.
 
 ## TODO
 
