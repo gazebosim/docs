@@ -318,6 +318,7 @@
                 <child>caster</child>
             </joint>
 
+            <!--diff drive plugin-->
             <plugin
                 filename="libignition-gazebo-diff-drive-system.so"
                 name="ignition::gazebo::systems::DiffDrive">
@@ -326,6 +327,7 @@
                 <wheel_separation>1.2</wheel_separation>
                 <wheel_radius>0.4</wheel_radius>
                 <odom_publish_frequency>1</odom_publish_frequency>
+                <topic>cmd_vel</topic>
             </plugin>
         </model>
 
@@ -335,7 +337,7 @@
             <input type="ignition.msgs.Int32" topic="/gazebo/keyboard/keypress">
                 <match field="data">16777235</match>
             </input>
-            <output type="ignition.msgs.Twist" topic="/model/vehicle_blue/cmd_vel">
+            <output type="ignition.msgs.Twist" topic="/cmd_vel">
                 linear: {x: 0.5}, angular: {z: 0.0}
             </output>
         </plugin>
@@ -346,7 +348,7 @@
             <input type="ignition.msgs.Int32" topic="/gazebo/keyboard/keypress">
                 <match field="data">16777237</match>
             </input>
-            <output type="ignition.msgs.Twist" topic="/model/vehicle_blue/cmd_vel">
+            <output type="ignition.msgs.Twist" topic="/cmd_vel">
                 linear: {x: -0.5}, angular: {z: 0.0}
             </output>
         </plugin>
@@ -357,7 +359,7 @@
             <input type="ignition.msgs.Int32" topic="/gazebo/keyboard/keypress">
                 <match field="data">16777236</match>
             </input>
-            <output type="ignition.msgs.Twist" topic="/model/vehicle_blue/cmd_vel">
+            <output type="ignition.msgs.Twist" topic="/cmd_vel">
                 linear: {x: 0.0}, angular: {z: -0.5}
             </output>
         </plugin>
@@ -368,7 +370,7 @@
             <input type="ignition.msgs.Int32" topic="/gazebo/keyboard/keypress">
                 <match field="data">16777234</match>
             </input>
-            <output type="ignition.msgs.Twist" topic="/model/vehicle_blue/cmd_vel">
+            <output type="ignition.msgs.Twist" topic="/cmd_vel">
                 linear: {x: 0.0}, angular: {z: 0.5}
             </output>
         </plugin>
