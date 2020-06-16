@@ -1,21 +1,21 @@
 # Moving our robot
 
-In this tutorial we will learn how to move our robot. We will use the robot we built in [Build your own robot](SDF_tutorial_link) tutorial. You can download the robot from [here](car_world.sdf).
+In this tutorial we will learn how to move our robot. We will use the robot we built in [Build your own robot](SDF_tutorial_link) tutorial. You can download the robot from [here](car_demo.sdf). You can also found the finished world of this tutorial [here](move_robot.sdf).
 To run the file open the terminal and write
 
-`ign gazebo car_world.sdf`
+`ign gazebo car_demo.sdf`
 
 you should have your robot look like this
 
-[!car_world](screen_shot)
+[!car_demo](screen_shot)
 
 ## What is a plugin
 
-To make our robot move we will use the `diff_drive` plugin. But before doing so Let's answer the question "What is a plugin".A plugin is a chunk of code that is compiled as a shared library and inserted into the simulation. Plugins make us control many aspects of the simulation the world, models and etc.
+To make our robot move we will use the `diff_drive` plugin. But before doing so Let's answer the question "What is a plugin".A plugin is a chunk of code that is compiled as a shared library and inserted into the simulation. Plugins make us control many aspects of the simulation like world, models and etc.
 
 ### diff_drive plugin
 
-`diff_drive` plugin help us to control our robot, specifically a robot that can be differentially driven. Let's setup the plugin on our robot. Open the `car_demo.sdf` in your favorite text editor and add the following code inside the `<model>` tag.
+`diff_drive` plugin help us to control our robot, specifically a robot that can be differentially driven. Let's setup the plugin on our robot. Open the `car_demo.sdf` in your favorite text editor and add the following code under the `<model>` tag.
 
 ```xml
 <plugin
@@ -26,47 +26,47 @@ To make our robot move we will use the `diff_drive` plugin. But before doing so 
     <wheel_separation>1.2</wheel_separation>
     <wheel_radius>0.4</wheel_radius>
     <odom_publish_frequency>1</odom_publish_frequency>
+    <topic>cmd_vel</topic>
 </plugin>
 ```
 
 #### Breaking the code down
 
-The `<plugin>` tag has two attributes, `filename` which takes the library name and `name` takes the name of the plugin. In the `<left_joint>` and `<right_joint>` tags we define the joints which connect the left and right wheel with the body of the robot, in our case `left_wheel_joint` and `right_wheel_joint`. `<wheel_separation>` takes the distance between the two wheels in our robot, We have our `left_wheel` at 0.6 m and `right-wheel` -0.6 m in y-axis with respect to the `chassis` so the `wheel_separation` is 1.2 m. `<wheel_radius>` takes the radius of the wheel which was defined in the `<radius>` tag. `<odom_publish_frequency>` set the frequency by which our car will accept the moving commands it is in `Hz` unit.
+The `<plugin>` tag has two attributes, `filename` which takes the library name and `name` takes the name of the plugin. In the `<left_joint>` and `<right_joint>` tags we define the joints which connect the left and right wheel with the body of the robot, in our case `left_wheel_joint` and `right_wheel_joint`. `<wheel_separation>` takes the distance between the two wheels in our robot, We have our `left_wheel` at 0.6 m and `right-wheel` at -0.6 m in y-axis with respect to the `chassis` so the `wheel_separation` is 1.2 m. `<wheel_radius>` takes the radius of the wheel which was defined in the `<radius>` tag under the wheel link. `<odom_publish_frequency>` set the frequency by which our car will accept the moving commands it is in `Hz` unit. `cmd_vel` is the input `<topic>` to the `DiffDrive` we cho
 
 ## Nodes, Topics and Messages
 
-A "nodes" isn't really much more than an executable file, Nodes can communicate with each other through "topics". A topic is simply a name for grouping a specific set of messages or a particular service. All the nodes in the network can act as publishers, subscribers, provide services and request services. A publisher is a node that produces information and a subscriber is a node that consumes information.
+Now our model is ready. We just need to send commands(Messages) to it, These messages are published(sent) on the `cmd_vel` topic. A topic is simply a name for grouping a specific set of messages or a particular service. Our model will subscribe(listen) to the messages sent on the `cmd_vel`.
 
-In our case we will send a message to topic name `/model/vehicle_blue/cmd_vel` and our robot subscribe to this topic to get command that make the robot move. Let's do it. Launch the car world.
+Launch the car world.
 
-`ign gazebo car_world.sdf`
+`ign gazebo car_demo.sdf`
 
 In another terminal let's send a message to to our car.
 
-`ign topic -t "/model/vehicle_blue/cmd_vel" -m ignition.msgs.Twist -p "linear: {x: 0.5}, angular: {z: 0.05}"`
+`ign topic -t "/cmd_vel" -m ignition.msgs.Twist -p "linear: {x: 0.5}, angular: {z: 0.05}"`
 
-Now you should have your robot moving in the simulation **Note** don't forget to press the play in the simulation. The command is simple we need to specify topic to publish to after the `-t` option and after the `-m` we specify the message type. Our robot expect message of type `Twist` which consists of two components `linear` and `angular`. After the `-p` option we specify the content(value) of the message. for linear speed `x: 0.5` for angular speed `z: 0.05`.
-For more information about topics and messages in ignition check Transport lib [tutorials](igniton transport)
+Now you should have your robot moving in the simulation. **Note:** don't forget to press the play in the simulation. The command is simple we need to specify the topic to publish to after the `-t` option, And after the `-m` we specify the message type. Our robot expect message of type `Twist` which consists of two components `linear` and `angular`. After the `-p` option we specify the content(value) of the message. for linear speed `x: 0.5` for angular speed `z: 0.05`.
+For more information about `topics` and `messages` in ignition check Transport lib [tutorials](https://ignitionrobotics.org/api/transport/9.0/tutorials.html)
 
 ## Moving the robot using keyboard
 
-Instead of making our robot move in a specific speed we will control our robot using two plugins
+Instead of sending messages from the terminal we will send messages using the arrows in the keyboard. To do so will add two new plugins `KeyPublisher` and `TriggeredPublisher`.
 
-### Keystrokes
+### KeyPublisher
 
-key strokes is an `ign-gui` plugin catches keyboard's keystrokes and send them on default topic `/gazebo/keyboard/keypress`. Add the following code between the `<world>` tags.
+`KeyPublisher` is an `ign-gui` plugin that reads keyboard's keystrokes and send them on a default topic `/gazebo/keyboard/keypress`. to use this plugin add the following code under the `<gui>` tag.
 
 ```xml
-<plugin filename="libignition-gazebo-libKeyPlugin.so"
-        name="ignition::gazebo::systems::KeyPlugin">
-</plugin>
+<!-- KeyPublisher plugin-->
+<plugin filename="KeyPublisher" name="Key Publisher"/>
 ```
 
-Let's try this plugin as follow
+Let's try this plugin as follow:
 
 * In one terminal type
 
-    `ign gazebo car_world.sdf`
+    `ign gazebo car_demo.sdf`
 
 * Start the simulation(play button at the bottom left)
 * In another terminal type 
@@ -78,69 +78,69 @@ Let's try this plugin as follow
 
     `ign topic -e -t /gazebo/keyboard/keypress`
 
-[!GIF]
+![KeyPublisher](KeyPublisher.png)
+
+We want to map these key stokes into messages of type `Twist` and publish them to `/cmd_vel` topic which our model listens to. The `TriggeredPublisher` will do this.
 
 ### Triggered Publisher
 
-The TriggeredPublisher system publishes a user specified message on an output topic in response to an input message that matches user specified criteria. Add the following code between the `<world>` tags
+The TriggeredPublisher system publishes a user specified message on an output topic in response to an input message that matches user specified criteria. Let's add the following code under the `<world>` tags
 
 ```xml
+<!-- Moving Forward-->
 <plugin filename="libignition-gazebo-triggered-publisher-system.so"
         name="ignition::gazebo::systems::TriggeredPublisher">
-  <input type="ignition.msgs.Empty" topic="/start"/>
-  <output type="ignition.msgs.Twist" topic="/model/vehicle_blue/cmd_vel">
-      linear: {x: 0.5}, angular: {z: -0.05}
-  </output>
+    <input type="ignition.msgs.Int32" topic="/gazebo/keyboard/keypress">
+        <match field="data">16777235</match>
+    </input>
+    <output type="ignition.msgs.Twist" topic="/cmd_vel">
+        linear: {x: 0.5}, angular: {z: 0.0}
+    </output>
 </plugin>
 ```
 
-We defined the `triggered-publisher` plugin, it accepts messages `Empty` message form the `/start` topic and output a `Twist` message with value `x: 3`, `z: -0.05` to the `/model/vehicle_blue/cmd_vel`.
-Let's try to send a message to `/start`.
+This code defines `triggered-publisher` plugin, it accepts messages of type `ignition.msgs.Int32` on the `/gazebo/keyboard/keypress` topic and if the value in the `data` field matches "16777235"(Up arrow) it outputs a `Twist` message on the `cmd_vel` topic with value `x: 0.5`, `z: 0.0`.
 
-`ign topic -t "/start" -m ignition.msgs.Empty -p " "`
+Now launch the `car_demo.sdf` and our robot should move forward as you press the Up arrow key &#129045;
 
-Now we should have our robot moving.
-For more details this tutorial describes how the [Triggered Publisher](triggered publisher md) works.
+There is a demo explains how the [Triggered Publisher](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo2/tutorials/triggered_publisher.md) works.
 
-### Combine the two plugins (todo: change the name)
+### Moving using arrow keys
 
-Now we will map the messages sent by the `keyboard_plugin` on topic `/gazebo/keyboard/keypress` to the `/model/vehicle_blue/cmd_vel`
-
-#### Moving using arrow keys
-
-To see what values the arrow keys send on the `/gazebo/keyboard/keypress` we can use `echo` or `-e` option
+To see what values sent on the `/gazebo/keyboard/keypress` when pressing the arrows we can use `--echo` or `-e` option
 Run the model in one terminal.
-In another terminal run the following command.
+And in another terminal run the following command.
 
 `ign topic -e -t /gazebo/keyboard/keypress`
 
 Start press the arrows keys and see what values they give:
 
-* Up  &#8593;   : 220
-* Down &#8595;  : 220
-* Right &#8594; : 220
-* Left &#8592;  : 220
+* Left &#8592;  : 16777234
+* Up  &#8593;   : 16777235
+* Right &#8594; : 16777236
+* Down &#8595;  : 16777237
 
-We will Modify the `Triggered publisher` plugin to move our car using arrows, You can use another keys to move your robot.
+We will add `Triggered publisher` plugin for each arrows for example the backward, **Note:**You can use another keys to move your robot.
 
 ```xml
+<!-- Moving Backward-->
 <plugin filename="libignition-gazebo-triggered-publisher-system.so"
         name="ignition::gazebo::systems::TriggeredPublisher">
     <input type="ignition.msgs.Int32" topic="/gazebo/keyboard/keypress">
-        <match>-7.5</match>
+        <match field="data">16777237</match>
     </input>
-    <output type="ignition.msgs.Twist" topic="/model/vehicle_blue/cmd_vel">
-      linear: {x: 0.5}, angular: {z: -0.05}
-  </output>
+    <output type="ignition.msgs.Twist" topic="/cmd_vel">
+        linear: {x: -0.5}, angular: {z: 0.0}
+    </output>
 </plugin>
 ```
 
-Here we mapped each arrow (key stroke) with the desired movement
+We mapped each arrow (key stroke) with the desired message(movement)
 
-* Up --> 16777235 --> linear: {x: 0.5}
-* Down --> 16777237 --> linear: {x: 0.5}
-* Right --> 16777236 --> angular: {z: 0.05}
-* Left --> 16777234 --> angular: {z: -0.05}
+* Left &#10142; 16777234 &#10142; angular: linear: {x: 0.0}, angular: {z: 0.5}
+* Up &#10142; 16777235 &#10142; linear: {x: 0.5}, angular: {z: 0.0}
+* Right &#10142; 16777236 &#10142; linear: {x: 0.0}, angular: {z: -0.5}
+* Down &#10142; 16777237 &#10142; linear: {x: 0.5}, angular: {z: 0.0}
 
 ## TODO
 
@@ -148,14 +148,15 @@ Here we mapped each arrow (key stroke) with the desired movement
 * Link to the tutorial and the sdf
 * screen shot to the finished model
 * link to Plugin future tutorial in the what is a plugin section
-* remove the Breaking the code header?
-* rewrite the topics and communication in different way
-* use either we or you pronoun
-* link to the triggered publisher tutorial
-* we can specify the name of the topic in the diff_drive_plugin(I think default is the name of the model)
-* maybe remove the triggered start example, just keep our problem
-* the blue color of the model in this workspace
-* you can customize keyboard plugin (later in the plugin tutorial) (contributing guide)
+* remove the Breaking the code header? (I think ok)
+* rewrite the topics and communication in different way (done)
+* use either we or you pronoun 
+* link to the triggered publisher tutorial (done)
+* we can specify the name of the topic in the diff_drive_plugin(I think default is the name of the model) (done)
+* maybe remove the triggered start example, just keep our problem (done)
+* the blue color of the model in this workspace 
+* you can customize keyboard plugin (later in the plugin tutorial) (contributing guide) (modify other plugins)
 * [Arrows symbols](https://unicode-table.com/en/sets/arrow-symbols/) (done)
 * screen shot, GIF of the output after every stage (eg. trying key plugin) or may do a video.
-* rename the keypublisher plugin
+* rename the keypublisher plugin (done)
+* Change link for triggered publisher, make it link to website after merge 
