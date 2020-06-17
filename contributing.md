@@ -377,8 +377,45 @@ Merging strategy:
 * Default to “squash and merge”
   * Make sure the commit message captures the core ideas of the pull request.
 * “Rebase and merge” when moving files (do a `git mv` as a separate commit)
+* “Create a merge commit” when porting changes across branches
 * Refrain from force-pushing while the PR is under review (which includes rebasing and squashing)
 
+Porting changes across branches:
+
+* Pull requests should target the lowest possible
+  [supported version](https://ignitionrobotics.org/docs/all/releases) where the
+  changes can be added in a backwards-compatible way (no API / ABI / behavior
+  break in released branches).
+* Periodically, a maintainer will **forward-port** changes to newer release
+  branches all the way up to `master`.
+* The merge forward can be done with `git merge` in order to keep the commit history.
+  For example:
+
+        git checkout ign-<library>M
+        git pull
+        git checkout ign-<library>N
+        git pull
+        git checkout -b M_to_N_<date> # It's important to do this before `git merge`
+        git merge ign-<library>M
+        # Fix conflicts
+        git commit -sam"Merge M into N"
+        # Open pull request
+
+* In the rare event that a pull request needs to be backported (i.e. from a
+  higher version to a lower version), use `git cherry-pick`, for example:
+
+        git checkout ign-<library>N
+        git pull
+        git checkout ign-<library>M
+        git pull
+        git checkout -b N_to_M_<date>
+        git cherry-pick <commits from verrsion N>
+        # Fix conflicts
+        git commit -sam"Backport from N to M"
+        # Open pull request
+
+* When merging a port pull request, **do not squash or rebase**, create a merge
+  commit instead.
 
 ## Writing Tests
 
