@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<sdf version="1.6">
+<sdf version="1.7">
   <world name="sensor_demo">
     <physics name="1ms" type="ignored">
       <max_step_size>0.001</max_step_size>
@@ -145,7 +145,7 @@
       </link>
     </model>
 
-    <model name="trigger">
+    <model name="bump">
         <pose>3 0 0 0 0 0</pose>
         <static>true</static>
         <link name="body">
@@ -218,21 +218,32 @@
             <topic>imu</topic>
         </sensor>
 
-        <sensor name="depth_camera1" type="depth_camera">
-          <update_rate>10</update_rate>
-          <topic>depth_camera</topic>
-          <camera>
-            <horizontal_fov>1.05</horizontal_fov>
-            <image>
-              <width>320</width>
-              <height>240</height>
-              <format>R_FLOAT32</format>
-            </image>
-            <clip>
-              <near>0.1</near>
-              <far>10.0</far>
-            </clip>
-          </camera>
+        <sensor name='gpu_lidar' type='gpu_lidar'>"
+          <topic>lidar</topic>
+          <update_rate>1</update_rate>
+          <ray>
+            <scan>
+              <horizontal>
+                <samples>10</samples> <!--The number of simulated lidar rays to generate per complete laser sweep cycle-->
+                <resolution>1</resolution>
+                <min_angle>-1.396263</min_angle>
+                <max_angle>1.396263</max_angle>
+              </horizontal>
+              <vertical>
+                <samples>1</samples>
+                <resolution>0.01</resolution>
+                <min_angle>0</min_angle>
+                <max_angle>0</max_angle>
+              </vertical>
+            </scan>
+            <range>
+              <min>0.08</min>
+              <max>10.0</max>
+              <resolution>0.01</resolution>
+            </range>
+          </ray>
+          <alwaysOn>1</alwaysOn>
+          <visualize>true</visualize>
         </sensor>
       </link>
 
@@ -367,9 +378,8 @@
         <child>caster</child>
       </joint>
 
-      <plugin
-        filename="libignition-gazebo-diff-drive-system.so"
-        name="ignition::gazebo::systems::DiffDrive">
+      <plugin filename="libignition-gazebo-diff-drive-system.so"
+              name="ignition::gazebo::systems::DiffDrive">
         <left_joint>left_wheel_joint</left_joint>
         <right_joint>right_wheel_joint</right_joint>
         <wheel_separation>1.25</wheel_separation>
@@ -377,6 +387,45 @@
         <odom_publish_frequency>1</odom_publish_frequency>
       </plugin>
 
+    </model>
+
+    <!--wall infront of the car-->
+    <model name='box'>
+      <pose relative_to=world>4 0 0 0 0 0</pose>
+        <link name='box'>   
+            <pose relative_to='__model__'/>
+            <inertial> <!--inertial properties of the link mass, inertia matix-->
+                <mass>1.14395</mass>
+                <inertia>
+                    <ixx>0.126164</ixx>
+                    <ixy>0</ixy>
+                    <ixz>0</ixz>
+                    <iyy>0.416519</iyy>
+                    <iyz>0</iyz>
+                    <izz>0.481014</izz>
+                </inertia>
+            </inertial>
+            <visual name='visual'>
+                <geometry>
+                    <box>
+                        <size>1.0 4.0 3</size> 
+                    </box>
+                </geometry>
+                <!--let's add color to our link-->
+                <material>
+                    <ambient>0.0 0.0 1.0 1</ambient>
+                    <diffuse>0.0 0.0 1.0 1</diffuse>
+                    <specular>0.0 0.0 1.0 1</specular>
+                </material>
+            </visual>
+            <collision name='collision'> <!--todo: describe why we need the collision-->
+                <geometry>
+                    <box>
+                        <size>1.0 4.0 3</size>
+                    </box>
+                </geometry>
+            </collision>
+        </link>
     </model>
 
     <plugin filename="libignition-gazebo-triggered-publisher-system.so"
