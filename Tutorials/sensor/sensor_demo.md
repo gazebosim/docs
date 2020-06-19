@@ -95,6 +95,7 @@ Drive your robot to the bump when you hit the bump you should see a message.
 
 lidar sensor
 
+// laserscan.proto
 message LaserScan
 {
   /// \brief Optional header data

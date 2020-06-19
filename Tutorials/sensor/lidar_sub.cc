@@ -21,10 +21,9 @@
 #include <ignition/transport.hh>
 
 ignition::transport::Node node;
-std::string topic_pub = "/stop";
-ignition::msgs::StringMsg data;
-//data.set_data("HELLO");
-auto pub = node.Advertise<ignition::msgs::StringMsg>(topic_pub);
+std::string topic_pub = "/cmd_vel";
+ignition::msgs::Twist data;
+auto pub = node.Advertise<ignition::msgs::Twist>(topic_pub);
 
 //////////////////////////////////////////////////
 /// \brief Function called each time a topic update is received.
@@ -33,24 +32,23 @@ void cb(const ignition::msgs::LaserScan &_msg)
   std::cout << "lidar_data: " << _msg.ranges_size() << std::endl;
   for (int i = 0; i < 10; i++)
   {
-    std::cout << "r: " << _msg.ranges(i)<< std::endl;
-    /*
+    //std::cout << "r: " << _msg.ranges(i)<< std::endl;
     if (_msg.ranges(i) > 4.0)
     {
       break;
     }
     if (i == 9)
     {
-      std::cout << "publish stop" << std::endl;
+      //std::cout << "publish stop" << std::endl;
+      data.mutable_linear()->set_x(0.0);
+      pub.Publish(data);
     }
-    
+    /*
     std::cout << "publish stop" << std::endl;
     data.set_data("HELLO");
     pub.Publish(data);
     */
   }
-  data.set_data("HELLO");
-  pub.Publish(data);
 }
 
 //////////////////////////////////////////////////
