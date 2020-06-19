@@ -30,25 +30,26 @@ auto pub = node.Advertise<ignition::msgs::Twist>(topic_pub);
 void cb(const ignition::msgs::LaserScan &_msg)
 {
   std::cout << "lidar_data: " << _msg.ranges_size() << std::endl;
-  for (int i = 0; i < 10; i++)
+  bool all_more = true;
+  for (int i = 0; i < _msg.ranges_size(); i++)
   {
-    //std::cout << "r: " << _msg.ranges(i)<< std::endl;
-    if (_msg.ranges(i) > 4.0)
+    if (_msg.ranges(i) < 1.0) //if all bigger than four 
     {
+      all_more = false;
       break;
     }
-    if (i == 9)
-    {
-      //std::cout << "publish stop" << std::endl;
-      data.mutable_linear()->set_x(0.0);
-      pub.Publish(data);
-    }
-    /*
-    std::cout << "publish stop" << std::endl;
-    data.set_data("HELLO");
-    pub.Publish(data);
-    */
   }
+  if (all_more)
+  {
+    data.mutable_linear()->set_x(0.5);
+    data.mutable_angular()->set_z(0.0);
+  }
+  else
+  {
+    data.mutable_linear()->set_x(0.0);
+    data.mutable_angular()->set_z(0.5);
+  }
+  pub.Publish(data);
 }
 
 //////////////////////////////////////////////////

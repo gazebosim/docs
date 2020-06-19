@@ -118,6 +118,9 @@ message LaserScan
   repeated double intensities         = 15;
 }
 
+build/ignition-msgs5/include/ignition/msgs
+
+
 ```xml
     <plugin
       filename="libignition-gazebo-sensors-system.so"
@@ -169,3 +172,4 @@ message LaserScan
 * change the color of the wall
 * question I think lidar without gpu is not supported yet
 * Make all the tags with the same style
+* check all the lidar rays not all 10
