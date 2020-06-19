@@ -55,7 +55,7 @@ Instead of sending messages from the terminal we will send messages using the ar
 
 ### KeyPublisher
 
-`KeyPublisher` is an `ign-gui` plugin that reads keyboard's keystrokes and send them on a default topic `/gazebo/keyboard/keypress`. to use this plugin add the following code under the `<gui>` tag.
+`KeyPublisher` is an `ign-gui` plugin that reads keyboard's keystrokes and send them on a default topic `/keyboard/keypress`. to use this plugin add the following code under the `<gui>` tag.
 
 ```xml
 <!-- KeyPublisher plugin-->
@@ -70,12 +70,12 @@ Let's try this plugin as follow:
 
 * In another terminal type
 
-    `ign topic -e -t /gazebo/keyboard/keypress`
+    `ign topic -e -t /keyboard/keypress`
     
-     this command will display all messages sent on `/gazebo/keyboard/keypress` topic.
+     this command will display all messages sent on `/keyboard/keypress` topic.
 * In the ignition window press different keys and you should see data(numbers) on the terminal where you run the
 
-    `ign topic -e -t /gazebo/keyboard/keypress`
+    `ign topic -e -t /keyboard/keypress`
 
 ![KeyPublisher](KeyPublisher.png)
 
@@ -89,7 +89,7 @@ The TriggeredPublisher system publishes a user specified message on an output to
 <!-- Moving Forward-->
 <plugin filename="libignition-gazebo-triggered-publisher-system.so"
         name="ignition::gazebo::systems::TriggeredPublisher">
-    <input type="ignition.msgs.Int32" topic="/gazebo/keyboard/keypress">
+    <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
         <match field="data">16777235</match>
     </input>
     <output type="ignition.msgs.Twist" topic="/cmd_vel">
@@ -98,7 +98,7 @@ The TriggeredPublisher system publishes a user specified message on an output to
 </plugin>
 ```
 
-This code defines `triggered-publisher` plugin, It accepts messages of type `ignition.msgs.Int32` on the `/gazebo/keyboard/keypress` topic and if the value in the `data` field matches "16777235"(Up arrow) it outputs a `Twist` message on the `cmd_vel` topic with value `x: 0.5`, `z: 0.0`.
+This code defines `triggered-publisher` plugin, It accepts messages of type `ignition.msgs.Int32` on the `/keyboard/keypress` topic and if the value in the `data` field matches "16777235"(Up arrow) it outputs a `Twist` message on the `cmd_vel` topic with value `x: 0.5`, `z: 0.0`.
 
 Now launch the `car_demo.sdf` and our robot should move forward as you press the Up arrow key &#8593;
 
@@ -106,11 +106,11 @@ There is a demo explains how the [Triggered Publisher](https://github.com/igniti
 
 ### Moving using arrow keys
 
-To see what values sent on the `/gazebo/keyboard/keypress` when pressing the arrows we can use `--echo` or `-e` option
+To see what values sent on the `/keyboard/keypress` when pressing the arrows we can use `--echo` or `-e` option
 Run the model in one terminal.
 And in another terminal run the following command.
 
-`ign topic -e -t /gazebo/keyboard/keypress`
+`ign topic -e -t /keyboard/keypress`
 
 Start press the arrows keys and see what values they give:
 
@@ -125,7 +125,7 @@ We will add `Triggered publisher` plugin for each arrows for example the backwar
 <!-- Moving Backward-->
 <plugin filename="libignition-gazebo-triggered-publisher-system.so"
         name="ignition::gazebo::systems::TriggeredPublisher">
-    <input type="ignition.msgs.Int32" topic="/gazebo/keyboard/keypress">
+    <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
         <match field="data">16777237</match>
     </input>
     <output type="ignition.msgs.Twist" topic="/cmd_vel">
@@ -160,4 +160,5 @@ Now we have our robot moving the keyboard keys.
 * [Arrows symbols](https://unicode-table.com/en/sets/arrow-symbols/) (done)
 * screen shot, GIF of the output after every stage (eg. trying key plugin) or may do a video.
 * rename the keypublisher plugin (done)
-* Change link for triggered publisher, make it link to website after merge 
+* Change link for triggered publisher, make it link to website after merge
+* solve Non-unique names detected in XML
