@@ -117,6 +117,44 @@ message LaserScan
   repeated double intensities         = 15;
 }
 
+```xml
+    <plugin
+      filename="libignition-gazebo-sensors-system.so"
+      name="ignition::gazebo::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+```
+
+```xml
+<sensor name='gpu_lidar' type='gpu_lidar'>"
+    <topic>lidar</topic>
+    <update_rate>10</update_rate>
+    <ray>
+    <scan>
+        <horizontal>
+        <samples>640</samples>
+        <resolution>1</resolution>
+        <min_angle>-1.396263</min_angle>
+        <max_angle>1.396263</max_angle>
+        </horizontal>
+        <vertical>
+        <samples>1</samples>
+        <resolution>0.01</resolution>
+        <min_angle>0</min_angle>
+        <max_angle>0</max_angle>
+        </vertical>
+    </scan>
+    <range>
+        <min>0.08</min>
+        <max>10.0</max>
+        <resolution>0.01</resolution>
+    </range>
+    </ray>
+    <alwaysOn>1</alwaysOn>
+    <visualize>true</visualize>
+</sensor>
+```
+
 ## TODO
 
 * Use the sensor plot plugin
@@ -126,3 +164,7 @@ message LaserScan
 * Is the sensors render in the GUI
 * change the name of the sdf world, avoid (sensors, sensor_demo)
 * guide to proto https://developers.google.com/protocol-buffers/docs/cpptutorial
+* inertial properties of the laser_link
+* change the color of the wall
+* question I think lidar without gpu is not supported yet
+* Make all the tags with the same style
