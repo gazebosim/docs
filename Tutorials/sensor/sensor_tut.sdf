@@ -24,7 +24,9 @@
                 name="ignition::gazebo::systems::Sensors">
             <render_engine>ogre2</render_engine>
         </plugin>
-
+        <plugin filename="libignition-gazebo-contact-system.so"
+                name="ignition::gazebo::systems::Contact">
+        </plugin>
         <gui fullscreen="0">
 
             <!-- 3D scene -->
@@ -445,7 +447,19 @@
                         </box>
                     </geometry>
                 </collision>
+                <sensor name='sensor_contact' type='contact'>
+                    <contact>
+                        <collision>collision</collision>
+                    </contact>
+                </sensor>
             </link>
+            <plugin filename="libignition-gazebo-touchplugin-system.so"
+                    name="ignition::gazebo::systems::TouchPlugin">
+                <target>vehicle_blue</target>
+                <namespace>wall</namespace>
+                <time>0.001</time>
+                <enabled>true</enabled>
+            </plugin>
         </model>
 
         <!-- Moving Forward-->
@@ -489,6 +503,17 @@
             </input>
             <output type="ignition.msgs.Twist" topic="/cmd_vel">
                 linear: {x: 0.0}, angular: {z: 0.5}
+            </output>
+        </plugin>
+
+        <!--stop when hit the wall-->
+        <plugin filename="libignition-gazebo-triggered-publisher-system.so"
+                name="ignition::gazebo::systems::TriggeredPublisher">
+            <input type="ignition.msgs.Boolean" topic="/wall/touched">
+                <match>data: true</match>
+            </input>
+            <output type="ignition.msgs.Twist" topic="/cmd_vel">
+                linear: {x: 0.0}, angular: {z: 0.0}
             </output>
         </plugin>
     </world>
