@@ -319,6 +319,30 @@ Run the world from terminal 2:
 
 Now you can see the robot move forward and as it approaches the wall it start to turn left till it clear and move forward again.
 
+## Ign launch
+
+Instead of running two different terminals we can make a launch file which will run the `sensor_world` and the `lidar_node` at the same time. Open your text editor, copy and paste the following code.
+
+```xml
+<?xml version='1.0'?>
+<ignition version='1.0'>
+  <executable name='sensor-world'>
+    <command>ign gazebo sensor_tut.sdf</command>
+  </executable>
+
+  <executable name='lidar_node'>
+    <command>./build/lidar_node</command>
+  </executable>
+
+</ignition>
+```
+
+The launch file is an XML file. We simply define what commands will run under the `<executable>` tag. The first command is `ign gazebo sensor_tut.sdf` which launches the world. And the second command is `./build/lidar_node` which runs the `lidar_node`. save the file as `sensor_launch.ign`, and then run it using the following command.
+
+`ign launch sensor_launch.ign`
+
+Hurray we have our robot now moving and avoid the wall.
+
 ## TODO
 
 * Use the sensor plot plugin
@@ -335,9 +359,13 @@ Now you can see the robot move forward and as it approaches the wall it start to
 * link for the sdf tutorial
 * screenshots
 * explain "ignition::gazebo::systems::Sensors" plugin
-* clear the cmakelist file 
+* clear the cmakelist file
+* simplify the node
+* rename to sensor_world
 
 ## Questions
 
 * question I think lidar without gpu is not supported yet
 * Visualize does it mean the rays for example, or the physical sensor
+* do we need to separate the launch from the tutorial or made a launch tutorial
+
