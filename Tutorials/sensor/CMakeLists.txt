@@ -57,9 +57,9 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/lidar_pub.cc")
   target_link_libraries(publisher ignition-transport${IGN_TRANSPORT_VER}::core)
 endif()
 
-if (EXISTS "${CMAKE_SOURCE_DIR}/lidar_sub.cc")
-  add_executable(subscriber lidar_sub.cc)
-  target_link_libraries(subscriber ignition-transport${IGN_TRANSPORT_VER}::core)
+if (EXISTS "${CMAKE_SOURCE_DIR}/lidar_node.cc")
+  add_executable(lidar_node lidar_node.cc)
+  target_link_libraries(lidar_node ignition-transport${IGN_TRANSPORT_VER}::core)
 endif()
 
 if (EXISTS "${CMAKE_SOURCE_DIR}/subscriber_generic.cc")
