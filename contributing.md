@@ -173,6 +173,7 @@ get aquainted with this development process.
 1. **Fork the Ignition library** you want to contribute to. This will create
    your own personal copy of the library. All of your development should
    take place in your fork.
+   - An important thing to do is create an remote pointing to the [upstream remote repository](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork). This way, you can always check some modification on the original repository and **always** keep your fork repository updated.
 
 1. **Choose a base branch.** If your changes will break API or ABI, then
    base your new branch off of `master`. If your changes don't break
@@ -183,7 +184,10 @@ get aquainted with this development process.
    a release / master branch. This is a good habit to get in, and will make
    your life easier.
 
-1. **Write your code.** This is the fun part.
+1. **Write your code.** This is the fun part, but is good to remeber:
+   - Always [sign your commits](https://docs.github.com/en/github/authenticating-to-github/signing-commits);
+   - Look the existing code and try to keep the pattern used as much as possible;
+   - **Alway** keep your branch updated with the original repository;
 
 1. **Write tests.** In most cases, a pull request will only be accepted if
    it has tests. See the [Writing Tests](#markdown-header-writing-tests)
