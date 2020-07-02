@@ -44,7 +44,7 @@ Custom sensors | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/i
 
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
-ActorPlugin | ✓ | TODO
+ActorPlugin | ✓ | ✕ See [FollowActor](https://github.com/ignitionrobotics/ign-gazebo/blob/master/src/systems/follow_actor/FollowActor.hh) for a demo of Actor APIs
 ActuatorPlugin | ✓ | TODO
 ArduCopterPlugin | ✓ | TODO
 AttachLightPlugin | ✓ | ✕ Does not apply, use SDF
@@ -64,13 +64,13 @@ InitialVelocityPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-ga
 JointControlPlugin | ✓ (force / pos / vel, from SDF) | ✓ (vel, from msg)
 JointStatePublisher | ✕ | ✓
 JointTrajectoryPlugin | ✓ | TODO
-KeysToCmdVelPlugin | ✓ | TODO
-KeysToJointsPlugin | ✓ | TODO
+KeysToCmdVelPlugin | ✓ | Use `ignition::gui::KeyPublisher` with `ignition::gazebo::systems::TriggeredPublisher`
+KeysToJointsPlugin | ✓ | Use `ignition::gui::KeyPublisher` with `ignition::gazebo::systems::TriggeredPublisher`
 LedPlugin | ✓ | TODO
 LiftDragPlugin | ✓ | ✓
 LinearBatteryConsumerPlugin | ✓ | ✓
 LinearBatteryPlugin | ✓ | ✓
-LinkPlot3DPlugin | ✓ | TODO
+LinkPlot3DPlugin | ✓ | [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/231)
 MudPlugin | ✓ | TODO
 MulticopterMotorModel | ✕ | ✓
 PlaneDemoPlugin | ✓ | TODO
@@ -78,12 +78,12 @@ PosePublisher | ✕ | ✓
 RandomVelocityPlugin | ✓ | TODO
 RegionEventBoxPlugin | ✓ | TODO
 SkidSteerDrivePlugin | ✓ | ✓
-SphereAtlasDemoPlugin | ✓ | TODO
+SphereAtlasDemoPlugin | ✓ | ✕
 TouchPlugin | ✓ | ✓
 TrackedVehiclePlugin | ✓ | TODO
 VariableGearboxPlugin | ✓ | TODO
 VehiclePlugin | ✓ | TODO
-WheelSlipPlugin | ✓ | TODO
+WheelSlipPlugin | ✓ | [pull request](https://github.com/ignitionrobotics/ign-gazebo/pull/134)
 
 ### World plugins
 
@@ -104,18 +104,18 @@ WindPlugin | ✓ | ✓
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 BreakableJointPlugin | ✓ | TODO
-CameraPlugin | ✓ | TODO
+CameraPlugin | ✓ | [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
 ContactPlugin | ✓ | ✓
-DepthCameraPlugin | ✓ | TODO
+DepthCameraPlugin | ✓ | [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
 FiducialCameraPlugin | ✓ | TODO
-ForceTorquePlugin | ✓ | TODO
-GpuRayPlugin | ✓ | TODO
-ImuSensorPlugin | ✓ | TODO
+ForceTorquePlugin | ✓ | [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
+GpuRayPlugin | ✓ | [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
+ImuSensorPlugin | ✓ | [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
 LensFlareSensorPlugin | ✓ | TODO
 PressurePlugin | ✓ | TODO
-RayPlugin | ✓ | TODO
-RaySensorNoisePlugin | ✓ | TODO
-SonarPlugin | ✓ | TODO
+RayPlugin | ✓ | [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
+RaySensorNoisePlugin | ✓ | ✕ Use SDF
+SonarPlugin | ✓ | [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
 
 ### Visual plugins
 
@@ -131,7 +131,7 @@ ShaderParamVisualPlugin | ✓ | TODO
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 CessnaGUIPlugin | ✓ | TODO
-KeyboardGUIPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gui/issues/67)
+KeyboardGUIPlugin | ✓ | `ignition::gui::KeyPublisher`
 LookAtDemoPlugin | ✓ | TODO
 TimerGUIPlugin | ✓ | TODO
 
