@@ -184,10 +184,10 @@ get aquainted with this development process.
    a release / master branch. This is a good habit to get in, and will make
    your life easier.
 
-1. **Write your code.** This is the fun part, but is good to remeber:
-   - Always [sign your commits](https://docs.github.com/en/github/authenticating-to-github/signing-commits);
-   - Look the existing code and try to keep the pattern used as much as possible;
-   - **Alway** keep your branch updated with the original repository;
+1. **Write your code.** This is the fun part, but is good to remember:
+   - Always [sign your commits](https://docs.github.com/en/github/authenticating-to-github/signing-commits) (See the bullet about Developer Certificate of Origin in the [Process](#markdown-header-process) section below)
+   - Look at the existing code and try to maintain the existing style and pattern as much as possible
+   - **Always** keep your branch updated with the original repository
 
 1. **Write tests.** In most cases, a pull request will only be accepted if
    it has tests. See the [Writing Tests](#markdown-header-writing-tests)
