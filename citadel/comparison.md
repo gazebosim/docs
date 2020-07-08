@@ -245,7 +245,7 @@ Populations | ✓ | TODO
 Actors | ✓ | ✓
 Markers | ✓ | ✓
 Heightmaps | ✓ | TODO
-DEM (Digital Elevation Models) | ✓ | TODO
+DEM (Digital Elevation Models) | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
 COLLADA meshes | ✓ | ✓
 OBJ meshes | ✓ | ✓
 STL meshes | ✓ | ✓
