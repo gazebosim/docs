@@ -204,7 +204,9 @@ get aquainted with this development process.
 
         sudo apt-get install cppcheck
 
-    To check your code, run the following script from the `build` folder of the project that you're working. If you're working in the *ignition-math*, for instance, the path for the folder should be something similar to this `~/citacel_ws/build/ignition-math6`, than, run the script inside this folder:
+    To check your code, run the following script from the `build` folder of the project that you're working on. 
+    If you're working on *ignition-math*, for instance, the path for the folder should be something similar to `~/citadel_ws/build/ignition-math6`.
+    Then, run the script inside this folder:
 
         make codecheck
 
