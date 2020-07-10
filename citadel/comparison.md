@@ -244,7 +244,7 @@ Web client (GzWeb) | ✓ | TODO
 Populations | ✓ | TODO
 Actors | ✓ | ✓
 Markers | ✓ | ✓
-Heightmaps | ✓ | TODO
+Heightmaps | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/237)
 DEM (Digital Elevation Models) | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
 COLLADA meshes | ✓ | ✓
 OBJ meshes | ✓ | ✓
