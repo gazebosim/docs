@@ -2,15 +2,35 @@
 
 This page describes planned work for Ignition Robotics. The set of planned
 features and development efforts should provide insight into the overall
-direction of Ignition Robotics. Development of Ignition Robotics is closely
-tied to on-going work with a variety of institutions. If you would like to
+direction of Ignition Robotics. If you would like to
 see other features on the roadmap, then please get in touch with us via
 info@openrobotics.org. 
 
-## Feature Development
+## Quarterly Roadmap
 
-See the [Release Features](/docs/release-features) page for a list of features
-already available in each release of Ignition.
+**Close the Gap** is Ignition's current focus topic. Over the next two
+quarters we will concentrate development efforts on topics that reduce
+feature disparity between Gazebo and Ignition and facilitate migration from
+Gazebo to Ignition.
+
+## 2020 Q3(Jul - Sep)
+
+* **Migration Strategies**: Develop and document strategies for migrating
+plugins, SDF files, and other simulation resources from Gazebo to Ignition.
+
+* **Documentation**: Improve documentation release process and usability.
+Port relevant Gazebo tutorials to Ignition.
+
+## 2020 Q4(Oct - Dec)
+
+* **Cross platform compatibility**: Fully support Windows, Ubuntu, and macOS.
+* **Feature parity**: Port features from Gazebo that are missing in Ignition.
+
+## Feature Roadmap
+
+A number of features are planned for specific releases of Ignition. The
+features listed here derive from the Quarterly Roadmap, listed above, and other
+ongoing projects.  See the [Release Features](/docs/release-features) page for a list of features already available in each release of Ignition.
 
 A named release of Ignition, such as Acropolis or Blueprint, is tied to
 a set of [library](/libs) major versions. Each library follows
