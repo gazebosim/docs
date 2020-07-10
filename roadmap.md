@@ -3,7 +3,7 @@
 This page describes planned work for Ignition Robotics. The set of planned
 features and development efforts should provide insight into the overall
 direction of Ignition Robotics. If you would like to
-see other features on the roadmap, then please get in touch with us via
+see other features on the roadmap, then please get in touch with us at
 info@openrobotics.org. 
 
 ## Quarterly Roadmap
@@ -66,7 +66,7 @@ and release pattern allows us to distribute patch and minor updates into an alre
 
 ## Planned releases
 
-See the [Releases](/docs/releases) page.
+Please see the [Releases](/docs/releases) for the timeline of and information about future distributions.
 
 ## Contributing to Ignition
 
