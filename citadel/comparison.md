@@ -241,7 +241,7 @@ Feature | Gazebo-classic | Ignition Gazebo
 Nested models | ✓ | [SDF Issue](https://github.com/osrf/sdformat/issues/283), [Physics issue](https://github.com/ignitionrobotics/ign-physics/issues/10)
 Log / playback | ✓ | ✓
 Web client (GzWeb) | ✓ | TODO
-Populations | ✓ | TODO
+Populations | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/240)
 Actors | ✓ | ✓
 Markers | ✓ | ✓
 Heightmaps | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/237)
