@@ -48,13 +48,15 @@ We can create an actor called `actor_walking` as follows:
 
 ### Skin
 
-In the `<skin>` tag we just load a COLLADA file `walk.dae` which specify how our actor will look like. When a COLLADA file used within the `<skin>` tags its animation is loaded. Now run the world and should see our model moving. The `<scale>` scales the skin's size.
+In the `<skin>` tag we just loaded a COLLADA file `walk.dae` which specify how our actor will look like. When a COLLADA file used within the `<skin>` tags its animation is loaded. Now run the world and should see our model moving. The `<scale>` scales the skin's size.
+
+**Note**: You can find different actors and models in ignition [fuel](https://app.ignitionrobotics.org/fuel).
 
 ### Animation?
 
 In the `<animation>` tag we specify how our actor will move. We can combine different skin with different animation as long as they have compatible skeletons.
 
-For example the `talk_b.dae` and `walk.dae` are compatible so they can be mixed with each other. The actor walking is with a green shirt and the one talking is with blue shirt. We can have an actor walking with a blue shirt by using the `talk_b.dae` in the skin and the `walk.dae` in the animation
+For example the `talk_b.dae` and `walk.dae` are compatible so they can be mixed with each other. The actor walking is with a green shirt and the one talking is with blue shirt. We can have an actor walking with a blue shirt by using the `talk_b.dae` in the skin and the `walk.dae` in the animation as follow:
 
 ```xml
 <actor name="actor_walking">
@@ -136,7 +138,7 @@ Let's define the trajectory as a sequence of waypoints:
 </actor>
 ```
 
-Within the `<trajectory>` tag we can define a series of waypoints which our actor will follow. The `<trajectory>` has two attributes the `id` and `type`. the `type` should have the same name as the animation (todo). The `trajectory` parameters are as follow:
+Within the `<trajectory>` tag we can define a series of waypoints which our actor will follow. The `<trajectory>` has two attributes: `id` and `type`. The `type` should have the same name as the animation (todo). The `trajectory` parameters are as follow:
 
 * `waypoint`: There can be any number of waypoints in a trajectory. Each waypoint consists of a time and a pose:
     * `time`: The time in seconds, counted from the beginning of the script, when the pose should be reached.
@@ -159,10 +161,10 @@ Now it's your turn! Try out different trajectories description.
 * remove the sensor plugin from the sdf?
 * use an already built world and add to it or start new?
 * comment blocks in sdf
-* animation for skeleton and trajectory movement and combined
-* actor full [specs](http://sdformat.org/spec?ver=1.6&elem=actor)
+* GIF for skeleton and trajectory movement and combined
 * when link to code link to the raw version.
 * Make the movement reasonable
 * I can't combine skins and animations
 * refer to the final sdf of the tutorial
 * make the move smoother if possible
+* I think trajectory motion is not supported. but I can make it with the (talk_b.dae)
