@@ -49,7 +49,7 @@ ActuatorPlugin | ✓ | TODO
 ArduCopterPlugin | ✓ | TODO
 AttachLightPlugin | ✓ | ✕ Does not apply, use SDF
 Breadcrumbs | ✕ | ✓
-BuoyancyPlugin | ✓ | [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/159)
+BuoyancyPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/159)
 CartDemoPlugin | ✓ | ✕
 CessnaPlugin | ✓ | TODO
 DiffDrivePlugin | ✓ | ✓
@@ -70,7 +70,7 @@ LedPlugin | ✓ | TODO
 LiftDragPlugin | ✓ | ✓
 LinearBatteryConsumerPlugin | ✓ | ✓
 LinearBatteryPlugin | ✓ | ✓
-LinkPlot3DPlugin | ✓ | [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/231)
+LinkPlot3DPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/231)
 MudPlugin | ✓ | TODO
 MulticopterMotorModel | ✕ | ✓
 PlaneDemoPlugin | ✓ | TODO
@@ -90,7 +90,7 @@ WheelSlipPlugin | ✓ | [pull request](https://github.com/ignitionrobotics/ign-g
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 ArrangePlugin | ✓ | TODO
-ContainPlugin | ✓ | Partial port, [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/162)
+ContainPlugin | ✓ | Partial port, [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/162)
 HydraPlugin | ✓ | TODO
 JoyPlugin | ✓ | ✓ Migrated as an Ignition Launch plugin
 MisalignmentPlugin | ✓ | TODO
@@ -104,18 +104,18 @@ WindPlugin | ✓ | ✓
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 BreakableJointPlugin | ✓ | TODO
-CameraPlugin | ✓ | [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
+CameraPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
 ContactPlugin | ✓ | ✓
-DepthCameraPlugin | ✓ | [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
+DepthCameraPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
 FiducialCameraPlugin | ✓ | TODO
-ForceTorquePlugin | ✓ | [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
-GpuRayPlugin | ✓ | [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
-ImuSensorPlugin | ✓ | [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
+ForceTorquePlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
+GpuRayPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
+ImuSensorPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
 LensFlareSensorPlugin | ✓ | TODO
 PressurePlugin | ✓ | TODO
-RayPlugin | ✓ | [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
+RayPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
 RaySensorNoisePlugin | ✓ | ✕ Use SDF
-SonarPlugin | ✓ | [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
+SonarPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
 
 ### Visual plugins
 
@@ -161,11 +161,11 @@ Insert simple shapes | ✓ | ✓
 Insert simple lights | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/119)
 Delete models | ✓ | ✓
 World tree | ✓ | ✓
-Scene properties | ✓ | TODO
+Scene properties | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/246)
 Log recording / playback | ✓ | ✓
 Plotting | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gui/issues/66)
 Video recording | ✓ | ✓
-Screenshot | ✓ | TODO
+Screenshot | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gui/issues/95)
 View angles | ✓ | ✓
 Apply force / torque | ✓ | TODO
 Visualize joints | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/106)
@@ -176,7 +176,7 @@ Visualize contacts | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazeb
 Follow / move to | ✓ | ✓
 Copy / paste | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/102)
 Building editor | ✓ | TODO
-Model editor | ✓ | [Design](TODO)
+Model editor | ✓ | [Issues](https://github.com/ignitionrobotics/ign-gazebo/issues?q=is%3Aissue+is%3Aopen+label%3Aeditor)
 FPS view control | ✓ | TODO
 Orthographic projection | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/103)
 Undo / redo | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/104)
@@ -232,7 +232,7 @@ Platform | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 Ubuntu | ✓ | ✓
 OSX | ✓ | Most of the stack works, outstanding issues: [command line](https://github.com/ignitionrobotics/ign-gazebo/issues/25), [render window](https://github.com/ignitionrobotics/ign-gazebo/issues/44)
-Windows | ✓ | The stack works up to ign-gazebo: [issue](https://github.com/ignitionrobotics/ign-gazebo/issues/168)
+Windows | ✓ | The stack works up to ign-gazebo: [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/168)
 
 ## Others
 
