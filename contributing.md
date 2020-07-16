@@ -204,8 +204,10 @@ get aquainted with this development process.
 
         sudo apt-get install cppcheck
 
-    To check your code, run the following script from the `build` folder of the project that you're working on. 
+    To check your code, run the following script from the `build` folder of the project that you're working on.
     If you're working on *ignition-math*, for instance, the path for the folder should be something similar to `~/citadel_ws/build/ignition-math6`.
+    The path example is assuming you followed [our installation instructions](/docs/citadel/install) using colcon.
+    
     Then, run the script inside this folder:
 
         make codecheck
