@@ -6,7 +6,7 @@ Animations are very useful if we want to have entities following a predefined pa
 
 ## Actors
 
-In Ignition Gazebo, an animated model is called an `actor`. Actors extend common models, adding animation capabilities.
+In Ignition Gazebo, an animated model is called an `actor`.
 
 There are two types of animations which can be used separately or combined together:
 
@@ -22,14 +22,14 @@ There are two types of animations which can be used separately or combined toget
 
 ![combined_movement](combined_movement)
 
-Actors are just like models, so you can put links and joints inside them as usual. The main differences are:
+Actors have the following properties:
 
 * Actors are always static (i.e. no forces are applied on them, be it from gravity or contact or anything else)
 * Actors support skeleton animation imported from COLLADA(.dae) and BVH(.bvh) files.
 * Actors can have trajectories scripted directly in SDF.
-* There can't be models nested inside actors, so we're limited to animated meshes, links and joints.
 
-You can check out the full specification for the `<actor>` SDF element [here](http://sdformat.org/spec?ver=1.6&elem=actor).
+
+You can check out the full specification for the `<actor>` SDF element [here](http://sdformat.org/spec?ver=1.7&elem=actor).
 
 ## Skeleton
 
@@ -50,7 +50,7 @@ We can create an actor called `actor_walking` as follows:
 
 In the `<skin>` tag we just loaded a COLLADA file `walk.dae` which specify how our actor will look like. When a COLLADA file used within the `<skin>` tags its animation is loaded. Now run the world and should see our model moving. The `<scale>` scales the skin's size.
 
-**Note**: You can find different actors and models on ignition [fuel](https://app.ignitionrobotics.org/fuel).
+**Note**: You can find different actors and models on [ignition fuel](https://app.ignitionrobotics.org/fuel).
 
 ### Animation
 
@@ -72,9 +72,9 @@ For example the `moonwalk.dae` and `walk.dae` are compatible so they can be mixe
 
 ## Scripted trajectory
 
-This is the high level animation of actors, which consists of specifying a series of poses to be reached at specific times. Ignition gazebo takes care of interpolating the motion between them so the movement is fluid.
+This is the high level animation of actors, which consists of specifying a series of poses to be reached at specific times. Ignition Gazebo takes care of interpolating the motion between them so the movement is fluid.
 
-We can make our actor follows the specified trajectory forever and to start playing as soon as the world is loaded as follows:
+We can make our actor follow the specified trajectory forever and start playing as soon as the world is loaded as follows:
 
 ```xml
 <script>
@@ -135,14 +135,13 @@ Let's define the trajectory as a sequence of waypoints:
             </waypoint>
         </trajectory>
     </script>
-</actor>
 ```
 
 Within the `<trajectory>` tag we can define a series of waypoints which our actor will follow. The `<trajectory>` has two attributes: `id` and `type`. The `type` should have the same name as the animation `walk`. The `trajectory` parameters are as follow:
 
 * `waypoint`: There can be any number of waypoints in a trajectory. Each waypoint consists of a time and a pose:
     * `time`: The time in seconds, counted from the beginning of the script, when the pose should be reached.
-    * `pose`: The pose which should be reached.
+    * `pose`: The pose which should be reached with respect to the initial actor pose.
 
 Run the world and you should see our actor moving in a square following the waypoints.
 
