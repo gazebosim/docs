@@ -204,7 +204,11 @@ get aquainted with this development process.
 
         sudo apt-get install cppcheck
 
-    To check your code, run the following script from your `build` folder :
+    To check your code, run the following script from the `build` folder of the project that you're working on.
+    If you're working on *ignition-math*, for instance, the path for the folder should be something similar to `~/citadel_ws/build/ignition-math6`.
+    The path example is assuming you followed [our installation instructions](/docs/citadel/install) using colcon.
+    
+    Then, run the script inside this folder:
 
         make codecheck
 
@@ -460,7 +464,8 @@ coverage report. You'll need to have [lcov](http://ltp.sourceforge.net/coverage/
 
 1. Run a single test, or all the tests
 
-        make test
+       ./workspace/build/package_name/UNIT_TestName_TEST   (single test)
+        make test                                          (all tests) 
 
 1. Make the coverage report
 
