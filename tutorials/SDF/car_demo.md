@@ -1,0 +1,494 @@
+# Building your own robot
+
+In this tutorial we will learn how to build our own robot in SDFormat. We will build a simple two wheeled robot.
+
+ You can find the finished world SDFormat of this tutorial [here](car_demo.sdf).
+
+## What is SDF ?
+
+SDFormat (Simulation Description Format), sometimes abbreviated as SDF, is an XML format that describes objects and environments for robot simulators, visualization, and control.
+
+## Building a world
+
+We will start by building a simple world and then build our robot in it. Open a new file and copy the following code to it.
+
+```xml
+<?xml version="1.0" ?>
+<sdf version="1.7">
+    <world name="car_world">
+        <physics name="1ms" type="ignored">
+            <max_step_size>0.001</max_step_size>
+            <real_time_factor>1.0</real_time_factor>
+        </physics>
+        <plugin
+            filename="libignition-gazebo-physics-system.so"
+            name="ignition::gazebo::systems::Physics">
+        </plugin>
+        <plugin
+            filename="libignition-gazebo-user-commands-system.so"
+            name="ignition::gazebo::systems::UserCommands">
+        </plugin>
+        <plugin
+            filename="libignition-gazebo-scene-broadcaster-system.so"
+            name="ignition::gazebo::systems::SceneBroadcaster">
+        </plugin>
+        <plugin
+            filename="libignition-gazebo-contact-system.so"
+            name="ignition::gazebo::systems::Contact">
+        </plugin>
+
+        <gui fullscreen="0">
+
+            <!-- 3D scene -->
+            <plugin filename="GzScene3D" name="3D View">
+                <ignition-gui>
+                <title>3D View</title>
+                <property type="bool" key="showTitleBar">false</property>
+                <property type="string" key="state">docked</property>
+                </ignition-gui>
+
+                <engine>ogre2</engine>
+                <scene>scene</scene>
+                <ambient_light>0.4 0.4 0.4</ambient_light>
+                <background_color>0.8 0.8 0.8</background_color>
+            </plugin>
+
+            <!-- World control -->
+            <plugin filename="WorldControl" name="World control">
+                <ignition-gui>
+                <title>World control</title>
+                <property type="bool" key="showTitleBar">false</property>
+                <property type="bool" key="resizable">false</property>
+                <property type="double" key="height">72</property>
+                <property type="double" key="width">121</property>
+                <property type="double" key="z">1</property>
+
+                <property type="string" key="state">floating</property>
+                <anchors target="3D View">
+                    <line own="left" target="left"/>
+                    <line own="bottom" target="bottom"/>
+                </anchors>
+                </ignition-gui>
+
+                <play_pause>true</play_pause>
+                <step>true</step>
+                <start_paused>true</start_paused>
+                <service>/world/car_world/control</service>
+                <stats_topic>/world/car_world/stats</stats_topic>
+            </plugin>
+
+            <!-- World statistics -->
+            <plugin filename="WorldStats" name="World stats">
+                <ignition-gui>
+                <title>World stats</title>
+                <property type="bool" key="showTitleBar">false</property>
+                <property type="bool" key="resizable">false</property>
+                <property type="double" key="height">110</property>
+                <property type="double" key="width">290</property>
+                <property type="double" key="z">1</property>
+
+                <property type="string" key="state">floating</property>
+                <anchors target="3D View">
+                    <line own="right" target="right"/>
+                    <line own="bottom" target="bottom"/>
+                </anchors>
+                </ignition-gui>
+
+                <sim_time>true</sim_time>
+                <real_time>true</real_time>
+                <real_time_factor>true</real_time_factor>
+                <iterations>true</iterations>
+                <topic>/world/car_world/stats</topic>
+
+            </plugin>
+
+            <!-- Entity tree -->
+            <plugin filename="EntityTree" name="Entity tree">
+            </plugin>
+
+        </gui>
+
+        <light type="directional" name="sun">
+            <cast_shadows>true</cast_shadows>
+            <pose>0 0 10 0 0 0</pose>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.2 0.2 0.2 1</specular>
+            <attenuation>
+                <range>1000</range>
+                <constant>0.9</constant>
+                <linear>0.01</linear>
+                <quadratic>0.001</quadratic>
+            </attenuation>
+            <direction>-0.5 0.1 -0.9</direction>
+        </light>
+
+        <model name="ground_plane">
+            <static>true</static>
+            <link name="link">
+                <collision name="collision">
+                <geometry>
+                    <plane>
+                    <normal>0 0 1</normal>
+                    </plane>
+                </geometry>
+                </collision>
+                <visual name="visual">
+                <geometry>
+                    <plane>
+                    <normal>0 0 1</normal>
+                    <size>100 100</size>
+                    </plane>
+                </geometry>
+                <material>
+                    <ambient>0.8 0.8 0.8 1</ambient>
+                    <diffuse>0.8 0.8 0.8 1</diffuse>
+                    <specular>0.8 0.8 0.8 1</specular>
+                </material>
+                </visual>
+            </link>
+        </model>
+    </world>
+</sdf>
+```
+
+Save the file and try to launch it.
+
+`ign gazebo car_demo.sdf`
+
+**Note**: you can name your file any name.
+
+You should see an empty world with just a ground. Check [World demo](../world_demo.md) to learn how to build your own world.
+
+## Building a model
+
+Under the `</model>` tag we will add our robot model as follows:
+
+### Defining the model
+
+```xml
+<model name='vehicle_blue' canonical_link='chassis'>
+    <pose relative_to=world>0 0 0 0 0 0</pose>
+```
+
+Here we define the name of our model `vehicle_blue` Which should be a unique name among its sibling(other tags or models) on the same level. Each non-static model must have at least one link designated as the `canonical_link` The implicit frame of the model is attached to this link. The `<pose>` tag is used to define the position and orientation of our model and the `relative_to` attribute is used to define the frame of the model relative to any other frame, if the `relative_to` is not defined, the model's `<pose>` will be relative to the world. Let's make our pose relative to the `world`. The values inside the pose tag are as follow `<pose>X Y Z R P Y</pose>` where the `X Y Z` represent the position of the frame and `R P Y` represent the orientation in roll pitch yaw. We set them to zeros which makes the two frames: the model and the world identical.
+
+### Links forming our robot
+
+Every model is a group of `links`(can be just one link) connected together with `joints`.
+
+#### Chassis
+
+```xml
+    <link name='chassis'>
+        <pose relative_to='__model__'>0.5 0 0.4 0 0 0</pose>
+```
+
+We define the first link, the `chassis` of our car and it's pose relative to the `model`.
+
+##### Inertial properties
+
+```xml
+    <inertial> <!--inertial properties of the link mass, inertia matrix-->
+        <mass>1.14395</mass>
+        <inertia>
+            <ixx>0.1499</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.5098</iyy>
+            <iyz>0</iyz>
+            <izz>0.5998</izz>
+        </inertia>
+    </inertial>
+```
+
+Here we define the inertial properties of chassis like the `mass` and the `<inertia>` matrix. The values of the inertia matrix for primitive shapes can be found [here](https://en.wikipedia.org/wiki/List_of_moments_of_inertia#List_of_3D_inertia_tensors)
+
+#### Visual and collision
+
+```xml
+    <visual name='visual'>
+        <geometry>
+            <box>
+                <size>2.0 1.0 0.5</size>
+            </box>
+        </geometry>
+        <!--let's add color to our link-->
+        <material>
+            <ambient>0.0 0.0 1.0 1</ambient>
+            <diffuse>0.0 0.0 1.0 1</diffuse>
+            <specular>0.0 0.0 1.0 1</specular>
+        </material>
+    </visual>
+```
+
+As the name suggests `<visual>` tag is responsible for how our link will look like.
+We define the shape of our link inside the `<geometry>` tag as a `<box>`(cuboid) and then specify the three dimensions(in meters) of this box inside the `<size>` tag, Then inside the `<material>` tag we define the material of our link. Here we defined the `<ambient>`, `<diffuse>` and `<specular>` colors in a set of four numbers red/green/blue/alpha each in range [0, 1].
+
+```xml
+        <collision name='collision'>
+            <geometry>
+                <box>
+                    <size>2.0 1.0 0.5</size>
+                </box>
+            </geometry>
+        </collision>
+    </link>
+</model>
+```
+
+The `<collision>` tag define the collision properties of the link, how our link will react with other objects and the effect of the physics engine on it.
+
+**Note**: `<collision>` can be different from the visual properties, for example, simpler collision models are often used to reduce computation time.
+
+Run the world
+
+`ign gazebo car_demo.sdf`
+
+Our model should look like this.
+
+![car chassis](chassis.png)
+
+In the top right corner click on the plugins dropdown list(vertical ellipsis), choose `Transform control`, select your model and then click on the Translation tool you should see three axis like this.
+
+![model_axis](model_axis.png)
+
+These are the axis of our model where red is x-axis, green is the y-axis and blue is the z-axis.
+
+### Left wheel
+
+Let's add wheels to our robot. The following code goes after the `</link>` tag and before the `</model>` tag. All the links and joints belonging to the same model should be defined before the `</model>`.
+
+```xml
+<link name='left_wheel'>
+    <pose relative_to="chassis">-0.5 0.6 0 -1.5707 0 0</pose>
+    <inertial>
+        <mass>2</mass>
+        <inertia>
+            <ixx>0.52</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.52</iyy>
+            <iyz>0</iyz>
+            <izz>0.16</izz>
+        </inertia>
+    </inertial>
+```
+
+We defined the name of our link `left_wheel` and then defined its `<pose>` `relative_to` the `chassis` link. The wheel needed to be placed on the left to the back of the `chassis` so that's why we chose these values for `pose` as `-0.5 0.6 0`. Also our wheel is a cylinder but on its side so that's why we defined the orientation value as `-1.5707 0 0` which is a `-90` degree rotation around the x-axis(the angles are in radians).
+Then we defined the `inertial` properties of the wheel, The `mass` and the `inertia` matrix.
+
+#### Left wheel visualization
+
+```xml
+    <visual name='visual'>
+        <geometry>
+            <cylinder>
+                <radius>0.4</radius>
+                <length>0.2</length>
+            </cylinder>
+        </geometry>
+        <material>
+            <ambient>1.0 0.0 0.0 1</ambient>
+            <diffuse>1.0 0.0 0.0 1</diffuse>
+            <specular>1.0 0.0 0.0 1</specular>
+        </material>
+    </visual>
+    <collision name='collision'>
+        <geometry>
+            <cylinder>
+                <radius>0.4</radius>
+                <length>0.2</length>
+            </cylinder>
+        </geometry>
+    </collision>
+</link>
+```
+
+The `<visual>` and  the `<collision>` properties are similar to the previous link except for the shape of our link it has the shape of `<cylinder>` that require two attributes, the `<radius>` and the `<length>` of the cylinder.
+Our model should look like this.
+
+![this](car_left_wheel.png)
+
+### Right wheel
+
+```xml
+<!--The same as left wheel but change position-->
+<link name='right_wheel'>
+    <pose relative_to="chassis">-0.5 -0.6 0 -1.5707 0 0</pose> <!--angles are in radian-->
+    <inertial>
+        <mass>1</mass>
+        <inertia>
+            <ixx>0.145833</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.145833</iyy>
+            <iyz>0</iyz>
+            <izz>0.125</izz>
+        </inertia>
+    </inertial>
+    <visual name='visual'>
+        <geometry>
+            <cylinder>
+                <radius>0.4</radius>
+                <length>0.2</length>
+            </cylinder>
+        </geometry>
+        <material>
+            <ambient>1.0 0.0 0.0 1</ambient>
+            <diffuse>1.0 0.0 0.0 1</diffuse>
+            <specular>1.0 0.0 0.0 1</specular>
+        </material>
+    </visual>
+    <collision name='collision'>
+        <geometry>
+            <cylinder>
+                <radius>0.4</radius>
+                <length>0.2</length>
+            </cylinder>
+        </geometry>
+    </collision>
+</link>
+```
+
+The right wheel is similar to the left wheel except for its position.
+
+### Defining an arbitrary frame
+
+One of the new features of SDF 1.7 is that we can define arbitrary frames. It takes two attributes:
+
+* `name`: the name of the frame
+* `attached_to`: the name of the frame or the link to which this frame is attached.
+
+Let's add a frame for our caster wheel as follows:
+
+```xml
+<frame name="caster_frame" attached_to='chassis'>
+    <pose>0.8 0 -0.2 0 0 0</pose>
+</frame>
+```
+
+We gave our frame name `caster_frame` and attached it to the `chassis` link. Then the `<pose>` tag to define the position and orientation of the frame, we didn't use the `relative_to` so the pose is with respect to the frame named in the `attached_to` attribute `chassis` in our case.
+
+### Caster wheel
+
+```xml
+<!--caster wheel-->
+<link name='caster'>
+    <pose relative_to='caster_frame'/>
+    <inertial>
+        <mass>1</mass>
+        <inertia>
+            <ixx>0.016</ixx>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyy>0.016</iyy>
+            <iyz>0</iyz>
+            <izz>0.016</izz>
+        </inertia>
+    </inertial>
+    <visual name='visual'>
+        <geometry>
+            <sphere>
+                <radius>0.2</radius>
+            </sphere>
+        </geometry>
+        <material>
+            <ambient>0.0 1 0.0 1</ambient>
+            <diffuse>0.0 1 0.0 1 1</diffuse>
+            <specular>0.0 1 0.0 1</specular>
+        </material>
+    </visual>
+    <collision name='collision'>
+        <geometry>
+            <sphere>
+                <radius>0.2</radius>
+            </sphere>
+        </geometry>
+    </collision>
+</link>
+```
+
+Our last link is the `caster` and its pose is with respect to the frame `caster_frame` we defined above. As you could notice we closed the `pose` tag without defining the position or the orientation, in this case the pose of the link is the same as(identity) the frame in `relative_to`.
+
+In the `<visual>` and `<collision>` we defined a different shape `<sphere>` which require the `<radius>` of the sphere.
+
+### Connecting links together(joints)
+
+We need to connect these links together and here comes the job of `<joint>` tag. The joint tag connect two links together and define how they will move with respect to each other. Inside the `<joint>` tag we need to define the two links to connect and their relation(way of movement).
+
+#### Left wheel joint
+
+```xml
+<joint name='left_wheel_joint' type='revolute'> <!--continuos joint is not supported yet-->
+    <pose relative_to='left_wheel'/>
+```
+
+Our first joint is the `left_wheel_joint`. It takes two attributes the name `name='left_wheel_joint'` and the type `type='revolute'`. revolute type gives 1 rotational degree of freedom with joint limits. And the pose of the joint is the same as `left_wheel` frame.
+
+```xml
+    <parent>chassis</parent>
+    <child>left_wheel</child>
+```
+
+Every joint connect two links(bodies) together. Here we connect the `chassis` with the `left_wheel`. `chassis` is the parent link and `left_wheel` is the child link.
+
+```xml
+    <axis>
+        <xyz expressed_in='__model__'>0 1 0</xyz> <!--can be described to any frame or even arbitrary frames-->
+        <limit>
+            <lower>-1.79769e+308</lower>    <!--negative infinity-->
+            <upper>1.79769e+308</upper>     <!--positive infinity-->
+        </limit>
+    </axis>
+</joint>
+```
+
+Here we define the axis of rotation. the axis of rotation can be any frame not just the `parent` or the `child` link. We chose the y-axis with respect to the `model` frame so we put `1` in the y element and zeros in the other. For the revolute joint we need to define the `<limits>` of our rotation angle in the `<lower>` and `<upper>` tags.
+
+**Note**: The angles are in radians.
+
+#### Right wheel joint
+
+The `right_wheel_joint` is very similar except for the pose of the joint and this joint connect the `right_wheel` with the `chassis`.
+
+```xml
+<joint name='right_wheel_joint' type='revolute'>
+    <pose relative_to='right_wheel'/>
+    <parent>chassis</parent>
+    <child>right_wheel</child>
+    <axis>
+        <xyz expressed_in='__model__'>0 1 0</xyz>
+        <limit>
+            <lower>-1.79769e+308</lower>    <!--negative infinity-->
+            <upper>1.79769e+308</upper>     <!--positive infinity-->
+        </limit>
+    </axis>
+</joint>
+```
+
+#### Caster wheel joint
+
+For the caster we need different type of joint(connection). we used `type='ball'` which gives 3 rotational degrees of freedom.
+
+```xml
+<joint name='caster_wheel' type='ball'>
+    <parent>chassis</parent>
+    <child>caster</child>
+</joint>
+```
+
+## Conclusion
+
+Run the world.
+
+`ign gazebo car_demo.sdf`
+
+It should look like this
+
+![two_wheeled_robot](two_wheeled_robot.png)
+
+Hurray we build our first robot. You can know more details about SDFormat tags [here][http://sdformat.org/spec]. In the next [tutorial](../moving_robot_demo.md) we will learn how to move our robot around.
+
+### TODO
+
+* link to moving_robot_demo, world tutorials.
