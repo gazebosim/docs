@@ -188,15 +188,15 @@ We define the first link, the `chassis` of our car and it's pose relative to the
 ##### Inertial properties
 
 ```xml
-    <inertial> <!--inertial properties of the link mass, inertia matrix-->
+    <inertial> <!--inertial properties of the link mass, inertia matix-->
         <mass>1.14395</mass>
         <inertia>
-            <ixx>0.1499</ixx>
+            <ixx>0.095329</ixx>
             <ixy>0</ixy>
             <ixz>0</ixz>
-            <iyy>0.5098</iyy>
+            <iyy>0.381317</iyy>
             <iyz>0</iyz>
-            <izz>0.5998</izz>
+            <izz>0.476646</izz>
         </inertia>
     </inertial>
 ```
@@ -262,14 +262,14 @@ Let's add wheels to our robot. The following code goes after the `</link>` tag a
 <link name='left_wheel'>
     <pose relative_to="chassis">-0.5 0.6 0 -1.5707 0 0</pose>
     <inertial>
-        <mass>2</mass>
+        <mass>1</mass>
         <inertia>
-            <ixx>0.52</ixx>
+            <ixx>0.043333</ixx>
             <ixy>0</ixy>
             <ixz>0</ixz>
-            <iyy>0.52</iyy>
+            <iyy>0.043333</iyy>
             <iyz>0</iyz>
-            <izz>0.16</izz>
+            <izz>0.08</izz>
         </inertia>
     </inertial>
 ```
@@ -312,18 +312,18 @@ Our model should look like this.
 ### Right wheel
 
 ```xml
-<!--The same as left wheel but change position-->
+<!--The same as left wheel but with different position-->
 <link name='right_wheel'>
     <pose relative_to="chassis">-0.5 -0.6 0 -1.5707 0 0</pose> <!--angles are in radian-->
     <inertial>
         <mass>1</mass>
         <inertia>
-            <ixx>0.145833</ixx>
+            <ixx>0.043333</ixx>
             <ixy>0</ixy>
             <ixz>0</ixz>
-            <iyy>0.145833</iyy>
+            <iyy>0.043333</iyy>
             <iyz>0</iyz>
-            <izz>0.125</izz>
+            <izz>0.08</izz>
         </inertia>
     </inertial>
     <visual name='visual'>
