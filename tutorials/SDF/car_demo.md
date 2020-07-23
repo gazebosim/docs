@@ -6,7 +6,7 @@ In this tutorial we will learn how to build our own robot in SDFormat. We will b
 
 ## What is SDF ?
 
-SDFormat (Simulation Description Format), sometimes abbreviated as SDF, is an XML format that describes objects and environments for robot simulators, visualization, and control.
+[SDFormat](http://sdformat.org/) (Simulation Description Format), sometimes abbreviated as SDF, is an XML format that describes objects and environments for robot simulators, visualization, and control.
 
 ## Building a world
 
@@ -157,7 +157,7 @@ Save the file and try to launch it.
 
 **Note**: you can name your file any name.
 
-You should see an empty world with just a ground. Check [World demo](../world_demo.md) to learn how to build your own world.
+You should see an empty world with just a ground plane. Check [World demo](../world_demo.md) to learn how to build your own world.
 
 ## Building a model
 
@@ -170,11 +170,17 @@ Under the `</model>` tag we will add our robot model as follows:
     <pose relative_to=world>0 0 0 0 0 0</pose>
 ```
 
-Here we define the name of our model `vehicle_blue` Which should be a unique name among its sibling(other tags or models) on the same level. Each non-static model must have at least one link designated as the `canonical_link`, the implicit frame of the model is attached to this link. The `<pose>` tag is used to define the position and orientation of our model and the `relative_to` attribute is used to define the pose of the model relative to any other frame, if the `relative_to` is not defined, the model's `<pose>` will be relative to the world. Let's make our pose relative to the `world`. The values inside the pose tag are as follow `<pose>X Y Z R P Y</pose>` where the `X Y Z` represent the position of the frame and `R P Y` represent the orientation in roll pitch yaw. We set them to zeros which makes the two frames: the model and the world identical.
+Here we define the name of our model `vehicle_blue`, which should be a unique name among its siblings (other tags or models on the same level).
+Each non-static model must have at least one link designated as the `canonical_link`; the implicit frame of the model is attached to this link.
+The `<pose>` tag is used to define the position and orientation of our model and the `relative_to` attribute is used to define the pose of the model relative to any other frame.
+If `relative_to` is not defined, the model's `<pose>` will be relative to the world.
+
+Let's make our pose relative to the `world`. The values inside the pose tag are as follows: `<pose>X Y Z R P Y</pose>`, where the `X Y Z` represent the position of the frame and `R P Y` represent the orientation in roll pitch yaw.
+We set them to zeros which makes the two frames (the model and the world) identical.
 
 ### Links forming our robot
 
-Every model is a group of `links`(can be just one link) connected together with `joints`.
+Every model is a group of `links` (can be just one link) connected together with `joints`.
 
 #### Chassis
 
@@ -201,7 +207,7 @@ We define the first link, the `chassis` of our car and it's pose relative to the
     </inertial>
 ```
 
-Here we define the inertial properties of chassis like the `mass` and the `<inertia>` matrix. The values of the inertia matrix for primitive shapes can be calculated using this [tool](https://amesweb.info/inertia/mass-moment-of-inertia-calculator.aspx)
+Here we define the inertial properties of the chassis like the `mass` and the `<inertia>` matrix. The values of the inertia matrix for primitive shapes can be calculated using this [tool](https://amesweb.info/inertia/mass-moment-of-inertia-calculator.aspx).
 
 #### Visual and collision
 
@@ -221,8 +227,10 @@ Here we define the inertial properties of chassis like the `mass` and the `<iner
     </visual>
 ```
 
-As the name suggests `<visual>` tag is responsible for how our link will look like.
-We define the shape of our link inside the `<geometry>` tag as a `<box>`(cuboid) and then specify the three dimensions(in meters) of this box inside the `<size>` tag, Then inside the `<material>` tag we define the material of our link. Here we defined the `<ambient>`, `<diffuse>` and `<specular>` colors in a set of four numbers red/green/blue/alpha each in range [0, 1].
+As the name suggests, the `<visual>` tag is responsible for how our link will look.
+We define the shape of our link inside the `<geometry>` tag as a `<box>` (cuboid) and then specify the three dimensions (in meters) of this box inside the `<size>` tag.
+Then, inside the `<material>` tag we define the material of our link.
+Here we defined the `<ambient>`, `<diffuse>` and `<specular>` colors in a set of four numbers red/green/blue/alpha each in range [0, 1].
 
 ```xml
         <collision name='collision'>
@@ -240,19 +248,20 @@ The `<collision>` tag defines the collision properties of the link, how our link
 
 **Note**: `<collision>` can be different from the visual properties, for example, simpler collision models are often used to reduce computation time.
 
-Run the world
+Run the world:
 
 `ign gazebo car_demo.sdf`
 
-Our model should look like this.
+Our model should look like this:
 
 ![car chassis](chassis.png)
 
-In the top right corner click on the plugins dropdown list(vertical ellipsis), choose `Transform control`, select your model and then click on the Translation tool you should see three axis like this.
+In the top right corner click on the plugins dropdown list (vertical ellipsis), choose `Transform control`, select your model and then click on the Translation tool.
+You should see three axes like this:
 
 ![model_axis](model_axis.png)
 
-These are the axis of our model where red is x-axis, green is the y-axis and blue is the z-axis.
+These are the axes of our model where red is the x-axis, green is the y-axis and blue is the z-axis.
 
 ### Left wheel
 
@@ -274,8 +283,11 @@ Let's add wheels to our robot. The following code goes after the `</link>` tag a
     </inertial>
 ```
 
-We defined the name of our link `left_wheel` and then defined its `<pose>` `relative_to` the `chassis` link. The wheel needed to be placed on the left to the back of the `chassis` so that's why we chose these values for `pose` as `-0.5 0.6 0`. Also our wheel is a cylinder but on its side so that's why we defined the orientation value as `-1.5707 0 0` which is a `-90` degree rotation around the x-axis(the angles are in radians).
-Then we defined the `inertial` properties of the wheel, The `mass` and the `inertia` matrix.
+We defined the name of our link `left_wheel` and then defined its `<pose>` `relative_to` the `chassis` link.
+The wheel needed to be placed on the left to the back of the `chassis` so that's why we chose the values for `pose` as `-0.5 0.6 0`.
+Also, our wheel is a cylinder, but on its side.
+That's why we defined the orientation value as `-1.5707 0 0` which is a `-90` degree rotation around the x-axis (the angles are in radians).
+Then we defined the `inertial` properties of the wheel, the `mass` and the `inertia` matrix.
 
 #### Left wheel visualization
 
@@ -304,8 +316,8 @@ Then we defined the `inertial` properties of the wheel, The `mass` and the `iner
 </link>
 ```
 
-The `<visual>` and  the `<collision>` properties are similar to the previous link except for the shape of our link it has the shape of `<cylinder>` that require two attributes, the `<radius>` and the `<length>` of the cylinder.
-Our model should look like this.
+The `<visual>` and  the `<collision>` properties are similar to the previous link, except the shape of our link has the shape of `<cylinder>` that requires two attributes: the `<radius>` and the `<length>` of the cylinder.
+Our model should look like this:
 
 ![this](car_left_wheel.png)
 
@@ -367,7 +379,8 @@ Let's add a frame for our caster wheel as follows:
 </frame>
 ```
 
-We gave our frame name `caster_frame` and attached it to the `chassis` link. Then the `<pose>` tag to define the position and orientation of the frame, we didn't use the `relative_to` attribute so the pose is with respect to the frame named in the `attached_to` attribute `chassis` in our case.
+We gave our frame name `caster_frame` and attached it to the `chassis` link, then the `<pose>` tag to define the position and orientation of the frame.
+We didn't use the `relative_to` attribute so the pose is with respect to the frame named in the `attached_to` attribute, `chassis` in our case.
 
 ### Caster wheel
 
@@ -408,13 +421,16 @@ We gave our frame name `caster_frame` and attached it to the `chassis` link. The
 </link>
 ```
 
-Our last link is the `caster` and its pose is with respect to the frame `caster_frame` we defined above. As you could notice we closed the `pose` tag without defining the position or the orientation, in this case the pose of the link is the same as(identity) the frame in `relative_to`.
+Our last link is the `caster` and its pose is with respect to the frame `caster_frame` we defined above.
+As you could notice we closed the `pose` tag without defining the position or the orientation; in this case the pose of the link is the same as (identity) the frame in `relative_to`.
 
-In the `<visual>` and `<collision>` we defined a different shape `<sphere>` which requires the `<radius>` of the sphere.
+In the `<visual>` and `<collision>` tags we defined a different shape `<sphere>` which requires the `<radius>` of the sphere.
 
-### Connecting links together(joints)
+### Connecting links together (joints)
 
-We need to connect these links together and here comes the job of `<joint>` tag. The joint tag connect two links together and define how they will move with respect to each other. Inside the `<joint>` tag we need to define the two links to connect and their relation(way of movement).
+We need to connect these links together; here comes the job of `<joint>` tag.
+The joint tag connects two links together and defines how they will move with respect to each other.
+Inside the `<joint>` tag we need to define the two links to connect and their relations(way of movement).
 
 #### Left wheel joint
 
@@ -423,14 +439,19 @@ We need to connect these links together and here comes the job of `<joint>` tag.
     <pose relative_to='left_wheel'/>
 ```
 
-Our first joint is the `left_wheel_joint`. It takes two attributes the name `name='left_wheel_joint'` and the type `type='revolute'`. revolute type gives 1 rotational degree of freedom with joint limits. And the pose of the joint is the same as `left_wheel` frame.
+Our first joint is the `left_wheel_joint`.
+It takes two attributes: the name `name='left_wheel_joint'` and the type `type='revolute'`.
+`revolute` type gives 1 rotational degree of freedom with joint limits.
+The pose of the joint is the same as `left_wheel` frame.
 
 ```xml
     <parent>chassis</parent>
     <child>left_wheel</child>
 ```
 
-Every joint connects two links(bodies) together. Here we connect the `chassis` with the `left_wheel`. `chassis` is the parent link and `left_wheel` is the child link.
+Every joint connects two links (bodies) together.
+Here we connect the `chassis` with the `left_wheel`.
+`chassis` is the parent link and `left_wheel` is the child link.
 
 ```xml
     <axis>
@@ -443,13 +464,17 @@ Every joint connects two links(bodies) together. Here we connect the `chassis` w
 </joint>
 ```
 
-Here we define the axis of rotation. the axis of rotation can be any frame not just the `parent` or the `child` link. We chose the y-axis with respect to the `model` frame so we put `1` in the y element and zeros in the other. For the revolute joint we need to define the `<limits>` of our rotation angle in the `<lower>` and `<upper>` tags.
+Here we define the axis of rotation.
+The axis of rotation can be any frame, not just the `parent` or the `child` link.
+We chose the y-axis with respect to the `model` frame so we put `1` in the y element and zeros in the other.
+For the revolute joint we need to define the `<limits>` of our rotation angle in the `<lower>` and `<upper>` tags.
 
 **Note**: The angles are in radians.
 
 #### Right wheel joint
 
-The `right_wheel_joint` is very similar except for the pose of the joint and this joint connect the `right_wheel` with the `chassis`.
+The `right_wheel_joint` is very similar except for the pose of the joint.
+This joint connects the `right_wheel` with the `chassis`.
 
 ```xml
 <joint name='right_wheel_joint' type='revolute'>
@@ -468,7 +493,8 @@ The `right_wheel_joint` is very similar except for the pose of the joint and thi
 
 #### Caster wheel joint
 
-For the caster we need different type of joint(connection). we used `type='ball'` which gives 3 rotational degrees of freedom.
+For the caster we need a different type of joint (connection).
+We used `type='ball'` which gives 3 rotational degrees of freedom.
 
 ```xml
 <joint name='caster_wheel' type='ball'>
@@ -479,15 +505,15 @@ For the caster we need different type of joint(connection). we used `type='ball'
 
 ## Conclusion
 
-Run the world.
+Run the world:
 
 `ign gazebo car_demo.sdf`
 
-It should look like this
+It should look like this:
 
 ![two_wheeled_robot](two_wheeled_robot.png)
 
-Hurray we build our first robot. You can know more details about SDFormat tags [here][http://sdformat.org/spec]. In the next [tutorial](../moving_robot_demo.md) we will learn how to move our robot around.
+Hurray! We build our first robot. You can learn more details about SDFormat tags [here][http://sdformat.org/spec]. In the next [tutorial](../moving_robot_demo.md) we will learn how to move our robot around.
 
 ### TODO
 
