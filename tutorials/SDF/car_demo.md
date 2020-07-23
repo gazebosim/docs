@@ -170,7 +170,7 @@ Under the `</model>` tag we will add our robot model as follows:
     <pose relative_to=world>0 0 0 0 0 0</pose>
 ```
 
-Here we define the name of our model `vehicle_blue` Which should be a unique name among its sibling(other tags or models) on the same level. Each non-static model must have at least one link designated as the `canonical_link` The implicit frame of the model is attached to this link. The `<pose>` tag is used to define the position and orientation of our model and the `relative_to` attribute is used to define the frame of the model relative to any other frame, if the `relative_to` is not defined, the model's `<pose>` will be relative to the world. Let's make our pose relative to the `world`. The values inside the pose tag are as follow `<pose>X Y Z R P Y</pose>` where the `X Y Z` represent the position of the frame and `R P Y` represent the orientation in roll pitch yaw. We set them to zeros which makes the two frames: the model and the world identical.
+Here we define the name of our model `vehicle_blue` Which should be a unique name among its sibling(other tags or models) on the same level. Each non-static model must have at least one link designated as the `canonical_link`, the implicit frame of the model is attached to this link. The `<pose>` tag is used to define the position and orientation of our model and the `relative_to` attribute is used to define the pose of the model relative to any other frame, if the `relative_to` is not defined, the model's `<pose>` will be relative to the world. Let's make our pose relative to the `world`. The values inside the pose tag are as follow `<pose>X Y Z R P Y</pose>` where the `X Y Z` represent the position of the frame and `R P Y` represent the orientation in roll pitch yaw. We set them to zeros which makes the two frames: the model and the world identical.
 
 ### Links forming our robot
 
@@ -201,7 +201,7 @@ We define the first link, the `chassis` of our car and it's pose relative to the
     </inertial>
 ```
 
-Here we define the inertial properties of chassis like the `mass` and the `<inertia>` matrix. The values of the inertia matrix for primitive shapes can be found [here](https://en.wikipedia.org/wiki/List_of_moments_of_inertia#List_of_3D_inertia_tensors)
+Here we define the inertial properties of chassis like the `mass` and the `<inertia>` matrix. The values of the inertia matrix for primitive shapes can be calculated using this [tool](https://amesweb.info/inertia/mass-moment-of-inertia-calculator.aspx)
 
 #### Visual and collision
 
@@ -236,7 +236,7 @@ We define the shape of our link inside the `<geometry>` tag as a `<box>`(cuboid)
 </model>
 ```
 
-The `<collision>` tag define the collision properties of the link, how our link will react with other objects and the effect of the physics engine on it.
+The `<collision>` tag defines the collision properties of the link, how our link will react with other objects and the effect of the physics engine on it.
 
 **Note**: `<collision>` can be different from the visual properties, for example, simpler collision models are often used to reduce computation time.
 
@@ -367,7 +367,7 @@ Let's add a frame for our caster wheel as follows:
 </frame>
 ```
 
-We gave our frame name `caster_frame` and attached it to the `chassis` link. Then the `<pose>` tag to define the position and orientation of the frame, we didn't use the `relative_to` so the pose is with respect to the frame named in the `attached_to` attribute `chassis` in our case.
+We gave our frame name `caster_frame` and attached it to the `chassis` link. Then the `<pose>` tag to define the position and orientation of the frame, we didn't use the `relative_to` attribute so the pose is with respect to the frame named in the `attached_to` attribute `chassis` in our case.
 
 ### Caster wheel
 
@@ -410,7 +410,7 @@ We gave our frame name `caster_frame` and attached it to the `chassis` link. The
 
 Our last link is the `caster` and its pose is with respect to the frame `caster_frame` we defined above. As you could notice we closed the `pose` tag without defining the position or the orientation, in this case the pose of the link is the same as(identity) the frame in `relative_to`.
 
-In the `<visual>` and `<collision>` we defined a different shape `<sphere>` which require the `<radius>` of the sphere.
+In the `<visual>` and `<collision>` we defined a different shape `<sphere>` which requires the `<radius>` of the sphere.
 
 ### Connecting links together(joints)
 
@@ -430,7 +430,7 @@ Our first joint is the `left_wheel_joint`. It takes two attributes the name `nam
     <child>left_wheel</child>
 ```
 
-Every joint connect two links(bodies) together. Here we connect the `chassis` with the `left_wheel`. `chassis` is the parent link and `left_wheel` is the child link.
+Every joint connects two links(bodies) together. Here we connect the `chassis` with the `left_wheel`. `chassis` is the parent link and `left_wheel` is the child link.
 
 ```xml
     <axis>
