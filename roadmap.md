@@ -11,7 +11,7 @@ info@openrobotics.org.
 **Close the Gap** is Ignition's current focus topic. Over the next two
 quarters we will concentrate development efforts on topics that reduce
 feature disparity between Gazebo and Ignition and facilitate migration from
-Gazebo to Ignition.
+Gazebo to Ignition. Take a look at the [feature comparison](/docs/citadel/comparison) page for a list of differences between Gazebo and Ignition.
 
 ## 2020 Q3(Jul - Sep)
 
