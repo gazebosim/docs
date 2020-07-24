@@ -27,9 +27,9 @@ plugins, SDF files, and other simulation resources from Gazebo to Ignition.
 * **Documentation**: Improve documentation release process and usability.
 Port relevant Gazebo tutorials to Ignition.
     * See [all open tickets](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22boost+the+docs%22&state=open&type=Issues)
-      with the "migration" label.
+      with the "boost the docs" label.
     * See [current development status](https://github.com/orgs/ignitionrobotics/projects/3?card_filter_query=label%3A%22boost+the+docs%22)
-      for tickets with the "migration" label.
+      for tickets with the "boost the docs" label.
 
 ## 2020 Q4(Oct - Dec)
 
