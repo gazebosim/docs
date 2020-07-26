@@ -1,10 +1,10 @@
 # Moving the robot
 
-In this tutorial we will learn how to move our robot. We will use the robot we built in [Build your own robot](../SDF/car_demo.md) tutorial. You can download the robot from [here](../SDF/car_demo.sdf). You can also find the finished world of this tutorial [here](move_robot.sdf).
+In this tutorial we will learn how to move our robot. We will use the robot we built in the [Build your own robot](../SDF/car_demo.md) tutorial. You can download the robot from [here](../SDF/car_demo.sdf). You can also find the finished world of this tutorial [here](move_robot.sdf).
 
 ## What is a plugin
 
-To make our robot move we will use the `diff_drive` plugin. But before doing so let's answer the question "What is a plugin". A plugin is a chunk of code that is compiled as a shared library and inserted into the simulation. Plugins make us control many aspects of the simulation like world, models and etc.
+To make our robot move we will use the `diff_drive` plugin. But before doing so let's answer the question "What is a plugin". A plugin is a chunk of code that is compiled as a shared library and inserted into the simulation. Plugins make us control many aspects of the simulation like world, models etc.
 
 ### Diff_drive plugin
 
@@ -37,10 +37,13 @@ In another terminal let's send a message to to our car.
 
 `ign topic -t "/cmd_vel" -m ignition.msgs.Twist -p "linear: {x: 0.5}, angular: {z: 0.05}"`
 
-Now you should have your robot moving in the simulation. **Note:** Don't forget to press the play button in the simulation. 
+Now you should have your robot moving in the simulation. **Note:** Don't forget to press the play button in the simulation.
 
 The command is simple we specified the topic to publish to after the `-t` option, And after the `-m` we specify the message type. Our robot expect message of type `Twist` which consists of two components `linear` and `angular`. After the `-p` option we specify the content(value) of the message. for linear speed `x: 0.5` for angular speed `z: 0.05`.
-For more information about `Topics` and `Messages` in ignition check Transport lib [tutorials](https://ignitionrobotics.org/api/transport/9.0/tutorials.html)
+
+**Hint:** You can know what every topic option do using this command `ign topic -h`
+
+For more information about `Topics` and `Messages` in ignition check [Transport lib tutorials](https://ignitionrobotics.org/api/transport/9.0/tutorials.html)
 
 ## Moving the robot using keyboard
 
@@ -71,11 +74,11 @@ In the ignition window press different keys and you should see data(numbers) on 
 
 ![KeyPublisher](keypublisher_data.png)
 
-We want to map these key stokes into messages of type `Twist` and publish them to `/cmd_vel` topic which our model listens to. The `TriggeredPublisher` plugin will do this.
+We want to map these keystrokes into messages of type `Twist` and publish them to `/cmd_vel` topic which our model listens to. The `TriggeredPublisher` plugin will do this.
 
 ### Triggered Publisher
 
-The `TriggeredPublisher` system publishes a user specified message on an output topic in response to an input message that matches user specified criteria. Let's add the following code under the `<world>` tags
+The `TriggeredPublisher` plugin publishes a user specified message on an output topic in response to an input message that matches user specified criteria. Let's add the following code under the `<world>` tags
 
 ```xml
 <!-- Moving Forward-->
