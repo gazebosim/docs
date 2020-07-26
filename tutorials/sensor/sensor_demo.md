@@ -311,7 +311,7 @@ make lidar_node
 Run the node from terminal 1:
 
 ```{.sh}
-./lidar_node
+./build/lidar_node
 ```
 
 Run the world from terminal 2:
