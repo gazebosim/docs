@@ -5,7 +5,7 @@ You can find the final world of this tutorial [here](sensor_tutorial.sdf)
 
 ## IMU sensor
 
-The inertial measurement unit(IMU) will give us the `orientation` of our robot in quaternion, the `angular_velocity` in the three axis(X, Y, Z). And the `linear_acceleration` in the three axis. Let's build upon our [moving_robot.sdf](../Moving_robot/moving_robot.sdf) world. To define the `IMU` sensor add this code under the `<world>` tag.
+The inertial measurement unit(IMU) will give us the `orientation` of our robot in quaternion, the `angular_velocity` in the three axis(X, Y, Z). And the `linear_acceleration` in the three axis. Let's use our [car_demo.sdf](../SDF/car_demo.sdf) world and modify it. We will rename it to `sensor_tutorial.sdf`. To define the `IMU` sensor add this code under the `<world>` tag.
 
 ```xml
 <plugin filename="libignition-gazebo-imu-system.so"
@@ -343,12 +343,3 @@ The launch file is an XML file. We simply define what commands will run under th
 `ign launch sensor_launch.ign`
 
 Hurray we have our robot now moving and avoid the wall.
-
-## TODO
-
-* Use the sensor plot plugin
-
-* clear the cmakelist file
-* simplify the node
-
-* we can use the car_demo.sdf instead of the moving_robot.sdf
