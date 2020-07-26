@@ -29,7 +29,6 @@ auto pub = node.Advertise<ignition::msgs::Twist>(topic_pub);
 /// \brief Function called each time a topic update is received.
 void cb(const ignition::msgs::LaserScan &_msg)
 {
-  std::cout << "lidar_data: " << _msg.ranges_size() << std::endl;
   bool all_more = true;
   for (int i = 0; i < _msg.ranges_size(); i++)
   {
