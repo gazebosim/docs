@@ -37,17 +37,3 @@ if (EXISTS "${CMAKE_SOURCE_DIR}/lidar_node.cc")
   add_executable(lidar_node lidar_node.cc)
   target_link_libraries(lidar_node ignition-transport${IGN_TRANSPORT_VER}::core)
 endif()
-
-if (MSVC)
-  # Suppress Protobuf message generation warnings.
-  set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4018 /wd4100 /wd4127 /wd4244 /wd4267 /wd4512")
-
-  # Suppress the "decorated name length exceed" warning (inside the STL).
-  set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /wd4503")
-
-  add_definitions(-DBUILDING_STATIC_LIBS -DWIN32_LEAN_AND_MEAN)
-
-  # Don't pull in the Windows min/max macros
-  add_definitions(-DNOMINMAX)
-
-endif()
