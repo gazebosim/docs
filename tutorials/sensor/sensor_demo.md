@@ -1,11 +1,11 @@
 # Sensors
 
-In this tutorial we will learn how to add sensors to our robot and to our environment. we will use three different sensors: an IMU sensor, a Contact sensor and a Lidar sensor. We will also learn how to launch multiple things with just one file using `ign_launch`
+In this tutorial we will learn how to add sensors to our robot and to other models in our world. We will use three different sensors: an IMU sensor, a Contact sensor and a Lidar sensor. We will also learn how to launch multiple tasks with just one file using `ign_launch`
 You can find the final world of this tutorial [here](sensor_tutorial.sdf)
 
 ## IMU sensor
 
-The inertial measurement unit(IMU) will give us the `orientation` of our robot in quaternion, the `angular_velocity` in the three axis(X, Y, Z). And the `linear_acceleration` in the three axis. Let's use our [car_demo.sdf](../SDF/car_demo.sdf) world and modify it. We will rename it to `sensor_tutorial.sdf`. To define the `IMU` sensor add this code under the `<world>` tag.
+The inertial measurement unit(IMU) outputs the `orientation` of our robot in quaternion, the `angular_velocity` in the three axes(X, Y, Z). And the `linear_acceleration` in the three axes. Let's use our [car_demo.sdf](../SDF/car_demo.sdf) world and modify it. Create a new file `sensor_tutorial.sdf` and add the code from `moving_robot.sdf` to it. To define the `IMU` sensor add this code under the `<world>` tag.
 
 ```xml
 <plugin filename="libignition-gazebo-imu-system.so"
@@ -28,7 +28,7 @@ The sensor is usually added to one of the links of our model, we added it under 
 
 ### Read data from IMU
 
-To read the data from the `IMU`. Run the world in one terminal.
+To read the data from the `IMU`. Run the world in one terminal and press the play button.
 
 `ign gazebo sensor_tutorial.sdf`
 
@@ -36,13 +36,15 @@ In another terminal
 
 `ign topic -e -t /imu`
 
-The last command listens to the messages sent over the `/imu` topic. Move your robot around using arrow keys on the keyboard and you should see something similar to this which are the `orientation`, `angular_velocity` and `linear_acceleration` as described above.
+The last command listens to the messages sent over the `/imu` topic. The IMU data are `orientation`, `angular_velocity` and `linear_acceleration` as described above. It should look like this.
 
 ![Imu_message](imu_msgs.png)
 
+Move your robot forward using the keyboard up key. You should see the sensor values changing.
+
 ## Contact sensor
 
-Let's introduce different type of sensors which is the `contact` sensor. You can guess from the name that this sensor give indication when it touch(in contact) with something else. We will build an obstacle(wall) and add the contact sensor to it and if the robot hit the obstacle the robot will stop to prevent it from damaging itself. Let's first build the obstacle as follow.
+Let's introduce different type of sensors which is the `contact` sensor. You can guess from the name that this sensor gives indication when it touches(contact) something else. We will build an obstacle(wall) and add the contact sensor to it and if the robot hit the obstacle it will stop preventing the robot from damaging itself. Let's first build the obstacle as follow.
 
 ```xml
 <model name='wall'>
@@ -84,7 +86,7 @@ Let's introduce different type of sensors which is the `contact` sensor. You can
 </model>
 ```
 
-You can check the [Build your own robot tutorial](../SDF/car_demo.sdf) to know how to build models. Now run the world and make sure that the wall appear in the simulation like this
+It is just a simple model with one link of box shape. You can check the [Build your own robot tutorial](../SDF/car_demo.sdf) to know how to build models. Now run the world and make sure that the wall appear in the simulation like this
 
 ![wall_in_world](sensor_wall.png)
 
@@ -96,7 +98,7 @@ Let's add the contact sensor to the wall. As the `IMU` sensor we should first de
 </plugin>
 ```
 
-Now we can add the `contact` sensor to `box` link of `wall` model.
+Now we can add the `contact` sensor to the `box` link of the `wall` model.
 
 ```xml
 <sensor name='sensor_contact' type='contact'>
@@ -105,7 +107,7 @@ Now we can add the `contact` sensor to `box` link of `wall` model.
     </contact>
 </sensor>
 
-The definition of the `<sensor>` is very simple, we just define the `name` and the `type` of the sensor. Inside the `collision` we define the box link collision name which is `collision`. 
+The definition of the `<sensor>` is straight forward, we just define the `name` and the `type` of the sensor. And inside the `collision` we define the box link collision name which is `collision`.
 
 We need also to add the `TouchPlugin` under the `wall` model as follows:  
 
@@ -119,11 +121,19 @@ We need also to add the `TouchPlugin` under the `wall` model as follows:
 </plugin>
 ```
 
- The `TouchPlugin` will publish(send) message when the `wall` been touched. The tags of the plugin are as follows. `<target>` which will be in contact with our wall in our case `vehicle_blue`. `<namespace>` take the name space of our topic, so when our robot hit the wall it will send a message to `/wall/touched` topic. Run the world in one terminal and in another terminal listen to the `/trigger/touched` topic.
+ The `TouchPlugin` will publish(send) a message when the `wall` has been touched. The tags of the plugin are as follows. `<target>` which will be in contact with our wall in our case `vehicle_blue`. `<namespace>` take the name space of our topic, so when our robot hit the wall it will send a message to `/wall/touched` topic. Run the world in one terminal.
 
-`ign topic -e -t /trigger/touched`
+`ign gazebo sensor_tutorial.sdf`
 
-Drive your robot to the wall using arrows keys on the keyboard when you hit the bump you should see a message `data: true`. Now we can use the `TriggeredPublisher` plugin to make our robot stop when hit the wall as follows:
+In another terminal listen to the `/wall/touched` topic.
+
+`ign topic -e -t /wall/touched`
+
+Drive your robot forward to the wall using the keyboard arrow keys.
+
+When you hit the bump you should see a message `data: true` on the terminal where you run the `ign topic -e -t /wall/touched`.
+
+Now we can use the `TriggeredPublisher` plugin to make our robot stop when hit the wall as follows:
 
 ```xml
 <plugin filename="libignition-gazebo-triggered-publisher-system.so"
@@ -141,9 +151,9 @@ As explained in the Moving robot [tutorial](../Moving_robot/moving_robot.md), we
 
 ## Lidar sensor
 
-We don't want our robot to touch the wall at all because this may cause some damage, so instead of contact sensor we can use the Lidar. Lidar is an acronym for light detection and ranging. This sensor can help us to detect obstacles around our robot. We will use it to measure the distance between our robot and the wall.
+We don't want our robot to touch the wall at all because this may cause some damage, so instead of the contact sensor we can use the Lidar. Lidar is an acronym for light detection and ranging. This sensor can help us to detect obstacles around the robot. We will use it to measure the distance between our robot and the wall.
 
-First let's create a frame on the `chassis` to fix our lidar to it.
+First let's create a frame to fix our lidar to it.
 
 ```xml
 <frame name="lidar_frame" attached_to='chassis'>
@@ -200,7 +210,7 @@ Now run the world
 
 `ign gazebo sensor_tutorial.sdf`
 
-Look at the lidar messages on the `/lidar` topic as you drive the robot around, specifically the `ranges` data.
+Look at the lidar messages on the `/lidar` topic, specifically the `ranges` data.
 
 `ign topic -e -t /lidar`
 
@@ -288,7 +298,7 @@ int main(int argc, char **argv)
 }
 ```
 
-Inside the main we subscribe to the `lidar` topic, and wait till the node is been shutdown.
+Inside the main we subscribe to the `lidar` topic, and wait till the node is shut down.
 
 #### Build the node
 

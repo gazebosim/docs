@@ -32,7 +32,7 @@ void cb(const ignition::msgs::LaserScan &_msg)
   bool all_more = true;
   for (int i = 0; i < _msg.ranges_size(); i++)
   {
-    if (_msg.ranges(i) < 1.0) //if all bigger than four 
+    if (_msg.ranges(i) < 1.0) //if all higher than one 
     {
       all_more = false;
       break;
