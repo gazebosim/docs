@@ -254,7 +254,7 @@ Code introspection | ✓ | All simulation state is accessible from system plugin
 World plugins | ✓ | ✓ Now called System plugin
 Model plugins | ✓ | ✓ Now called System plugin
 Sensor plugins | ✓ | ✓ Now called System plugin
-Visual plugins | ✓ | TODO
+Visual plugins | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/265)
 GUI plugins | ✓ | ✓ Ignition GUI plugins and Gazebo GUI systems
 System plugins | ✓ | ✓ Through Ignition Launch
 Distribute simulation across processes | ✕ | (coming up)
