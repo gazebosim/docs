@@ -2,9 +2,9 @@
 
 In this tutorial we will learn how to build our own robot in SDFormat. We will build a simple two wheeled robot.
 
- You can find the finished world SDFormat of this tutorial [here](car_demo.sdf).
+ You can find the finished SDF file for the tutorial [here](car_demo.sdf).
 
-## What is SDF ?
+## What is SDF
 
 [SDFormat](http://sdformat.org/) (Simulation Description Format), sometimes abbreviated as SDF, is an XML format that describes objects and environments for robot simulators, visualization, and control.
 
@@ -31,10 +31,6 @@ We will start by building a simple world and then build our robot in it. Open a 
         <plugin
             filename="libignition-gazebo-scene-broadcaster-system.so"
             name="ignition::gazebo::systems::SceneBroadcaster">
-        </plugin>
-        <plugin
-            filename="libignition-gazebo-contact-system.so"
-            name="ignition::gazebo::systems::Contact">
         </plugin>
 
         <gui fullscreen="0">
@@ -151,13 +147,13 @@ We will start by building a simple world and then build our robot in it. Open a 
 </sdf>
 ```
 
-Save the file and try to launch it.
+Save the file, Navigate to the directory where you saved the file and launch the simulator:
 
 `ign gazebo car_demo.sdf`
 
-**Note**: you can name your file any name.
+**Note**: You can name your file any name and save it anywhere on your computer.
 
-You should see an empty world with just a ground plane. Check [World demo](../world_demo.md) to learn how to build your own world.
+You should see an empty world with just a ground plane and a sun light. Check [World demo](../world_demo.md) to learn how to build your own world.
 
 ## Building a model
 
@@ -171,7 +167,7 @@ Under the `</model>` tag we will add our robot model as follows:
 ```
 
 Here we define the name of our model `vehicle_blue`, which should be a unique name among its siblings (other tags or models on the same level).
-Each non-static model must have at least one link designated as the `canonical_link`; the implicit frame of the model is attached to this link.
+Each model may have one link designated as the `canonical_link`, the implicit frame of the model is attached to this link. If not defined, the first `<link>` will be chosen as the canonical link.
 The `<pose>` tag is used to define the position and orientation of our model and the `relative_to` attribute is used to define the pose of the model relative to any other frame.
 If `relative_to` is not defined, the model's `<pose>` will be relative to the world.
 
@@ -248,7 +244,7 @@ The `<collision>` tag defines the collision properties of the link, how our link
 
 **Note**: `<collision>` can be different from the visual properties, for example, simpler collision models are often used to reduce computation time.
 
-Run the world:
+After copying all the parts above into the world file in order, run the world again:
 
 `ign gazebo car_demo.sdf`
 
@@ -317,7 +313,7 @@ Then we defined the `inertial` properties of the wheel, the `mass` and the `iner
 ```
 
 The `<visual>` and  the `<collision>` properties are similar to the previous link, except the shape of our link has the shape of `<cylinder>` that requires two attributes: the `<radius>` and the `<length>` of the cylinder.
-Our model should look like this:
+Save the file and run the world again, our model should look like this:
 
 ![this](car_left_wheel.png)
 
@@ -428,7 +424,7 @@ In the `<visual>` and `<collision>` tags we defined a different shape `<sphere>`
 
 ### Connecting links together (joints)
 
-We need to connect these links together; here comes the job of `<joint>` tag.
+We need to connect these links together; here comes the job of the `<joint>` tag.
 The joint tag connects two links together and defines how they will move with respect to each other.
 Inside the `<joint>` tag we need to define the two links to connect and their relations(way of movement).
 
@@ -441,8 +437,8 @@ Inside the `<joint>` tag we need to define the two links to connect and their re
 
 Our first joint is the `left_wheel_joint`.
 It takes two attributes: the name `name='left_wheel_joint'` and the type `type='revolute'`.
-`revolute` type gives 1 rotational degree of freedom with joint limits.
-The pose of the joint is the same as `left_wheel` frame.
+the `revolute` type gives 1 rotational degree of freedom with joint limits.
+The pose of the joint is the same as the child link frame, which is the `left_wheel` frame.
 
 ```xml
     <parent>chassis</parent>
@@ -466,7 +462,7 @@ Here we connect the `chassis` with the `left_wheel`.
 
 Here we define the axis of rotation.
 The axis of rotation can be any frame, not just the `parent` or the `child` link.
-We chose the y-axis with respect to the `model` frame so we put `1` in the y element and zeros in the other.
+We chose the y-axis with respect to the `model` frame so we put `1` in the y element and zeros in the others.
 For the revolute joint we need to define the `<limits>` of our rotation angle in the `<lower>` and `<upper>` tags.
 
 **Note**: The angles are in radians.
@@ -513,8 +509,4 @@ It should look like this:
 
 ![two_wheeled_robot](two_wheeled_robot.png)
 
-Hurray! We build our first robot. You can learn more details about SDFormat tags [here][http://sdformat.org/spec]. In the next [tutorial](../moving_robot_demo.md) we will learn how to move our robot around.
-
-### TODO
-
-* link to moving_robot_demo, world tutorials.
+Hurray! We build our first robot. You can learn more details about SDFormat tags [here](http://sdformat.org/spec). In the next [tutorial](../moving_robot_demo.md) we will learn how to move our robot around.
