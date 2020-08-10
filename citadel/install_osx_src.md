@@ -138,19 +138,19 @@ Create a file called `intern.patch` with the following content:
  #if 0
 ```
 
-Now we can appply the patch:
+Now we can apply the patch:
 
 ```{.sh}
 sudo patch -p0 < intern.patch
 ```
 
- - `Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Ruby.framework/Headers/ruby/ruby/config.h`
+ - `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Ruby.framework/Headers/ruby/ruby/config.h`
 
 Create a file called `config.patch` with the following content:
 
 ```
 --- config.h    2019-12-16 18:19:13.000000000 +0100
-+++ Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Ruby.framework/Headers/ruby/ruby/config.h
++++ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Ruby.framework/Headers/ruby/ruby/config.h
 @@ -410,6 +410,6 @@
  #define RUBY_PLATFORM_CPU "x86_64"
  #endif /* defined __x86_64__ &&! defined RUBY_PLATFORM_CPU */
@@ -203,7 +203,7 @@ colcon build --merge-install --packages-up-to PACKAGE_NAME
 To build a single package:
 
 ```bash
-colcon build --packages-select PACKAGE_NAME
+colcon build --merge-install --packages-select PACKAGE_NAME
 ```
 
 Visit [colcon documentation](https://colcon.readthedocs.io/en/released/#) to view more `colcon` build and test options.
