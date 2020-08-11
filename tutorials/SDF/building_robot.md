@@ -2,7 +2,7 @@
 
 In this tutorial we will learn how to build our own robot in SDFormat. We will build a simple two wheeled robot.
 
- You can find the finished SDF file for the tutorial [here](car_demo.sdf).
+ You can find the finished SDF file for the tutorial [here](building_robot.sdf).
 
 ## What is SDF
 
@@ -147,9 +147,9 @@ We will start by building a simple world and then build our robot in it. Open a 
 </sdf>
 ```
 
-Save the file, Navigate to the directory where you saved the file and launch the simulator:
+Save the file, navigate to the directory where you saved the file and launch the simulator:
 
-`ign gazebo car_demo.sdf`
+`ign gazebo building_robot.sdf`
 
 **Note**: You can name your file any name and save it anywhere on your computer.
 
@@ -174,11 +174,11 @@ If `relative_to` is not defined, the model's `<pose>` will be relative to the wo
 Let's make our pose relative to the `world`. The values inside the pose tag are as follows: `<pose>X Y Z R P Y</pose>`, where the `X Y Z` represent the position of the frame and `R P Y` represent the orientation in roll pitch yaw.
 We set them to zeros which makes the two frames (the model and the world) identical.
 
-### Links forming our robot
+## Links forming our robot
 
 Every model is a group of `links` (can be just one link) connected together with `joints`.
 
-#### Chassis
+### Chassis
 
 ```xml
     <link name='chassis'>
@@ -187,7 +187,7 @@ Every model is a group of `links` (can be just one link) connected together with
 
 We define the first link, the `chassis` of our car and it's pose relative to the `model`.
 
-##### Inertial properties
+#### Inertial properties
 
 ```xml
     <inertial> <!--inertial properties of the link mass, inertia matix-->
@@ -246,7 +246,7 @@ The `<collision>` tag defines the collision properties of the link, how our link
 
 After copying all the parts above into the world file in order, run the world again:
 
-`ign gazebo car_demo.sdf`
+`ign gazebo building_robot.sdf`
 
 Our model should look like this:
 
@@ -285,7 +285,7 @@ Also, our wheel is a cylinder, but on its side.
 That's why we defined the orientation value as `-1.5707 0 0` which is a `-90` degree rotation around the x-axis (the angles are in radians).
 Then we defined the `inertial` properties of the wheel, the `mass` and the `inertia` matrix.
 
-#### Left wheel visualization
+#### Visualization and Collision
 
 ```xml
     <visual name='visual'>
@@ -431,7 +431,7 @@ Inside the `<joint>` tag we need to define the two links to connect and their re
 #### Left wheel joint
 
 ```xml
-<joint name='left_wheel_joint' type='revolute'> <!--continuos joint is not supported yet-->
+<joint name='left_wheel_joint' type='revolute'>
     <pose relative_to='left_wheel'/>
 ```
 
@@ -451,7 +451,7 @@ Here we connect the `chassis` with the `left_wheel`.
 
 ```xml
     <axis>
-        <xyz expressed_in='__model__'>0 1 0</xyz> <!--can be described to any frame or even arbitrary frames-->
+        <xyz expressed_in='__model__'>0 1 0</xyz> <!--can be defined as any frame or even arbitrary frames-->
         <limit>
             <lower>-1.79769e+308</lower>    <!--negative infinity-->
             <upper>1.79769e+308</upper>     <!--positive infinity-->
@@ -503,10 +503,10 @@ We used `type='ball'` which gives 3 rotational degrees of freedom.
 
 Run the world:
 
-`ign gazebo car_demo.sdf`
+`ign gazebo building_robot.sdf`
 
 It should look like this:
 
 ![two_wheeled_robot](two_wheeled_robot.png)
 
-Hurray! We build our first robot. You can learn more details about SDFormat tags [here](http://sdformat.org/spec). In the next [tutorial](../moving_robot_demo.md) we will learn how to move our robot around.
+Hurray! We build our first robot. You can learn more details about SDFormat tags [here](http://sdformat.org/spec). In the next [tutorial](../moving_robot.md) we will learn how to move our robot around.
