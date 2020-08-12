@@ -1,11 +1,23 @@
 # Sensors
 
-In this tutorial we will learn how to add sensors to our robot and to other models in our world. We will use three different sensors: an IMU sensor, a Contact sensor and a Lidar sensor. We will also learn how to launch multiple tasks with just one file using `ign_launch`
+**Note:** This tutorial is a continuation from the
+[Moving the robot tutorial](../Moving_robot/moving_robot.md).
+
+In this tutorial we will learn how to add sensors to our robot and
+to other models in our world. We will use three different sensors:
+an IMU sensor, a Contact sensor and a Lidar sensor. We will also
+learn how to launch multiple tasks with just one file using `ign_launch`.
+
 You can find the final world of this tutorial [here](sensor_tutorial.sdf)
 
 ## IMU sensor
 
-The inertial measurement unit(IMU) outputs the `orientation` of our robot in quaternion, the `angular_velocity` in the three axes(X, Y, Z). And the `linear_acceleration` in the three axes. Let's use our [car_demo.sdf](../SDF/car_demo.sdf) world and modify it. Create a new file `sensor_tutorial.sdf` and add the code from `moving_robot.sdf` to it. To define the `IMU` sensor add this code under the `<world>` tag.
+The inertial measurement unit (IMU) outputs the `orientation` of our
+robot in quaternions, the `angular_velocity` in the three axes (X, Y, Z),
+and the `linear_acceleration` in the three axes. Let's use our
+[moving_robot.sdf](../Moving_robot/moving_robot.sdf) world and modify it. Create a new file
+`sensor_tutorial.sdf` and add the code from `moving_robot.sdf` to it.
+To define the `IMU` sensor add this code under the `<world>` tag.
 
 ```xml
 <plugin filename="libignition-gazebo-imu-system.so"
@@ -13,7 +25,8 @@ The inertial measurement unit(IMU) outputs the `orientation` of our robot in qua
 </plugin>
 ```
 
-This code defines the `IMU` sensor plugin to be used in our world. now we can add the `IMU` sensor to our robot as follow:
+This code defines the `IMU` sensor plugin to be used in our world.
+Now we can add the `IMU` sensor to our robot as follows:
 
 ```xml
 <sensor name="imu_sensor" type="imu">
@@ -24,7 +37,15 @@ This code defines the `IMU` sensor plugin to be used in our world. now we can ad
 </sensor>
 ```
 
-The sensor is usually added to one of the links of our model, we added it under the `chassis` link. Let's describe the tags. `<always_on>` if true the sensor will always be updated according to the update rate.`<update_rate>` the frequency at which the sensor data is generated. `<visualize>` if true the sensor is visualized in the GUI. `<topic>` name of the topic on which data is published.
+The sensor is usually added to one of the links of our model, we added
+ it under the `chassis` link. Let's describe the tags.
+ `<always_on>` if true the sensor will always be updated
+ according to the update rate.
+ `<update_rate>` the frequency at which the sensor data is generated.
+ `<visualize>` if true the sensor is visualized in the GUI.
+ `<topic>` name of the topic on which data is published.
+
+**Note:** Not all the tags are supported for all sensors yet.
 
 ### Read data from IMU
 
@@ -44,24 +65,19 @@ Move your robot forward using the keyboard up key. You should see the sensor val
 
 ## Contact sensor
 
-Let's introduce different type of sensors which is the `contact` sensor. You can guess from the name that this sensor gives indication when it touches(contact) something else. We will build an obstacle(wall) and add the contact sensor to it and if the robot hit the obstacle it will stop preventing the robot from damaging itself. Let's first build the obstacle as follow.
+Let's introduce a different type of sensor, the `contact` sensor.
+You can guess from the name that this sensor gives indication when
+it touches (contacts) something else. We will build an obstacle (wall)
+and add the contact sensor to it. If the robot hits the obstacle it will
+stop, preventing the robot from damaging itself. Let's first build the
+obstacle as follows.
 
 ```xml
 <model name='wall'>
+    <static>true</static>
     <pose>5 0 0 0 0 0</pose><!--pose relative to the world-->
     <link name='box'>
         <pose/>
-        <inertial> <!--inertial properties of the link mass, inertia matrix-->
-            <mass>1.14395</mass>
-            <inertia>
-                <ixx>9.532917</ixx>
-                <ixy>0</ixy>
-                <ixz>0</ixz>
-                <iyy>0.023832</iyy>
-                <iyz>0</iyz>
-                <izz>9.556749</izz>
-            </inertia>
-        </inertial>
         <visual name='visual'>
             <geometry>
                 <box>
@@ -86,7 +102,7 @@ Let's introduce different type of sensors which is the `contact` sensor. You can
 </model>
 ```
 
-It is just a simple model with one link of box shape. You can check the [Build your own robot tutorial](../SDF/car_demo.sdf) to know how to build models. Now run the world and make sure that the wall appear in the simulation like this
+It is just a simple model with one link of box shape. You can check the [Build your own robot tutorial](../SDF/building_robot.sdf) to know how to build models. Now run the world and make sure that the wall appear in the simulation like this
 
 ![wall_in_world](sensor_wall.png)
 
@@ -106,6 +122,7 @@ Now we can add the `contact` sensor to the `box` link of the `wall` model.
         <collision>collision</collision>
     </contact>
 </sensor>
+```
 
 The definition of the `<sensor>` is straight forward, we just define the `name` and the `type` of the sensor. And inside the `collision` we define the box link collision name which is `collision`.
 
@@ -121,7 +138,13 @@ We need also to add the `TouchPlugin` under the `wall` model as follows:
 </plugin>
 ```
 
- The `TouchPlugin` will publish(send) a message when the `wall` has been touched. The tags of the plugin are as follows. `<target>` which will be in contact with our wall in our case `vehicle_blue`. `<namespace>` take the name space of our topic, so when our robot hit the wall it will send a message to `/wall/touched` topic. Run the world in one terminal.
+The `TouchPlugin` will publish (send) a message when the `wall`
+has been touched. The tags of the plugin are as follows:
+
+* `<target>` which will be in contact with our wall, in our case `vehicle_blue`.
+* `<namespace>` takes the namespace of our topic, so when our robot hit the wall it will send a message to `/wall/touched` topic.
+
+ Run the world in one terminal.
 
 `ign gazebo sensor_tutorial.sdf`
 
@@ -147,7 +170,10 @@ Now we can use the `TriggeredPublisher` plugin to make our robot stop when hit t
 </plugin>
 ```
 
-As explained in the Moving robot [tutorial](../Moving_robot/moving_robot.md), we can publish output depend on a received input. So when we receive `data: true` on the `/wall/touched` topic we publish `linear: {x: 0.0}, angular: {z: 0.0}` to make our robot stop.
+As explained in the Moving robot [tutorial](../Moving_robot/moving_robot.md),
+we can publish an output depending on a received input. So when we receive
+`data: true` on the `/wall/touched` topic we publish
+`linear: {x: 0.0}, angular: {z: 0.0}` to make our robot stop.
 
 ## Lidar sensor
 
@@ -171,7 +197,7 @@ Then add this plugin under the `<world>` tag, to be able to use the `lidar` sens
     </plugin>
 ```
 
-Under the `chassis` link we can add the `lidar` sensor as follow:
+Under the `chassis` link we can add the `lidar` sensor as follows:
 
 ```xml
 <sensor name='gpu_lidar' type='gpu_lidar'>"
@@ -199,12 +225,28 @@ Under the `chassis` link we can add the `lidar` sensor as follow:
             <resolution>0.01</resolution>
         </range>
     </ray>
-    <alwaysOn>1</alwaysOn>
+    <always_on>1</always_on>
     <visualize>true</visualize>
 </sensor>
 ```
 
-First we defined the `name` and `type` of our sensor, then we defined its `<pose>` relative to the `lidar_frame`. In the `<Topic>` we define the topic on which the lidar data will be published. `<update_rate>` is the frequency at which the `lidar` data is generated, in our case `10 Hz` which is equal to `0.1 Sec`. Under the `<horizontal>` and `<vertical>` tags we define the properties of the horizontal and vertical laser rays. `<samples>` is the number of simulated lidar rays to generate per complete laser sweep cycle. `<resolution>` this number is multiplied by samples to determine the number range data points. The `<min_angle>` and `<max_angle>` are the angle range of the generated rays. Under the `<range>` we define range properties of each simulated ray. `<min>` and `<max>` define the minimum and maximum distance for each lidar ray. The `<resolution>` tag here define the linear resolution of each lidar ray. `<alwaysOn>` if true the sensor will always be updated according to the `<update_rate>`. `<visualize>` if true the sensor is visualized in the GUI.
+* First we defined the `name` and `type` of our sensor, then we defined its
+`<pose>` relative to the `lidar_frame`.
+* In the `<topic>` we define the topic on which the lidar data will be published.
+* `<update_rate>` is the frequency at which the `lidar` data is generated, in
+our case `10 Hz` which is equal to `0.1 Sec`.
+* Under the `<horizontal>` and `<vertical>` tags we define the properties of the
+horizontal and vertical laser rays.
+* `<samples>` is the number of simulated lidar rays to generate per complete
+laser sweep cycle.
+* `<resolution>`: this number is multiplied by samples to determine the number
+range data points.
+* The `<min_angle>` and `<max_angle>` are the angle range of the generated rays.
+* Under the `<range>` we define range properties of each simulated ray
+    *  `<min>` and `<max>` define the minimum and maximum distance for each lidar ray.
+    * The `<resolution>` tag here defines the linear resolution of each lidar ray.
+ * `<always_on>`: if true the sensor will always be updated according to the `<update_rate>`.
+ * `<visualize>`: if true the sensor is visualized in the GUI.
 
 Now run the world
 
@@ -216,6 +258,7 @@ Look at the lidar messages on the `/lidar` topic, specifically the `ranges` data
 
 The lidar message has following attributes.
 
+```
 message LaserScan
 {
   Header header              = 1;
@@ -236,12 +279,21 @@ message LaserScan
   repeated double ranges              = 14;
   repeated double intensities         = 15;
 }
+```
 
 ### Avoid the wall
 
-Now as we have the lidar on our robot, we can use the `ranges` data and make our robot avoid hitting the wall. First we will build a node which subscribes to the `/lidar` topic and reads its data. Have a look at this [tutorial](https://ignitionrobotics.org/api/transport/9.0/messages.html) to learn how to build a `publisher` and a `subscriber` nodes. You can download the finished node for this demo from [here](lidar_node.cc).
+Now as we have the lidar on our robot, we can use the `ranges` data
+and make our robot avoid hitting the wall.
+To do that, we'll write a short C++ program that listens to
+the sensor data and sends velocity commands to the robot.
+This program is called a node. We will build a node that subscribes
+to the `/lidar` topic and reads its data.
+Have a look at this [tutorial](https://ignitionrobotics.org/api/transport/9.0/messages.html)
+to learn how to build a `publisher` and a `subscriber` nodes.
+You can download the finished node for this demo from [here](lidar_node.cc).
 
-#### the lidar_node
+#### The lidar_node
 
 ```cpp
 ignition::transport::Node node;
@@ -255,16 +307,16 @@ We declare a `node` which will publish to `cmd_vel` topic and defined the messag
 ```cpp
 void cb(const ignition::msgs::LaserScan &_msg)
 {
-  bool all_more = true;
+  bool allMore = true;
   for (int i = 0; i < _msg.ranges_size(); i++)
   {
-    if (_msg.ranges(i) < 1.0) //if all bigger than four 
+    if (_msg.ranges(i) < 1.0)
     {
-      all_more = false;
+      allMore = false;
       break;
     }
   }
-  if (all_more)
+  if (allMore) //if all bigger than one
   {
     data.mutable_linear()->set_x(0.5);
     data.mutable_angular()->set_z(0.0);
@@ -278,7 +330,8 @@ void cb(const ignition::msgs::LaserScan &_msg)
 }
 ```
 
-Inside the callback function we check if the range of all rays are higher than `1.0` if so we publish message to our car to move forward otherwise we make the robot rotate.
+Inside the callback function we check if the range of all rays are bigger than `1.0`
+if so we publish message to our car to move forward otherwise we make the robot rotate.
 
 ```cpp
 int main(int argc, char **argv)
@@ -302,7 +355,7 @@ Inside the main we subscribe to the `lidar` topic, and wait till the node is shu
 
 #### Build the node
 
-Download the [CMakeLists.txt](docs/Tutorials/sensor/CMakeLists.txt) and in the same folder of `lidar_node` create `build/` directory.
+Download the [CMakeLists.txt](CMakeLists.txt) and in the same folder of `lidar_node` create `build/` directory.
 
 ```{.sh}
 mkdir build
@@ -330,7 +383,7 @@ Run the world from terminal 2:
 
 Now you can see the robot move forward and as it approaches the wall it start to turn left till it clear and move forward again.
 
-## Ign launch
+## Ignition launch
 
 Instead of running two different tasks from two different terminals we can make a launch file which will run the `sensor_world` and the `lidar_node` at the same time. Open your text editor and add the following code.
 
@@ -348,8 +401,11 @@ Instead of running two different tasks from two different terminals we can make 
 </ignition>
 ```
 
-The launch file is an XML file. We simply define what commands will run under the `<executable>` tag. The first command is `ign gazebo sensor_tutorial.sdf` which launches the world. And the second command is `./build/lidar_node` which runs the `lidar_node`. save the file as `sensor_launch.ign`, and then run it using the following command.
+The launch file is an XML file. We simply define what commands will run under the `<executable>` tag.
+The first command is `ign gazebo sensor_tutorial.sdf` which launches the world.
+And the second command is `./build/lidar_node` which runs the `lidar_node`.
+Save the file as `sensor_launch.ign`, and then run it using the following command.
 
 `ign launch sensor_launch.ign`
 
-Hurray we have our robot now moving and avoid the wall.
+Hurray, we have our robot now moving and avoiding the wall.
