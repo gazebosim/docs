@@ -17,7 +17,7 @@ robot in quaternions, the `angular_velocity` in the three axes (X, Y, Z),
 and the `linear_acceleration` in the three axes. Let's use our
 [moving_robot.sdf](../Moving_robot/moving_robot.sdf) world and modify it. Create a new file
 `sensor_tutorial.sdf` and add the code from `moving_robot.sdf` to it.
-To define the `IMU` sensor add this code under the `<world>` tag.
+To define the `IMU` sensor add this code under the `<world>` tag:
 
 ```xml
 <plugin filename="libignition-gazebo-imu-system.so"
@@ -37,27 +37,30 @@ Now we can add the `IMU` sensor to our robot as follows:
 </sensor>
 ```
 
-The sensor is usually added to one of the links of our model, we added
- it under the `chassis` link. Let's describe the tags.
- `<always_on>` if true the sensor will always be updated
+The sensor is usually added to one of the links of our model; we added
+ it under the `chassis` link.
+
+Let's describe the tags:
+
+ * `<always_on>` if true the sensor will always be updated
  according to the update rate.
- `<update_rate>` the frequency at which the sensor data is generated.
- `<visualize>` if true the sensor is visualized in the GUI.
- `<topic>` name of the topic on which data is published.
+ * `<update_rate>` the frequency at which the sensor data is generated.
+ * `<visualize>` if true the sensor is visualized in the GUI.
+ * `<topic>` name of the topic on which data is published.
 
 **Note:** Not all the tags are supported for all sensors yet.
 
 ### Read data from IMU
 
-To read the data from the `IMU`. Run the world in one terminal and press the play button.
+To read the data from the `IMU`, run the world in one terminal and press the play button:
 
 `ign gazebo sensor_tutorial.sdf`
 
-In another terminal
+In another terminal, run:
 
 `ign topic -e -t /imu`
 
-The last command listens to the messages sent over the `/imu` topic. The IMU data are `orientation`, `angular_velocity` and `linear_acceleration` as described above. It should look like this.
+The last command listens to the messages sent over the `/imu` topic. The IMU data are `orientation`, `angular_velocity` and `linear_acceleration` as described above. It should look like this:
 
 ![Imu_message](imu_msgs.png)
 
@@ -70,7 +73,7 @@ You can guess from the name that this sensor gives indication when
 it touches (contacts) something else. We will build an obstacle (wall)
 and add the contact sensor to it. If the robot hits the obstacle it will
 stop, preventing the robot from damaging itself. Let's first build the
-obstacle as follows.
+obstacle as follows:
 
 ```xml
 <model name='wall'>
@@ -102,11 +105,13 @@ obstacle as follows.
 </model>
 ```
 
-It is just a simple model with one link of box shape. You can check the [Build your own robot tutorial](../SDF/building_robot.sdf) to know how to build models. Now run the world and make sure that the wall appear in the simulation like this
+It is just a simple model with one link of box shape. You can check the [Build your own robot tutorial](../SDF/building_robot.sdf) to learn how to build models.
+
+Now run the world and make sure that the wall appears in the simulation like this:
 
 ![wall_in_world](sensor_wall.png)
 
-Let's add the contact sensor to the wall. As the `IMU` sensor we should first define `Contact` sensor by adding the following code.
+Let's add the contact sensor to the wall. As with the `IMU` sensor, we should first define the `Contact` sensor by adding the following code:
 
 ```xml
 <plugin filename="libignition-gazebo-contact-system.so"
@@ -114,7 +119,7 @@ Let's add the contact sensor to the wall. As the `IMU` sensor we should first de
 </plugin>
 ```
 
-Now we can add the `contact` sensor to the `box` link of the `wall` model.
+Now we can add the `contact` sensor to the `box` link of the `wall` model:
 
 ```xml
 <sensor name='sensor_contact' type='contact'>
@@ -142,21 +147,21 @@ The `TouchPlugin` will publish (send) a message when the `wall`
 has been touched. The tags of the plugin are as follows:
 
 * `<target>` which will be in contact with our wall, in our case `vehicle_blue`.
-* `<namespace>` takes the namespace of our topic, so when our robot hit the wall it will send a message to `/wall/touched` topic.
+* `<namespace>` takes the namespace of our topic, so when our robot hits the wall it will send a message to `/wall/touched` topic.
 
- Run the world in one terminal.
+ Run the world in one terminal:
 
 `ign gazebo sensor_tutorial.sdf`
 
-In another terminal listen to the `/wall/touched` topic.
+In another terminal, listen to the `/wall/touched` topic:
 
 `ign topic -e -t /wall/touched`
 
 Drive your robot forward to the wall using the keyboard arrow keys.
 
-When you hit the bump you should see a message `data: true` on the terminal where you run the `ign topic -e -t /wall/touched`.
+When you hit the bump you should see a message `data: true` on the terminal where you ran the `ign topic -e -t /wall/touched`.
 
-Now we can use the `TriggeredPublisher` plugin to make our robot stop when hit the wall as follows:
+Now we can use the `TriggeredPublisher` plugin to make our robot stop when hits the wall as follows:
 
 ```xml
 <plugin filename="libignition-gazebo-triggered-publisher-system.so"
@@ -170,16 +175,16 @@ Now we can use the `TriggeredPublisher` plugin to make our robot stop when hit t
 </plugin>
 ```
 
-As explained in the Moving robot [tutorial](../Moving_robot/moving_robot.md),
+As explained in the [Moving robot tutorial](../Moving_robot/moving_robot.md),
 we can publish an output depending on a received input. So when we receive
 `data: true` on the `/wall/touched` topic we publish
 `linear: {x: 0.0}, angular: {z: 0.0}` to make our robot stop.
 
 ## Lidar sensor
 
-We don't want our robot to touch the wall at all because this may cause some damage, so instead of the contact sensor we can use the Lidar. Lidar is an acronym for light detection and ranging. This sensor can help us to detect obstacles around the robot. We will use it to measure the distance between our robot and the wall.
+We don't want our robot to touch the wall at all because this may cause some damage, so instead of the contact sensor we can use the Lidar. Lidar is an acronym for "light detection and ranging". This sensor can help us detect obstacles around the robot. We will use it to measure the distance between our robot and the wall.
 
-First let's create a frame to fix our lidar to it.
+First let's create a frame to fix our lidar to:
 
 ```xml
 <frame name="lidar_frame" attached_to='chassis'>
@@ -187,7 +192,7 @@ First let's create a frame to fix our lidar to it.
 </frame>
 ```
 
-Then add this plugin under the `<world>` tag, to be able to use the `lidar` sensor.
+Then add this plugin under the `<world>` tag, to be able to use the `lidar` sensor:
 
 ```xml
     <plugin
@@ -234,7 +239,7 @@ Under the `chassis` link we can add the `lidar` sensor as follows:
 `<pose>` relative to the `lidar_frame`.
 * In the `<topic>` we define the topic on which the lidar data will be published.
 * `<update_rate>` is the frequency at which the `lidar` data is generated, in
-our case `10 Hz` which is equal to `0.1 Sec`.
+our case `10 Hz` which is equal to `0.1 sec`.
 * Under the `<horizontal>` and `<vertical>` tags we define the properties of the
 horizontal and vertical laser rays.
 * `<samples>` is the number of simulated lidar rays to generate per complete
@@ -248,15 +253,15 @@ range data points.
  * `<always_on>`: if true the sensor will always be updated according to the `<update_rate>`.
  * `<visualize>`: if true the sensor is visualized in the GUI.
 
-Now run the world
+Now run the world:
 
 `ign gazebo sensor_tutorial.sdf`
 
-Look at the lidar messages on the `/lidar` topic, specifically the `ranges` data.
+Look at the lidar messages on the `/lidar` topic, specifically the `ranges` data:
 
 `ign topic -e -t /lidar`
 
-The lidar message has following attributes.
+The lidar message has the following attributes:
 
 ```
 message LaserScan
@@ -290,7 +295,7 @@ the sensor data and sends velocity commands to the robot.
 This program is called a node. We will build a node that subscribes
 to the `/lidar` topic and reads its data.
 Have a look at this [tutorial](https://ignitionrobotics.org/api/transport/9.0/messages.html)
-to learn how to build a `publisher` and a `subscriber` nodes.
+to learn how to build a `publisher` and a `subscriber` node.
 You can download the finished node for this demo from [here](lidar_node.cc).
 
 #### The lidar_node
@@ -330,8 +335,8 @@ void cb(const ignition::msgs::LaserScan &_msg)
 }
 ```
 
-Inside the callback function we check if the range of all rays are bigger than `1.0`
-if so we publish message to our car to move forward otherwise we make the robot rotate.
+Inside the callback function we check if the range of all rays are bigger than `1.0`.
+If so we publish a message to our car to move forward. Otherwise we make the robot rotate.
 
 ```cpp
 int main(int argc, char **argv)
@@ -351,18 +356,18 @@ int main(int argc, char **argv)
 }
 ```
 
-Inside the main we subscribe to the `lidar` topic, and wait till the node is shut down.
+Inside the main we subscribe to the `lidar` topic, and wait until the node is shut down.
 
 #### Build the node
 
-Download the [CMakeLists.txt](CMakeLists.txt) and in the same folder of `lidar_node` create `build/` directory.
+Download the [CMakeLists.txt](CMakeLists.txt), and in the same folder of `lidar_node` create `build/` directory:
 
 ```{.sh}
 mkdir build
 cd build
 ```
 
-Run cmake and build the code.
+Run cmake and build the code:
 
 ```{.sh}
 cmake ..
@@ -379,9 +384,11 @@ Run the node from terminal 1:
 
 Run the world from terminal 2:
 
-`ign gazebo sensor_tutorial.sdf`
+```{.sh}
+ign gazebo sensor_tutorial.sdf
+```
 
-Now you can see the robot move forward and as it approaches the wall it start to turn left till it clear and move forward again.
+Now you can see the robot move forward and as it approaches the wall it starts to turn left until it's clear and moves forward again.
 
 ## Ignition launch
 
@@ -404,8 +411,10 @@ Instead of running two different tasks from two different terminals we can make 
 The launch file is an XML file. We simply define what commands will run under the `<executable>` tag.
 The first command is `ign gazebo sensor_tutorial.sdf` which launches the world.
 And the second command is `./build/lidar_node` which runs the `lidar_node`.
-Save the file as `sensor_launch.ign`, and then run it using the following command.
+Save the file as `sensor_launch.ign`, and then run it using the following command:
 
-`ign launch sensor_launch.ign`
+```{.sh}
+ign launch sensor_launch.ign
+```
 
-Hurray, we have our robot now moving and avoiding the wall.
+Hurray! Our robot is now moving and avoiding the wall.
