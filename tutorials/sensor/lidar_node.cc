@@ -19,14 +19,15 @@
 #include <ignition/msgs/laserscan.pb.h>
 #include <ignition/transport/Node.hh>
 
-ignition::transport::Node node;
-std::string topic_pub = "/cmd_vel";
-auto pub = node.Advertise<ignition::msgs::Twist>(topic_pub);
-
 //////////////////////////////////////////////////
 /// \brief Function called each time a topic update is received.
-void cb(const ignition::msgs::LaserScan &_msg, ignition::msgs::Twist data)
+void cb(const ignition::msgs::LaserScan &_msg)
 {
+  std::string topic_pub = "/cmd_vel";   //publish to this topic
+  ignition::transport::Node node;
+  auto pub = node.Advertise<ignition::msgs::Twist>(topic_pub);
+  ignition::msgs::Twist data;
+
   bool allMore = true;
   for (int i = 0; i < _msg.ranges_size(); i++)
   {
@@ -52,20 +53,12 @@ void cb(const ignition::msgs::LaserScan &_msg, ignition::msgs::Twist data)
 //////////////////////////////////////////////////
 int main(int argc, char **argv)
 {
-  ignition::msgs::Twist data;
-  std::string topic = "/lidar";
-
-  if (!pub)
-  {
-    std::cerr << "Error advertising topic [" << topic << "]" << std::endl;
-    return -1;
-  }
-
-  
+  std::string topic_sub = "/lidar";   // subscribe to this topic
+  ignition::transport::Node node;
   // Subscribe to a topic by registering a callback.
-  if (!node.Subscribe(topic, cb(data)))
+  if (!node.Subscribe(topic_sub, cb))
   {
-    std::cerr << "Error subscribing to topic [" << topic << "]" << std::endl;
+    std::cerr << "Error subscribing to topic [" << topic_sub << "]" << std::endl;
     return -1;
   }
 
