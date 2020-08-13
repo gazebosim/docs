@@ -97,7 +97,57 @@ sudo apt-get update
 The command below will install all dependencies in Ubuntu Focal:
 
 ```bash
-sudo apt-get install cmake freeglut3-dev libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev libdart-collision-ode-dev libdart-dev libdart-utils-urdf-dev libfreeimage-dev libgflags-dev libglew-dev libgts-dev libogre-1.9-dev libogre-2.1-dev libprotobuf-dev libprotobuf-dev libprotoc-dev libqt5core5a libswscale-dev libtinyxml2-dev libtinyxml-dev pkg-config protobuf-compiler python qml-module-qt-labs-folderlistmodel qml-module-qt-labs-settings qml-module-qtquick2 qml-module-qtquick-controls qml-module-qtquick-controls2 qml-module-qtquick-dialogs qml-module-qtquick-layouts qml-module-qtqml-models2 qtbase5-dev qtdeclarative5-dev qtquickcontrols2-5-dev ruby ruby-ronn uuid-dev libzip-dev libjsoncpp-dev libcurl4-openssl-dev libyaml-dev libzmq3-dev libsqlite3-dev libwebsockets-dev swig ruby-dev libbenchmark-dev -y
+sudo apt-get install -y \
+  cmake \
+  freeglut3-dev \
+  libavcodec-dev \
+  libavdevice-dev \
+  libavformat-dev \
+  libavutil-dev \
+  libbenchmark-dev \
+  libcurl4-openssl-dev \
+  libdart-collision-ode-dev \
+  libdart-dev \
+  libdart-utils-urdf-dev \
+  libfreeimage-dev \
+  libgflags-dev \
+  libglew-dev \
+  libgts-dev \
+  libjsoncpp-dev \
+  libogre-1.9-dev \
+  libogre-2.1-dev \
+  libprotobuf-dev \
+  libprotobuf-dev \
+  libprotoc-dev \
+  libqt5core5a \
+  libsqlite3-dev \
+  libswscale-dev \
+  libtinyxml-dev \
+  libtinyxml2-dev \
+  libwebsockets-dev \
+  libyaml-dev \
+  libzip-dev \
+  libzmq3-dev \
+  pkg-config \
+  protobuf-compiler \
+  python \
+  qml-module-qt-labs-folderlistmodel \
+  qml-module-qt-labs-settings \
+  qml-module-qtcharts \
+  qml-module-qtqml-models2 \
+  qml-module-qtquick-controls \
+  qml-module-qtquick-controls2 \
+  qml-module-qtquick-dialogs \
+  qml-module-qtquick-layouts \
+  qml-module-qtquick2 \
+  qtbase5-dev \
+  qtdeclarative5-dev \
+  qtquickcontrols2-5-dev \
+  ruby \
+  ruby-dev \
+  ruby-ronn \
+  swig \
+  uuid-dev
 ```
 
 ### Install compiler requirements
