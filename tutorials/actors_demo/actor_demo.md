@@ -1,6 +1,7 @@
 # Actors demo
 
-In this tutorial we will learn how to add `actors` to our world and how to create a scripted animation. You can find the final world of this tutorial [here](actor_demo.sdf)
+In this tutorial we will learn how to add `actors` to our world and how to create a scripted animation.
+You can find the final world of this tutorial [here](actor_demo.sdf).
 
 Animations are very useful if we want to have entities following a predefined path in simulation without being affected by the physics. This means that they won't fall due to gravity or collide with other objects. They will however, have a 3D visualization which can be seen by RGB cameras, and 3D meshes which can be detected by GPU based sensors. The tutorial explains how to create open-loop trajectories which don't interact with the rest of the simulation.
 
@@ -28,13 +29,15 @@ Actors have the following properties:
 * Actors support skeleton animation imported from COLLADA(.dae) and BVH(.bvh) files.
 * Actors can have trajectories scripted directly in SDF.
 
-You can check out the full specification for the `<actor>` SDF element [here](http://sdformat.org/spec?ver=1.7&elem=actor).
+You can check out the full specification for the `<actor>` SDF element
+[here](http://sdformat.org/spec?ver=1.7&elem=actor).
 
 ## Skeleton
 
 Ignition gazebo supports two different skeleton animation file formats: COLLADA (.dae) and Biovision Hierarchy (.bvh).
 
-Open any world `empty.sdf` world, for example and add an actor called `actor_walking` as follows:
+Open any world [empty.sdf](https://raw.githubusercontent.com/ignitionrobotics/ign-gazebo/master/examples/worlds/empty.sdf) world,
+for example and add an actor called `actor_walking` as follows:
 
 ```xml
 <actor name="actor_walking">
@@ -52,13 +55,13 @@ Open any world `empty.sdf` world, for example and add an actor called `actor_wal
 
 In the `<skin>` tag we just loaded a COLLADA file `walk.dae` which specify how our actor will look like. When a COLLADA file is used within the `<skin>` tags its animation is loaded. The `<scale>` scales the skin's size.
 
-![actor loaded with skin tag](actor_skin.gif)
-
-**Note**: You can find many actors and models on [ignition fuel](https://app.ignitionrobotics.org/fuel).
-
 ### Animation
 
 In the `<animation>` tag we specify how our actor will move. We can combine different skin with different animation as long as they have compatible skeletons. Now run the world and we should see our model moving
+
+![actor loaded with skin tag](actor_skin.gif)
+
+**Note**: You can find many actors and models on [Ignition Fuel](https://app.ignitionrobotics.org/fuel).
 
 ## Scripted trajectory
 
