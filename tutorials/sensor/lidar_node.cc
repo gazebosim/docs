@@ -19,13 +19,15 @@
 #include <ignition/msgs/laserscan.pb.h>
 #include <ignition/transport/Node.hh>
 
+
+std::string topic_pub = "/cmd_vel";   //publish to this topic
+ignition::transport::Node node;
+auto pub = node.Advertise<ignition::msgs::Twist>(topic_pub);
+
 //////////////////////////////////////////////////
 /// \brief Function called each time a topic update is received.
 void cb(const ignition::msgs::LaserScan &_msg)
 {
-  std::string topic_pub = "/cmd_vel";   //publish to this topic
-  ignition::transport::Node node;
-  auto pub = node.Advertise<ignition::msgs::Twist>(topic_pub);
   ignition::msgs::Twist data;
 
   bool allMore = true;
@@ -54,7 +56,6 @@ void cb(const ignition::msgs::LaserScan &_msg)
 int main(int argc, char **argv)
 {
   std::string topic_sub = "/lidar";   // subscribe to this topic
-  ignition::transport::Node node;
   // Subscribe to a topic by registering a callback.
   if (!node.Subscribe(topic_sub, cb))
   {
