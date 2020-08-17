@@ -252,11 +252,11 @@ get aquainted with this development process.
     worth your time to split a large pull request into multiple smaller pull
     requests. For reference, here are a few examples:
 
-    * [Small, very nice](https://bitbucket.org/osrf/gazebo/pull-request/1732)
+    * [Small, very nice](https://github.com/osrf/gazebo/pull/2789)
 
-    * [Medium, still okay](https://bitbucket.org/osrf/gazebo/pull-request/1700/)
+    * [Medium, still okay](https://github.com/osrf/gazebo/pull/2784)
 
-    * [Too large](https://bitbucket.org/osrf/gazebo/pull-request/30)
+    * [Too large](https://github.com/osrf/gazebo/pull/2776)
 
 1. **Submit a pull request** to the Ignition library through GitHub when you're ready.
 
