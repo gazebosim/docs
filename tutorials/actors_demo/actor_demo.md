@@ -26,7 +26,7 @@ There are two types of animations which can be used separately or combined toget
 Actors have the following properties:
 
 * No forces are applied on them, be it from gravity or contact or anything else
-* Actors support skeleton animation imported from COLLADA(.dae) and BVH(.bvh) files.
+* Actors support skeleton animation imported from COLLADA (.dae) and BVH (.bvh) files.
 * Actors can have trajectories scripted directly in SDF.
 
 You can check out the full specification for the `<actor>` SDF element
@@ -34,10 +34,10 @@ You can check out the full specification for the `<actor>` SDF element
 
 ## Skeleton
 
-Ignition gazebo supports two different skeleton animation file formats: COLLADA (.dae) and Biovision Hierarchy (.bvh).
+Ignition Gazebo supports two different skeleton animation file formats: COLLADA (.dae) and Biovision Hierarchy (.bvh).
 
-Open any world [empty.sdf](https://raw.githubusercontent.com/ignitionrobotics/ign-gazebo/master/examples/worlds/empty.sdf) world,
-for example and add an actor called `actor_walking` as follows:
+Open any world, [empty.sdf](https://raw.githubusercontent.com/ignitionrobotics/ign-gazebo/master/examples/worlds/empty.sdf) world
+for example, and add an actor called `actor_walking` as follows:
 
 ```xml
 <actor name="actor_walking">
@@ -53,11 +53,11 @@ for example and add an actor called `actor_walking` as follows:
 
 ### Skin
 
-In the `<skin>` tag we just loaded a COLLADA file `walk.dae` which specify how our actor will look like. When a COLLADA file is used within the `<skin>` tags its animation is loaded. The `<scale>` scales the skin's size.
+In the `<skin>` tag we just loaded a COLLADA file `walk.dae` which specifies how our actor will look. When a COLLADA file is used within the `<skin>` tags its animation is loaded. The `<scale>` scales the skin's size.
 
 ### Animation
 
-In the `<animation>` tag we specify how our actor will move. We can combine different skin with different animation as long as they have compatible skeletons. Now run the world and we should see our model moving
+In the `<animation>` tag we specify how our actor will move. We can combine different skins with different animations as long as they have compatible skeletons. Now run the world and we should see our model moving.
 
 ![actor loaded with skin tag](actor_skin.gif)
 
@@ -67,7 +67,7 @@ In the `<animation>` tag we specify how our actor will move. We can combine diff
 
 This is the high level animation of actors, which consists of specifying a series of poses to be reached at specific times. Ignition Gazebo takes care of interpolating the motion between them so the movement is fluid.
 
-Animations that have displacement on the X axis, like `walk.dae` will have the skeleton animated while following a trajectory. But for animations that don't, such as `talk_b.dae`, their skeletons won't move if there's a trajectory.
+Animations that have displacement on the X axis, like `walk.dae`, will have the skeleton animated while following a trajectory. But for animations that don't, such as `talk_b.dae`, their skeletons won't move if there's a trajectory.
 
 We can make our actor follow the specified trajectory forever and start playing as soon as the world is loaded as follows:
 
@@ -132,7 +132,7 @@ Let's define the trajectory as a sequence of waypoints:
     </script>
 ```
 
-Within the `<trajectory>` tag we define a series of waypoints which our actor will follow. The `<trajectory>` has two attributes: `id` and `type`. The `type` should have the same name as the animation `walk`. Under the `trajectory` tag we define the following.
+Within the `<trajectory>` tag we define a series of waypoints which our actor will follow. The `<trajectory>` has two attributes: `id` and `type`. The `type` should have the same name as the animation `walk`. Under the `trajectory` tag we define the following:
 
 * `waypoint`: There can be any number of waypoints in a trajectory. Each waypoint consists of a time and a pose:
     * `time`: The time in seconds, counted from the beginning of the script, when the pose should be reached.
