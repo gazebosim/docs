@@ -39,13 +39,10 @@ explaining how to make communication connections from ROS to Ignition and vice v
 
 ## Publish key strokes to ROS
 
-Let's send messages to ROS using the `Key Publisher` an Ignition Gazebo plugin.
+Let's send messages to ROS using the `Key Publisher` an Ignition plugin.
 
-**Note:** Make sure to have ROS, Ignition and the bridge workspace sourced.
+**Note:** Make sure to have all workspaces you need (ROS, Ignition and, `ros_ign`...) sourced.
 
-* For ROS:  `. /opt/ros/foxy/setup.bash`
-* For Ignition (for source installation only):   `. ~/workspace/install/setup.bash`
-* For bridge workspace:  `. ~/bridge_ws/install/setup.bash`
 
 First we will start a bridge between ROS and Ignition specifying the topic
 at which the `Key Publisher` plugin sends messages and also the type
