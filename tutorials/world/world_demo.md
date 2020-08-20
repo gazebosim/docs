@@ -25,7 +25,7 @@ The first two tags define the version of the `XML` and the `SDF`. Then we have t
 </physics>
 ```
 
-The physics tag specifies the type and properties of the dynamic engine. We chose the `name` `1ms` as the step size is 1 millisecond. The `type` is the type of the dynamic engine (physics library). There are options like, Ode, Bullet, Simbody and Dart. We set it to `ignored`, as choosing the type of the physics engine is not supported yet.
+The physics tag specifies the type and properties of the dynamic engine. We chose the `name` `1ms` as the step size is 1 millisecond. The `type` is the type of the dynamic engine (physics library). There are options like, Ode, Bullet, Simbody and Dart. We set it to `ignored`, as choosing the type of the physics engine is not done through this tag yet.
 
 `<max_step_size>` is the maximum time at which every system in simulation can interact with the states of the world. The smaller the value, the more accurate your calculations, but more computation power is needed.
 `<real_time_factor>` is the ratio of simulation time to real time.
@@ -98,7 +98,7 @@ The `GzScene3D` plugin is responsible for displaying the 3D scene of our world. 
 * `showTitleBar` if true it will show the blue title bar over the plugin with the name mentioned in the `<title>` tag.
 * `state` is the state of the plugin it can be docked in its place using `docked` or it can be `floating`.
 
-For the rendering engine we can choose `ogre1` or `ogre2`. The `<ambient_light>` and the `<background_color>` specify the ambient and the background color of the scene. `<camera_pose>` specifies the `X Y Z` position of the camera followed by its rotation in `Roll Pitch Yaw`.
+For the rendering engine we can choose `ogre` or `ogre2`. The `<ambient_light>` and the `<background_color>` specify the ambient and the background color of the scene. `<camera_pose>` specifies the `X Y Z` position of the camera followed by its rotation in `Roll Pitch Yaw`.
 
 ### World control plugin
 
