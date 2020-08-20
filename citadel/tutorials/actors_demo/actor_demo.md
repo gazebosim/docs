@@ -1,4 +1,4 @@
-# Actors demo
+# Actors
 
 In this tutorial we will learn how to add `actors` to our world and how to create a scripted animation.
 You can find the final world of this tutorial [here](actor_demo.sdf).

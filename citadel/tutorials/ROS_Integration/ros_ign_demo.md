@@ -1,6 +1,6 @@
-# ROS Integration
+# ROS 2 Integration
 
-In this tutorial we will learn how to Integrate ROS with Ignition. We will establish
+In this tutorial we will learn how to Integrate ROS 2 with Ignition. We will establish
 communication between them. This can help in many aspects; we can receive data or commands
 from ROS and apply it to Ignition and vice versa.
 

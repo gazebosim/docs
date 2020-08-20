@@ -11,7 +11,7 @@ Start by getting Ignition up and running with an empty world:
 ign gazebo empty.sdf
 ```
 
-The previous tutorial, [Manipulating Models](/docs/citadel/manipulating_models), shows you how to interact with models, which might be helpful once you add some Fuel models to your world.
+The previous tutorial, [Manipulating Models](/docs/citadel/tutorials/manipulating_models), shows you how to interact with models, which might be helpful once you add some Fuel models to your world.
 
 ## Choose a Model
 
