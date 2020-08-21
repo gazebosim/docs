@@ -18,7 +18,7 @@ The previous tutorial, [Manipulating Models](/docs/citadel/tutorials/manipulatin
 Fuel's model collection is at [app.ignitionrobotics.org/fuel/models](https://app.ignitionrobotics.org/fuel/models).
 Head over and browse the available content.
 
-![Fuel models preview](/blueprint/img/fuel.png)
+![Fuel models preview](img/fuel.png)
 
 Click on any one of the thumbnails, or use the search bar.
 For example, let's find the [PR2_SDF17](https://app.ignitionrobotics.org/openrobotics/fuel/models/PR2_SDF17).

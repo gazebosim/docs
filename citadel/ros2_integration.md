@@ -63,7 +63,7 @@ ign gazebo empty.sdf
 
 Then add the `Key Publisher` plugin from the dropdown menu on the top right corner.
 
-![empty_world_with_KeyPublisher](empty_world.png)
+![empty_world_with_KeyPublisher](tutorials/ros2_integration/empty_world.png)
 
 In another terminal start the ROS listener:
 
@@ -76,6 +76,6 @@ This command listens to the messages sent over the `/keyboard/keypress` topic.
 On the Ignition window, press on the keyboard keys and you should
 find data on the listener terminal. This is what the terminals should look like:
 
-![exchange_messages](ros_ign.png)
+![exchange_messages](tutorials/ros2_integration/ros_ign.png)
 
 Now it's your turn! Try to send data from ROS to Ignition. You can also try different data types and different directions of communication.

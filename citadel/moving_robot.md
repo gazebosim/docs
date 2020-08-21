@@ -93,7 +93,7 @@ The last command will display all messages sent on `/keyboard/keypress` topic.
 
 In the ignition window press different keys and you should see data(numbers) on the terminal where you run the `ign topic -e -t /keyboard/keypress` command.
 
-![KeyPublisher](keypublisher_data.png)
+![KeyPublisher](tutorials/moving_robot/keypublisher_data.png)
 
 We want to map these keystrokes into messages of type `Twist` and publish them to the `/cmd_vel` topic which our model listens to.
 The `TriggeredPublisher` plugin will do this.

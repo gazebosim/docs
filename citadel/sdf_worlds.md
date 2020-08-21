@@ -178,7 +178,7 @@ Press the play button and in another terminal listen to the messages:
 
 The message should look like this:
 
-![world_shapes_stats](world_stats.png)
+![world_shapes_stats](tutorials/sdf_worlds/world_stats.png)
 
 ### Entity tree
 
@@ -190,7 +190,7 @@ The message should look like this:
 
 In this plugin we can see all the entities of our world (everything in simulation is considered an "entity"). We can see the different models, sun and also their links, visuals and collisions.
 
-![Entity tree plugin](entity_tree.png)
+![Entity tree plugin](tutorials/sdf_worlds/entity_tree.png)
 
 It is blank because we didn't add anything to our world yet.
 
@@ -279,4 +279,4 @@ Run your world:
 
 You should see the model in the origin of the world. You can also set its coordinates using the `<pose>`tag.
 
-![world with can](coke_world.png)
+![world with can](tutorials/sdf_worlds/coke_world.png)

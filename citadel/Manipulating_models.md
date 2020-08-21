@@ -45,7 +45,7 @@ You can always return to selection mode from any other mode by pressing `Esc`.
 
 Enter into translate mode by clicking the second icon from the left in the Transform Control plugin, or by hitting the keyboard shortcut: `T`.
 
-![Translate mode icon](/blueprint/img/translate_icon.png)
+![Translate mode icon](img/translate_icon.png)
 
 Translate mode allows you to translate entities along the x, y and z axes.
 
@@ -61,7 +61,7 @@ Additionally, holding down any one of the `X`, `Y` or `Z` keys, or a combination
 
 Enter into rotate mode by clicking the third icon from the left in the Transform Control plugin, or by hitting the keyboard shortcut: `R`.
 
-![Rotate mode icon](/blueprint/img/rotate_icon.png)
+![Rotate mode icon](img/rotate_icon.png)
 
 Rotate mode allows you to rotate entities around the roll, pitch and yaw axes of rotation.
 

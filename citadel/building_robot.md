@@ -2,7 +2,7 @@
 
 In this tutorial we will learn how to build our own robot in SDFormat. We will build a simple two wheeled robot.
 
- You can find the finished SDF file for the tutorial [here](building_robot.sdf).
+ You can find the finished SDF file for the tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/tutorials/building_robot/building_robot.sdf).
 
 ## What is SDF
 
@@ -153,7 +153,7 @@ Save the file, navigate to the directory where you saved the file and launch the
 
 **Note**: You can name your file any name and save it anywhere on your computer.
 
-You should see an empty world with just a ground plane and a sun light. Check [World demo](../world_demo.md) to learn how to build your own world.
+You should see an empty world with just a ground plane and a sun light. Check [World demo](https://github.com/ignitionrobotics/docs/blob/master/tutorials/sdf_worlds/world_demo.sdf) to learn how to build your own world.
 
 ## Building a model
 
@@ -250,12 +250,12 @@ After copying all the parts above into the world file in order, run the world ag
 
 Our model should look like this:
 
-![car chassis](chassis.png)
+![car chassis](tutorials/building_robot/chassis.png)
 
 In the top right corner click on the plugins dropdown list (vertical ellipsis), choose `Transform control`, select your model and then click on the Translation tool.
 You should see three axes like this:
 
-![model_axis](model_axis.png)
+![model_axis](tutorials/building_robot/model_axis.png)
 
 These are the axes of our model where red is the x-axis, green is the y-axis and blue is the z-axis.
 
@@ -315,7 +315,7 @@ Then we defined the `inertial` properties of the wheel, the `mass` and the `iner
 The `<visual>` and  the `<collision>` properties are similar to the previous link, except the shape of our link has the shape of `<cylinder>` that requires two attributes: the `<radius>` and the `<length>` of the cylinder.
 Save the file and run the world again, our model should look like this:
 
-![this](car_left_wheel.png)
+![this](tutorials/building_robot/car_left_wheel.png)
 
 ### Right wheel
 
@@ -507,6 +507,6 @@ Run the world:
 
 It should look like this:
 
-![two_wheeled_robot](two_wheeled_robot.png)
+![two_wheeled_robot](tutorials/building_robot/two_wheeled_robot.png)
 
 Hurray! We build our first robot. You can learn more details about SDFormat tags [here](http://sdformat.org/spec). In the next [tutorial](../moving_robot.md) we will learn how to move our robot around.

@@ -62,7 +62,7 @@ In another terminal, run:
 
 The last command listens to the messages sent over the `/imu` topic. The IMU data are `orientation`, `angular_velocity` and `linear_acceleration` as described above. It should look like this:
 
-![Imu_message](imu_msgs.png)
+![Imu_message](tutorials/sensors/imu_msgs.png)
 
 Move your robot forward using the keyboard up key. You should see the sensor values changing.
 
@@ -109,7 +109,7 @@ It is just a simple model with one link of box shape. You can check the [Build y
 
 Now run the world and make sure that the wall appears in the simulation like this:
 
-![wall_in_world](sensor_wall.png)
+![wall_in_world](tutorials/sensors/sensor_wall.png)
 
 Let's add the contact sensor to the wall. As with the `IMU` sensor, we should first define the `Contact` sensor by adding the following code:
 
@@ -131,7 +131,7 @@ Now we can add the `contact` sensor to the `box` link of the `wall` model:
 
 The definition of the `<sensor>` is straight forward, we just define the `name` and the `type` of the sensor. And inside the `collision` we define the box link collision name which is `collision`.
 
-We need also to add the `TouchPlugin` under the `wall` model as follows:  
+We need also to add the `TouchPlugin` under the `wall` model as follows:
 
 ```xml
 <plugin filename="libignition-gazebo-touchplugin-system.so"
