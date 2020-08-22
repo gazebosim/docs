@@ -27,21 +27,21 @@ collection assures that all libraries all compatible and can be used together.
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
-|   ign-cmake        |       2.x     |       [link](https://github.com/ignitionrobotics/ign-cmake/blob/ign-cmake2/Changelog.md)     |
-|   ign-common       |       3.x     |       [link](https://github.com/ignitionrobotics/ign-common/blob/ign-common3/Changelog.md)    |
-|   ign-fuel-tools   |       3.x     |       [link](https://github.com/ignitionrobotics/ign-fuel-tools/blob/ign-fuel-tools3/Changelog.md)    |
-|   ign-gazebo       |       1.x     |       [link](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo1/Changelog.md)     |
+|   ign-cmake        |       2.x     |       [Changelog](https://github.com/ignitionrobotics/ign-cmake/blob/ign-cmake2/Changelog.md)     |
+|   ign-common       |       3.x     |       [Changelog](https://github.com/ignitionrobotics/ign-common/blob/ign-common3/Changelog.md)    |
+|   ign-fuel-tools   |       3.x     |       [Changelog](https://github.com/ignitionrobotics/ign-fuel-tools/blob/ign-fuel-tools3/Changelog.md)    |
+|   ign-gazebo       |       1.x     |       [Changelog](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo1/Changelog.md)     |
 |   ign-gui          |       1.x     |       None       |
-|   ign-launch       |       0.x     |       [link](https://github.com/ignitionrobotics/ign-launch/blob/ign-launch1/Changelog.md)        |
-|   ign-math         |       6.x     |       [link](https://github.com/ignitionrobotics/ign-math/blob/ign-math6/Changelog.md)     |
-|   ign-msgs         |       3.x     |       [link](https://github.com/ignitionrobotics/ign-msgs/blob/ign-msgs3/Changelog.md)     |
-|   ign-physics      |       1.x     |       [link](https://github.com/ignitionrobotics/ign-physics/blob/ign-physics1/Changelog.md)      |
-|   ign-plugin       |       1.x     |       [link](https://github.com/ignitionrobotics/ign-plugin/blob/ign-plugin1/Changelog.md)     |
+|   ign-launch       |       0.x     |       None       |
+|   ign-math         |       6.x     |       [Changelog](https://github.com/ignitionrobotics/ign-math/blob/ign-math6/Changelog.md)     |
+|   ign-msgs         |       3.x     |       [Changelog](https://github.com/ignitionrobotics/ign-msgs/blob/ign-msgs3/Changelog.md)     |
+|   ign-physics      |       1.x     |       [Changelog](https://github.com/ignitionrobotics/ign-physics/blob/ign-physics1/Changelog.md)      |
+|   ign-plugin       |       1.x     |       [Changelog](https://github.com/ignitionrobotics/ign-plugin/blob/ign-plugin1/Changelog.md)     |
 |   ign-rendering    |       1.x     |       None      |
-|   ign-sensors      |       1.x     |       [link](https://github.com/ignitionrobotics/ign-sensors/blob/ign-sensors1/Changelog.md)      |
-|   ign-tools        |       0.x     |       [link](https://github.com/ignitionrobotics/ign-tools/blob/ign-tools0/Changelog.md)     |
-|   ign-transport    |       6.x     |       [link](https://github.com/ignitionrobotics/ign-transport/blob/ign-transport6/Changelog.md)      |
-|   sdformat         |       8.x     |       [link](https://github.com/osrf/sdformat/blob/sdf8/Changelog.md)        |
+|   ign-sensors      |       1.x     |       [Changelog](https://github.com/ignitionrobotics/ign-sensors/blob/ign-sensors1/Changelog.md)      |
+|   ign-tools        |       0.x     |       [Changelog](https://github.com/ignitionrobotics/ign-tools/blob/ign-tools0/Changelog.md)     |
+|   ign-transport    |       6.x     |       [Changelog](https://github.com/ignitionrobotics/ign-transport/blob/ign-transport6/Changelog.md)      |
+|   sdformat         |       8.x     |       [Changelog](https://github.com/osrf/sdformat/blob/sdf8/Changelog.md)        |
 
 
 ## Blueprint
@@ -74,21 +74,21 @@ collection assures that all libraries all compatible and can be used together.
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
-|   ign-cmake        |       2.x     |       [link](https://github.com/ignitionrobotics/ign-cmake/blob/ign-cmake2/Changelog.md)     |
-|   ign-common       |       3.x     |      [link](https://github.com/ignitionrobotics/ign-common/blob/ign-common3/Changelog.md)    |
-|   ign-fuel-tools   |       3.x     |       [link](https://github.com/ignitionrobotics/ign-fuel-tools/blob/ign-fuel-tools3/Changelog.md)    |
-|   ign-gazebo       |       2.x     |       [link](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo2/Changelog.md)     |
-|   ign-gui          |       2.x     |       [link](https://github.com/ignitionrobotics/ign-gui/blob/ign-gui2/Changelog.md)       |
-|   ign-launch       |       1.x     |       [link](https://github.com/ignitionrobotics/ign-launch/blob/ign-launch1/Changelog.md)    
-|   ign-math         |       6.x     |       [link](https://github.com/ignitionrobotics/ign-math/blob/ign-math6/Changelog.md)
-|   ign-msgs         |       4.x     |       [link](https://github.com/ignitionrobotics/ign-msgs/blob/ign-msgs4/Changelog.md)    
-|   ign-physics      |       1.x     |       [link](https://github.com/ignitionrobotics/ign-physics/blob/ign-physics1/Changelog.md)     
-|   ign-plugin       |       1.x     |       [link](https://github.com/ignitionrobotics/ign-plugin/blob/ign-plugin1/Changelog.md)     |
-|   ign-rendering    |       2.x     |      [link](https://github.com/ignitionrobotics/ign-rendering/blob/ign-rendering2/Changelog.md)      |
-|   ign-sensors      |       2.x     |       [link](https://github.com/ignitionrobotics/ign-sensors/blob/ign-sensors2/Changelog.md)      |
-|   ign-tools        |       0.x     |       [link](https://github.com/ignitionrobotics/ign-tools/blob/ign-tools0/Changelog.md)  
-|   ign-transport    |       7.x     |       [link](https://github.com/ignitionrobotics/ign-transport/blob/ign-transport7/Changelog.md)  
-|   sdformat         |       8.x     |       [link](https://github.com/osrf/sdformat/blob/sdf8/Changelog.md)        |
+|   ign-cmake        |       2.x     |       [Changelog](https://github.com/ignitionrobotics/ign-cmake/blob/ign-cmake2/Changelog.md)     |
+|   ign-common       |       3.x     |       [Changelog](https://github.com/ignitionrobotics/ign-common/blob/ign-common3/Changelog.md)    |
+|   ign-fuel-tools   |       3.x     |       [Changelog](https://github.com/ignitionrobotics/ign-fuel-tools/blob/ign-fuel-tools3/Changelog.md)    |
+|   ign-gazebo       |       2.x     |       [Changelog](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo2/Changelog.md)     |
+|   ign-gui          |       2.x     |       [Changelog](https://github.com/ignitionrobotics/ign-gui/blob/ign-gui2/Changelog.md)       |
+|   ign-launch       |       1.x     |       [Changelog](https://github.com/ignitionrobotics/ign-launch/blob/ign-launch1/Changelog.md)
+|   ign-math         |       6.x     |       [Changelog](https://github.com/ignitionrobotics/ign-math/blob/ign-math6/Changelog.md)
+|   ign-msgs         |       4.x     |       [Changelog](https://github.com/ignitionrobotics/ign-msgs/blob/ign-msgs4/Changelog.md)
+|   ign-physics      |       1.x     |       [Changelog](https://github.com/ignitionrobotics/ign-physics/blob/ign-physics1/Changelog.md)
+|   ign-plugin       |       1.x     |       [Changelog](https://github.com/ignitionrobotics/ign-plugin/blob/ign-plugin1/Changelog.md)     |
+|   ign-rendering    |       2.x     |       [Changelog](https://github.com/ignitionrobotics/ign-rendering/blob/ign-rendering2/Changelog.md)      |
+|   ign-sensors      |       2.x     |       [Changelog](https://github.com/ignitionrobotics/ign-sensors/blob/ign-sensors2/Changelog.md)      |
+|   ign-tools        |       0.x     |       [Changelog](https://github.com/ignitionrobotics/ign-tools/blob/ign-tools0/Changelog.md)
+|   ign-transport    |       7.x     |       [Changelog](https://github.com/ignitionrobotics/ign-transport/blob/ign-transport7/Changelog.md)
+|   sdformat         |       8.x     |       [Changelog](https://github.com/osrf/sdformat/blob/sdf8/Changelog.md)        |
 
 
 ## Citadel (LTS)
@@ -100,20 +100,21 @@ collection assures that all libraries all compatible and can be used together.
 1. SDFormat frame semantics.
 1. Upload and delete models to Fuel from command line.
 
-| Library name       | Version       |
-| ------------------ |:-------------:|
-|   ign-cmake        |       2.x     |       [link](https://github.com/ignitionrobotics/ign-cmake/blob/ign-cmake2/Changelog.md)     |
-|   ign-common       |       3.x     |      [link](https://github.com/ignitionrobotics/ign-common/blob/ign-common3/Changelog.md)    |
-|   ign-fuel-tools   |       4.x     |       [link](https://github.com/ignitionrobotics/ign-fuel-tools/blob/ign-fuel-tools4/Changelog.md)    |
-|   ign-gazebo       |       3.x     |       [link](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo3/Changelog.md)     |
-|   ign-gui          |       3.x     |       [link](https://github.com/ignitionrobotics/ign-gui/blob/ign-gui3/Changelog.md)       |
-|   ign-launch       |       2.x     |       [link](https://github.com/ignitionrobotics/ign-launch/blob/ign-launch2/Changelog.md)   
-|   ign-math         |       6.x     |       [link](https://github.com/ignitionrobotics/ign-math/blob/ign-math6/Changelog.md)
-|   ign-msgs         |       5.x     |       [link](https://github.com/ignitionrobotics/ign-msgs/blob/ign-msgs5/Changelog.md)   
-|   ign-physics      |       2.x     |       [link](https://github.com/ignitionrobotics/ign-physics/blob/ign-physics2/Changelog.md)   
-|   ign-plugin       |       1.x     |       [link](https://github.com/ignitionrobotics/ign-plugin/blob/ign-plugin1/Changelog.md)     |
-|   ign-rendering    |       3.x     |      [link](https://github.com/ignitionrobotics/ign-rendering/blob/ign-rendering3/Changelog.md)      |
-|   ign-sensors      |       3.x     |       [link](https://github.com/ignitionrobotics/ign-sensors/blob/ign-sensors3/Changelog.md)      |
-|   ign-tools        |       1.x     |       [link](https://github.com/ignitionrobotics/ign-tools/blob/ign-tools1/Changelog.md)     |
-|   ign-transport    |       8.x     |       [link](https://github.com/ignitionrobotics/ign-transport/blob/ign-transport8/Changelog.md)      |
-|   sdformat         |       9.x     |       [link](https://github.com/osrf/sdformat/blob/sdf9/Changelog.md)        |
+| Library name       | Version       | Changelog     |
+| ------------------ |:-------------:|:-------------:|
+|   ign-cmake        |       2.x     |       [Changelog](https://github.com/ignitionrobotics/ign-cmake/blob/ign-cmake2/Changelog.md)     |
+|   ign-common       |       3.x     |       [Changelog](https://github.com/ignitionrobotics/ign-common/blob/ign-common3/Changelog.md)    |
+|   ign-fuel-tools   |       4.x     |       [Changelog](https://github.com/ignitionrobotics/ign-fuel-tools/blob/ign-fuel-tools4/Changelog.md)    |
+|   ign-gazebo       |       3.x     |       [Changelog](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo3/Changelog.md)     |
+|   ign-gui          |       3.x     |       [Changelog](https://github.com/ignitionrobotics/ign-gui/blob/ign-gui3/Changelog.md)       |
+|   ign-launch       |       2.x     |       [Changelog](https://github.com/ignitionrobotics/ign-launch/blob/ign-launch2/Changelog.md)
+|   ign-math         |       6.x     |       [Changelog](https://github.com/ignitionrobotics/ign-math/blob/ign-math6/Changelog.md)
+|   ign-msgs         |       5.x     |       [Changelog](https://github.com/ignitionrobotics/ign-msgs/blob/ign-msgs5/Changelog.md)
+|   ign-physics      |       2.x     |       [Changelog](https://github.com/ignitionrobotics/ign-physics/blob/ign-physics2/Changelog.md)
+|   ign-plugin       |       1.x     |       [Changelog](https://github.com/ignitionrobotics/ign-plugin/blob/ign-plugin1/Changelog.md)     |
+|   ign-rendering    |       3.x     |       [Changelog](https://github.com/ignitionrobotics/ign-rendering/blob/ign-rendering3/Changelog.md)      |
+|   ign-sensors      |       3.x     |       [Changelog](https://github.com/ignitionrobotics/ign-sensors/blob/ign-sensors3/Changelog.md)      |
+|   ign-tools        |       1.x     |       [Changelog](https://github.com/ignitionrobotics/ign-tools/blob/ign-tools1/Changelog.md)     |
+|   ign-transport    |       8.x     |       [Changelog](https://github.com/ignitionrobotics/ign-transport/blob/ign-transport8/Changelog.md)      |
+|   sdformat         |       9.x     |       [Changelog](https://github.com/osrf/sdformat/blob/sdf9/Changelog.md)        |
+
