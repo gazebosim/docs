@@ -87,7 +87,7 @@ and release pattern allows us to distribute patch and minor updates into an alre
 
 ## Planned releases
 
-Please see the [Releases](/docs/releases) for the timeline of and information about future distributions.
+Please see the [Releases](/docs/all/releases) for the timeline of and information about future distributions.
 
 ## Contributing to Ignition
 
