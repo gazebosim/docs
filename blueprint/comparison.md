@@ -44,15 +44,15 @@ Load models from local files | ✓ | [✕](https://github.com/ignitionrobotics/i
 Closed kinematic chains | ✓  | [✕](https://github.com/ignitionrobotics/ign-physics/issues/25)
 Nested models | ✓ | Partial support
 Populations | ✓ | 
-Actors | ✓ | 
-Markers | ✓ | 
+Actors | ✓ |  ✕ (available in Citadel)
+Markers | ✓ |  ✕ (available in Citadel)
 Heightmaps | ✓ | [✕](https://github.com/ignitionrobotics/ign-gazebo/issues/237)
 DEM (Digital Elevation Models) | ✓ | [✕](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
 Polylines | ✓ | [✕](https://github.com/ignitionrobotics/ign-gazebo/issues/186)
 World plugins | ✓ | ✓ Now called System plugin
 Model plugins | ✓ | ✓ Now called System plugin
 Sensor plugins | ✓ | ✓ Now called System plugin
-Visual plugins | ✓ | ✕ (available in Citadel)
+Visual plugins | ✓ | [✕](https://github.com/ignitionrobotics/ign-gazebo/issues/265)
 GUI plugins | ✓ | ✓ Ignition GUI plugins and Gazebo GUI systems
 System plugins | ✓ | ✓ Through Ignition Launch
 
@@ -181,7 +181,7 @@ ODE engine | ✓ |
 Bullet engine | ✓ |
 DART engine | ✓ | ✓ Plugin shipped with ign-physics
 Simbody engine | ✓ |
-TPE engine | ✕ | ✓
+TPE engine | ✕ | ✕ (available in Citadel)
 Custom engine plugins | ✕ | ✓
 
 ## Rendering
