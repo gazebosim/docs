@@ -1,9 +1,9 @@
 # Moving the robot
 
 In this tutorial we will learn how to move our robot. We will use the
-robot we built in the [Build your own robot](../SDF/building_robot.md)
-tutorial. You can download the robot from [here](../SDF/building_robot.sdf).
-You can also find the finished world of this tutorial [here](moving_robot.sdf).
+robot we built in the [Build your own robot](building_robot)
+tutorial. You can download the robot from [here](https://github.com/ignitionrobotics/docs/blob/master/tutorials/building_robot/building_robot.sdf).
+You can also find the finished world of this tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/tutorials/moving_robot/moving_robot.sdf).
 
 ## What is a plugin
 
@@ -93,7 +93,7 @@ The last command will display all messages sent on `/keyboard/keypress` topic.
 
 In the ignition window press different keys and you should see data(numbers) on the terminal where you run the `ign topic -e -t /keyboard/keypress` command.
 
-![KeyPublisher](keypublisher_data.png)
+![KeyPublisher](tutorials/moving_robot/keypublisher_data.png)
 
 We want to map these keystrokes into messages of type `Twist` and publish them to the `/cmd_vel` topic which our model listens to.
 The `TriggeredPublisher` plugin will do this.
@@ -166,3 +166,5 @@ Map each arrow (key stroke) with the desired message (movement) as we did with t
 * Down &#10142; 16777237 &#10142; linear: {x: 0.5}, angular: {z: 0.0}
 
 Now it's your turn try to make the robot move using different keys.
+
+In the [next tutorial](sdf_worlds), you'll learn to create your own simulated world with SDF.

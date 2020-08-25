@@ -1,4 +1,4 @@
-# Actors demo
+# Actors
 
 In this tutorial we will learn how to add `actors` to our world and how to create a scripted animation.
 You can find the final world of this tutorial [here](actor_demo.sdf).
@@ -13,15 +13,15 @@ There are two types of animations which can be used separately or combined toget
 
 * Skeleton animation, which is relative motion between links in one model:
 
-![skeleton_movement](skeleton_movement.gif)
+![skeleton_movement](tutorials/actors/skeleton_movement.gif)
 
 * Trajectory animation, which carries all of the actor's links around the world as one group along a trajectory:
 
-![trajectory_movement](trajectory_movement.gif)
+![trajectory_movement](tutorials/actors/trajectory_movement.gif)
 
 * Combined, to achieve a skeleton animation which moves in the world:
 
-![combined_movement](combined_movement.gif)
+![combined_movement](tutorials/actors/combined_movement.gif)
 
 Actors have the following properties:
 
@@ -59,7 +59,7 @@ In the `<skin>` tag we just loaded a COLLADA file `walk.dae` which specifies how
 
 In the `<animation>` tag we specify how our actor will move. We can combine different skins with different animations as long as they have compatible skeletons. Now run the world and we should see our model moving.
 
-![actor loaded with skin tag](actor_skin.gif)
+![actor loaded with skin tag](tutorials/actors/actor_skin.gif)
 
 **Note**: You can find many actors and models on [Ignition Fuel](https://app.ignitionrobotics.org/fuel).
 
@@ -140,7 +140,7 @@ Within the `<trajectory>` tag we define a series of waypoints which our actor wi
 
 Run the world and we should see our actor moving in a square following the waypoints.
 
-![actor_moving around](actor_demo.gif)
+![actor_moving around](tutorials/actors/actor_demo.gif)
 
 **Notes**:
 

@@ -1,6 +1,6 @@
 # SDF worlds
 
-In this tutorial we will learn how to build our world using SDF, and how to add models to it. Open your text editor and add code as you follow along with this tutorial. You can also download the finished world for this tutorial from [here](world_demo.sdf).
+In this tutorial we will learn how to build our world using SDF, and how to add models to it. Open your text editor and add code as you follow along with this tutorial. You can also download the finished world for this tutorial from [here](https://github.com/ignitionrobotics/docs/blob/master/tutorials/sdf_worlds/world_demo.sdf).
 
 Every SDF world starts with these tags.
 
@@ -178,7 +178,7 @@ Press the play button and in another terminal listen to the messages:
 
 The message should look like this:
 
-![world_shapes_stats](world_stats.png)
+![world_shapes_stats](tutorials/sdf_worlds/world_stats.png)
 
 ### Entity tree
 
@@ -190,11 +190,11 @@ The message should look like this:
 
 In this plugin we can see all the entities of our world (everything in simulation is considered an "entity"). We can see the different models, sun and also their links, visuals and collisions.
 
-![Entity tree plugin](entity_tree.png)
+![Entity tree plugin](tutorials/sdf_worlds/entity_tree.png)
 
 It is blank because we didn't add anything to our world yet.
 
-There are a bunch of useful ignition-gui plugins like the `Transform control` plugin that allows us to manipulate different components of our world, and translate and rotate the entities. Check out this [tutorial](https://ignitionrobotics.org/docs/citadel/manipulating_models) explaining how to manipulate models.
+There are a bunch of useful ignition-gui plugins like the `Transform control` plugin that allows us to manipulate different components of our world, and translate and rotate the entities. Check out this [tutorial](manipulating_models) explaining how to manipulate models.
 
 The plugins can also be added from the GUI using the plugin drop-down menu in the top right corner of Ignition. Now that we are done with the GUI, let's add different elements to our world. **Don't** forget to add the closing tag `</gui>`.
 
@@ -233,7 +233,7 @@ Instead of building our own models we can use already built ones. [Ignition Fuel
 
 ### Drag and drop the model
 
-Adding models to a world typically means adding them into your world sdf file, but with Fuel you can drag and drop existing models directly into the scene. Checkout this [tutorial](https://ignitionrobotics.org/docs/citadel/fuel_insert) on how to add models to your world by drag and drop.
+Adding models to a world typically means adding them into your world sdf file, but with Fuel you can drag and drop existing models directly into the scene. Checkout this [tutorial](fuel_insert) on how to add models to your world by drag and drop.
 
 ### Include the model URI
 
@@ -279,4 +279,6 @@ Run your world:
 
 You should see the model in the origin of the world. You can also set its coordinates using the `<pose>`tag.
 
-![world with can](coke_world.png)
+![world with can](tutorials/sdf_worlds/coke_world.png)
+
+Now that you have a custom world, the [next tutorial](sensors) will teach you how to add sensors to a robot to allow it to interact with the world around it.
