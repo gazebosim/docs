@@ -3,7 +3,7 @@
 This tutorial will walk you through using various plugins to assist model and scene manipulation in the Ignition GUI.
 
 The Transform Control plugin is a combination of keybindings and transform control options: selection, translation, rotation and custom snap values.
-This chart of [Ignition's keyboard shortcuts](/docs/citadel/tutorials/hotkeys) may be helpful for this tutorial.
+This chart of [Ignition's keyboard shortcuts](hotkeys) may be helpful for this tutorial.
 
 The View Angle plugin allows you to quickly and easily adjust the direction from which your scene faces an entity in the simulation.
 
@@ -19,7 +19,7 @@ Start by getting Ignition up and running with a sample world:
 ign gazebo shapes.sdf
 ```
 
-The previous tutorial, [Understanding the GUI](/docs/citadel/tutorials/gui), explains the basics of navigating the Ignition GUI.
+The previous tutorial, [Understanding the GUI](gui), explains the basics of navigating the Ignition GUI.
 
 ## Transform Control
 
@@ -145,4 +145,4 @@ You can align more than two models, just select the others with `Ctrl` + click.
 
 So far you've interacted with basic shape models to learn about Ignition's GUI.
 It's also possible to insert more detailed models from [Ignition Fuel](https://app.ignitionrobotics.org) into the GUI.
-Check out the [Model Insertion from Fuel](/docs/citadel/tutorials/fuel_insert) tutorial to learn how.
+Check out the [Model Insertion from Fuel](fuel_insert) tutorial to learn how.
