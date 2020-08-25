@@ -94,7 +94,7 @@ wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
 sudo apt-get update
 ```
 
-The command below will install all dependencies in Ubuntu Focal:
+The command below will install all dependencies in Ubuntu Bionic or Focal:
 
 ```bash
 sudo apt-get install -y \
@@ -106,9 +106,6 @@ sudo apt-get install -y \
   libavutil-dev \
   libbenchmark-dev \
   libcurl4-openssl-dev \
-  libdart-collision-ode-dev \
-  libdart-dev \
-  libdart-utils-urdf-dev \
   libfreeimage-dev \
   libgflags-dev \
   libglew-dev \
@@ -132,6 +129,7 @@ sudo apt-get install -y \
   protobuf-compiler \
   python \
   qml-module-qt-labs-folderlistmodel \
+  qml-module-qt-labs-platform \
   qml-module-qt-labs-settings \
   qml-module-qtcharts \
   qml-module-qtqml-models2 \
@@ -150,12 +148,38 @@ sudo apt-get install -y \
   uuid-dev
 ```
 
+Additionally, on Ubuntu Bionic:
+
+```bash
+sudo apt-get install -y \
+  dart6-data \
+  libdart6-collision-ode-dev \
+  libdart6-dev \
+  libdart6-utils-urdf-dev
+```
+
+Or additionally, on Ubuntu Focal:
+
+```bash
+sudo apt-get install -y \
+  libdart-collision-ode-dev \
+  libdart-dev \
+  libdart-external-ikfast-dev \
+  libdart-external-odelcpsolver-dev \
+  libdart-utils-urdf-dev
+```
+
 ### Install compiler requirements
 
-The Ignition Libraries require the gcc 8 compiler on Ubuntu Focal.
+The Ignition Libraries require the gcc compiler version 8 or higher.
 (Windows requires Visual Studio 2019).
 
-To install `gcc` version 8 on Ubuntu Focal:
+#### Ubuntu Bionic
+
+Ubuntu Bionic's default compiler version is not high enough, so the following
+steps are needed to upgrade. These are not needed on Ubuntu Focal.
+
+To install `gcc` version 8 on Ubuntu Bionic:
 
 ```bash
 sudo apt-get install g++-8
