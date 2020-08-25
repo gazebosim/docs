@@ -1,4 +1,6 @@
-# Source Installation on Ubuntu Bionic
+# Source Installation on Ubuntu
+
+These instructions apply for Ubuntu Bionic (18.04) and Focal (20.04).
 
 ## Install tools
 
@@ -28,7 +30,7 @@ pip install vcstool
 ```bash
 pip install -U colcon-common-extensions
 ```
-Check that no errors were printed while installing with PIP. If your system is not recognising the commands, and you're using a system that is compatible with Debian or Ubuntu packages, see the instructions below to install using `apt`.  
+Check that no errors were printed while installing with PIP. If your system is not recognising the commands, and you're using a system that is compatible with Debian or Ubuntu packages, see the instructions below to install using `apt`.
 
 ## vcstool and colcon from apt
 
@@ -93,16 +95,88 @@ wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
 sudo apt-get update
 ```
 
-The command below will install all dependencies in Ubuntu Bionic:
+The command below will install all dependencies in Ubuntu:
 
 ```bash
-sudo apt-get install cmake freeglut3-dev libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev libdart6-collision-ode-dev libdart6-dev libdart6-utils-urdf-dev libfreeimage-dev libgflags-dev libglew-dev libgts-dev libogre-1.9-dev libogre-2.1-dev libprotobuf-dev libprotobuf-dev libprotoc-dev libqt5core5a libswscale-dev libtinyxml2-dev libtinyxml-dev pkg-config protobuf-compiler python qml-module-qt-labs-folderlistmodel qml-module-qt-labs-settings qml-module-qtquick2 qml-module-qtquick-controls qml-module-qtquick-controls2 qml-module-qtquick-dialogs qml-module-qtquick-layouts qml-module-qtqml-models2 qtbase5-dev qtdeclarative5-dev qtquickcontrols2-5-dev ruby ruby-ronn uuid-dev libzip-dev libjsoncpp-dev libcurl4-openssl-dev libyaml-dev libzmq3-dev libsqlite3-dev libwebsockets-dev swig ruby-dev libbenchmark-dev -y
+sudo apt-get install -y \
+  cmake \
+  freeglut3-dev \
+  libavcodec-dev \
+  libavdevice-dev \
+  libavformat-dev \
+  libavutil-dev \
+  libbenchmark-dev \
+  libcurl4-openssl-dev \
+  libfreeimage-dev \
+  libgflags-dev \
+  libglew-dev \
+  libgts-dev \
+  libjsoncpp-dev \
+  libogre-1.9-dev \
+  libogre-2.1-dev \
+  libprotobuf-dev \
+  libprotobuf-dev \
+  libprotoc-dev \
+  libqt5core5a \
+  libsqlite3-dev \
+  libswscale-dev \
+  libtinyxml-dev \
+  libtinyxml2-dev \
+  libwebsockets-dev \
+  libyaml-dev \
+  libzip-dev \
+  libzmq3-dev \
+  pkg-config \
+  protobuf-compiler \
+  python \
+  qml-module-qt-labs-folderlistmodel \
+  qml-module-qt-labs-settings \
+  qml-module-qtqml-models2 \
+  qml-module-qtquick-controls \
+  qml-module-qtquick-controls2 \
+  qml-module-qtquick-dialogs \
+  qml-module-qtquick-layouts \
+  qml-module-qtquick2 \
+  qtbase5-dev \
+  qtdeclarative5-dev \
+  qtquickcontrols2-5-dev \
+  ruby \
+  ruby-dev \
+  ruby-ronn \
+  swig \
+  uuid-dev
+```
+
+Additionally, on Ubuntu Bionic:
+
+```bash
+sudo apt-get install -y \
+  dart6-data \
+  libdart6-collision-ode-dev \
+  libdart6-dev \
+  libdart6-utils-urdf-dev
+```
+
+Or additionally, on Ubuntu Focal:
+
+```bash
+sudo apt-get install -y \
+  libdart-collision-ode-dev \
+  libdart-dev \
+  libdart-external-ikfast-dev \
+  libdart-external-odelcpsolver-dev \
+  libdart-utils-urdf-dev
 ```
 
 ### Install compiler requirements
 
-The Ignition Libraries require the gcc 8 compiler on Ubuntu Bionic.
+The Ignition Libraries require the gcc compiler version 8 or higher.
 (Windows requires Visual Studio 2019).
+
+#### Ubuntu Bionic
+
+Ubuntu Bionic's default compiler version is not high enough, so the following
+steps are needed to upgrade. These are not needed on Ubuntu Focal.
 
 To install `gcc` version 8 on Ubuntu Bionic:
 
