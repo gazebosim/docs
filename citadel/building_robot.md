@@ -153,7 +153,7 @@ Save the file, navigate to the directory where you saved the file and launch the
 
 **Note**: You can name your file any name and save it anywhere on your computer.
 
-You should see an empty world with just a ground plane and a sun light. Check [World demo](https://github.com/ignitionrobotics/docs/blob/master/tutorials/sdf_worlds/world_demo.sdf) to learn how to build your own world.
+You should see an empty world with just a ground plane and a sun light. Check [World demo](sdf_worlds) to learn how to build your own world.
 
 ## Building a model
 
@@ -509,4 +509,4 @@ It should look like this:
 
 ![two_wheeled_robot](tutorials/building_robot/two_wheeled_robot.png)
 
-Hurray! We build our first robot. You can learn more details about SDFormat tags [here](http://sdformat.org/spec). In the next [tutorial](../moving_robot.md) we will learn how to move our robot around.
+Hurray! We build our first robot. You can learn more details about SDFormat tags [here](http://sdformat.org/spec). In the next [tutorial](moving_robot) we will learn how to move our robot around.

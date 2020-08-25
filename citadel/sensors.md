@@ -1,21 +1,21 @@
 # Sensors
 
 **Note:** This tutorial is a continuation from the
-[Moving the robot tutorial](../Moving_robot/moving_robot.md).
+[Moving the robot tutorial](moving_robot).
 
 In this tutorial we will learn how to add sensors to our robot and
 to other models in our world. We will use three different sensors:
 an IMU sensor, a Contact sensor and a Lidar sensor. We will also
 learn how to launch multiple tasks with just one file using `ign_launch`.
 
-You can find the final world of this tutorial [here](sensor_tutorial.sdf)
+You can find the final world of this tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/tutorials/sensors/sensor_tutorial.sdf)
 
 ## IMU sensor
 
 The inertial measurement unit (IMU) outputs the `orientation` of our
 robot in quaternions, the `angular_velocity` in the three axes (X, Y, Z),
 and the `linear_acceleration` in the three axes. Let's use our
-[moving_robot.sdf](../Moving_robot/moving_robot.sdf) world and modify it. Create a new file
+[moving_robot.sdf](https://github.com/ignitionrobotics/docs/blob/master/tutorials/moving_robot/moving_robot.sdf) world and modify it. Create a new file
 `sensor_tutorial.sdf` and add the code from `moving_robot.sdf` to it.
 To define the `IMU` sensor add this code under the `<world>` tag:
 
@@ -105,7 +105,7 @@ obstacle as follows:
 </model>
 ```
 
-It is just a simple model with one link of box shape. You can check the [Build your own robot tutorial](../SDF/building_robot.sdf) to learn how to build models.
+It is just a simple model with one link of box shape. You can check the [Build your own robot tutorial](building_robot) to learn how to build models.
 
 Now run the world and make sure that the wall appears in the simulation like this:
 
@@ -175,7 +175,7 @@ Now we can use the `TriggeredPublisher` plugin to make our robot stop when hits 
 </plugin>
 ```
 
-As explained in the [Moving robot tutorial](../Moving_robot/moving_robot.md),
+As explained in the [Moving robot tutorial](moving_robot),
 we can publish an output depending on a received input. So when we receive
 `data: true` on the `/wall/touched` topic we publish
 `linear: {x: 0.0}, angular: {z: 0.0}` to make our robot stop.
@@ -296,7 +296,7 @@ This program is called a node. We will build a node that subscribes
 to the `/lidar` topic and reads its data.
 Have a look at this [tutorial](https://ignitionrobotics.org/api/transport/9.0/messages.html)
 to learn how to build a `publisher` and a `subscriber` node.
-You can download the finished node for this demo from [here](lidar_node.cc).
+You can download the finished node for this demo from [here](https://github.com/ignitionrobotics/docs/blob/master/tutorials/sensors/lidar_node.cc).
 
 #### The lidar_node
 
@@ -360,7 +360,7 @@ Inside the main we subscribe to the `lidar` topic, and wait until the node is sh
 
 #### Build the node
 
-Download the [CMakeLists.txt](CMakeLists.txt), and in the same folder of `lidar_node` create `build/` directory:
+Download the [CMakeLists.txt](https://github.com/ignitionrobotics/docs/blob/master/tutorials/sensors/CMakeLists.txt), and in the same folder of `lidar_node` create `build/` directory:
 
 ```{.sh}
 mkdir build
@@ -418,3 +418,5 @@ ign launch sensor_launch.ign
 ```
 
 Hurray! Our robot is now moving and avoiding the wall.
+
+To add even more complexity to your simulation, learn how to add actors to a world in the [next tutorial](actors).
