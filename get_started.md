@@ -1,4 +1,4 @@
-# Getting started with Ignition Robotics?
+# Getting Started with Ignition Robotics?
 
 Welcome to Ignition Robotics!
 
@@ -72,6 +72,10 @@ custom SDF file.
 ## Step 4: Explore and learn
 
 This tutorial has covered the basics of getting started with Ignition
-Robotics. Each [Ignition library](/libs) has a set of tutorials and
+Robotics.
+Starting with Citadel, there are more [versioned tutorials](docs/citadel/tutorials)
+covering the basics of the GUI, creating worlds and robots, and more.
+
+Each [Ignition library](/libs) also has a set of tutorials and
 examples. Explore these resources, and don't forget to ask questions and
 find solutions at [answers.gazebosim.org](http://answers.gazebosim.org).

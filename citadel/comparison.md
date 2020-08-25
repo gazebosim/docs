@@ -35,6 +35,28 @@ Custom update rate | ✓ | ✓
 Gaussian noise | ✓ | ✓
 Custom sensors | ✓ | ✓ (barrel and pincushion distorsions not supported yet)
 
+## SDF Features
+
+Feature | Gazebo-classic | Ignition Gazebo
+-- | -- | --
+SDF frame semantics |✓| ✓
+Load models from local files | ✓ | [✕](https://github.com/ignitionrobotics/ign-gazebo/issues/123)
+Closed kinematic chains | ✓  | [✕](https://github.com/ignitionrobotics/ign-physics/issues/25)
+Nested models | ✓ | Partial support
+Populations | ✓ | ✕
+Actors | ✓ | ✓
+Markers | ✓ | ✓
+Heightmaps | ✓ | [✕](https://github.com/ignitionrobotics/ign-gazebo/issues/237)
+DEM (Digital Elevation Models) | ✓ | [✕](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
+Polylines | ✓ | [✕](https://github.com/ignitionrobotics/ign-gazebo/issues/186)
+World plugins | ✓ | ✓ Now called System plugin
+Model plugins | ✓ | ✓ Now called System plugin
+Sensor plugins | ✓ | ✓ Now called System plugin
+Visual plugins | ✓ | ✓
+GUI plugins | ✓ | ✓ Ignition GUI plugins and Gazebo GUI systems
+System plugins | ✓ | ✓ Through Ignition Launch
+
+
 ## Plugins
 
 Plugin | Gazebo-classic | Ignition Gazebo
@@ -86,14 +108,16 @@ RayPlugin | ✓ | Provided through Ignition Sensors
 RaySensorNoisePlugin | ✓ |
 RubblePlugin | ✓ |
 ShaderParamVisualPlugin | ✓ |
+SimpleTrackedVehiclePlugin | ✓ |
 SkidSteerDrivePlugin | ✓ | ✓
 SonarPlugin | ✓ |
-SphereAtlasDemoPlugin | ✓ |
+SphereAtlasDemoPlugin | ✓ | 
 StaticMapPlugin | ✓ |
 StopWorldPlugin | ✓ |
 TouchPlugin | ✓ | ✓
 VehiclePlugin | ✓ |
 WheelSlipPlugin | ✓ |
+WheelTrackedVehiclePlugin | ✓ | ✓ ([partially via DiffDrivePlugin](https://github.com/ignitionrobotics/ign-gazebo/blob/44951e3ddfd238f24182d4d80b1376f0d426bd43/examples/worlds/track_drive.sdf#L2141))
 WindPlugin | ✓ | ✓
 ElevatorPlugin | ✓ |
 RandomVelocityPlugin | ✓ |
@@ -127,7 +151,13 @@ Video recording | ✓ | ✓
 Screenshot | ✓ |
 View angles | ✓ |
 Apply force / torque | ✓ |
-Introspection visualizations (transparent, joints...) | ✓ |
+Visualize model as transparent | ✓ | ✕
+Visualize model as wireframe | ✓ | ✕
+Visualize contacts | ✓ | [✕](https://github.com/ignitionrobotics/ign-gazebo/pull/234)
+Visualize link inertia | ✓ | [✕](https://github.com/ignitionrobotics/ign-gazebo/issues/111)
+Visualize centers of mass | ✓ | [✕](https://github.com/ignitionrobotics/ign-gazebo/issues/110)
+Visualize joints | ✓ | [✕](https://github.com/ignitionrobotics/ign-gazebo/issues/106)
+Visualize collision shapes | ✓ | [✕](https://github.com/ignitionrobotics/ign-gazebo/issues/105)
 Follow / move to | ✓ | ✓
 Copy / paste | ✓ |
 Building editor | ✓ |
@@ -152,6 +182,7 @@ ODE engine | ✓ |
 Bullet engine | ✓ |
 DART engine | ✓ | ✓ Plugin shipped with ign-physics
 Simbody engine | ✓ |
+TPE engine | ✕ | ✓
 Custom engine plugins | ✕ | ✓
 
 ## Rendering
@@ -184,27 +215,13 @@ Supported versions:
 
 Feature | Gazebo-classic | Ignition Gazebo
 -- | -- | --
-Nested models | ✓ | Partial support
 Log / playback | ✓ | ✓
 Web client (GzWeb) | ✓ |
-Populations | ✓ |
-Actors | ✓ | ✓
-Markers | ✓ | ✓
-Heightmaps | ✓ |
-DEM (Digital Elevation Models) | ✓ |
 COLLADA meshes | ✓ | ✓
 OBJ meshes | ✓ | ✓
 STL meshes | ✓ | ✓
-Polylines | ✓ |
 Code introspection | ✓ | All simulation state is accessible from system plugins or through the `SceneBroadcaster`'s state topic
-World plugins | ✓ | ✓ Now called System plugin
-Model plugins | ✓ | ✓ Now called System plugin
-Sensor plugins | ✓ | ✓ Now called System plugin
-Visual plugins | ✓ |
-GUI plugins | ✓ | ✓ Ignition GUI plugins and Gazebo GUI systems
-System plugins | ✓ | ✓ Through Ignition Launch
 Distribute simulation across processes | ✕ | (coming up)
 Incrementally load levels | ✕ | ✓
 Online model database | [gazebo_models repository](https://bitbucket.org/osrf/gazebo_models/) | [Ignition Fuel](https://app.ignitionrobotics.org/fuel/models)
-SDF frame semantics |✓| ✓
 Saved simulation states | ✓ |
