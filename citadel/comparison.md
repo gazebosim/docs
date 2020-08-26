@@ -38,6 +38,28 @@ Gaussian noise | ✓ | ✓
 Distortions? | ✓ |  (barrel and pincushion distorsions not supported yet)
 Custom sensors | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/9)
 
+## SDF Features
+
+Feature | Gazebo-classic | Ignition Gazebo
+-- | -- | --
+SDF frame semantics |✓| ✓
+Load models from local files | ✓ | [✕](https://github.com/ignitionrobotics/ign-gazebo/issues/123)
+Closed kinematic chains | ✓  | [✕](https://github.com/ignitionrobotics/ign-physics/issues/25)
+Nested models | ✓ | Partial support
+Populations | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/240)
+Actors | ✓ | ✓
+Markers | ✓ | ✓
+Heightmaps | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/237)
+DEM (Digital Elevation Models) | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
+Polylines | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/186)
+World plugins | ✓ | ✓ Now called System plugin
+Model plugins | ✓ | ✓ Now called System plugin
+Sensor plugins | ✓ | ✓ Now called System plugin
+Visual plugins | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/265)
+GUI plugins | ✓ | ✓ Ignition GUI plugins and Gazebo GUI systems
+System plugins | ✓ | ✓ Through Ignition Launch
+
+
 ## Plugins
 
 ### Model plugins
@@ -77,6 +99,7 @@ PlaneDemoPlugin | ✓ | TODO
 PosePublisher | ✕ | ✓
 RandomVelocityPlugin | ✓ | TODO
 RegionEventBoxPlugin | ✓ | TODO
+SimpleTrackedVehiclePlugin | ✓ |
 SkidSteerDrivePlugin | ✓ | ✓
 SphereAtlasDemoPlugin | ✓ | ✕
 TouchPlugin | ✓ | ✓
@@ -84,6 +107,7 @@ TrackedVehiclePlugin | ✓ | TODO
 VariableGearboxPlugin | ✓ | TODO
 VehiclePlugin | ✓ | TODO
 WheelSlipPlugin | ✓ | [pull request](https://github.com/ignitionrobotics/ign-gazebo/pull/134)
+WheelTrackedVehiclePlugin | ✓ | ✓ ([partially via DiffDrivePlugin](https://github.com/ignitionrobotics/ign-gazebo/blob/44951e3ddfd238f24182d4d80b1376f0d426bd43/examples/worlds/track_drive.sdf#L2141))
 
 ### World plugins
 
@@ -156,7 +180,7 @@ Image viewer | ✓ | ✓
 Translate / rotate | ✓ | ✓
 Scale models | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/195)
 Insert models from Fuel | Partial support | ✓
-Insert models from disk | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/123)
+Insert models from disk | ✓ | ✓
 Insert simple shapes | ✓ | ✓
 Insert simple lights | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/119)
 Delete models | ✓ | ✓
@@ -168,6 +192,8 @@ Video recording | ✓ | ✓
 Screenshot | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gui/issues/95)
 View angles | ✓ | ✓
 Apply force / torque | ✓ | TODO
+Visualize as transparent | ✓ | TODO
+Visualize as wireframe | ✓ | TODO
 Visualize joints | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/106)
 Visualize collisions | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/105)
 Visualize inertia | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/111)
@@ -198,7 +224,8 @@ ODE engine | ✓ | [Issue](https://github.com/ignitionrobotics/ign-physics/issue
 Bullet engine | ✓ | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/44)
 DART engine | ✓ | ✓ Plugin shipped with ign-physics
 Simbody engine | ✓ | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/63)
-Custom engine plugins | ✕ | [Issue](https://github.com/ignitionrobotics/ign-rendering/issues/100)
+TPE engine | ✕ | ✓
+Custom engine plugins | ✕ | ✓
 
 ## Rendering
 
@@ -210,7 +237,7 @@ Feature | Gazebo-classic | Ignition Gazebo
 Ogre 1.x engine | ✓ | ✓
 Ogre 2.x engine | ✕ | ✓
 Optix engine | ✕ | ✓ Partial support
-Custom engine plugins | ✕ | (coming up)
+Custom engine plugins | ✕ | [Issue](https://github.com/ignitionrobotics/ign-rendering/issues/100)
 Sky | ✓ | [Issue](https://github.com/ignitionrobotics/ign-rendering/issues/98)
 Fog | ✓ | TODO
 Material scripts | ✓ (Ogre 1.x scripts) | Does not apply
@@ -241,24 +268,11 @@ Feature | Gazebo-classic | Ignition Gazebo
 Nested models | ✓ | [SDF Issue](https://github.com/osrf/sdformat/issues/283), [Physics issue](https://github.com/ignitionrobotics/ign-physics/issues/10)
 Log / playback | ✓ | ✓
 Web client (GzWeb) | ✓ | TODO
-Populations | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/240)
-Actors | ✓ | ✓
-Markers | ✓ | ✓
-Heightmaps | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/237)
-DEM (Digital Elevation Models) | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
 COLLADA meshes | ✓ | ✓
 OBJ meshes | ✓ | ✓
 STL meshes | ✓ | ✓
-Polylines | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/186)
 Code introspection | ✓ | All simulation state is accessible from system plugins or through the `SceneBroadcaster`'s state topic
-World plugins | ✓ | ✓ Now called System plugin
-Model plugins | ✓ | ✓ Now called System plugin
-Sensor plugins | ✓ | ✓ Now called System plugin
-Visual plugins | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/265)
-GUI plugins | ✓ | ✓ Ignition GUI plugins and Gazebo GUI systems
-System plugins | ✓ | ✓ Through Ignition Launch
 Distribute simulation across processes | ✕ | (coming up)
 Incrementally load levels | ✕ | ✓
 Online model database | [gazebo_models repository](https://bitbucket.org/osrf/gazebo_models/) | [Ignition Fuel](https://app.ignitionrobotics.org/fuel/models)
-SDF frame semantics |✓ | ✓
 Saved simulation states | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/137)

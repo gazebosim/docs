@@ -173,6 +173,7 @@ get aquainted with this development process.
 1. **Fork the Ignition library** you want to contribute to. This will create
    your own personal copy of the library. All of your development should
    take place in your fork.
+   - An important thing to do is create a remote pointing to the [upstream remote repository](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork). This way, you can always check for modifications on the original repository and **always** keep your fork repository up to date.
 
 1. **Choose a base branch.** If your changes will break API or ABI, then
    base your new branch off of `master`. If your changes don't break
@@ -183,7 +184,10 @@ get aquainted with this development process.
    a release / master branch. This is a good habit to get in, and will make
    your life easier.
 
-1. **Write your code.** This is the fun part.
+1. **Write your code.** This is the fun part, but is good to remember:
+   - Always [sign your commits](https://docs.github.com/en/github/authenticating-to-github/signing-commits) (See the bullet about Developer Certificate of Origin in the [Process](#markdown-header-process) section below)
+   - Look at the existing code and try to maintain the existing style and pattern as much as possible
+   - **Always** keep your branch updated with the original repository
 
 1. **Write tests.** In most cases, a pull request will only be accepted if
    it has tests. See the [Writing Tests](#markdown-header-writing-tests)
@@ -200,7 +204,11 @@ get aquainted with this development process.
 
         sudo apt-get install cppcheck
 
-    To check your code, run the following script from your `build` folder :
+    To check your code, run the following script from the `build` folder of the project that you're working on.
+    If you're working on *ignition-math*, for instance, the path for the folder should be something similar to `~/citadel_ws/build/ignition-math6`.
+    The path example is assuming you followed [our installation instructions](/docs/citadel/install) using colcon.
+    
+    Then, run the script inside this folder:
 
         make codecheck
 
@@ -244,11 +252,11 @@ get aquainted with this development process.
     worth your time to split a large pull request into multiple smaller pull
     requests. For reference, here are a few examples:
 
-    * [Small, very nice](https://bitbucket.org/osrf/gazebo/pull-request/1732)
+    * [Small, very nice](https://github.com/osrf/gazebo/pull/2789)
 
-    * [Medium, still okay](https://bitbucket.org/osrf/gazebo/pull-request/1700/)
+    * [Medium, still okay](https://github.com/osrf/gazebo/pull/2784)
 
-    * [Too large](https://bitbucket.org/osrf/gazebo/pull-request/30)
+    * [Too large](https://github.com/osrf/gazebo/pull/2776)
 
 1. **Submit a pull request** to the Ignition library through GitHub when you're ready.
 
@@ -377,8 +385,45 @@ Merging strategy:
 * Default to “squash and merge”
   * Make sure the commit message captures the core ideas of the pull request.
 * “Rebase and merge” when moving files (do a `git mv` as a separate commit)
+* “Create a merge commit” when porting changes across branches
 * Refrain from force-pushing while the PR is under review (which includes rebasing and squashing)
 
+Porting changes across branches:
+
+* Pull requests should target the lowest possible
+  [supported version](https://ignitionrobotics.org/docs/all/releases) where the
+  changes can be added in a backwards-compatible way (no API / ABI / behavior
+  break in released branches).
+* Periodically, a maintainer will **forward-port** changes to newer release
+  branches all the way up to `master`.
+* The merge forward can be done with `git merge` in order to keep the commit history.
+  For example:
+
+        git checkout ign-<library>M
+        git pull
+        git checkout ign-<library>N
+        git pull
+        git checkout -b M_to_N_<date> # It's important to do this before `git merge`
+        git merge ign-<library>M
+        # Fix conflicts
+        git commit -sam"Merge M into N"
+        # Open pull request
+
+* In the rare event that a pull request needs to be backported (i.e. from a
+  higher version to a lower version), use `git cherry-pick`, for example:
+
+        git checkout ign-<library>N
+        git pull
+        git checkout ign-<library>M
+        git pull
+        git checkout -b N_to_M_<date>
+        git cherry-pick <commits from verrsion N>
+        # Fix conflicts
+        git commit -sam"Backport from N to M"
+        # Open pull request
+
+* When merging a port pull request, **do not squash or rebase**, create a merge
+  commit instead.
 
 ## Writing Tests
 
@@ -419,7 +464,8 @@ coverage report. You'll need to have [lcov](http://ltp.sourceforge.net/coverage/
 
 1. Run a single test, or all the tests
 
-        make test
+       ./workspace/build/package_name/UNIT_TestName_TEST   (single test)
+        make test                                          (all tests) 
 
 1. Make the coverage report
 

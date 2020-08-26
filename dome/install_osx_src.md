@@ -16,14 +16,14 @@ The colcon tool is available on all platforms using pip (or pip3, if pip fails).
 
 ## Python3 from homebrew
 
-Tools and dependencies for Citadel can be installed using the [homebrew package manager](https://brew.sh/).
+Tools and dependencies for Dome can be installed using the [homebrew package manager](https://brew.sh/).
 The homebrew tool can be installed by entering the following in a terminal:
 
 ```bash
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
-Citadel is compatible with Python3; it can be installed by running the following in a terminal:
+Dome is compatible with Python3; it can be installed by running the following in a terminal:
 
 ```bash
 brew install python3
@@ -51,18 +51,18 @@ mkdir -p ~/workspace/src
 cd ~/workspace/src
 ```
 
-All the sources of ignition-citadel are declared in a yaml file. Download
+All the sources of ignition-dome are declared in a yaml file. Download
 it to the workspace:
 
 ```bash
-wget https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-citadel.yaml
+wget https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-dome.yaml
 ```
 
 Use `vcstool` to automatically retrieve all the Ignition libraries sources from
 their repositories:
 
 ```bash
-vcs import < collection-citadel.yaml
+vcs import < collection-dome.yaml
 ```
 
 The src subdirectory should contain all the sources ready to be built.
@@ -108,7 +108,7 @@ export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/usr/local/opt/qt
 The Ignition Libraries require the Xcode 10 compiler on MacOS Mojave.
 
 On Mac machines, gcc is acquired by installing Xcode command line tools.
-The required version of Xcode for Citadel is Xcode 10.3, which can be downloaded from
+The required version of Xcode for Dome is Xcode 10.3, which can be downloaded from
 [Apple Developer Site](https://developer.apple.com/download/more/).
 You will need to sign in to your Apple account and download the Mojave version of
 Xcode command line tools. Command line tools can also be obtained by downloading
@@ -247,7 +247,7 @@ sudo make uninstall
 After installing all the dependencies and starting the build process, you may encounter an error that looks like this:
 
 ```bash
-/Users/user/citadel_ws/src/sdformat/src/parser_urdf.cc:30:10: fatal error: 'urdf_model/model.h' file not found
+/Users/user/dome_ws/src/sdformat/src/parser_urdf.cc:30:10: fatal error: 'urdf_model/model.h' file not found
 #include <urdf_model/model.h>
          ^~~~~~~~~~~~~~~~~~~~
 1 error generated.
@@ -276,10 +276,10 @@ This command will ignore the system installation of `urdfdom` and use the intern
 When running the `ign gazebo -s` command, an error like the one below may show up:
 
 ```bash
-Error while loading the library [/Users/citadel/citadel_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib]: dlopen(/Users/citadel/citadel_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib, 5): Library not loaded: @rpath/libIrrXML.dylib
+Error while loading the library [/Users/dome/dome_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib]: dlopen(/Users/dome/dome_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib, 5): Library not loaded: @rpath/libIrrXML.dylib
   Referenced from: /usr/local/opt/assimp/lib/libassimp.5.dylib
   Reason: image not found
-[Err] [Physics.cc:275] Unable to load the /Users/citadel/citadel_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib library.
+[Err] [Physics.cc:275] Unable to load the /Users/dome/dome_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib library.
 Escalating to SIGKILL on [Ignition Gazebo Server]
 ```
 

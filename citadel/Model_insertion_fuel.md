@@ -11,14 +11,14 @@ Start by getting Ignition up and running with an empty world:
 ign gazebo empty.sdf
 ```
 
-The previous tutorial, [Manipulating Models](/docs/citadel/manipulating_models), shows you how to interact with models, which might be helpful once you add some Fuel models to your world.
+The previous tutorial, [Manipulating Models](manipulating_models), shows you how to interact with models, which might be helpful once you add some Fuel models to your world.
 
 ## Choose a Model
 
 Fuel's model collection is at [app.ignitionrobotics.org/fuel/models](https://app.ignitionrobotics.org/fuel/models).
 Head over and browse the available content.
 
-![Fuel models preview](/blueprint/img/fuel.png)
+![Fuel models preview](img/fuel.png)
 
 Click on any one of the thumbnails, or use the search bar.
 For example, let's find the [PR2_SDF17](https://app.ignitionrobotics.org/openrobotics/fuel/models/PR2_SDF17).
