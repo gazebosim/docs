@@ -4,8 +4,6 @@ In this tutorial we will learn how to build our own robot in SDFormat. We will b
 
  You can find the finished SDF file for the tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/tutorials/building_robot/building_robot.sdf).
 
-A video walk-through of this tutorial is available on our YouTube channel: [Ignition tutorials: Building a robot](https://youtu.be/Z-gjU0KAjiw).
-
 ## What is SDF
 
 [SDFormat](http://sdformat.org/) (Simulation Description Format), sometimes abbreviated as SDF, is an XML format that describes objects and environments for robot simulators, visualization, and control.
@@ -512,3 +510,9 @@ It should look like this:
 ![two_wheeled_robot](tutorials/building_robot/two_wheeled_robot.png)
 
 Hurray! We build our first robot. You can learn more details about SDFormat tags [here](http://sdformat.org/spec). In the next [tutorial](moving_robot) we will learn how to move our robot around.
+
+## Video walk-through
+
+A video walk-through of this tutorial is available from our YouTube channel: [Ignition tutorials: Building a robot](https://youtu.be/Z-gjU0KAjiw).
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Z-gjU0KAjiw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

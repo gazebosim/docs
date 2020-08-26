@@ -5,8 +5,6 @@ You can find the final world of this tutorial [here](actor_demo.sdf).
 
 Animations are very useful if we want to have entities following a predefined path in simulation without being affected by the physics. This means that they won't fall due to gravity or collide with other objects. They will however, have a 3D visualization which can be seen by RGB cameras, and 3D meshes which can be detected by GPU based sensors. The tutorial explains how to create open-loop trajectories which don't interact with the rest of the simulation.
 
-A video walk-through of this tutorial is available on our YouTube channel: [Ignition tutorials: Animated human actors](https://youtu.be/1VZexw67a2o)
-
 ## Actors
 
 In Ignition Gazebo, an animated model is called an `actor`.
@@ -150,3 +148,9 @@ Run the world and we should see our actor moving in a square following the waypo
 * The trajectory is smoothed as a whole. This means that you'll get a fluid motion, but the exact poses contained in the waypoints might not be reached.
 
 Now it's your turn! Try out different trajectory descriptions.
+
+## Video walk-through
+
+A video walk-through of this tutorial is available from our YouTube channel: [Ignition tutorials: Animated human actors](https://youtu.be/1VZexw67a2o)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1VZexw67a2o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
