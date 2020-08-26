@@ -10,6 +10,8 @@ learn how to launch multiple tasks with just one file using `ign_launch`.
 
 You can find the final world of this tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/tutorials/sensors/sensor_tutorial.sdf)
 
+A video walk-through of this tutorial is available on our YouTube channel: [Ignition tutorials: Sensors](https://youtu.be/WcFyGPEfhHc)
+
 ## IMU sensor
 
 The inertial measurement unit (IMU) outputs the `orientation` of our

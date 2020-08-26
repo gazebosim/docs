@@ -4,6 +4,8 @@ In this tutorial we will learn how to Integrate ROS 2 with Ignition. We will est
 communication between them. This can help in many aspects; we can receive data or commands
 from ROS and apply it to Ignition and vice versa.
 
+A video walk-through of this tutorial is available on our YouTube channel: [Ignition tutorials: ROS 2 Foxy integration](https://youtu.be/IpZTNyTp9t8).
+
 ## ros_ign_bridge
 
 `ros_ign_bridge` provides a network bridge which enables the exchange of messages between ROS 2 and Ignition Transport. Its support is limited to only certain message types. Please, check this [README](https://github.com/ignitionrobotics/ros_ign/blob/ros2/ros_ign_bridge/README.md) to verify if your message type is supported by the bridge.

@@ -5,6 +5,8 @@ robot we built in the [Build your own robot](building_robot)
 tutorial. You can download the robot from [here](https://github.com/ignitionrobotics/docs/blob/master/tutorials/building_robot/building_robot.sdf).
 You can also find the finished world of this tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/tutorials/moving_robot/moving_robot.sdf).
 
+A video walk-through of this tutorial is available on our YouTube channel: [Ignition tutorials: Moving robot](https://youtu.be/oHtQYPDGk3Y).
+
 ## What is a plugin
 
 To make our robot move we will use the `diff_drive` plugin. But before doing so let's answer the question "What is a plugin?" A plugin is a chunk of code that is compiled as a shared library and inserted into the simulation. Plugins make us control many aspects of the simulation like world, models etc.

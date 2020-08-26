@@ -2,6 +2,10 @@
 
 In this tutorial we will learn how to build our world using SDF, and how to add models to it. Open your text editor and add code as you follow along with this tutorial. You can also download the finished world for this tutorial from [here](https://github.com/ignitionrobotics/docs/blob/master/tutorials/sdf_worlds/world_demo.sdf).
 
+A video walk-through of this tutorial is available on our YouTube channel: [Ignition tutorials: Creating worlds](https://youtu.be/48TX-XJ14Gs).
+
+## Defining a world
+
 Every SDF world starts with these tags.
 
 ```xml
