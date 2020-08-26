@@ -2,7 +2,7 @@
 
 A list of features present in [Gazebo-classic](https://bitbucket.org/osrf/gazebo/)
 version 11 and the status of their migration to
-[Ignition](https://ignitionrobotics.org/).
+[Ignition Citadel](https://ignitionrobotics.org/).
 
 All the issues below are labeled with
 [close the gap](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22close+the+gap%22&type=Issues)
@@ -35,7 +35,6 @@ Sensor features | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 Custom update rate | ✓ | ✓
 Gaussian noise | ✓ | ✓
-Distortions? | ✓ |  (barrel and pincushion distorsions not supported yet)
 Custom sensors | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/9)
 
 ## SDF Features
@@ -58,7 +57,6 @@ Sensor plugins | ✓ | ✓ Now called System plugin
 Visual plugins | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/265)
 GUI plugins | ✓ | ✓ Ignition GUI plugins and Gazebo GUI systems
 System plugins | ✓ | ✓ Through Ignition Launch
-
 
 ## Plugins
 
@@ -187,7 +185,7 @@ Delete models | ✓ | ✓
 World tree | ✓ | ✓
 Scene properties | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/246)
 Log recording / playback | ✓ | ✓
-Plotting | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gui/issues/66)
+Plotting | ✓ | ✕ (available from Dome)
 Video recording | ✓ | ✓
 Screenshot | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gui/issues/95)
 View angles | ✓ | ✓
