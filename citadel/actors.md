@@ -148,3 +148,9 @@ Run the world and we should see our actor moving in a square following the waypo
 * The trajectory is smoothed as a whole. This means that you'll get a fluid motion, but the exact poses contained in the waypoints might not be reached.
 
 Now it's your turn! Try out different trajectory descriptions.
+
+## Video walk-through
+
+A video walk-through of this tutorial is available from our YouTube channel: [Ignition tutorials: Animated human actors](https://youtu.be/1VZexw67a2o)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1VZexw67a2o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

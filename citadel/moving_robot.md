@@ -168,3 +168,9 @@ Map each arrow (key stroke) with the desired message (movement) as we did with t
 Now it's your turn try to make the robot move using different keys.
 
 In the [next tutorial](sdf_worlds), you'll learn to create your own simulated world with SDF.
+
+## Video walk-through
+
+A video walk-through of this tutorial is available from our YouTube channel: [Ignition tutorials: Moving robot](https://youtu.be/oHtQYPDGk3Y).
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oHtQYPDGk3Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

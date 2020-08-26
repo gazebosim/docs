@@ -2,6 +2,8 @@
 
 In this tutorial we will learn how to build our world using SDF, and how to add models to it. Open your text editor and add code as you follow along with this tutorial. You can also download the finished world for this tutorial from [here](https://github.com/ignitionrobotics/docs/blob/master/citadel/tutorials/sdf_worlds/world_demo.sdf).
 
+## Defining a world
+
 Every SDF world starts with these tags.
 
 ```xml
@@ -282,3 +284,9 @@ You should see the model in the origin of the world. You can also set its coordi
 ![world with can](tutorials/sdf_worlds/coke_world.png)
 
 Now that you have a custom world, the [next tutorial](sensors) will teach you how to add sensors to a robot to allow it to interact with the world around it.
+
+## Video walk-through
+
+A video walk-through of this tutorial is available from our YouTube channel: [Ignition tutorials: Creating worlds](https://youtu.be/48TX-XJ14Gs).
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/48TX-XJ14Gs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

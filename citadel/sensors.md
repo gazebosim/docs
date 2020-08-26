@@ -420,3 +420,9 @@ ign launch sensor_launch.ign
 Hurray! Our robot is now moving and avoiding the wall.
 
 To add even more complexity to your simulation, learn how to add actors to a world in the [next tutorial](actors).
+
+## Video walk-through
+
+A video walk-through of this tutorial is available from our YouTube channel: [Ignition tutorials: Sensors](https://youtu.be/WcFyGPEfhHc)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WcFyGPEfhHc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
