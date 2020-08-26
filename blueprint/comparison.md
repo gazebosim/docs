@@ -65,45 +65,45 @@ System plugins | ✓ | ✓ Through Ignition Launch
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 ActorPlugin | ✓ | ✕ See [FollowActor](https://github.com/ignitionrobotics/ign-gazebo/blob/master/src/systems/follow_actor/FollowActor.hh) for a demo of Actor APIs
-ActuatorPlugin | ✓ | TODO
-ArduCopterPlugin | ✓ | TODO
+ActuatorPlugin | ✓ |
+ArduCopterPlugin | ✓ |
 AttachLightPlugin | ✓ | ✕ Does not apply, use SDF
 Breadcrumbs | ✕ | ✓
 BuoyancyPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/159)
 CartDemoPlugin | ✓ | ✕
-CessnaPlugin | ✓ | TODO
+CessnaPlugin | ✓ |
 DiffDrivePlugin | ✓ | ✓
-ElevatorPlugin | ✓ | TODO
-FlashLightPlugin | ✓ | TODO
-FollowerPlugin | ✓ | TODO
-GimbalSmall2dPlugin | ✓ | TODO
-GravityCompensationPlugin | ✓ | TODO
-HarnessPlugin | ✓ | TODO
-HydraDemoPlugin | ✓ | TODO
+ElevatorPlugin | ✓ |
+FlashLightPlugin | ✓ |
+FollowerPlugin | ✓ |
+GimbalSmall2dPlugin | ✓ |
+GravityCompensationPlugin | ✓ |
+HarnessPlugin | ✓ |
+HydraDemoPlugin | ✓ |
 InitialVelocityPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/50)
 JointControlPlugin | ✓ (force / pos / vel, from SDF) | ✓ (vel, from msg)
 JointStatePublisher | ✕ | ✓
-JointTrajectoryPlugin | ✓ | TODO
+JointTrajectoryPlugin | ✓ |
 KeysToCmdVelPlugin | ✓ | Use `ignition::gui::KeyPublisher` with `ignition::gazebo::systems::TriggeredPublisher`
 KeysToJointsPlugin | ✓ | Use `ignition::gui::KeyPublisher` with `ignition::gazebo::systems::TriggeredPublisher`
-LedPlugin | ✓ | TODO
+LedPlugin | ✓ |
 LiftDragPlugin | ✓ | ✓
 LinearBatteryConsumerPlugin | ✓ | ✓
 LinearBatteryPlugin | ✓ | ✓
 LinkPlot3DPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/231)
-MudPlugin | ✓ | TODO
+MudPlugin | ✓ |
 MulticopterMotorModel | ✕ | ✓
-PlaneDemoPlugin | ✓ | TODO
+PlaneDemoPlugin | ✓ |
 PosePublisher | ✕ | ✓
-RandomVelocityPlugin | ✓ | TODO
-RegionEventBoxPlugin | ✓ | TODO
+RandomVelocityPlugin | ✓ |
+RegionEventBoxPlugin | ✓ |
 SimpleTrackedVehiclePlugin | ✓ |
 SkidSteerDrivePlugin | ✓ | ✓
 SphereAtlasDemoPlugin | ✓ | ✕
 TouchPlugin | ✓ | ✓
-TrackedVehiclePlugin | ✓ | TODO
-VariableGearboxPlugin | ✓ | TODO
-VehiclePlugin | ✓ | TODO
+TrackedVehiclePlugin | ✓ |
+VariableGearboxPlugin | ✓ |
+VehiclePlugin | ✓ |
 WheelSlipPlugin | ✓ | [pull request](https://github.com/ignitionrobotics/ign-gazebo/pull/134)
 WheelTrackedVehiclePlugin | ✓ | ✓ ([partially via DiffDrivePlugin](https://github.com/ignitionrobotics/ign-gazebo/blob/44951e3ddfd238f24182d4d80b1376f0d426bd43/examples/worlds/track_drive.sdf#L2141))
 
@@ -111,30 +111,30 @@ WheelTrackedVehiclePlugin | ✓ | ✓ ([partially via DiffDrivePlugin](https://g
 
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
-ArrangePlugin | ✓ | TODO
+ArrangePlugin | ✓ |
 ContainPlugin | ✓ | Partial port, [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/162)
-HydraPlugin | ✓ | TODO
+HydraPlugin | ✓ |
 JoyPlugin | ✓ | ✓ Migrated as an Ignition Launch plugin
-MisalignmentPlugin | ✓ | TODO
-RubblePlugin | ✓ | TODO
-StaticMapPlugin | ✓ | TODO
-TransporterPlugin | ✓ | TODO
+MisalignmentPlugin | ✓ |
+RubblePlugin | ✓ |
+StaticMapPlugin | ✓ |
+TransporterPlugin | ✓ |
 WindPlugin | ✓ | ✓
 
 ### Sensor plugins
 
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
-BreakableJointPlugin | ✓ | TODO
+BreakableJointPlugin | ✓ |
 CameraPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
 ContactPlugin | ✓ | ✓
 DepthCameraPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
-FiducialCameraPlugin | ✓ | TODO
+FiducialCameraPlugin | ✓ |
 ForceTorquePlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
 GpuRayPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
 ImuSensorPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
-LensFlareSensorPlugin | ✓ | TODO
-PressurePlugin | ✓ | TODO
+LensFlareSensorPlugin | ✓ |
+PressurePlugin | ✓ |
 RayPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
 RaySensorNoisePlugin | ✓ | ✕ Use SDF
 SonarPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
@@ -143,28 +143,28 @@ SonarPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issue
 
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
-AmbientOcclusionVisualPlugin | ✓ | TODO
-BlinkVisualPlugin | ✓ | TODO
-HeightmapLODPlugin | ✓ | TODO
-ShaderParamVisualPlugin | ✓ | TODO
+AmbientOcclusionVisualPlugin | ✓ |
+BlinkVisualPlugin | ✓ |
+HeightmapLODPlugin | ✓ |
+ShaderParamVisualPlugin | ✓ |
 
 ### GUI plugins
 
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
-CessnaGUIPlugin | ✓ | TODO
+CessnaGUIPlugin | ✓ |
 KeyboardGUIPlugin | ✓ | `ignition::gui::KeyPublisher`
-LookAtDemoPlugin | ✓ | TODO
-TimerGUIPlugin | ✓ | TODO
+LookAtDemoPlugin | ✓ |
+TimerGUIPlugin | ✓ |
 
 ### System plugins
 
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 ModelPropShop | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/100)
-RestUiPlugin | ✓ | TODO
-RestWebPlugin | ✓ | TODO
-StopWorldPlugin | ✓ | TODO
+RestUiPlugin | ✓ |
+RestWebPlugin | ✓ |
+StopWorldPlugin | ✓ |
 
 ## GUI
 
@@ -189,9 +189,9 @@ Plotting | ✓ | ✕ (available from Dome)
 Video recording | ✓ | ✓
 Screenshot | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gui/issues/95)
 View angles | ✓ | ✓
-Apply force / torque | ✓ | TODO
-Visualize as transparent | ✓ | TODO
-Visualize as wireframe | ✓ | TODO
+Apply force / torque | ✓ |
+Visualize as transparent | ✓ |
+Visualize as wireframe | ✓ |
 Visualize joints | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/106)
 Visualize collisions | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/105)
 Visualize inertia | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/111)
@@ -199,9 +199,9 @@ Visualize CoM | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/iss
 Visualize contacts | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/112)
 Follow / move to | ✓ | ✓
 Copy / paste | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/102)
-Building editor | ✓ | TODO
+Building editor | ✓ |
 Model editor | ✓ | [Issues](https://github.com/ignitionrobotics/ign-gazebo/issues?q=is%3Aissue+is%3Aopen+label%3Aeditor)
-FPS view control | ✓ | TODO
+FPS view control | ✓ |
 Orthographic projection | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/103)
 Undo / redo | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/104)
 Save world | ✓ | ✓
@@ -237,7 +237,7 @@ Ogre 2.x engine | ✕ | ✓
 Optix engine | ✕ | ✓ Partial support
 Custom engine plugins | ✕ | [Issue](https://github.com/ignitionrobotics/ign-rendering/issues/100)
 Sky | ✓ | [Issue](https://github.com/ignitionrobotics/ign-rendering/issues/98)
-Fog | ✓ | TODO
+Fog | ✓ |
 Material scripts | ✓ (Ogre 1.x scripts) | Does not apply
 
 ## ROS integration
@@ -265,7 +265,7 @@ Feature | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 Nested models | ✓ | [SDF Issue](https://github.com/osrf/sdformat/issues/283), [Physics issue](https://github.com/ignitionrobotics/ign-physics/issues/10)
 Log / playback | ✓ | ✓
-Web client (GzWeb) | ✓ | TODO
+Web client (GzWeb) | ✓ |
 COLLADA meshes | ✓ | ✓
 OBJ meshes | ✓ | ✓
 STL meshes | ✓ | ✓
