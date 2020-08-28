@@ -51,7 +51,7 @@ Port relevant Gazebo tutorials to Ignition.
 
 A number of features are planned for specific releases of Ignition. The
 features listed here derive from the Quarterly Roadmap, listed above, and other
-ongoing projects.  See the [Release Features](/docs/release-features) page for a list of features already available in each release of Ignition.
+ongoing projects.  See the [Release Features](/docs/all/release-features) page for a list of features already available in each release of Ignition.
 
 A named release of Ignition, such as Acropolis or Blueprint, is tied to
 a set of [library](/libs) major versions. Each library follows
