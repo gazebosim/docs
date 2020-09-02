@@ -144,7 +144,8 @@ sudo apt-get install -y \
   ruby-dev \
   ruby-ronn \
   swig \
-  uuid-dev
+  uuid-dev \
+  build-essential
 ```
 
 Additionally, on Ubuntu Bionic:
