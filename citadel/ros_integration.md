@@ -74,8 +74,10 @@ setup.bash (not needed for binary packages):
 
 ```bash
 # Shell D:
-. ~/bridge_ws/install/setup.bash
+. ~/workspace/install/setup.bash
 ```
+
+**Note**: The `workspace` directory is the name of the workspace you created (e.g., in [Ubuntu Source Install](install_ubuntu_src)), which can be named anything.
 
 Run the bridge:
 
