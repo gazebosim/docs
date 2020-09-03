@@ -23,7 +23,7 @@ to verify if your message type is supported by the bridge.
 
 Citadel binaries are available for ROS Noetic and Foxy. Check out the [table on ros_ign](https://github.com/ignitionrobotics/ros_ign) for other combinations.
 
-For users using ROS Noetic on Ubuntu Focal, a binary deb is available for Citadel:
+For example, to install on Noetic use:
 
 ```bash
 sudo apt install ros-noetic-ros-ign
