@@ -21,10 +21,14 @@ to verify if your message type is supported by the bridge.
 
 ## Binary install
 
-**Not available at the moment**
+Citadel binaries are available for ROS Noetic and Foxy. Check out the [table on ros_ign](https://github.com/ignitionrobotics/ros_ign) for other combinations.
 
-The repository `packages.osrfoundation.org` hosts binary packages for Blueprint
-but for Citadel the recommended method is to build from source
+For example, to install on Noetic use:
+
+```bash
+sudo apt install ros-noetic-ros-ign
+
+```
 
 ## Source install
 
@@ -74,8 +78,10 @@ setup.bash (not needed for binary packages):
 
 ```bash
 # Shell D:
-. ~/bridge_ws/install/setup.bash
+. ~/workspace/install/setup.bash
 ```
+
+**Note**: The `workspace` directory is the name of the workspace you created (e.g., in [Ubuntu Source Install](install_ubuntu_src)), which can be named anything.
 
 Run the bridge:
 

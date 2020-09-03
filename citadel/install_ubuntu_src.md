@@ -99,6 +99,7 @@ The command below will install all dependencies in Ubuntu:
 
 ```bash
 sudo apt-get install -y \
+  build-essential \
   cmake \
   freeglut3-dev \
   libavcodec-dev \
