@@ -21,10 +21,7 @@ to verify if your message type is supported by the bridge.
 
 ## Binary install
 
-**Not available at the moment**
-
-The repository `packages.osrfoundation.org` hosts binary packages for Blueprint
-but for Citadel the recommended method is to build from source.
+Citadel binaries are available for ROS Noetic and Foxy. Check out the [table on ros_ign](https://github.com/ignitionrobotics/ros_ign) for other combinations.
 
 For users using ROS Noetic on Ubuntu Focal, a binary deb is available for Citadel:
 

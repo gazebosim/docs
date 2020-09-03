@@ -99,6 +99,7 @@ The command below will install all dependencies in Ubuntu:
 
 ```bash
 sudo apt-get install -y \
+  build-essential \
   cmake \
   freeglut3-dev \
   libavcodec-dev \
@@ -144,8 +145,7 @@ sudo apt-get install -y \
   ruby-dev \
   ruby-ronn \
   swig \
-  uuid-dev \
-  build-essential
+  uuid-dev
 ```
 
 Additionally, on Ubuntu Bionic:
