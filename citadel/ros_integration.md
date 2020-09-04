@@ -71,23 +71,12 @@ ign topic -l | grep "^/camera"
 /camera
 ```
 
-Then we start the parameter bridge with the previous topic.
-
-If you perform a from source installation, please source the
-setup.bash (not needed for binary packages):
-
-```bash
-# Shell D:
-. ~/workspace/install/setup.bash
-```
-
-**Note**: The `workspace` directory is the name of the workspace you created (e.g., in [Ubuntu Source Install](install_ubuntu_src)), which can be named anything.
-
-Run the bridge:
+Then we start the parameter bridge with the previous topic. To run the bridge:
 
 ```bash
 # Shell D:
 . /opt/ros/melodic/setup.bash
+# If installed from source, make sure you've sourced the ros-ign packages too
 rosrun ros_ign_bridge parameter_bridge /camera@sensor_msgs/Image@ignition.msgs.Image
 ```
 
