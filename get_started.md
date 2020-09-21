@@ -1,12 +1,12 @@
-# Getting Started with Ignition Robotics?
+# Getting Started with Ignition?
 
-Welcome to Ignition Robotics!
+Welcome to Ignition!
 
-If you're here and not quite sure what Ignition Robotics is all about, then
+If you're here and not quite sure what Ignition is all about, then
 you might want to give the [Overview](/docs/all/overview) page a quick read.
 
 When you're ready, follow the next few steps to get up and running with
-simulation using Ignition Robotics.
+simulation using Ignition.
 
 ## Step 1: Install
 
@@ -71,8 +71,7 @@ custom SDF file.
 
 ## Step 4: Explore and learn
 
-This tutorial has covered the basics of getting started with Ignition
-Robotics.
+This tutorial has covered the basics of getting started with Ignition.
 Starting with Citadel, there are more [versioned tutorials](docs/citadel/tutorials)
 covering the basics of the GUI, creating worlds and robots, and more.
 

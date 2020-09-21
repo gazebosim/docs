@@ -1,9 +1,9 @@
-# Contributing to Ignition Robotics
+# Contributing to Ignition
 
-Thank you for your interest in contributing to Ignition Robotics!
+Thank you for your interest in contributing to Ignition!
 
-The following is a set of guidelines for contributing to Ignition Robotics
-and its components, which are hosted in the [Ignition Robotics
+The following is a set of guidelines for contributing to Ignition
+and its components, which are hosted in the [Ignition
 Organization](https://github.com/ignitionrobotics) on GitHub. These
 are mostly guidelines, not rules. Use your best judgment, and feel free to
 propose changes to this document in a pull request.
@@ -34,14 +34,14 @@ propose changes to this document in a pull request.
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the [Ignition
-Robotics Code of Conduct](https://github.com/ignitionrobotics/ign-gazebo/blob/master/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this
+Code of Conduct](https://github.com/ignitionrobotics/ign-gazebo/blob/master/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this
 code. Please report unacceptable behavior at [https://ignitionrobotics.org/support](https://ignitionrobotics.org/support).
 
 ## Project Design
 
 ### Repository List
 
-The following is a list of the major Ignition Robotics repositories.
+The following is a list of the major Ignition repositories.
 A complete list can be found at
 [https://github.com/ignitionrobotics/](https://github.com/ignitionrobotics/).
 
@@ -115,7 +115,7 @@ Provide more context by answering these questions:
 
 Include details about your configuration and environment:
 
-* **Which version of Ignition Robotics are you using?**?
+* **Which version of Ignition are you using?**?
 * **What's the name and version of the OS you're using**?
 * **Are you running Ignition in a virtual machine?** If so, which VM software are you using and which operating systems and versions are used for the host and the guest?
 
@@ -159,7 +159,7 @@ repository and provide the following information:
 * **Describe the current behavior** and **explain which behavior you expected to see instead** and why.
 * **Include screenshots and animated GIFs** which show you following the described steps and clearly demonstrate the problem. See [Creating GIFs](#markdown-header-creating-gifs) for GIF creation utilities.
 * **Explain why this enhancement would be useful** to most users and isn't something that can or should be implemented as a separate application.
-* **Specify which version of Ignition Robotics you're using.**
+* **Specify which version of Ignition you're using.**
 * **Specify the name and version of the OS you're using.**
 
 ### Contributing Code
@@ -274,7 +274,7 @@ get aquainted with this development process.
 
 1. **Respond to reviewers.** At least two other people have to approve your pull request before it can be merged. Please be responsive to any questions and comments.
 
-1. **Done, phew.** Once you have met all the requirements, you're code will be merged. Thanks for improving Ignition Robotics!
+1. **Done, phew.** Once you have met all the requirements, you're code will be merged. Thanks for improving Ignition!
 
 ### Tracking Progress
 
@@ -287,7 +287,7 @@ Contributors should look at the ["Core development" board](https://github.com/or
 
 #### Repositories
 
-The following repositories from [Ignition Robotics](https://github.com/ignitionrobotics/) are tracked:
+The following repositories from [Ignition](https://github.com/ignitionrobotics/) are tracked:
 
 * [ign-cmake](https://github.com/ignitionrobotics/ign-cmake)
 * [ign-common](https://github.com/ignitionrobotics/ign-common)

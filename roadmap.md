@@ -1,8 +1,8 @@
-# Ignition Robotics Roadmap
+# Ignition Roadmap
 
-This page describes planned work for Ignition Robotics. The set of planned
+This page describes planned work for Ignition. The set of planned
 features and development efforts should provide insight into the overall
-direction of Ignition Robotics. If you would like to
+direction of Ignition. If you would like to
 see other features on the roadmap, then please get in touch with us at
 info@openrobotics.org.
 

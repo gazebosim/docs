@@ -1,9 +1,8 @@
 # Ignition Documentation
 
-This repository contains documentation about [Ignition
-Robotics](https://ignitionrobotics.org) that does not pertain to a specific
+This repository contains documentation about [Ignition](https://ignitionrobotics.org) that does not pertain to a specific
 [Ignition library](https://ignitionrobotics.org/libs). An example would be
-installation instructions for an Ignition Robotics release. The documentation
+installation instructions for an Ignition release. The documentation
 contained in this repository can be view at
 [https://ignitionrobotics.org/docs](https://ignitionrobotics.org/docs).
 
