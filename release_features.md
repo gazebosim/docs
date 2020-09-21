@@ -1,4 +1,4 @@
-# Ignition Robotics Release Features
+# Ignition Release Features
 
 Here you will find the set of features that are available in each release.
 
@@ -7,7 +7,7 @@ features, some of which may land in released versions of Ignition.
 
 ## Acropolis
 
-The first major release of Ignition Robotics focused on the basics of simulation. The basics primarily encompassed integration of physics, sensors, graphical tools, and programmatic interfaces.
+The first major release of Ignition focused on the basics of simulation. The basics primarily encompassed integration of physics, sensors, graphical tools, and programmatic interfaces.
 
 1. Support for [DART](https://dartsim.github.io/) in [Ignition Physics](/libs/physics).
 2. Ogre1.9 and Ogre2.1 support in [Ignition Rendering](/libs/rendering)
