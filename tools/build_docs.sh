@@ -40,6 +40,10 @@ if [[ $1 == 'all' || $1 == 'citadel' || $1 == 'Citadel' ]]; then
   docker build -t ign-citadel-docs -f Dockerfile.citadel --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
 fi
 
+if [[ $1 == 'all' || $1 == 'dome' || $1 == 'Dome' ]]; then
+  docker build -t ign-dome-docs -f Dockerfile.dome --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
+fi
+
 # Reminder to tic over cloudfront.
 echo "WARNING"
 echo "  A CloudFront invalidation is required. Run the following command with the appropriate \$CLOUDFRONT_DISTRIBUTION_ID:\n"

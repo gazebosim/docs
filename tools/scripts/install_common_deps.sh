@@ -8,22 +8,20 @@ sudo apt-get update
 sudo apt-get install -y \
   gnupg \
   lsb-release \
-  software-properties-common \
-  wget \
-  s3cmd
+  wget
+
+sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
+wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
 
 sudo apt-get install -y \
   build-essential \
   cmake \
-  cppcheck \
   curl \
-  git \
+  doxygen \
   g++-8 \
   git \
   pkg-config \
-  libtinyxml-dev
-
-sudo apt-get install -y \
-  clang-tidy-6.0 \
-  python-yaml \
-  libclang-6.0-dev
+  ruby-dev \
+  ruby-ronn \
+  s3cmd \
+  software-properties-common
