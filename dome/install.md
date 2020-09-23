@@ -9,9 +9,7 @@ from nightly debian packages on Linux.
 
 ## Binary installation instructions
 
-Nightly builds are available for Linux.
-
- * [Binary Installation on Ubuntu Focal](install_ubuntu)
+ * ~~Binary Installation on Ubuntu Focal~~ *Nightly builds are not yet available for Linux*
  * [Binary Installation on MacOS Mojave (10.14)](install_osx)
 
 ## Source Installation instructions
