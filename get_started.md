@@ -72,7 +72,7 @@ custom SDF file.
 ## Step 4: Explore and learn
 
 This tutorial has covered the basics of getting started with Ignition.
-Starting with Citadel, there are more [versioned tutorials](docs/citadel/tutorials)
+Starting with Citadel, there are more [versioned tutorials](/docs/citadel/tutorials)
 covering the basics of the GUI, creating worlds and robots, and more.
 
 Each [Ignition library](/libs) also has a set of tutorials and
