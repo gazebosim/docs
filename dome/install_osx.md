@@ -7,7 +7,7 @@ Up to Dome's release date, the binaries should be considered unstable.
 The homebrew tool can be installed using:
 
 ```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
 After installing the homebrew package manager, Ignition Dome can be installed running:
