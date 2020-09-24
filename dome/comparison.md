@@ -1,6 +1,6 @@
 # Feature comparison
 
-A list of features present in [Gazebo-classic](https://bitbucket.org/osrf/gazebo/)
+A list of features present in [Gazebo-classic](https://github.com/osrf/gazebo/)
 version 11 and the status of their migration to
 [Ignition Dome](https://ignitionrobotics.org/).
 
@@ -42,8 +42,8 @@ Custom sensors | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/i
 Feature | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 SDF frame semantics |✓| ✓
-Load models from local files | ✓ | [✕](https://github.com/ignitionrobotics/ign-gazebo/issues/123)
-Closed kinematic chains | ✓  | [✕](https://github.com/ignitionrobotics/ign-physics/issues/25)
+Load models from local files | ✓ | [✓](https://ignitionrobotics.org/api/gazebo/4.0/resources.html)
+Closed kinematic chains | ✓  | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/25)
 Nested models | ✓ | Partial support
 Populations | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/240)
 Actors | ✓ | ✓
@@ -69,7 +69,7 @@ ActuatorPlugin | ✓ |
 ArduCopterPlugin | ✓ |
 AttachLightPlugin | ✓ | ✕ Does not apply, use SDF
 Breadcrumbs | ✕ | ✓
-BuoyancyPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/159)
+BuoyancyPlugin | ✓ | [✓](https://github.com/ignitionrobotics/ign-gazebo/blob/master/examples/worlds/buoyancy.sdf)
 CartDemoPlugin | ✓ | ✕
 CessnaPlugin | ✓ |
 DiffDrivePlugin | ✓ | ✓
@@ -263,7 +263,7 @@ Windows | ✓ | The stack works up to ign-gazebo: [Issue](https://github.com/ign
 
 Feature | Gazebo-classic | Ignition Gazebo
 -- | -- | --
-Nested models | ✓ | [SDF Issue](https://github.com/osrf/sdformat/issues/283), [Physics issue](https://github.com/ignitionrobotics/ign-physics/issues/10)
+Nested models | ✓ | [Physics issue](https://github.com/ignitionrobotics/ign-physics/issues/10)
 Log / playback | ✓ | ✓
 Web client (GzWeb) | ✓ |
 COLLADA meshes | ✓ | ✓
@@ -272,5 +272,5 @@ STL meshes | ✓ | ✓
 Code introspection | ✓ | All simulation state is accessible from system plugins or through the `SceneBroadcaster`'s state topic
 Distribute simulation across processes | ✕ | (coming up)
 Incrementally load levels | ✕ | ✓
-Online model database | [gazebo_models repository](https://bitbucket.org/osrf/gazebo_models/) | [Ignition Fuel](https://app.ignitionrobotics.org/fuel/models)
+Online model database | [gazebo_models repository](https://github.com/osrf/gazebo_models/) | [Ignition Fuel](https://app.ignitionrobotics.org/fuel/models)
 Saved simulation states | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/137)

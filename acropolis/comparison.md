@@ -4,7 +4,7 @@ Please refer to the latest supported version.**
 
 # Feature comparison
 
-A list of features present in [Gazebo-classic](https://bitbucket.org/osrf/gazebo/) and
+A list of features present in [Gazebo-classic](https://github.com/osrf/gazebo/) and
 the status of their migration to [Ignition](https://ignitionrobotics.org/).
 
 ## Sensors
@@ -199,6 +199,6 @@ GUI plugins | ✓ | ✓ Ignition GUI plugins
 System plugins | ✓ |
 Distribute simulation across processes | ✕ | (coming up)
 Incrementally load levels | ✕ | ✓
-Online model database | [gazebo_models repository](https://bitbucket.org/osrf/gazebo_models/) | [Ignition Fuel](https://app.ignitionrobotics.org/fuel/models)
+Online model database | [gazebo_models repository](https://github.com/osrf/gazebo_models/) | [Ignition Fuel](https://app.ignitionrobotics.org/fuel/models)
 SDF frame semantics | | 
 Saved simulation states | ✓ |
