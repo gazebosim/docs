@@ -23,7 +23,7 @@ to verify if your message type is supported by the bridge.
 
 Dome binaries are available for ROS Noetic and Foxy (ROS2). Check out the [table on ros_ign](https://github.com/ignitionrobotics/ros_ign) for other combinations.
 
-For example, to install on Noetic use:
+For example, to install on Noetic (on Ubuntu Focal, change all the noetic references to melodic if the system is using Bionic) use:
 
 ```bash
 sudo apt install ros-noetic-ros-ign
