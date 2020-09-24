@@ -11,7 +11,7 @@
 #      documentation. This will not upload the documentation contained in this
 #      repository. To do that, you'll need to make a release of the
 #      api.ignitionrobotics.org server (see the
-#      bitbucket.org/ignitionrobotics/ign-webserver repository).
+#      github.com/ignitionrobotics/ign-webserver repository).
 #
 #           sh ./build_docs.sh <release_name | all>
 #
