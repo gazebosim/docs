@@ -32,15 +32,7 @@ sudo apt install ros-noetic-ros-ign
 
 ## Source install
 
-See the [prerequisites](https://github.com/osrf/ros_ign/tree/noetic/ros_ign_bridge#prerequisites)
-and [install section](https://github.com/osrf/ros_ign/tree/noetic/ros_ign_bridge#building-the-bridge-from-source)
-of the bridge documentation. This tutorial requires Ubuntu Bionic or newer.
-
-Assuming that you have ROS Noetic, you can install all dependencies with:
-
-```bash
-sudo apt install ros-noetic-desktop ros-noetic-rqt-image-view libignition-common3-dev libignition-transport9-dev libignition-msgs6-dev
-```
+TODO
 
 # Run the bridge and exchange images
 
