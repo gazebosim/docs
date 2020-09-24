@@ -57,7 +57,7 @@ All the Acropolis binaries are available in Mojave using the [homebrew package m
 The homebrew tool can easily be installed using:
 
 ```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
 After installing the homebrew package manager, ignition acropolis can be installed running:

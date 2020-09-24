@@ -20,7 +20,7 @@ Tools and dependencies for Dome can be installed using the [homebrew package man
 The homebrew tool can be installed by entering the following in a terminal:
 
 ```bash
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
 Dome is compatible with Python3; it can be installed by running the following in a terminal:
