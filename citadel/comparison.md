@@ -104,7 +104,7 @@ TouchPlugin | ✓ | ✓
 TrackedVehiclePlugin | ✓ |
 VariableGearboxPlugin | ✓ |
 VehiclePlugin | ✓ |
-WheelSlipPlugin | ✓ | [pull request](https://github.com/ignitionrobotics/ign-gazebo/pull/134)
+WheelSlipPlugin | ✓ | ✓
 WheelTrackedVehiclePlugin | ✓ | ✓ ([partially via DiffDrivePlugin](https://github.com/ignitionrobotics/ign-gazebo/blob/44951e3ddfd238f24182d4d80b1376f0d426bd43/examples/worlds/track_drive.sdf#L2141))
 
 ### World plugins
