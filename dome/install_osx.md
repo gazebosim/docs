@@ -7,7 +7,7 @@ Up to Dome's release date, the binaries should be considered unstable.
 The homebrew tool can be installed using:
 
 ```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
 After installing the homebrew package manager, Ignition Dome can be installed running:
@@ -19,7 +19,7 @@ brew install ignition-dome
 
 All libraries should be ready to use and the `ign gazebo` app ready to be executed.
 
-Head back to the [Getting started](/docs/get_started)
+Head back to the [Getting started](/docs/all/get_started)
 page to start using Ignition!
 
 ## Uninstalling binary install

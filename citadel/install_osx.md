@@ -4,7 +4,7 @@ All the Citadel binaries are available in Mojave using the [homebrew package man
 The homebrew tool can be installed using:
 
 ```bash
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
 After installing the homebrew package manager, Ignition Citadel can be installed running:
@@ -16,7 +16,7 @@ brew install ignition-citadel
 
 All libraries should be ready to use and the `ign gazebo` app ready to be executed.
 
-Head back to the [Getting started](/docs/get_started)
+Head back to the [Getting started](/docs/all/get_started)
 page to start using Ignition!
 
 ## Uninstalling binary install
