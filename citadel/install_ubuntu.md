@@ -12,7 +12,7 @@ sudo apt-get install ignition-citadel
 
 All libraries should be ready to use and the `ign gazebo` app ready to be executed.
 
-Head back to the [Getting started](/docs/get_started)
+Head back to the [Getting started](/get_started)
 page to start using Ignition!
 
 ## Uninstalling binary install
