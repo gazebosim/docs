@@ -14,43 +14,28 @@ visualization.
 
 ros_ign_bridge provides a network bridge which enables the exchange of messages
 between ROS 1 and Ignition Transport. Its support is limited to only certain
-message types. Please, read this [README](https://github.com/osrf/ros_ign/blob/melodic/ros_ign_bridge/README.md)
+message types. Please, read this [README](https://github.com/osrf/ros_ign/blob/noetic/ros_ign_bridge/README.md)
 to verify if your message type is supported by the bridge.
 
 # How to install ros_ign_bridge
 
 ## Binary install
 
-Citadel binaries are available for ROS Noetic and Foxy. Check out the [table on ros_ign](https://github.com/ignitionrobotics/ros_ign) for other combinations.
-
-For example, to install on Noetic use:
-
-```bash
-sudo apt install ros-noetic-ros-ign
-
-```
+Binaries are not yet supported for Dome. Check out the [table on ros_ign](https://github.com/ignitionrobotics/ros_ign) for other combinations.
 
 ## Source install
 
-See the [prerequisites](https://github.com/osrf/ros_ign/tree/melodic/ros_ign_bridge#prerequisites)
-and [install section](https://github.com/osrf/ros_ign/tree/melodic/ros_ign_bridge#building-the-bridge-from-source)
-of the bridge documentation. This tutorial requires Ubuntu Bionic or newer.
-
-Assuming that you have ROS Melodic, you can install all dependencies with:
-
-```bash
-sudo apt install ros-melodic-desktop ros-melodic-rqt-image-view libignition-common3-dev libignition-transport8-dev libignition-msgs5-dev
-```
+See the [from source](https://github.com/ignitionrobotics/ros_ign#from-source) of the bridge documentation. This tutorial requires Ubuntu Bionic or newer.
 
 # Run the bridge and exchange images
 
-In this example, we're going to generate Ignition Transport images using Gazebo, that will be converted into ROS 1 images, and visualized with rqt_viewer.
+In this example, we're going to generate Ignition Transport images using Gazebo, that will be converted into ROS 1 images, and visualized with rqt_viewer. It is assumed that you are using ROS Noetic.
 
 First we start a ROS 1 `roscore`:
 
 ```bash
 # Shell A:
-. /opt/ros/melodic/setup.bash
+. /opt/ros/noetic/setup.bash
 roscore
 ```
 
@@ -68,14 +53,13 @@ Let's verify it:
 ```bash
 # Shell C:
 ign topic -l | grep "^/camera"
-/camera
 ```
 
 Then we start the parameter bridge with the previous topic. To run the bridge:
 
 ```bash
 # Shell D:
-. /opt/ros/melodic/setup.bash
+. /opt/ros/noetic/setup.bash
 # If installed from source, make sure you've sourced the ros-ign packages too
 rosrun ros_ign_bridge parameter_bridge /camera@sensor_msgs/Image@ignition.msgs.Image
 ```
@@ -84,8 +68,8 @@ Now we start the ROS 1 GUI:
 
 ```bash
 # Shell E:
-. /opt/ros/melodic/setup.bash
-sudo apt-get install ros-melodic-rqt-image-view
+. /opt/ros/noetic/setup.bash
+sudo apt-get install ros-noetic-rqt-image-view
 rqt_image_view /camera
 ```
 
@@ -93,7 +77,7 @@ You should see the current images in `rqt_image_view` which are coming from
 Gazebo (published as Ignition Msgs over Ignition Transport).
 
 The screenshot shows all the shell windows and their expected content
-(it was taken using ROS Melodic):
+(it was taken using ROS Noetic):
 
 
-![Ignition Transport images and ROS 1 rqt](../acropolis/images/bridge_image_exchange_ign-gazebo.png)
+![Ignition Transport images and ROS 1 rqt](../dome/img/bridge_image_exchange_ign-gazebo.png)
