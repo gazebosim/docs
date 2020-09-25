@@ -51,8 +51,8 @@ When you select one, its interface will appear in the right panel.
 
 ### The Right Panel
 
-`shapes.sdf` contains three plugins that you see in the right panel upon starting.
-At the top is the Entity Tree, followed by the Component Inspector, and then Transform Control.
+The GUI contains two plugins that you see in the right panel upon starting.
+At the top is the Component Inspector, followed by the Entity Tree.
 
 Everything in a simulation is considered an "entity."
 In `shapes.sdf`, the entities listed are the ground plane, each of the shape models, and the sun.
