@@ -6,10 +6,6 @@ how to interface with [ROS](http://www.ros.org/), enabling the ability to use
 tools such as [Rviz](http://wiki.ros.org/rviz) for robot or sensor
 visualization.
 
-> **Important**: The packages documented here used to have the `ros1_` prefix
-> instead of `ros_`. Please update your code accordingly in order to avoid
-> adverse effects.
-
 # ros_ign_bridge to the rescue
 
 ros_ign_bridge provides a network bridge which enables the exchange of messages
@@ -21,18 +17,28 @@ to verify if your message type is supported by the bridge.
 
 ## Binary install
 
-Dome binaries are available for ROS Noetic and Foxy (ROS2). Check out the [table on ros_ign](https://github.com/ignitionrobotics/ros_ign) for other combinations.
+Each ROS distribution can only provide binary packages (through
+packages.ros.org) for only one version of Ignition (Melodic packages use
+Blueprint, Noetic packages use Citadel). Unfortunately there is no ROS1 release
+supporting Dome binary packages although this document provides instructions
+for a from source installation.
 
-For example, to install on Noetic (on Ubuntu Focal, change all the noetic references to melodic if the system is using Bionic) use:
-
-```bash
-sudo apt install ros-noetic-ros-ign
-
-```
+Check out the [table on ros_ign](https://github.com/ignitionrobotics/ros_ign)
+for other combinations.
 
 ## Source install
 
-TODO
+Dome code supports compilation using ROS Noetic or ROS Foxy (both on Ubuntu Focal).
+
+See the [install section](https://github.com/ignitionrobotics/ros_ign/blob/noetic/README.md#from-source)
+in the ros_ign repository to compile the Ignition ROS packages that include
+the ros_ign_bridge.
+
+Dependencies can be installed using:
+
+```bash
+sudo apt install ros-noetic-desktop ros-noetic-rqt-image-view libignition-common3-dev libignition-transport9-dev libignition-msgs6-dev
+```
 
 # Run the bridge and exchange images
 
@@ -88,4 +94,4 @@ The screenshot shows all the shell windows and their expected content
 (it was taken using ROS Noetic):
 
 
-![Ignition Transport images and ROS 1 rqt](../acropolis/images/bridge_image_exchange_ign-gazebo.png)
+![Ignition Transport images and ROS 1 rqt](../dome/img/bridge_image_exchange_ign-gazebo.png)
