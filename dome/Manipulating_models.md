@@ -2,14 +2,14 @@
 
 This tutorial will walk you through using various plugins to assist model and scene manipulation in the Ignition GUI.
 
-The Transform Control plugin is a combination of keybindings and transform control options: selection, translation, rotation and custom snap values.
+The Transform Control plugin is a combination of keybindings and transform control options: selection, translation, rotation and snapping.
 This chart of [Ignition's keyboard shortcuts](hotkeys) may be helpful for this tutorial.
 
 The View Angle plugin allows you to quickly and easily adjust the direction from which your scene faces an entity in the simulation.
 
 The Component Inspector plugin displays a variety of object attributes.
 
-The Align Tool aligns entities with the center/origin of other entities.
+The Align Tool aligns entities along or about a specific entity's bounding box.
 
 ## Prerequisites
 
@@ -131,15 +131,23 @@ You can also select multiple entities to face simultaneously from each view angl
 
 Select the Align Tool from the plugins drop-down menu.
 
-The Align Tool aligns a model up with the center/origin of another model, or with something besides a model, like a link for example.
-It can't, however, align a link or anything other than the top-level model up with something else.
+The Align Tool aligns a model along or about the bounding box of another model, or any other entity that has a bounding box, like a link for example.
+It can't, however, align a child link or anything other than the top-level model.
 
-With `Relative to First` selected, select two models using `Ctrl` + click to see the second model align to the first along either it's x, y or z axis.
-Hovering over the buttons for each axis will show a preview of where the model would end up if aligned along that axis.
+With `Relative to First` selected, select two models using `Ctrl` + click (be sure you are in select mode) and then hover over any of the Align Tool
+buttons to see a preview of the second model aligning to the first along it's x, y or z axis.
+Hovering over the buttons for each axis will show a preview of where the model would end up if aligned along that axis while clicking will confirm that
+specific alignment.
 
-You can align more than two models, just select the others with `Ctrl` + click.
+![Align](img/align.gif)
 
-![Align tool](img/align.gif)
+The Reverse button will enable alignment about the outer boundary of a model's bounding box.  This feature is helpful for placing objects exactly next to each
+other.  Notice the difference in alignment when the Reverse button is pressed in the gif below.
+
+![Align Reverse](img/align_reverse.gif)
+
+You can align more than two models as well, just select the others with `Ctrl` + click. You can select `First` or `Last` in the `Relative to:` drop down menu to
+choose which entity to align to.
 
 ## Next Up
 
