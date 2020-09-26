@@ -23,8 +23,9 @@ The previous tutorial, [Understanding the GUI](gui), explains the basics of navi
 
 ## Transform Control
 
-The `shapes.sdf` file contains the Transform Control plugin, which is why the plugin is already at the bottom of the screen when you start.
-If you wanted to use the plugin in a world where it isn't already included, you would open the plugin drop-down menu and select it from the list:
+The top left toolbar contains controls for transforming.
+Alternatively, the Transform Control plugin can be selected from the plugin drop-down menu.
+The plugin will then appear at the bottom of the right panel.
 
 ![Choosing Transform Control from the plugin list](img/plugins.png)
 
@@ -32,7 +33,7 @@ If you wanted to use the plugin in a world where it isn't already included, you 
 
 Selection is the default mode.
 You can click to select entities in the scene.
-A selected entity will be highlighted to indicate its selection.
+A selected entity will be highlighted in the Entity Tree to indicate its selection.
 You can select multiple entities by holding `Ctrl` and clicking.
 
 ![Selecting multiple entities](img/select_mult.png)
@@ -43,7 +44,7 @@ You can always return to selection mode from any other mode by pressing `Esc`.
 
 ### Translate Mode
 
-Enter into translate mode by clicking the second icon from the left in the Transform Control plugin, or by hitting the keyboard shortcut: `T`.
+Enter into translate mode by clicking the second icon from the left in the top left toolbar, the Transform Control plugin, or by hitting the keyboard shortcut: `T`.
 
 ![Translate mode icon](img/translate_icon.png)
 
@@ -59,7 +60,7 @@ Additionally, holding down any one of the `X`, `Y` or `Z` keys, or a combination
 
 ### Rotate Mode
 
-Enter into rotate mode by clicking the third icon from the left in the Transform Control plugin, or by hitting the keyboard shortcut: `R`.
+Enter into rotate mode by clicking the third icon from the left in the top left toolbar, the Transform Control plugin, or by hitting the keyboard shortcut: `R`.
 
 ![Rotate mode icon](img/rotate_icon.png)
 
@@ -93,7 +94,7 @@ Translational snaps will snap relative to the world frame, whereas rotational sn
 
 ![Snap rotation](img/snap.gif)
 
-You can customize snap values by clicking on the furthest-right magnet icon in the Transform Control plugin.
+You can customize snap values by clicking on the snap icon ![Snap icon](img/snap_icon.png) in the top left toolbar or the Transform Control plugin.
 
 ![Custom snap values](img/custom_snap.png)
 
@@ -101,7 +102,6 @@ Try holding `Shift` and `Ctrl` simultaneously to snap a model along the world fr
 
 ## Component Inspector
 
-The Component Inspector plugin is included in `shapes.sdf`.
 With this plugin, you can select an entity to display some of its attributes, including its pose, whether or not wind is acting on it, whether or not it's static, and more.
 The plugin also displays the gravitational and magnetic fields of your world.
 
@@ -118,7 +118,7 @@ Additionally, the Component Inspector can be locked on one object so you can ope
 
 ## View Angle
 
-The View Angle plugin does not come pre-loaded with `shapes.sdf`, so you will have to select it from the plugins button on the toolbar.
+Select the View Angle from the plugins drop-down menu.
 
 You can choose which angle you want to view the scene from, relative to a selected entity or the world frame if no entity is selected.
 The home button will return you to the original view pose from when the scene was loaded.
@@ -129,7 +129,7 @@ You can also select multiple entities to face simultaneously from each view angl
 
 ## Align Tool
 
-Like the View Angle plugin, the Align Tool is also not pre-loaded and will also have to be selected from the plugins button on the toolbar.
+Select the Align Tool from the plugins drop-down menu.
 
 The Align Tool aligns a model up with the center/origin of another model, or with something besides a model, like a link for example.
 It can't, however, align a link or anything other than the top-level model up with something else.
