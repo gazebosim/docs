@@ -135,7 +135,7 @@ The Align Tool aligns a model along or about the bounding box of another model, 
 It can't, however, align a child link or anything other than the top-level model.
 
 With `Relative to First` selected, select two models using `Ctrl` + click (be sure you are in select mode) and then hover over any of the Align Tool
-buttons to see a preview of the second model aligning to the first along it's x, y or z axis.
+buttons to see a preview of the second model aligning to the first along its x, y or z axis.
 Hovering over the buttons for each axis will show a preview of where the model would end up if aligned along that axis while clicking will confirm that
 specific alignment.
 
@@ -146,7 +146,7 @@ other.  Notice the difference in alignment when the Reverse button is pressed in
 
 ![Align Reverse](img/align_reverse.gif)
 
-You can align more than two models as well, just select the others with `Ctrl` + click. You can select `First` or `Last` in the `Relative to:` drop down menu to
+You can align more than two models as well, simply select more models with `Ctrl` + click. You can select `First` or `Last` in the `Relative to:` drop down menu to
 choose which entity to align to.
 
 ## Next Up
