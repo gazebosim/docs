@@ -7,7 +7,7 @@ You can also find the finished world of this tutorial [here](https://github.com/
 
 ## What is a plugin
 
-To make our robot move we will use the `diff_drive` plugin. But before doing so let's answer the question "What is a plugin?" A plugin is a chunk of code that is compiled as a shared library and inserted into the simulation. Plugins make us control many aspects of the simulation like world, models etc.
+To make our robot move we will use the `diff_drive` plugin. But before doing so let's answer the question "What is a plugin?" A plugin is a chunk of code that is compiled as a shared library and inserted into the simulation. Plugins make us control many aspects of the simulation like world, models, etc.
 
 ### Diff_drive plugin
 
@@ -72,18 +72,13 @@ Instead of sending messages from the terminal we will send messages using the ke
 ### KeyPublisher
 
 `KeyPublisher` is an `ign-gui` plugin that reads the keyboard's keystrokes and sends them on a default topic `/keyboard/keypress`.
-To use this plugin add the following code under the `<gui>` tag.
-
-```xml
-<!-- KeyPublisher plugin-->
-<plugin filename="KeyPublisher" name="Key Publisher"/>
-```
-
 Let's try this plugin as follows:
 
 * In one terminal type
 
     `ign gazebo building_robot.sdf`
+
+* In the top right corner click on the plugins dropdown list (vertical ellipsis), click the Key Publisher.
 
 * In another terminal type
 
@@ -91,7 +86,7 @@ Let's try this plugin as follows:
 
 The last command will display all messages sent on `/keyboard/keypress` topic.
 
-In the ignition window press different keys and you should see data(numbers) on the terminal where you run the `ign topic -e -t /keyboard/keypress` command.
+In the ignition window press different keys and you should see data (numbers) on the terminal where you run the `ign topic -e -t /keyboard/keypress` command.
 
 ![KeyPublisher](tutorials/moving_robot/keypublisher_data.png)
 
@@ -119,7 +114,7 @@ Let's add the following code under the `<world>` tags:
 This code defines the `triggered-publisher` plugin.
 It accepts messages of type `ignition.msgs.Int32` on the `/keyboard/keypress` topic and if the value in the `data` field matches `16777235`(Up arrow key) it outputs a `Twist` message on the `cmd_vel` topic with values `x: 0.5`, `z: 0.0`.
 
-Now launch `building_robot.sdf` and our robot should move forward as we press the Up arrow key &#8593;.
+Now launch `building_robot.sdf` then add the Key Publisher plugin and our robot should move forward as we press the Up arrow key &#8593;.
 
 There is a demo explaining how the [Triggered Publisher](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo2/tutorials/triggered_publisher.md) works.
 
