@@ -33,77 +33,6 @@ We will start by building a simple world and then build our robot in it. Open a 
             name="ignition::gazebo::systems::SceneBroadcaster">
         </plugin>
 
-        <gui fullscreen="0">
-
-            <!-- 3D scene -->
-            <plugin filename="GzScene3D" name="3D View">
-                <ignition-gui>
-                <title>3D View</title>
-                <property type="bool" key="showTitleBar">false</property>
-                <property type="string" key="state">docked</property>
-                </ignition-gui>
-
-                <engine>ogre2</engine>
-                <scene>scene</scene>
-                <ambient_light>0.4 0.4 0.4</ambient_light>
-                <background_color>0.8 0.8 0.8</background_color>
-            </plugin>
-
-            <!-- World control -->
-            <plugin filename="WorldControl" name="World control">
-                <ignition-gui>
-                <title>World control</title>
-                <property type="bool" key="showTitleBar">false</property>
-                <property type="bool" key="resizable">false</property>
-                <property type="double" key="height">72</property>
-                <property type="double" key="width">121</property>
-                <property type="double" key="z">1</property>
-
-                <property type="string" key="state">floating</property>
-                <anchors target="3D View">
-                    <line own="left" target="left"/>
-                    <line own="bottom" target="bottom"/>
-                </anchors>
-                </ignition-gui>
-
-                <play_pause>true</play_pause>
-                <step>true</step>
-                <start_paused>true</start_paused>
-                <service>/world/car_world/control</service>
-                <stats_topic>/world/car_world/stats</stats_topic>
-            </plugin>
-
-            <!-- World statistics -->
-            <plugin filename="WorldStats" name="World stats">
-                <ignition-gui>
-                <title>World stats</title>
-                <property type="bool" key="showTitleBar">false</property>
-                <property type="bool" key="resizable">false</property>
-                <property type="double" key="height">110</property>
-                <property type="double" key="width">290</property>
-                <property type="double" key="z">1</property>
-
-                <property type="string" key="state">floating</property>
-                <anchors target="3D View">
-                    <line own="right" target="right"/>
-                    <line own="bottom" target="bottom"/>
-                </anchors>
-                </ignition-gui>
-
-                <sim_time>true</sim_time>
-                <real_time>true</real_time>
-                <real_time_factor>true</real_time_factor>
-                <iterations>true</iterations>
-                <topic>/world/car_world/stats</topic>
-
-            </plugin>
-
-            <!-- Entity tree -->
-            <plugin filename="EntityTree" name="Entity tree">
-            </plugin>
-
-        </gui>
-
         <light type="directional" name="sun">
             <cast_shadows>true</cast_shadows>
             <pose>0 0 10 0 0 0</pose>
@@ -163,7 +92,7 @@ Under the `</model>` tag we will add our robot model as follows:
 
 ```xml
 <model name='vehicle_blue' canonical_link='chassis'>
-    <pose relative_to=world>0 0 0 0 0 0</pose>
+    <pose relative_to='world'>0 0 0 0 0 0</pose>
 ```
 
 Here we define the name of our model `vehicle_blue`, which should be a unique name among its siblings (other tags or models on the same level).
@@ -203,7 +132,7 @@ We define the first link, the `chassis` of our car and it's pose relative to the
     </inertial>
 ```
 
-Here we define the inertial properties of the chassis like the `mass` and the `<inertia>` matrix. The values of the inertia matrix for primitive shapes can be calculated using this [tool](https://amesweb.info/inertia/mass-moment-of-inertia-calculator.aspx).
+Here we define the inertial properties of the chassis like the `<mass>` and the `<inertia>` matrix. The values of the inertia matrix for primitive shapes can be calculated using this [tool](https://amesweb.info/inertia/mass-moment-of-inertia-calculator.aspx).
 
 #### Visual and collision
 
@@ -252,7 +181,7 @@ Our model should look like this:
 
 ![car chassis](tutorials/building_robot/chassis.png)
 
-In the top right corner click on the plugins dropdown list (vertical ellipsis), choose `Transform control`, select your model and then click on the Translation tool.
+In the top left toolbar, click the Translate icon, then select your model.
 You should see three axes like this:
 
 ![model_axis](tutorials/building_robot/model_axis.png)
@@ -426,7 +355,7 @@ In the `<visual>` and `<collision>` tags we defined a different shape `<sphere>`
 
 We need to connect these links together; here comes the job of the `<joint>` tag.
 The joint tag connects two links together and defines how they will move with respect to each other.
-Inside the `<joint>` tag we need to define the two links to connect and their relations(way of movement).
+Inside the `<joint>` tag we need to define the two links to connect and their relations (way of movement).
 
 #### Left wheel joint
 
