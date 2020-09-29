@@ -261,7 +261,7 @@ The previous methods download your model on run time. For saving the model perma
 </include>
 ```
 
-We need to set `SDF_PATH` and `IGN_FILE_PATH` environment variables to the parent folder of our model. For example, our directory looks like this:
+We need to set `SDF_PATH` and `IGN_FILE_PATH` environment variables to the parent folder of our model. For example, if our directory looks like this:
 
 ```
 world_tutorial<br/>
@@ -271,9 +271,7 @@ world_tutorial<br/>
 
 Then we have to set it to the `world_tutorial` directory, like this:
 
-`export SDF_PATH="~/world_tutorial"`
-
-`export IGN_FILE_PATH="~/world_tutorial"`
+`export IGN_GAZEBO_RESOURCE_PATH="$HOME/world_tutorial"`
 
 Run your world:
 
