@@ -41,4 +41,4 @@ If you prefer to add a Fuel model permanently to an `sdf` file, you can just as 
 
 ## Next Up
 
-Stay tuned for new tutorials on the Ignition GUI and more!
+Now that you know how to add models hosted on Ignition Fuel, it is time to learn how to [Build Your Own Robot](building_robot).
