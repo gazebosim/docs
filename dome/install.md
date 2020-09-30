@@ -1,24 +1,31 @@
 # Dome Installation
 
-Ignition Dome is under active development and will be officially released on
-September 2020. If you'd like to use a stable release, see
-[Citadel](/docs/citadel).
+Dome supports the following platforms:
 
-Until the official release, Dome can be compiled from source or installed
-from nightly debian packages on Linux.
+ * Ubuntu Bionic and Focal on amd64/i386
+ * MacOS Mojave and Catalina
+     * Ignition currently only works in headless mode
+      (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use
+      `ign gazebo -s fuel.sdf` to start the server only).
+
+Windows support is still experimental although most of the packages should work
+as expected. There are no binaries for Windows at this time. The `ign-gazebo`
+package is still not available for Windows; the installation should be done from
+source code. The [Source Installation on Ubuntu](install_ubuntu_src)
+contains some tips for Windows.
 
 ## Binary installation instructions
 
 Nightly builds are available for Linux.
 
- * [Binary Installation on Ubuntu Focal](install_ubuntu)
- * [Binary Installation on MacOS Mojave (10.14)](install_osx)
+ * [Binary Installation on Ubuntu](install_ubuntu)
+ * [Binary Installation on MacOS](install_osx)
 
 ## Source Installation instructions
 
 Source installation is recommended for users planning on altering Ignition's source code (advanced).
 
- * [Source Installation on Ubuntu Focal](install_ubuntu_src)
+ * [Source Installation on Ubuntu](install_ubuntu_src)
  * [Source Installation on MacOS](install_osx_src)
 
 ## Dome Libraries
