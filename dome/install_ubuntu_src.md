@@ -1,4 +1,6 @@
-# Source Installation on Ubuntu Focal
+# Source Installation on Ubuntu
+
+These instructions apply to Ubuntu Bionic or Focal.
 
 ## Install tools
 
@@ -97,76 +99,9 @@ sudo apt-get update
 The command below will install all dependencies in Ubuntu Bionic or Focal:
 
 ```bash
-sudo apt-get install -y \
-  cmake \
-  freeglut3-dev \
-  libavcodec-dev \
-  libavdevice-dev \
-  libavformat-dev \
-  libavutil-dev \
-  libbenchmark-dev \
-  libcurl4-openssl-dev \
-  libfreeimage-dev \
-  libgflags-dev \
-  libglew-dev \
-  libgts-dev \
-  libjsoncpp-dev \
-  libogre-1.9-dev \
-  libogre-2.1-dev \
-  libprotobuf-dev \
-  libprotobuf-dev \
-  libprotoc-dev \
-  libqt5core5a \
-  libsqlite3-dev \
-  libswscale-dev \
-  libtinyxml-dev \
-  libtinyxml2-dev \
-  libwebsockets-dev \
-  libyaml-dev \
-  libzip-dev \
-  libzmq3-dev \
-  pkg-config \
-  protobuf-compiler \
-  python \
-  qml-module-qt-labs-folderlistmodel \
-  qml-module-qt-labs-platform \
-  qml-module-qt-labs-settings \
-  qml-module-qtcharts \
-  qml-module-qtqml-models2 \
-  qml-module-qtquick-controls \
-  qml-module-qtquick-controls2 \
-  qml-module-qtquick-dialogs \
-  qml-module-qtquick-layouts \
-  qml-module-qtquick2 \
-  qtbase5-dev \
-  qtdeclarative5-dev \
-  qtquickcontrols2-5-dev \
-  ruby \
-  ruby-dev \
-  ruby-ronn \
-  swig \
-  uuid-dev
-```
-
-Additionally, on Ubuntu Bionic:
-
-```bash
-sudo apt-get install -y \
-  dart6-data \
-  libdart6-collision-ode-dev \
-  libdart6-dev \
-  libdart6-utils-urdf-dev
-```
-
-Or additionally, on Ubuntu Focal:
-
-```bash
-sudo apt-get install -y \
-  libdart-collision-ode-dev \
-  libdart-dev \
-  libdart-external-ikfast-dev \
-  libdart-external-odelcpsolver-dev \
-  libdart-utils-urdf-dev
+SYSTEM_VERSION=`lsb_release -cs`
+sudo apt -y install \
+  $(sort -u $(find . -iname 'packages-'$SYSTEM_VERSION'.apt' -o -iname 'packages.apt') | tr '\n' ' ')
 ```
 
 ### Install compiler requirements

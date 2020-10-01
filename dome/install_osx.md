@@ -1,8 +1,7 @@
-# Binary Installation on MacOS Mojave (10.14)
+# Binary Installation on MacOS
 
-All the Dome binaries are available in Mojave using the [homebrew package manager](https://brew.sh/).
-
-Up to Dome's release date, the binaries should be considered unstable.
+All the Dome binaries are available in Mojave and Catalina using the
+[homebrew package manager](https://brew.sh/).
 
 The homebrew tool can be installed using:
 
