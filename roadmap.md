@@ -62,28 +62,31 @@ and release pattern allows us to distribute patch and minor updates into an alre
 ### Blueprint
 
 1. Detachable joints.
-1. Buoyancy model.
 1. Additional graphical tools for model and world creation and editing.
-1. GUI tool to insert models from online sources and local directories.
 1. Audio sensor and source.
-1. Improved resource path handling.
-1. Loading custom physics engine plugins.
 
 ### Citadel
 
-1. Simplified physics engine.
 1. Bazel build files.
 1. SDF website update, documentation, and model composition.
 1. Trajectory animation.
+1. Support custom rendering engines.
+1. New APIs to ease migration from Gazebo-classic.
 
 ### Dome
 
 1. Particle effects, to support smoke and gas.
 1. Efficient skeleton animations.
 1. Localized wind (wind that is constrained to a region of influence).
-1. Design for Enhanced distributed simulation.
+1. Optical tactile plugin.
+1. Improved Ignition Physics documentation.
+
+### Edifice
+
+1. Improved Mac and Windows support
 1. OpenGL shaders to simulate underwater effects in camera sensors.
 1. Mesh level of detail support.
+1. Design for Enhanced distributed simulation.
 
 ## Planned releases
 

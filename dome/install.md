@@ -16,7 +16,7 @@ contains some tips for Windows.
 
 ## Binary installation instructions
 
-Nightly builds are available for Linux.
+Binary builds are available for Linux and macOS.
 
  * [Binary Installation on Ubuntu](install_ubuntu)
  * [Binary Installation on MacOS](install_osx)
@@ -32,8 +32,6 @@ Source installation is recommended for users planning on altering Ignition's sou
 
 The Dome collection is composed of many different Ignition libraries. The
 collection assures that all libraries are compatible and can be used together.
-
-This list of library versions may change up to the release date.
 
 | Library name       | Version       |
 | ------------------ |:-------------:|
