@@ -2,14 +2,14 @@
 
 Ignition Edifice is under active development and will be officially released on
 March 2021. If you'd like to use a stable release, see
-[Citadel](/docs/citadel).
+[Dome](/docs/dome).
 
 Until the official release, Edifice can be compiled from source or installed
 from nightly debian packages on Linux.
 
 ## Binary installation instructions
 
-Nightly builds are available for Linux and macOS.
+Nightly builds are available for Linux (Ubuntu Focal and Bionic on amd64) and macOS.
 
  * [Binary Installation on Ubuntu](install_ubuntu)
  * [Binary Installation on MacOS](install_osx)
