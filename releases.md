@@ -14,7 +14,7 @@ An Ignition release follows the form "Ignition Codename", for example Ignition A
 
 | Name       | Date      | EOL date  | Notes |
 |------------|-----------|-----------|-------|
-| Acropolis  | Feb, 2019 | Sep, 2019 |       |
+| Acropolis  | Feb, 2019 | Sep, 2019 | EOL   |
 | Blueprint  | May, 2019 | Dec, 2020 |       |
 | Citadel    | Dec, 2019 | Dec, 2024 | LTS   |
 | Dome       | Sep, 2020 | Dec, 2021 |       |
