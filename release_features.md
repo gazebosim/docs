@@ -58,6 +58,13 @@ collection assures that all libraries all compatible and can be used together.
 1. Integration of [Google benchmark](https://github.com/google/benchmark) for performance metrics and analysis.
 1. Tracked vehicle support.
 1. Breadcrumbs plugin.
+1. Position-based PID controller.
+1. Improved resource path handling.
+1. Loading custom physics engine plugins.
+1. Plugin that publishes a user specified message on an output topic in response to an input message.
+1. Noise for RGBD camera.
+1. Load worlds from Fuel.
+1. [Customizable GUI layout](https://ignitionrobotics.org/api/gazebo/3.3/gui_config.html).
 1. GUI tools:
     * GUI tools for model placement, and a new Scene Tree widget.
     * Translate and rotate models.
@@ -68,9 +75,14 @@ collection assures that all libraries all compatible and can be used together.
     * Delete model.
     * Grid.
     * Drag-and-drop models from Fuel to Ignition Gazebo UI.
-    * Preset view angles
-    * Hotkeys for transform modes and snapping
-    * Entity selection
+    * Preset view angles.
+    * Hotkeys for transform modes and snapping.
+    * Entity selection.
+    * [Align models](https://ignitionrobotics.org/docs/dome/manipulating_models#align-tool).
+    * Insert simple shapes.
+    * Insert models from online sources and local directories.
+    * Log playback scrubber.
+    * Save worlds.
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
@@ -99,6 +111,11 @@ collection assures that all libraries all compatible and can be used together.
 1. Emissive texture maps.
 1. SDFormat frame semantics.
 1. Upload and delete models to Fuel from command line.
+1. Buoyancy model.
+1. [Trivial Physics Engine](https://community.gazebosim.org/t/announcing-new-physics-engine-tpe-trivial-physics-engine/629)
+1. Widget listing all transport topics.
+1. Widget that publishes keys pressed on the keyboard.
+1. [Tutorial series](https://community.gazebosim.org/t/gsoc-2020-new-ignition-gazebo-demos/613).
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
@@ -117,4 +134,32 @@ collection assures that all libraries all compatible and can be used together.
 |   ign-tools        |       1.x     |       [Changelog](https://github.com/ignitionrobotics/ign-tools/blob/ign-tools1/Changelog.md)     |
 |   ign-transport    |       8.x     |       [Changelog](https://github.com/ignitionrobotics/ign-transport/blob/ign-transport8/Changelog.md)      |
 |   sdformat         |       9.x     |       [Changelog](https://github.com/osrf/sdformat/blob/sdf9/Changelog.md)        |
+
+
+## Dome
+
+1. Particle effects on Ignition Rendering.
+1. Actor plugins.
+1. GUI tools:
+    * [Plotting](https://community.gazebosim.org/t/gsoc-2020-plotting-tool-for-ignition/619)
+    * [Lidar visualization](https://community.gazebosim.org/t/gsoc-2020-sensor-data-visualization/638)
+
+
+| Library name       | Version       | Changelog     |
+| ------------------ |:-------------:|:-------------:|
+|   ign-cmake        |       2.x     |       [Changelog](https://github.com/ignitionrobotics/ign-cmake/blob/ign-cmake2/Changelog.md)     |
+|   ign-common       |       3.x     |       [Changelog](https://github.com/ignitionrobotics/ign-common/blob/ign-common3/Changelog.md)    |
+|   ign-fuel-tools   |       5.x     |       [Changelog](https://github.com/ignitionrobotics/ign-fuel-tools/blob/ign-fuel-tools5/Changelog.md)    |
+|   ign-gazebo       |       4.x     |       [Changelog](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo4/Changelog.md)     |
+|   ign-gui          |       4.x     |       [Changelog](https://github.com/ignitionrobotics/ign-gui/blob/ign-gui4/Changelog.md)       |
+|   ign-launch       |       3.x     |       [Changelog](https://github.com/ignitionrobotics/ign-launch/blob/ign-launch3/Changelog.md)
+|   ign-math         |       6.x     |       [Changelog](https://github.com/ignitionrobotics/ign-math/blob/ign-math6/Changelog.md)
+|   ign-msgs         |       6.x     |       [Changelog](https://github.com/ignitionrobotics/ign-msgs/blob/ign-msgs6/Changelog.md)
+|   ign-physics      |       3.x     |       [Changelog](https://github.com/ignitionrobotics/ign-physics/blob/ign-physics3/Changelog.md)
+|   ign-plugin       |       1.x     |       [Changelog](https://github.com/ignitionrobotics/ign-plugin/blob/ign-plugin1/Changelog.md)     |
+|   ign-rendering    |       4.x     |       [Changelog](https://github.com/ignitionrobotics/ign-rendering/blob/ign-rendering4/Changelog.md)      |
+|   ign-sensors      |       4.x     |       [Changelog](https://github.com/ignitionrobotics/ign-sensors/blob/ign-sensors4/Changelog.md)      |
+|   ign-tools        |       1.x     |       [Changelog](https://github.com/ignitionrobotics/ign-tools/blob/ign-tools1/Changelog.md)     |
+|   ign-transport    |       9.x     |       [Changelog](https://github.com/ignitionrobotics/ign-transport/blob/ign-transport9/Changelog.md)      |
+|   sdformat         |       10.x     |       [Changelog](https://github.com/osrf/sdformat/blob/sdf10/Changelog.md)        |
 

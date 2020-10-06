@@ -1,22 +1,15 @@
-# Dome Installation
+# Edifice Installation
 
-Dome supports the following platforms:
+Ignition Edifice is under active development and will be officially released on
+March 2021. If you'd like to use a stable release, see
+[Dome](/docs/dome).
 
- * Ubuntu Bionic amd64/arm64/i386 and Focal on amd64/arm64
- * MacOS Mojave and Catalina
-     * Ignition currently only works in headless mode
-      (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use
-      `ign gazebo -s fuel.sdf` to start the server only).
-
-Windows support is still experimental although most of the packages should work
-as expected. There are no binaries for Windows at this time. The `ign-gazebo`
-package is still not available for Windows; the installation should be done from
-source code. The [Source Installation on Ubuntu](install_ubuntu_src)
-contains some tips for Windows.
+Until the official release, Edifice can be compiled from source or installed
+from nightly debian packages on Linux.
 
 ## Binary installation instructions
 
-Binary builds are available for Linux and macOS.
+Nightly builds are available for Linux (Ubuntu Focal and Bionic on amd64) and macOS.
 
  * [Binary Installation on Ubuntu](install_ubuntu)
  * [Binary Installation on MacOS](install_osx)
@@ -28,10 +21,12 @@ Source installation is recommended for users planning on altering Ignition's sou
  * [Source Installation on Ubuntu](install_ubuntu_src)
  * [Source Installation on MacOS](install_osx_src)
 
-## Dome Libraries
+## Edifice Libraries
 
-The Dome collection is composed of many different Ignition libraries. The
+The Edifice collection is composed of many different Ignition libraries. The
 collection assures that all libraries are compatible and can be used together.
+
+This list of library versions may change up to the release date.
 
 | Library name       | Version       |
 | ------------------ |:-------------:|
