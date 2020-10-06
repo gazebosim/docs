@@ -314,3 +314,10 @@ Ogre's `v2-1` branch with changes needed for deb packaging and allowing it to
 be co-installable with Ogre 1.x. The code can be found here:
 
 https://github.com/osrf/ogre-2.1-release
+
+### Ignition crashes when an actor is added to the world
+
+If you are trying to spawn an actor in your environment and you get an error like `Assertion !pos.isNan() && "Invalid vector supplied as parameter"`
+means you are passing nan values to ogre. 
+To fix this you need to do `export LC_NUMERIC="C"` before running ign gazebo.
+
