@@ -2,7 +2,7 @@
 
 Dome supports the following platforms:
 
- * Ubuntu Bionic and Focal on amd64/i386
+ * Ubuntu Bionic amd64/arm64/i386 and Focal on amd64/arm64
  * MacOS Mojave and Catalina
      * Ignition currently only works in headless mode
       (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use
