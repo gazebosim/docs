@@ -10,7 +10,7 @@
 set -o errexit
 set -o verbose
 
-DEBIAN_FRONTEND=noninteractive
+export DEBIAN_FRONTEND=noninteractive
 
 git clone https://github.com/$1/$2 -b $3
 cd $2
