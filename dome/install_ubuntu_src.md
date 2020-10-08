@@ -217,35 +217,4 @@ the results you want:
 
 ## Troubleshooting
 
-### Unable to create the rendering window
-
-If you're getting errors like "Unable to create the rendering window", it could
-mean you're using an old OpenGL version. Ignition Gazebo uses the Ogre 2
-rendering engine by default, which requires an OpenGL version higher than 3.3.
-
-This can be confirmed by checking the Ogre 2 logs at `~/.ignition/rendering/ogre2.log`,
-which should have an error like:
-
-"OGRE EXCEPTION(3:RenderingAPIException): OpenGL 3.3 is not supported. Please update your graphics card drivers."
-
-You can also check your OpenGL version running:
-
-    glxinfo | grep "OpenGL version"
-
-You should be able to use Ogre 1 without any issues however. You can check if
-that's working by running a world which uses Ogre 1 instead of Ogre 2, such as:
-
-    ign gazebo -v 3 lights.sdf
-
-If that loads, you can continue to use Ignition with Ogre 1, just be sure to
-specify `ogre` in your SDF files instead of `ogre2`.
-
-To enable Ogre 2 support, you'll need to update your computer's OpenGL version.
-As suggested on the Ogre logs, this may require updating your graphics card
-drivers.
-
-The Ogre 2 debs from the osrfoundation repository are built from a fork of
-Ogre's `v2-1` branch with changes needed for deb packaging and allowing it to
-be co-installable with Ogre 1.x. The code can be found here:
-
-https://github.com/osrf/ogre-2.1-release
+See [Troubleshooting](troubleshooting)
