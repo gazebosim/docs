@@ -15,7 +15,7 @@ Gazebo classic to Ignition. Take a look at the
 [feature comparison](/docs/citadel/comparison) page for a list of
 differences between classic and Ignition.
 
-## 2020 Q3(Jul - Sep) - done
+## 2020 Q3(Jul - Sep) - finished
 
 * **Migration Strategies**: Develop and document strategies for migrating
 plugins, SDF files, and other simulation resources from Gazebo classic to Ignition.
