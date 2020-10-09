@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
  && apt-get install -y \
-      sudo \
+      sudo tzdata \
  && apt-get clean
 
 ARG IGN_VERSION_PASSWORD
@@ -14,10 +14,6 @@ COPY s3.cfg /root/.s3cfg
 
 COPY scripts/install_common_deps.sh scripts/install_common_deps.sh
 RUN scripts/install_common_deps.sh
-
-# This is not strictly necessary, but makes things faster down the line.
-COPY scripts/install_ign_deps.sh scripts/install_ign_deps.sh
-RUN scripts/install_ign_deps.sh
 
 COPY scripts/enable_gcc8.sh scripts/enable_gcc8.sh
 RUN scripts/enable_gcc8.sh
