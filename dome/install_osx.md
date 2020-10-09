@@ -29,3 +29,7 @@ have already installed the library from binaries, run the following command:
 ```bash
 brew uninstall ignition-dome
 ```
+
+## Troubleshooting
+
+See [Troubleshooting](troubleshooting)
