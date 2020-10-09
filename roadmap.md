@@ -15,23 +15,18 @@ Gazebo classic to Ignition. Take a look at the
 [feature comparison](/docs/citadel/comparison) page for a list of
 differences between classic and Ignition.
 
-## 2020 Q3(Jul - Sep)
+## 2020 Q3(Jul - Sep) - finished
 
 * **Migration Strategies**: Develop and document strategies for migrating
 plugins, SDF files, and other simulation resources from Gazebo classic to Ignition.
-    * See [all open tickets](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22migration%22&state=open&type=Issues)
-      with the "migration" label.
-    * See [current development status](https://github.com/orgs/ignitionrobotics/projects/3?card_filter_query=label%3A%22migration%22)
-      for tickets with the "migration" label.
 
 * **Documentation**: Improve documentation release process and usability.
 Port relevant Gazebo classic tutorials to Ignition.
-    * See [all open tickets](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22boost+the+docs%22&state=open&type=Issues)
-      with the "boost the docs" label.
-    * See [current development status](https://github.com/orgs/ignitionrobotics/projects/3?card_filter_query=label%3A%22boost+the+docs%22)
-      for tickets with the "boost the docs" label.
 
-## 2020 Q4(Oct - Dec)
+See the [Igniton Dome release announcement](https://www.openrobotics.org/blog/2019/12/11/ignition-dome-released)
+for some of these features released.
+
+## 2020 Q4(Oct - Dec) - ongoing
 
 * **Cross platform compatibility**: Fully support Windows, Ubuntu, and macOS.
     * Windows
