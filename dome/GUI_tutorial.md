@@ -45,6 +45,16 @@ The toolbar along the top of the GUI contains two buttons, a file menu button on
 The file menu button allows you to save the world to a file, save and load interface configurations and customize interface style settings.
 An interface configuration consists of the plugins you have loaded and the style settings in place.
 
+The top left toolbar hanging below the file menu button contains transform control (first four buttons) and shape buttons (sphere, box, cylinder).
+To learn more about transform control, go to the "Transform Control" section of [Manipulating Models](manipulating_models) tutorial.
+The shape buttons allow you to directly insert box, sphere or cylinder model into the world.
+Simply click on the shape you would like to insert, and place it into the world.
+The shape will automatically snap onto the ground plane, and its properties will show up on the Entity Tree plugin window.
+
+The following is what it looks like after inserting shapes:
+
+![shape insertion](img/shape_insertion.png)
+
 The plugins button lists all the available plugins.
 You can scroll down this list to see all the plugins that are available for your version of Ignition.
 When you select one, its interface will appear in the right panel.
