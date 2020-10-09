@@ -23,3 +23,7 @@ have already installed the library from binaries, run the following command:
 ```bash
 sudo apt remove ignition-citadel && sudo apt autoremove
 ```
+
+## Troubleshooting
+
+See [Troubleshooting](troubleshooting)

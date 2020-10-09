@@ -27,3 +27,7 @@ have already installed the library from binaries, run the following command:
 ```bash
 brew uninstall ignition-citadel
 ```
+
+## Troubleshooting
+
+See [Troubleshooting](troubleshooting)

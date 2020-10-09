@@ -25,3 +25,6 @@ have already installed the library from binaries, run the following command:
 sudo apt remove ignition-dome && sudo apt autoremove
 ```
 
+## Troubleshooting
+
+See [Troubleshooting](troubleshooting)
