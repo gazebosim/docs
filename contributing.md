@@ -10,31 +10,31 @@ propose changes to this document in a pull request.
 
 #### Table of Contents
 
-[Code of Conduct](#markdown-header-code-of-conduct)
+[Code of Conduct](#code-of-conduct)
 
-[Project Design](#markdown-header-project-design)
+[Project Design](#project-design)
 
-  * [Repository List](#markdown-header-repository-list)
+  * [Repository List](#repository-list)
 
-[How to Contribute](#markdown-header-how-to-contribute)
+[How to Contribute](#how-to-contribute)
 
-  * [Reporting Bugs](#markdown-header-reporting-bugs)
-  * [Suggesting Enhancements](#markdown-header-suggesting-enhancements)
-  * [Contributing Code](#markdown-header-contributing-code)
-  * [Tracking Progress](#markdown-header-tracking-progress)
+  * [Reporting Bugs](#reporting-bugs)
+  * [Suggesting Enhancements](#suggesting-enhancements)
+  * [Contributing Code](#contributing-code)
+  * [Tracking Progress](#tracking-progress)
 
-[Writing Tests](#markdown-header-writing-tests)
+[Writing Tests](#writing-tests)
 
-  * [Test Coverage](#markdown-header-test-coverage)
+  * [Test Coverage](#test-coverage)
 
-[Styleguides](#markdown-header-style-guides)
+[Styleguides](#style-guides)
 
-[Appendix](#markdown-header-appendix)
+[Appendix](#appendix)
 
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the [Ignition
-Code of Conduct](https://github.com/ignitionrobotics/ign-gazebo/blob/master/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this
+Code of Conduct](https://github.com/ignitionrobotics/ign-gazebo/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this
 code. Please report unacceptable behavior at [https://ignitionrobotics.org/support](https://ignitionrobotics.org/support).
 
 ## Project Design
@@ -86,7 +86,7 @@ High performance inter- and intra-process communication based on
 **Before Submitting a Bug Report**
 
 1. Check the [questions and answers forum](http://answers.gazebosim.org). Your issue may have already been resolved.
-2. Determine [the repository](#markdown-header-repository-list) which should receive the problem.
+2. Determine [the repository](#repository-list) which should receive the problem.
 3. Search the repository's issues to see if the same or similar problem has
    been opened. If it has and the issue is still open, then add a comment to
    the existing issue. Otherwise, create a new issue.
@@ -103,7 +103,7 @@ Guide](http://sscce.org/) as well as the following tips:
 * **Provide specific examples to demonstrate the steps.** Include links to files or projects, or copy/pasteable snippets, which you use in those examples.
 * **Describe the behavior you observed after following the steps** and point out what exactly is the problem with that behavior.
 * **Explain which behavior you expected to see instead and why**.
-* **Include screenshots and animated GIFs** which show you following the described steps and clearly demonstrate the problem. See [Creating GIFs](#markdown-header-creating-gifs) for GIF creation utilities.
+* **Include screenshots and animated GIFs** which show you following the described steps and clearly demonstrate the problem. See [Creating GIFs](#creating-gifs) for GIF creation utilities.
 * **If the problem wasn't triggered by a specific action**, describe what you were doing before the problem happened and share more information using the guidelines below.
 
 Provide more context by answering these questions:
@@ -127,10 +127,10 @@ functionality. Following these guidelines helps maintainers and the
 community understand your suggestion and find related suggestions.
 
 Before creating enhancement suggestions, please check [this
-list](#markdown-header-before-submitting-an-enhancement-suggestion) as you
+list](#before-submitting-an-enhancement-suggestion) as you
 might find out that you don't need to create one. When you are creating an
 enhancement suggestion, please [include as many details as
-possible](#markdown-header-how-do-i-submit-a-good-enhancement-suggestion).
+possible](#how-do-i-submit-a-good-enhancement-suggestion).
 When filling in the issue form for an enhancement suggestion, include the
 steps that you imagine you would take if the feature you're requesting
 existed.
@@ -139,7 +139,7 @@ existed.
 
 * **Check if you're using the latest software version**. A more recent version may contain your desired feature.
 * **Check if there's already [a library](https://ignitionrobotics.org/libs) which provides that enhancement.**
-* **Determine [which repository the enhancement should be suggested in](#markdown-header-repository-list).**
+* **Determine [which repository the enhancement should be suggested in](#repository-list).**
 * **Perform a [cursory search](https://github.com/search?q=org%3Aignitionrobotics&type=Issues)** to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
 * **Ask on the [community forum](https://community.gazebosim.org) about your
 feature.** Someone else might already have started, and you might be able to
@@ -149,7 +149,7 @@ help.
 
 Enhancement suggestions are tracked as [GitHub
 issues](https://help.github.com/en/github/managing-your-work-on-github/about-issues).
-After you've determined [which repository](#markdown-header-repository-list)
+After you've determined [which repository](#repository-list)
 your enhancement suggestion is related to, create an issue on that
 repository and provide the following information:
 
@@ -157,7 +157,7 @@ repository and provide the following information:
 * **Provide a step-by-step description of the suggested enhancement** in as many details as possible.
 * **Provide specific examples to demonstrate the steps**. Include copy/pasteable snippets which you use in those examples, as [Markdown code blocks](https://help.github.com/en/github/writing-on-github/creating-and-highlighting-code-blocks).
 * **Describe the current behavior** and **explain which behavior you expected to see instead** and why.
-* **Include screenshots and animated GIFs** which show you following the described steps and clearly demonstrate the problem. See [Creating GIFs](#markdown-header-creating-gifs) for GIF creation utilities.
+* **Include screenshots and animated GIFs** which show you following the described steps and clearly demonstrate the problem. See [Creating GIFs](#creating-gifs) for GIF creation utilities.
 * **Explain why this enhancement would be useful** to most users and isn't something that can or should be implemented as a separate application.
 * **Specify which version of Ignition you're using.**
 * **Specify the name and version of the OS you're using.**
@@ -168,7 +168,7 @@ We follow a development process designed to reduce errors, encourage
 collaboration, and make high quality code. Review the following to
 get aquainted with this development process.
 
-1. **Read the [Reporting Bugs](#markdown-header-reporting-bugs) and [Suggesting Enhancements](#markdown-header-suggesting-enhancements)** sections first.
+1. **Read the [Reporting Bugs](#reporting-bugs) and [Suggesting Enhancements](#suggesting-enhancements)** sections first.
 
 1. **Fork the Ignition library** you want to contribute to. This will create
    your own personal copy of the library. All of your development should
@@ -176,26 +176,26 @@ get aquainted with this development process.
    - An important thing to do is create a remote pointing to the [upstream remote repository](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork). This way, you can always check for modifications on the original repository and **always** keep your fork repository up to date.
 
 1. **Choose a base branch.** If your changes will break API or ABI, then
-   base your new branch off of `master`. If your changes don't break
+   base your new branch off of `main`. If your changes don't break
    API/ABI and you would like them to be released to an existing release
    with major version `N`, then use branch `ign-<library>N` as the base.
 
 1. **Work out of a branch** Always work out of a new branch, one that is not
-   a release / master branch. This is a good habit to get in, and will make
+   a release / main branch. This is a good habit to get in, and will make
    your life easier.
 
 1. **Write your code.** This is the fun part, but is good to remember:
-   - Always [sign your commits](https://docs.github.com/en/github/authenticating-to-github/signing-commits) (See the bullet about Developer Certificate of Origin in the [Process](#markdown-header-process) section below)
+   - Always [sign your commits](https://docs.github.com/en/github/authenticating-to-github/signing-commits) (See the bullet about Developer Certificate of Origin in the [Process](#process) section below)
    - Look at the existing code and try to maintain the existing style and pattern as much as possible
    - **Always** keep your branch updated with the original repository
 
 1. **Write tests.** In most cases, a pull request will only be accepted if
-   it has tests. See the [Writing Tests](#markdown-header-writing-tests)
+   it has tests. See the [Writing Tests](#writing-tests)
   section below for more information.
 
 1. **Resolve compiler warnings.** Code must have zero compile warnings, or at least make sure your pull request is not adding new warnings.
 
-1. **Follow the [style guide](#markdown-header-style-guides).**
+1. **Follow the [style guide](#style-guides).**
 
     Static code checking analyzes your code for bugs, such as potential memory
     leaks, and style. Most Ignition libraries use the `cppcheck` static code
@@ -207,7 +207,7 @@ get aquainted with this development process.
     To check your code, run the following script from the `build` folder of the project that you're working on.
     If you're working on *ignition-math*, for instance, the path for the folder should be something similar to `~/citadel_ws/build/ignition-math6`.
     The path example is assuming you followed [our installation instructions](/docs/citadel/install) using colcon.
-    
+
     Then, run the script inside this folder:
 
         make codecheck
@@ -217,7 +217,7 @@ get aquainted with this development process.
 
         Built target codecheck
 
-    The tool does not catch all style errors. See the [code style](#markdown-header-style-guides) section below for more information.
+    The tool does not catch all style errors. See the [code style](#style-guides) section below for more information.
 
 1. **(optional) Use clang-tidy for additional checks.**
 
@@ -346,14 +346,15 @@ All Ignition team members actively:
 
 During weekly simulation meetings, the team:
 
+* Discusses the **Done** column and archives all tickets
+* Discusses the **In Review** column and makes sure all pull requests have reviewers
+* Discusses the **In Progress** column
 * Quickly **triages** the inbox, if there’s anything left in it
 
   * If we won’t work on an issue in the near future, **remove** it from the board.
+    * If we think the issue should be tackled, label it **help wanted**.
   * If we’re going to work on an issue, move it to **To Do**, no assignment necessary initially.
   * If we won’t review a pull request in the near future, **close** it.
-
-* Discusses **In Review** column and additional tickets that people want to bring up
-* Discusses the **Done** column and archives all tickets
 
 When opening a pull-request:
 
@@ -383,10 +384,10 @@ Merging strategy:
 
 * For internal contributions, give the original author some time to hit the merge button themselves / check directly with them if it’s ok to merge.
 * Default to “squash and merge”
-  * Make sure the commit message captures the core ideas of the pull request.
-* “Rebase and merge” when moving files (do a `git mv` as a separate commit)
-* “Create a merge commit” when porting changes across branches
-* Refrain from force-pushing while the PR is under review (which includes rebasing and squashing)
+  * Make sure the commit message captures the core ideas of the pull request and contains the author's signature.
+* “Rebase and merge” when moving files (do a `git mv` as a separate commit).
+* “Create a merge commit” when porting changes forward and "Rebase and merge" when porting backwards.
+* Refrain from force-pushing while the PR is under review (which includes rebasing and squashing).
 
 Porting changes across branches:
 
@@ -395,19 +396,21 @@ Porting changes across branches:
   changes can be added in a backwards-compatible way (no API / ABI / behavior
   break in released branches).
 * Periodically, a maintainer will **forward-port** changes to newer release
-  branches all the way up to `master`.
-* The merge forward can be done with `git merge` in order to keep the commit history.
-  For example:
+  branches all the way up to `main`.
+* See [this list](https://github.com/ignitionrobotics/docs/blob/master/tools/branch_comparisons.md) to check if a branch needs porting.
+* The merge forward can be done with `git merge` in order to keep the commit history
+  and so it's easier to compare branches. For example:
 
         git checkout ign-<library>M
         git pull
         git checkout ign-<library>N
         git pull
-        git checkout -b M_to_N_<date> # It's important to do this before `git merge`
+        git checkout -b username/M_to_N_<date> # It's important to do this before `git merge`
         git merge ign-<library>M
         # Fix conflicts
         git commit -sam"Merge M into N"
         # Open pull request
+        # Do not squash or rebase, create a merge commit
 
 * In the rare event that a pull request needs to be backported (i.e. from a
   higher version to a lower version), use `git cherry-pick`, for example:
@@ -421,9 +424,7 @@ Porting changes across branches:
         # Fix conflicts
         git commit -sam"Backport from N to M"
         # Open pull request
-
-* When merging a port pull request, **do not squash or rebase**, create a merge
-  commit instead.
+        # Do not squash, rebase
 
 ## Writing Tests
 
@@ -465,7 +466,7 @@ coverage report. You'll need to have [lcov](http://ltp.sourceforge.net/coverage/
 1. Run a single test, or all the tests
 
        ./workspace/build/package_name/UNIT_TestName_TEST   (single test)
-        make test                                          (all tests) 
+        make test                                          (all tests)
 
 1. Make the coverage report
 
