@@ -2,6 +2,10 @@
 
 These links take to comparisons between branches.
 
+If a cell in the table is `-`, this means that the two Ignition releases use
+the same version of this Ignition library. So, for example, `ign-cmake` has a
+`-` for B ➡️  C because Blueprint and Citadel use `ign-cmake2`.
+
 When it says "There isn’t anything to compare," this means no pull requests
 need to be forward-ported.
 
@@ -14,22 +18,22 @@ instructions on the
 * **D**: Dome
 * **main**: main branch
 
-Library | B ➡️  C | C ➡️  D | ➡️  main
+Library | B ➡️  C | C ➡️  D | D ➡️  main
 ------- | ------ | ------ | -------
-[ign-cmake][ign-cmake] | - | - | [➡️  main][ign-cmake-main]
-[ign-common][ign-common] | - | - | [➡️  main][ign-common-main]
-[ign-fuel-tools][ign-fuel-tools] | [3 ➡️  4][ign-fuel-tools-3-4] | [4 ➡️  5][ign-fuel-tools-4-5] | [➡️  main][ign-fuel-tools-main]
-[ign-gazebo][ign-gazebo] | [2 ➡️  3][ign-gazebo-2-3] | [3 ➡️  4][ign-gazebo-3-4] | [➡️  main][ign-gazebo-main]
-[ign-gui][ign-gui] | [2 ➡️  3][ign-gui-2-3] | [3 ➡️  4][ign-gui-3-4] | [➡️  main][ign-gui-main]
-[ign-launch][ign-launch] | [1 ➡️  2][ign-launch-1-2] | [2 ➡️  3][ign-launch-2-3] | [➡️  main][ign-launch-main]
-[ign-math][ign-math] | - | - | [➡️  main][ign-math-main]
-[ign-msgs][ign-msgs] | [4 ➡️  5][ign-msgs-4-5] | [5 ➡️  6][ign-msgs-5-6] | [➡️  main][ign-msgs-main]
-[ign-physics][ign-physics] | [1 ➡️  2][ign-physics-1-2] | [2 ➡️  3][ign-physics-2-3] | [➡️  main][ign-physics-main]
-[ign-plugin][ign-plugin] | - | - | [➡️  main][ign-plugin-main]
-[ign-rendering][ign-rendering] | [2 ➡️  3][ign-rendering-2-3] | [3 ➡️  4][ign-rendering-3-4] | [➡️  main][ign-rendering-main]
-[ign-sensors][ign-sensors] | [2 ➡️  3][ign-sensors-2-3] | [3 ➡️  4][ign-sensors-3-4] | [➡️  main][ign-sensors-main]
-[ign-tools][ign-tools] | - | - | [➡️  main][ign-tools-main]
-[ign-transport][ign-transport] | [7 ➡️  8][ign-transport-7-8] | [8 ➡️  9][ign-transport-8-9] | [➡️  main][ign-transport-main]
+[ign-cmake][ign-cmake] | - | - | [D ➡️  main][ign-cmake-main]
+[ign-common][ign-common] | - | - | [D ➡️  main][ign-common-main]
+[ign-fuel-tools][ign-fuel-tools] | [3 ➡️  4][ign-fuel-tools-3-4] | [4 ➡️  5][ign-fuel-tools-4-5] | [D ➡️  main][ign-fuel-tools-main]
+[ign-gazebo][ign-gazebo] | [2 ➡️  3][ign-gazebo-2-3] | [3 ➡️  4][ign-gazebo-3-4] | [D ➡️  main][ign-gazebo-main]
+[ign-gui][ign-gui] | [2 ➡️  3][ign-gui-2-3] | [3 ➡️  4][ign-gui-3-4] | [D ➡️  main][ign-gui-main]
+[ign-launch][ign-launch] | [1 ➡️  2][ign-launch-1-2] | [2 ➡️  3][ign-launch-2-3] | [D ➡️  main][ign-launch-main]
+[ign-math][ign-math] | - | - | [D ➡️  main][ign-math-main]
+[ign-msgs][ign-msgs] | [4 ➡️  5][ign-msgs-4-5] | [5 ➡️  6][ign-msgs-5-6] | [D ➡️  main][ign-msgs-main]
+[ign-physics][ign-physics] | [1 ➡️  2][ign-physics-1-2] | [2 ➡️  3][ign-physics-2-3] | [D ➡️  main][ign-physics-main]
+[ign-plugin][ign-plugin] | - | - | [D ➡️  main][ign-plugin-main]
+[ign-rendering][ign-rendering] | [2 ➡️  3][ign-rendering-2-3] | [3 ➡️  4][ign-rendering-3-4] | [D ➡️  main][ign-rendering-main]
+[ign-sensors][ign-sensors] | [2 ➡️  3][ign-sensors-2-3] | [3 ➡️  4][ign-sensors-3-4] | [D ➡️  main][ign-sensors-main]
+[ign-tools][ign-tools] | - | - | [D ➡️  main][ign-tools-main]
+[ign-transport][ign-transport] | [7 ➡️  8][ign-transport-7-8] | [8 ➡️  9][ign-transport-8-9] | [D ➡️  main][ign-transport-main]
 
 [ign-cmake]: https://github.com/ignitionrobotics/ign-cmake
 [ign-cmake-main]: https://github.com/ignitionrobotics/ign-cmake/compare/main...ign-cmake2

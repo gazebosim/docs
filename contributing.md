@@ -386,7 +386,7 @@ Merging strategy:
 * Default to “squash and merge”
   * Make sure the commit message captures the core ideas of the pull request and contains the author's signature.
 * “Rebase and merge” when moving files (do a `git mv` as a separate commit).
-* “Create a merge commit” when porting changes forward and "Rebase and merge" when porting backwards.
+* “Create a merge commit” when porting changes forward. "Rebase and merge" when porting backwards.
 * Refrain from force-pushing while the PR is under review (which includes rebasing and squashing).
 
 Porting changes across branches:
@@ -413,7 +413,8 @@ Porting changes across branches:
         # Do not squash or rebase, create a merge commit
 
 * In the rare event that a pull request needs to be backported (i.e. from a
-  higher version to a lower version), use `git cherry-pick`, for example:
+  higher version to a lower version), use `git cherry-pick` instead of `git merge`,
+  for example:
 
         git checkout ign-<library>N
         git pull
@@ -424,7 +425,7 @@ Porting changes across branches:
         # Fix conflicts
         git commit -sam"Backport from N to M"
         # Open pull request
-        # Do not squash, rebase
+        # Do not squash, rebase instead
 
 ## Writing Tests
 
