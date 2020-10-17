@@ -34,7 +34,7 @@ propose changes to this document in a pull request.
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the [Ignition
-Code of Conduct](https://github.com/ignitionrobotics/ign-gazebo/blob/master/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this
+Code of Conduct](https://github.com/ignitionrobotics/ign-gazebo/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this
 code. Please report unacceptable behavior at [https://ignitionrobotics.org/support](https://ignitionrobotics.org/support).
 
 ## Project Design
@@ -176,12 +176,12 @@ get aquainted with this development process.
    - An important thing to do is create a remote pointing to the [upstream remote repository](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork). This way, you can always check for modifications on the original repository and **always** keep your fork repository up to date.
 
 1. **Choose a base branch.** If your changes will break API or ABI, then
-   base your new branch off of `master`. If your changes don't break
+   base your new branch off of `main`. If your changes don't break
    API/ABI and you would like them to be released to an existing release
    with major version `N`, then use branch `ign-<library>N` as the base.
 
 1. **Work out of a branch** Always work out of a new branch, one that is not
-   a release / master branch. This is a good habit to get in, and will make
+   a release / main branch. This is a good habit to get in, and will make
    your life easier.
 
 1. **Write your code.** This is the fun part, but is good to remember:
@@ -395,7 +395,7 @@ Porting changes across branches:
   changes can be added in a backwards-compatible way (no API / ABI / behavior
   break in released branches).
 * Periodically, a maintainer will **forward-port** changes to newer release
-  branches all the way up to `master`.
+  branches all the way up to `main`.
 * The merge forward can be done with `git merge` in order to keep the commit history.
   For example:
 

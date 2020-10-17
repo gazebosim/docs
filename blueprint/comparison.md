@@ -64,7 +64,7 @@ System plugins | ✓ | ✓ Through Ignition Launch
 
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
-ActorPlugin | ✓ | ✕ See [FollowActor](https://github.com/ignitionrobotics/ign-gazebo/blob/master/src/systems/follow_actor/FollowActor.hh) for a demo of Actor APIs
+ActorPlugin | ✓ | ✕ See [FollowActor](https://github.com/ignitionrobotics/ign-gazebo/blob/main/src/systems/follow_actor/FollowActor.hh) for a demo of Actor APIs
 ActuatorPlugin | ✓ |
 ArduCopterPlugin | ✓ |
 AttachLightPlugin | ✓ | ✕ Does not apply, use SDF
