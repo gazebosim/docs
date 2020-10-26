@@ -459,13 +459,32 @@ coverage report. You'll need to have [lcov](http://ltp.sourceforge.net/coverage/
 
 1. In your `build` folder, compile with `-DCMAKE_BUILD_TYPE=Coverage`
 
-        cmake -DCMAKE_BUILD_TYPE=Coverage ../
+    If using a colcon workspace:
+
+        cd <path to colcon workspace>
+        colcon build --cmake-args -DCMAKE_BUILD_TYPE=Coverage
+
+    If using plain cmake:
+
+        cd <path to build directory>
+        cmake -DCMAKE_BUILD_TYPE=Coverage ..
         make
 
 1. Run a single test, or all the tests
 
-       ./workspace/build/package_name/bin/UNIT_TestName_TEST   (single test)
-        make test                                          (all tests)
+    If using a colcon workspace:
+
+       # single test
+       ./build/<package_name>/bin/UNIT_<TestName>_TEST
+
+       # all tests
+       cd build/<package_name>
+       make test
+
+    If using plain cmake:
+
+       ./bin/UNIT_<TestName>_Test   # single test
+        make test                   # all tests
 
 1. Make the coverage report
 
