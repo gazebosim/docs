@@ -25,6 +25,7 @@ sudo make install
 
 if [[ ! -z "$4" && "$4" != "n" ]]; then
   # Upload documentation
+  echo "Upload documentation for $3"
   sh upload_doc.sh $4
 
   # Get the project version from cmake
@@ -33,5 +34,6 @@ if [[ ! -z "$4" && "$4" != "n" ]]; then
   # Get the libName from the second parameter
   libName=`echo "$2" | grep -oP "(?<=ign-).*"`
 
+  echo "Adding version [$version] for library [$libName]"
   curl -k -X POST -d '{"libName":"'"$libName"'", "version":"'"$version"'", "releaseDate":"'"$5"'","password":"'"$6"'"}' https://api.ignitionrobotics.org/1.0/versions
 fi

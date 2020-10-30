@@ -29,18 +29,22 @@ s3cmd --dump-config > s3.cfg
 # We are using docker because a library's documentation links to other
 # library documentation, and we want to guarantee a clean system.
 if [[ $1 == 'acropolis' || $1 == 'Acropolis' ]]; then
+  echo "Uploading documentation for Acropolis"
   docker build -t ign-acropolis-docs -f Dockerfile.acropolis --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
 fi
 
 if [[ $1 == 'all' || $1 == 'blueprint' || $1 == 'Blueprint' ]]; then
+  echo "Uploading documentation for Blueprint"
   docker build -t ign-blueprint-docs -f Dockerfile.blueprint --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
 fi
 
 if [[ $1 == 'all' || $1 == 'citadel' || $1 == 'Citadel' ]]; then
+  echo "Uploading documentation for Citadel"
   docker build -t ign-citadel-docs -f Dockerfile.citadel --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
 fi
 
 if [[ $1 == 'all' || $1 == 'dome' || $1 == 'Dome' ]]; then
+  echo "Uploading documentation for Dome"
   docker build -t ign-dome-docs -f Dockerfile.dome --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
 fi
 

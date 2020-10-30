@@ -20,28 +20,25 @@ RUN scripts/enable_gcc8.sh
 
 COPY scripts/build_ign.sh scripts/build_ign.sh
 
-# Skip libraries that coincide with Blueprint.
-# Re-add them when blueprint goes EOL and is removed from 'all'
+RUN scripts/build_ign.sh ignitionrobotics ign-cmake ign-cmake2 n \
+      $IGN_VERSION_DATE \
+      $IGN_VERSION_PASSWORD
 
-# RUN scripts/build_ign.sh ignitionrobotics ign-cmake ign-cmake2 n \
-#       $IGN_VERSION_DATE \
-#       $IGN_VERSION_PASSWORD
-#
-# RUN scripts/build_ign.sh ignitionrobotics ign-math ign-math6 y \
-#       $IGN_VERSION_DATE \
-#       $IGN_VERSION_PASSWORD
-#
-# RUN scripts/build_ign.sh ignitionrobotics ign-tools ign-tools1 n \
-#       $IGN_VERSION_DATE \
-#       $IGN_VERSION_PASSWORD
-#
-# RUN scripts/build_ign.sh ignitionrobotics ign-plugin ign-plugin1 y \
-#       $IGN_VERSION_DATE \
-#       $IGN_VERSION_PASSWORD
-#
-# RUN scripts/build_ign.sh ignitionrobotics ign-common ign-common3 y \
-#       $IGN_VERSION_DATE \
-#       $IGN_VERSION_PASSWORD
+RUN scripts/build_ign.sh ignitionrobotics ign-math ign-math6 y \
+      $IGN_VERSION_DATE \
+      $IGN_VERSION_PASSWORD
+
+RUN scripts/build_ign.sh ignitionrobotics ign-tools ign-tools1 n \
+      $IGN_VERSION_DATE \
+      $IGN_VERSION_PASSWORD
+
+RUN scripts/build_ign.sh ignitionrobotics ign-plugin ign-plugin1 y \
+      $IGN_VERSION_DATE \
+      $IGN_VERSION_PASSWORD
+
+RUN scripts/build_ign.sh ignitionrobotics ign-common ign-common3 y \
+      $IGN_VERSION_DATE \
+      $IGN_VERSION_PASSWORD
 
 RUN scripts/build_ign.sh osrf sdformat sdf9 n \
       $IGN_VERSION_DATE \
