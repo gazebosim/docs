@@ -3,7 +3,7 @@
 set -o errexit
 set -o verbose
 
-DEBIAN_FRONTEND=noninteractive
+export DEBIAN_FRONTEND=noninteractive
 
 sudo apt-get update
 
