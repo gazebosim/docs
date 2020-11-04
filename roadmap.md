@@ -80,7 +80,7 @@ and release pattern allows us to distribute patch and minor updates into an alre
 1. Mesh level of detail support.
 1. Design for Enhanced distributed simulation.
 1. [Heightmap support using Ogre 1 and DART.](https://github.com/ignitionrobotics/ign-gazebo/issues/237)
-1. [Sky support.](https://github.com/ignitionrobotics/ign-rendering/issues/98)
+1. [Sky box support.](https://github.com/ignitionrobotics/ign-rendering/issues/98)
 1. [Capsule geometry type in SDFormat.](https://github.com/osrf/sdformat/issues/376)
 1. [SDF model composition.](https://github.com/osrf/sdformat/issues/278)
 
