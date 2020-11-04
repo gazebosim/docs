@@ -56,32 +56,33 @@ and release pattern allows us to distribute patch and minor updates into an alre
 
 ### Blueprint
 
-1. Detachable joints.
 1. Additional graphical tools for model and world creation and editing.
-1. Audio sensor and source.
+1. Logical audio sensor and source.
 
 ### Citadel
 
-1. Bazel build files.
-1. SDF website update, documentation, and model composition.
-1. Trajectory animation.
-1. Support custom rendering engines.
-1. New APIs to ease migration from Gazebo classic.
+1. SDF website update, more documentation.
+1. [New APIs to ease migration from Gazebo classic.](https://github.com/ignitionrobotics/ign-gazebo/issues/325)
+1. Ease migration of SDF files from Gazebo classic.
+1. [Reset world.](https://github.com/ignitionrobotics/ign-gazebo/issues/203)
 
 ### Dome
 
 1. Particle effects, to support smoke and gas.
-1. Efficient skeleton animations.
 1. Localized wind (wind that is constrained to a region of influence).
 1. Optical tactile plugin.
 1. Improved Ignition Physics documentation.
+1. [Bazel build files.](https://github.com/ignitionrobotics/ign-bazel)
 
 ### Edifice
 
 1. Improved Mac and Windows support
-1. OpenGL shaders to simulate underwater effects in camera sensors.
 1. Mesh level of detail support.
 1. Design for Enhanced distributed simulation.
+1. [Heightmap support using Ogre 1 and DART.](https://github.com/ignitionrobotics/ign-gazebo/issues/237)
+1. [Sky box support.](https://github.com/ignitionrobotics/ign-rendering/issues/98)
+1. [Capsule geometry type in SDFormat.](https://github.com/osrf/sdformat/issues/376)
+1. [SDF model composition.](https://github.com/osrf/sdformat/issues/278)
 
 ## Planned releases
 
