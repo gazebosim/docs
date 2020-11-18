@@ -65,6 +65,7 @@ collection assures that all libraries all compatible and can be used together.
 1. Noise for RGBD camera.
 1. Load worlds from Fuel.
 1. [Customizable GUI layout](https://ignitionrobotics.org/api/gazebo/3.3/gui_config.html).
+1. [Detachable joints](https://ignitionrobotics.org/api/gazebo/4.0/detachablejoints.html)
 1. GUI tools:
     * GUI tools for model placement, and a new Scene Tree widget.
     * Translate and rotate models.
@@ -116,6 +117,7 @@ collection assures that all libraries all compatible and can be used together.
 1. Widget listing all transport topics.
 1. Widget that publishes keys pressed on the keyboard.
 1. [Tutorial series](https://community.gazebosim.org/t/gsoc-2020-new-ignition-gazebo-demos/613).
+1. [Custom rendering engines.](https://ignitionrobotics.org/api/rendering/3.2/renderingplugin.html)
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
@@ -140,6 +142,7 @@ collection assures that all libraries all compatible and can be used together.
 
 1. Particle effects on Ignition Rendering.
 1. Actor plugins.
+1. Efficient skeleton animations.
 1. GUI tools:
     * [Plotting](https://community.gazebosim.org/t/gsoc-2020-plotting-tool-for-ignition/619)
     * [Lidar visualization](https://community.gazebosim.org/t/gsoc-2020-sensor-data-visualization/638)

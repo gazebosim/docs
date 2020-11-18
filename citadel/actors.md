@@ -36,7 +36,7 @@ You can check out the full specification for the `<actor>` SDF element
 
 Ignition Gazebo supports two different skeleton animation file formats: COLLADA (.dae) and Biovision Hierarchy (.bvh).
 
-Open any world, [empty.sdf](https://raw.githubusercontent.com/ignitionrobotics/ign-gazebo/master/examples/worlds/empty.sdf) world
+Open any world, [empty.sdf](https://raw.githubusercontent.com/ignitionrobotics/ign-gazebo/main/examples/worlds/empty.sdf) world
 for example, and add an actor called `actor_walking` as follows:
 
 ```xml

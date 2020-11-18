@@ -465,13 +465,48 @@ coverage report. You'll need to have [lcov](http://ltp.sourceforge.net/coverage/
 
 1. In your `build` folder, compile with `-DCMAKE_BUILD_TYPE=Coverage`
 
-        cmake -DCMAKE_BUILD_TYPE=Coverage ..\
+    If using plain cmake:
+
+        cd <path to build directory>
+        cmake -DCMAKE_BUILD_TYPE=Coverage ..
         make
+
+    If using a colcon workspace:
+
+        cd <path to colcon workspace>
+        colcon build --cmake-args -DCMAKE_BUILD_TYPE=Coverage --merge-install
 
 1. Run a single test, or all the tests
 
-       ./workspace/build/package_name/UNIT_TestName_TEST   (single test)
-        make test                                          (all tests)
+    If using plain cmake:
+
+       ./bin/UNIT_<TestName>_Test   # single test
+        make test                   # all tests
+
+    If using a colcon workspace:
+
+      * Run single/specific test:
+
+      ```
+      colcon test --ctest-args -R <part of test name> --merge-install
+      # or
+      ./build/<package_name>/bin/UNIT_<TestName>_TEST
+      ```
+
+      * Run all tests for a single package:
+
+      ```
+      colcon test --packages-select <package_name> --merge-install
+      ```
+
+      * Run all tests for all packages in the workspace:
+
+      ```
+      colcon test --merge-install
+      ```
+
+    When using `colcon test`, all test results end up in the `log` directory.
+    You can check `log/latest_test` to see the latest results.
 
 1. Make the coverage report
 
