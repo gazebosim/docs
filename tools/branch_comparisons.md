@@ -18,6 +18,10 @@ instructions on the
 * **D**: Dome
 * **main**: main branch
 
+> SDFormat is a special case where the release branches should be compared
+  against `merge_N_M_reference` branches instead of other release branches.
+  Be sure to update those branches before using for comparison.
+
 Library | B ➡️  C | C ➡️  D | D ➡️  main
 ------- | ------ | ------ | -------
 [ign-cmake][ign-cmake] | - | - | [D ➡️  main][ign-cmake-main]
@@ -34,6 +38,7 @@ Library | B ➡️  C | C ➡️  D | D ➡️  main
 [ign-sensors][ign-sensors] | [2 ➡️  3][ign-sensors-2-3] | [3 ➡️  4][ign-sensors-3-4] | [D ➡️  main][ign-sensors-main]
 [ign-tools][ign-tools] | - | - | [D ➡️  main][ign-tools-main]
 [ign-transport][ign-transport] | [7 ➡️  8][ign-transport-7-8] | [8 ➡️  9][ign-transport-8-9] | [D ➡️  main][ign-transport-main]
+[sdformat][sdformat] | [8 ➡️  9][sdformat-8-9] | [9 ➡️  10][sdformat-9-10] | [10 ➡️  main][sdformat-main]
 
 [ign-cmake]: https://github.com/ignitionrobotics/ign-cmake
 [ign-cmake-main]: https://github.com/ignitionrobotics/ign-cmake/compare/main...ign-cmake2
@@ -94,4 +99,9 @@ Library | B ➡️  C | C ➡️  D | D ➡️  main
 [ign-transport-7-8]: https://github.com/ignitionrobotics/ign-transport/compare/ign-transport8...ign-transport7
 [ign-transport-8-9]: https://github.com/ignitionrobotics/ign-transport/compare/ign-transport9...ign-transport8
 [ign-transport-main]: https://github.com/ignitionrobotics/ign-transport/compare/main...ign-transport9
+
+[sdformat]: https://github.com/osrf/sdformat
+[sdformat-8-9]: https://github.com/osrf/sdformat/compare/sdf9...merge_8_9_reference
+[sdformat-9-10]: https://github.com/osrf/sdformat/compare/sdf10...merge_9_10_reference
+[sdformat-main]: https://github.com/osrf/sdformat/compare/main...merge_10_11_reference
 

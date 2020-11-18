@@ -352,7 +352,7 @@ During weekly simulation meetings, the team:
 * Quickly **triages** the inbox, if there’s anything left in it
 
   * If we won’t work on an issue in the near future, **remove** it from the board.
-    * If we think the issue should be tackled, label it **help wanted**.
+    * If we think the issue should be tackled, label it **[help wanted](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22help+wanted%22&state=open&type=Issues)**.
   * If we’re going to work on an issue, move it to **To Do**, no assignment necessary initially.
   * If we won’t review a pull request in the near future, **close** it.
 
@@ -384,7 +384,7 @@ Merging strategy:
 
 * For internal contributions, give the original author some time to hit the merge button themselves / check directly with them if it’s ok to merge.
 * Default to “squash and merge”
-  * Make sure the commit message captures the core ideas of the pull request and contains the author's signature.
+  * Make sure the commit message captures the core ideas of the pull request and contains all authors' signatures.
 * “Rebase and merge” when moving files (do a `git mv` as a separate commit).
 * “Create a merge commit” when porting changes forward. "Rebase and merge" when porting backwards.
 * Refrain from force-pushing while the PR is under review (which includes rebasing and squashing).
@@ -426,6 +426,10 @@ Porting changes across branches:
         git commit -sam"Backport from N to M"
         # Open pull request
         # Do not squash, rebase instead
+
+* The [SDFormat repository](https://github.com/osrf/sdformat) follows a
+  slightly different porting process. Commits are cherry-picked forwards or backwards,
+  and rebase-merged.
 
 ## Writing Tests
 
