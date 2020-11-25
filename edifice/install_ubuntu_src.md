@@ -24,11 +24,11 @@ cases where the default option cannot be easily changed.
 PIP is available on all platforms:
 
 ```bash
-pip install vcstool
+pip install vcstool || pip3 install vcstool
 ```
 
 ```bash
-pip install -U colcon-common-extensions
+pip install -U colcon-common-extensions || pip3 install -U colcon-common-extensions
 ```
 
 Check that no errors were printed while installing with PIP. If your system is not recognising the commands, and you're using a system that is compatible with Debian or Ubuntu packages, see the instructions below to install using `apt`.
