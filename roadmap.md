@@ -62,7 +62,6 @@ and release pattern allows us to distribute patch and minor updates into an alre
 ### Citadel
 
 1. SDF website update, more documentation.
-1. [New APIs to ease migration from Gazebo classic.](https://github.com/ignitionrobotics/ign-gazebo/issues/325)
 1. Ease migration of SDF files from Gazebo classic.
 1. [Reset world.](https://github.com/ignitionrobotics/ign-gazebo/issues/203)
 
@@ -71,7 +70,7 @@ and release pattern allows us to distribute patch and minor updates into an alre
 1. Particle effects, to support smoke and gas.
 1. Localized wind (wind that is constrained to a region of influence).
 1. Optical tactile plugin.
-1. Improved Ignition Physics documentation.
+1. [Improved Ignition Physics documentation.](https://community.gazebosim.org/t/gsod-2020-ignition-physics-tutorial-and-api-documentation/746)
 1. [Bazel build files.](https://github.com/ignitionrobotics/ign-bazel)
 
 ### Edifice
