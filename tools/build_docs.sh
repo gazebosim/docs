@@ -33,7 +33,7 @@ if [[ $1 == 'acropolis' || $1 == 'Acropolis' ]]; then
   docker build -t ign-acropolis-docs -f Dockerfile.acropolis --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
 fi
 
-if [[ $1 == 'all' || $1 == 'blueprint' || $1 == 'Blueprint' ]]; then
+if [[ $1 == 'blueprint' || $1 == 'Blueprint' ]]; then
   echo "Uploading documentation for Blueprint"
   docker build -t ign-blueprint-docs -f Dockerfile.blueprint --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
 fi
