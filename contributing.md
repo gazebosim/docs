@@ -441,7 +441,7 @@ in the same directory as the source code and are suffixed by `_TEST`.
 1. **Regression tests**: tests which fix broken features go under `tests/regression` and are prefixed by the issue number on librarie's issue tracker.
 
 1. **Performance tests**: tests that are designed to check performance
-   characterics, such as CPU or memory usage, go unde `tests/performance`.
+   characterics, such as CPU or memory usage, go under `tests/performance`.
 
 Before creating a new integration or performance test file, check the current
 test files. If one closely matches the topic of your new code, simply add a new
