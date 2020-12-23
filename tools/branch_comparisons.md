@@ -9,8 +9,8 @@ the same version of this Ignition library. So, for example, `ign-cmake` has a
 When it says "There isn’t anything to compare," this means no pull requests
 need to be forward-ported.
 
-Otherwise, those branches could use a forward-port pull request, see
-instructions on the
+Otherwise, those branches could use a forward-port pull request.
+See the instructions on the
 [contributing guide](https://ignitionrobotics.org/docs/all/contributing#process).
 
 * **B**: Blueprint
@@ -104,4 +104,3 @@ Library | B ➡️  C | C ➡️  D | D ➡️  main
 [sdformat-8-9]: https://github.com/osrf/sdformat/compare/sdf9...sdf8
 [sdformat-9-10]: https://github.com/osrf/sdformat/compare/sdf10...sdf9
 [sdformat-main]: https://github.com/osrf/sdformat/compare/main...sdf10
-
