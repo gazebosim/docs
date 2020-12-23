@@ -101,7 +101,7 @@ Library | B ➡️  C | C ➡️  D | D ➡️  main
 [ign-transport-main]: https://github.com/ignitionrobotics/ign-transport/compare/main...ign-transport9
 
 [sdformat]: https://github.com/osrf/sdformat
-[sdformat-8-9]: https://github.com/osrf/sdformat/compare/sdf9...merge_8_9_reference
-[sdformat-9-10]: https://github.com/osrf/sdformat/compare/sdf10...merge_9_10_reference
-[sdformat-main]: https://github.com/osrf/sdformat/compare/main...merge_10_11_reference
+[sdformat-8-9]: https://github.com/osrf/sdformat/compare/sdf9...sdf8
+[sdformat-9-10]: https://github.com/osrf/sdformat/compare/sdf10...sdf9
+[sdformat-main]: https://github.com/osrf/sdformat/compare/main...sdf10
 

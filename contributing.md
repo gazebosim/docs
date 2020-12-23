@@ -427,10 +427,6 @@ Porting changes across branches:
         # Open pull request
         # Do not squash, rebase instead
 
-* The [SDFormat repository](https://github.com/osrf/sdformat) follows a
-  slightly different porting process. Commits are cherry-picked forwards or backwards,
-  and rebase-merged.
-
 ## Writing Tests
 
 Most Ignition libraries use [GTest](http://code.google.com/p/googletest) for
