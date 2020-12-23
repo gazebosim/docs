@@ -6,8 +6,8 @@ If a cell in the table is `-`, this means that the two Ignition releases use
 the same version of this Ignition library. So, for example, `ign-cmake` has a
 `-` for B ➡️  C because Blueprint and Citadel use `ign-cmake2`.
 
-When it says "There isn’t anything to compare," this means no pull requests
-need to be forward-ported.
+When the comparison link says "There isn’t anything to compare," this means
+no pull requests need to be forward-ported.
 
 Otherwise, those branches could use a forward-port pull request.
 See the instructions on the
@@ -17,10 +17,6 @@ See the instructions on the
 * **C**: Citadel
 * **D**: Dome
 * **main**: main branch
-
-> SDFormat is a special case where the release branches should be compared
-  against `merge_N_M_reference` branches instead of other release branches.
-  Be sure to update those branches before using for comparison.
 
 Library | B ➡️  C | C ➡️  D | D ➡️  main
 ------- | ------ | ------ | -------
