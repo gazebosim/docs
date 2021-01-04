@@ -1,3 +1,7 @@
+**Blueprint has reached end-of-life on December 2020.
+This page exists for archival purposes.
+Please refer to the latest supported version.**
+
 # Blueprint Installation
 
 Blueprint supports the following platforms:
