@@ -7,26 +7,26 @@ Citadel supports the following platforms:
      * Ignition currently only works in headless mode
       (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use
       `ign gazebo -s fuel.sdf` to start the server only).
-
-Windows support is still experimental although most of the packages should work
-as expected. There are no binaries for Windows at this time. The `ign-gazebo`
-package is still not available for Windows; the installation should be done from
-source code. The [Source Installation on Ubuntu Bionic](install_ubuntu_src)
-contains some tips for Windows.
+ * Windows 10
+     * Ignition command line utilities do not work.
+     * All packages up to but not including `ign-gazebo` are currently supported.
+     * DART physics engine is not yet supported.
 
 ## Binary installation instructions
 
 Binary installation is the recommended method of installing Ignition.
 
- * [Binary Installation on Ubuntu Bionic](install_ubuntu)
- * [Binary Installation on MacOS Mojave (10.14)](install_osx)
+ * [Binary Installation on Ubuntu Bionic](install_ubuntu.md)
+ * [Binary Installation on MacOS Mojave (10.14)](install_osx.md)
+ * [Binary Installation on Windows 10](install_windows.md)
 
 ## Source Installation instructions
 
 Source installation is recommended for users planning on altering Ignition's source code (advanced).
 
- * [Source Installation on Ubuntu Bionic](install_ubuntu_src)
- * [Source Installation on MacOS](install_osx_src)
+ * [Source Installation on Ubuntu Bionic](install_ubuntu_src.md)
+ * [Source Installation on MacOS](install_osx_src.md)
+ * [Source Installation on Windows](install_windows_src.md)
 
 ## Citadel Libraries
 
