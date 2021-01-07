@@ -31,14 +31,14 @@ This list of library versions may change up to the release date.
 | Library name       | Version       |
 | ------------------ |:-------------:|
 |   ign-cmake        |       2.x     |
-|   ign-common       |       3.x     |
+|   ign-common       |       4.x     |
 |   ign-fuel_tools   |       6.x     |
 |   ign-gazebo       |       5.x     |
 |   ign-gui          |       5.x     |
 |   ign-launch       |       4.x     |
 |   ign-math         |       6.x     |
 |   ign-msgs         |       7.x     |
-|   ign-physics      |       3.x     |
+|   ign-physics      |       4.x     |
 |   ign-plugin       |       1.x     |
 |   ign-rendering    |       5.x     |
 |   ign-sensors      |       5.x     |
