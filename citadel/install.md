@@ -11,6 +11,7 @@ Citadel supports the following platforms:
      * Ignition command line utilities are not yet supported.
      * All packages up to but not including `ign-gazebo` are currently supported.
      * DART physics engine is not yet supported.
+     * Qt is not yet supported.
 
 ## Binary installation instructions
 
