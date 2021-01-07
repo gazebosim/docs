@@ -26,22 +26,22 @@ Additionally, command line tools as well as the DART physics engine are not curr
 
 1. Install dependencies
 
-        conda install cmake git vcstool curl pkg-config \
-        colcon-common-extensions eigen freeimage gts \
-        glib dlfcn-win32 ffmpeg ruby tinyxml2 tinyxml \
-        protobuf urdfdom zeromq cppzmq ogre jsoncpp \
+        conda install cmake git vcstool curl pkg-config ^
+        colcon-common-extensions eigen freeimage gts ^
+        glib dlfcn-win32 ffmpeg ruby tinyxml2 tinyxml ^
+        protobuf urdfdom zeromq cppzmq ogre jsoncpp ^
         libzip qt --channel conda-forge
 
 1. Navigate to where you would like to build the library, and then clone the repositories.
 
-        curl -O https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-citadel.yaml`
+        curl -O https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-citadel.yaml
         mkdir src
         vcs import src < collection-citadel.yaml
 
 1. Install `ign-cmake` from `conda-forge` and disable the cloned `ign-cmake` from being built.
 
-        conda install libignition-cmake2
-        touch src/ign-cmake/COLCON_IGNORE
+        conda install libignition-cmake2 --channel conda-forge
+        touch src\ign-cmake\COLCON_IGNORE
 
     This is due to a linking error currently existing within the `ign-cmake` source. See the comments [here](https://github.com/ignitionrobotics/docs/issues/96#issuecomment-742096017).
 
@@ -68,7 +68,6 @@ Start the procedure by changing into the workspace and listing the packages
 recognized by `colcon`:
 
 ```bash
-cd ~/workspace/
 colcon graph
 ```
 
@@ -80,6 +79,7 @@ to build the whole set of libraries:
 ```bash
 colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install --packages-up-to ignition-gazebo3
 ```
+Tests are turned off as they are not currently supported on Windows.
 
 To build a specific package with all its dependent packages:
 
@@ -121,10 +121,11 @@ the results you want:
      there is no Ignition install on your system.
 
   2. If, in addition to not wanting to use the libraries, you're also trying to
-     free up space, you can delete the entire workspace directory with:
+     free up space, you can delete the entire workspace directory from within
+     your `conda` environment with:
 
      ```bash
-     rm -rf ~/workspace
+     rm -rf <workspace_name>
      ```
 
   3. If you want to keep the source code, you can remove the

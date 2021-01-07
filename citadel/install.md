@@ -8,7 +8,7 @@ Citadel supports the following platforms:
       (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use
       `ign gazebo -s fuel.sdf` to start the server only).
  * Windows 10
-     * Ignition command line utilities do not work.
+     * Ignition command line utilities are not yet supported.
      * All packages up to but not including `ign-gazebo` are currently supported.
      * DART physics engine is not yet supported.
 
@@ -26,7 +26,7 @@ Source installation is recommended for users planning on altering Ignition's sou
 
  * [Source Installation on Ubuntu Bionic](install_ubuntu_src.md)
  * [Source Installation on MacOS](install_osx_src.md)
- * [Source Installation on Windows](install_windows_src.md)
+ * [Source Installation on Windows 10](install_windows_src.md)
 
 ## Citadel Libraries
 

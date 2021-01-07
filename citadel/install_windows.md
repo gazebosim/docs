@@ -15,7 +15,7 @@ the package manager Ignition uses for Windows binary installations:
 The remaining packages currently have an [outstanding ticket](https://github.com/conda-forge/staged-recipes/issues/13551),
 and will not be supported until they are added to the `conda-forge` feedstock.
 
-Additionally, command line tools as well as the DART physics engine are not currently supported in Windows.
+Additionally, command line tools, the DART physics engine, and tests are not currently supported in Windows.
 
 The above mentioned Ignition packages are available in Windows 10 using the [conda-forge package manager](https://conda-forge.org/),
 and the Ignition feedstock recipes can be found [here](https://github.com/conda-forge?q=libignition&type=&language=).
@@ -23,6 +23,14 @@ and the Ignition feedstock recipes can be found [here](https://github.com/conda-
 In order to use `conda-forge`, you will need to
 1. Install a [Conda package management system](https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html).  Miniconda suffices.
 2. Open a Windows command prompt, being sure to have `conda` added to your Windows `PATH` system environment variable (you may also need to open a new command prompt to see any `PATH` changes reflected).
+
+    If you did not add Conda to your `PATH` environment variable
+    during Conda installation, you may need to navigate to the
+    location of `condabin` in order to use the `conda` command.
+    To find `condabin`, search for "Anaconda Prompt" in the
+    Windows search field near the Windows button, open it, run
+    `where conda`, and look for a line containing the directory `condabin`.
+
 3. Create and activate a new Conda environment:
 ```bash
 conda create -n ign-ws
