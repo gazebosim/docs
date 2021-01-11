@@ -43,5 +43,5 @@ This list of library versions may change up to the release date.
 |   ign-rendering    |       5.x     |
 |   ign-sensors      |       5.x     |
 |   ign-tools        |       1.x     |
-|   ign-transport    |       9.x     |
+|   ign-transport    |      10.x     |
 |   sdformat         |      10.x     |
