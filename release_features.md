@@ -120,7 +120,7 @@ collection assures that all libraries all compatible and can be used together.
 1. [Tutorial series](https://community.gazebosim.org/t/gsoc-2020-new-ignition-gazebo-demos/613).
 1. [Custom rendering engines.](https://ignitionrobotics.org/api/rendering/3.2/renderingplugin.html)
 1. Logical audio sensor and source.
-1. Lockstepped video recording.
+1. Lockstepped video recording that can optionally use simulation time instead of real time.
 1. APIs that make it easier to migrate from Gazebo classic:
     * [World](https://ignitionrobotics.org/api/gazebo/3.5/migrationworldapi.html)
     * [Model](https://ignitionrobotics.org/api/gazebo/3.5/migrationmodelapi.html)

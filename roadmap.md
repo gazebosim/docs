@@ -46,6 +46,7 @@ and release pattern allows us to distribute patch and minor updates into an alre
 1. [Improved Ignition Physics documentation.](https://community.gazebosim.org/t/gsod-2020-ignition-physics-tutorial-and-api-documentation/746)
 1. [Bazel build files.](https://github.com/ignitionrobotics/ign-bazel)
 1. [Configure lights from the GUI or transport.](https://github.com/ignitionrobotics/ign-gazebo/issues/122)
+1. Texture-based thermal signature for objects, visible from thermal camera.
 
 ### Edifice
 
@@ -58,6 +59,7 @@ and release pattern allows us to distribute patch and minor updates into an alre
 1. [Lightmap support.](https://github.com/ignitionrobotics/ign-gazebo/pull/471)
 1. [Capsule and ellipsoid geometry types in SDFormat.](https://github.com/osrf/sdformat/issues/376)
 1. [SDF model composition.](https://github.com/osrf/sdformat/issues/278)
+1. New utility library with minimal dependencies: [Ignition Utils](https://github.com/ignitionrobotics/ign-utils/).
 
 ## Planned releases
 
