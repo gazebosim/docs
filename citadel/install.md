@@ -2,7 +2,7 @@
 
 Citadel supports the following platforms:
 
- * Ubuntu Bionic on amd64/i386
+ * Ubuntu Bionic on amd64/i386 and Focal on amd64
  * MacOS Mojave
      * Ignition currently only works in headless mode
       (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use
@@ -11,21 +11,21 @@ Citadel supports the following platforms:
 Windows support is still experimental although most of the packages should work
 as expected. There are no binaries for Windows at this time. The `ign-gazebo`
 package is still not available for Windows; the installation should be done from
-source code. The [Source Installation on Ubuntu Bionic](install_ubuntu_src)
+source code. The [Source Installation on Ubuntu](install_ubuntu_src)
 contains some tips for Windows.
 
 ## Binary installation instructions
 
 Binary installation is the recommended method of installing Ignition.
 
- * [Binary Installation on Ubuntu Bionic](install_ubuntu)
+ * [Binary Installation on Ubuntu](install_ubuntu)
  * [Binary Installation on MacOS Mojave (10.14)](install_osx)
 
 ## Source Installation instructions
 
 Source installation is recommended for users planning on altering Ignition's source code (advanced).
 
- * [Source Installation on Ubuntu Bionic](install_ubuntu_src)
+ * [Source Installation on Ubuntu](install_ubuntu_src)
  * [Source Installation on MacOS](install_osx_src)
 
 ## Citadel Libraries

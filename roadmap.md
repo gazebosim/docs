@@ -8,39 +8,19 @@ info@openrobotics.org.
 
 ## Quarterly Roadmap
 
-**Close the Gap** is Ignition's current focus topic. Over the next two
-quarters we will concentrate development efforts on topics that reduce
-feature disparity between Gazebo classic and Ignition and facilitate migration from
-Gazebo classic to Ignition. Take a look at the
-[feature comparison](/docs/citadel/comparison) page for a list of
-differences between classic and Ignition.
+## 2021 Q1(Jan - Mar) - ongoing
 
-## 2020 Q3(Jul - Sep) - finished
+* **Windows support**
+    * [All open tickets](https://github.com/search?q=org%3Aignitionrobotics+label%3AWindows&type=Issues)
+    * [Status](https://github.com/orgs/ignitionrobotics/projects/3?card_filter_query=label%3AWindows)
+* **Demos**: Create various demos highlighting Ignition's features.
+* **Web client**: Visualize running simulations on a web browser.
 
-* **Migration Strategies**: Develop and document strategies for migrating
-plugins, SDF files, and other simulation resources from Gazebo classic to Ignition.
+## 2021 Q2(Apr - Jun) - planned
 
-* **Documentation**: Improve documentation release process and usability.
-Port relevant Gazebo classic tutorials to Ignition.
-
-See the [Igniton Dome release announcement](https://www.openrobotics.org/blog/2019/12/11/ignition-dome-released)
-for some of these features released.
-
-## 2020 Q4(Oct - Dec) - ongoing
-
-* **Cross platform compatibility**: Fully support Windows, Ubuntu, and macOS.
-    * Windows
-        * [All open tickets](https://github.com/search?q=org%3Aignitionrobotics+label%3AWindows&type=Issues)
-        * [Status](https://github.com/orgs/ignitionrobotics/projects/3?card_filter_query=label%3AWindows)
-    * macOS
-        * [All open tickets](https://github.com/search?q=org%3Aignitionrobotics+label%3AmacOS&type=Issues)
-        * [Status](https://github.com/orgs/ignitionrobotics/projects/3?card_filter_query=label%3AmacOS)
-
-* **Feature parity**: Port features from Gazebo classic that are missing in Ignition.
-    * See [all open tickets](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22close+the+gap%22&state=open&type=Issues)
-      with the "close the gap" label.
-    * See [current development status](https://github.com/orgs/ignitionrobotics/projects/3?card_filter_query=label%3A%22close+the+gap%22)
-      for tickets with the "close the gap" label.
+* **Performance**: Improve Ignition Gazebo's runtime performance
+    * [All open tickets](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22performance%22&state=open&type=Issues)
+    * [Status](https://github.com/orgs/ignitionrobotics/projects/3?card_filter_query=label%3A%22performance%22)
 
 ## Feature Roadmap
 
@@ -54,33 +34,29 @@ a set of [library](/libs) major versions. Each library follows
 idom](https://en.cppreference.com/w/cpp/language/pimpl). This development
 and release pattern allows us to distribute patch and minor updates into an already released Ignition version. For example, if a new feature does not break API/ABI then we will target the feature to the oldest compatible non-EOL release and propagate the feature forward.
 
-### Blueprint
-
-1. Additional graphical tools for model and world creation and editing.
-1. Logical audio sensor and source.
-
 ### Citadel
 
 1. SDF website update, more documentation.
 1. Ease migration of SDF files from Gazebo classic.
-1. [Reset world.](https://github.com/ignitionrobotics/ign-gazebo/issues/203)
 
 ### Dome
 
-1. Particle effects, to support smoke and gas.
+1. [Particle effects on Gazebo, to support smoke and gas.](https://github.com/ignitionrobotics/ign-gazebo/issues/558)
 1. Localized wind (wind that is constrained to a region of influence).
-1. Optical tactile plugin.
 1. [Improved Ignition Physics documentation.](https://community.gazebosim.org/t/gsod-2020-ignition-physics-tutorial-and-api-documentation/746)
 1. [Bazel build files.](https://github.com/ignitionrobotics/ign-bazel)
+1. [Configure lights from the GUI or transport.](https://github.com/ignitionrobotics/ign-gazebo/issues/122)
 
 ### Edifice
 
-1. Improved Mac and Windows support
+1. Improved Mac and Windows support.
 1. Mesh level of detail support.
 1. Design for Enhanced distributed simulation.
+1. [Hook command line tool to binaries instead of libraries](https://github.com/ignitionrobotics/ign-tools/issues/7)
 1. [Heightmap support using Ogre 1 and DART.](https://github.com/ignitionrobotics/ign-gazebo/issues/237)
 1. [Sky box support.](https://github.com/ignitionrobotics/ign-rendering/issues/98)
-1. [Capsule geometry type in SDFormat.](https://github.com/osrf/sdformat/issues/376)
+1. [Lightmap support.](https://github.com/ignitionrobotics/ign-gazebo/pull/471)
+1. [Capsule and ellipsoid geometry types in SDFormat.](https://github.com/osrf/sdformat/issues/376)
 1. [SDF model composition.](https://github.com/osrf/sdformat/issues/278)
 
 ## Planned releases
