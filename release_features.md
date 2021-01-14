@@ -5,7 +5,7 @@ Here you will find the set of features that are available in each release.
 Take a look at the [Roadmap](/docs/roadmap) for information about upcoming
 features, some of which may land in released versions of Ignition.
 
-## Acropolis
+## Acropolis (EOL)
 
 The first major release of Ignition focused on the basics of simulation. The basics primarily encompassed integration of physics, sensors, graphical tools, and programmatic interfaces.
 
@@ -44,7 +44,7 @@ collection assures that all libraries all compatible and can be used together.
 |   sdformat         |       8.x     |       [Changelog](https://github.com/osrf/sdformat/blob/sdf8/Changelog.md)        |
 
 
-## Blueprint
+## Blueprint (EOL)
 
 1. [Physically based rendering (PBR)](https://en.wikipedia.org/wiki/Physically_based_rendering) materials.
 1. Air pressure, RGBD and stereo camera sensors.
@@ -84,6 +84,7 @@ collection assures that all libraries all compatible and can be used together.
     * Insert models from online sources and local directories.
     * Log playback scrubber.
     * Save worlds.
+    * Tape measure.
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
@@ -118,6 +119,8 @@ collection assures that all libraries all compatible and can be used together.
 1. Widget that publishes keys pressed on the keyboard.
 1. [Tutorial series](https://community.gazebosim.org/t/gsoc-2020-new-ignition-gazebo-demos/613).
 1. [Custom rendering engines.](https://ignitionrobotics.org/api/rendering/3.2/renderingplugin.html)
+1. Logical audio sensor and source.
+1. Lockstepped video recording that can optionally use simulation time instead of real time.
 1. APIs that make it easier to migrate from Gazebo classic:
     * [World](https://ignitionrobotics.org/api/gazebo/3.5/migrationworldapi.html)
     * [Model](https://ignitionrobotics.org/api/gazebo/3.5/migrationmodelapi.html)
@@ -144,9 +147,12 @@ collection assures that all libraries all compatible and can be used together.
 
 ## Dome
 
-1. Particle effects on Ignition Rendering.
+1. [Particle effects on Ignition Rendering.](https://ignitionrobotics.org/api/rendering/4.1/particles.html)
 1. Actor plugins.
 1. Efficient skeleton animations.
+1. [Optical tactile sensor plugin.](https://community.gazebosim.org/t/gsoc-2020-ignition-gazebo-optical-tactile-sensor-plugin/618)
+1. Support entity names with spaces.
+1. Kinetic energy monitor plugin.
 1. GUI tools:
     * [Plotting](https://community.gazebosim.org/t/gsoc-2020-plotting-tool-for-ignition/619)
     * [Lidar visualization](https://community.gazebosim.org/t/gsoc-2020-sensor-data-visualization/638)
@@ -168,5 +174,5 @@ collection assures that all libraries all compatible and can be used together.
 |   ign-sensors      |       4.x     |       [Changelog](https://github.com/ignitionrobotics/ign-sensors/blob/ign-sensors4/Changelog.md)      |
 |   ign-tools        |       1.x     |       [Changelog](https://github.com/ignitionrobotics/ign-tools/blob/ign-tools1/Changelog.md)     |
 |   ign-transport    |       9.x     |       [Changelog](https://github.com/ignitionrobotics/ign-transport/blob/ign-transport9/Changelog.md)      |
-|   sdformat         |       10.x     |       [Changelog](https://github.com/osrf/sdformat/blob/sdf10/Changelog.md)        |
+|   sdformat         |      10.x     |       [Changelog](https://github.com/osrf/sdformat/blob/sdf10/Changelog.md)        |
 
