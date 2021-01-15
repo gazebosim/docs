@@ -2,7 +2,7 @@
 
 Citadel supports the following platforms:
 
- * Ubuntu Bionic on amd64/i386
+ * Ubuntu Bionic on amd64/i386 and Focal on amd64
  * MacOS Mojave
      * Ignition currently only works in headless mode
       (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use
@@ -12,6 +12,7 @@ Citadel supports the following platforms:
      * All packages up to but not including `ign-gazebo` are currently building.
      * DART physics engine is not yet supported.
      * Qt (GUI functionality) is not yet supported.
+
 
 ## Binary installation instructions
 
