@@ -21,9 +21,13 @@ and will not be supported until they are added to the `conda-forge` feedstock.
 Additionally, command line tools, the DART physics engine, and tests are not currently supported in Windows.
 
 In order to use `conda-forge`, you will need to
-1. Install a [Conda package management system](https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html).  Miniconda suffices. You will likely want to check the box to add `conda` to your `PATH` during the installation process so that you won't have to do this step manually.
+1. Install a [Conda package management system](https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html).
+   Miniconda suffices. You will likely want to check the box to add `conda` to your `PATH`
+   during the installation process so that you won't have to do this step manually.
 
-2. Open a Windows command prompt, being sure to have `conda` added to your Windows `PATH` system environment variable (you may also need to open a new command prompt to see any `PATH` changes reflected).
+2. Open a Windows command prompt, being sure to have `conda` added to your
+   Windows `PATH` system environment variable (you may also need to open
+   a new command prompt to see any `PATH` changes reflected).
 
   If you did not add Conda to your `PATH` environment variable
   during Conda installation, you may need to navigate to the
@@ -42,7 +46,10 @@ you want to install based on your application.
   ```bash
   conda install libignition-<package_name><#> --channel conda-forge
   ```
-  Be sure to replace `<package_name>` with your desired package name (ie, common, msgs, etc.) and `<#>` with the release version.  If left unspecified, `conda-forge` will install the most recently stable release packages.  Be sure to check the [high level install instructions](install) for corresponding version numbers.
+  Be sure to replace `<package_name>` with your desired package name (ie, common, msgs, etc.)
+  and `<#>` with the release version.  If left unspecified, `conda-forge` will install the
+  most recently stable release packages.  Be sure to check the
+  [high level install instructions](install) for corresponding version numbers.
 
 **Note**
 
