@@ -1,49 +1,62 @@
 # Source Installation on Windows 10
 
-Currently, `ign-gazebo` and `ign-launch` are not supported on Windows 10
+Currently, `ign-gazebo` and `ign-launch` are not supported on Windows 10.
 
-Additionally, command line tools as well as the DART physics engine are not currently supported in Windows.
+Additionally, command line tools, DART physics engine, and gui capabilities are not currently supported in Windows. These functionalities correspond to the currently building packages `ign-tools`, `ign-physics`, and `ign-gui`, respectively.
+
+**Note**
+
+You will still be able to use `TPE` as a physics engine (see [here](https://ignitionrobotics.org/api/physics/2.2/physicsplugin.html) for more information on `TPE`).
 
 ## Install dependencies
 
-1. Install a [Conda package management system](https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html).  Miniconda suffices.
-1. Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/). The Community version is free for students, open-source developers, and personal development. Check "Desktop development with C++" in the Workloads tab, and uncheck "C++ Cmake Tools." We will install cmake via Conda.
-1. Open a Visual Studio Command Prompt (search for "x64 Native Tools Command Prompt for VS 2019" in the Windows search field near the Windows button). Optionally, right-click and pin to the task bar for quick access in the future.
+1. Install a [Conda package management system](https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html).  Miniconda suffices. You will likely want to check the box to add `conda` to your `PATH` during the installation process so that you won't have to do this step manually.
 
-    If you did not add Conda to your `PATH` environment variable during Conda installation, you may need to navigate to the location of `condabin` in order to use the `conda` command.
-    To find `condabin`, search for "Anaconda Prompt" in the Windows search field near the Windows button, open it, run `where conda`, and look for a line containing the directory `condabin`.
+2. Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/). The Community version is free for students, open-source developers, and personal development. Check "Desktop development with C++" in the Workloads tab, and uncheck "C++ Cmake Tools." We will install cmake via Conda.
 
-1. Navigate to your `condabin`, if necessary, and then create and activate a Conda environment:
+3. Open a Visual Studio Command Prompt (search for "x64 Native Tools Command Prompt for VS 2019" in the Windows search field near the Windows button). Optionally, right-click and pin to the task bar for quick access in the future.
 
-        conda create -n ign-ws
-        conda activate ign-ws
+  If you did not add Conda to your `PATH` environment variable during Conda installation, you may need to navigate to the location of `condabin` in order to use the `conda` command.
+  To find `condabin`, search for "Anaconda Prompt" in the Windows search field near the Windows button, open it, run `where conda`, and look for a line containing the directory `condabin`.
 
-    Once you have activate an environment, a prefix like `(ign-ws)` will be prepended to your prompt, and you can use the `conda` command outside of the `condabin` directory.
+4. Navigate to your `condabin`, if necessary, and then create and activate a Conda environment:
+  ```bash
+  conda create -n ign-ws
+  conda activate ign-ws
+  ```
 
-    You can use `conda info --envs` to see all of your environments.
+  Once you have activate an environment, a prefix like `(ign-ws)` will be prepended to your prompt, and you can use the `conda` command outside of the `condabin` directory.
 
-    To remove an environment, use `conda env remove --name <env_name>`.
+  You can use `conda info --envs` to see all of your environments.
 
-1. Install dependencies
+  To remove an environment, use `conda env remove --name <env_name>`.
 
-        conda install cmake git vcstool curl pkg-config ^
-        colcon-common-extensions eigen freeimage gts ^
-        glib dlfcn-win32 ffmpeg ruby tinyxml2 tinyxml ^
-        protobuf urdfdom zeromq cppzmq ogre jsoncpp ^
-        libzip qt --channel conda-forge
+5. Install dependencies:
 
-1. Navigate to where you would like to build the library, and then clone the repositories.
+  ```bash
+  conda install cmake git vcstool curl pkg-config ^
+  colcon-common-extensions eigen freeimage gts ^
+  glib dlfcn-win32 ffmpeg ruby tinyxml2 tinyxml ^
+  protobuf urdfdom zeromq cppzmq ogre jsoncpp ^
+  libzip qt --channel conda-forge
+  ```
 
-        curl -O https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-citadel.yaml
-        mkdir src
-        vcs import src < collection-citadel.yaml
+6. Navigate to where you would like to build the library, create and enter your workspace directory, create the `src` directory which will contain the Ignition source code, and then clone the repositories.
+  ```bash
+  mkdir ign-ws
+  cd ign-ws
+  curl -O https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-citadel.yaml
+  mkdir src
+  vcs import src < collection-citadel.yaml
+  ```
 
-1. Install `ign-cmake` from `conda-forge` and disable the cloned `ign-cmake` from being built.
+7. Install `ign-cmake` from `conda-forge` and disable the cloned `ign-cmake` from being built.
+  ```bash
+  conda install libignition-cmake2 --channel conda-forge
+  touch src\ign-cmake\COLCON_IGNORE
+  ```
 
-        conda install libignition-cmake2 --channel conda-forge
-        touch src\ign-cmake\COLCON_IGNORE
-
-    This is due to a linking error currently existing within the `ign-cmake` source. See the comments [here](https://github.com/ignitionrobotics/docs/issues/96#issuecomment-742096017).
+  This is due to a linking error currently existing within the `ign-cmake` source. See the comments [here](https://github.com/ignitionrobotics/docs/issues/96#issuecomment-742096017).
 
 **Note**
 
@@ -71,15 +84,15 @@ recognized by `colcon`:
 colcon graph
 ```
 
-`colcon graph` should list the Ignition libraries with an
-[interdependency diagram](https://colcon.readthedocs.io/en/released/reference/verb/graph.html#example-output).
-If that is the case, then you are ready
-to build the whole set of libraries:
+`colcon graph` should list the Ignition libraries with an [interdependency diagram](https://colcon.readthedocs.io/en/released/reference/verb/graph.html#example-output).
+If that is the case, then you are ready to build the whole set of libraries:
 
 ```bash
 colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install --packages-up-to ignition-gazebo3
 ```
 Tests are turned off as they are not currently supported on Windows.
+
+**Note:** All of the Ignition packages up to, but not including `ign-gazebo` are currently building.  The above command should successfully build all packages except for `ign-gazebo`.
 
 To build a specific package with all its dependent packages:
 
@@ -107,7 +120,7 @@ Run the following command to source the workspace:
 call install\setup.bat
 ```
 
-This is the end of the source install instructions; head back to the [Getting started](getting_started.html)
+This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)
 page to start using Ignition!
 
 ## Uninstalling source-based install
@@ -117,7 +130,7 @@ the results you want:
 
   1. If you installed your workspace with `colcon` as instructed above, "uninstalling"
      could be just a matter of opening a new terminal and not sourcing the
-     workspace's `setup.sh`. This way, your environment will behave as though
+     workspace's `setup.bat`. This way, your environment will behave as though
      there is no Ignition install on your system.
 
   2. If, in addition to not wanting to use the libraries, you're also trying to
