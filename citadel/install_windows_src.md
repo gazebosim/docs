@@ -2,7 +2,7 @@
 
 Currently, `ign-gazebo` and `ign-launch` are not supported on Windows 10.
 
-Additionally, command line tools, DART physics engine, and gui capabilities are
+Additionally, command line tools, DART physics engine, and GUI capabilities are
 not currently supported in Windows. These functionalities correspond to the currently
 building packages `ign-tools`, `ign-physics`, and `ign-gui`, respectively.
 
