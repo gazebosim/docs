@@ -54,9 +54,6 @@ sudo apt-get install git
 
 ## Getting the sources
 
-The instructions below use some UNIX commands to manage directories but the
-equivalent alternatives on Windows should provide the same result.
-
 The first step is to create a developer workspace in which `vcstool` and
 `colcon` can work:
 
@@ -172,7 +169,6 @@ sudo apt-get install -y \
 ### Install compiler requirements
 
 The Ignition Libraries require the gcc compiler version 8 or higher.
-(Windows requires Visual Studio 2019).
 
 #### Ubuntu Bionic
 
