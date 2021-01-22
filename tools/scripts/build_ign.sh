@@ -7,7 +7,6 @@
 # 5 - Release date in the ISO 8601 format. See the command `date -Iseconds`.
 # 6 - Password to https://api.ignitionrobotics.org/1.0/versions.
 
-set -o errexit
 set -o verbose
 
 export DEBIAN_FRONTEND=noninteractive
@@ -25,15 +24,18 @@ make doc
 
 if [[ ! -z "$4" && "$4" != "n" ]]; then
   # Upload documentation
-  echo -e "\e[46mUpload documentation for $3\e[0m"
+  echo -e "\e[46m\e[90mUploading documentation for $3...\e[0m\e[39m"
   sh upload_doc.sh $4
+  echo -e "\e[46m\e[90mUploaded documentation for $3\e[0m\e[39m"
 
   # Get the project version from cmake
   version=`grep "project(.* VERSION" ../CMakeLists.txt  | grep -oP "(?<=VERSION )[0-9].[0-9].[0-9]"`
 
   # Get the libName from the second parameter
   libName=`echo "$2" | grep -oP "(?<=ign-).*"`
+  libName="${libName//-/_}
 
-  echo -e "\e[46mAdding version [$version] for library [$libName]\e[0m"
+  echo -e "\e[46m\e[90mAdding version [$version] for library [$libName], release date [$5]...\e[0m\e[39m"
   curl -k -X POST -d '{"libName":"'"$libName"'", "version":"'"$version"'", "releaseDate":"'"$5"'","password":"'"$6"'"}' https://api.ignitionrobotics.org/1.0/versions
+  echo -e "\e[46m\e[90mAdded version [$version] for library [$libName], release date [$5]\e[0m\e[39m"
 fi
