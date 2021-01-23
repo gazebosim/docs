@@ -11,6 +11,8 @@ set -o verbose
 
 export DEBIAN_FRONTEND=noninteractive
 
+echo -e "\e[46m\e[90mProcessing [$1/$2] branch [$3]...\e[0m\e[39m"
+
 git clone https://github.com/$1/$2 -b $3
 cd $2
 
@@ -33,7 +35,7 @@ if [[ ! -z "$4" && "$4" != "n" ]]; then
 
   # Get the libName from the second parameter
   libName=`echo "$2" | grep -oP "(?<=ign-).*"`
-  libName="${libName//-/_}
+  libName="${libName//-/_}"
 
   echo -e "\e[46m\e[90mAdding version [$version] for library [$libName], release date [$5]...\e[0m\e[39m"
   curl -k -X POST -d '{"libName":"'"$libName"'", "version":"'"$version"'", "releaseDate":"'"$5"'","password":"'"$6"'"}' https://api.ignitionrobotics.org/1.0/versions
