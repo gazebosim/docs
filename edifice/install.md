@@ -31,7 +31,7 @@ This list of library versions may change up to the release date.
 | Library name       | Version       |
 | ------------------ |:-------------:|
 |   ign-cmake        |       2.x     |
-|   ign-common       |       3.x     |
+|   ign-common       |       4.x     |
 |   ign-fuel_tools   |       6.x     |
 |   ign-gazebo       |       5.x     |
 |   ign-gui          |       5.x     |
