@@ -1,6 +1,6 @@
 # Source Installation on Ubuntu
 
-These instructions apply for Ubuntu Bionic (18.04) and Focal (20.04).
+These instructions apply to Ubuntu Bionic (18.04) and Focal (20.04).
 
 ## Install tools
 
@@ -19,17 +19,26 @@ platforms (like Ubuntu Bionic). The Python
 [virtualenv](https://virtualenv.pypa.io/en/latest/) could be a useful solution in
 cases where the default option cannot be easily changed.
 
+## Generic tools
+
+Install tools needed by this tutorial:
+
+```bash
+sudo apt install python3-pip wget lsb-release
+```
+
 ## vcstool and colcon from pip
 
 PIP is available on all platforms:
 
 ```bash
-pip install vcstool
+pip install vcstool || pip3 install vcstool
 ```
 
 ```bash
-pip install -U colcon-common-extensions
+pip install -U colcon-common-extensions || pip3 install -U colcon-common-extensions
 ```
+
 Check that no errors were printed while installing with PIP. If your system is not recognising the commands, and you're using a system that is compatible with Debian or Ubuntu packages, see the instructions below to install using `apt`.
 
 ## vcstool and colcon from apt
@@ -95,75 +104,8 @@ sudo apt-get update
 The command below will install all dependencies in Ubuntu:
 
 ```bash
-sudo apt-get install -y \
-  build-essential \
-  cmake \
-  freeglut3-dev \
-  libavcodec-dev \
-  libavdevice-dev \
-  libavformat-dev \
-  libavutil-dev \
-  libbenchmark-dev \
-  libcurl4-openssl-dev \
-  libfreeimage-dev \
-  libgflags-dev \
-  libglew-dev \
-  libgts-dev \
-  libjsoncpp-dev \
-  libogre-1.9-dev \
-  libogre-2.1-dev \
-  libprotobuf-dev \
-  libprotobuf-dev \
-  libprotoc-dev \
-  libqt5core5a \
-  libsqlite3-dev \
-  libswscale-dev \
-  libtinyxml-dev \
-  libtinyxml2-dev \
-  libwebsockets-dev \
-  libyaml-dev \
-  libzip-dev \
-  libzmq3-dev \
-  pkg-config \
-  protobuf-compiler \
-  python \
-  qml-module-qt-labs-folderlistmodel \
-  qml-module-qt-labs-settings \
-  qml-module-qtqml-models2 \
-  qml-module-qtquick-controls \
-  qml-module-qtquick-controls2 \
-  qml-module-qtquick-dialogs \
-  qml-module-qtquick-layouts \
-  qml-module-qtquick2 \
-  qtbase5-dev \
-  qtdeclarative5-dev \
-  qtquickcontrols2-5-dev \
-  ruby \
-  ruby-dev \
-  ruby-ronn \
-  swig \
-  uuid-dev
-```
-
-Additionally, on Ubuntu Bionic:
-
-```bash
-sudo apt-get install -y \
-  dart6-data \
-  libdart6-collision-ode-dev \
-  libdart6-dev \
-  libdart6-utils-urdf-dev
-```
-
-Or additionally, on Ubuntu Focal:
-
-```bash
-sudo apt-get install -y \
-  libdart-collision-ode-dev \
-  libdart-dev \
-  libdart-external-ikfast-dev \
-  libdart-external-odelcpsolver-dev \
-  libdart-utils-urdf-dev
+sudo apt -y install \
+  $(sort -u $(find . -iname 'packages-'`lsb_release -cs`'.apt' -o -iname 'packages.apt') | sed '/ignition\|sdf/d' | tr '\n' ' ')
 ```
 
 ### Install compiler requirements
