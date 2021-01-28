@@ -26,9 +26,9 @@ cmake ../ -DBUILD_TESTING=false
 make doc
 echo ::endgroup::
 
+echo ::group::Upload documentation
 if [[ ! -z "$4" && "$4" != "n" ]]; then
   # Upload documentation
-  echo ::group::Upload documentation
   echo -e "\e[46m\e[30mUploading documentation for $3...\e[0m\e[39m"
   sh upload_doc.sh $4
   echo -e "\e[46m\e[30mUploaded documentation for $3\e[0m\e[39m"
@@ -45,5 +45,5 @@ if [[ ! -z "$4" && "$4" != "n" ]]; then
   echo -e "\e[46m\e[30mAdding version [$version] for library [$libName], release date [$5]...\e[0m\e[39m"
   curl -k -X POST -d '{"libName":"'"$libName"'", "version":"'"$version"'", "releaseDate":"'"$5"'","password":"'"$6"'"}' https://api.ignitionrobotics.org/1.0/versions
   echo -e "\e[46m\e[30mAdded version [$version] for library [$libName], release date [$5]\e[0m\e[39m"
-  echo ::endgroup::
 fi
+echo ::endgroup::
