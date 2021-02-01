@@ -37,19 +37,20 @@ and release pattern allows us to distribute patch and minor updates into an alre
 ### Citadel
 
 1. SDF website update, more documentation.
-1. Ease migration of SDF files from Gazebo classic.
 
 ### Dome
 
 1. [Particle effects on Gazebo, to support smoke and gas.](https://github.com/ignitionrobotics/ign-gazebo/issues/558)
 1. Localized wind (wind that is constrained to a region of influence).
-1. [Improved Ignition Physics documentation.](https://community.gazebosim.org/t/gsod-2020-ignition-physics-tutorial-and-api-documentation/746)
 1. [Bazel build files.](https://github.com/ignitionrobotics/ign-bazel)
 1. [Configure lights from the GUI or transport.](https://github.com/ignitionrobotics/ign-gazebo/issues/122)
 1. Texture-based thermal signature for objects, visible from thermal camera.
+1. Light visualization.
+1. Spawn lights from the GUI.
 
 ### Edifice
 
+1. New utility library with minimal dependencies: [Ignition Utils](https://github.com/ignitionrobotics/ign-utils/).
 1. Improved Mac and Windows support.
 1. Mesh level of detail support.
 1. Design for Enhanced distributed simulation.
@@ -57,9 +58,9 @@ and release pattern allows us to distribute patch and minor updates into an alre
 1. [Heightmap support using Ogre 1 and DART.](https://github.com/ignitionrobotics/ign-gazebo/issues/237)
 1. [Sky box support.](https://github.com/ignitionrobotics/ign-rendering/issues/98)
 1. [Lightmap support.](https://github.com/ignitionrobotics/ign-gazebo/pull/471)
-1. [Capsule and ellipsoid geometry types in SDFormat.](https://github.com/osrf/sdformat/issues/376)
+1. [Capsule and ellipsoid geometries.](https://github.com/osrf/sdformat/issues/376)
 1. [SDF model composition.](https://github.com/osrf/sdformat/issues/278)
-1. New utility library with minimal dependencies: [Ignition Utils](https://github.com/ignitionrobotics/ign-utils/).
+1. Choose render order for overlapping polygons.
 
 ## Planned releases
 
