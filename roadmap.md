@@ -37,6 +37,7 @@ and release pattern allows us to distribute patch and minor updates into an alre
 ### Citadel
 
 1. SDF website update, more documentation.
+1. [Custom retroreflection for objects detected by lidar.](https://github.com/ignitionrobotics/ign-rendering/issues/181)
 
 ### Dome
 
@@ -45,8 +46,6 @@ and release pattern allows us to distribute patch and minor updates into an alre
 1. [Bazel build files.](https://github.com/ignitionrobotics/ign-bazel)
 1. [Configure lights from the GUI or transport.](https://github.com/ignitionrobotics/ign-gazebo/issues/122)
 1. Texture-based thermal signature for objects, visible from thermal camera.
-1. Light visualization.
-1. Spawn lights from the GUI.
 
 ### Edifice
 
@@ -60,7 +59,10 @@ and release pattern allows us to distribute patch and minor updates into an alre
 1. [Lightmap support.](https://github.com/ignitionrobotics/ign-gazebo/pull/471)
 1. [Capsule and ellipsoid geometries.](https://github.com/osrf/sdformat/issues/376)
 1. [SDF model composition.](https://github.com/osrf/sdformat/issues/278)
-1. Choose render order for overlapping polygons.
+1. [Choose render order for overlapping polygons.](https://github.com/ignitionrobotics/ign-rendering/pull/188)
+1. [Headless simulation using EGL.](https://github.com/ignitionrobotics/ign-rendering/issues/223)
+1. [Light visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/193)
+1. [Spawn lights from the GUI.](https://github.com/ignitionrobotics/ign-gazebo/issues/119)
 
 ## Planned releases
 

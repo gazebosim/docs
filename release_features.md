@@ -120,8 +120,9 @@ collection assures that all libraries all compatible and can be used together.
 1. [Custom rendering engines.](https://ignitionrobotics.org/api/rendering/3.2/renderingplugin.html)
 1. [Logical audio sensor and source.](https://ignitionrobotics.org/api/gazebo/3.7/logicalaudiosensor.html)
 1. Lockstepped video recording that can optionally use simulation time instead of real time.
-1. Easier migration of SDF files from Gazebo classic.]()
+1. [Easier migration of SDF files from Gazebo classic.](https://ignitionrobotics.org/api/gazebo/3.7/migrationsdf.html)
 1. [Binary Windows install through conda-forge.](https://ignitionrobotics.org/docs/citadel/install_windows)
+1. [Restitution coefficient (bouncing).](https://github.com/ignitionrobotics/ign-physics/pull/139)
 1. New graphical interfaces:
     * Widget listing all transport topics.
     * Widget that publishes keys pressed on the keyboard.
@@ -161,7 +162,7 @@ collection assures that all libraries all compatible and can be used together.
 1. GUI tools:
     * [Plotting](https://community.gazebosim.org/t/gsoc-2020-plotting-tool-for-ignition/619)
     * [Lidar visualization](https://community.gazebosim.org/t/gsoc-2020-sensor-data-visualization/638)
-    * Widget to configure physics real time factor and step size.
+    * [Configure physics real time factor and step size.](https://github.com/ignitionrobotics/ign-gazebo/pull/536)
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
