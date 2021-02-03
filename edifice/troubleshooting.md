@@ -77,8 +77,8 @@ that's working by running a world which uses Ogre 1 instead of Ogre 2, such as:
 
     ign gazebo -v 3 lights.sdf
 
-If that loads, you can continue to use Ignition with Ogre 1, just be sure to
-specify `ogre` in your SDF files instead of `ogre2`.
+If that loads, you can continue to use Ignition with Ogre 1, just use the
+`--render-engine ogre` option.
 
 To enable Ogre 2 support, you'll need to update your computer's OpenGL version.
 As suggested on the Ogre logs, this may require updating your graphics card
