@@ -1,6 +1,6 @@
 # Source Installation on Ubuntu
 
-These instructions apply to Ubuntu Bionic or Focal.
+These instructions apply to Ubuntu Bionic (18.04) and Focal (20.04).
 
 ## Install tools
 
@@ -19,16 +19,24 @@ platforms (like Ubuntu Focal). The Python
 [virtualenv](https://virtualenv.pypa.io/en/latest/) could be a useful solution in
 cases where the default option cannot be easily changed.
 
+## Generic tools
+
+Install tools needed by this tutorial:
+
+```bash
+sudo apt install python3-pip wget lsb-release
+```
+
 ## vcstool and colcon from pip
 
 PIP is available on all platforms:
 
 ```bash
-pip install vcstool
+pip install vcstool || pip3 install vcstool
 ```
 
 ```bash
-pip install -U colcon-common-extensions
+pip install -U colcon-common-extensions || pip3 install -U colcon-common-extensions
 ```
 
 Check that no errors were printed while installing with PIP. If your system is not recognising the commands, and you're using a system that is compatible with Debian or Ubuntu packages, see the instructions below to install using `apt`.
@@ -99,9 +107,8 @@ sudo apt-get update
 The command below will install all dependencies in Ubuntu Bionic or Focal:
 
 ```bash
-SYSTEM_VERSION=`lsb_release -cs`
 sudo apt -y install \
-  $(sort -u $(find . -iname 'packages-'$SYSTEM_VERSION'.apt' -o -iname 'packages.apt') | tr '\n' ' ')
+  $(sort -u $(find . -iname 'packages-'`lsb_release -cs`'.apt' -o -iname 'packages.apt') | sed '/ignition\|sdf/d' | tr '\n' ' ')
 ```
 
 ### Install compiler requirements
