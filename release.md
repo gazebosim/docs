@@ -1,4 +1,4 @@
-# Ignition release process
+# Ignition Release Process
 
 This documentation covers the releasing process done by the members of the
 Ignition/Gazebo team. It offers a general overview and documentation of the
@@ -25,22 +25,7 @@ distributions starting from a local copy of source code together with
 description and explanations of the context of preparing, creating and releasing
 new software versions.
 
-![general releasing context](releasing/imgs/general-context.png)
-
-### Infrastructure
-
-The Ignition team uses different pieces of infrastructure to execute the
-releasing process:
-
- * **build.osrfoundation.org**: main Jenkins server to orchestrate the whole
-   releasing process. It receives requests from Ignition developers to start
-   release process, schedule nightly builds, build the binary packages,
-   upload releasing artifacts to repositories, etc.
-
- * **packages.osrfoundation.org**: Debian/Ubuntu .deb repositories.
-
- * **osrf-distributions S3**: [cloud storage](https://osrf-distributions.s3.amazonaws.com/bottles-simulation)
-   space to save the different artifacts produced during the release process.
+![general releasing context](releasing/images/general_context.png)
 
 ### Releasing platforms supported
 
@@ -62,6 +47,21 @@ supported for binaries distribution:
    all Ignition libraries although there is an ongoing effort for getting
    binary packages inside
    [conda-forge](https://github.com/conda-forge/staged-recipes/issues/13551)
+
+### Infrastructure
+
+The Ignition team uses different pieces of infrastructure to execute the
+releasing process:
+
+ * **build.osrfoundation.org**: main Jenkins server to orchestrate the whole
+   releasing process. It receives requests from Ignition developers to start
+   release process, schedule nightly builds, build the binary packages,
+   upload releasing artifacts to repositories, etc.
+
+ * **packages.osrfoundation.org**: Debian/Ubuntu .deb repositories.
+
+ * **osrf-distributions S3**: [cloud storage](https://osrf-distributions.s3.amazonaws.com/bottles-simulation)
+   space to save the different artifacts produced during the release process.
 
 ### Type of releases
 
