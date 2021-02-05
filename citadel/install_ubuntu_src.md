@@ -105,7 +105,7 @@ The command below will install all dependencies in Ubuntu:
 
 ```bash
 sudo apt -y install \
-  $(sort -u $(find . -iname 'packages-'`lsb_release -cs`'.apt' -o -iname 'packages.apt') | sed '/ignition\|sdf/d' | tr '\n' ' ')
+  $(sort -u $(find . -iname 'packages-'`lsb_release -cs`'.apt' -o -iname 'packages.apt' | grep -v '/\.git/') | sed '/ignition\|sdf/d' | tr '\n' ' ')
 ```
 
 ### Install compiler requirements
