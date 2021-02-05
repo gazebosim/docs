@@ -16,7 +16,7 @@ git clone https://github.com/$1/$2 -b $3
 cd $2
 
 sudo apt -y install \
-  $(sort -u $(find . -iname 'packages-'$SYSTEM_VERSION'.apt' -o -iname 'packages.apt') | tr '\n' ' ')
+  $(sort -u $(find . -iname 'packages-'$SYSTEM_VERSION'.apt' -o -iname 'packages.apt' | grep -v '/\.git/') | tr '\n' ' ')
 
 mkdir build
 cd build
