@@ -79,6 +79,13 @@ High performance inter- and intra-process communication based on
 [ZeroMQ](http://zeromq.org/) and [Protobuf](https://developers.google.com/protocol-buffers/).
 * [sdformat](https://github.com/osrf/sdformat): World description format.
 
+### Ignition Architecture
+
+Documents describing the architecture of Ignition are under development.
+The available docs are listed here:
+
+* [Ignition Gazebo Architecture](/docs/architecture)
+
 ## How to Contribute
 
 ### Reporting Bugs
