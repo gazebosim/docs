@@ -29,22 +29,22 @@ s3cmd --dump-config > s3.cfg
 # We are using docker because a library's documentation links to other
 # library documentation, and we want to guarantee a clean system.
 if [[ $1 == 'acropolis' || $1 == 'Acropolis' ]]; then
-  echo "Uploading documentation for Acropolis"
+  echo -e "\e[46m\e[30mUploading documentation for Acropolis\e[0m\e[39m"
   docker build -t ign-acropolis-docs -f Dockerfile.acropolis --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
 fi
 
 if [[ $1 == 'blueprint' || $1 == 'Blueprint' ]]; then
-  echo "Uploading documentation for Blueprint"
+  echo -e "\e[46m\e[30mUploading documentation for Blueprint\e[0m\e[39m"
   docker build -t ign-blueprint-docs -f Dockerfile.blueprint --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
 fi
 
 if [[ $1 == 'all' || $1 == 'citadel' || $1 == 'Citadel' ]]; then
-  echo "Uploading documentation for Citadel"
+  echo -e "\e[46m\e[30mUploading documentation for Citadel\e[0m\e[39m"
   docker build -t ign-citadel-docs -f Dockerfile.citadel --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
 fi
 
 if [[ $1 == 'all' || $1 == 'dome' || $1 == 'Dome' ]]; then
-  echo "Uploading documentation for Dome"
+  echo -e "\e[46m\e[30mUploading documentation for Dome\e[0m\e[39m"
   docker build -t ign-dome-docs -f Dockerfile.dome --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
 fi
 

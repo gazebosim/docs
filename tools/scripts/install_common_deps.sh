@@ -29,4 +29,5 @@ sudo apt-get install -y \
   ruby-dev \
   ruby-ronn \
   s3cmd \
-  software-properties-common
+  software-properties-common \
+  texlive-latex-base

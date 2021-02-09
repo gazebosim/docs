@@ -2,6 +2,8 @@ FROM ubuntu:bionic
 
 ENV DEBIAN_FRONTEND=noninteractive
 
+RUN echo ::group::Container setup
+
 RUN apt-get update \
  && apt-get install -y \
       sudo tzdata \
@@ -20,62 +22,68 @@ RUN scripts/enable_gcc8.sh
 
 COPY scripts/build_ign.sh scripts/build_ign.sh
 
-RUN scripts/build_ign.sh ignitionrobotics ign-cmake ign-cmake2 n \
-      $IGN_VERSION_DATE \
-      $IGN_VERSION_PASSWORD
+RUN echo ::endgroup::
+
+# See https://github.com/ignitionrobotics/docs/issues/53
+# RUN scripts/build_ign.sh ignitionrobotics ign-cmake ign-cmake2 n \
+#       $IGN_VERSION_DATE \
+#       $IGN_VERSION_PASSWORD; exit 0
 
 RUN scripts/build_ign.sh ignitionrobotics ign-math ign-math6 y \
       $IGN_VERSION_DATE \
-      $IGN_VERSION_PASSWORD
+      $IGN_VERSION_PASSWORD; exit 0
 
-RUN scripts/build_ign.sh ignitionrobotics ign-tools ign-tools1 n \
-      $IGN_VERSION_DATE \
-      $IGN_VERSION_PASSWORD
+# See https://github.com/ignitionrobotics/docs/issues/53
+# RUN scripts/build_ign.sh ignitionrobotics ign-tools ign-tools1 n \
+#       $IGN_VERSION_DATE \
+#       $IGN_VERSION_PASSWORD; exit 0
 
 RUN scripts/build_ign.sh ignitionrobotics ign-plugin ign-plugin1 y \
       $IGN_VERSION_DATE \
-      $IGN_VERSION_PASSWORD
+      $IGN_VERSION_PASSWORD; exit 0
 
 RUN scripts/build_ign.sh ignitionrobotics ign-common ign-common3 y \
       $IGN_VERSION_DATE \
-      $IGN_VERSION_PASSWORD
+      $IGN_VERSION_PASSWORD; exit 0
 
-RUN scripts/build_ign.sh osrf sdformat sdf9 n \
-      $IGN_VERSION_DATE \
-      $IGN_VERSION_PASSWORD
+# SDFormat's documentation is uploaded in a different way
+# Keeping it here for completeness
+# RUN scripts/build_ign.sh osrf sdformat sdf9 n \
+#       $IGN_VERSION_DATE \
+#       $IGN_VERSION_PASSWORD; exit 0
 
 RUN scripts/build_ign.sh ignitionrobotics ign-msgs ign-msgs5 y \
       $IGN_VERSION_DATE \
-      $IGN_VERSION_PASSWORD
+      $IGN_VERSION_PASSWORD; exit 0
 
 RUN scripts/build_ign.sh ignitionrobotics ign-transport ign-transport8 y \
       $IGN_VERSION_DATE \
-      $IGN_VERSION_PASSWORD
+      $IGN_VERSION_PASSWORD; exit 0
 
 RUN scripts/build_ign.sh ignitionrobotics ign-fuel-tools ign-fuel-tools4 y \
       $IGN_VERSION_DATE \
-      $IGN_VERSION_PASSWORD
+      $IGN_VERSION_PASSWORD; exit 0
 
 RUN scripts/build_ign.sh ignitionrobotics ign-rendering ign-rendering3 y \
       $IGN_VERSION_DATE \
-      $IGN_VERSION_PASSWORD
+      $IGN_VERSION_PASSWORD; exit 0
 
 RUN scripts/build_ign.sh ignitionrobotics ign-sensors ign-sensors3 y \
       $IGN_VERSION_DATE \
-      $IGN_VERSION_PASSWORD
+      $IGN_VERSION_PASSWORD; exit 0
 
 RUN scripts/build_ign.sh ignitionrobotics ign-gui ign-gui3 y \
       $IGN_VERSION_DATE \
-      $IGN_VERSION_PASSWORD
+      $IGN_VERSION_PASSWORD; exit 0
 
 RUN scripts/build_ign.sh ignitionrobotics ign-physics ign-physics2 y \
       $IGN_VERSION_DATE \
-      $IGN_VERSION_PASSWORD
+      $IGN_VERSION_PASSWORD; exit 0
 
 RUN scripts/build_ign.sh ignitionrobotics ign-gazebo ign-gazebo3 y \
       $IGN_VERSION_DATE \
-      $IGN_VERSION_PASSWORD
+      $IGN_VERSION_PASSWORD; exit 0
 
 RUN scripts/build_ign.sh ignitionrobotics ign-launch ign-launch2 y \
       $IGN_VERSION_DATE \
-      $IGN_VERSION_PASSWORD
+      $IGN_VERSION_PASSWORD; exit 0
