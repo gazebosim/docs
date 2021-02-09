@@ -29,7 +29,7 @@ Both optional and default plugins can be removed or added at any time; Ignition 
 
 ## Backend server process
 
-Ignition gazebo is responsible for loading plugins in the backend, referred to as systems.
+Ignition Gazebo is responsible for loading plugins in the backend, referred to as systems.
 The server runs an entity-component system architecture (see [Ignition Gazebo terminology](https://ignitionrobotics.org/api/gazebo/4.2/terminology.html)).
 The backend will usually have multiple systems responsible for everything in the simulation – computing physics, recording logs, receiving user commands, etc.
 
