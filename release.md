@@ -101,7 +101,7 @@ Libraries supported packages:
      building packages the metadata will be injected in the Jenkins server
      together with software sources.
 
-     Ignition project stores the Debian/Ubuntu metadata in individual
+     Ignition projects store the Debian/Ubuntu metadata in individual
      repositories hosted at: https://github.com/ignition-release/ There is a
      repository for each major version of every Ignition package.
 
