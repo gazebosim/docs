@@ -125,7 +125,7 @@ used. This version is called `upstream version` (where upstream is the
 development team or authors).
 
 The current upstream version of Ignition libraries can be found in the repository's
-`CMakeLists.txt` file following the CMake `project declaration`:
+`CMakeLists.txt` file following the CMake `project` declaration:
 
 ```cmake
   project(ignition-fooX VERSION X.Y.Z)
