@@ -54,7 +54,7 @@ The Ignition team uses different pieces of infrastructure to execute the
 releasing process:
 
  * **build.osrfoundation.org**: main Jenkins server to orchestrate the whole
-   releasing process. It receives requests from Ignition developers to start
+   releasing process. It receives requests from Ignition developers to start the
    release process, schedule nightly builds, build the binary packages,
    upload releasing artifacts to repositories, etc.
 
@@ -102,35 +102,35 @@ the features needed to install and remove packages. In the case of Ignition
 Libraries supported packages:
 
  * **deb packages**: debian packaging metadata for Debian/Ubuntu packages is
-     stored in a custom way inside the `release`repositories. At the moment of
+     stored in a custom way inside the `release` repositories. At the moment of
      building packages the metadata will be injected in the Jenkins server
      together with software sources.
 
-     Ignition project stores the Debian/Ubuntu metadata in individual
+     Ignition projects store the Debian/Ubuntu metadata in individual
      repositories hosted at: https://github.com/ignition-release/ There is a
      repository for each major version of every Ignition package.
 
 
  * **brew**: Brew uses custom ruby files to declare software metadata called
-     `Formulas`. The Ignitions libraries Brew Formulas can be found at:
+     `Formulae`. The Ignitions libraries Brew Formulae can be found at:
      https://github.com/osrf/homebrew-simulation/tree/master/Formula
 
 
 ### Versioning
 
-A fundamental part of releasing software or binaries is tag an snapshot of code
+A fundamental part of releasing software or binaries is tagging a snapshot of code
 with a given version. There are different types of versions, this section covers
 the ones involved in the Ignition release process.
 
 #### Versions in software code (upstream versions)
 
 The development team of any software product usually declares a version each
-team they want to make explicit for users that a product is somehow ready to be
+time they want to make explicit for users that a product is somehow ready to be
 used. This version is called `upstream version` (where upstream is the
 development team or authors).
 
-The current upstream version of Ignition libraries can be found in the library repository
-`CMakeLists.txt` file following the CMake `project declaration`:
+The current upstream version of Ignition libraries can be found in the repository's
+`CMakeLists.txt` file following the CMake `project` declaration:
 
 ```cmake
   project(ignition-fooX VERSION X.Y.Z)
@@ -139,7 +139,7 @@ The current upstream version of Ignition libraries can be found in the library r
 The Ignition version numbers follows the [Semantic
 Versioning](https://semver.org/) scheme so versions are composed of
 `MAJOR.MINOR.PATCH` numbers. The Ignition libraries also support the option of
-creating prereleases. Using [ign-cmake is
+creating prereleases. Using [ign-cmake it's
 trivial](https://github.com/ignitionrobotics/ign-cmake/blob/ign-cmake2/examples/prerelease/CMakeLists.txt#L4)
 for the libraries to declare a prerelease number:
 
@@ -150,7 +150,7 @@ ign_configure_project(VERSION_SUFFIX pre1)
 #### Versions in binary packages
 
 Binary packages should match exactly the Ignition code version `X.Y.Z`. All
-package system append a new part to the version called the **release version**
+package systems append a new part to the version called the **release version**
 which is designed to reflect changes in the packaging while keeping the same
 code version `X.Y.Z`.
 
