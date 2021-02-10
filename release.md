@@ -69,7 +69,7 @@ The Ignition development uses three different types of releases depending on the
 stability of the software:
 
  * **stable**: stable releases are designed to be generally consumed by users
-   that does not expect to solve severe issues or regressions.
+   that do not expect to solve severe issues or regressions.
    * Linux stable binaries:
      http://packages.osrfoundation.org/gazebo/{ubuntu/debian}-stable
    * macOS stable binaries:
