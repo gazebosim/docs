@@ -1,6 +1,6 @@
 ## Versioning in nightly and prerelease binaries
 
-Binary packages produced for prerelease and nightly builds has some
+Binary packages produced for prerelease and nightly builds have some
 particularities to stablish the priority among them nicely.
 
 ### Version schemes
