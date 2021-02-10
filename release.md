@@ -30,8 +30,8 @@ new software versions.
 ### Releasing platforms supported
 
 The Ignition software supports a large variety of platforms where it can be
-built from source. A small subgroup of them is selected to be the officially
-supported for binaries distribution:
+built from source. A small subgroup of them are selected to be officially
+supported for binary distribution:
 
  * **Linux:** .deb packages are being created for different Ubuntu and Debian
    releases. Ubuntu LTS and Debian stable are officially supported.
