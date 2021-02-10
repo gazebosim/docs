@@ -58,10 +58,15 @@ releasing process:
    release process, schedule nightly builds, build the binary packages,
    upload releasing artifacts to repositories, etc.
 
- * **packages.osrfoundation.org**: Debian/Ubuntu .deb repositories.
+ * **packages.osrfoundation.org**: Debian/Ubuntu .deb repositories. The URLs
+   are ready to be used by the APT packages system.
 
  * **osrf-distributions S3**: [cloud storage](https://osrf-distributions.s3.amazonaws.com/bottles-simulation)
-   space to save the different artifacts produced during the release process.
+   space to save the different artifacts produced during the release process. The
+   S3 space is no more than archive of artifacts that need to be manually
+   downloaded (i.e: to get an old version of a .deb package) or handled by other
+   packaging systems (i.e: brew download the bottles from S3, the buildfarm uses
+   the tarballs stored in S3 when building .deb packages)
 
 ### Type of releases
 
