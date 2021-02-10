@@ -145,7 +145,7 @@ ign_configure_project(VERSION_SUFFIX pre1)
 #### Versions in binary packages
 
 Binary packages should match exactly the Ignition code version `X.Y.Z`. All
-package system append a new part to the version called the **release version**
+package systems append a new part to the version called the **release version**
 which is designed to reflect changes in the packaging while keeping the same
 code version `X.Y.Z`.
 
