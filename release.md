@@ -61,7 +61,7 @@ releasing process:
  * **packages.osrfoundation.org**: Debian/Ubuntu .deb repositories. The URLs
    are ready to be used by the APT packages system.
 
- * **osrf-distributions S3**: [cloud storage](https://osrf-distributions.s3.amazonaws.com/bottles-simulation)
+ * **osrf-distributions S3**: [cloud storage](http://gazebosim.org/distributions/bottles-simulation/)
    space to save the different artifacts produced during the release process. The
    S3 space is no more than archive of artifacts that need to be manually
    downloaded (i.e: to get an old version of a .deb package) or handled by other
@@ -78,14 +78,14 @@ stability of the software:
    * Linux stable binaries:
      http://packages.osrfoundation.org/gazebo/{ubuntu/debian}-stable
    * macOS stable binaries:
-     https://osrf-distributions.s3.amazonaws.com/
+     http://gazebosim.org/distributions/ (in their respective directories)
 
  * **prerelease**: prereleases are designed to be tested as candidates to
    stable.
    * Linux prerelease binaries:
      http://packages.osrfoundation.org/gazebo/{ubuntu/debian}-prerelease
    * macOS prerelease binaries (same than stable):
-     https://osrf-distributions.s3.amazonaws.com/bottles-simulation
+     http://gazebosim.org/distributions/bottles-simulation/
 
  * **nightly**: automatically generated releases used in continuous integration
    systems reflecting the latest changes in the repositories.
