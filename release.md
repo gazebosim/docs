@@ -22,7 +22,7 @@ procedures and tools used and provide an step by step guide to do released.
 Ignition development supports different ways of installing the software in the
 user system. This document covers the process of creating binaries for different
 distributions starting from a local copy of source code together with
-description and explanations of the context of preparing, creating and releasing
+descriptions and explanations of the context of preparing, creating and releasing
 new software versions.
 
 ![general releasing context](releasing/images/general_context.png)
