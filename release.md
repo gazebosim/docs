@@ -107,7 +107,7 @@ Libraries supported packages:
 
 
  * **brew**: Brew uses custom ruby files to declare software metadata called
-     `Formulas`. The Ignitions libraries Brew Formulas can be found at:
+     `Formulae`. The Ignitions libraries Brew Formulae can be found at:
      https://github.com/osrf/homebrew-simulation/tree/master/Formula
 
 
