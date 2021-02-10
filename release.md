@@ -120,7 +120,7 @@ the ones involved in the Ignition release process.
 #### Versions in software code (upstream versions)
 
 The development team of any software product usually declares a version each
-team they want to make explicit for users that a product is somehow ready to be
+time they want to make explicit for users that a product is somehow ready to be
 used. This version is called `upstream version` (where upstream is the
 development team or authors).
 
