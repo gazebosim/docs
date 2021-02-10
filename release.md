@@ -124,7 +124,7 @@ time they want to make explicit for users that a product is somehow ready to be
 used. This version is called `upstream version` (where upstream is the
 development team or authors).
 
-The current upstream version of Ignition libraries can be found in the library repository
+The current upstream version of Ignition libraries can be found in the repository's
 `CMakeLists.txt` file following the CMake `project declaration`:
 
 ```cmake
