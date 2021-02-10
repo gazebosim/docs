@@ -23,7 +23,7 @@ particularities to establish the priority among them nicely.
     Used for information proposes.
 
  * `nightly_revision`:  revision number to apply to the nightly. It is also
-   used to generate a new nightly using the same same date timestamp.
+   used to generate a new nightly using the same date timestamp.
 
 ### Versions when mixing stable, prerelease and nightly
 
