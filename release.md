@@ -43,7 +43,7 @@ supported for binary distribution:
    [Homebrew package manager](https://brew.sh/). Binary packages for Brew are
    called `bottles`.
 
- * **Windows:** currently *there is no binary distribution for Windows* that cover
+ * **Windows:** currently *there is no binary distribution for Windows* that covers
    all Ignition libraries although there is an ongoing effort for getting
    binary packages inside
    [conda-forge](https://github.com/conda-forge/staged-recipes/issues/13551)

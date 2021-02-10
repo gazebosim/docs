@@ -7,7 +7,7 @@ particularities to establish the priority among them nicely.
 
 **Prerelease** versioning scheme: `{upcoming_version}~pre{prerelease_version}`
 
- * `upcoming_version:` upstream version target for current prerelease series
+ * `upcoming_version:` upstream version target for current prerelease series (e.g., `X.Y.Z`)
  * `prerelease_version`: prerelease version number in the series
 
 **Nightly** use the following versioning scheme: `{current_released_version}+git{date}+${nightly_revision}r{hash}-{nightly_revision}`
@@ -23,7 +23,7 @@ particularities to establish the priority among them nicely.
     Used for information proposes.
 
  * `nightly_revision`:  revision number to apply to the nightly. It is also
-   used to generate a new nightly using the same same date timestamp.
+   used to generate a new nightly using the same date timestamp.
 
 ### Versions when mixing stable, prerelease and nightly
 
