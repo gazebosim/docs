@@ -38,7 +38,7 @@ supported for binary distribution:
    Architectures supported are typically `amd64`, `arm64` and `armhf` but that
    combination may not be available for all Ubuntu/Debian/Ignition releases.
 
- * **MacOSX:** binaries for all active releases of MacOSX are usually created by
+ * **macOS:** binaries for all active releases of macOS are usually created by
    the Ignition development team under the support of
    [Homebrew package manager](https://brew.sh/). Binary packages for Brew are
    called `bottles`.
@@ -72,21 +72,21 @@ stability of the software:
    that does not expect to solve severe issues or regressions.
    * Linux stable binaries:
      http://packages.osrfoundation.org/gazebo/{ubuntu/debian}-stable
-   * MacosX stable binaries:
+   * macOS stable binaries:
      https://osrf-distributions.s3.amazonaws.com/
 
  * **prerelease**: prereleases are designed to be tested as candidates to
    stable.
    * Linux prerelease binaries:
      http://packages.osrfoundation.org/gazebo/{ubuntu/debian}-prerelease
-   * MacosX prerelease binaries (same than stable):
+   * macOS prerelease binaries (same than stable):
      https://osrf-distributions.s3.amazonaws.com/bottles-simulation
 
  * **nightly**: automatically generated releases used in continuous integration
    systems reflecting the latest changes in the repositories.
    * Linux nightly binaries:
      http://packages.osrfoundation.org/gazebo/{ubuntu/debian}-nightly
-   * MacosX nightly binaries:
+   * macOS nightly binaries:
      *Unsupported*
 
 ### Metadata for Releasing
