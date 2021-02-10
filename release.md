@@ -54,7 +54,7 @@ The Ignition team uses different pieces of infrastructure to execute the
 releasing process:
 
  * **build.osrfoundation.org**: main Jenkins server to orchestrate the whole
-   releasing process. It receives requests from Ignition developers to start
+   releasing process. It receives requests from Ignition developers to start the
    release process, schedule nightly builds, build the binary packages,
    upload releasing artifacts to repositories, etc.
 
