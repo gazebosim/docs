@@ -113,7 +113,7 @@ Libraries supported packages:
 
 ### Versioning
 
-A fundamental part of releasing software or binaries is tag an snapshot of code
+A fundamental part of releasing software or binaries is tagging a snapshot of code
 with a given version. There are different types of versions, this section covers
 the ones involved in the Ignition release process.
 
