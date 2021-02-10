@@ -84,7 +84,7 @@ stability of the software:
    stable.
    * Linux prerelease binaries:
      http://packages.osrfoundation.org/gazebo/{ubuntu/debian}-prerelease
-   * macOS prerelease binaries (same than stable):
+   * macOS prerelease binaries (they are stored in same place than stable releases):
      http://gazebosim.org/distributions/bottles-simulation/
 
  * **nightly**: automatically generated releases used in continuous integration
