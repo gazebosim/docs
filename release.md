@@ -97,7 +97,7 @@ the features needed to install and remove packages. In the case of Ignition
 Libraries supported packages:
 
  * **deb packages**: debian packaging metadata for Debian/Ubuntu packages is
-     stored in a custom way inside the `release`repositories. At the moment of
+     stored in a custom way inside the `release` repositories. At the moment of
      building packages the metadata will be injected in the Jenkins server
      together with software sources.
 
