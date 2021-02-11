@@ -95,7 +95,7 @@ sudo apt-get install s3cmd
 
 Some Debian tools require the following variables to be set:
 ```bash
-export DEBEMAIL="<username>@openrobotics"
+export DEBEMAIL="<username>@openrobotics.org"
 export DEBFULLNAME="<Your full name>"
 ```
 **Note:** the two above exported variables can be added to `.bashrc` to have
