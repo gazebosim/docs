@@ -580,7 +580,7 @@ In general, we follow [Google's style guide](https://google.github.io/styleguide
 ### Releasing information for members of development team
 
 [Releasing documentation](release.md) is available for the development team
-members. Includes general overview as well as detailed information about how to
+members. Includes a general overview as well as detailed information about how to
 run a new release.
 
 ### Creating GIFs

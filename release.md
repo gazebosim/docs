@@ -22,7 +22,7 @@ procedures and tools used and provide an step by step guide to do released.
 Ignition development supports different ways of installing the software in the
 user system. This document covers the process of creating binaries for different
 distributions starting from a local copy of source code together with
-descriptions and explanations of the context of preparing, creating and releasing
+descriptions and explanations of preparing, creating and releasing
 new software versions.
 
 ![general releasing context](releasing/images/general_context.png)
@@ -84,7 +84,7 @@ stability of the software:
    stable.
    * Linux prerelease binaries:
      http://packages.osrfoundation.org/gazebo/{ubuntu/debian}-prerelease
-   * macOS prerelease binaries (they are stored in same place than stable releases):
+   * macOS prerelease binaries (they are stored in the same place as stable releases but under bottles-simulation):
      http://gazebosim.org/distributions/bottles-simulation/
 
  * **nightly**: automatically generated releases used in continuous integration
@@ -139,9 +139,8 @@ The current upstream version of Ignition libraries can be found in the repositor
 The Ignition version numbers follows the [Semantic
 Versioning](https://semver.org/) scheme so versions are composed of
 `MAJOR.MINOR.PATCH` numbers. The Ignition libraries also support the option of
-creating prereleases. Using [ign-cmake it's
-trivial](https://github.com/ignitionrobotics/ign-cmake/blob/ign-cmake2/examples/prerelease/CMakeLists.txt#L4)
-for the libraries to declare a prerelease number:
+creating prereleases. Using [this ign-cmake command](https://github.com/ignitionrobotics/ign-cmake/blob/ign-cmake2/examples/prerelease/CMakeLists.txt#L4)
+it's trivial for libraries to declare a prerelease number:
 
 ```cmake
 ign_configure_project(VERSION_SUFFIX pre1)
