@@ -111,7 +111,7 @@ process:
   ```
   s3cmd --configure
   ```
-  If you don't have AWS credentials please contact with TODO
+  If you don't have AWS credentials please contact @j-rivero or @nuclearsandwich who will help set you up.
 
  * Release token: magic sequence of characters needed while running `release.py`
    to interact with `build.osrfoundation.org`:
