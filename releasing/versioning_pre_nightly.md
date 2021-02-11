@@ -3,6 +3,20 @@
 Binary packages produced for prerelease and nightly builds have some
 particularities to establish the priority among them nicely.
 
+**Prereleases** for version `X.Y.Z` are created as candidates of the stable
+release of `X.Y.Z` so the stable needs to have precedence over prereleases when
+both are available through different repositories.
+
+**Nightlies** for version `X.Y.Z` are snapshots of development code merged on
+top of a released version `X.Y.Z` features and/or patches that will be shipped
+into the next release. Therefore nightlies needs to have precedence over stable
+releases. Another use case for nightlies is to server as continuous unstable
+releases when preparing a new version `X.Y.Z`. In this scenario the stable
+release should have precedence over the nightlies generated before it. To get
+this precedence, the nighlty version uses the trick of setting the version to
+`{X-1.99.99}` (i.e: if the version to release is `9.0.0`, the nightlies used before
+the version will use `8.99.99`).
+
 ### Version schemes
 
 **Prerelease** versioning scheme: `{upcoming_version}~pre{prerelease_version}`
@@ -14,7 +28,7 @@ particularities to establish the priority among them nicely.
 
  * `current_released_version:` will be the latest version released available in
    the changelog file of the corresponding -release repo. If the nightly is
-   used for an upcoming release (for example, gazebo10) then R-1.99.99-1
+   used for an upcoming release (for example, gazebo10) then {version-1}.99.99-1
    (gazebo10_9.99.99-1) form will be used until prereleases or final release.
 
  * `date`: timestamp YYYY-MM-DD
