@@ -158,12 +158,13 @@ Debian/Ubuntu packaging use a hyphen to separate code version from the revision
 number (starts with 1) `R`: `X.Y.Z-R`.
 
 Brew bottles revisions are defined in the code of Brew formulas. If there is no
-revision, assume 0. When defined start with 1.
+revision, assume 0. When defined it starts with 1.
 
 ```ruby
 bottle do
   revision 1
-  sha256 "41af286dc0b172ed2f1ca934fd2278de4a1192302ffa07087cea2682e7d372e3" => :blah
+  # sha256 is the 256 hash of binary bottle for the macOS version lala
+  sha256 "41af286dc0b172ed2f1ca934fd2278de4a1192302ffa07087cea2682e7d372e3" => :lala
 end
 ```
 
