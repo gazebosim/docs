@@ -166,7 +166,7 @@ repository and provide the following information:
 
 We follow a development process designed to reduce errors, encourage
 collaboration, and make high quality code. Review the following to
-get aquainted with this development process.
+get acquainted with this development process.
 
 1. **Read the [Reporting Bugs](#reporting-bugs) and [Suggesting Enhancements](#suggesting-enhancements)** sections first.
 
@@ -274,7 +274,7 @@ get aquainted with this development process.
 
 1. **Respond to reviewers.** At least two other people have to approve your pull request before it can be merged. Please be responsive to any questions and comments.
 
-1. **Done, phew.** Once you have met all the requirements, you're code will be merged. Thanks for improving Ignition!
+1. **Done, phew.** Once you have met all the requirements, your code will be merged. Thanks for improving Ignition!
 
 ### Tracking Progress
 
@@ -438,10 +438,10 @@ in the same directory as the source code and are suffixed by `_TEST`.
 
 1. **Integration tests**: tests which verify how many classes are working together go under the `tests/integration` directory.
 
-1. **Regression tests**: tests which fix broken features go under `tests/regression` and are prefixed by the issue number on librarie's issue tracker.
+1. **Regression tests**: tests which fix broken features go under `tests/regression` and are prefixed by the issue number on library's issue tracker.
 
 1. **Performance tests**: tests that are designed to check performance
-   characterics, such as CPU or memory usage, go under `tests/performance`.
+   characteristics, such as CPU or memory usage, go under `tests/performance`.
 
 Before creating a new integration or performance test file, check the current
 test files. If one closely matches the topic of your new code, simply add a new
@@ -546,7 +546,7 @@ In general, we follow [Google's style guide](https://google.github.io/styleguide
 > All parameters that are not modified by a function should be marked as `const`, except for "Plain Old Data" (`int`, `bool`, etc). This applies to parameters that are passed by reference, and pointer. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/Model.hh#L111-L112).
 
 1. **Pointer and reference variables**
-> Place the `*` and `&` next to the varaible name, not next to the type. For example: `int &variable` is good, but `int& variable` is not. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/Model.hh#L96).
+> Place the `*` and `&` next to the variable name, not next to the type. For example: `int &variable` is good, but `int& variable` is not. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/Model.hh#L96).
 
 1. **Camel case**
 > In general, everything should use camel case. Exceptions include SDF element names, and protobuf variable names. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/SdfEntityCreator.hh#L64-L65).
