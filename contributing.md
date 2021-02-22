@@ -512,6 +512,97 @@ coverage report. You'll need to have [lcov](http://ltp.sourceforge.net/coverage/
 
         firefox coverage/index.html
 
+### Sanitizers
+
+Sanitizers capture very detailed information during runtime about code quality issues and print them to stderr.
+
+#### Install dependencies
+
+Install and enable Colcon mixin package:
+
+```bash
+sudo apt-get install python3-colcon-mixin
+colcon mixin add default https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml
+colcon mixin update default
+```
+
+Install colcon-sanitizer-reports (Recommended):
+
+```bash
+git clone https://github.com/colcon/colcon-sanitizer-reports.git
+cd colcon-sanitizer-reports
+sudo python3 setup.py install
+```
+
+You can find more details [here](https://github.com/colcon/colcon-sanitizer-reports/blob/master/README.rst) about the instalation process.
+
+#### Compiling the code and running the tests
+
+Create a Ignition workspace for ASAN/TSAN related tasks
+
+```bash
+mkdir -p ~/ignition/src
+cd ~/ignition
+wget https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-<Ignition distro>.yaml
+vcs-import src < collection-<Ignition distro>.yaml
+```
+
+First, compile all packages:
+
+ - ASan
+```bash
+cd ~/ignition  # you will need to be exactly in this directory
+# Those flags are similar to what the nightly job uses.
+colcon build --build-base=build-asan --install-base=install-asan \
+    --cmake-args -DCMAKE_BUILD_TYPE=Debug \
+    --mixin asan-gcc
+```
+
+ - TSan
+```bash
+# Equivalent command for tsan:
+# You can either use different workspaces or the same one.
+colcon build --build-base=build-tsan --install-base=install-tsan \
+    --cmake-args -DCMAKE_BUILD_TYPE=Debug \
+    --mixin tsan
+```
+
+**IMPORTANT:** Do not forget to pass ``-DCMAKE_BUILD_TYPE=Debug`` to
+ensure that debugging symbols are generated. This allows ASAN/TSAN to
+report files and line numbers in backtraces.
+
+Once the compilation is finished, colcon will report that all packages have been compiled
+but some had “stderr output”. This is fine.
+
+ - To run the tests for ASan:
+```bash
+cd ~/ignition  # you will need to be exactly in this directory
+colcon test --build-base=build-asan --install-base=install-asan \
+    --event-handlers sanitizer_report+
+```
+
+ - To run tests for TSan
+```bash
+ cd ~/ignition  # you will need to be exactly in this directory
+colcon test --build-base=build-tsan --install-base=install-tsan \
+  --event-handlers sanitizer_report+
+```
+
+Omit the `--event-handlers` flag if you did not install colcon-sanitizer-reports.
+
+Some tests may fail, this is OK. Once done, you can look at the test logs or
+`sanitizer_report.csv`. Examples from tests logs:
+
+```bash
+cd ~/ignition  # you will need to be exactly in this directory
+cd log/latest_test
+# Displays three lines after the beginning of a ASAN reported issue.
+grep -R '==.*==ERROR: .*Sanitizer' -A 3
+```
+
+Review [Appendix - ASAN/TSAN Issues Zoology](https://github.com/colcon/colcon-sanitizer-reports/blob/master/README.rst#appendix---asantsan-issues-zoology)
+to review which kind of failures you can find in this kind of reports.
+
 ## Style Guides
 
 You can check code for compliance by running the following command from
