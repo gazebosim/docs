@@ -29,7 +29,7 @@ One common optional plugin is the sensors plugin.
 Both optional and default plugins can be removed or added at any time; Ignition Gazebo will continue to run with limited functionality.
 These demos on [Server Configuration](https://ignitionrobotics.org/api/gazebo/4.3/server_config.html) and [GUI Configuration](https://ignitionrobotics.org/api/gazebo/4.3/gui_config.html) showcase that functionality.
 
-The simulation process is depicted in the diagram below, and further explained in the Backend and Frontend process ections that follow.
+The simulation process is depicted in the diagram below, and further explained in the Backend and Frontend process sections that follow.
 
 ![Ignition Gazebo architecture diagram](images/IgnitonGazeboArchicteture.png)
 
