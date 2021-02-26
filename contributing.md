@@ -521,7 +521,7 @@ Sanitizers capture very detailed information during runtime about code quality i
 Install and enable Colcon mixin package:
 
 ```bash
-sudo apt-get install python3-colcon-mixin
+pip3 install colcon-mixin
 colcon mixin add default https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml
 colcon mixin update default
 ```
@@ -538,21 +538,14 @@ You can find more details [here](https://github.com/colcon/colcon-sanitizer-repo
 
 #### Compiling the code and running the tests
 
-Create a Ignition workspace for ASAN/TSAN related tasks
-
-```bash
-mkdir -p ~/ignition/src
-cd ~/ignition
-wget https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-<Ignition distro>.yaml
-vcs-import src < collection-<Ignition distro>.yaml
-```
+Create a Ignition workspace for ASAN/TSAN related tasks. Refer to the [offical documentation to get
+all the Ignition Robotics sources](https://ignitionrobotics.org/docs/latest/install_ubuntu_src#getting-the-sources).
 
 First, compile all packages:
 
  - ASan
 ```bash
 cd ~/ignition  # you will need to be exactly in this directory
-# Those flags are similar to what the nightly job uses.
 colcon build --build-base=build-asan --install-base=install-asan \
     --cmake-args -DCMAKE_BUILD_TYPE=Debug \
     --mixin asan-gcc
