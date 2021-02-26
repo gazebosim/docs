@@ -242,6 +242,10 @@ sudo make uninstall
 
 ## Troubleshooting
 
+### No rule to make target `/usr/lib/libm.dylib', needed by `lib/libignition-physics3-dartsim-plugin.3.1.0.dylib'.  Stop.
+
+Try to run `brew outdated` followed by a `brew upgrade` may fix some of it.
+
 ### Unable to find `urdf_model.h` error
 
 After installing all the dependencies and starting the build process, you may encounter an error that looks like this:
