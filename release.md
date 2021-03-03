@@ -151,7 +151,10 @@ which is designed to reflect changes in the packaging while keeping the same
 code version `X.Y.Z`.
 
 Debian/Ubuntu packaging use a hyphen to separate code version from the revision
-number (starts with 1) `R`: `X.Y.Z-R`.
+number (starts with 1) `R`: `X.Y.Z-R` being `X.Y.Z` the code version and `R` a
+number that represents changes in packaging metadata (not in software code). The
+`R` number can be different on every platform since packaging metadata is
+different among them.
 
 Brew bottles revisions are defined in the code of Brew formulas. If there is no
 revision, assume 0. When defined it starts with 1.
