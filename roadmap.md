@@ -37,15 +37,13 @@ and release pattern allows us to distribute patch and minor updates into an alre
 ### Citadel
 
 1. SDF website update, more documentation.
-1. [Custom retroreflection for objects detected by lidar.](https://github.com/ignitionrobotics/ign-rendering/issues/181)
+1. Web client.
+1. Joint controller GUI.
 
 ### Dome
 
-1. [Particle effects on Gazebo, to support smoke and gas.](https://github.com/ignitionrobotics/ign-gazebo/issues/558)
 1. Localized wind (wind that is constrained to a region of influence).
 1. [Bazel build files.](https://github.com/ignitionrobotics/ign-bazel)
-1. [Configure lights from the GUI or transport.](https://github.com/ignitionrobotics/ign-gazebo/issues/122)
-1. Texture-based thermal signature for objects, visible from thermal camera.
 
 ### Edifice
 
@@ -61,8 +59,10 @@ and release pattern allows us to distribute patch and minor updates into an alre
 1. [SDF model composition.](https://github.com/osrf/sdformat/issues/278)
 1. [Choose render order for overlapping polygons.](https://github.com/ignitionrobotics/ign-rendering/pull/188)
 1. [Headless simulation using EGL.](https://github.com/ignitionrobotics/ign-rendering/issues/223)
-1. [Light visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/193)
+1. [Upgrade to Ogre 2.2.](https://github.com/ignitionrobotics/ign-rendering/issues/223)
+1. [Light visualizatn.](https://github.com/ignitionrobotics/ign-gazebo/issues/193)
 1. [Spawn lights from the GUI.](https://github.com/ignitionrobotics/ign-gazebo/issues/119)
+1. [Mecanum wheel demo.](https://github.com/ignitionrobotics/ign-gazebo/issues/579)
 
 ## Planned releases
 
