@@ -8,8 +8,8 @@ release of `X.Y.Z` so the stable needs to have precedence over prereleases when
 both are available through different repositories.
 
 **Nightlies** for version `X.Y.Z` are snapshots of development code merged on
-top of a released version `X.Y.Z` features and/or patches that will be shipped
-into the next release. Therefore nightlies needs to have precedence over stable
+top of a released version `X.Y.Z`. This includes features and/or patches that will be shipped
+into the next release. Therefore nightlies need to have precedence over stable
 releases. Another use case for nightlies is to serve as continuous unstable
 releases when preparing a new version `X.Y.Z`. In this scenario the stable
 release should have precedence over the nightlies generated before it. To get
@@ -24,10 +24,10 @@ the version will use `8.99.99`).
  * `upcoming_version:` upstream version target for current prerelease series (e.g., `X.Y.Z`)
  * `prerelease_version`: prerelease version number in the series
 
-**Nightly** use the following versioning scheme: `{current_released_version}+git{date}+${nightly_revision}r{hash}-{nightly_revision}`
+**Nightly** uses the following versioning scheme: `{current_released_version}+git{date}+{nightly_revision}r{hash}-{nightly_revision}`
 
  * `current_released_version:` will be the latest version released available in
-   the changelog file of the corresponding -release repo. If the nightly is
+   the changelog file of the corresponding `*-release` repo. If the nightly is
    used for an upcoming release (for example, gazebo10 where X is 10) then {X-1}.99.99-1
    (gazebo10_9.99.99-1) form will be used until prereleases or final release.
 
