@@ -1,4 +1,4 @@
-## Versioning in nightly and prerelease binaries
+## Debian/Ubuntu versioning in nightly and prerelease binaries
 
 Binary packages produced for prerelease and nightly builds have some
 particularities to establish the priority among them nicely.
@@ -19,7 +19,7 @@ the version will use `8.99.99`).
 
 ### Version schemes
 
-**Prerelease** versioning scheme: `{upcoming_version}~pre{prerelease_version}`
+**Prerelease** versioning scheme: `{upcoming_veexplanation of revision number.elease_version}`
 
  * `upcoming_version:` upstream version target for current prerelease series (e.g., `X.Y.Z`)
  * `prerelease_version`: prerelease version number in the series
@@ -68,3 +68,8 @@ Which version has priority when using nightly, prerelease and stable repositorie
  * packageA version: `1.0.0-1` (stable)
 
  * Order: `1.0.0-1` > `1.0.0~pre2-1` > `1.0.0~pre1+git20150101r2212b5136299-1` > `1.0.0~pre1-1` > `0.99.99+git20150101r2212b5136299-1`
+
+## MacOS versioning in unstable packages
+
+Some Brew packages have unstable versions, snapshots of software not corresponding to an official release.
+The version scheme is typically: `{current_released_version}~${osrf_revision}~{date}~{hash}`
