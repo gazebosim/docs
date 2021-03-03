@@ -1,8 +1,8 @@
 # Ignition Release Process
 
 This documentation covers the releasing process done by the members of the
-Ignition/Gazebo team. It offers a general overview and documentation of the
-procedures and tools used and provide an step by step guide to do released.
+Ignition team. It offers a general overview and documentation of the
+procedures and tools used, and provides a step by step guide to do releases.
 
 #### Table of Contents
 
@@ -41,29 +41,29 @@ supported for binary distribution:
    called `bottles`.
 
  * **Windows:** currently *there is no binary distribution for Windows* that covers
-   all Ignition libraries although there is an ongoing effort for getting
+   all Ignition libraries, although there is an ongoing effort for getting
    binary packages inside
-   [conda-forge](https://github.com/conda-forge/staged-recipes/issues/13551)
+   [conda-forge](https://github.com/conda-forge/staged-recipes/issues/13551).
 
 ### Infrastructure
 
 The Ignition team uses different pieces of infrastructure to execute the
 releasing process:
 
- * **build.osrfoundation.org**: main Jenkins server to orchestrate the whole
+ * **[build.osrfoundation.org](https://build.osrfoundation.org/)**: main Jenkins server to orchestrate the whole
    releasing process. It receives requests from Ignition developers to start the
    release process, schedule nightly builds, build the binary packages,
    upload releasing artifacts to repositories, etc.
 
- * **packages.osrfoundation.org**: Debian/Ubuntu .deb repositories. The URLs
+ * **[packages.osrfoundation.org](http://packages.osrfoundation.org/)**: Debian/Ubuntu .deb repositories. The URLs
    are ready to be used by the APT packages system.
 
  * **osrf-distributions S3**: [cloud storage](http://gazebosim.org/distributions/bottles-simulation/)
    space to save the different artifacts produced during the release process. The
    S3 space is no more than archive of artifacts that need to be manually
    downloaded (i.e: to get an old version of a .deb package) or handled by other
-   packaging systems (i.e: brew download the bottles from S3, the buildfarm uses
-   the tarballs stored in S3 when building .deb packages)
+   packaging systems (i.e: brew downloads the bottles from S3, the buildfarm uses
+   the tarballs stored in S3 when building .deb packages).
 
 ### Type of releases
 
@@ -99,7 +99,7 @@ the features needed to install and remove packages. In the case of Ignition
 Libraries supported packages:
 
  * **deb packages**: debian packaging metadata for Debian/Ubuntu packages is
-     stored in a custom way inside the `release` repositories. At the moment of
+     stored in a custom way inside the `$LIBRARY-release` repositories. At the moment of
      building packages the metadata will be injected in the Jenkins server
      together with software sources.
 
@@ -109,20 +109,20 @@ Libraries supported packages:
 
 
  * **brew**: Brew uses custom ruby files to declare software metadata called
-     `Formulae`. The Ignitions libraries Brew Formulae can be found at:
+     `Formulae`. Brew Formulae for Ignition libraries can be found at:
      https://github.com/osrf/homebrew-simulation/tree/master/Formula
 
 
 ### Versioning
 
 A fundamental part of releasing software or binaries is tagging a snapshot of code
-with a given version. There are different types of versions, this section covers
+with a given version. There are different types of versions; this section covers
 the ones involved in the Ignition release process.
 
 #### Versions in software code (upstream versions)
 
 The development team of any software product usually declares a version each
-time they want to make explicit for users that a product is somehow ready to be
+time they want to explicitly let users know that a product is ready to be
 used. This version is called `upstream version` (where upstream is the
 development team or authors).
 
@@ -134,7 +134,7 @@ The current upstream version of Ignition libraries can be found in the repositor
 ```
 
 The Ignition version numbers follows the [Semantic
-Versioning](https://semver.org/) scheme so versions are composed of
+Versioning](https://semver.org/) scheme, so versions are composed of
 `MAJOR.MINOR.PATCH` numbers. The Ignition libraries also support the option of
 creating prereleases. Using [this ign-cmake command](https://github.com/ignitionrobotics/ign-cmake/blob/ign-cmake2/examples/prerelease/CMakeLists.txt#L4)
 it's trivial for libraries to declare a prerelease number:
@@ -145,8 +145,8 @@ ign_configure_project(VERSION_SUFFIX pre1)
 
 #### Versions in binary packages
 
-Binary packages should match exactly the Ignition code version `X.Y.Z`. All
-package systems append a new part to the version called the **release version**
+A binary package version should match the Ignition code version `X.Y.Z`. All
+binary package systems append a new part to the version, called the **release version**,
 which is designed to reflect changes in the packaging while keeping the same
 code version `X.Y.Z`.
 
@@ -171,4 +171,4 @@ end
 For *prereleases* and *nightly* binaries the versions are a bit special so the
 package manager can handle precedence between all the flavours nicely. There is
 [more information available on this topic for the Ignition
-libraries](releasing/versioning_pre_nightly.md)
+libraries](releasing/versioning_pre_nightly.md).
