@@ -31,7 +31,7 @@ These demos on [Server Configuration](https://ignitionrobotics.org/api/gazebo/4.
 
 The simulation process is depicted in the diagram below, and further explained in the Backend and Frontend process sections that follow.
 
-![Ignition Gazebo architecture diagram](images/IgnitonGazeboArchicteture.png)
+![Ignition Gazebo architecture diagram](images/IgnitonGazeboArchicteture.svg)
 
 ## Backend server process
 
