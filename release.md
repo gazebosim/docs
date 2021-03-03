@@ -72,21 +72,21 @@ stability of the software:
 
  * **stable**: stable releases are designed to be generally consumed by users
    that do not expect to solve severe issues or regressions.
-   * Linux stable binaries:
+   * Linux stable binaries (right distribution must be selected from {ubuntu/debian}):
      http://packages.osrfoundation.org/gazebo/{ubuntu/debian}-stable
    * macOS stable binaries:
      http://gazebosim.org/distributions/ (in their respective directories)
 
  * **prerelease**: prereleases are designed to be tested as candidates to
    stable.
-   * Linux prerelease binaries:
+   * Linux prerelease binaries (right distribution must be selected from {ubuntu/debian}):
      http://packages.osrfoundation.org/gazebo/{ubuntu/debian}-prerelease
    * macOS prerelease binaries (they are stored in the same place as stable releases but under bottles-simulation):
      http://gazebosim.org/distributions/bottles-simulation/
 
  * **nightly**: automatically generated releases used in continuous integration
    systems reflecting the latest changes in the repositories.
-   * Linux nightly binaries:
+   * Linux nightly binaries (right distribution must be selected from {ubuntu/debian}):
      http://packages.osrfoundation.org/gazebo/{ubuntu/debian}-nightly
    * macOS nightly binaries:
      *Unsupported* (see [the homebrew-simulation issue](https://github.com/osrf/homebrew-simulation/issues/1314) 
