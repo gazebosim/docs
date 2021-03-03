@@ -22,7 +22,7 @@ distributions starting from a local copy of source code together with
 descriptions and explanations of preparing, creating and releasing
 new software versions.
 
-![general releasing context](releasing/images/general_context.png)
+![general releasing context](releasing/images/general_context.svg)
 
 ### Releasing platforms supported
 
