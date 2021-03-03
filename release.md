@@ -6,16 +6,13 @@ procedures and tools used and provide an step by step guide to do released.
 
 #### Table of Contents
 
-[General Overview](#general-overview)
-  * [Platforms Supported](#releasing-platforms-supported)
-  * [Infrastructure](#infrastructure)
-  * [Type of Releases](#type-of-releases)
-  * [Metadata for releasing](#metadata-for-releasing)
-  * [Versioning](#versioning)
+General Overview
 
-[Triggering a Release](#)
-
-[FAQ](#faq)
+  * Platforms Supported
+  * Infrastructure
+  * Type of Releases
+  * Metadata for releasing
+  * Versioning
 
 ## General overview
 
