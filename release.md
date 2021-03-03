@@ -156,12 +156,13 @@ number that represents changes in packaging metadata (not in software code). The
 `R` number can be different on every platform since packaging metadata is
 different among them.
 
-Brew bottles revisions are defined in the code of Brew formulas. If there is no
-revision, assume 0. When defined it starts with 1.
+Brew revision numbers are defined in the code of Brew formulas. If there is no
+revision, assume 0. When defined, it starts with 1.
 
 ```ruby
+revision 1
+
 bottle do
-  revision 1
   # sha256 is the 256 hash of binary bottle for the macOS version lala
   sha256 "41af286dc0b172ed2f1ca934fd2278de4a1192302ffa07087cea2682e7d372e3" => :lala
 end
