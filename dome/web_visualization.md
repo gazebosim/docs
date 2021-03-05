@@ -50,3 +50,16 @@ matching key using an "auth" call on the websocket. If the `<admin_authorization
   * `<max_connections>` : An integer that is the maximum number of simultaneous connections.
   * `<port>` : An integer that is websocket port.
   * `<publication_hz>` : An integer that is the maximum publication hertz rate.
+
+## Code and Support
+
+1. The code for the web application,
+   [app.ignitionrobotics.org](https://app.ignitionrobotics.org), lives at
+   [https://gitlab.com/ignitionrobotics/web/app](https://gitlab.com/ignitionrobotics/web/app).
+
+1. The javascript library used to render the 3D scene lives at
+   [https://gitlab.com/ignitionrobotics/web/gz3d](https://gitlab.com/ignitionrobotics/web/gz3d).
+
+1. Is you notice an issue with web visualization, then please
+   file a ticket at
+   [https://gitlab.com/ignitionrobotics/web/app/-/issues](https://gitlab.com/ignitionrobotics/web/app/-/issues).
