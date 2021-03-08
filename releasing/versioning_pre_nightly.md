@@ -73,3 +73,5 @@ Which version has priority when using nightly, prerelease and stable repositorie
 
 Some Brew packages have unstable versions, snapshots of software not corresponding to an official release.
 The version scheme is typically: `{current_released_version}~${osrf_revision}~{date}~{hash}`
+ * `osrf_revision`: correspond to the revision number that identifies the
+    packaging metadata being used in the Brew formulae. 
