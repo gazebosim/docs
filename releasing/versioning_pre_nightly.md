@@ -19,7 +19,7 @@ the version will use `8.99.99`).
 
 ### Version schemes
 
-**Prerelease** versioning scheme: `{upcoming_veexplanation of revision number.elease_version}`
+**Prerelease** versioning scheme: `{upcoming_version}~pre{prerelease_version}`
 
  * `upcoming_version:` upstream version target for current prerelease series (e.g., `X.Y.Z`)
  * `prerelease_version`: prerelease version number in the series
