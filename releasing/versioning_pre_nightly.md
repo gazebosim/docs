@@ -21,7 +21,7 @@ the version will use `8.99.99`).
 
 **Prerelease** versioning scheme: `{upcoming_version}~pre{prerelease_version}`
 
- * `upcoming_version:` upstream version target for current prerelease series (e.g., `X.Y.Z`)
+ * `upcoming_version`: upstream version target for current prerelease series (e.g., `X.Y.Z`)
  * `prerelease_version`: prerelease version number in the series
 
 **Nightly** uses the following versioning scheme: `{current_released_version}+git{date}+{nightly_revision}r{hash}-{nightly_revision}`
