@@ -19,16 +19,16 @@ Citadel supports the following platforms:
 Binary installation is the recommended method of installing Ignition.
 
  * [Binary Installation on Ubuntu](install_ubuntu)
- * [Binary Installation on MacOS Mojave (10.14)](install_osx)
- * [Binary Installation on Windows 10](install_windows)
+ * [Binary Installation on macOS](install_osx)
+ * [Binary Installation on Windows](install_windows)
 
 ## Source Installation instructions
 
 Source installation is recommended for users planning on altering Ignition's source code (advanced).
 
  * [Source Installation on Ubuntu](install_ubuntu_src)
- * [Source Installation on MacOS](install_osx_src)
- * [Source Installation on Windows 10](install_windows_src)
+ * [Source Installation on macOS](install_osx_src)
+ * [Source Installation on Windows](install_windows_src)
 
 ## Citadel Libraries
 

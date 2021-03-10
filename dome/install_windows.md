@@ -9,6 +9,7 @@ the package manager Ignition uses for Windows binary installations:
 - `ign-msgs`
 - `ign-physics`
 - `ign-plugin`
+- `ign-rendering`
 - `ign-tools`
 - `ign-transport`
 
@@ -18,7 +19,7 @@ and the Ignition feedstock recipes can be found [here](https://github.com/conda-
 The remaining packages currently have an [outstanding ticket](https://github.com/conda-forge/staged-recipes/issues/13551),
 and will not be supported until they are added to the `conda-forge` feedstock.
 
-Additionally, command line tools, the DART physics engine, and tests are not currently supported in Windows.
+Additionally, command line tools, the DART physics engine, and some tests are not currently supported in Windows.
 
 In order to use `conda-forge`, you will need to
 1. Install a [Conda package management system](https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html).
