@@ -3,8 +3,6 @@
 All the Edifice binaries are available in Mojave and Catalina using the
 [homebrew package manager](https://brew.sh/).
 
-Up to Edifice's release date, the binaries should be considered unstable.
-
 The homebrew tool can be installed using:
 
 ```bash
@@ -32,15 +30,6 @@ have already installed the library from binaries, run the following command:
 brew uninstall ignition-edifice
 ```
 
-## Ignition libraries are not found
+## Troubleshooting
 
-If you see this error message:
-
-```bash
-I cannot find any available 'ign' command:
-	* Did you install any ignition library?
-	* Did you set the IGN_CONFIG_PATH environment variable?
-	    E.g.: export IGN_CONFIG_PATH=$HOME/local/share/ignition
-```
-
-You should set up the environment variable `IGN_CONFIG_PATH=/usr/local/share/ignition/`
+See [Troubleshooting](troubleshooting)
