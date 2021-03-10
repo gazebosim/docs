@@ -35,8 +35,6 @@ Source installation is recommended for users planning on altering Ignition's sou
 The Edifice collection is composed of many different Ignition libraries. The
 collection assures that all libraries are compatible and can be used together.
 
-This list of library versions may change up to the release date.
-
 | Library name       | Version       |
 | ------------------ |:-------------:|
 |   ign-cmake        |       2.x     |
@@ -53,4 +51,5 @@ This list of library versions may change up to the release date.
 |   ign-sensors      |       5.x     |
 |   ign-tools        |       1.x     |
 |   ign-transport    |      10.x     |
+|   ign-utils        |       1.x     |
 |   sdformat         |      11.x     |
