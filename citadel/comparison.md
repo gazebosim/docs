@@ -247,7 +247,6 @@ Fog | ✓ |
 Material scripts | ✓ (Ogre 1.x scripts) | Does not apply
 Physically Based Rendering (PBR) | ✕ | ✓ (with engines that support it, like Ogre 2)
 Normal maps | ✓ | ✓
-Ambient occlusion maps | ✕  | ✓
 Environment maps | ✕  | ✓
 Lightmaps | ✕  | ✕  (available from Edifice)
 Particle effects | ✕  | ✕  (available from Dome)
