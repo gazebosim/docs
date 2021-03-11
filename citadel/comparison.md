@@ -50,7 +50,7 @@ Nested models | ✓ | Partial support, fully available from Edifice
 Populations | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/240)
 Actors | ✓ | ✓
 Markers | ✓ | ✓
-Heightmaps | ✓ | ✕  (available from Edifice)
+Heightmaps | ✓ | ✕  (available from Edifice with Ogre 1)
 DEM (Digital Elevation Models) | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
 Polylines | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/186)
 World plugins | ✓ | ✓ Now called System plugin
@@ -190,7 +190,7 @@ Scene properties | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/
 Log recording / playback | ✓ | ✓
 Plotting | ✓ | ✕  (available from Dome)
 Video recording | ✓ | ✓
-Screenshot | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gui/issues/95)
+Screenshot | ✓ | [✓](https://ignitionrobotics.org/api/gui/3.5/screenshot.html)
 View angles | ✓ | ✓
 Apply force / torque | ✓ |
 Visualize as transparent | ✓ |
@@ -213,6 +213,9 @@ Save GUI configuration | ✓ | ✓
 Color scheme and themes | ✕ | ✓
 Position, resize and configure widgets | ✕ | ✓
 Load GUI plugins from menu | ✕ | ✓
+Edit model pose | ✓ | ✓
+Edit light properties | ✓ |  ✕  (available from Dome)
+Edit physics properties | ✓ |  ✕  (available from Dome)
 
 ## Physics
 
