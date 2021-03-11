@@ -77,6 +77,8 @@ libraries.
 * [ign-transport](https://github.com/ignitionrobotics/ign-transport):
 High performance inter- and intra-process communication based on
 [ZeroMQ](http://zeromq.org/) and [Protobuf](https://developers.google.com/protocol-buffers/).
+* [ign-utils](https://github.com/ignitionrobotics/ign-utils): General purpose
+classes and functions with minimal dependencies.
 * [sdformat](https://github.com/osrf/sdformat): World description format.
 
 ## How to Contribute
@@ -303,6 +305,7 @@ The following repositories from [Ignition](https://github.com/ignitionrobotics/)
 * [ign-sensors](https://github.com/ignitionrobotics/ign-sensors)
 * [ign-tools](https://github.com/ignitionrobotics/ign-tools)
 * [ign-transport](https://github.com/ignitionrobotics/ign-transport)
+* [ign-utils](https://github.com/ignitionrobotics/ign-utils)
 * [docs](https://github.com/ignitionrobotics/docs/)
 * [design](https://github.com/ignitionrobotics/design)
 * [ros_ign](https://github.com/ignitionrobotics/ros_ign)
