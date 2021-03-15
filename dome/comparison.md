@@ -36,6 +36,8 @@ Sensor features | Gazebo-classic | Ignition Gazebo
 Custom update rate | ✓ | ✓
 Gaussian noise | ✓ | ✓
 Custom sensors | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/9)
+Laser retroreflection | ✓ | ✓
+Camera distortion | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/107)
 
 ## SDF Features
 
@@ -44,11 +46,11 @@ Feature | Gazebo-classic | Ignition Gazebo
 SDF frame semantics |✓| ✓
 Load models from local files | ✓ | [✓](https://ignitionrobotics.org/api/gazebo/4.0/resources.html)
 Closed kinematic chains | ✓  | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/25)
-Nested models | ✓ | Partial support
+Nested models | ✓ | Partial support, fully available from Edifice
 Populations | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/240)
 Actors | ✓ | ✓
 Markers | ✓ | ✓
-Heightmaps | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/237)
+Heightmaps | ✓ | ✕  (available from Edifice with Ogre 1)
 DEM (Digital Elevation Models) | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
 Polylines | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/186)
 World plugins | ✓ | ✓ Now called System plugin
@@ -69,7 +71,7 @@ ActuatorPlugin | ✓ |
 ArduCopterPlugin | ✓ |
 AttachLightPlugin | ✓ | ✕ Does not apply, use SDF
 Breadcrumbs | ✕ | ✓
-BuoyancyPlugin | ✓ | [✓](https://github.com/ignitionrobotics/ign-gazebo/blob/main/examples/worlds/buoyancy.sdf)
+BuoyancyPlugin | ✓ | [✓](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo4/examples/worlds/buoyancy.sdf)
 CartDemoPlugin | ✓ | ✕
 CessnaPlugin | ✓ |
 DiffDrivePlugin | ✓ | ✓
@@ -106,6 +108,7 @@ VariableGearboxPlugin | ✓ |
 VehiclePlugin | ✓ |
 WheelSlipPlugin | ✓ | ✓
 WheelTrackedVehiclePlugin | ✓ | ✓ ([partially via DiffDrivePlugin](https://github.com/ignitionrobotics/ign-gazebo/blob/44951e3ddfd238f24182d4d80b1376f0d426bd43/examples/worlds/track_drive.sdf#L2141))
+KineticEnergyMonitor | ✕ | ✓
 
 ### World plugins
 
@@ -180,23 +183,24 @@ Scale models | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issu
 Insert models from Fuel | Partial support | ✓
 Insert models from disk | ✓ | ✓
 Insert simple shapes | ✓ | ✓
-Insert simple lights | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/119)
+Insert simple lights | ✓ | ✕  (available from Edifice)
 Delete models | ✓ | ✓
 World tree | ✓ | ✓
 Scene properties | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/246)
 Log recording / playback | ✓ | ✓
 Plotting | ✓ | ✓
 Video recording | ✓ | ✓
-Screenshot | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gui/issues/95)
+Screenshot | ✓ | [✓](https://ignitionrobotics.org/api/gui/3.5/screenshot.html)
 View angles | ✓ | ✓
 Apply force / torque | ✓ |
 Visualize as transparent | ✓ |
 Visualize as wireframe | ✓ |
 Visualize joints | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/106)
-Visualize collisions | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/105)
+Visualize collisions | ✓ | ✓
 Visualize inertia | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/111)
 Visualize CoM | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/110)
 Visualize contacts | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/112)
+Visualize lights | ✓ | ✕  (available from Edifice)
 Follow / move to | ✓ | ✓
 Copy / paste | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/102)
 Building editor | ✓ |
@@ -209,6 +213,9 @@ Save GUI configuration | ✓ | ✓
 Color scheme and themes | ✕ | ✓
 Position, resize and configure widgets | ✕ | ✓
 Load GUI plugins from menu | ✕ | ✓
+Edit model pose | ✓ | ✓
+Edit light properties | ✓ | ✓
+Edit physics properties | ✓ | ✓
 
 ## Physics
 
@@ -224,6 +231,8 @@ DART engine | ✓ | ✓ Plugin shipped with ign-physics
 Simbody engine | ✓ | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/63)
 TPE engine | ✕ | ✓
 Custom engine plugins | ✕ | ✓
+Collide bitmasks | ✓ | ✓
+Restitution coefficient | ✓ | ✓
 
 ## Rendering
 
@@ -236,9 +245,15 @@ Ogre 1.x engine | ✓ | ✓
 Ogre 2.x engine | ✕ | ✓
 Optix engine | ✕ | ✓ Partial support
 Custom engine plugins | ✕ | [Issue](https://github.com/ignitionrobotics/ign-rendering/issues/100)
-Sky | ✓ | [Issue](https://github.com/ignitionrobotics/ign-rendering/issues/98)
+Sky | ✓ | ✕  (available from Edifice)
 Fog | ✓ |
 Material scripts | ✓ (Ogre 1.x scripts) | Does not apply
+Physically Based Rendering (PBR) | ✕ | ✓ (with engines that support it, like Ogre 2)
+Normal maps | ✓ | ✓
+Environment maps | ✕  | ✓
+Lightmaps | ✕  | ✕  (available from Edifice)
+Particle effects | ✕  | ✓
+Render order | ✕  | ✕  (available from Edifice)
 
 ## ROS integration
 
@@ -274,3 +289,5 @@ Distribute simulation across processes | ✕ | (coming up)
 Incrementally load levels | ✕ | ✓
 Online model database | [gazebo_models repository](https://github.com/osrf/gazebo_models/) | [Ignition Fuel](https://app.ignitionrobotics.org/fuel/models)
 Saved simulation states | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/137)
+Sphere, cylinder and box primitives | ✓ | ✓
+Ellipsoid and capsule primitives | ✓ | ✕  (available from Edifice)
