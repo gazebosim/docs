@@ -59,9 +59,9 @@ You will still be able to use `TPE` as a physics engine
   ```bash
   mkdir ign-ws
   cd ign-ws
-  curl -O https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-citadel.yaml
+  curl -O https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-dome.yaml
   mkdir src
-  vcs import src < collection-citadel.yaml
+  vcs import src < collection-dome.yaml
   ```
 
 ## Building the Ignition Libraries
@@ -79,7 +79,7 @@ colcon graph
 If that is the case, then you are ready to build the whole set of libraries:
 
 ```bash
-colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install --packages-up-to ignition-gazebo3
+colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install --packages-up-to ignition-gazebo4
 ```
 Tests are turned off as they are not currently supported on Windows.
 
