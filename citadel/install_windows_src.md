@@ -64,22 +64,6 @@ You will still be able to use `TPE` as a physics engine
   vcs import src < collection-citadel.yaml
   ```
 
-**Note**
-
-You can view all available versions of a specific package with:
-```bash
-conda search libignition-<package_name>* --channel conda-forge
-```
-and view their dependencies with
-```bash
-conda search libignition-<package_name>* --channel conda-forge --info
-```
-and install a specific minor version with
-```bash
-conda install libignition-<package_name>=<major>.<minor>.<patch> --channel conda-forge
-```
-where `<major>` is the major release number, `<minor>` is the minor release number, and `<patch` is the patch release number.
-
 ## Building the Ignition Libraries
 
 Once the compiler and all the sources are in place it is time to compile them.
