@@ -60,7 +60,7 @@ releasing process:
 
  * **osrf-distributions S3**: [cloud storage](http://gazebosim.org/distributions/bottles-simulation/)
    space to save the different artifacts produced during the release process. The
-   S3 space is no more than archive of artifacts that need to be manually
+   S3 space is no more than an archive of artifacts that need to be manually
    downloaded (i.e: to get an old version of a .deb package) or handled by other
    packaging systems (i.e: brew downloads the bottles from S3, the buildfarm uses
    the tarballs stored in S3 when building .deb packages).
@@ -104,7 +104,7 @@ Libraries supported packages:
      together with software sources.
 
      Ignition projects store the Debian/Ubuntu metadata in individual
-     repositories hosted at: https://github.com/ignition-release/ There is a
+     repositories hosted at: https://github.com/ignition-release/. There is a
      repository for each major version of every Ignition package.
 
 
@@ -136,7 +136,7 @@ The current upstream version of Ignition libraries can be found in the repositor
 The Ignition version numbers follows the [Semantic
 Versioning](https://semver.org/) scheme, so versions are composed of
 `MAJOR.MINOR.PATCH` numbers. The Ignition libraries also support the option of
-creating prereleases. Using [this ign-cmake command](https://github.com/ignitionrobotics/ign-cmake/blob/ign-cmake2/examples/prerelease/CMakeLists.txt#L4)
+creating prereleases. Using [this ign-cmake command](https://github.com/ignitionrobotics/ign-cmake/blob/9698f484ae84c6c8ea6118a6d4950aef62eeaa23/examples/prerelease/CMakeLists.txt#L4)
 it's trivial for libraries to declare a prerelease number:
 
 ```cmake
@@ -151,7 +151,7 @@ which is designed to reflect changes in the packaging while keeping the same
 code version `X.Y.Z`.
 
 Debian/Ubuntu packaging use a hyphen to separate code version from the revision
-number (starts with 1) `R`: `X.Y.Z-R` being `X.Y.Z` the code version and `R` a
+number (starts with 1) `R`: `X.Y.Z-R`, where `X.Y.Z` is the code version, and `R` is the
 number that represents changes in packaging metadata (not in software code). The
 `R` number can be different on every platform since packaging metadata is
 different among them.

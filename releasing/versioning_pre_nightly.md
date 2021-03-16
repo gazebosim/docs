@@ -26,7 +26,7 @@ the version will use `8.99.99`).
 
 **Nightly** uses the following versioning scheme: `{current_released_version}+git{date}+{nightly_revision}r{hash}-{nightly_revision}`
 
- * `current_released_version:` will be the latest version released available in
+ * `current_released_version`: will be the latest version released available in
    the changelog file of the corresponding `*-release` repo. If the nightly is
    used for an upcoming release (for example, gazebo10 where X is 10) then {X-1}.99.99-1
    (gazebo10_9.99.99-1) form will be used until prereleases or final release.
@@ -52,7 +52,7 @@ Which version has priority when using prerelease and stable repositories?
 
 Which version has priority when using nightly and stable repositories?
 
- * packageA version: `0.99.99+git20150101r2212b5136299-1` (nightly)
+ * packageA version: `0.99.99+git201501011r2212b5136299-1` (nightly)
  * packageA version: `1.0.0-1` (stable)
  * packageA version: `1.0.0-1+git20150303r6912b5136236-1` (nightly)
  * packageA version: `1.0.1-1` (stable)
