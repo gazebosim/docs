@@ -67,4 +67,4 @@ matching key using an "auth" call on the websocket. If the `<admin_authorization
 ## Troubleshooting
 
 1. If you are running Ignition Gazebo in a docker container, make sure to
-   use the [--network host](https://docs.docker.com/network/network-tutorial-host/) Docker commandline option.
+   use the [--network host](https://docs.docker.com/network/network-tutorial-host/) Docker commandline option. Without `--network host` the web application won't be able to connect to the websocket server.
