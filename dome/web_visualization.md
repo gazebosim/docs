@@ -63,3 +63,8 @@ matching key using an "auth" call on the websocket. If the `<admin_authorization
 1. Is you notice an issue with web visualization, then please
    file a ticket at
    [https://gitlab.com/ignitionrobotics/web/app/-/issues](https://gitlab.com/ignitionrobotics/web/app/-/issues).
+
+## Troubleshooting
+
+1. If you are running Ignition Gazebo in a docker container, make sure to
+   use the [--network host](https://docs.docker.com/network/network-tutorial-host/) Docker commandline option.
