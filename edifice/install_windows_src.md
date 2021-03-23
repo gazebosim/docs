@@ -1,6 +1,6 @@
 # Source Installation on Windows 10
 
-Currently, `ign-gazebo` and `ign-launch` are not supported on Windows 10.
+Currently, `ign-launch` is not supported on Windows 10.
 
 Additionally, command line tools, DART physics engine, and GUI capabilities are
 not currently supported in Windows. These functionalities correspond to the currently
@@ -64,31 +64,6 @@ You will still be able to use `TPE` as a physics engine
   vcs import src < collection-edifice.yaml
   ```
 
-7. Install `ign-cmake` from `conda-forge` and disable the cloned `ign-cmake` from being built.
-  ```bash
-  conda install libignition-cmake2 --channel conda-forge
-  touch src\ign-cmake\COLCON_IGNORE
-  ```
-
-  This is due to a linking error currently existing within the `ign-cmake` source.
-  See the comments [here](https://github.com/ignitionrobotics/docs/issues/96#issuecomment-742096017).
-
-**Note**
-
-You can view all available versions of a specific package with:
-```bash
-conda search libignition-<package_name>* --channel conda-forge
-```
-and view their dependencies with
-```bash
-conda search libignition-<package_name>* --channel conda-forge --info
-```
-and install a specific minor version with
-```bash
-conda install libignition-<package_name>=<major>.<minor>.<patch> --channel conda-forge
-```
-where `<major>` is the major release number, `<minor>` is the minor release number, and `<patch` is the patch release number.
-
 ## Building the Ignition Libraries
 
 Once the compiler and all the sources are in place it is time to compile them.
@@ -104,7 +79,7 @@ colcon graph
 If that is the case, then you are ready to build the whole set of libraries:
 
 ```bash
-colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install --packages-up-to ignition-gazebo3
+colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install --packages-up-to ignition-gazebo5
 ```
 Tests are turned off as they are not currently supported on Windows.
 

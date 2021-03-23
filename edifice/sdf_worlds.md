@@ -8,7 +8,7 @@ Every SDF world starts with these tags.
 
 ```xml
 <?xml version="1.0" ?>
-<sdf version="1.7">
+<sdf version="1.8">
     <world name="world_demo">
     ...
     ...

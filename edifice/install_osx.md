@@ -3,6 +3,8 @@
 All the Edifice binaries are available in Mojave and Catalina using the
 [homebrew package manager](https://brew.sh/).
 
+Up to Edifice's release date, the binaries should be considered unstable.
+
 The homebrew tool can be installed using:
 
 ```bash

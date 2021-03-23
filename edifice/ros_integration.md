@@ -21,7 +21,7 @@ to verify if your message type is supported by the bridge.
 
 ## Binary install
 
-Binaries are not yet supported for Dome. Check out the [table on ros_ign](https://github.com/ignitionrobotics/ros_ign) for other combinations.
+Binaries are not yet supported for Edifice. Check out the [table on ros_ign](https://github.com/ignitionrobotics/ros_ign) for other combinations.
 
 ## Source install
 
