@@ -85,7 +85,7 @@ classes and functions with minimal dependencies.
 
 Documents describing the architecture of Ignition are listed here:
 
-* [Ignition Gazebo Architecture](/docs/architecture)
+* [Ignition Gazebo Architecture](/docs/all/architecture)
 
 ## How to Contribute
 
