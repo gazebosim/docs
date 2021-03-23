@@ -127,7 +127,8 @@ collection assures that all libraries all compatible and can be used together.
 1. New graphical interfaces:
     * Widget listing all transport topics.
     * Widget that publishes keys pressed on the keyboard.
-    * Collision visualization
+    * Collision visualization.
+    * [Screenshot widget.](https://ignitionrobotics.org/api/gui/3.5/screenshot.html)
 1. APIs that make it easier to migrate from Gazebo classic:
     * [World](https://ignitionrobotics.org/api/gazebo/3.5/migrationworldapi.html)
     * [Model](https://ignitionrobotics.org/api/gazebo/3.5/migrationmodelapi.html)

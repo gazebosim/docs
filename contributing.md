@@ -81,6 +81,12 @@ High performance inter- and intra-process communication based on
 classes and functions with minimal dependencies.
 * [sdformat](https://github.com/osrf/sdformat): World description format.
 
+### Ignition Architecture
+
+Documents describing the architecture of Ignition are listed here:
+
+* [Ignition Gazebo Architecture](/docs/architecture)
+
 ## How to Contribute
 
 ### Reporting Bugs
@@ -662,6 +668,13 @@ In general, we follow [Google's style guide](https://google.github.io/styleguide
 > `speed *= 0.44704;  // miles per hour to meters per second` : Bad
 
 ## Appendix
+
+
+### Releasing information for members of development team
+
+[Releasing documentation](release.md) is available for the development team
+members. Includes a general overview as well as detailed information about how to
+run a new release.
 
 ### Creating GIFs
 

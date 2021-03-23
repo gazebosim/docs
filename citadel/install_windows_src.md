@@ -64,31 +64,6 @@ You will still be able to use `TPE` as a physics engine
   vcs import src < collection-citadel.yaml
   ```
 
-7. Install `ign-cmake` from `conda-forge` and disable the cloned `ign-cmake` from being built.
-  ```bash
-  conda install libignition-cmake2 --channel conda-forge
-  touch src\ign-cmake\COLCON_IGNORE
-  ```
-
-  This is due to a linking error currently existing within the `ign-cmake` source.
-  See the comments [here](https://github.com/ignitionrobotics/docs/issues/96#issuecomment-742096017).
-
-**Note**
-
-You can view all available versions of a specific package with:
-```bash
-conda search libignition-<package_name>* --channel conda-forge
-```
-and view their dependencies with
-```bash
-conda search libignition-<package_name>* --channel conda-forge --info
-```
-and install a specific minor version with
-```bash
-conda install libignition-<package_name>=<major>.<minor>.<patch> --channel conda-forge
-```
-where `<major>` is the major release number, `<minor>` is the minor release number, and `<patch` is the patch release number.
-
 ## Building the Ignition Libraries
 
 Once the compiler and all the sources are in place it is time to compile them.
