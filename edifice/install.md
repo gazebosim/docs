@@ -1,32 +1,39 @@
 # Edifice Installation
 
-Ignition Edifice is under active development and will be officially released on
-March 2021. If you'd like to use a stable release, see
-[Dome](/docs/dome).
+Edifice supports the following platforms:
 
-Until the official release, Edifice can be compiled from source or installed
-from nightly debian packages on Linux.
+ * Ubuntu Bionic amd64/arm64/i386 and Focal on amd64/arm64
+ * MacOS Mojave and Catalina
+     * Ignition currently only works in headless mode
+      (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use
+      `ign gazebo -s fuel.sdf` to start the server only).
+ * Windows 10
+     * Ignition command line utilities are not yet supported.
+     * All packages up to but not including `ign-gazebo` are currently building.
+     * DART physics engine is not yet supported.
+     * Qt (GUI functionality) is not yet supported.
+
 
 ## Binary installation instructions
 
-Nightly builds are available for Linux (Ubuntu Focal and Bionic on amd64) and macOS.
+Binary installation is the recommended method of installing Ignition.
 
  * [Binary Installation on Ubuntu](install_ubuntu)
- * [Binary Installation on MacOS](install_osx)
+ * [Binary Installation on macOS](install_osx)
+ * [Binary Installation on Windows](install_windows)
 
 ## Source Installation instructions
 
 Source installation is recommended for users planning on altering Ignition's source code (advanced).
 
  * [Source Installation on Ubuntu](install_ubuntu_src)
- * [Source Installation on MacOS](install_osx_src)
+ * [Source Installation on macOS](install_osx_src)
+ * [Source Installation on Windows](install_windows_src)
 
 ## Edifice Libraries
 
 The Edifice collection is composed of many different Ignition libraries. The
 collection assures that all libraries are compatible and can be used together.
-
-This list of library versions may change up to the release date.
 
 | Library name       | Version       |
 | ------------------ |:-------------:|
@@ -44,4 +51,5 @@ This list of library versions may change up to the release date.
 |   ign-sensors      |       5.x     |
 |   ign-tools        |       1.x     |
 |   ign-transport    |      10.x     |
+|   ign-utils        |       1.x     |
 |   sdformat         |      11.x     |

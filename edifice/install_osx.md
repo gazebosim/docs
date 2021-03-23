@@ -20,7 +20,7 @@ brew install ignition-edifice
 
 All libraries should be ready to use and the `ign gazebo` app ready to be executed.
 
-Head back to the [Getting started](/docs/all/get_started)
+Head back to the [Getting started](/docs/all/getstarted)
 page to start using Ignition!
 
 ## Uninstalling binary install
@@ -32,15 +32,6 @@ have already installed the library from binaries, run the following command:
 brew uninstall ignition-edifice
 ```
 
-## Ignition libraries are not found
+## Troubleshooting
 
-If you see this error message:
-
-```bash
-I cannot find any available 'ign' command:
-	* Did you install any ignition library?
-	* Did you set the IGN_CONFIG_PATH environment variable?
-	    E.g.: export IGN_CONFIG_PATH=$HOME/local/share/ignition
-```
-
-You should set up the environment variable `IGN_CONFIG_PATH=/usr/local/share/ignition/`
+See [Troubleshooting](troubleshooting)
