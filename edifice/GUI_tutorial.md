@@ -4,9 +4,9 @@ This guide is an introduction to the Ignition Graphical User Interface (GUI).
 
 ## Prerequisites
 
-Before beginning, you should have [Ignition installed](/docs/dome/install).
-If you installed [from source](/docs/dome/install)
-you will need to [source](/docs/dome/install_ubuntu_src#using-the-workspace) the workspace;
+Before beginning, you should have [Ignition installed](/docs/edifice/install).
+If you installed [from source](/docs/edifice/install)
+you will need to [source](/docs/edifice/install_ubuntu_src#using-the-workspace) the workspace;
 otherwise, you're good to go!
 
 Start by getting Ignition up and running with a sample world:
@@ -17,17 +17,17 @@ ign gazebo shapes.sdf
 
 `ign gazebo` will run the latest version of Ignition you have installed.
 You can check if you have more than one version of Ignition installed by running `ign gazebo --versions`.
-For example, if you have Citadel and Dome installed, `--versions` might return:
+For example, if you have Edifice and Dome installed, `--versions` might return:
 
 ```bash
+5.0.0
 4.0.0
-3.3.0
 ```
 
-To ensure you're working with Dome, include the `--force-version` directive when starting up:
+To ensure you're working with Edifice, include the `--force-version` directive when starting up:
 
 ```bash
-ign gazebo --force-version 4.0.0 shapes.sdf
+ign gazebo --force-version 5.0.0 shapes.sdf
 ```
 
 ## GUI
