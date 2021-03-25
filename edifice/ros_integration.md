@@ -21,11 +21,11 @@ to verify if your message type is supported by the bridge.
 
 ## Binary install
 
-Binaries are not yet supported for Edifice. Check out the [table on ros_ign](https://github.com/ignitionrobotics/ros_ign) for other combinations.
+Binaries are not yet supported for Edifice. Check out the [table on ros_ign](https://github.com/ignitionrobotics/ros_ign/tree/noetic) for other combinations.
 
 ## Source install
 
-See the [from source](https://github.com/ignitionrobotics/ros_ign#from-source) of the bridge documentation. This tutorial requires Ubuntu Bionic or newer.
+See the [from source](https://github.com/ignitionrobotics/ros_ign/tree/noetic#from-source) of the bridge documentation. This tutorial requires Ubuntu Bionic or newer.
 
 # Run the bridge and exchange images
 
@@ -77,7 +77,7 @@ You should see the current images in `rqt_image_view` which are coming from
 Gazebo (published as Ignition Msgs over Ignition Transport).
 
 The screenshot shows all the shell windows and their expected content
-(it was taken using ROS Noetic):
+(it was taken using ROS Noetic and in a Dome workspace but the expected content applies to Edifice):
 
 
-![Ignition Transport images and ROS 1 rqt](../dome/img/bridge_image_exchange_ign-gazebo.png)
+![Ignition Transport images and ROS 1 rqt](img/bridge_image_exchange_ign-gazebo.png)

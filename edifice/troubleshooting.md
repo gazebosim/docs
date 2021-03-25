@@ -7,7 +7,7 @@
 After installing all the dependencies and starting the build process, you may encounter an error that looks like this:
 
 ```bash
-/Users/user/dome_ws/src/sdformat/src/parser_urdf.cc:30:10: fatal error: 'urdf_model/model.h' file not found
+/Users/user/edifice_ws/src/sdformat/src/parser_urdf.cc:30:10: fatal error: 'urdf_model/model.h' file not found
 #include <urdf_model/model.h>
          ^~~~~~~~~~~~~~~~~~~~
 1 error generated.
@@ -36,10 +36,10 @@ This command will ignore the system installation of `urdfdom` and use the intern
 When running the `ign gazebo -s` command, an error like the one below may show up:
 
 ```bash
-Error while loading the library [/Users/dome/dome_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib]: dlopen(/Users/dome/dome_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib, 5): Library not loaded: @rpath/libIrrXML.dylib
+Error while loading the library [/Users/edifice/edifice_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib]: dlopen(/Users/edifice/edifice_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib, 5): Library not loaded: @rpath/libIrrXML.dylib
   Referenced from: /usr/local/opt/assimp/lib/libassimp.5.dylib
   Reason: image not found
-[Err] [Physics.cc:275] Unable to load the /Users/dome/dome_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib library.
+[Err] [Physics.cc:275] Unable to load the /Users/edifice/edifice_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib library.
 Escalating to SIGKILL on [Ignition Gazebo Server]
 ```
 

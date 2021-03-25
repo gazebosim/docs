@@ -2,8 +2,8 @@
 
 In this tutorial we will learn how to move our robot. We will use the
 robot we built in the [Build your own robot](building_robot)
-tutorial. You can download the robot from [here](https://github.com/ignitionrobotics/docs/blob/master/dome/tutorials/building_robot/building_robot.sdf).
-You can also find the finished world of this tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/dome/tutorials/moving_robot/moving_robot.sdf).
+tutorial. You can download the robot from [here](https://github.com/ignitionrobotics/docs/blob/master/edifice/tutorials/building_robot/building_robot.sdf).
+You can also find the finished world of this tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/edifice/tutorials/moving_robot/moving_robot.sdf).
 
 ## What is a plugin
 

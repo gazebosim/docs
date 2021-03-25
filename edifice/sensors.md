@@ -8,14 +8,14 @@ to other models in our world. We will use three different sensors:
 an IMU sensor, a Contact sensor and a Lidar sensor. We will also
 learn how to launch multiple tasks with just one file using `ign_launch`.
 
-You can find the final world of this tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/dome/tutorials/sensors/sensor_tutorial.sdf)
+You can find the final world of this tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/edifice/tutorials/sensors/sensor_tutorial.sdf)
 
 ## IMU sensor
 
 The inertial measurement unit (IMU) outputs the `orientation` of our
 robot in quaternions, the `angular_velocity` in the three axes (X, Y, Z),
 and the `linear_acceleration` in the three axes. Let's use our
-[moving_robot.sdf](https://github.com/ignitionrobotics/docs/blob/master/dome/tutorials/moving_robot/moving_robot.sdf) world and modify it. Create a new file
+[moving_robot.sdf](https://github.com/ignitionrobotics/docs/blob/master/edifice/tutorials/moving_robot/moving_robot.sdf) world and modify it. Create a new file
 `sensor_tutorial.sdf` and add the code from `moving_robot.sdf` to it.
 To define the `IMU` sensor add this code under the `<world>` tag:
 
@@ -296,7 +296,7 @@ This program is called a node. We will build a node that subscribes
 to the `/lidar` topic and reads its data.
 Have a look at this [tutorial](https://ignitionrobotics.org/api/transport/9.0/messages.html)
 to learn how to build a `publisher` and a `subscriber` node.
-You can download the finished node for this demo from [here](https://github.com/ignitionrobotics/docs/blob/master/dome/tutorials/sensors/lidar_node.cc).
+You can download the finished node for this demo from [here](https://github.com/ignitionrobotics/docs/blob/master/edifice/tutorials/sensors/lidar_node.cc).
 
 #### The lidar_node
 
@@ -360,7 +360,7 @@ Inside the main we subscribe to the `lidar` topic, and wait until the node is sh
 
 #### Build the node
 
-Download the [CMakeLists.txt](https://github.com/ignitionrobotics/docs/blob/master/dome/tutorials/sensors/CMakeLists.txt), and in the same folder of `lidar_node` create `build/` directory:
+Download the [CMakeLists.txt](https://github.com/ignitionrobotics/docs/blob/master/edifice/tutorials/sensors/CMakeLists.txt), and in the same folder of `lidar_node` create `build/` directory:
 
 ```{.sh}
 mkdir build

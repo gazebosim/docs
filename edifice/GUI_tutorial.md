@@ -87,6 +87,7 @@ Currently, you can navigate the scene with a mouse in several ways:
   * *Move to*: center the scene on an entity
   * *Follow*: choose an entity for the view to  stay centered on, whether it moves or you pan around
   * *Remove*: erase the entity from the simulation
+  * *View > Collisions*: view collisions of the entity (that are defined in the SDF file)
 * **Left-click and drag**: pan around the scene
 * **Right-click and drag**: zoom in and out
 * **Scroll wheel forward/backward**: zoom in and out
