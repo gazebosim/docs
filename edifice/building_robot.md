@@ -2,7 +2,7 @@
 
 In this tutorial we will learn how to build our own robot in SDFormat. We will build a simple two wheeled robot.
 
- You can find the finished SDF file for the tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/dome/tutorials/building_robot/building_robot.sdf).
+ You can find the finished SDF file for the tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/edifice/tutorials/building_robot/building_robot.sdf).
 
 ## What is SDF
 
@@ -332,7 +332,7 @@ We didn't use the `relative_to` attribute so the pose is with respect to the fra
         </geometry>
         <material>
             <ambient>0.0 1 0.0 1</ambient>
-            <diffuse>0.0 1 0.0 1 1</diffuse>
+            <diffuse>0.0 1 0.0 1</diffuse>
             <specular>0.0 1 0.0 1</specular>
         </material>
     </visual>
