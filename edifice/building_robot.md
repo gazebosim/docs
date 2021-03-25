@@ -2,7 +2,7 @@
 
 In this tutorial we will learn how to build our own robot in SDFormat. We will build a simple two wheeled robot.
 
- You can find the finished SDF file for the tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/dome/tutorials/building_robot/building_robot.sdf).
+ You can find the finished SDF file for the tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/edifice/tutorials/building_robot/building_robot.sdf).
 
 ## What is SDF
 
