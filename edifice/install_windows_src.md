@@ -55,13 +55,22 @@ You will still be able to use `TPE` as a physics engine
   ```
 
 6. Navigate to where you would like to build the library, create and enter your workspace directory,
-   create the `src` directory which will contain the Ignition source code, and then clone the repositories.
+   create the `src` directory which will contain the Ignition source code.
   ```bash
   mkdir ign-ws
   cd ign-ws
-  curl -O https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-edifice.yaml
   mkdir src
-  vcs import src < collection-edifice.yaml
+  ```
+
+7. Then clone the repositories
+  ```bash
+    # CMD
+    curl -sk https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-edifice.yaml -o collection-edifice
+    vcs import src < collection-edifice
+
+    # PowerShell
+    curl https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-edifice.yaml -o collection-edifice
+    vcs import --input collection-edifice src
   ```
 
 ## Building the Ignition Libraries
@@ -109,7 +118,11 @@ The workspace needs to be sourced every time a new terminal is used.
 Run the following command to source the workspace:
 
 ```bash
+# CMD
 call install\setup.bat
+
+#PowerShell
+.\install\setup.ps1
 ```
 
 This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)

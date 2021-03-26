@@ -159,3 +159,28 @@ Ogre's `v2-1` branch with changes needed for deb packaging and allowing it to
 be co-installable with Ogre 1.x. The code can be found here:
 
 https://github.com/osrf/ogre-2.1-release
+
+## Windows
+
+### VisualStudioVersion is not set, please run within a Visual Studio Command Prompt.
+
+When you try to compile Ignition Robotics you might see an error in your prompt like:
+
+    VisualStudioVersion is not set, please run within a Visual Studio Command Prompt.
+
+ - CMD
+```bash
+    "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Auxiliary\Build\vcvarsall.bat" x86_amd64
+```
+
+ - PowerShell:
+```bash
+pushd "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools"
+cmd /c "VsDevCmd.bat&set" |
+foreach {
+  if ($_ -match "=") {
+    $v = $_.split("="); set-item -force -path "ENV:\$($v[0])"  -value "$($v[1])"
+  }
+}
+popd
+```
