@@ -14,7 +14,7 @@ We will start by building a simple world and then build our robot in it. Open a 
 
 ```xml
 <?xml version="1.0" ?>
-<sdf version="1.7">
+<sdf version="1.8">
     <world name="car_world">
         <physics name="1ms" type="ignored">
             <max_step_size>0.001</max_step_size>
@@ -291,7 +291,7 @@ The right wheel is similar to the left wheel except for its position.
 
 ### Defining an arbitrary frame
 
-One of the new features of SDF 1.7 is that we can define arbitrary frames. It takes two attributes:
+As of SDF 1.7 (Edifice uses SDF 1.8), we can define arbitrary frames. It takes two attributes:
 
 * `name`: the name of the frame
 * `attached_to`: the name of the frame or the link to which this frame is attached.

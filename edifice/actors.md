@@ -30,7 +30,7 @@ Actors have the following properties:
 * Actors can have trajectories scripted directly in SDF.
 
 You can check out the full specification for the `<actor>` SDF element
-[here](http://sdformat.org/spec?ver=1.7&elem=actor).
+[here](http://sdformat.org/spec?ver=1.8&elem=actor).
 
 ## Skeleton
 
