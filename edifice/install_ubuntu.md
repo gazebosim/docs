@@ -2,9 +2,19 @@
 
 Edifice binaries are provided for Ubuntu Bionic and Focal. All of the Edifice
 binaries are hosted in the osrfoundation repository. To install all of them,
-the metapackage `ignition-edifice` can be installed:
+the metapackage `ignition-edifice` can be installed.
 
 Up to Edifice's release date, the binaries should be considered unstable.
+
+First install some necessary tools:
+
+```bash
+sudo apt-get update
+sudo apt-get install lsb-release wget gnupg
+```
+
+Then install Ignition Edifice:
+
 
 ```bash
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
