@@ -1,7 +1,7 @@
 # Actors
 
 In this tutorial we will learn how to add `actors` to our world and how to create a scripted animation.
-You can find the final world of this tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/dome/tutorials/actors/actor_demo.sdf).
+You can find the final world of this tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/edifice/tutorials/actors/actor_demo.sdf).
 
 Animations are very useful if we want to have entities following a predefined path in simulation without being affected by the physics. This means that they won't fall due to gravity or collide with other objects. They will however, have a 3D visualization which can be seen by RGB cameras, and 3D meshes which can be detected by GPU based sensors. The tutorial explains how to create open-loop trajectories which don't interact with the rest of the simulation.
 
@@ -30,7 +30,7 @@ Actors have the following properties:
 * Actors can have trajectories scripted directly in SDF.
 
 You can check out the full specification for the `<actor>` SDF element
-[here](http://sdformat.org/spec?ver=1.7&elem=actor).
+[here](http://sdformat.org/spec?ver=1.8&elem=actor).
 
 ## Skeleton
 
