@@ -14,7 +14,7 @@ For this tutorial to work correctly make sure you have the following installed:
 
 * [ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/)
 * [Ignition Dome](https://ignitionrobotics.org/docs/dome)
-* [ros_ign_bridge](https://github.com/ignitionrobotics/ros_ign/blob/ros2/ros_ign_bridge/README.md#building-the-bridge-from-source)
+* [ros_ign_bridge](https://github.com/ignitionrobotics/ros_ign/tree/ros2#from-source)
 
 ## Bidirectional communication
 
