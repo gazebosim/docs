@@ -24,7 +24,7 @@ cases where the default option cannot be easily changed.
 Install tools needed by this tutorial:
 
 ```bash
-sudo apt install python3-pip wget lsb-release
+sudo apt install python3-pip wget lsb-release gnupg
 ```
 
 ## vcstool and colcon from pip
@@ -40,6 +40,21 @@ pip install -U colcon-common-extensions || pip3 install -U colcon-common-extensi
 ```
 
 Check that no errors were printed while installing with PIP. If your system is not recognising the commands, and you're using a system that is compatible with Debian or Ubuntu packages, see the instructions below to install using `apt`.
+
+After installing `vcstool` and `colcon` with PIP, you may need to add their executables to your `$PATH`.
+Check where the installation of these packages took place:
+
+```bash
+pip show vcstool || pip3 show vcstool | grep Location
+
+pip show colcon-common-extensions || pip3 show colcon-common-extensions | grep Location
+```
+
+If your install path is prefixed with `$HOME/.local`, you'll probably need to add the executables within this directory to your `$PATH` in order to avoid "command not found" errors when using `vcstool` and `colcon` later on:
+
+```bash
+export PATH=$PATH:$HOME/.local/bin/
+```
 
 ## vcstool and colcon from apt
 
