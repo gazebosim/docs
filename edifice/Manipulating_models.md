@@ -79,11 +79,11 @@ If you would like to translate along the world frame axis, simply hold `Shift`.
 
 This isn't a permanent realignment; you can move the entity while holding `Shift`, but once you let go it will return to it's local translational frame.
 
-![World frame alignment - translation](img/translate_worldframe.png)
+![World frame alignment - translation](img/translate_worldframe.gif)
 
 The same can be done for an entity's local rotational frame.
 
-![World frame alignment - rotation](img/rotate_worldframe.png)
+![World frame alignment - rotation](img/rotate_worldframe.gif)
 
 ### Enter Custom Snap Values
 
