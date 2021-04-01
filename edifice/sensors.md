@@ -157,7 +157,7 @@ In another terminal, listen to the `/wall/touched` topic:
 
 `ign topic -e -t /wall/touched`
 
-Drive your robot forward to the wall using the keyboard arrow keys.
+Drive your robot forward to the wall using the keyboard arrow keys. Make sure to start the simulation by hitting the play button, and enable the Key Publisher plugin as well by clicking on the plugins dropdown list (vertical ellipsis), then selecting "Key Publisher".
 
 When you hit the bump you should see a message `data: true` on the terminal where you ran the `ign topic -e -t /wall/touched`.
 
@@ -184,7 +184,7 @@ we can publish an output depending on a received input. So when we receive
 
 We don't want our robot to touch the wall at all because this may cause some damage, so instead of the contact sensor we can use the Lidar. Lidar is an acronym for "light detection and ranging". This sensor can help us detect obstacles around the robot. We will use it to measure the distance between our robot and the wall.
 
-First let's create a frame to fix our lidar to:
+First let's create a frame to fix our lidar to. This should be added insed of the `vehicle_blue` `<model>` tag, since the lidar frame is attached to the robot's `chassis`:
 
 ```xml
 <frame name="lidar_frame" attached_to='chassis'>
@@ -253,7 +253,7 @@ range data points.
  * `<always_on>`: if true the sensor will always be updated according to the `<update_rate>`.
  * `<visualize>`: if true the sensor is visualized in the GUI.
 
-Now run the world:
+Now run the world and press the play button in the bottom-left corner:
 
 `ign gazebo sensor_tutorial.sdf`
 
@@ -388,7 +388,7 @@ Run the world from terminal 2:
 ign gazebo sensor_tutorial.sdf
 ```
 
-Now you can see the robot move forward and as it approaches the wall it starts to turn left until it's clear and moves forward again.
+Now you can see the robot move forward and as it approaches the wall it starts to turn left until it's clear and moves forward again (be sure to press the play button in the bottom-left corner to make the robot start moving).
 
 ## Ignition launch
 
@@ -417,7 +417,7 @@ Save the file as `sensor_launch.ign`, and then run it using the following comman
 ign launch sensor_launch.ign
 ```
 
-Hurray! Our robot is now moving and avoiding the wall.
+Press the play button to start the simulation. Hurray! Our robot is now moving and avoiding the wall.
 
 To add even more complexity to your simulation, learn how to add actors to a world in the [next tutorial](actors).
 
