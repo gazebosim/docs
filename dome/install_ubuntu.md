@@ -2,7 +2,17 @@
 
 Dome binaries are provided for Ubuntu Bionic and Focal. All of the Dome
 binaries are hosted in the osrfoundation repository. To install all of them,
-the metapackage `ignition-dome` can be installed:
+the metapackage `ignition-dome` can be installed.
+
+First install some necessary tools:
+
+```bash
+sudo apt-get update
+sudo apt-get install lsb-release wget gnupg
+```
+
+Then install Ignition Dome:
+
 
 ```bash
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'

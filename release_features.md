@@ -129,6 +129,7 @@ collection assures that all libraries all compatible and can be used together.
     * Widget that publishes keys pressed on the keyboard.
     * Collision visualization.
     * [Screenshot widget.](https://ignitionrobotics.org/api/gui/3.5/screenshot.html)
+    * [Joint position controller.](https://app.ignitionrobotics.org/OpenRobotics/fuel/worlds/NAO%20joint%20control)
 1. APIs that make it easier to migrate from Gazebo classic:
     * [World](https://ignitionrobotics.org/api/gazebo/3.5/migrationworldapi.html)
     * [Model](https://ignitionrobotics.org/api/gazebo/3.5/migrationmodelapi.html)
@@ -189,18 +190,15 @@ collection assures that all libraries all compatible and can be used together.
 ## Edifice
 
 1. New utility library with minimal dependencies: [Ignition Utils](https://github.com/ignitionrobotics/ign-utils/).
-1. [Hook command line tool to binaries instead of libraries](https://github.com/ignitionrobotics/ign-tools/issues/7)
-1. [Heightmap support using Ogre 1 and DART.](https://github.com/ignitionrobotics/ign-gazebo/issues/237)
 1. [Sky box support.](https://github.com/ignitionrobotics/ign-rendering/issues/98)
 1. [Lightmap support.](https://github.com/ignitionrobotics/ign-gazebo/pull/471)
 1. [Capsule and ellipsoid geometries.](https://github.com/osrf/sdformat/issues/376)
 1. [SDF model composition.](https://github.com/osrf/sdformat/issues/278)
 1. [SDFormat interface for non-SDF models.](http://sdformat.org/tutorials?tut=composition_proposal&cat=pose_semantics_docs&#1-5-minimal-libsdformat-interface-types-for-non-sdformat-models)
 1. [Choose render order for overlapping polygons.](https://github.com/ignitionrobotics/ign-rendering/pull/188)
-1. [Headless simulation using EGL.](https://github.com/ignitionrobotics/ign-rendering/issues/223)
-1. [Upgrade to Ogre 2.2.](https://github.com/ignitionrobotics/ign-rendering/issues/223)
 1. [Light visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/193)
 1. [Spawn lights from the GUI.](https://github.com/ignitionrobotics/ign-gazebo/issues/119)
+1. [Mecanum wheel controller.](https://github.com/ignitionrobotics/ign-gazebo/issues/579)
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
