@@ -10,7 +10,7 @@ In this tutorial we will learn how to build our own robot in SDFormat. We will b
 
 ## Building a world
 
-We will start by building a simple world and then build our robot in it. Open a new file and copy the following code to it.
+We will start by building a simple world and then build our robot in it. Open a new file called `building_robot.sdf` and copy the following code to it.
 
 ```xml
 <?xml version="1.0" ?>

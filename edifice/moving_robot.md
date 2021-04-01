@@ -96,7 +96,7 @@ The `TriggeredPublisher` plugin will do this.
 ### Triggered Publisher
 
 The `TriggeredPublisher` plugin publishes a user specified message on an output topic in response to an input message that matches user specified criteria.
-Let's add the following code under the `<world>` tags:
+Let's add the following code under the `<world>` tag:
 
 ```xml
 <!-- Moving Forward-->
@@ -114,7 +114,7 @@ Let's add the following code under the `<world>` tags:
 This code defines the `triggered-publisher` plugin.
 It accepts messages of type `ignition.msgs.Int32` on the `/keyboard/keypress` topic and if the value in the `data` field matches `16777235`(Up arrow key) it outputs a `Twist` message on the `cmd_vel` topic with values `x: 0.5`, `z: 0.0`.
 
-Now launch `building_robot.sdf` then add the Key Publisher plugin and our robot should move forward as we press the Up arrow key &#8593;.
+Now launch `building_robot.sdf` then add the Key Publisher plugin and our robot should move forward as we press the Up arrow key &#8593; (make sure you start the simulation by pressing the play button to see the robot move forward after pressing the Up arrow key).
 
 There is a demo explaining how the [Triggered Publisher](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo2/tutorials/triggered_publisher.md) works.
 
@@ -125,6 +125,8 @@ To see what values are sent on the `/keyboard/keypress` topic when pressing the 
 * Run the model in one terminal:
 
     `ign gazebo building_robot.sdf`
+
+* In the top right corner click on the plugins dropdown list (vertical ellipsis), click the Key Publisher.
 
 * In another terminal run the following command:
 

@@ -3,8 +3,8 @@ cmake_minimum_required(VERSION 3.10.2 FATAL_ERROR)
 project(avoid_wall)
 
 # Find the Ignition_Transport library
-find_package(ignition-transport8 QUIET REQUIRED OPTIONAL_COMPONENTS log)
-set(IGN_TRANSPORT_VER ${ignition-transport8_VERSION_MAJOR})
+find_package(ignition-transport10 QUIET REQUIRED OPTIONAL_COMPONENTS log)
+set(IGN_TRANSPORT_VER ${ignition-transport10_VERSION_MAJOR})
 
 include_directories(${CMAKE_BINARY_DIR})
 
