@@ -21,9 +21,9 @@ Head over and browse the available content.
 ![Fuel models preview](img/fuel.png)
 
 Click on any one of the thumbnails, or use the search bar.
-For example, let's find the [PR2_SDF17](https://app.ignitionrobotics.org/openrobotics/fuel/models/PR2_SDF17).
+For example, let's find the [Mine Cart Engine](https://app.ignitionrobotics.org/OpenRobotics/fuel/models/Mine%20Cart%20Engine).
 
-![Vent](img/pr2_detail.png)
+![Vent](img/mine_cart_engine_detail.png)
 
 Note that some of the model files are quite large and may take some time to download into your world.
 Check that the file size on the right is reasonable for your application before moving on.
@@ -33,7 +33,7 @@ Check that the file size on the right is reasonable for your application before 
 The only thing left to do is drag and drop.
 Click and hold the `Drag me!` button and do just that: drag your mouse into the GUI scene area.
 
-![Drag and drop](img/pr2.gif)
+![Drag and drop](img/mine_cart_engine.gif)
 
 Now you can add more models, or even load in any one of the plugins you learned about to interact with the model the same way you could with the shapes in the previous tutorial.
 
