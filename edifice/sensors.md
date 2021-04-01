@@ -184,7 +184,7 @@ we can publish an output depending on a received input. So when we receive
 
 We don't want our robot to touch the wall at all because this may cause some damage, so instead of the contact sensor we can use the Lidar. Lidar is an acronym for "light detection and ranging". This sensor can help us detect obstacles around the robot. We will use it to measure the distance between our robot and the wall.
 
-First let's create a frame to fix our lidar to. This should be added insed of the `vehicle_blue` `<model>` tag, since the lidar frame is attached to the robot's `chassis`:
+First let's create a frame to fix our lidar to. This should be added inside of the `vehicle_blue` `<model>` tag, since the lidar frame is attached to the robot's `chassis`:
 
 ```xml
 <frame name="lidar_frame" attached_to='chassis'>
