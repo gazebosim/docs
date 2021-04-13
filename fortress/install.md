@@ -42,17 +42,17 @@ collection assures that all libraries are compatible and can be used together.
 | ------------------ |:-------------:|
 |   ign-cmake        |       2.x     |
 |   ign-common       |       4.x     |
-|   ign-fuel-tools   |       6.x     |
-|   ign-gazebo       |       5.x     |
-|   ign-gui          |       5.x     |
-|   ign-launch       |       4.x     |
+|   ign-fuel-tools   |       7.x     |
+|   ign-gazebo       |       6.x     |
+|   ign-gui          |       6.x     |
+|   ign-launch       |       5.x     |
 |   ign-math         |       6.x     |
-|   ign-msgs         |       7.x     |
-|   ign-physics      |       4.x     |
+|   ign-msgs         |       8.x     |
+|   ign-physics      |       5.x     |
 |   ign-plugin       |       1.x     |
-|   ign-rendering    |       5.x     |
-|   ign-sensors      |       5.x     |
+|   ign-rendering    |       6.x     |
+|   ign-sensors      |       6.x     |
 |   ign-tools        |       1.x     |
-|   ign-transport    |      10.x     |
+|   ign-transport    |      11.x     |
 |   ign-utils        |       1.x     |
-|   sdformat         |      11.x     |
+|   sdformat         |      12.x     |
