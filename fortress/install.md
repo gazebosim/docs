@@ -5,17 +5,16 @@ from nightly debian packages on Linux.
 
 Fortress supports the following platforms:
 
- * Ubuntu Bionic amd64/arm64/i386 and Focal on amd64/arm64
+ * Ubuntu Bionic amd64 and Focal on amd64
  * MacOS Mojave and Catalina
      * Ignition currently only works in headless mode
       (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use
       `ign gazebo -s fuel.sdf` to start the server only).
  * Windows 10
      * Ignition command line utilities are not yet supported.
-     * All packages up to but not including `ign-gazebo` are currently building.
+     * All packages up to `ign-gazebo` can be built.
      * DART physics engine is not yet supported.
      * Qt (GUI functionality) is not yet supported.
-
 
 ## Binary installation instructions
 
