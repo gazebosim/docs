@@ -15,7 +15,7 @@ See the instructions on the
 
 * **C**: Citadel
 * **D**: Dome
-* **D**: Edifice
+* **E**: Edifice
 * **main**: main branch
 
 Library                          | C ➡️  D                       | D ➡️  E                        | E ➡️  main
