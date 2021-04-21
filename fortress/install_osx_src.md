@@ -148,7 +148,7 @@ sudo patch -p0 < intern.patch
 
 Create a file called `config.patch` with the following content:
 
-```
+```patch
 --- config.h    2019-12-16 18:19:13.000000000 +0100
 +++ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Ruby.framework/Headers/ruby/ruby/config.h
 @@ -410,6 +410,6 @@
