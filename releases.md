@@ -22,3 +22,8 @@ An Ignition release follows the form "Ignition Codename", for example Ignition A
 | Fortress   | Sep, 2021 | Sep, 2026 | LTS   |
 | Ignition-G | Sep, 2022 | Sep, 2024 |       |
 | Ignition-H | Sep, 2023 | Sep, 2028 | LTS   |
+
+## Library Versions
+
+Check out [this table](https://github.com/ignitionrobotics/docs/blob/master/tools/versions.md)
+for a list of release and EOL dates for all versions of all libraries.
