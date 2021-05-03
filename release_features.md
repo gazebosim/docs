@@ -124,6 +124,7 @@ collection assures that all libraries all compatible and can be used together.
 1. [Binary Windows install through conda-forge.](https://ignitionrobotics.org/docs/citadel/install_windows)
 1. [Restitution coefficient (bouncing).](https://github.com/ignitionrobotics/ign-physics/pull/139)
 1. [Custom retroreflection for objects detected by lidar.](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo3/examples/worlds/gpu_lidar_retro_values_sensor.sdf)
+1. [More SDFormat documentation](http://sdformat.org/tutorials).
 1. New graphical interfaces:
     * Widget listing all transport topics.
     * Widget that publishes keys pressed on the keyboard.
@@ -163,6 +164,7 @@ collection assures that all libraries all compatible and can be used together.
 1. [Support entity names with spaces.](https://github.com/ignitionrobotics/ign-gazebo/issues/239)
 1. Kinetic energy monitor plugin.
 1. [Texture-based thermal signature](https://ignitionrobotics.org/api/sensors/4.1/thermalcameraigngazebo.html) for objects, visible from thermal camera.
+1. [Web visualization of running simulations](https://ignitionrobotics.org/docs/dome/web_visualization).
 1. GUI tools:
     * [Plotting](https://community.gazebosim.org/t/gsoc-2020-plotting-tool-for-ignition/619)
     * [Lidar visualization](https://community.gazebosim.org/t/gsoc-2020-sensor-data-visualization/638)
@@ -199,6 +201,7 @@ collection assures that all libraries all compatible and can be used together.
 1. [Light visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/193)
 1. [Spawn lights from the GUI.](https://github.com/ignitionrobotics/ign-gazebo/issues/119)
 1. [Mecanum wheel controller.](https://github.com/ignitionrobotics/ign-gazebo/issues/579)
+1. [Hydrodynamics.](https://ignitionrobotics.org/api/gazebo/5.0/classignition_1_1gazebo_1_1systems_1_1Hydrodynamics.html)
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
