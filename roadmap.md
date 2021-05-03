@@ -8,19 +8,17 @@ info@openrobotics.org.
 
 ## Quarterly Roadmap
 
-## 2021 Q1(Jan - Mar) - ongoing
-
-* **Windows support**
-    * [All open tickets](https://github.com/search?q=org%3Aignitionrobotics+label%3AWindows&type=Issues)
-    * [Status](https://github.com/orgs/ignitionrobotics/projects/3?card_filter_query=label%3AWindows)
-* **Demos**: Create various demos highlighting Ignition's features.
-* **Web client**: Visualize running simulations on a web browser.
-
-## 2021 Q2(Apr - Jun) - planned
+## 2021 Q2 (Apr - Jun) - ongoing
 
 * **Performance**: Improve Ignition Gazebo's runtime performance
     * [All open tickets](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22performance%22&state=open&type=Issues)
     * [Status](https://github.com/orgs/ignitionrobotics/projects/3?card_filter_query=label%3A%22performance%22)
+
+## 2021 Q3 (Jul - Sep) / Q4 (Oct - Dec) - planned
+
+* **Scripting**: Add scripting interfaces to Ignition
+    * [All open tickets](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22scripting%22&state=open&type=Issues)
+    * [Status](https://github.com/orgs/ignitionrobotics/projects/3?card_filter_query=label%3A%22scripting%22)
 
 ## Feature Roadmap
 
