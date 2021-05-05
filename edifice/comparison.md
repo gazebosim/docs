@@ -199,7 +199,7 @@ Visualize joints | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/
 Visualize collisions | ✓ | ✓
 Visualize inertia | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/111)
 Visualize CoM | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/110)
-Visualize contacts | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/112)
+Visualize contacts | ✓ | ✓
 Visualize lights | ✓ | ✓
 Follow / move to | ✓ | ✓
 Copy / paste | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/102)
@@ -244,7 +244,7 @@ Feature | Gazebo-classic | Ignition Gazebo
 Ogre 1.x engine | ✓ | ✓
 Ogre 2.x engine | ✕ | ✓
 Optix engine | ✕ | ✓ Partial support
-Custom engine plugins | ✕ | [Issue](https://github.com/ignitionrobotics/ign-rendering/issues/100)
+Custom engine plugins | ✕ | [✓](https://ignitionrobotics.org/api/rendering/5.0/renderingplugin.html)
 Sky | ✓ | ✓
 Fog | ✓ |
 Material scripts | ✓ (Ogre 1.x scripts) | Does not apply
@@ -278,7 +278,7 @@ Windows | ✓ | The stack works up to ign-gazebo: [Issue](https://github.com/ign
 
 Feature | Gazebo-classic | Ignition Gazebo
 -- | -- | --
-Nested models | ✓ | [Physics issue](https://github.com/ignitionrobotics/ign-physics/issues/10)
+Nested models | ✓ | ✓
 Log / playback | ✓ | ✓
 Web client (GzWeb) | ✓ |
 COLLADA meshes | ✓ | ✓

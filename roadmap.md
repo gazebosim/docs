@@ -34,28 +34,30 @@ and release pattern allows us to distribute patch and minor updates into an alre
 
 ### Citadel
 
-1. SDF website update, more documentation.
-1. Web client.
 1. [GPS sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/23)
+1. Fuel asset version control.
 
 ### Dome
 
 1. Localized wind (wind that is constrained to a region of influence).
 1. [Bazel build files.](https://github.com/ignitionrobotics/ign-bazel)
 1. [Bullet physics engine.](https://github.com/ignitionrobotics/ign-physics/issues/44)
+1. [Parameter passing on SDF files.](https://github.com/osrf/sdformat/pull/413)
 
 ### Edifice
 
 1. Improved Mac and Windows support.
 1. Mesh level of detail support.
 1. Design for Enhanced distributed simulation.
-1. [Hook command line tool to binaries instead of libraries](https://github.com/ignitionrobotics/ign-tools/issues/7)
+1. [Hook command line tool to binaries instead of libraries.](https://github.com/ignitionrobotics/ign-tools/issues/7)
 1. [Heightmap support using Ogre 1 and DART.](https://github.com/ignitionrobotics/ign-gazebo/issues/237)
+1. Ocean currents.
 
 ### Fortress
 
 1. [Headless simulation using EGL.](https://github.com/ignitionrobotics/ign-rendering/issues/223)
 1. [Upgrade to Ogre 2.2.](https://github.com/ignitionrobotics/ign-rendering/issues/223)
+1. [Improve `<pose>` tag on SDFormat.](https://github.com/osrf/sdformat/issues/252)
 
 ## Planned releases
 
