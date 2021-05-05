@@ -170,6 +170,7 @@ collection assures that all libraries all compatible and can be used together.
     * [Lidar visualization](https://community.gazebosim.org/t/gsoc-2020-sensor-data-visualization/638)
     * [Configure physics real time factor and step size.](https://github.com/ignitionrobotics/ign-gazebo/pull/536)
     * [Configure lights from the GUI or transport.](https://github.com/ignitionrobotics/ign-gazebo/issues/122)
+    * [Contact visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/234)
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
