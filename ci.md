@@ -11,11 +11,11 @@ The main type of check that is performed by CI is compiling the code and running
 all automated tests. Some jobs may also run linters and other static checkers.
 Finally, we have checks that add labels, check DCO and coverage.
 
-We use two platforms to run CI, each of them running different builds.
-
 All checks are visible at the bottom of a pull request.
 
 ![PR checks](images/PR_checks.png)
+
+We use two platforms to run CI, each of them running different builds.
 
 ### Jenkins server
 
@@ -23,7 +23,7 @@ Our Jenkins server is located at https://build.osrfoundation.org/. It runs build
 for all supported operating systems. It also runs an ABI checker for all stable
 branches.
 
-Each pull request to a stable branch or `main` branch will trigger:
+Each pull request to a stable or `main` branch will trigger:
 
 * `<library>-ci-pr_any-ubuntu-auto-amd64`: Build and test on Ubuntu Linux
     * Builds are run inside Docker containers for Bionic or Focal.
