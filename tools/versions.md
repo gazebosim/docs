@@ -23,19 +23,19 @@ How to read the columns:
 |---|---|---|---|---|---|---|---|---|---|
 |ignition-cmake|0|EOL ❌|B C D E F|X Z A B||||2017-10-09|-|
 ||1|EOL ❌||X B||||2018-12-12|-|
-||2|stable|F G H|B|F|11|A B C D E F|2019-01-31|TBD|
+||2|stable|F G H I|B|F|11|A B C D E F|2019-01-31|TBD|
 ||3|unstable||||||TBD|TBD|
 |ignition-common|0|EOL ❌||T X Y Z A||||2016-07-27|-|
 ||1|stable|B C D E F|X Z A B||9 10||2018-01-05|2023-01-25 with Gazebo 9|
 ||2|EOL ❌||X B||||2019-02-11|-|
-||3|stable|G H|B F|F|11|A B C D|2019-02-28|2025-01-25 with Gazebo 11|
+||3|stable|G H I|B F|F|11|A B C D|2019-02-28|2025-01-25 with Gazebo 11|
 ||4|stable|||F||E F|2020-03-31|TBD|
 ||5|unstable||||||TBD|TBD|
 |ignition-fuel-tools|0|EOL ❌||X Z A||||2017|-|
 ||1|stable|B C D E F|X A B||9 10||2018-01-25|2023-01-25 with Gazebo 9|
 ||2|EOL ❌||X B||||2019-01-29|2019-01-29|
 ||3|EOL ❌||B|||A B|2019-01-30|2020-12 with Blueprint|
-||4|stable|G H|B F|F|11|C|2019-12-10|2025-01-25 with Gazebo 11|
+||4|stable|G H I|B F|F|11|C|2019-12-10|2025-01-25 with Gazebo 11|
 ||5|stable|||||D|2020-09-30|2021-12 with Dome|
 ||6|stable|||F||E|2020-03-31|2022-03 with Edifice|
 ||7|unstable|||||F|2021-09-30|TBD|
@@ -64,14 +64,14 @@ How to read the columns:
 ||3|EOL ❌||T X Y Z A||8||2017-01-05|2019-01-25 with gazebo8|
 ||4|stable|B C D E F|X Z A B||9 10||2017-12-26|2023-01-25 with Gazebo 9|
 ||5|EOL ❌||X B||||2018-12-12||
-||6|stable|G H|B F|F|11|A B C D E F|2019-01-31|2025-01-25 with Gazebo 11|
+||6|stable|G H I|B F|F|11|A B C D E F|2019-01-31|2025-01-25 with Gazebo 11|
 ||7|unstable||||||TBD|TBD|
 |ignition-msgs|0|EOL ❌||P T X Z A B||8||2014-07-14|2019-01-25 with gazebo8|
 ||1|stable|B C D E F|T W X Y Z A B||9 10||2017-10-04|2023-01-25 with Gazebo 9|
 ||2|EOL ❌||X B||||2019-02-11||
 ||3|EOL ❌||B|||A|2019-02-27|2019-09 with Acropolis|
 ||4|EOL ❌||B|||B|2019-05-20|2020-12 with Blueprint|
-||5|stable|G H|B F|F|11|C|2019-12-10|2025-01-25 with Gazebo 11|
+||5|stable|G H I|B F|F|11|C|2019-12-10|2025-01-25 with Gazebo 11|
 ||6|stable|||||D|2020-09-30|2021-12 with Dome|
 ||7|stable|||F||E|2020-03-31|2022-03 with Edifice|
 ||8|unstable|||||F|2021-09-30|TBD|
