@@ -9,24 +9,24 @@ interpret their results.
 
 The main type of check that is performed by CI is compiling the code and running
 all automated tests. Some jobs may also run linters and other static checkers.
-Finally, we have checks that add labels, check DCO and coverage.
+Finally, we have checks that add labels, check the [developer certificate of origin (DCO)](https://en.wikipedia.org/wiki/Developer_Certificate_of_Origin) and code coverage.
 
 All checks are visible at the bottom of a pull request.
 
 ![PR checks](images/PR_checks.png)
 
-We use two platforms to run CI, each of them running different builds.
+We use two platforms to run CI ([Jenkins](https://www.jenkins.io/) and [GitHub Actions](https://docs.github.com/en/actions)), each of them running different builds.
 
 ### Jenkins server
 
-Our Jenkins server is located at https://build.osrfoundation.org/. It runs builds
+Our Jenkins server is located at [https://build.osrfoundation.org/](https://build.osrfoundation.org/). It runs builds
 for all supported operating systems. It also runs an ABI checker for all stable
 branches.
 
 Each pull request to a stable or `main` branch will trigger:
 
 * `<library>-ci-pr_any-ubuntu-auto-amd64`: Build and test on Ubuntu Linux
-    * Builds are run inside Docker containers for Bionic or Focal.
+    * Builds are run inside Docker containers for Ubuntu Bionic or Ubuntu Focal.
     * By default, dependencies are installed from stable debian binaries for
       stable branches, and nightlies for `main` branches.
     * Library being tested is compiled using CMake and Make.
@@ -35,7 +35,7 @@ Each pull request to a stable or `main` branch will trigger:
     * Library being tested is compiled using CMake and Make.
 * `<library>-ci-pr_any-windows*-amd64`: Build and test on Windows
     * External dependencies are installed from vcpkg
-    * Library being tested and its Ignition dependencies are compiled using colcon.
+    * Library being tested and its Ignition dependencies are compiled using [colcon](https://colcon.readthedocs.io/en/released/#).
 
 Pull requests to stable branches also trigger:
 
@@ -94,7 +94,7 @@ On the GitHub UI, checks can be:
 * 🟡: Pending, results haven't been received yet.
 * ❌: Failed, something is wrong.
 
-Depending on the library and on the build queue, checks can be in a pending
+Depending on the library and on the build queue (from our [Jenkins server](https://build.osrfoundation.org/)), checks can be in a pending
 🟡 state from a couple of minutes up to an entire day. If a build is in this
 state for too long, there may be some issue with infrastructure and the
 build didn't run or didn't report back.
@@ -137,7 +137,7 @@ Builds can fail for a variety of reasons, for example:
     * Actions: Does not detect compiler or CMake warnings.
 * There are static checker failures. All code checker failures must be fixed.
     * Jenkins: Does not run static checkers.
-    * Actions: When there are code cherk failures, the build is marked red ❌.
+    * Actions: When there are code check failures, the build is marked red ❌.
                On the build logs, the checker failures should be under the
                `Code check` collapsible.
 * There are infrastructure failures. These should be reported to the build farmer.
@@ -198,4 +198,3 @@ All the infrastructure for our CI is in the
   [release-tools](https://github.com/ignition-tooling/release-tools/).
 * The GitHub action is in
   [action-ignition-ci](https://github.com/ignition-tooling/action-ignition-ci/).
-
