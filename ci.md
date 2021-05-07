@@ -14,8 +14,8 @@ therefore are familiar with:
 * Test coverage
 * Static code checking
 * Branching (stable release branches and `main`)
-* How the code is compiled
-* DCO check
+* Building with cmake or colcon
+* Developer Certificate of Origin (DCO) check
 
 It's also helpful to go over our
 [Release guide](https://github.com/ignitionrobotics/docs/blob/master/release.md#type-of-releases)
@@ -28,17 +28,14 @@ to be familiar with:
 ## Types of checks
 
 The main type of check that is performed by CI is compiling the code and running
-all automated tests. Some jobs may also run linters static checkers, add labels,
-check the
-[developer certificate of origin (DCO)](https://en.wikipedia.org/wiki/Developer_Certificate_of_Origin)
+all automated tests. Some jobs may also run static checkers, add labels, check DCO
 and code coverage.
 
 All checks are visible at the bottom of a pull request, for example:
 
 ![PR checks](images/PR_checks.png)
 
-We use two platforms to run CI (
-[Jenkins](https://www.jenkins.io/) and
+We use two platforms to run CI ([Jenkins](https://www.jenkins.io/) and
 [GitHub Actions](https://docs.github.com/en/actions)),
 each of them running different builds.
 
@@ -57,8 +54,8 @@ Platform | Job name | OS | What does it do? | Where dependencies come from?
 --- | --- | --- | --- | ---
 Jenkins | `<library>-ci-pr_any-ubuntu-auto-amd64` | Ubuntu | Compile and run tests using CMake and Make | Stable binaries for stable branches, nightlies for `main`
 Jenkins | `<library>-ci-pr_any-homebrew-amd64` | macOS | Compile and run tests using CMake and Make | Homebrew binaries
-Jenkins | `<library>-ci-pr_any-windows*-amd64` | Windows | Compile and run tests using [colcon](https://colcon.readthedocs.io/en/released/#) | External dependencies from vcpkg, Ignition dependencies built from source with colcon
-Jenkins | `<library>-abichecker-any_to_any-ubuntu_auto-amd64` | Ubuntu | Run ABI checker | Stable binaries for stable branches, nightlies for `main`
+Jenkins | `<library>-ci-pr_any-windows*-amd64` | Windows | Compile and run tests using [colcon](https://colcon.readthedocs.io/en/released/#) | External dependencies from [vcpkg](https://docs.microsoft.com/en-us/cpp/build/vcpkg?view=msvc-160), Ignition dependencies built from source with colcon
+Jenkins | `<library>-abichecker-any_to_any-ubuntu_auto-amd64` | Ubuntu | Run ABI checker | Stable binaries
 Actions | `Ubuntu CI / Ubuntu * CI` | Ubuntu Bionic and Focal | Compile and run tests using CMake and Make, run code checker and upload coverage results | Stable binaries for stable branches, nightlies for `main`
 Actions | `DCO` | - | Checks that all commits are signed correctly | -
 Actions | `PR Collection Labeler` | - | Adds collection labels (i.e. Blueprint, Citadel...) according to the target branch | -
@@ -67,15 +64,15 @@ Actions | `codecov/*` | - | Checks that the test coverage hasn't been reduced | 
 
 Notes:
 
-* The ABI job doesn't run for the `main` branch, because that's where ABI may be broken.
+* The ABI job isn't triggered for the `main` branch, because that's where it's ok to break ABI.
 * GitHub Actions jobs can have the `pull_request` or `push` suffix:
     * `pull_request`: Runs when a pull request is open and subsequent pushes
                       are made to it.
-    * `push`: Runs whenever code is pushed to the official repository. These don't
+    * `push`: Runs for every commit pushed to the official repository. These don't
               run for forks. Pull requests from the official repository will have
               both `push` and `pull_request`.
-* Only the `Bionic` GitHub actions upload coverage results to Codecov, so we
-  have a single coverage result for each branch.
+* Only the `Bionic` Action uploads coverage results to Codecov, so we have a
+  single coverage result for each branch.
 
 ## Required checks
 
