@@ -5,74 +5,77 @@ run for various platforms. This process is called Continuous Integration, or CI.
 This document covers all the CI jobs that are available for Ignition and how to
 interpret their results.
 
+This documentation assumes you have gone over the
+[Contributing guide](https://ignitionrobotics.org/docs/all/contributing) and
+therefore are familiar with:
+
+* Opening pull requests
+* Automated tests
+* Test coverage
+* Static code checking
+* Branching (stable release branches and `main`)
+* How the code is compiled
+* DCO check
+
+It's also helpful to go over our
+[Release guide](https://github.com/ignitionrobotics/docs/blob/master/release.md#type-of-releases)
+to be familiar with:
+
+* Supported platforms
+* Stable, pre-release and nightly releases
+* Binary releases like Debian
+
 ## Types of checks
 
 The main type of check that is performed by CI is compiling the code and running
-all automated tests. Some jobs may also run linters and other static checkers.
-Finally, we have checks that add labels, check the [developer certificate of origin (DCO)](https://en.wikipedia.org/wiki/Developer_Certificate_of_Origin) and code coverage.
+all automated tests. Some jobs may also run linters static checkers, add labels,
+check the
+[developer certificate of origin (DCO)](https://en.wikipedia.org/wiki/Developer_Certificate_of_Origin)
+and code coverage.
 
-All checks are visible at the bottom of a pull request.
+All checks are visible at the bottom of a pull request, for example:
 
 ![PR checks](images/PR_checks.png)
 
-We use two platforms to run CI ([Jenkins](https://www.jenkins.io/) and [GitHub Actions](https://docs.github.com/en/actions)), each of them running different builds.
+We use two platforms to run CI (
+[Jenkins](https://www.jenkins.io/) and
+[GitHub Actions](https://docs.github.com/en/actions)),
+each of them running different builds.
 
-### Jenkins server
-
-Our Jenkins server is located at [https://build.osrfoundation.org/](https://build.osrfoundation.org/). It runs builds
-for all supported operating systems. It also runs an ABI checker for all stable
-branches.
-
-Each pull request to a stable or `main` branch will trigger:
-
-* `<library>-ci-pr_any-ubuntu-auto-amd64`: Build and test on Ubuntu Linux
-    * Builds are run inside Docker containers for Ubuntu Bionic or Ubuntu Focal.
-    * By default, dependencies are installed from stable debian binaries for
-      stable branches, and nightlies for `main` branches.
-    * Library being tested is compiled using CMake and Make.
-* `<library>-ci-pr_any-homebrew-amd64`: Build and test on macOS
-    * Dependencies are installed from homebrew.
-    * Library being tested is compiled using CMake and Make.
-* `<library>-ci-pr_any-windows*-amd64`: Build and test on Windows
-    * External dependencies are installed from vcpkg
-    * Library being tested and its Ignition dependencies are compiled using [colcon](https://colcon.readthedocs.io/en/released/#).
-
-Pull requests to stable branches also trigger:
-
-* `<library>-abichecker-any_to_any-ubuntu_auto-amd64`: Run ABI checker
-
-### GitHub Actions
+Our Jenkins server is located at
+[https://build.osrfoundation.org/](https://build.osrfoundation.org/).
+It runs builds for all supported operating systems. It also runs an
+[ABI](https://stackoverflow.com/a/2456882/6451468)
+checker for all stable branches.
 
 GitHub actions run on GitHub's servers. Currently, it builds Linux for all
 libraries, and macOS for some of them.
 
-Every commit to any branch will trigger:
+Here's a summary of all checks.
 
-* `Ubuntu CI / Ubuntu Bionic CI (push)`: Build, test and run linters on Ubuntu Bionic.
-    * Builds are run inside Docker containers.
-    * By default, dependencies are installed from stable debian binaries for
-      stable branches, and nightlies for `main` branches.
-    * Library being tested is compiled using CMake and Make.
-    * Test coverage is computed and uploaded to Codecov.
-* `Ubuntu CI / Ubuntu Focal CI (push)`: Build, test and run linters on Ubuntu Focal.
-    * Builds are run inside Docker containers.
-    * By default, dependencies are installed from stable debian binaries for
-      stable branches, and nightlies for `main` branches.
-    * Library being tested is compiled using CMake and Make.
+Platform | Job name | OS | What does it do? | Where dependencies come from?
+--- | --- | --- | --- | ---
+Jenkins | `<library>-ci-pr_any-ubuntu-auto-amd64` | Ubuntu | Compile and run tests using CMake and Make | Stable binaries for stable branches, nightlies for `main`
+Jenkins | `<library>-ci-pr_any-homebrew-amd64` | macOS | Compile and run tests using CMake and Make | Homebrew binaries
+Jenkins | `<library>-ci-pr_any-windows*-amd64` | Windows | Compile and run tests using [colcon](https://colcon.readthedocs.io/en/released/#) | External dependencies from vcpkg, Ignition dependencies built from source with colcon
+Jenkins | `<library>-abichecker-any_to_any-ubuntu_auto-amd64` | Ubuntu | Run ABI checker | Stable binaries for stable branches, nightlies for `main`
+Actions | `Ubuntu CI / Ubuntu * CI` | Ubuntu Bionic and Focal | Compile and run tests using CMake and Make, run code checker and upload coverage results | Stable binaries for stable branches, nightlies for `main`
+Actions | `DCO` | - | Checks that all commits are signed correctly | -
+Actions | `PR Collection Labeler` | - | Adds collection labels (i.e. Blueprint, Citadel...) according to the target branch | -
+Actions | `Ticket opened` | - | Adds the pull request to the [Core development board](https://github.com/orgs/ignitionrobotics/projects/3) | -
+Actions | `codecov/*` | - | Checks that the test coverage hasn't been reduced | -
 
-Every pull request will also trigger the exact same builds, but with the
-`pull_request` suffix. Note that pull requests from forks won't have the
-`push` checks, while pull requests from the official repositories will have
-both `pull_request` and `push`.
+Notes:
 
-Other checks run on GitHub Actions:
-
-* `DCO`: Checks that all commits are signed correctly for the
-    [Developer Certificate of Origin](https://developercertificate.org/).
-* `PR Collection Labeler`: Adds collection labels (i.e. Blueprint, Citadel...)
-    to the pull request automatically according to the target branch.
-* `Ticket opened`: Adds the pull request to the [Core development board](https://github.com/orgs/ignitionrobotics/projects/3).
-* `codecov/*`: Checks that the test coverage hasn't been reduced.
+* The ABI job doesn't run for the `main` branch, because that's where ABI may be broken.
+* GitHub Actions jobs can have the `pull_request` or `push` suffix:
+    * `pull_request`: Runs when a pull request is open and subsequent pushes
+                      are made to it.
+    * `push`: Runs whenever code is pushed to the official repository. These don't
+              run for forks. Pull requests from the official repository will have
+              both `push` and `pull_request`.
+* Only the `Bionic` GitHub actions upload coverage results to Codecov, so we
+  have a single coverage result for each branch.
 
 ## Required checks
 
@@ -80,9 +83,9 @@ Some checks are marked as `Required`. This means the pull request can't
 be merged unless that check is green.
 
 Ideally, all checks would be required. But known warnings, test failures and
-flaky tests often prevent us from marking them as required. Until these are
-addressed, some checks will need to be checked by hand when they fail, to see
-if those failures are unexpected. See
+flaky tests often prevent us from marking them as required, otherwise no pull
+requests could be merged. Until these are addressed, some checks will need
+to be checked by hand when they fail, to see if those failures are unexpected. See
 [this issue](https://github.com/ignition-tooling/release-tools/issues/398) for
 what checks are required for each library.
 
@@ -94,7 +97,8 @@ On the GitHub UI, checks can be:
 * 🟡: Pending, results haven't been received yet.
 * ❌: Failed, something is wrong.
 
-Depending on the library and on the build queue (from our [Jenkins server](https://build.osrfoundation.org/)), checks can be in a pending
+Depending on the library and on the build queue (from our
+[Jenkins server](https://build.osrfoundation.org/)), checks can be in a pending
 🟡 state from a couple of minutes up to an entire day. If a build is in this
 state for too long, there may be some issue with infrastructure and the
 build didn't run or didn't report back.
@@ -111,42 +115,44 @@ that you can inspect it.
 
 Builds can fail for a variety of reasons, for example:
 
-* The code failed to compile. This should never be accepted, even in non-required
+* The code **failed to compile**. This should never be accepted, even in non-required
   checks, and must be fixed.
-    * Jenkins: When there's a compilation failure, the build is marked red 🔴.
-               On the build's page, click on `Console Output` then scroll until
-               you find the compilation errors under the `compiling` section.
-    * Actions: When there's a compilation failure, the build is marked red ❌.
-               On the build logs, the compilation failure should be under the
-               `make` collapsible.
-* There are test failures. Test failures that aren't pre-existing must be fixed.
-    * Jenkins: When there are test failures, the build is marked yellow 🟡.
-               On the build's page, the failing tests are listed under
-               `Test Result`. You can also check the `Console Output` for the
-               full test logs.
-    * Actions: When there are test failures, the build is marked red ❌.
-               On the build logs, the test failures should be under the
-               `make test` collapsible.
+    * **Jenkins**: When there's a compilation failure, the build is marked red 🔴.
+                   On the build's page, click on `Console Output` then scroll until
+                   you find the compilation errors under the `compiling` section.
+    * **Actions**: When there's a compilation failure, the build is marked red ❌.
+                   On the build logs, the compilation failure should be under the
+                   `make` collapsible.
+* There are **test failures**. Test failures that aren't pre-existing must be fixed.
+    * **Jenkins**: When there are test failures, the build is marked yellow 🟡.
+                   On the build's page, the failing tests are listed under
+                   `Test Result`. Click on a test's name, then on "History" on the
+                   left to see if the test has failed before.
+                   It's often helpful to see the full test logs on `Console Output`.
+    * **Actions**: When there are test failures, the build is marked red ❌.
+                   On the build logs, the test failures should be under the
+                   `make test` collapsible.
     * Check which tests are known failures by searching for the test name on
       issues.
-* There are warnings. Warnings that aren't pre-existing must be fixed.
-    * Jenkins: When there are warnings, the build is marked yellow 🟡.
-               On the build's page, the warnings are listed under
-               `GNU C Compiler` and `CMake`. You can also check the
-               `Console Output` for the full warning logs.
-    * Actions: Does not detect compiler or CMake warnings.
-* There are static checker failures. All code checker failures must be fixed.
-    * Jenkins: Does not run static checkers.
-    * Actions: When there are code check failures, the build is marked red ❌.
-               On the build logs, the checker failures should be under the
-               `Code check` collapsible.
-* There are infrastructure failures. These should be reported to the build farmer.
-    * Jenkins: When there's an infra failure, the build is marked red 🔴.
-               These can manifest in various ways. In general, if the
-               build logs don't fall in the categories above, there's a high
-               chance it's an infrastructure failure. Common patterns usually
-               have several `java` or `hudson` messages.
-    * Actions: Infrastructure failures haven't been identified.
+* There are **warnings**. Warnings that aren't pre-existing must be fixed.
+    * **Jenkins**: When there are warnings, the build is marked yellow 🟡.
+                   On the build's page, the warnings are listed under
+                   `GNU C Compiler` and `CMake`. You can also check the
+                   `Console Output` for the full warning logs.
+    * **Actions**: Does not detect compiler or CMake warnings.
+* There are **static checker failures**. All code checker failures must be fixed.
+    * **Jenkins**: Does not run static checkers.
+    * **Actions**: When there are code check failures, the build is marked red ❌.
+                   On the build logs, the checker failures should be under the
+                   `Code check` collapsible.
+* There are **infrastructure failures**. Contributors should leave a comment to
+    maintainers, who willl report these to the build farmer.
+    * **Jenkins**: When there's an infra failure, the build is marked red 🔴.
+                   These can manifest in various ways. In general, if the
+                   build logs don't fall in the categories above, there's a high
+                   chance it's an infrastructure failure. Common patterns usually
+                   have several `java` or `hudson` messages.
+    * **Actions**: Infrastructure failures haven't been identified.
 
 ## Triggering CI
 
@@ -159,13 +165,13 @@ code if:
 
 The following methods can be used to re-trigger builds:
 
-* Jenkins
+* **Jenkins**
     * Make a comment starting with `@osrf-build run tests` on the pull request
       and all Jenkins builds will be re-triggered.
     * To restart just one specific build and avoid re-running builds that aren't
       necessary, go to the failing build and click `Retry`. This is only available
       to maintainers.
-* Actions
+* **Actions**
     * On the top-right of a build, click `Re-run jobs`. This button is only
       available to maintainers and sometimes mysteriously disappears.
 
@@ -175,19 +181,45 @@ Maintainers can manually trigger builds for custom branches without opening pull
 requests, optionally building dependencies from source and changing other
 configurations for testing.
 
-* Actions: Builds are run for every commit. For building dependencies from source,
-           add a `.github/ci/dependencies.yaml` file as described
-           [here](https://github.com/ignition-tooling/action-ignition-ci#source-dependencies).
-* Jenkins: The `pr_any` jobs can be triggered manually for any branch by
-           maintainers. Go to the job's page, for example
-           [ignition_launch-ci-pr_any-ubuntu_auto-amd64](https://build.osrfoundation.org/job/ignition_launch-ci-pr_any-ubuntu_auto-amd64/),
-           click on `Build with Parameters` and put the desired
-           `origin/$branch_name` under `sha1`. For various configurations, a
-           branch must be created in
-           [release-tools](https://github.com/ignition-tooling/release-tools)
-           and added under `RTOOLS_BRANCH`. For example, see
-           [this change](https://github.com/ignition-tooling/release-tools/commit/28fcb9d8ad66ad0a29ad4d2675c4c451d41fba19)
-           for building a custom `ign-rendering` branch on `ign-sensors` CI.
+One possible reason to trigger CI with custom dependency branches is testing
+changes across repositories. For example, if your `ign-gazebo` pull request
+needs a change from `ign-physics`, you could build a custom branch of `ign-physics`
+from source to check it works with `ign-gazebo` on CI before even opening an
+`ign-physics` pull request, or making a release.
+
+
+#### Actions
+
+By default, builds are run for every commit based on configuration inside the
+`.github/ci` directory. So it's possible to change the contents of that
+directory and immediately see updated CI results when you push commits.
+
+See the documentation on
+[action-ignition-ci](https://github.com/ignition-tooling/action-ignition-ci)
+to see what can be configured and how.
+
+Be sure to revert these changes before merging the pull request.
+
+#### Jenkins
+
+The `pr_any` jobs can be triggered manually for any branch by maintainers.
+Go to the job's page, for example
+[ignition_launch-ci-pr_any-ubuntu_auto-amd64](https://build.osrfoundation.org/job/ignition_launch-ci-pr_any-ubuntu_auto-amd64/),
+click on `Build with Parameters` to trigger a new build.
+
+There are 2 things you'll want to configure before triggering a build:
+
+* `sha1`: this is the custom branch you want to build, prefixed by `origin/`.
+* `RTOOLS_BRANCH`: a branch in
+[release-tools](https://github.com/ignition-tooling/release-tools) that contains
+custom configuration. For example, see
+[this change](https://github.com/ignition-tooling/release-tools/commit/28fcb9d8ad66ad0a29ad4d2675c4c451d41fba19)
+for building a custom `ign-rendering` branch on
+[this ign-sensors pull request](https://github.com/ignitionrobotics/ign-rendering/pull/138#issuecomment-692994562).
+
+If you want to share the status of your custom build on a pull request,
+click on `Embeddable Build Status` and copy the markdown code into the pull
+request.
 
 ## Development
 
