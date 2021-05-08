@@ -10,11 +10,11 @@ How to read the columns:
     * **EOL**: Reached End of Life and is no longer supported.
     * **stable**: Release is stable and may get bug fixes and backwards-compatible features.
     * **unstable**: No stable release has been made for that major version yet.
-* **Packages**: Whether debian packages for a version are provided by specific repositories. Each letter refers to an Ubuntu release (i.e. T for Trusty, B for Bionic...). The repositories are the following:
-    * **Ubuntu**: https://packages.ubuntu.com/
-    * **OSRF**: https://packages.osrfoundation.org/
-    * **ROS**: https://packages.ros.org/
-* **Gazebo**: What Gazebo classic version uses that specific version (i.e. 9 for Gazebo 9). 
+* **Packages**: Whether debian packages for a version are provided by specific repositories. Each letter refers to an Ubuntu release (i.e. B for Bionic, F for Focal, G for Groovy,...). The repositories are the following:
+    * **Ubuntu**: https://packages.ubuntu.com/ (official Ubuntu archive packages)
+    * **OSRF**: https://packages.osrfoundation.org/ (offical repository of the Ignition/Gazebo project)
+    * **ROS**: https://packages.ros.org/ (package imported from OSRF repository into ROS)
+* **Gazebo**: What Gazebo classic version requires as depedency that specific version (i.e. 9 for Gazebo 9). 
 * **Ignition**: What Ignition version uses that specific version (i.e. B for Blueprint).
 * **Release date**: Release date for that specific version. TBD, to be decided, means that there aren't any current plans to release that version.
 * **EOL date**: Date of end of support. In general, each library's version is released as part of an [Ignition release](https://ignitionrobotics.org/docs/all/releases) and EOLs either with that Ignition release, or with a later one. Libraries that are planned to be supported in the upcoming Ignition release have a TBD EOL date because they may also be included in future releases. All EOL dates may be moved to a later date, but never to an earlier date.
