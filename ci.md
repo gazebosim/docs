@@ -73,6 +73,10 @@ Notes:
               both `push` and `pull_request`.
 * Only the `Bionic` Action uploads coverage results to Codecov, so we have a
   single coverage result for each branch.
+* There's some overlap between Jenkins and Actions jobs for Ubuntu, but they
+  have some differences. Some Jenkins jobs run with on GPU machines and
+  provides a nice interface to introspect builds. On the other hand, Actions
+  runs coverage and codecheck.
 
 ## Required checks
 
@@ -142,8 +146,8 @@ Builds can fail for a variety of reasons, for example:
     * **Actions**: When there are code check failures, the build is marked red ❌.
                    On the build logs, the checker failures should be under the
                    `Code check` collapsible.
-* There are **infrastructure failures**. Contributors should leave a comment to
-    maintainers, who willl report these to the build farmer.
+* There are **infrastructure failures**. Contributors should leave a comment on
+    the pull request for maintainers, who will report these to the build farmer.
     * **Jenkins**: When there's an infra failure, the build is marked red 🔴.
                    These can manifest in various ways. In general, if the
                    build logs don't fall in the categories above, there's a high
