@@ -67,10 +67,10 @@ Notes:
 * The ABI job isn't triggered for the `main` branch, because that's where it's ok to break ABI.
 * GitHub Actions jobs can have the `pull_request` or `push` suffix:
     * `pull_request`: Runs when a pull request is open and subsequent pushes
-                      are made to it.
+      are made to it.
     * `push`: Runs for every commit pushed to the official repository. These don't
-              run for forks. Pull requests from the official repository will have
-              both `push` and `pull_request`.
+      run for forks. Pull requests from the official repository will have
+      both `push` and `pull_request`.
 * Only the `Bionic` Action uploads coverage results to Codecov, so we have a
   single coverage result for each branch.
 * There's some overlap between Jenkins and Actions jobs for Ubuntu, but they
@@ -119,40 +119,39 @@ Builds can fail for a variety of reasons, for example:
 * The code **failed to compile**. This should never be accepted, even in non-required
   checks, and must be fixed.
     * **Jenkins**: When there's a compilation failure, the build is marked red 🔴.
-                   On the build's page, click on `Console Output` then scroll until
-                   you find the compilation errors under the `compiling` section.
+      On the build's page, click on `Console Output` then scroll until you find
+      the compilation errors under the `compiling` section.
     * **Actions**: When there's a compilation failure, the build is marked red ❌.
-                   On the build logs, the compilation failure should be under the
-                   `make` collapsible.
+      On the build logs, the compilation failure should be under the `make`
+      collapsible.
 * There are **test failures**. Test failures that aren't pre-existing must be fixed.
     * **Jenkins**: When there are test failures, the build is marked yellow 🟡.
-                   On the build's page, the failing tests are listed under
-                   `Test Result`. Click on a test's name, then on "History" on the
-                   left to see if the test has failed before.
-                   It's often helpful to see the full test logs on `Console Output`.
+      On the build's page, the failing tests are listed under `Test Result`.
+      Click on a test's name, then on "History" on the left to see if the
+      test has failed before. It's often helpful to see the full test logs on
+      `Console Output`.
     * **Actions**: When there are test failures, the build is marked red ❌.
-                   On the build logs, the test failures should be under the
-                   `make test` collapsible.
+      On the build logs, the test failures should be under the `make test`
+      collapsible.
     * Check which tests are known failures by searching for the test name on
       issues.
 * There are **warnings**. Warnings that aren't pre-existing must be fixed.
     * **Jenkins**: When there are warnings, the build is marked yellow 🟡.
-                   On the build's page, the warnings are listed under
-                   `GNU C Compiler` and `CMake`. You can also check the
-                   `Console Output` for the full warning logs.
+      On the build's page, the warnings are listed under `GNU C Compiler`
+      and `CMake`. You can also check the `Console Output` for the full warning
+      logs.
     * **Actions**: Does not detect compiler or CMake warnings.
 * There are **static checker failures**. All code checker failures must be fixed.
     * **Jenkins**: Does not run static checkers.
     * **Actions**: When there are code check failures, the build is marked red ❌.
-                   On the build logs, the checker failures should be under the
-                   `Code check` collapsible.
+      On the build logs, the checker failures should be under the `Code check`
+      collapsible.
 * There are **infrastructure failures**. Contributors should leave a comment on
     the pull request for maintainers, who will report these to the build farmer.
     * **Jenkins**: When there's an infra failure, the build is marked red 🔴.
-                   These can manifest in various ways. In general, if the
-                   build logs don't fall in the categories above, there's a high
-                   chance it's an infrastructure failure. Common patterns usually
-                   have several `java` or `hudson` messages.
+      These can manifest in various ways. In general, if the build logs don't
+      fall in the categories above, there's a high chance it's an infrastructure
+      failure. Common patterns usually have several `java` or `hudson` messages.
     * **Actions**: Infrastructure failures haven't been identified.
 
 ## Triggering CI

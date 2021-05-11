@@ -89,7 +89,7 @@ stability of the software:
    * Linux nightly binaries (right distribution must be selected from {ubuntu/debian}):
      http://packages.osrfoundation.org/gazebo/{ubuntu/debian}-nightly
    * macOS nightly binaries:
-     *Unsupported* (see [the homebrew-simulation issue](https://github.com/osrf/homebrew-simulation/issues/1314) 
+     *Unsupported* (see [the homebrew-simulation issue](https://github.com/osrf/homebrew-simulation/issues/1314)
      for more information)
 
 ### Metadata for Releasing
