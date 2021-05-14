@@ -53,7 +53,7 @@ Here's a summary of all checks.
 Platform | Job name | OS | What does it do? | Where dependencies come from?
 --- | --- | --- | --- | ---
 Jenkins | `<library>-ci-pr_any-ubuntu-auto-amd64` | Ubuntu | Compile and run tests using CMake and Make | Stable binaries for stable branches, nightlies for `main`
-Jenkins | `<library>-ci-pr_any-homebrew-amd64` | macOS | Compile and run tests using CMake and Make | Homebrew binaries
+Jenkins | `<library>-ci-pr_any-homebrew-amd64` | macOS | Compile and run tests using CMake and Make | Homebrew binary bottled from `osrf/simulation` tap
 Jenkins | `<library>-ci-pr_any-windows*-amd64` | Windows | Compile and run tests using [colcon](https://colcon.readthedocs.io/en/released/#) | External dependencies from [vcpkg](https://docs.microsoft.com/en-us/cpp/build/vcpkg?view=msvc-160), Ignition dependencies built from source with colcon
 Jenkins | `<library>-abichecker-any_to_any-ubuntu_auto-amd64` | Ubuntu | Run ABI checker | Stable binaries
 Actions | `Ubuntu CI / Ubuntu * CI` | Ubuntu Bionic and Focal | Compile and run tests using CMake and Make, run code checker and upload coverage results | Stable binaries for stable branches, nightlies for `main`
@@ -77,6 +77,9 @@ Notes:
   have some differences. Some Jenkins jobs run with on GPU machines and
   provides a nice interface to introspect builds. On the other hand, Actions
   runs coverage and codecheck.
+* The choice of stable / pre-release / nightly dependencies for Linux CI on both
+  Jenkins and Actions is defined on
+  [gzdev's repository,yaml](https://github.com/ignition-tooling/gzdev/blob/master/plugins/config/repository.yaml)
 
 ## Required checks
 
@@ -163,17 +166,16 @@ code if:
 * There were infrastructure failures in a previous build.
 * There are fixes upstream, on infra or dependencies, that may make a new build pass.
 
-The following methods can be used to re-trigger builds:
+The following methods can be used by maintainers to re-trigger builds:
 
 * **Jenkins**
     * Make a comment starting with `@osrf-build run tests` on the pull request
       and all Jenkins builds will be re-triggered.
     * To restart just one specific build and avoid re-running builds that aren't
-      necessary, go to the failing build and click `Retry`. This is only available
-      to maintainers.
+      necessary, go to the failing build and click `Retry`.
 * **Actions**
-    * On the top-right of a build, click `Re-run jobs`. This button is only
-      available to maintainers and sometimes mysteriously disappears.
+    * On the top-right of a build, click `Re-run jobs`. Note that this button
+      sometimes mysteriously disappears.
 
 ### Custom branches
 
@@ -205,7 +207,9 @@ Be sure to revert these changes before merging the pull request.
 The `pr_any` jobs can be triggered manually for any branch by maintainers.
 Go to the job's page, for example
 [ignition_launch-ci-pr_any-ubuntu_auto-amd64](https://build.osrfoundation.org/job/ignition_launch-ci-pr_any-ubuntu_auto-amd64/),
-click on `Build with Parameters` to trigger a new build.
+click on `Build with Parameters` to trigger a new build (beware of
+[this issue](https://github.com/ignition-tooling/release-tools/issues/242)
+and use this carefully).
 
 There are 2 things you'll want to configure before triggering a build:
 
