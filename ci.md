@@ -53,7 +53,7 @@ Here's a summary of all checks.
 Platform | Job name | OS | What does it do? | Where dependencies come from?
 --- | --- | --- | --- | ---
 Jenkins | `<library>-ci-pr_any-ubuntu-auto-amd64` | Ubuntu | Compile and run tests using CMake and Make | Stable binaries for stable branches, nightlies for `main`
-Jenkins | `<library>-ci-pr_any-homebrew-amd64` | macOS | Compile and run tests using CMake and Make | Homebrew binary bottled from `osrf/simulation` tap
+Jenkins | `<library>-ci-pr_any-homebrew-amd64` | macOS | Compile and run tests using CMake and Make | Homebrew binaries bottled from `osrf/simulation` tap
 Jenkins | `<library>-ci-pr_any-windows*-amd64` | Windows | Compile and run tests using [colcon](https://colcon.readthedocs.io/en/released/#) | External dependencies from [vcpkg](https://docs.microsoft.com/en-us/cpp/build/vcpkg?view=msvc-160), Ignition dependencies built from source with colcon
 Jenkins | `<library>-abichecker-any_to_any-ubuntu_auto-amd64` | Ubuntu | Run ABI checker | Stable binaries
 Actions | `Ubuntu CI / Ubuntu * CI` | Ubuntu Bionic and Focal | Compile and run tests using CMake and Make, run code checker and upload coverage results | Stable binaries for stable branches, nightlies for `main`
@@ -79,7 +79,7 @@ Notes:
   runs coverage and codecheck.
 * The choice of stable / pre-release / nightly dependencies for Linux CI on both
   Jenkins and Actions is defined on
-  [gzdev's repository,yaml](https://github.com/ignition-tooling/gzdev/blob/master/plugins/config/repository.yaml)
+  [gzdev's repository.yaml](https://github.com/ignition-tooling/gzdev/blob/master/plugins/config/repository.yaml)
 
 ## Required checks
 
