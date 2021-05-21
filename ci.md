@@ -54,7 +54,8 @@ Platform | Job name | OS | What does it do? | Where dependencies come from?
 --- | --- | --- | --- | ---
 Jenkins | `<library>-ci-pr_any-ubuntu-auto-amd64` | Ubuntu | Compile and run tests using CMake and Make | Stable binaries for stable branches, nightlies for `main`
 Jenkins | `<library>-ci-pr_any-homebrew-amd64` | macOS | Compile and run tests using CMake and Make | Homebrew binaries bottled from `osrf/simulation` tap
-Jenkins | `<library>-ci-pr_any-windows*-amd64` | Windows | Compile and run tests using [colcon](https://colcon.readthedocs.io/en/released/#) | External dependencies from [vcpkg](https://docs.microsoft.com/en-us/cpp/build/vcpkg?view=msvc-160), Ignition dependencies built from source with colcon
+Jenkins | `<library>-ci-pr_any-windows*-amd64` | Windows ([deprecated)](https://github.com/ignition-tooling/release-tools/issues/412) | Compile and run tests using configure.bat scripts and CMake + Visual Studio directly | External dependencies from custom tarballs
+Jenkins | `<library>-pr-win` | Windows | Compile and run tests using [colcon](https://colcon.readthedocs.io/en/released/#) | External dependencies from [vcpkg](https://docs.microsoft.com/en-us/cpp/build/vcpkg?view=msvc-160), Ignition dependencies built from source with colcon
 Jenkins | `<library>-abichecker-any_to_any-ubuntu_auto-amd64` | Ubuntu | Run ABI checker | Stable binaries
 Actions | `Ubuntu CI / Ubuntu * CI` | Ubuntu Bionic and Focal | Compile and run tests using CMake and Make, run code checker and upload coverage results | Stable binaries for stable branches, nightlies for `main`
 Actions | `DCO` | - | Checks that all commits are signed correctly | -
