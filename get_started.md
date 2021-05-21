@@ -37,7 +37,7 @@ ign gazebo shapes.sdf -v 4
 Gazebo can also be run headless, i.e. without the GUI, by using `ign-gazebo-server` instead of `ign gazebo`. For example,
 
 ```
-ign-gazebo-server -f shapes.sdf -v 4
+ign gazebo -s shapes.sdf -v 4
 ```
 
 Similarly, the GUI can be run independently using `ign-gazebo-gui`. On
