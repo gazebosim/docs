@@ -173,10 +173,11 @@ The following methods can be used by maintainers to re-trigger builds:
     * Make a comment starting with `@osrfbuild run tests` on the pull request
       and all Jenkins builds will be re-triggered.
     * To restart just one specific build and avoid re-running builds that aren't
-      necessary, go to the failing build and click `Retry`.
+      necessary, go to the failing build and click `Retry` in the Jenkins UI
+      after login.
 * **Actions**
-    * On the top-right of a build, click `Re-run jobs`. Note that this button
-      sometimes mysteriously disappears.
+    * On the top-right of a build inside the 'Actions' tab of GitHub, click
+     `Re-run jobs`. Note that this button sometimes mysteriously disappears.
 
 ### Custom branches
 
