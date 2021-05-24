@@ -170,7 +170,7 @@ code if:
 The following methods can be used by maintainers to re-trigger builds:
 
 * **Jenkins**
-    * Make a comment starting with `@osrfbuild run tests` on the pull request
+    * Make a comment starting with `@osrf-jenkins run tests` on the pull request
       and all Jenkins builds will be re-triggered.
     * To restart just one specific build and avoid re-running builds that aren't
       necessary, go to the failing build and click `Retry` in the Jenkins UI
