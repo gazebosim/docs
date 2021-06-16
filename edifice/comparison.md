@@ -233,6 +233,8 @@ TPE engine | ✕ | ✓
 Custom engine plugins | ✕ | ✓
 Collide bitmasks | ✓ | ✓
 Restitution coefficient | ✓ | ✓
+Collision detector | ✓ |  ✓
+Solver | ✓ |  ✓
 
 ## Rendering
 
