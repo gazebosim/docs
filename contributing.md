@@ -270,15 +270,12 @@ get acquainted with this development process.
 
 1. **Check Continuous integration**
 
-    The moment you make a pull request, a few jobs in our
-    [continuous integration](http://build.osrfoundation.org/)
-    server will be started. These jobs will build your branch on Linux, Mac and
+    The moment you make a pull request, a few test jobs
+    will be started. These jobs will build your branch on Linux, Mac and
     Windows, run all tests and check for warnings.
 
-    Your pull request will be updated with the status of these builds. Take some
-    time to check these builds and see if you've introduced test failures,
-    warnings or broke some build. If you did and know how to fix it, do so. If
-    you don't know, speak up and someone may try to help you.
+    Check the [Continuous Integration guide](https://ignitionrobotics.org/docs/all/ci)
+    for information on how to interpret the results.
 
 1. **Respond to reviewers.** At least two other people have to approve your pull request before it can be merged. Please be responsive to any questions and comments.
 
@@ -672,7 +669,7 @@ In general, we follow [Google's style guide](https://google.github.io/styleguide
 
 ### Releasing information for members of development team
 
-[Releasing documentation](release.md) is available for the development team
+[Releasing documentation](/docs/all/release) is available for the development team
 members. Includes a general overview as well as detailed information about how to
 run a new release.
 
