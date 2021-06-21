@@ -34,14 +34,14 @@ informational, and debugging messages on the console.
 ign gazebo shapes.sdf -v 4
 ```
 
-Gazebo can also be run headless, i.e. without the GUI, by using `ign-gazebo-server` instead of `ign gazebo`. For example,
+Gazebo can also be run headless, i.e. without the GUI, by using the `-s` (server only) flag. 
 
 ```
-ign-gazebo-server -f shapes.sdf -v 4
+ign gazebo -s shapes.sdf -v 4
 ```
 
-Similarly, the GUI can be run independently using `ign-gazebo-gui`. On
-start, the GUI will attempt to connect to an `ign-gazebo-server` instance.
+Similarly, the GUI can be run independently using the `-g` (gui only) flag. 
+On start, the GUI will attempt to connect to a server instance.
 If a server is not available, then you will see just a blank screen until
 a server instances is started.
 
