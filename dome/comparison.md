@@ -194,7 +194,7 @@ Screenshot | ✓ | [✓](https://ignitionrobotics.org/api/gui/3.5/screenshot.htm
 View angles | ✓ | ✓
 Apply force / torque | ✓ |
 Visualize as transparent | ✓ |
-Visualize as wireframe | ✓ |
+Visualize as wireframe | ✓ | ✕ (available from Fortress)
 Visualize joints | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/106)
 Visualize collisions | ✓ | ✓
 Visualize inertia | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/111)

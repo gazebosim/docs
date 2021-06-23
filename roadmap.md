@@ -20,6 +20,9 @@ info@openrobotics.org.
     * [All open tickets](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22scripting%22&state=open&type=Issues)
     * [Status](https://github.com/orgs/ignitionrobotics/projects/3?card_filter_query=label%3A%22scripting%22)
 
+## 2021 Q3 (Jul - Sep) - ongoing
+* **New GUI widgets in Ignition Gazebo**: New widgets that allow the users to debug their simulations and models. For example: visualize joints, wireframe, CoM, inertia, etc.
+
 ## Feature Roadmap
 
 A number of features are planned for specific releases of Ignition. The
@@ -58,6 +61,7 @@ and release pattern allows us to distribute patch and minor updates into an alre
 1. [Headless simulation using EGL.](https://github.com/ignitionrobotics/ign-rendering/issues/223)
 1. [Upgrade to Ogre 2.2.](https://github.com/ignitionrobotics/ign-rendering/issues/223)
 1. [Improve `<pose>` tag on SDFormat.](https://github.com/osrf/sdformat/issues/252)
+1. [Visualize as wireframes](https://github.com/ignitionrobotics/ign-gazebo/pull/832)
 
 ## Planned releases
 
