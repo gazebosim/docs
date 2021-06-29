@@ -25,5 +25,34 @@ An Ignition release follows the form "Ignition Codename", for example Ignition A
 
 ## Library Versions
 
+Ignition adheres to [semantic versioning](https://semver.org), with the
+addition that ABI is considered part of the public interface. In summary:
+
+* **Major** version increased when incompatible ABI/API changes are made.
+* **Minor** version increased when functionality has been added in a
+  backwards-compatible manner, but it may not be forward-compatible. That is,
+  code compiled against minor `N` will work with minor `N+1`, but code compiled
+  against minor `N+1` may not work with minor `N`.
+* **Patch** version increased when backwards-compatible bug fixes are released.
+* **Pre-release** version used before making stable releases, using the `~`
+  separator.
+
+### Deprecation strategy
+
+Where possible, a tick-tock deprecation strategy is used during major version
+increments. Deprecated code produces compile-time or runtime warnings (tick).
+These warnings serve as notification to users that their code should be upgraded.
+The next major release removes the deprecated functionality (tock).
+
+Example of function `foo` deprecated and replaced by function `bar`:
+
+Version     | API
+----------- | ---
+Ign-(N)     | void foo();
+Ign-(N+1)   | void foo() IGN_DEPRECATED(N+1); <br> void bar();
+Ign-(N+2)   | void bar();
+
+### Support lifecycle
+
 Check out [this table](https://github.com/ignitionrobotics/docs/blob/master/tools/versions.md)
 for a list of release and EOL dates for all versions of all libraries.

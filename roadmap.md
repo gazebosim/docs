@@ -24,13 +24,15 @@ info@openrobotics.org.
 
 A number of features are planned for specific releases of Ignition. The
 features listed here derive from the Quarterly Roadmap, listed above, and other
-ongoing projects.  See the [Release Features](/docs/all/release-features) page for a list of features already available in each release of Ignition.
+ongoing projects.  See the [Release Features](/docs/all/release-features) page
+for a list of features already available in each release of Ignition.
 
 A named release of Ignition, such as Acropolis or Blueprint, is tied to
-a set of [library](/libs) major versions. Each library follows
-[semantic versioning](https://semver.org/), and we make use of the [PImpl
-idom](https://en.cppreference.com/w/cpp/language/pimpl). This development
-and release pattern allows us to distribute patch and minor updates into an already released Ignition version. For example, if a new feature does not break API/ABI then we will target the feature to the oldest compatible non-EOL release and propagate the feature forward.
+a set of [library](/libs) major versions. Our
+[development and release pattern](/docs/all/releases) allows us to distribute
+patch and minor updates into a stable Ignition version. For example, if a new
+feature does not break API/ABI then we will target the feature to the oldest
+compatible non-EOL release and propagate the feature forward.
 
 ### Citadel
 
