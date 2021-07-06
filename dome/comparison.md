@@ -44,6 +44,7 @@ Camera distortion | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensor
 Feature | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 SDF frame semantics |✓| ✓
+SDF parametrization | ✕ | [✓](http://sdformat.org/tutorials?tut=param_passing_proposal)
 Load models from local files | ✓ | [✓](https://ignitionrobotics.org/api/gazebo/4.0/resources.html)
 Closed kinematic chains | ✓  | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/25)
 Nested models | ✓ | Partial support, fully available from Edifice
@@ -226,7 +227,7 @@ in Gazebo.
 Feature | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 ODE engine | ✓ | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/63)
-Bullet engine | ✓ | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/44)
+Bullet engine | ✓ | ✓
 DART engine | ✓ | ✓ Plugin shipped with ign-physics
 Simbody engine | ✓ | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/63)
 TPE engine | ✕ | ✓
@@ -292,4 +293,6 @@ Incrementally load levels | ✕ | ✓
 Online model database | [gazebo_models repository](https://github.com/osrf/gazebo_models/) | [Ignition Fuel](https://app.ignitionrobotics.org/fuel/models)
 Saved simulation states | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/137)
 Sphere, cylinder and box primitives | ✓ | ✓
-Ellipsoid and capsule primitives | ✓ | ✕  (available from Edifice)
+Ellipsoid and capsule primitives | ✕ | ✕  (available from Edifice)
+Hydrodynamics | ✕  | ✕  (available from Edifice)
+Ocean currents | ✕  | ✕  (available from Edifice)

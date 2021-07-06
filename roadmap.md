@@ -20,9 +20,6 @@ info@openrobotics.org.
     * [All open tickets](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22scripting%22&state=open&type=Issues)
     * [Status](https://github.com/orgs/ignitionrobotics/projects/3?card_filter_query=label%3A%22scripting%22)
 
-## 2021 Q3 (Jul - Sep) - ongoing
-* **New GUI widgets in Ignition Gazebo**: New widgets that allow the users to debug their simulations and models. For example: visualize joints, wireframe, CoM, inertia, etc.
-
 ## Feature Roadmap
 
 A number of features are planned for specific releases of Ignition. The
@@ -54,16 +51,19 @@ compatible non-EOL release and propagate the feature forward.
 1. Improved Mac and Windows support.
 1. Mesh level of detail support.
 1. Design for Enhanced distributed simulation.
-1. [Hook command line tool to binaries instead of libraries.](https://github.com/ignitionrobotics/ign-tools/issues/7)
 1. [Heightmap support using Ogre 1 and DART.](https://github.com/ignitionrobotics/ign-gazebo/issues/237)
-1. Ocean currents.
 
 ### Fortress
 
 1. [Headless simulation using EGL.](https://github.com/ignitionrobotics/ign-rendering/issues/223)
 1. [Upgrade to Ogre 2.2.](https://github.com/ignitionrobotics/ign-rendering/issues/223)
 1. [Improve `<pose>` tag on SDFormat.](https://github.com/osrf/sdformat/issues/252)
-1. [Visualize as wireframes](https://github.com/ignitionrobotics/ign-gazebo/pull/832)
+1. GUI features
+    1. [Visualize wireframes](https://github.com/ignitionrobotics/ign-gazebo/pull/816)
+    1. [Visualize transparent](https://github.com/ignitionrobotics/ign-gazebo/pull/878)
+    1. [Visualize inertia](https://github.com/ignitionrobotics/ign-gazebo/issues/111)
+    1. [Visualize center of mass](https://github.com/ignitionrobotics/ign-gazebo/issues/110)
+    1. [Orthographic view](https://github.com/ignitionrobotics/ign-gazebo/issues/103)
 
 ## Planned releases
 
