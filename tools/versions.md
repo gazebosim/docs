@@ -21,7 +21,7 @@ How to read the columns:
 
 |Package|Version|Status|Ubuntu packages|OSRF packages|ROS packages|Gazebo classic|Ignition|Release date|EOL date|
 |---|---|---|---|---|---|---|---|---|---|
-|ignition-cmake|0|EOL ❌|B C D E F|X Z A B||||2017-10-09|-|
+|ignition-cmake|0| stable |B C D E F|X Z A B||||2017-10-09|2023-01-25 with Gazebo 9|
 ||1|EOL ❌||X B||||2018-12-12|-|
 ||2|stable|F G H I|B|F|11|A B C D E F|2019-01-31|TBD|
 ||3|not-released||||||TBD|TBD|
