@@ -194,12 +194,12 @@ Video recording | ✓ | ✓
 Screenshot | ✓ | [✓](https://ignitionrobotics.org/api/gui/3.5/screenshot.html)
 View angles | ✓ | ✓
 Apply force / torque | ✓ |
-Visualize as transparent | ✓ |
+Visualize as transparent | ✓ | ✕ (available from Fortress)
 Visualize as wireframe | ✓ | ✕ (available from Fortress)
 Visualize joints | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/106)
 Visualize collisions | ✓ | ✓
-Visualize inertia | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/111)
-Visualize CoM | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/110)
+Visualize inertia | ✓ | ✕ (available from Fortress)
+Visualize CoM | ✓ |  ✕ (available from Fortress)
 Visualize contacts | ✓ | ✓
 Visualize lights | ✓ | ✓
 Follow / move to | ✓ | ✓
@@ -207,7 +207,7 @@ Copy / paste | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issu
 Building editor | ✓ |
 Model editor | ✓ | [Issues](https://github.com/ignitionrobotics/ign-gazebo/issues?q=is%3Aissue+is%3Aopen+label%3Aeditor)
 FPS view control | ✓ |
-Orthographic projection | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/103)
+Orthographic projection | ✓ |  ✕ (available from Fortress)
 Undo / redo | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/104)
 Save world | ✓ | ✓
 Save GUI configuration | ✓ | ✓
