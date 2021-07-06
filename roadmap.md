@@ -38,13 +38,16 @@ compatible non-EOL release and propagate the feature forward.
 
 1. [GPS sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/23)
 1. Fuel asset version control.
+1. [Schematic view widget.](https://github.com/ignitionrobotics/ign-gazebo/issues/163)
+1. [2D teleop widget.](https://github.com/ignitionrobotics/ign-gui/issues/186)
+1. [Model info CLI.](https://github.com/ignitionrobotics/ign-gazebo/issues/313)
+1. [Integration with ros2_control.](https://github.com/ignitionrobotics/ign_ros2_control/)
 
 ### Dome
 
 1. Localized wind (wind that is constrained to a region of influence).
 1. [Bazel build files.](https://github.com/ignitionrobotics/ign-bazel)
-1. [Bullet physics engine.](https://github.com/ignitionrobotics/ign-physics/issues/44)
-1. [Parameter passing on SDF files.](https://github.com/osrf/sdformat/pull/413)
+1. [Scaling widget.](https://github.com/ignitionrobotics/ign-gazebo/issues/195)
 
 ### Edifice
 
@@ -56,13 +59,19 @@ compatible non-EOL release and propagate the feature forward.
 ### Fortress
 
 1. [Headless simulation using EGL.](https://github.com/ignitionrobotics/ign-rendering/issues/223)
+1. [Run server and client in the same process.](https://github.com/ignitionrobotics/ign-gazebo/pull/793)
+1. [Refactor ECM::Each for performance.](https://github.com/ignitionrobotics/ign-gazebo/issues/711)
 1. [Upgrade to Ogre 2.2.](https://github.com/ignitionrobotics/ign-rendering/issues/223)
 1. [Improve `<pose>` tag on SDFormat.](https://github.com/osrf/sdformat/issues/252)
+1. [Segmentation sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/134)
+1. [Bounding box sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/135)
 1. GUI features
+    1. [Consolidate Scene3D with GzScene3D](https://github.com/ignitionrobotics/ign-gui/issues/137)
     1. [Visualize wireframes](https://github.com/ignitionrobotics/ign-gazebo/pull/816)
     1. [Visualize transparent](https://github.com/ignitionrobotics/ign-gazebo/pull/878)
     1. [Visualize inertia](https://github.com/ignitionrobotics/ign-gazebo/issues/111)
     1. [Visualize center of mass](https://github.com/ignitionrobotics/ign-gazebo/issues/110)
+    1. [Visualize joints](https://github.com/ignitionrobotics/ign-gazebo/issues/106)
     1. [Orthographic view](https://github.com/ignitionrobotics/ign-gazebo/issues/103)
 
 ## Planned releases
