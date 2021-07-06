@@ -44,6 +44,7 @@ Camera distortion | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensor
 Feature | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 SDF frame semantics |✓| ✓
+SDF parametrization | ✕ | [✓](http://sdformat.org/tutorials?tut=param_passing_proposal)
 Load models from local files | ✓ | [✓](https://ignitionrobotics.org/api/gazebo/4.0/resources.html)
 Closed kinematic chains | ✓  | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/25)
 Nested models | ✓ | ✓
@@ -193,12 +194,12 @@ Video recording | ✓ | ✓
 Screenshot | ✓ | [✓](https://ignitionrobotics.org/api/gui/3.5/screenshot.html)
 View angles | ✓ | ✓
 Apply force / torque | ✓ |
-Visualize as transparent | ✓ |
-Visualize as wireframe | ✓ |
+Visualize as transparent | ✓ | ✕ (available from Fortress)
+Visualize as wireframe | ✓ | ✕ (available from Fortress)
 Visualize joints | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/106)
 Visualize collisions | ✓ | ✓
-Visualize inertia | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/111)
-Visualize CoM | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/110)
+Visualize inertia | ✓ | ✕ (available from Fortress)
+Visualize CoM | ✓ |  ✕ (available from Fortress)
 Visualize contacts | ✓ | ✓
 Visualize lights | ✓ | ✓
 Follow / move to | ✓ | ✓
@@ -206,7 +207,7 @@ Copy / paste | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issu
 Building editor | ✓ |
 Model editor | ✓ | [Issues](https://github.com/ignitionrobotics/ign-gazebo/issues?q=is%3Aissue+is%3Aopen+label%3Aeditor)
 FPS view control | ✓ |
-Orthographic projection | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/103)
+Orthographic projection | ✓ |  ✕ (available from Fortress)
 Undo / redo | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/104)
 Save world | ✓ | ✓
 Save GUI configuration | ✓ | ✓
@@ -226,7 +227,7 @@ in Gazebo.
 Feature | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 ODE engine | ✓ | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/63)
-Bullet engine | ✓ | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/44)
+Bullet engine | ✓ | ✓
 DART engine | ✓ | ✓ Plugin shipped with ign-physics
 Simbody engine | ✓ | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/63)
 TPE engine | ✕ | ✓
@@ -292,4 +293,6 @@ Incrementally load levels | ✕ | ✓
 Online model database | [gazebo_models repository](https://github.com/osrf/gazebo_models/) | [Ignition Fuel](https://app.ignitionrobotics.org/fuel/models)
 Saved simulation states | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/137)
 Sphere, cylinder and box primitives | ✓ | ✓
-Ellipsoid and capsule primitives | ✓ | ✓
+Ellipsoid and capsule primitives | ✕ | ✓
+Hydrodynamics | ✕  | ✓
+Ocean currents | ✕  | ✓

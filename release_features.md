@@ -125,6 +125,7 @@ collection assures that all libraries all compatible and can be used together.
 1. [Restitution coefficient (bouncing).](https://github.com/ignitionrobotics/ign-physics/pull/139)
 1. [Custom retroreflection for objects detected by lidar.](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo3/examples/worlds/gpu_lidar_retro_values_sensor.sdf)
 1. [More SDFormat documentation](http://sdformat.org/tutorials).
+1. Load PBR materials from OBJ.
 1. New graphical interfaces:
     * Widget listing all transport topics.
     * Widget that publishes keys pressed on the keyboard.
@@ -165,6 +166,8 @@ collection assures that all libraries all compatible and can be used together.
 1. Kinetic energy monitor plugin.
 1. [Texture-based thermal signature](https://ignitionrobotics.org/api/sensors/4.1/thermalcameraigngazebo.html) for objects, visible from thermal camera.
 1. [Web visualization of running simulations](https://ignitionrobotics.org/docs/dome/web_visualization).
+1. [Bullet physics engine.](https://github.com/ignitionrobotics/ign-physics/issues/44)
+1. [Parametrized SDF files.](http://sdformat.org/tutorials?tut=param_passing_proposal)
 1. GUI tools:
     * [Plotting](https://community.gazebosim.org/t/gsoc-2020-plotting-tool-for-ignition/619)
     * [Lidar visualization](https://community.gazebosim.org/t/gsoc-2020-sensor-data-visualization/638)
@@ -203,6 +206,8 @@ collection assures that all libraries all compatible and can be used together.
 1. [Spawn lights from the GUI.](https://github.com/ignitionrobotics/ign-gazebo/issues/119)
 1. [Mecanum wheel controller.](https://github.com/ignitionrobotics/ign-gazebo/issues/579)
 1. [Hydrodynamics.](https://ignitionrobotics.org/api/gazebo/5.0/classignition_1_1gazebo_1_1systems_1_1Hydrodynamics.html)
+1. [Ocean currents.](https://github.com/ignitionrobotics/ign-gazebo/pull/800)
+1. [Hook command line tool to binaries instead of libraries.](https://github.com/ignitionrobotics/ign-tools/issues/7)
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
