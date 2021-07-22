@@ -20,7 +20,8 @@ You will still be able to use `TPE` as a physics engine
 2. Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
    The Community version is free for students, open-source developers, and personal
    development. Check "Desktop development with C++" in the Workloads tab,
-   and uncheck "C++ Cmake Tools." We will install cmake via Conda.
+   check "MFC and ATL support", and uncheck "C++ Cmake Tools." We will install
+   cmake via Conda.
 
 3. Open a Visual Studio Command Prompt (search for "x64 Native Tools Command Prompt
    for VS 2019" in the Windows search field near the Windows button). Optionally,
