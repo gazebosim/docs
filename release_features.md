@@ -126,12 +126,15 @@ collection assures that all libraries all compatible and can be used together.
 1. [Custom retroreflection for objects detected by lidar.](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo3/examples/worlds/gpu_lidar_retro_values_sensor.sdf)
 1. [More SDFormat documentation](http://sdformat.org/tutorials).
 1. Load PBR materials from OBJ.
+1. [Model info CLI.](https://github.com/ignitionrobotics/ign-gazebo/issues/313)
 1. New graphical interfaces:
     * Widget listing all transport topics.
     * Widget that publishes keys pressed on the keyboard.
     * Collision visualization.
     * [Screenshot widget.](https://ignitionrobotics.org/api/gui/3.5/screenshot.html)
     * [Joint position controller.](https://app.ignitionrobotics.org/OpenRobotics/fuel/worlds/NAO%20joint%20control)
+    * [2D teleop widget.](https://github.com/ignitionrobotics/ign-gui/issues/186)
+    * [3D plot.](https://github.com/ignitionrobotics/ign-gazebo/issues/231)
 1. APIs that make it easier to migrate from Gazebo classic:
     * [World](https://ignitionrobotics.org/api/gazebo/3.5/migrationworldapi.html)
     * [Model](https://ignitionrobotics.org/api/gazebo/3.5/migrationmodelapi.html)
@@ -208,6 +211,7 @@ collection assures that all libraries all compatible and can be used together.
 1. [Hydrodynamics.](https://ignitionrobotics.org/api/gazebo/5.0/classignition_1_1gazebo_1_1systems_1_1Hydrodynamics.html)
 1. [Ocean currents.](https://github.com/ignitionrobotics/ign-gazebo/pull/800)
 1. [Hook command line tool to binaries instead of libraries.](https://github.com/ignitionrobotics/ign-tools/issues/7)
+1. [Heightmap support using Ogre 1 and DART.](https://github.com/ignitionrobotics/ign-gazebo/issues/237)
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
