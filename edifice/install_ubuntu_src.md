@@ -24,7 +24,7 @@ cases where the default option cannot be easily changed.
 Install tools needed by this tutorial:
 
 ```bash
-sudo apt install python3-pip wget lsb-release gnupg
+sudo apt install python3-pip wget lsb-release gnupg curl
 ```
 
 ## vcstool and colcon from pip
@@ -62,10 +62,7 @@ An alternative method is to use the `.deb` packages available on Debian or Ubunt
 
 ```bash
 sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
-
-sudo apt-get install curl # if curl isn't already installed
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
-
 sudo apt-get update
 sudo apt-get install python3-vcstool python3-colcon-common-extensions
 ```
