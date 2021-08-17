@@ -33,10 +33,10 @@ Actions for releasing a new version of library `foo` with major version `X`:
       1. `generic-release-homebrew_pull_request_updater`: one call for Homebrew
          macOS release
  1. `build.osrfoundation.org` jobs starts the work of creating releases:
-      1. `ignition-fooX-debbuilder` use tarball with release sources and metadata from `ign-fooX-release`
-      1. `generic-release-homebrew_pull_request_updater` use
+      1. `ignition-fooX-debbuilder`: use tarball with release sources and metadata from `ign-fooX-release`
+      1. `generic-release-homebrew_pull_request_updater`: use
          `homebrew-simulation` repository metadata together with the release
-         sources.
+         sources
  1. The output of the first round of initial jobs triggered by `release.py` is
     different:
       1. `ign-fooX-debbuilder` job built the packages and pass them to the
