@@ -290,7 +290,7 @@ git checkout ign-cmake2
 ```
 #### release.py for revision bumps
 
-Bump the [revision number for binary packages](#versioning) is a special case of releasing
+Bumping the [revision number for binary packages](#versioning) is a special case of releasing
 since the original tarball with the source code will remain the same. Once the
 release repository is ready with the new release version, `release.py` needs the
 `--only-bump-revision-linux` flag:
