@@ -141,7 +141,7 @@ document.
   git checkout -b bump_to_X_Y_Z
   ```
 
-  1. The current upstream version can be found in `CMakeLists.txt` file
+  2. The current upstream version can be found in `CMakeLists.txt` file
   following the CMake `project declaration`:
 
   ```cmake
@@ -158,7 +158,7 @@ document.
   ign_configure_project(VERSION_SUFFIX pre1)
   ```
 
-  1. Together with bumping the version number **updating the Changelog and Migration
+  3. Together with bumping the version number **updating the Changelog and Migration
   documents** is highly recommended. `Changelog.md` file and `Migration.md` files
   are located at the top level of every Ignition library. Modify them as needed.
 
@@ -169,13 +169,13 @@ document.
   git push orign ...
   ```
 
-  1. Open a pull request for reviewing ([example PR](https://github.com/ignitionrobotics/ign-physics/pull/132)).
+  4. Open a pull request for reviewing ([example PR](https://github.com/ignitionrobotics/ign-physics/pull/132)).
   Including a link is recommended comparing the current release branch to the
   latest release. Releases are tagged in GitHub repositories with the scheme
   `ignition-fooX_X.Y.Z` where foo is the name of the Ignition library and X.Y.Z
   the code version. ([example of a branch comparison](https://github.com/ignitionrobotics/ign-gazebo/compare/ignition-gazebo3_3.5.0...ign-gazebo3)
 
-  Check that the CI job named `*-abichecker-*` is fine since its specially
+  5. Check that the CI job named `*-abichecker-*` is fine since its specially
   important not to break API/ABI when bumping MINOR or PATCH versions.
 
 ## Update binary version
@@ -190,32 +190,32 @@ library that you want to bump in the
 (see [release repositories document](releasing/release_repositories.md) for more
 information about how they are used).
 
-It is required to clone the corresponding release repository to update the
-binary version:
+  1. It is required to clone the corresponding release repository to update the
+  binary version:
 
-```bash
-# Ignition library named foo and major version X
-git clone https://github.com/ignition-release/ign-fooX-release
-```
+  ```bash
+  # Ignition library named foo and major version X
+  git clone https://github.com/ignition-release/ign-fooX-release
+  ```
 
-To bump the package versions that will appear in Debian/Ubuntu binary packages
-there is a helper script in `release-tools` (see
-[prerequisites](#prerequisites)). The script is called `changelog_spawn.sh` and
-require to be executed while the active directory is a `release repository`:
+  2. To bump the package versions that will appear in Debian/Ubuntu binary packages
+  there is a helper script in `release-tools` (see
+  [prerequisites](#prerequisites)). The script is called `changelog_spawn.sh` and
+  require to be executed while the active directory is a `release repository`:
 
-```bash
-# Ignition library named foo and major version X
-cd ign-fooX-release
-~/release-tools/release-repo-scripts/changelog_spawn.sh X.Y.Z-R
+  ```bash
+  # Ignition library named foo and major version X
+  cd ign-fooX-release
+  ~/release-tools/release-repo-scripts/changelog_spawn.sh X.Y.Z-R
 
-# Example ign-cmake2 bumped from 2.0.0 to 2.0.1
-cd ign-cmake2-release
-~/release-tools/release-repo-scripts/changelog_spawn.sh 2.0.1-1
-```
+  # Example ign-cmake2 bumped from 2.0.0 to 2.0.1
+  cd ign-cmake2-release
+  ~/release-tools/release-repo-scripts/changelog_spawn.sh 2.0.1-1
+  ```
 
-`changelog_spawn.sh` will display information about the Ubuntu/Debian versions
-being updated as well as a `git diff` before uploading information to the GitHub
-release repository.
+  `changelog_spawn.sh` will display information about the Ubuntu/Debian versions
+  being updated as well as a `git diff` before uploading information to the GitHub
+  release repository.
 
 ## Launch the release in the building server
 
