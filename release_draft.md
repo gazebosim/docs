@@ -128,55 +128,55 @@ version to a new one (more information in the [versioning](#versioning)). This
 bump could be in the major number (non compatible changes), minor number (new
 features), patch number (patches and bugfixes).
 
-**Bumping major number** of the version implies some work to have the
+1. **Bumping major number** of the version implies some work to have the
 [metadata](#metadata-for-releasing) updated correctly. There is a [dedicated
 document](releasing/bump_major.md) to do this before going further in this
 document.
 
-To update the upstream version a local checkout of the Ignition library is
-needed. A new branch is required to submit changes:
+   1. To update the upstream version a local checkout of the Ignition library is
+   needed. A new branch is required to submit changes:
 
-```bash
-# version X.Y.Z
-git checkout -b bump_to_X_Y_Z
-```
+  ```bash
+  # version X.Y.Z
+  git checkout -b bump_to_X_Y_Z
+  ```
 
-The current upstream version can be found in `CMakeLists.txt` file
-following the CMake `project declaration`:
+  1. The current upstream version can be found in `CMakeLists.txt` file
+  following the CMake `project declaration`:
 
-```cmake
-# Ignition library named foo and version X.Y.Z
-project(ignition-fooX VERSION X.Y.Z)
-```
+  ```cmake
+  # Ignition library named foo and version X.Y.Z
+  project(ignition-fooX VERSION X.Y.Z)
+  ```
 
-Stable releases can modify the X, Y or Z directly while prereleases will need to
-include the preX (X number starts with 1) suffix in the `ign_configure_project`:
+  Stable releases can modify the X, Y or Z directly while prereleases will need to
+  include the preX (X number starts with 1) suffix in the `ign_configure_project`:
 
 
-```cmake
-# first prerelease of a serie, number 1
-ign_configure_project(VERSION_SUFFIX pre1)
-```
+  ```cmake
+  # first prerelease of a serie, number 1
+  ign_configure_project(VERSION_SUFFIX pre1)
+  ```
 
-Together with bumping the version number **updating the Changelog and Migration
-documents** is highly recommended. `Changelog.md` file and `Migration.md` files
-are located at the top level of every Ignition library. Modify them as needed.
+  1. Together with bumping the version number **updating the Changelog and Migration
+  documents** is highly recommended. `Changelog.md` file and `Migration.md` files
+  are located at the top level of every Ignition library. Modify them as needed.
 
-```bash
-git commit CMakeList.xt
-git commit Changelog.md
-git commit Migration.md
-git push orign ...
-```
+  ```bash
+  git commit CMakeList.xt
+  git commit Changelog.md
+  git commit Migration.md
+  git push orign ...
+  ```
 
-Open a pull request for reviewing ([example PR](https://github.com/ignitionrobotics/ign-physics/pull/132)).
-Including a link is recommended comparing the current release branch to the
-latest release. Releases are tagged in GitHub repositories with the scheme
-`ignition-fooX_X.Y.Z` where foo is the name of the Ignition library and X.Y.Z
-the code version. ([example of a branch comparison](https://github.com/ignitionrobotics/ign-gazebo/compare/ignition-gazebo3_3.5.0...ign-gazebo3)
+  1. Open a pull request for reviewing ([example PR](https://github.com/ignitionrobotics/ign-physics/pull/132)).
+  Including a link is recommended comparing the current release branch to the
+  latest release. Releases are tagged in GitHub repositories with the scheme
+  `ignition-fooX_X.Y.Z` where foo is the name of the Ignition library and X.Y.Z
+  the code version. ([example of a branch comparison](https://github.com/ignitionrobotics/ign-gazebo/compare/ignition-gazebo3_3.5.0...ign-gazebo3)
 
-Check that the CI job named `*-abichecker-*` is fine since its specially
-important not to break API/ABI when bumping MINOR or PATCH versions.
+  Check that the CI job named `*-abichecker-*` is fine since its specially
+  important not to break API/ABI when bumping MINOR or PATCH versions.
 
 ## Update binary version
 
