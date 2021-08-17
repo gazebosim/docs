@@ -277,9 +277,9 @@ cd ign-cmake2
 git checkout ign-cmake2
 ~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.0~pre1 test_token --upload-to-repo prerelease
 ```
-Nightly invocation is generally coded in the server. Version will be taken from
+Nightly invocation is generally coded in the server. The version will be taken from
 the last changelog entry and [modified during building](releasing/versioning_pre_nightly).
-No source code will be uploaded but taken directly in the binary build from
+No source code will be uploaded, but taken directly in the binary build from
 `--nightly-src-branch`.
 
 ```bash
