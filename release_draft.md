@@ -39,8 +39,8 @@ Actions for releasing a new version of library `foo` with major version `X`:
          sources
  1. The output of the first round of initial jobs triggered by `release.py` is
     different:
-      1. `ign-fooX-debbuilder`: builds the packages and passes them to the
-    `repository_uploader_packages` job
+      1. `ign-fooX-debbuilder`: builds the Debian/Ubuntu .deb packages and
+         passes them to the `repository_uploader_packages` job
       1. `generic-release-homebrew_pull_request_updater`: opens a
          new PR to coordinate the release process in `homebrew-simulation`
  1. `repository_uploader_packages` imports the packages created by the
