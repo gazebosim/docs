@@ -267,9 +267,9 @@ git checkout ign-cmake2
 
 #### release.py for prereleases or nightly
 
-When releasing prereleases or nightly releases there are some special flags to
-be set. `--upload-to-repo` argument is mandatory when running `release.py` and
-should indicate `prerelease` or `nightly`.
+When releasing prereleases or nightly releases, there are some special flags to
+be set. The `--upload-to-repo` argument is mandatory when running `release.py`, and
+should be set to `prerelease` or `nightly`.
 
 ```bash
 # Example ign-cmake2 bumped to prerelease 2.0.0~pre1 with test_token credential
@@ -277,9 +277,9 @@ cd ign-cmake2
 git checkout ign-cmake2
 ~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.0~pre1 test_token --upload-to-repo prerelease
 ```
-Nightly invocation is generally coded in the server. Version will be taken from
+Nightly invocation is generally coded in the server. The version will be taken from
 the last changelog entry and [modified during building](releasing/versioning_pre_nightly).
-No source code will be uploaded but taken directly in the binary build from
+No source code will be uploaded, but taken directly in the binary build from
 `--nightly-src-branch`.
 
 ```bash
@@ -290,7 +290,7 @@ git checkout ign-cmake2
 ```
 #### release.py for revision bumps
 
-Bump the [revision number for binary packages](#versioning) is a special case of releasing
+Bumping the [revision number for binary packages](#versioning) is a special case of releasing
 since the original tarball with the source code will remain the same. Once the
 release repository is ready with the new release version, `release.py` needs the
 `--only-bump-revision-linux` flag:
