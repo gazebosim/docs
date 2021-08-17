@@ -247,7 +247,8 @@ git checkout ign-fooX
 # Example ign-cmake2 bumped to 2.0.1 with test_token credential
 cd ign-cmake2
 git checkout ign-cmake2
-~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.1 test_token
+# please replace <test_token> with real release token (check crendentials section)
+~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.1 <test_token>
 ```
 
 #### dry-run simulation mode
@@ -262,7 +263,7 @@ The script needs to be run from the library repository:
 # Example of dry-run for ign-cmake2 bumped to 2.0.1
 cd ign-cmake2
 git checkout ign-cmake2
-~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.1 test_token --dry-run
+~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.1 <test_token> --dry-run
 ```
 
 #### release.py for prereleases or nightly
@@ -275,6 +276,7 @@ should be set to `prerelease` or `nightly`.
 # Example ign-cmake2 bumped to prerelease 2.0.0~pre1 with test_token credential
 cd ign-cmake2
 git checkout ign-cmake2
+# please replace <test_token> with real release token (check crendentials section)
 ~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.0~pre1 test_token --upload-to-repo prerelease
 ```
 Nightly invocation is generally coded in the server. The version will be taken from
@@ -286,6 +288,7 @@ No source code will be uploaded, but taken directly in the binary build from
 # Example ign-cmake2 nightly from main branch with test_token credential
 cd ign-cmake2
 git checkout ign-cmake2
+# please replace <test_token> with real release token (check crendentials section)
 ~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.0~pre1 test_token --upload-to-repo nightly --nightly-src-branch main
 ```
 #### release.py for revision bumps
@@ -299,5 +302,6 @@ release repository is ready with the new release version, `release.py` needs the
 # Example ign-cmake2 bumped from 2.0.1-1 to 2.0.1-2 with test_token credential
 cd ign-cmake2
 git checkout ign-cmake2
+# please replace <test_token> with real release token (check crendentials section)
 ~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.1 test_token --only-bump-revision-linux -release-version 2
 ```
