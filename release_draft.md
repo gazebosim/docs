@@ -267,9 +267,9 @@ git checkout ign-cmake2
 
 #### release.py for prereleases or nightly
 
-When releasing prereleases or nightly releases there are some special flags to
-be set. `--upload-to-repo` argument is mandatory when running `release.py` and
-should indicate `prerelease` or `nightly`.
+When releasing prereleases or nightly releases, there are some special flags to
+be set. The `--upload-to-repo` argument is mandatory when running `release.py`, and
+should be set to `prerelease` or `nightly`.
 
 ```bash
 # Example ign-cmake2 bumped to prerelease 2.0.0~pre1 with test_token credential
