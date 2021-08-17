@@ -151,8 +151,6 @@ document.
 
   Stable releases can modify the X, Y or Z directly while prereleases will need to
   include the preX (X number starts with 1) suffix in the `ign_configure_project`:
-
-
   ```cmake
   # first prerelease of a serie, number 1
   ign_configure_project(VERSION_SUFFIX pre1)
