@@ -29,8 +29,8 @@ Actions for releasing a new version of library `foo` with major version `X`:
     version and upload it to `osrf-distributions S3`.
  1. `release.py` will start the following jobs in the build server
     `build.osrfoundation.org`:
-      1. `ignition-fooX-debbuilder` multiple calls for different Debian/Ubuntu releases
-      1. `generic-release-homebrew_pull_request_updater` one call for Homebrew
+      1. `ignition-fooX-debbuilder`: multiple calls for different Debian/Ubuntu releases
+      1. `generic-release-homebrew_pull_request_updater`: one call for Homebrew
          macOS release
  1. `build.osrfoundation.org` jobs starts the work of creating releases:
       1. `ignition-fooX-debbuilder` use tarball with release sources and metadata from `ign-fooX-release`
