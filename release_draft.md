@@ -25,31 +25,33 @@ tool `release.py` explained in this guide:
 
 Actions for releasing a new version of library `foo` with major version `X`:
 
- 1. `release.py` will generate a local tarball with the source code of the new
-    version and upload it to `osrf-distributions S3`.
+ 1. [`release.py`](https://github.com/ignition-tooling/release-tools/blob/master/release.py)
+    will generate a local tarball with the source code of the new version and
+    upload it to `osrf-distributions S3`.
  1. `release.py` will start the following jobs in the build server
     `build.osrfoundation.org`:
       1. `ignition-fooX-debbuilder`: multiple calls for different Debian/Ubuntu releases
-      1. `generic-release-homebrew_pull_request_updater`: one call for Homebrew
-         macOS release
+      1. [`generic-release-homebrew_pull_request_updater`](https://build.osrfoundation.org/job/generic-release-homebrew_pull_request_updater/):
+      one call for Homebrew macOS release
  1. `build.osrfoundation.org` jobs starts the work of creating releases:
       1. `ignition-fooX-debbuilder`: use tarball with release sources and metadata from `ign-fooX-release`
       1. `generic-release-homebrew_pull_request_updater`: use
-         `homebrew-simulation` repository metadata together with the release
-         sources
+         [`homebrew-simulation`](https://github.com/osrf/homebrew-simulation/)
+         repository metadata together with the release sources
  1. The output of the first round of initial jobs triggered by `release.py` is
     different:
       1. `ign-fooX-debbuilder`: builds the Debian/Ubuntu .deb packages and
          passes them to the `repository_uploader_packages` job
       1. `generic-release-homebrew_pull_request_updater`: opens a
          new PR to coordinate the release process in `homebrew-simulation`
- 1. `repository_uploader_packages` imports the packages created by the
-    `ign-fooX-debbuilder` job (there will be one build of the job for each
-    platform combination of Ubuntu/Debian release + architecture) and uploads the
-    .deb packages to `packages.osrfoundation.org` and `osrf-distributions S3`.
+ 1. [`repository_uploader_packages`](https://build.osrfoundation.org/job/repository_uploader_packages/)
+    imports the packages created by the `ign-fooX-debbuilder` job (there will be
+    one build of the job for each platform combination of Ubuntu/Debian release
+    + architecture) and uploads the .deb packages to
+    `packages.osrfoundation.org` and [`osrf-distributions S3`](http://gazebosim.org/distributions).
  1. For macOS the PR in `homebrew-simulation` waits for a comment from an
     Ignition developer with the order `build bottle` that will trigger the job
-    `generic-release-homebrew_triggered_bottle_builder`.
+    [`generic-release-homebrew_triggered_bottle_builder`](https://build.osrfoundation.org/job/generic-release-homebrew_bottle_builder/).
  1. `generic-release-homebrew_triggered_bottle_builder`will use the tarball with
     release sources from `osrf-distributions S3` to generate the binary bottles.
     They will be uploaded to `osrf-distributions S3`.
