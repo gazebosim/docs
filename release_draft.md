@@ -10,6 +10,7 @@
   * [Launch the release in the building server]()
     - [Executing release.py]()
       - [dry-run simulation mode]()
+      - [release.py for stable releases]()
       - [release.py for prerelease or nightlies]()
       - [release.py for revision bumps]()
 
@@ -236,18 +237,6 @@ since some git tags will be generated and uploaded.
 From the source code directory execute the `release.py`. You will need the token
 described in the [credentials section](#credentials).
 
-```bash
-# Ignition library named foo and major version X
-cd ign-fooX
-git checkout ign-fooX
-
-# Example ign-cmake2 bumped to 2.0.1 with test_token credential
-cd ign-cmake2
-git checkout ign-cmake2
-# please replace <test_token> with real release token (check crendentials section)
-~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.1 <test_token>
-```
-
 #### dry-run simulation mode
 
 `release.py` tool supports a `--dry-run` flag that allows to simulate releases
@@ -261,6 +250,20 @@ The script needs to be run from the library repository:
 cd ign-cmake2
 git checkout ign-cmake2
 ~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.1 <test_token> --dry-run
+```
+
+#### release.py for stable releases
+
+```bash
+# Ignition library named foo and major version X
+cd ign-fooX
+git checkout ign-fooX
+
+# Example ign-cmake2 bumped to 2.0.1 with test_token credential
+cd ign-cmake2
+git checkout ign-cmake2
+# please replace <test_token> with real release token (check crendentials section)
+~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.1 <test_token>
 ```
 
 #### release.py for prereleases or nightly
