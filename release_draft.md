@@ -50,7 +50,7 @@ Actions for releasing a new version of library `foo` with major version `X`:
     one build of the job for each platform combination of Ubuntu/Debian release
     + architecture) and uploads the .deb packages to
     `packages.osrfoundation.org` and [`osrf-distributions S3`](http://gazebosim.org/distributions).
- 1. For macOS the PR in `homebrew-simulation` waits for a comment from an
+ 1. For macOS, the PR in `homebrew-simulation` waits for a comment from an
     Ignition developer with the order `build bottle` that will trigger the job
     [`generic-release-homebrew_triggered_bottle_builder`](https://build.osrfoundation.org/job/generic-release-homebrew_bottle_builder/).
  1. `generic-release-homebrew_triggered_bottle_builder`will use the tarball with
@@ -59,38 +59,36 @@ Actions for releasing a new version of library `foo` with major version `X`:
 
 ### Prerequisites
 
-To perform a new release a small number of configurations and credentials are
-needed for the developer system that will trigger it. If a permanent operative
-system is used for releasing these installation steps needs to be executed once.
+To perform a new release, a small number of configurations and credentials need to be made on the developer's system before triggering the release.
+If a permanent operative system is used for releasing, these installation steps only need to be executed once.
 
 #### Team and development checks
 
-When creating a new release there are some guidelines to follow before starting
+When creating a new release, there are some guidelines to follow before starting
 the process:
 
- * Asking the team if there are any concerns about making the release
- * Check if there are changes to previous versions that need to be forward-ported.
- * See if there are open PRs against that release branch (release branch is the
+ * Ask the team if there are any concerns about making the release.
+ * Check if there are changes to previous library versions that need to be forward-ported.
+ * See if there are open PRs against the release branch (release branch is the
    one with the name `ign-fooX` where foo is the name of the Ignition library and
    X the major version of the version bump planned) that could go into the new
    release.
 
 #### Software and configurations
 
-The releasing process is only supported in Linux at this moment.
+The releasing process is only supported on Linux at this moment.
 
 The tool designed to facilitate the process of releasing software for all
-platforms is called `release.py` and is hosted in the
-[release-tools](https://github.com/ignition-tooling/release-tools/blob/master/release.py)
-repository. Installing a copy of the repository is required to perform a new
-release:
+platforms is called [`release.py`](https://github.com/ignition-tooling/release-tools/blob/master/release.py), and is hosted at https://github.com/ignition-tooling/release-tools.
+Cloning the `release-tools` repository is required to perform a new release:
 
 ```
+cd ~/
 git clone https://github.com/ignition-tooling/release-tools.git
 ```
 
 The `release.py` tool will use `sc3md` software to interact with Amazon AWS
-storage to host sources and binaries.
+storage to host sources and binaries, so make sure `sc3md` is installed:
 
 ```
 sudo apt-get install s3cmd
@@ -107,33 +105,30 @@ them configured automatically on every run.
 
 #### Credentials
 
-There is a small number of credentials needed to interact with the release
+There are some credentials needed to interact with the release
 process:
 
- * S3 access to open robotics:
+ * S3 access to Open Robotics:
   ```
   s3cmd --configure
   ```
-  If you don't have AWS credentials please contact @j-rivero or @nuclearsandwich who will help set you up.
+  If you don't have AWS credentials, please contact @j-rivero or @nuclearsandwich who will help set you up.
 
  * Release token: magic sequence of characters needed while running `release.py`
-   to interact with `build.osrfoundation.org`:
-   ```
-   Check your company password manager for 'build.osrfoundation.org token'
-   ```
+   to interact with `build.osrfoundation.org`. This should be given to Ignition releasers as a part of the AWS credentials set-up.
 
 ### Preparing Ignition Code
 
 ## Update code version
 
-First step to get a new release ready is to update the current code (upstream)
-version to a new one (more information in the [versioning](#versioning)). This
-bump could be in the major number (non compatible changes), minor number (new
+The first step to get a new release ready is to update the current code (upstream)
+version (view the [versioning](#versioning) section for more information). This
+bump could be in the major number (non-compatible changes), minor number (new
 features), patch number (patches and bugfixes).
 
 1. **Bumping major number** of the version implies some work to have the
 [metadata](#metadata-for-releasing) updated correctly. There is a [dedicated
-document](releasing/bump_major.md) to do this before going further in this
+document](releasing/bump_major.md) that you should go through before continuing to work through the steps in this
 document.
 
    1. To update the upstream version a local checkout of the Ignition library is
@@ -178,7 +173,7 @@ document.
 
 ## Update binary version
 
-Once the PR is merged, they [binary version](#versions-in-binary-packages) needs
+Once the PR for bumping the code version is merged, the [binary version](#versions-in-binary-packages) needs
 to be updated for the Debian/Ubuntu binary packages. Brew metadata will be
 updated by the building server when creating the binary `bottles`.
 
@@ -218,32 +213,29 @@ information about how they are used).
 ## Launch the release in the building server
 
 After updating the code and releasing metadata everything is ready to launch the
-build in the server. Different actions needs to happen:
+build in the server. Now, the following needs to happen:
 
  1. Generate a tarball with the Ignition library sources corresponding to the new
     version in the Ignition developer local system. Upload the tarball to S3 cloud storage.
  1. Request `build.osrfoundation.org` server to start the jobs for:
-   1. Debian/Ubuntu: use `ign-fooX-debbuilder` job names
-   1. Brew: entry job is `generic-release-homebrew_pull_request_updater`
+     1. Debian/Ubuntu: use `ign-fooX-debbuilder` job names
+     1. Brew: entry job is `generic-release-homebrew_pull_request_updater`
 
-The `release.py` script perform with all these actions.
+The `release.py` script will perform all these actions.
 
 ### Executing release.py
 
-`release.py` works from Ignition library code where the new version has been
-set. Be sure to run it from a clone of a permanent branch (`ign-fooX` typically)
-since some git tags will be generated and uploaded.
+Make sure you are in the source code repository before running `release.py`. You should be on the branch to be released, after the pull request bumping the version has been merged (run `git status` to check the branch, and `git log` to check that the version bump pull request has been included). Running `release.py` from the source code repository will generate and upload some Git tags ("release tags") to the source code repository.
 
-From the source code directory execute the `release.py`. You will need the token
-described in the [credentials section](#credentials).
+You will also need the token described in the [credentials section](#credentials).
 
 #### dry-run simulation mode
 
-`release.py` tool supports a `--dry-run` flag that allows to simulate releases
-(nothing is modified) to help with safe checks done by the tool and providing
-the user with the final calls that will be done to the server.
+The `release.py` tool supports a `--dry-run` flag that allows users to simulate releases
+(nothing is modified) in order to ensure that the correct arguments are being used to trigger a particular release.
+Ignition releasers should **always** call `release.py` with `--dry-run` first in order to ensure that proper commands are being used to trigger releases.
 
-The script needs to be run from the library repository:
+The script needs to be run from the repository with the source code (i.e., the repository where the Ignition library version bump pull request took place):
 
 ```bash
 # Example of dry-run for ign-cmake2 bumped to 2.0.1
