@@ -175,9 +175,6 @@ document.
   `ignition-fooX_X.Y.Z` where foo is the name of the Ignition library and X.Y.Z
   the code version. ([example of a branch comparison](https://github.com/ignitionrobotics/ign-gazebo/compare/ignition-gazebo3_3.5.0...ign-gazebo3)
 
-  5. Check that the CI job named `*-abichecker-*` is fine since its specially
-  important not to break API/ABI when bumping MINOR or PATCH versions.
-
 ## Update binary version
 
 Once the PR is merged, they [binary version](#versions-in-binary-packages) needs
