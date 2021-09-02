@@ -35,9 +35,10 @@ Sensor features | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 Custom update rate | ✓ | ✓
 Gaussian noise | ✓ | ✓
-Custom sensors | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/9)
+Custom sensors | ✓ |  ✕  (available from Fortress)
 Laser retroreflection | ✓ | ✓
 Camera distortion | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/107)
+Performance metrics | ✓ |  ✓
 
 ## SDF Features
 
@@ -51,7 +52,7 @@ Nested models | ✓ | ✓
 Populations | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/240)
 Actors | ✓ | ✓
 Markers | ✓ | ✓
-Heightmaps | ✓ | ✓
+Heightmaps | ✓ | ✓ (Ogre 1 from Edifice, Ogre 2 from Fortress)
 DEM (Digital Elevation Models) | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
 Polylines | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/186)
 World plugins | ✓ | ✓ Now called System plugin
@@ -196,7 +197,7 @@ View angles | ✓ | ✓
 Apply force / torque | ✓ |
 Visualize as transparent | ✓ | ✕ (available from Fortress)
 Visualize as wireframe | ✓ | ✕ (available from Fortress)
-Visualize joints | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/106)
+Visualize joints | ✓ |  ✕ (available from Fortress)
 Visualize collisions | ✓ | ✓
 Visualize inertia | ✓ | ✕ (available from Fortress)
 Visualize CoM | ✓ |  ✕ (available from Fortress)
@@ -296,3 +297,4 @@ Sphere, cylinder and box primitives | ✓ | ✓
 Ellipsoid and capsule primitives | ✕ | ✓
 Hydrodynamics | ✕  | ✓
 Ocean currents | ✕  | ✓
+Test fixture | ✓ | [✓](https://ignitionrobotics.org/api/gazebo/5.1/test_fixture.html)

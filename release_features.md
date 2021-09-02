@@ -127,6 +127,8 @@ collection assures that all libraries all compatible and can be used together.
 1. [More SDFormat documentation](http://sdformat.org/tutorials).
 1. Load PBR materials from OBJ.
 1. [Model info CLI.](https://github.com/ignitionrobotics/ign-gazebo/issues/313)
+1. [Test fixture to easily run simulation-based automated tests.](https://ignitionrobotics.org/api/gazebo/3.9/test_fixture.html)
+1. [Drag and drop meshes into the scene.](https://github.com/ignitionrobotics/ign-gazebo/pull/939)
 1. New graphical interfaces:
     * Widget listing all transport topics.
     * Widget that publishes keys pressed on the keyboard.

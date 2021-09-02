@@ -35,9 +35,10 @@ Sensor features | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 Custom update rate | ✓ | ✓
 Gaussian noise | ✓ | ✓
-Custom sensors | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/9)
+Custom sensors | ✓ |  ✕  (available from Fortress)
 Laser retroreflection | ✓ | ✓
 Camera distortion | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/107)
+Performance metrics | ✓ |  ✓
 
 ## SDF Features
 
@@ -196,7 +197,7 @@ View angles | ✓ | ✓
 Apply force / torque | ✓ |
 Visualize as transparent | ✓ | ✕ (available from Fortress)
 Visualize as wireframe | ✓ | ✕ (available from Fortress)
-Visualize joints | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/106)
+Visualize joints | ✓ |  ✕ (available from Fortress)
 Visualize collisions | ✓ | ✓
 Visualize inertia | ✓ | ✕ (available from Fortress)
 Visualize CoM | ✓ |  ✕ (available from Fortress)
@@ -296,3 +297,4 @@ Sphere, cylinder and box primitives | ✓ | ✓
 Ellipsoid and capsule primitives | ✕ | ✕  (available from Edifice)
 Hydrodynamics | ✕  | ✕  (available from Edifice)
 Ocean currents | ✕  | ✕  (available from Edifice)
+Test fixture | ✓ | [✓](https://ignitionrobotics.org/api/gazebo/3.9/test_fixture.html)

@@ -8,13 +8,13 @@ info@openrobotics.org.
 
 ## Quarterly Roadmap
 
-## 2021 Q2 (Apr - Jun) - ongoing
+## 2021 Q2 (Apr - Jun) - complete
 
 * **Performance**: Improve Ignition Gazebo's runtime performance
     * [All open tickets](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22performance%22&state=open&type=Issues)
     * [Status](https://github.com/orgs/ignitionrobotics/projects/3?card_filter_query=label%3A%22performance%22)
 
-## 2021 Q3 (Jul - Sep) / Q4 (Oct - Dec) - planned
+## 2021 Q3 (Jul - Sep) / Q4 (Oct - Dec) - ongoing
 
 * **Scripting**: Add scripting interfaces to Ignition
     * [All open tickets](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22scripting%22&state=open&type=Issues)
@@ -40,9 +40,7 @@ compatible non-EOL release and propagate the feature forward.
 1. Fuel asset version control.
 1. [Schematic view widget.](https://github.com/ignitionrobotics/ign-gazebo/issues/163)
 1. [Integration with ros2_control.](https://github.com/ignitionrobotics/ign_ros2_control/)
-1. [Test fixture to easily run simulation-based automated tests.](https://github.com/ignitionrobotics/ign-gazebo/pull/926)
 1. [Python interface for Ignition Math.](https://github.com/ignitionrobotics/ign-math/issues/210)
-1. [Drag and drop meshes into the scene.](https://github.com/ignitionrobotics/ign-gazebo/pull/939)
 1. [Ray tracing rendering engine: LuxCore](https://github.com/ignitionrobotics/ign-rendering/pull/372)
 
 ### Dome
@@ -64,9 +62,14 @@ compatible non-EOL release and propagate the feature forward.
 1. [Refactor ECM::Each for performance.](https://github.com/ignitionrobotics/ign-gazebo/issues/711)
 1. [Upgrade to Ogre 2.2.](https://github.com/ignitionrobotics/ign-rendering/issues/223)
 1. [Improve `<pose>` tag on SDFormat.](https://github.com/osrf/sdformat/issues/252)
-1. [Segmentation sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/134)
-1. [Bounding box sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/135)
-1. [Custom sensors.](https://github.com/ignitionrobotics/ign-sensors/issues/9)
+1. [Command line: use binaries instead of shared libraries](https://github.com/ignitionrobotics/ign-tools/issues/7)
+1. [Heightmaps on Ogre 2](https://github.com/ignitionrobotics/ign-rendering/issues/187)
+1. [Spherical coordinates](https://github.com/ignitionrobotics/ign-gazebo/issues/981)
+1. Sensors
+  1. [Custom sensors.](https://github.com/ignitionrobotics/ign-sensors/issues/9)
+  1. [Segmentation sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/134)
+  1. [Bounding box sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/135)
+  1. [Joint force-torque sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/25)
 1. GUI features
     1. [Consolidate Scene3D with GzScene3D](https://github.com/ignitionrobotics/ign-gui/issues/137)
     1. [Visualize wireframes](https://github.com/ignitionrobotics/ign-gazebo/pull/816)
