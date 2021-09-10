@@ -390,7 +390,8 @@ Merging strategy:
 
 * For internal contributions, give the original author some time to hit the merge button themselves / check directly with them if it’s ok to merge.
 * Default to “squash and merge”
-  * Make sure the commit message captures the core ideas of the pull request and contains all authors' signatures.
+  * Review the pull request title and reword if necessary since this will be part of the commit message.
+  * Make sure the commit message concisely captures the core ideas of the pull request and contains all authors' signatures.
 * “Rebase and merge” when moving files (do a `git mv` as a separate commit).
 * “Create a merge commit” when porting changes forward. "Rebase and merge" when porting backwards.
 * Refrain from force-pushing while the PR is under review (which includes rebasing and squashing).
