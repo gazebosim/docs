@@ -53,6 +53,11 @@ if [[ $1 == 'all' || $1 == 'edifice' || $1 == 'Edifice' ]]; then
   docker build -t ign-edifice-docs -f Dockerfile.edifice --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
 fi
 
+if [[ $1 == 'all' || $1 == 'fortress' || $1 == 'Fortress' ]]; then
+  echo -e "\e[46m\e[30mUploading documentation for Fortress\e[0m\e[39m"
+  docker build -t ign-fortress-docs -f Dockerfile.fortress --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
+fi
+
 # Reminder to tic over cloudfront.
 echo "WARNING"
 echo "  A CloudFront invalidation is required. Run the following command with the appropriate \$CLOUDFRONT_DISTRIBUTION_ID:\n"
