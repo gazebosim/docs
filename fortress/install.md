@@ -1,13 +1,13 @@
 # Fortress Installation
 
 Until the official release, Fortress can be compiled from source or installed
-from nightly debian packages on Linux.
+from pre-release debian packages on Linux.
 
 Fortress supports the following platforms:
 
- * Ubuntu Bionic amd64 and Focal on amd64
- * MacOS Mojave and Catalina
-     * Ignition currently only works in headless mode
+ * Ubuntu Bionic amd64/arm64/i386 and Focal on amd64/arm64
+ * MacOS Catalina and BigSur
+     * Ignition currently only works in headless mode using Ogre 1
       (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use
       `ign gazebo -s fuel.sdf` to start the server only).
  * Windows 10

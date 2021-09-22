@@ -14,6 +14,7 @@ Sensor | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 Air pressure | ✕  | ✓
 Altimeter | ✓ | ✓
+Bounding Box camera | ✕ | ✕  (available from Fortress)
 Camera | ✓ | ✓
 Contact sensor | ✓ | ✓
 Depth camera | ✓ | ✓
@@ -26,6 +27,7 @@ Magnetometer | ✓ | ✓
 Multi-camera | ✓ | ✕  Use individual cameras with same update rate
 Ray | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/26)
 RFID sensor and tag | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/27)
+Segmentation camera | ✕ | ✕  (available from Fortress)
 Sonar | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/19)
 Thermal camera | ✕  | ✓
 Wide-angle camera | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/24)
@@ -52,7 +54,7 @@ Nested models | ✓ | Partial support, fully available from Edifice
 Populations | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/240)
 Actors | ✓ | ✓
 Markers | ✓ | ✓
-Heightmaps | ✓ | ✕  (available from Edifice with Ogre 1)
+Heightmaps | ✓ | ✕ (Ogre 1 from Edifice, Ogre 2 from Fortress)
 DEM (Digital Elevation Models) | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
 Polylines | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/186)
 World plugins | ✓ | ✓ Now called System plugin
@@ -111,6 +113,7 @@ VehiclePlugin | ✓ |
 WheelSlipPlugin | ✓ | ✓
 WheelTrackedVehiclePlugin | ✓ | ✓ ([partially via DiffDrivePlugin](https://github.com/ignitionrobotics/ign-gazebo/blob/44951e3ddfd238f24182d4d80b1376f0d426bd43/examples/worlds/track_drive.sdf#L2141))
 KineticEnergyMonitor | ✕ | ✓
+Buoyancy engine | ✓ | ✕  (available from Fortress)
 
 ### World plugins
 
@@ -208,7 +211,7 @@ Copy / paste | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issu
 Building editor | ✓ |
 Model editor | ✓ | [Issues](https://github.com/ignitionrobotics/ign-gazebo/issues?q=is%3Aissue+is%3Aopen+label%3Aeditor)
 FPS view control | ✓ |
-Orthographic projection | ✓ |  ✕ (available from Fortress)
+Orthographic projection | ✓ | ✕ (available from Fortress)
 Undo / redo | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/104)
 Save world | ✓ | ✓
 Save GUI configuration | ✓ | ✓
@@ -267,8 +270,8 @@ transport bridge instead of plugins, contained in the
 
 Supported versions:
 
-* ROS 1 Melodic
-* ROS 2 Dashing
+* ROS 1 Melodic / Noetic
+* ROS 2 Foxy
 
 ## Platforms
 
@@ -298,3 +301,4 @@ Ellipsoid and capsule primitives | ✕ | ✕  (available from Edifice)
 Hydrodynamics | ✕  | ✕  (available from Edifice)
 Ocean currents | ✕  | ✕  (available from Edifice)
 Test fixture | ✓ | [✓](https://ignitionrobotics.org/api/gazebo/4.9/test_fixture.html)
+Spherical coordinates | ✓ | ✕ (available from Fortress)

@@ -1,6 +1,6 @@
 # Binary Installation on MacOS
 
-All the Fortress binaries are available in Mojave and Catalina using the
+All the Fortress binaries are available in Catalina and BigSur using the
 [homebrew package manager](https://brew.sh/).
 
 Up to Fortress's release date, the binaries should be considered unstable.
