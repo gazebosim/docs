@@ -20,14 +20,14 @@ You can check if you have more than one version of Ignition installed by running
 For example, if you have Fortress and Dome installed, `--versions` might return:
 
 ```bash
+6.0.0
 5.0.0
-4.0.0
 ```
 
 To ensure you're working with Fortress, include the `--force-version` directive when starting up:
 
 ```bash
-ign gazebo --force-version 5.0.0 shapes.sdf
+ign gazebo --force-version 6.0.0 shapes.sdf
 ```
 
 ## GUI
