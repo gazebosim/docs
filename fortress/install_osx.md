@@ -18,7 +18,7 @@ brew tap osrf/simulation
 brew install ignition-fortress
 ```
 
-All libraries should be ready to use and the `ign gazebo` app ready to be executed.
+All libraries should be ready to use and the `ign gazebo -s` server app ready to be executed.
 
 Head back to the [Getting started](/docs/all/getstarted)
 page to start using Ignition!
