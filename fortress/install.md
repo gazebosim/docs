@@ -1,8 +1,5 @@
 # Fortress Installation
 
-Until the official release, Fortress can be compiled from source or installed
-from pre-release debian packages on Linux.
-
 Fortress supports the following platforms:
 
  * Ubuntu Bionic amd64/arm64/i386 and Focal on amd64/arm64
