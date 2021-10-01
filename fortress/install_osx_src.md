@@ -1,6 +1,6 @@
-# Source Installation on MacOS
+# Source Installation on macOS
 
-This tutorial will work for MacOS Mojave 10.14 and MacOS Catalina 10.15.
+This tutorial will work for macOS Catalina 10.15 and macOS BigSur 10.16.
 
 ## Install tools
 

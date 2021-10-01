@@ -1,19 +1,6 @@
 # Binary Installation on Windows 10
 
-Only the following Ignition packages are currently available on `conda-forge`,
-the package manager Ignition uses for Windows binary installations:
-- `ign-cmake`
-- `ign-common`
-- `ign-fuel-tools`
-- `ign-math`
-- `ign-msgs`
-- `ign-physics`
-- `ign-plugin`
-- `ign-rendering`
-- `ign-tools`
-- `ign-transport`
-
-The above mentioned Ignition packages are available in Windows 10 using the [conda-forge package manager](https://conda-forge.org/),
+Most Ignition packages are available in Windows 10 using the [conda-forge package manager](https://conda-forge.org/),
 and the Ignition feedstock recipes can be found [here](https://github.com/conda-forge?q=libignition&type=&language=).
 
 The remaining packages currently have an [outstanding ticket](https://github.com/conda-forge/staged-recipes/issues/13551),
