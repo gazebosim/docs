@@ -12,7 +12,7 @@ from ROS and apply it to Ignition and vice versa.
 
 For this tutorial to work correctly make sure you have the following installed:
 
-* [ROS 2 Rolling](https://index.ros.org/doc/ros2/Installation/Foxy/)
+* [ROS 2 Rolling](https://docs.ros.org/en/rolling/Installation.html)
 * [Ignition Fortress](https://ignitionrobotics.org/docs/fortress)
 * [ros_ign_bridge](https://github.com/ignitionrobotics/ros_ign/tree/ros2#from-source)
 
