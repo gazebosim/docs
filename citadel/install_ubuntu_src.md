@@ -235,4 +235,4 @@ the results you want:
 
 ## Troubleshooting
 
-See [Troubleshooting](troubleshooting)
+See [Troubleshooting](troubleshooting.md#ubuntu)

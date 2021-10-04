@@ -30,4 +30,4 @@ brew uninstall ignition-citadel
 
 ## Troubleshooting
 
-See [Troubleshooting](troubleshooting)
+See [Troubleshooting](troubleshooting.md#macos)

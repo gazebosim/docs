@@ -79,4 +79,4 @@ conda uninstall libignition-<package_name> --channel conda-forge
 
 ## Troubleshooting
 
-See [Troubleshooting](troubleshooting)
+See [Troubleshooting](troubleshooting.md#windows)
