@@ -1,6 +1,6 @@
 # Dockerized Development on Ubuntu
 
-These instructions are meant for advanced users currently do not include all steps to copy-and-paste.
+These instructions are meant for advanced users, and currently do not include all steps to copy-and-paste.
 These instructions apply to Ubuntu Docker Host.
 These instructions create a Ubuntu Docker Container ready to building, testing and run Ignition. 
 
