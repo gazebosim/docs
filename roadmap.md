@@ -80,6 +80,10 @@ compatible non-EOL release and propagate the feature forward.
     1. [Orthographic view](https://github.com/ignitionrobotics/ign-gazebo/issues/103)
     1. [Model editor](https://github.com/ignitionrobotics/ign-gazebo/labels/editor)
 
+### Garden
+
+Coming soon.
+
 ## Planned releases
 
 Please see the [Releases](/docs/all/releases) for the timeline of and information about future distributions.
