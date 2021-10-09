@@ -8,12 +8,6 @@ info@openrobotics.org.
 
 ## Quarterly Roadmap
 
-## 2021 Q2 (Apr - Jun) - complete
-
-* **Performance**: Improve Ignition Gazebo's runtime performance
-    * [All open tickets](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22performance%22&state=open&type=Issues)
-    * [Status](https://github.com/orgs/ignitionrobotics/projects/3?card_filter_query=label%3A%22performance%22)
-
 ## 2021 Q3 (Jul - Sep) / Q4 (Oct - Dec) - ongoing
 
 * **Scripting**: Add scripting interfaces to Ignition
@@ -51,33 +45,17 @@ compatible non-EOL release and propagate the feature forward.
 
 ### Edifice
 
-1. Improved Mac and Windows support.
+1. Improved Windows support.
 1. Mesh level of detail support.
 1. Design for Enhanced distributed simulation.
 
 ### Fortress
 
-1. [Headless simulation using EGL.](https://github.com/ignitionrobotics/ign-rendering/issues/223)
 1. [Run server and client in the same process.](https://github.com/ignitionrobotics/ign-gazebo/pull/793)
-1. [Refactor ECM::Each for performance.](https://github.com/ignitionrobotics/ign-gazebo/issues/711)
-1. [Upgrade to Ogre 2.2.](https://github.com/ignitionrobotics/ign-rendering/issues/223)
-1. [Improve `<pose>` tag on SDFormat.](https://github.com/osrf/sdformat/issues/252)
 1. [Command line: use binaries instead of shared libraries](https://github.com/ignitionrobotics/ign-tools/issues/7)
-1. [Heightmaps on Ogre 2](https://github.com/ignitionrobotics/ign-rendering/issues/187)
-1. [Spherical coordinates](https://github.com/ignitionrobotics/ign-gazebo/issues/981)
 1. Sensors
-  1. [Custom sensors.](https://github.com/ignitionrobotics/ign-sensors/issues/9)
-  1. [Segmentation sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/134)
-  1. [Bounding box sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/135)
-  1. [Joint force-torque sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/25)
+  1. [Bounding box camera.](https://github.com/ignitionrobotics/ign-sensors/issues/135)
 1. GUI features
-    1. [Consolidate Scene3D with GzScene3D](https://github.com/ignitionrobotics/ign-gui/issues/137)
-    1. [Visualize wireframes](https://github.com/ignitionrobotics/ign-gazebo/pull/816)
-    1. [Visualize transparent](https://github.com/ignitionrobotics/ign-gazebo/pull/878)
-    1. [Visualize inertia](https://github.com/ignitionrobotics/ign-gazebo/issues/111)
-    1. [Visualize center of mass](https://github.com/ignitionrobotics/ign-gazebo/issues/110)
-    1. [Visualize joints](https://github.com/ignitionrobotics/ign-gazebo/issues/106)
-    1. [Orthographic view](https://github.com/ignitionrobotics/ign-gazebo/issues/103)
     1. [Model editor](https://github.com/ignitionrobotics/ign-gazebo/labels/editor)
 
 ## Planned releases
