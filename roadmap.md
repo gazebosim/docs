@@ -55,7 +55,7 @@ No planned features at the moment.
 ### Garden
 
 1. [USD importer / exporter.](https://github.com/ignitionrobotics/sdformat/pull/736)
-1. [Omniverse application.]()
+1. [Omniverse](https://developer.nvidia.com/nvidia-omniverse-platform) application.
 1. [Camera distortion.](https://github.com/ignitionrobotics/ign-sensors/issues/107)
 1. [Wide angle camera.](https://github.com/ignitionrobotics/ign-sensors/issues/24)
 1. [Point cloud visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/1156)
