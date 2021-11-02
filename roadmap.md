@@ -31,36 +31,36 @@ compatible non-EOL release and propagate the feature forward.
 ### Citadel
 
 1. [GPS sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/23)
-1. Fuel asset version control.
-1. [Schematic view widget.](https://github.com/ignitionrobotics/ign-gazebo/issues/163)
 1. [Integration with ros2_control.](https://github.com/ignitionrobotics/ign_ros2_control/)
 1. [Python interface for Ignition Math.](https://github.com/ignitionrobotics/ign-math/issues/210)
 1. [Ray tracing rendering engine: LuxCore](https://github.com/ignitionrobotics/ign-rendering/pull/372)
+1. [Tracked vehicles](https://github.com/ignitionrobotics/ign-gazebo/pull/869)
 
 ### Dome
 
-1. Localized wind (wind that is constrained to a region of influence).
-1. [Bazel build files.](https://github.com/ignitionrobotics/ign-bazel)
-1. [Scaling widget.](https://github.com/ignitionrobotics/ign-gazebo/issues/195)
+No planned features at the moment.
 
 ### Edifice
 
-1. Improved Windows support.
-1. Mesh level of detail support.
-1. Design for Enhanced distributed simulation.
+1. [Improved Windows support.](https://github.com/search?q=org%3Aignitionrobotics+label%3AWindows&state=open&type=Issues)
 
 ### Fortress
 
 1. [Run server and client in the same process.](https://github.com/ignitionrobotics/ign-gazebo/pull/793)
 1. [Command line: use binaries instead of shared libraries](https://github.com/ignitionrobotics/ign-tools/issues/7)
-1. Sensors
-  1. [Bounding box camera.](https://github.com/ignitionrobotics/ign-sensors/issues/135)
-1. GUI features
-    1. [Model editor](https://github.com/ignitionrobotics/ign-gazebo/labels/editor)
+1. [Bounding box camera.](https://github.com/ignitionrobotics/ign-sensors/issues/135)
+1. [GUI model editor](https://github.com/ignitionrobotics/ign-gazebo/labels/editor)
+1. [Bazel build files.](https://github.com/ignitionrobotics/ign-bazel)
 
 ### Garden
 
-Coming soon.
+1. [USD importer / exporter.](https://github.com/ignitionrobotics/sdformat/pull/736)
+1. [Omniverse](https://developer.nvidia.com/nvidia-omniverse-platform) application.
+1. [Camera distortion.](https://github.com/ignitionrobotics/ign-sensors/issues/107)
+1. [Wide angle camera.](https://github.com/ignitionrobotics/ign-sensors/issues/24)
+1. [Point cloud visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/1156)
+1. [Force/torque visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/1155)
+1. [Reset API.](https://github.com/ignitionrobotics/ign-gazebo/issues/1107)
 
 ## Planned releases
 
