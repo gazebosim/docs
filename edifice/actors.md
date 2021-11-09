@@ -91,7 +91,7 @@ Inside the `<script>` tag the following parameters are available:
 Let's define the trajectory as a sequence of waypoints:
 
 ```xml
-        <trajectory id="0" type="walk">
+        <trajectory id="0" type="walk" tension="0.6">
             <waypoint>
                 <time>0</time>
                 <pose>0 0 1.0 0 0 0</pose>
@@ -132,7 +132,9 @@ Let's define the trajectory as a sequence of waypoints:
     </script>
 ```
 
-Within the `<trajectory>` tag we define a series of waypoints which our actor will follow. The `<trajectory>` has two attributes: `id` and `type`. The `type` should have the same name as the animation `walk`. Under the `trajectory` tag we define the following:
+Within the `<trajectory>` tag we define a series of waypoints which our actor will follow. The `<trajectory>` has three attributes: `id`, `type`, and `tension`. The `type` should have the same name as the animation `walk`. The `tension` parameter is used to control how closely the trajectory will stick to the given waypoints. The default `tension` value is zero, which equates to a Catmull-Rom spline, which may cause the animation to overshoot waypoints. A `tension` value of one will cause the animation to stick to the waypoints. The `tension` value should be in the range 0 to 1.
+
+Under the `trajectory` tag we define the following:
 
 * `waypoint`: There can be any number of waypoints in a trajectory. Each waypoint consists of a time and a pose:
     * `time`: The time in seconds, counted from the beginning of the script, when the pose should be reached.
