@@ -1,21 +1,9 @@
-# Garden Installation
+# Garden Fortress
+
+Ignition Garden will be the 7th major release of Ignition. It will be a
+short-term release.
 
 Up to Garden's release date, the collection should be considered unstable.
-
-For the moment, Garden supports the following platforms:
-
- * Ubuntu Bionic amd64/arm64/i386 and Focal on amd64/arm64
- * MacOS Catalina and BigSur
-     * Ignition currently only works in headless mode using Ogre 1
-      (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use
-      `ign gazebo -s fuel.sdf` to start the server only).
- * Windows 10
-     * Ignition command line utilities are not yet supported.
-     * All packages up to `ign-gazebo` can be built.
-     * DART physics engine is not yet supported.
-     * Qt (GUI functionality) is not yet supported.
-
-The supported platforms may change up to the release date.
 
 ## Binary installation instructions
 
@@ -54,3 +42,49 @@ This list of library versions may change up to the release date.
 |   ign-transport    |      11.x     |
 |   ign-utils        |       1.x     |
 |   sdformat         |      12.x     |
+
+## Supported platforms
+
+Garden is planned to be [supported](/docs/all/releases) on the platforms below.
+This list may change up to the release date.
+
+### Official support
+
+* Ubuntu Focal on amd64
+* Ubuntu Jammy on amd64
+
+### Best-effort support
+
+* Ubuntu Bionic on arm64
+    * Binary packages may be available
+    * Not tested on CI
+    * Most low-level libraries known to work
+    * TODO: what is know not to work?
+* Ubuntu Focal on arm64
+    * Binary packages may be available
+    * Not tested on CI
+    * Most low-level libraries known to work
+    * TODO: what is know not to work?
+* Ubuntu Bionic on armhf
+    * Binary packages may be available
+    * Not tested on CI
+    * Most low-level libraries known to work
+    * DART physics engine not available
+* Ubuntu Focal on armhf
+    * Binary packages may be available
+    * Not tested on CI
+    * Most low-level libraries known to work
+    * DART physics engine not available
+* MacOS Catalina and BigSur
+    * Binary packages may be available
+    * Tested on CI (TODO which version exactly?)
+    * Ignition only works in headless mode using Ogre 1.
+      (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use
+      `ign gazebo -s fuel.sdf` to start the server only).
+* Windows 10
+    * Binary packages may be available
+    * Tested on CI
+    * Ignition command line utilities are not supported.
+    * All packages up to but not including `ign-gazebo` are currently building.
+    * DART physics engine is not supported.
+    * Qt (GUI functionality) is not supported.

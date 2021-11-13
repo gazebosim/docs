@@ -1,18 +1,6 @@
-# Dome Installation
+# Ignition Dome
 
-Dome supports the following platforms:
-
- * Ubuntu Bionic amd64/arm64/i386 and Focal on amd64/arm64
- * MacOS Mojave and Catalina
-     * Ignition currently only works in headless mode
-      (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use
-      `ign gazebo -s fuel.sdf` to start the server only).
- * Windows 10
-     * Ignition command line utilities are not yet supported.
-     * All packages up to but not including `ign-gazebo` are currently building.
-     * DART physics engine is not yet supported.
-     * Qt (GUI functionality) is not yet supported.
-
+Ignition Dome is the 4th major release of Ignition. It's a short-term support.
 
 ## Binary installation instructions
 
@@ -52,3 +40,48 @@ collection assures that all libraries are compatible and can be used together.
 |   ign-tools        |       1.x     |
 |   ign-transport    |       9.x     |
 |   sdformat         |      10.x     |
+
+## Supported platforms
+
+Dome is [supported](/docs/all/releases) on the platforms below.
+
+### Official support
+
+* Ubuntu Bionic on amd64/i386
+* Ubuntu Focal on amd64
+
+### Best-effort support
+
+* Ubuntu Bionic on arm64
+    * Binary packages may be available
+    * Not tested on CI
+    * Most low-level libraries known to work
+    * TODO: what is know not to work?
+* Ubuntu Focal on arm64
+    * Binary packages may be available
+    * Not tested on CI
+    * Most low-level libraries known to work
+    * TODO: what is know not to work?
+* Ubuntu Bionic on armhf
+    * Binary packages may be available
+    * Not tested on CI
+    * Most low-level libraries known to work
+    * DART physics engine not available
+* Ubuntu Focal on armhf
+    * Binary packages may be available
+    * Not tested on CI
+    * Most low-level libraries known to work
+    * DART physics engine not available
+* MacOS Mojave and Catalina
+    * Binary packages may be available
+    * Tested on CI (TODO which version exactly?)
+    * Ignition only works in headless mode
+      (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use
+      `ign gazebo -s fuel.sdf` to start the server only).
+* Windows 10
+    * Binary packages may be available
+    * Some libraries tested on CI
+    * Ignition command line utilities are not supported.
+    * All packages up to but not including `ign-gazebo` are currently building.
+    * DART physics engine is not supported.
+    * Qt (GUI functionality) is not supported.
