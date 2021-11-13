@@ -75,6 +75,11 @@ This list may change up to the release date.
     * Not tested on CI
     * Most low-level libraries known to work
     * DART physics engine not available
+* Debian Buster on amd64, i386, arm64 and armhf
+    * Binary packages may be available
+    * Not tested on CI
+    * Most low-level libraries known to work
+    * TODO: what is know not to work?
 * MacOS Catalina and BigSur
     * Binary packages may be available
     * Tested on CI (TODO which version exactly?)
