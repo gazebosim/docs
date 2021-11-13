@@ -86,4 +86,3 @@ In general, there are three categories of support for a platform:
   supported platform at a point in time, there are no guarantees that it will
   remain in the future.
 
-
