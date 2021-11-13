@@ -57,6 +57,7 @@ Fortress is [supported](/docs/all/releases) on the platforms below.
 
 * Ubuntu Bionic on amd64/i386
 * Ubuntu Focal on amd64
+* (Ubuntu Jammy on amd64 once that's released)
 
 ### Best-effort support
 
