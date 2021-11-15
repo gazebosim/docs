@@ -84,5 +84,7 @@ In general, there are three categories of support for a platform:
 * **Not supported**: All platforms not included under official or best-effort
   support are considered not supported. If a release is functional in a not
   supported platform at a point in time, there are no guarantees that it will
-  remain in the future.
+  remain in the future. Pull requests addressing issues on not supported
+  platforms may be considered if they don't break any supported platforms and
+  reviewed as time allows.
 
