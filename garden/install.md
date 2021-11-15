@@ -1,4 +1,4 @@
-# Garden Fortress
+# Ignition Garden
 
 Ignition Garden will be the 7th major release of Ignition. It will be a
 short-term release.
