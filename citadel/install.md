@@ -52,7 +52,6 @@ These are the officially supported platforms:
 
 All other platforms on the table are supported at best-effort.
 
-
 Operating System | Architecture | Packaging | CI | Functionality
 ---------------- | ------------ | --------- | -- | -------------
 Ubuntu Bionic    | amd64        | ✅ Yes    | ✅ Yes, every pull request | ✅ All
@@ -64,8 +63,5 @@ Ubuntu Focal     | amd64        | ✅ Yes    | ✅ Yes, every pull request | ✅
 .                | armhf        | ❓ Maybe  | No | Most low-level libraries known to work, DART physics engine not available
 Debian Buster    | amd64, i386, arm64, armhf | ❓ Maybe | No | Several libraries known to work
 MacOS Mojave     | -            | ✅ Yes    | ✅ Yes, every pull request | Ignition only works in headless mode (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use `ign gazebo -s fuel.sdf` to start the server only).
-Windows 10       | .            | ❓ Maybe  | Some libraries tested on every pull request | Ignition command line utilities are not supported. All packages up to but not including `ign-gazebo` are currently building. DART physics engine is not supported. Qt (GUI functionality) is not supported.
-
-
-
+Windows 10       | .            | ❓ Maybe  | Some libraries tested on every pull request | Command line utilities are not supported. All packages up to but not including `ign-gazebo` are currently building. DART physics engine is not supported. Qt (GUI functionality) is not supported.
 
