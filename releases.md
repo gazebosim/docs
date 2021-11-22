@@ -81,10 +81,14 @@ In general, there are three categories of support for a platform:
   may be present in released versions for these platforms. Known errors in
   best-effort platforms will be addressed subject to resource availability on a
   best-effort basis and may or may not be corrected prior to new releases.
-* **Not supported**: All platforms not included under official or best-effort
-  support are considered not supported. If a release is functional in a not
-  supported platform at a point in time, there are no guarantees that it will
-  remain in the future. Pull requests addressing issues on not supported
+* **No effort to support**: All platforms not included under official or
+  best-effort support are considered not supported. If a release is functional
+  in a platform that isn't supported at a point in time, there are no guarantees
+  that it will remain so in the future. Pull requests addressing issues on these
   platforms may be considered if they don't break any supported platforms and
   reviewed as time allows.
+
+If you or your company are interested in directly supporting, or
+sponsoring the support of other platforms, please contact
+`info@openrobotics.org`.
 

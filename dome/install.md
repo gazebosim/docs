@@ -45,12 +45,12 @@ collection assures that all libraries are compatible and can be used together.
 
 Dome is [supported](/docs/all/releases) on the platforms below.
 
-These are the officially supported platforms:
+These are the **officially** supported platforms:
 
 * Ubuntu Bionic on amd64/i386
 * Ubuntu Focal on amd64
 
-All other platforms on the table are supported at best-effort.
+All other platforms on the table are supported at **best-effort**.
 
 Operating System | Architecture | Packaging | CI | Functionality
 ---------------- | ------------ | --------- | -- | -------------

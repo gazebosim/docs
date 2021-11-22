@@ -48,12 +48,12 @@ This list of library versions may change up to the release date.
 Garden is planned to be [supported](/docs/all/releases) on the platforms below.
 This list may change up to the release date.
 
-These are the officially supported platforms:
+These are the **officially** supported platforms:
 
 * Ubuntu Focal on amd64
 * Ubuntu Jammy on amd64
 
-All other platforms on the table are supported at best-effort.
+All other platforms on the table are supported at **best-effort**.
 
 Operating System | Architecture | Packaging | CI | Functionality
 ---------------- | ------------ | --------- | -- | -------------
