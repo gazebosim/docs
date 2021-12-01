@@ -33,8 +33,6 @@ compatible non-EOL release and propagate the feature forward.
 1. [GPS sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/23)
 1. [Integration with ros2_control.](https://github.com/ignitionrobotics/ign_ros2_control/)
 1. [Python interface for Ignition Math.](https://github.com/ignitionrobotics/ign-math/issues/210)
-1. [Ray tracing rendering engine: LuxCore](https://github.com/ignitionrobotics/ign-rendering/pull/372)
-1. [Tracked vehicles](https://github.com/ignitionrobotics/ign-gazebo/pull/869)
 
 ### Dome
 
@@ -51,16 +49,19 @@ No planned features at the moment.
 1. [Bounding box camera.](https://github.com/ignitionrobotics/ign-sensors/issues/135)
 1. [GUI model editor](https://github.com/ignitionrobotics/ign-gazebo/labels/editor)
 1. [Bazel build files.](https://github.com/ignitionrobotics/ign-bazel)
+1. [Python interface to Gazebo.](https://github.com/ignitionrobotics/ign-gazebo/issues/789)
 
 ### Garden
 
 1. [USD importer / exporter.](https://github.com/ignitionrobotics/sdformat/pull/736)
+1. [libSDFormat updated to use Ignition CMake.](https://github.com/ignitionrobotics/sdformat/issues/181)
 1. [Omniverse](https://developer.nvidia.com/nvidia-omniverse-platform) application.
 1. [Camera distortion.](https://github.com/ignitionrobotics/ign-sensors/issues/107)
 1. [Wide angle camera.](https://github.com/ignitionrobotics/ign-sensors/issues/24)
 1. [Point cloud visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/1156)
 1. [Force/torque visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/1155)
 1. [Reset API.](https://github.com/ignitionrobotics/ign-gazebo/issues/1107)
+1. [DEM heightmaps.](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
 
 ## Planned releases
 
