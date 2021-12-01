@@ -103,15 +103,15 @@ PlaneDemoPlugin | ✓ |
 PosePublisher | ✕ | ✓
 RandomVelocityPlugin | ✓ |
 RegionEventBoxPlugin | ✓ |
-SimpleTrackedVehiclePlugin | ✓ |
+SimpleTrackedVehiclePlugin | ✓ | ✓
 SkidSteerDrivePlugin | ✓ | ✓
 SphereAtlasDemoPlugin | ✓ | ✕
 TouchPlugin | ✓ | ✓
-TrackedVehiclePlugin | ✓ |
+TrackedVehiclePlugin | ✓ | ✓
 VariableGearboxPlugin | ✓ |
 VehiclePlugin | ✓ |
 WheelSlipPlugin | ✓ | ✓
-WheelTrackedVehiclePlugin | ✓ | ✓ ([partially via DiffDrivePlugin](https://github.com/ignitionrobotics/ign-gazebo/blob/44951e3ddfd238f24182d4d80b1376f0d426bd43/examples/worlds/track_drive.sdf#L2141))
+WheelTrackedVehiclePlugin | ✓ | ✓
 KineticEnergyMonitor | ✕ | ✓
 Buoyancy engine | ✓ | ✕  (available from Fortress)
 
@@ -264,14 +264,13 @@ Render order | ✕  | ✕  (available from Edifice)
 
 ## ROS integration
 
-ROS integration with Ignition will be done primarily via a
-transport bridge instead of plugins, contained in the
-[ros_ign](https://github.com/osrf/ros1_ign) package.
+ROS integration through the
+[ros_ign](https://github.com/ignitionrobotics/ros_ign) packages.
 
 Supported versions:
 
-* ROS 1 Melodic / Noetic
-* ROS 2 Foxy
+* ROS 1 Melodic (binaries) / Noetic (from source)
+* ROS 2 Foxy (from source)
 
 ## Platforms
 

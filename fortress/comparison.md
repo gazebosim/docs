@@ -103,15 +103,15 @@ PlaneDemoPlugin | ✓ |
 PosePublisher | ✕ | ✓
 RandomVelocityPlugin | ✓ |
 RegionEventBoxPlugin | ✓ |
-SimpleTrackedVehiclePlugin | ✓ |
+SimpleTrackedVehiclePlugin | ✓ | ✓
 SkidSteerDrivePlugin | ✓ | ✓
 SphereAtlasDemoPlugin | ✓ | ✕
 TouchPlugin | ✓ | ✓
-TrackedVehiclePlugin | ✓ |
+TrackedVehiclePlugin | ✓ | ✓
 VariableGearboxPlugin | ✓ |
 VehiclePlugin | ✓ |
 WheelSlipPlugin | ✓ | ✓
-WheelTrackedVehiclePlugin | ✓ | ✓ ([partially via DiffDrivePlugin](https://github.com/ignitionrobotics/ign-gazebo/blob/44951e3ddfd238f24182d4d80b1376f0d426bd43/examples/worlds/track_drive.sdf#L2141))
+WheelTrackedVehiclePlugin | ✓ | ✓
 KineticEnergyMonitor | ✕ | ✓
 Buoyancy engine | ✓ | ✓
 
@@ -264,14 +264,13 @@ Render order | ✕  | ✓
 
 ## ROS integration
 
-ROS integration with Ignition will be done primarily via a
-transport bridge instead of plugins, contained in the
-[ros_ign](https://github.com/osrf/ros1_ign) package.
+ROS integration through the
+[ros_ign](https://github.com/ignitionrobotics/ros_ign) packages.
 
 Supported versions:
 
-* ROS 1 Noetic
-* ROS 2 Rolling
+* ROS 1 Noetic (from source)
+* ROS 2 Humble (coming soon)
 
 ## Platforms
 
@@ -279,7 +278,7 @@ Platform | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 Ubuntu | ✓ | ✓
 OSX | ✓ | Most of the stack works, outstanding issues: [command line](https://github.com/ignitionrobotics/ign-gazebo/issues/25), [render window](https://github.com/ignitionrobotics/ign-gazebo/issues/44)
-Windows | ✓ | The stack works up to ign-gazebo: [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/168)
+Windows | ✓ | All libraries compile, low-level libraries function well: [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/168)
 
 ## Others
 
