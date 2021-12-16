@@ -37,4 +37,4 @@ sudo apt remove ignition-edifice && sudo apt autoremove
 
 ## Troubleshooting
 
-See [Troubleshooting](troubleshooting.md#ubuntu)
+See [Troubleshooting](/docs/edifice/troubleshooting#ubuntu)

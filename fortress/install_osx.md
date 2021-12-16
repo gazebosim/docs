@@ -32,4 +32,4 @@ brew uninstall ignition-fortress
 
 ## Troubleshooting
 
-See [Troubleshooting](troubleshooting.md#macos)
+See [Troubleshooting](/docs/fortress/troubleshooting#macos)

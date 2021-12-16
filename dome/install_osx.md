@@ -32,4 +32,4 @@ brew uninstall ignition-dome
 
 ## Troubleshooting
 
-See [Troubleshooting](troubleshooting.md#macos)
+See [Troubleshooting](/docs/dome/troubleshooting#macos)

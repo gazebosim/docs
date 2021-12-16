@@ -214,7 +214,7 @@ Or in zsh:
 . ~/workspace/install/setup.zsh
 ```
 
-This is the end of the source install instructions; head back to the [Getting started](getting_started.html)
+This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)
 page to start using Ignition!
 
 ## Uninstalling source-based install
@@ -239,4 +239,4 @@ the results you want:
 
 ## Troubleshooting
 
-See [Troubleshooting](troubleshooting.md#ubuntu)
+See [Troubleshooting](/docs/fortress/troubleshooting#ubuntu)

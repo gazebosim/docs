@@ -226,7 +226,7 @@ Or in zsh:
 . ~/workspace/install/setup.zsh
 ```
 
-This is the end of the source install instructions; head back to the [Getting started](getting_started.html)
+This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)
 page to start using Ignition!
 
 ## Uninstalling source-based install
@@ -242,4 +242,4 @@ sudo make uninstall
 
 ## Troubleshooting
 
-See [Troubleshooting](troubleshooting.md#macos)
+See [Troubleshooting](/docs/edifice/troubleshooting#macos)

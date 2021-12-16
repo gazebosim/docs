@@ -32,4 +32,4 @@ brew uninstall ignition-edifice
 
 ## Troubleshooting
 
-See [Troubleshooting](troubleshooting.md#macos)
+See [Troubleshooting](/docs/edifice/troubleshooting#macos)
