@@ -138,4 +138,4 @@ the results you want:
 
 ## Troubleshooting
 
-See [Troubleshooting](troubleshooting.md#windows)
+See [Troubleshooting](/docs/citadel/troubleshooting)

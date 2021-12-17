@@ -37,4 +37,4 @@ sudo apt remove ignition-fortress && sudo apt autoremove
 
 ## Troubleshooting
 
-See [Troubleshooting](troubleshooting.md#ubuntu)
+See [Troubleshooting](/docs/fortress/troubleshooting#ubuntu)

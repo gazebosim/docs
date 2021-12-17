@@ -37,4 +37,4 @@ sudo apt remove ignition-citadel && sudo apt autoremove
 
 ## Troubleshooting
 
-See [Troubleshooting](troubleshooting.md#ubuntu)
+See [Troubleshooting](/docs/citadel/troubleshooting#ubuntu)
