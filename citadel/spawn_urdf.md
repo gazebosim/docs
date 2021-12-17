@@ -3,12 +3,12 @@
 This tutorial will cover how to spawn a URDF model in Ignition Gazebo.
 URDF files are often used in ROS to represent robot models.
 While SDF can describe a world with multiple robot models, URDF can only describe one robot model.
-More information about URDF can be found at https://wiki.ros.org/urdf.
+More information about URDF can be found at [https://wiki.ros.org/urdf](https://wiki.ros.org/urdf).
 
 ## Obtaining a URDF file
 
 This tutorial assumes that the reader already has a URDF file that they'd like to load into Ignition Gazebo.
-If you are looking for a URDF file to use, you can use the `rrbot` robot model in the [`gazebo_ros_demos`](https://github.com/ros-simulation/gazebo_ros_demos) package, or use one of the examples listed at https://wiki.ros.org/urdf/Examples.
+If you are looking for a URDF file to use, you can use the `rrbot` robot model in the [`gazebo_ros_demos`](https://github.com/ros-simulation/gazebo_ros_demos) package, or use one of the examples listed at [https://wiki.ros.org/urdf/Examples](https://wiki.ros.org/urdf/Examples).
 
 If you have a `xacro` representation of a robot model, you can turn the `xacro` file into a `URDF` file using the [`xacro`](https://index.ros.org/p/xacro/) package: see [this tutorial](https://docs.ros.org/en/foxy/Tutorials/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.html) for more information.
 
@@ -17,7 +17,7 @@ If you have a `xacro` representation of a robot model, you can turn the `xacro` 
 To spawn a URDF model in Ignition Gazebo, we will start a world and make use of the world's `create` service, which uses the [EntityFactory](https://ignitionrobotics.org/api/msgs/8.1/classignition_1_1msgs_1_1EntityFactory.html) message type.
 
 Start by launching an empty world in Ignition Gazebo:
-```
+```bash
 ign gazebo empty.sdf
 ```
 
@@ -40,11 +40,11 @@ ignition.msgs.EntityFactory, ignition.msgs.Boolean
 
 Now that we have found the service that has an `EntityFactory` request type, we can call this service and pass the URDF file to the service's request so that the robot represented by this URDF file is spawned in the Ignition Gazebo world.
 We do this by setting the desired URDF file to the `sdf_file_name` field of the `EntityFactory` request message.
-[SDFormat](https://ignitionrobotics.org/libs/sdformat) will then internally convert the URDF file to an SDF representation, and load this into the running world.
+The [libsdformat](https://ignitionrobotics.org/libs/sdformat) library will then internally convert the URDF file to an SDF representation, and load this into the running world.
 
 The following command spawns the URDF file `model.urdf` into the Ignition Gazebo world as a model named `urdf_model`:
-```
-ign service -s /world/empty/create --reqtype ignition.msgs.EntityFactory --reptype ignition.msgs.Boolean --timeout 1000 --req 'sdf_filename: "model.urdf", name: "urdf_model"'
+```bash
+ign service -s /world/empty/create --reqtype ignition.msgs.EntityFactory --reptype ignition.msgs.Boolean --timeout 1000 --req 'sdf_filename: "/path/to/model.urdf", name: "urdf_model"'
 ```
 
 If `model.urdf` is the URDF representation of [rrbot.xacro](https://github.com/ros-simulation/gazebo_ros_demos/blob/kinetic-devel/rrbot_description/urdf/rrbot.xacro) in the `gazebo_ros_demos` package, executing the service call above should result in a simulation that now looks like this:
