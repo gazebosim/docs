@@ -138,4 +138,4 @@ the results you want:
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/dome/troubleshooting#windows)
+See [Troubleshooting](/docs/dome/troubleshooting)
