@@ -63,6 +63,6 @@ Ubuntu Focal     | amd64        | ✅ Yes    | ✅ Yes, every pull request | ✅
 .                | arm64        | ❓ Maybe  | No | Most low-level libraries known to work
 .                | armhf        | ❓ Maybe  | No | Most low-level libraries known to work, DART physics engine not available
 Debian Buster    | amd64, i386, arm64, armhf | ❓ Maybe | No | Several libraries known to work
-MacOS Mojave and Catalina | -   | ✅ Yes    | ✅ Yes, every pull request (TODO: which version?) | Ignition only works in headless mode (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use `ign gazebo -s fuel.sdf` to start the server only).
+MacOS Catalina and BigSur | -   | ✅ Yes    | ✅ Yes, every pull request (TODO: which version?) | Ignition only works in headless mode (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use `ign gazebo -s fuel.sdf` to start the server only).
 Windows 10       | .            | ❓ Maybe  | ✅ Yes, every pull request | Command line utilities are not supported. All packages up to but not including `ign-gazebo` are currently building. DART physics engine is not supported. Qt (GUI functionality) is not supported.
 
