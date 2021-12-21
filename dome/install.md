@@ -1,3 +1,7 @@
+**Dome has reached end-of-life on December 2021.
+This page exists for archival purposes.
+Please refer to the latest supported version.**
+
 # Dome Installation
 
 Dome supports the following platforms:
