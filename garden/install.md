@@ -1,21 +1,9 @@
-# Garden Installation
+# Ignition Garden
+
+Ignition Garden will be the 7th major release of Ignition. It will be a
+short-term release.
 
 Up to Garden's release date, the collection should be considered unstable.
-
-For the moment, Garden supports the following platforms:
-
- * Ubuntu Bionic amd64/arm64/i386 and Focal on amd64/arm64
- * MacOS Catalina and BigSur
-     * Ignition currently only works in headless mode using Ogre 1
-      (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use
-      `ign gazebo -s fuel.sdf` to start the server only).
- * Windows 10
-     * Ignition command line utilities are not yet supported.
-     * All packages up to `ign-gazebo` can be built.
-     * DART physics engine is not yet supported.
-     * Qt (GUI functionality) is not yet supported.
-
-The supported platforms may change up to the release date.
 
 ## Binary installation instructions
 
@@ -54,3 +42,18 @@ This list of library versions may change up to the release date.
 |   ign-transport    |      12.x     |
 |   ign-utils        |       1.x     |
 |   sdformat         |      12.x     |
+
+## Supported platforms
+
+Garden is planned to be [supported](/docs/all/releases) on the platforms below.
+This list may change up to the release date.
+
+These are the **officially** supported platforms:
+
+* Ubuntu Focal on amd64
+* Ubuntu Jammy on amd64
+
+Platforms supported at **best-effort** include arm architectures, Windows and
+macOS. See
+[this ticket](https://github.com/ignition-tooling/release-tools/issues/597)
+for the full status.

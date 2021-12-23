@@ -1,18 +1,6 @@
-# Citadel Installation
+# Ignition Citadel
 
-Citadel supports the following platforms:
-
- * Ubuntu Bionic on amd64/i386 and Focal on amd64
- * MacOS Mojave
-     * Ignition currently only works in headless mode
-      (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use
-      `ign gazebo -s fuel.sdf` to start the server only).
- * Windows 10
-     * Ignition command line utilities are not yet supported.
-     * All packages up to but not including `ign-gazebo` are currently building.
-     * DART physics engine is not yet supported.
-     * Qt (GUI functionality) is not yet supported.
-
+Ignition Citadel is the 3rd major release of Ignition, and its 1st 5-year-LTS.
 
 ## Binary installation instructions
 
@@ -52,3 +40,18 @@ collection assures that all libraries are compatible and can be used together.
 |   ign-tools        |       1.x     |
 |   ign-transport    |       8.x     |
 |   sdformat         |       9.x     |
+
+## Supported platforms
+
+Citadel is [supported](/docs/all/releases) on the platforms below.
+
+These are the **officially** supported platforms:
+
+* Ubuntu Bionic on amd64/i386
+* Ubuntu Focal on amd64
+
+Platforms supported at **best-effort** include arm architectures, Windows and
+macOS. See
+[this ticket](https://github.com/ignition-tooling/release-tools/issues/595)
+for the full status.
+

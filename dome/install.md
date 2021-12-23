@@ -1,18 +1,6 @@
-# Dome Installation
+# Ignition Dome
 
-Dome supports the following platforms:
-
- * Ubuntu Bionic amd64/arm64/i386 and Focal on amd64/arm64
- * MacOS Mojave and Catalina
-     * Ignition currently only works in headless mode
-      (GUI does not render; instead of using `ign gazebo fuel.sdf` command, use
-      `ign gazebo -s fuel.sdf` to start the server only).
- * Windows 10
-     * Ignition command line utilities are not yet supported.
-     * All packages up to but not including `ign-gazebo` are currently building.
-     * DART physics engine is not yet supported.
-     * Qt (GUI functionality) is not yet supported.
-
+Ignition Dome is the 4th major release of Ignition. It's a short-term support.
 
 ## Binary installation instructions
 
@@ -52,3 +40,17 @@ collection assures that all libraries are compatible and can be used together.
 |   ign-tools        |       1.x     |
 |   ign-transport    |       9.x     |
 |   sdformat         |      10.x     |
+
+## Supported platforms
+
+Dome is [supported](/docs/all/releases) on the platforms below.
+
+These are the **officially** supported platforms:
+
+* Ubuntu Bionic on amd64/i386
+* Ubuntu Focal on amd64
+
+Platforms supported at **best-effort** include arm architectures, Windows and
+macOS. See
+[this ticket](https://github.com/ignition-tooling/release-tools/issues/297)
+for the full status.
