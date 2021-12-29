@@ -57,3 +57,38 @@ Ign-(N+2)   | void bar();
 
 Check out [this table](https://github.com/ignitionrobotics/docs/blob/master/tools/versions.md)
 for a list of release and EOL dates for all versions of all libraries.
+
+### Supported platforms
+
+Platforms are defined as a combination of operating system and architecture.
+For example, "Ubuntu Focal on amd64".
+
+Each release is targeted at a specific set of platforms. A support level applies
+to an entire Ignition release, including all library versions within it. The
+supported platforms for each release are listed on their home pages (i.e.
+[Fortress](https://ignitionrobotics.org/docs/fortress)).
+
+In general, there are three categories of support for a platform:
+
+* **Official support**: Officially supported platforms are regularly tested on
+  continuous integration and released as binary packages. Errors or bugs
+  discovered in these platforms are prioritized for correction by the
+  development team. Significant errors discovered in these platforms can impact
+  release dates and we strive to resolve all known high priority errors in
+  officially supported platforms prior to new version releases.
+* **Best-effort support**: Platforms supported at best-effort may be regularly
+  tested on continuous integration and / or released as binary packages. Errors
+  may be present in released versions for these platforms. Known errors in
+  best-effort platforms will be addressed subject to resource availability on a
+  best-effort basis and may or may not be corrected prior to new releases.
+* **No effort to support**: All platforms not included under official or
+  best-effort support are considered not supported. If a release is functional
+  in a platform that isn't supported at a point in time, there are no guarantees
+  that it will remain so in the future. Pull requests addressing issues on these
+  platforms may be considered if they don't break any supported platforms and
+  reviewed as time allows.
+
+If you or your company are interested in directly supporting, or
+sponsoring the support of other platforms, please contact
+`info@openrobotics.org`.
+
