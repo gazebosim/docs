@@ -1,5 +1,9 @@
 # Ignition Dome
 
+**Dome has reached end-of-life on December 2021.
+This page exists for archival purposes.
+Please refer to the latest supported version.**
+
 Ignition Dome is the 4th major release of Ignition. It's a short-term support.
 
 ## Binary installation instructions
