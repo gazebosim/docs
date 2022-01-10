@@ -8,11 +8,11 @@ info@openrobotics.org.
 
 ## Quarterly Roadmap
 
-## 2021 Q3 (Jul - Sep) / Q4 (Oct - Dec) - ongoing
+## 2022 Q1 (Jan - Mar) / Q2 (Apr - Jun) - ongoing
 
-* **Scripting**: Add scripting interfaces to Ignition
-    * [All open tickets](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22scripting%22&state=open&type=Issues)
-    * [Status](https://github.com/orgs/ignitionrobotics/projects/3?card_filter_query=label%3A%22scripting%22)
+* **Out-of-box experience**: Improve end-user experience
+    * [All open tickets](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22OOBE+%F0%9F%93%A6%E2%9C%A8%22&state=open&type=Issues)
+    * [Status](https://github.com/orgs/ignitionrobotics/projects/3?card_filter_query=label%3A%22oobe+%F0%9F%93%A6%E2%9C%A8%22)
 
 ## Feature Roadmap
 
@@ -30,17 +30,18 @@ compatible non-EOL release and propagate the feature forward.
 
 ### Citadel
 
-1. [GPS sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/23)
 1. [Integration with ros2_control.](https://github.com/ignitionrobotics/ign_ros2_control/)
 1. [Python interface for Ignition Math.](https://github.com/ignitionrobotics/ign-math/issues/210)
-
-### Dome
-
-No planned features at the moment.
+1. [Quick start dialog.](https://github.com/ignitionrobotics/ign-gazebo/issues/1252)
+1. [Splash screen.](https://github.com/ignitionrobotics/ign-gui/issues/336)
+1. [System inspector.](https://github.com/ignitionrobotics/ign-gazebo/issues/191)
+1. [Notification snackbar](https://github.com/ignitionrobotics/ign-gui/issues/44)
+1. [Bash completion](https://github.com/ignitionrobotics/ign-tools/issues/1)
 
 ### Edifice
 
 1. [Improved Windows support.](https://github.com/search?q=org%3Aignitionrobotics+label%3AWindows&state=open&type=Issues)
+1. [Wheel slip commands.](https://github.com/ignitionrobotics/ign-gazebo/pull/1241)
 
 ### Fortress
 
@@ -50,18 +51,24 @@ No planned features at the moment.
 1. [GUI model editor](https://github.com/ignitionrobotics/ign-gazebo/labels/editor)
 1. [Bazel build files.](https://github.com/ignitionrobotics/ign-bazel)
 1. [Python interface to Gazebo.](https://github.com/ignitionrobotics/ign-gazebo/issues/789)
+1. [GPS / NavSat sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/23)
+1. [Waves and hydrodynamics for water surface vehicles.](https://github.com/ignitionrobotics/ign-gazebo/issues/1247)
+1. [Custom shaders,](https://github.com/ignitionrobotics/ign-gazebo/issues/657)
+1. [Visual plugins.](https://github.com/ignitionrobotics/ign-gazebo/issues/265)
+1. [Custom rendering sensors.](https://github.com/ignitionrobotics/ign-gazebo/pull/1268)
+1. [USD importer / exporter.](https://github.com/ignitionrobotics/sdformat/pull/736)
+1. [Omniverse](https://developer.nvidia.com/nvidia-omniverse-platform) application.
 
 ### Garden
 
-1. [USD importer / exporter.](https://github.com/ignitionrobotics/sdformat/pull/736)
-1. [libSDFormat updated to use Ignition CMake.](https://github.com/ignitionrobotics/sdformat/issues/181)
-1. [Omniverse](https://developer.nvidia.com/nvidia-omniverse-platform) application.
 1. [Camera distortion.](https://github.com/ignitionrobotics/ign-sensors/issues/107)
 1. [Wide angle camera.](https://github.com/ignitionrobotics/ign-sensors/issues/24)
 1. [Point cloud visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/1156)
 1. [Force/torque visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/1155)
 1. [Reset API.](https://github.com/ignitionrobotics/ign-gazebo/issues/1107)
 1. [DEM heightmaps.](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
+1. [Triggered cameras.](https://github.com/ignitionrobotics/ign-sensors/issues/185)
+1. [Bridge parameters on ros_ign.](https://github.com/ignitionrobotics/ros_ign/issues/70)
 
 ## Planned releases
 
