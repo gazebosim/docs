@@ -174,6 +174,7 @@ collection assures that all libraries all compatible and can be used together.
 1. [Web visualization of running simulations](https://ignitionrobotics.org/docs/dome/web_visualization).
 1. [Bullet physics engine.](https://github.com/ignitionrobotics/ign-physics/issues/44)
 1. [Parametrized SDF files.](http://sdformat.org/tutorials?tut=param_passing_proposal)
+1. [libSDFormat now uses ign-cmake](https://github.com/ignitionrobotics/sdformat/issues/181)
 1. GUI tools:
     * [Plotting](https://community.gazebosim.org/t/gsoc-2020-plotting-tool-for-ignition/619)
     * [Lidar visualization](https://community.gazebosim.org/t/gsoc-2020-sensor-data-visualization/638)
@@ -244,6 +245,7 @@ collection assures that all libraries all compatible and can be used together.
 1. [Heightmaps on Ogre 2](https://github.com/ignitionrobotics/ign-rendering/issues/187)
 1. [Spherical coordinates](https://github.com/ignitionrobotics/ign-gazebo/issues/981)
 1. [Buoyancy engine](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo6/examples/worlds/buoyancy_engine.sdf)
+1. [Control lights from ROS 2](https://github.com/ignitionrobotics/ros_ign/pull/187)
 1. Sensors
   1. [Custom sensors.](https://ignitionrobotics.org/api/sensors/6.0/custom_sensors.html)
   1. [Segmentation camera.](https://ignitionrobotics.org/api/sensors/6.0/segmentationcamera_igngazebo.html)
