@@ -31,7 +31,6 @@ compatible non-EOL release and propagate the feature forward.
 ### Citadel
 
 1. [Integration with ros2_control.](https://github.com/ignitionrobotics/ign_ros2_control/)
-1. [Python interface for Ignition Math.](https://github.com/ignitionrobotics/ign-math/issues/210)
 1. [Quick start dialog.](https://github.com/ignitionrobotics/ign-gazebo/issues/1252)
 1. [Splash screen.](https://github.com/ignitionrobotics/ign-gui/issues/336)
 1. [System inspector.](https://github.com/ignitionrobotics/ign-gazebo/issues/191)
@@ -51,13 +50,13 @@ compatible non-EOL release and propagate the feature forward.
 1. [GUI model editor](https://github.com/ignitionrobotics/ign-gazebo/labels/editor)
 1. [Bazel build files.](https://github.com/ignitionrobotics/ign-bazel)
 1. [Python interface to Gazebo.](https://github.com/ignitionrobotics/ign-gazebo/issues/789)
-1. [GPS / NavSat sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/23)
 1. [Waves and hydrodynamics for water surface vehicles.](https://github.com/ignitionrobotics/ign-gazebo/issues/1247)
 1. [Custom shaders,](https://github.com/ignitionrobotics/ign-gazebo/issues/657)
 1. [Visual plugins.](https://github.com/ignitionrobotics/ign-gazebo/issues/265)
 1. [Custom rendering sensors.](https://github.com/ignitionrobotics/ign-gazebo/pull/1268)
 1. [USD importer / exporter.](https://github.com/ignitionrobotics/sdformat/pull/736)
 1. [Omniverse](https://developer.nvidia.com/nvidia-omniverse-platform) application.
+1. [Save more changed components to SDF.](https://github.com/ignitionrobotics/ign-gazebo/issues/1312) application.
 
 ### Garden
 
@@ -68,7 +67,9 @@ compatible non-EOL release and propagate the feature forward.
 1. [Reset API.](https://github.com/ignitionrobotics/ign-gazebo/issues/1107)
 1. [DEM heightmaps.](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
 1. [Triggered cameras.](https://github.com/ignitionrobotics/ign-sensors/issues/185)
-1. [Bridge parameters on ros_ign.](https://github.com/ignitionrobotics/ros_ign/issues/70)
+1. [Parameters in Ignition Transport.](https://github.com/ignitionrobotics/ign-gazebo/pull/1280)
+1. [Bridge Ignition services to ROS 2 services.](https://github.com/ignitionrobotics/ros_ign/pull/211)
+1. [Satisfying ASAN for Ignition Math.](https://github.com/ignitionrobotics/ign-math/issues/370)
 
 ## Planned releases
 
