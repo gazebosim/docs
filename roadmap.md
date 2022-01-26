@@ -56,7 +56,7 @@ compatible non-EOL release and propagate the feature forward.
 1. [Custom rendering sensors.](https://github.com/ignitionrobotics/ign-gazebo/pull/1268)
 1. [USD importer / exporter.](https://github.com/ignitionrobotics/sdformat/pull/736)
 1. [Omniverse](https://developer.nvidia.com/nvidia-omniverse-platform) application.
-1. [Save more changed components to SDF.](https://github.com/ignitionrobotics/ign-gazebo/issues/1312) application.
+1. [Save more changed components to SDF.](https://github.com/ignitionrobotics/ign-gazebo/issues/1312)
 
 ### Garden
 
