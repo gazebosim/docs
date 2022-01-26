@@ -130,6 +130,7 @@ collection assures that all libraries all compatible and can be used together.
 1. [Test fixture to easily run simulation-based automated tests.](https://ignitionrobotics.org/api/gazebo/3.9/test_fixture.html)
 1. [Drag and drop meshes into the scene.](https://github.com/ignitionrobotics/ign-gazebo/pull/939)
 1. [Tracked vehicles](https://github.com/ignitionrobotics/ign-gazebo/pull/869)
+1. [Python interface for Ignition Math.](https://github.com/ignitionrobotics/ign-math/issues/210)
 1. New graphical interfaces:
     * Widget listing all transport topics.
     * Widget that publishes keys pressed on the keyboard.
@@ -250,6 +251,7 @@ collection assures that all libraries all compatible and can be used together.
   1. [Custom sensors.](https://ignitionrobotics.org/api/sensors/6.0/custom_sensors.html)
   1. [Segmentation camera.](https://ignitionrobotics.org/api/sensors/6.0/segmentationcamera_igngazebo.html)
   1. [Joint force-torque sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/25)
+  1. [GPS / NavSat sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/23)
 1. GUI features
     1. [Consolidate Scene3D with GzScene3D](https://github.com/ignitionrobotics/ign-gui/issues/137)
     1. [Visualize wireframes](https://github.com/ignitionrobotics/ign-gazebo/pull/816)
