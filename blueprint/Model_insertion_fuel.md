@@ -28,12 +28,7 @@ For example, let's find the [Vent](https://app.ignitionrobotics.org/openrobotics
 Note that some of the model files are quite large and may take some time to download into your world.
 Check that the file size on the right is reasonable for your application before moving on.
 
-## Drag and Drop
 
-The only thing left to do is drag and drop.
-Click and hold the `Drag me!` button and do just that: drag your mouse into the GUI scene area.
-
-![Drag and drop](img/vent.gif)
 
 Now you can add more models, or even load in any one of the plugins you learned about to interact with the model the same way you could with the shapes in the previous tutorial.
 
