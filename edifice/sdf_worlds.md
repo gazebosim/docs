@@ -233,9 +233,9 @@ The plugins can also be added from the GUI using the plugin drop-down menu in th
 
 Instead of building our own models we can use already built ones. [Ignition Fuel](https://app.ignitionrobotics.org/fuel) hosts hundreds of models that can easily be added to an Ignition world. Models can be added as follows.
 
-### Drag and drop the model
+### Spawning a model
 
-Adding models to a world typically means adding them into your world sdf file, but with Fuel you can drag and drop existing models directly into the scene. Checkout this [tutorial](fuel_insert) on how to add models to your world by drag and drop.
+For adding various models from fuel to your world chekout this [tutorial](fuel_insert).
 
 ### Include the model URI
 
