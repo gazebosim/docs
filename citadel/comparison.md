@@ -18,8 +18,8 @@ Bounding Box camera | ✕ | ✕  (available from Fortress)
 Camera | ✓ | ✓
 Contact sensor | ✓ | ✓
 Depth camera | ✓ | ✓
-Force-torque | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/25)
-GPS | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/23)
+Force-torque | ✓ | ✕  (available from Fortress)
+GPS / NavSat | ✓ |  ✕  (available from Fortress)
 GPU Ray | ✓ | ✓ Renamed to GPU Lidar
 IMU | ✓ | ✓
 Logical camera | ✓ | ✓
@@ -27,6 +27,7 @@ Magnetometer | ✓ | ✓
 Multi-camera | ✓ | ✕  Use individual cameras with same update rate
 Ray | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/26)
 RFID sensor and tag | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/27)
+RGBD camera | ✕ | ✓
 Segmentation camera | ✕ | ✕  (available from Fortress)
 Sonar | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/19)
 Thermal camera | ✕  | ✓
@@ -46,7 +47,7 @@ Performance metrics | ✓ |  ✓
 
 Feature | Gazebo-classic | Ignition Gazebo
 -- | -- | --
-SDF frame semantics |✓| ✓
+SDF frame semantics |✓ | ✓
 SDF parametrization | ✕ | ✕  (available from Dome)
 Load models from local files | ✓ | [✓](https://ignitionrobotics.org/api/gazebo/3.3/resources.html)
 Closed kinematic chains | ✓  | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/25)
@@ -54,13 +55,13 @@ Nested models | ✓ | Partial support, fully available from Edifice
 Populations | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/240)
 Actors | ✓ | ✓
 Markers | ✓ | ✓
-Heightmaps | ✓ | ✕  (available from Edifice with Ogre 1)
+Heightmaps | ✓ | ✕ (Ogre 1 from Edifice, Ogre 2 from Fortress)
 DEM (Digital Elevation Models) | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
 Polylines | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/186)
 World plugins | ✓ | ✓ Now called System plugin
 Model plugins | ✓ | ✓ Now called System plugin
 Sensor plugins | ✓ | ✓ Now called System plugin
-Visual plugins | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/265)
+Visual plugins | ✓ | ✕  (available from Fortress)
 GUI plugins | ✓ | ✓ Ignition GUI plugins and Gazebo GUI systems
 System plugins | ✓ | ✓ Through Ignition Launch
 
@@ -86,7 +87,7 @@ GimbalSmall2dPlugin | ✓ |
 GravityCompensationPlugin | ✓ |
 HarnessPlugin | ✓ |
 HydraDemoPlugin | ✓ |
-InitialVelocityPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/50)
+InitialVelocityPlugin | ✓ | ✕  (available from Edifice)
 JointControlPlugin | ✓ (force / pos / vel, from SDF) | ✓ (vel, from msg)
 JointStatePublisher | ✕ | ✓
 JointTrajectoryPlugin | ✓ |
@@ -96,7 +97,7 @@ LedPlugin | ✓ |
 LiftDragPlugin | ✓ | ✓
 LinearBatteryConsumerPlugin | ✓ | ✓
 LinearBatteryPlugin | ✓ | ✓
-LinkPlot3DPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/231)
+LinkPlot3DPlugin | ✓ | ✓ (renamed to Plot3D)
 MudPlugin | ✓ |
 MulticopterMotorModel | ✕ | ✓
 PlaneDemoPlugin | ✓ |
@@ -154,7 +155,7 @@ Plugin | Gazebo-classic | Ignition Gazebo
 AmbientOcclusionVisualPlugin | ✓ |
 BlinkVisualPlugin | ✓ |
 HeightmapLODPlugin | ✓ |
-ShaderParamVisualPlugin | ✓ |
+ShaderParamVisualPlugin | ✓ | ✕ (available from Fortress)
 
 ### GUI plugins
 
@@ -207,7 +208,7 @@ Visualize CoM | ✓ |  ✕ (available from Fortress)
 Visualize contacts | ✓ |  ✕  (available from Dome)
 Visualize lights | ✓ | ✕  (available from Edifice)
 Follow / move to | ✓ | ✓
-Copy / paste | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/102)
+Copy / paste | ✓ | ✕ (available from Fortress)
 Building editor | ✓ |
 Model editor | ✓ | [Issues](https://github.com/ignitionrobotics/ign-gazebo/issues?q=is%3Aissue+is%3Aopen+label%3Aeditor)
 FPS view control | ✓ |

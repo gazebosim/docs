@@ -131,6 +131,7 @@ collection assures that all libraries all compatible and can be used together.
 1. [Drag and drop meshes into the scene.](https://github.com/ignitionrobotics/ign-gazebo/pull/939)
 1. [Tracked vehicles](https://github.com/ignitionrobotics/ign-gazebo/pull/869)
 1. [Python interface for Ignition Math.](https://github.com/ignitionrobotics/ign-math/issues/210)
+1. [Integration with ros2_control.](https://github.com/ignitionrobotics/ign_ros2_control/)
 1. New graphical interfaces:
     * Widget listing all transport topics.
     * Widget that publishes keys pressed on the keyboard.
@@ -247,6 +248,10 @@ collection assures that all libraries all compatible and can be used together.
 1. [Spherical coordinates](https://github.com/ignitionrobotics/ign-gazebo/issues/981)
 1. [Buoyancy engine](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo6/examples/worlds/buoyancy_engine.sdf)
 1. [Control lights from ROS 2](https://github.com/ignitionrobotics/ros_ign/pull/187)
+1. [Python interface to Gazebo.](https://github.com/ignitionrobotics/ign-gazebo/issues/789)
+1. [Custom shaders.](https://github.com/ignitionrobotics/ign-gazebo/issues/657)
+1. [Visual plugins.](https://github.com/ignitionrobotics/ign-gazebo/issues/265)
+1. [Rendering waves.](https://github.com/ignitionrobotics/ign-rendering/pull/541)
 1. Sensors
   1. [Custom sensors.](https://ignitionrobotics.org/api/sensors/6.0/custom_sensors.html)
   1. [Segmentation camera.](https://ignitionrobotics.org/api/sensors/6.0/segmentationcamera_igngazebo.html)
