@@ -249,7 +249,7 @@ collection assures that all libraries all compatible and can be used together.
 1. [Buoyancy engine](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo6/examples/worlds/buoyancy_engine.sdf)
 1. [Control lights from ROS 2](https://github.com/ignitionrobotics/ros_ign/pull/187)
 1. [Python interface to Gazebo.](https://github.com/ignitionrobotics/ign-gazebo/issues/789)
-1. [Custom shaders,](https://github.com/ignitionrobotics/ign-gazebo/issues/657)
+1. [Custom shaders.](https://github.com/ignitionrobotics/ign-gazebo/issues/657)
 1. [Visual plugins.](https://github.com/ignitionrobotics/ign-gazebo/issues/265)
 1. [Rendering waves.](https://github.com/ignitionrobotics/ign-rendering/pull/541)
 1. Sensors
