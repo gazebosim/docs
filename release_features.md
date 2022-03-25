@@ -164,7 +164,7 @@ collection assures that all libraries all compatible and can be used together.
 |   sdformat         |       9.x     |       [Changelog](https://github.com/osrf/sdformat/blob/sdf9/Changelog.md)        |
 
 
-## Dome
+## Dome (EOL)
 
 1. Particle effects on [Ignition Rendering](https://ignitionrobotics.org/api/rendering/4.1/particles.html) and [Ignition Gazebo](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo4/examples/worlds/particle_emitter.sdf).
 1. Actor plugins.
@@ -202,7 +202,7 @@ collection assures that all libraries all compatible and can be used together.
 |   ign-transport    |       9.x     |       [Changelog](https://github.com/ignitionrobotics/ign-transport/blob/ign-transport9/Changelog.md)      |
 |   sdformat         |      10.x     |       [Changelog](https://github.com/osrf/sdformat/blob/sdf10/Changelog.md)        |
 
-## Edifice
+## Edifice (EOL)
 
 1. New utility library with minimal dependencies: [Ignition Utils](https://github.com/ignitionrobotics/ign-utils/).
 1. [Sky box support.](https://github.com/ignitionrobotics/ign-rendering/issues/98)

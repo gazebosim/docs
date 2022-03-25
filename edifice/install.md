@@ -1,3 +1,7 @@
+**Edifice has reached end-of-life on March 2022.
+This page exists for archival purposes.
+Please refer to the latest supported version.**
+
 # Ignition Edifice
 
 Ignition Edifice is the 5th major release of Ignition. It's a short-term support.

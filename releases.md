@@ -18,7 +18,7 @@ An Ignition release follows the form "Ignition Codename", for example Ignition A
 | [Blueprint](https://ignitionrobotics.org/docs/blueprint) | May, 2019 | Dec, 2020 | EOL   |
 | [Citadel](https://ignitionrobotics.org/docs/citadel)     | Dec, 2019 | Dec, 2024 | LTS   |
 | [Dome](https://ignitionrobotics.org/docs/dome)           | Sep, 2020 | Dec, 2021 | EOL   |
-| [Edifice](https://ignitionrobotics.org/docs/edifice)     | Mar, 2021 | Mar, 2022 |       |
+| [Edifice](https://ignitionrobotics.org/docs/edifice)     | Mar, 2021 | Mar, 2022 | EOL   |
 | [Fortress](https://ignitionrobotics.org/docs/fortress)   | Sep, 2021 | Sep, 2026 | LTS   |
 | [Garden](https://ignitionrobotics.org/docs/garden)       | Sep, 2022 | Sep, 2024 |       |
 | Ignition-H                                               | Sep, 2023 | Sep, 2028 | LTS   |
