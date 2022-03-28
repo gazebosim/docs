@@ -665,6 +665,31 @@ In general, we follow [Google's style guide](https://google.github.io/styleguide
 >
 > `speed *= 0.44704;  // miles per hour to meters per second` : Bad
 
+1. **Accessors must not start with `Get`**
+> Member functions granting read access to protected or private data must look like a noun.
+>
+> `public: ::ServerConfig ServerConfig() const;` : Allowed
+>
+> `public: ServerConfig GetServerConfig() const;` : Not Allowed
+>
+> **Corner Cases**
+>
+> * A class name may conflict with an accessor function. For example, `Model(int)` would conflict with a `Model` class. In these cases, try to follow the `Noun` - `By` pattern. For example:
+>
+> >  * `ModelByName(const std::string &_name)` : Allowed
+> > >  * `ModelById(const int _id)` : Allowed
+>
+> * A template function that returns a data type may use a stand-alone `Get`. For example:
+>
+> >  * public: template<typename T> T Get();` : Allowed
+
+1. **Mutators must start with `Set`**
+> Member functions granting write access to protected data must begin with `Set`.
+>
+> `public: void SetServerConfig(ServerConfig &_config);` : Allowed
+>
+> `public: void ServerConfig(::ServerConfig &_config);` : Not Allowed
+
 ## Appendix
 
 
