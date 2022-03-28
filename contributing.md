@@ -642,8 +642,8 @@ In general, we follow [Google's style guide](https://google.github.io/styleguide
 1. **Camel case**
 > In general, everything should use camel case. Exceptions include SDF element names, and protobuf variable names. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/SdfEntityCreator.hh#L64-L65).
 
-1. **Class function names**
-> Class functions must start with a capital letter, and capitalize every word.
+1. **Function names**
+> All functions (member functions and free functions) must start with a capital letter, and capitalize every word.
 >
 > `void MyFunction();` : Good
 >
