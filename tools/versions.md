@@ -37,14 +37,14 @@ How to read the columns:
 ||3|EOL ❌||B|||A B|2019-01-30|2020-12 with Blueprint|
 ||4|stable|G H I|B F|F|11|C|2019-12-10|2025-01-25 with Gazebo 11|
 ||5|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
-||6|stable|||F||E|2020-03-31|2022-03 with Edifice|
+||6|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||7|stable|||||F|2021-09-30|2026-09 with Fortress|
 ||8|not-released|||||G|2022-09|TBD|
 |ignition-gazebo|1|EOL ❌||B|||A|2019-03-02|2019-09 with Acropolis|
 ||2|EOL ❌||B|||B|2019-05-21|2020-12 with Blueprint|
 ||3|stable||B F|F||C|2019-12-10|2024-12 with Citadel|
 ||4|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
-||5|stable|||F||E|2020-03-31|2022-03 with Edifice|
+||5|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||6|stable|||||F|2021-09-30|2026-09 with Fortress|
 ||7|not-released|||||G|2022-09|TBD|
 |ignition-gui<br>|0|EOL ❌||B||||2019-03-06|-|
@@ -52,14 +52,14 @@ How to read the columns:
 ||2|EOL ❌||B|||B|2019-05-21|2020-12 with Blueprint|
 ||3|stable||B F|F||C|2019-12-10|2024-12 with Citadel|
 ||4|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
-||5|stable|||F||E|2020-03-31|2022-03 with Edifice|
+||5|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||6|stable|||||F|2021-09-30|2026-09 with Fortress|
 ||7|not-released|||||G|2022-09|TBD|
 |ignition-launch|0|EOL ❌||B|||A|2019-03-18|2019-09 with Acropolis|
 ||1|EOL ❌||B|||B|2019-05-21|2020-12 with Blueprint|
 ||2|stable||B F|F||C|2019-12-10|2024-12 with Citadel|
 ||3|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
-||4|stable|||F||E|2020-03-31|2022-03 with Edifice|
+||4|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||5|stable|||||F|2021-09-30|2026-09 with Fortress|
 ||6|not-released|||||G|2022-09|TBD|
 |ignition-math|0|EOL ❌||P T||||2014-06-16|-|
@@ -77,13 +77,13 @@ How to read the columns:
 ||4|EOL ❌||B|||B|2019-05-20|2020-12 with Blueprint|
 ||5|stable|G H I|B F|F|11|C|2019-12-10|2025-01-25 with Gazebo 11|
 ||6|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
-||7|stable|||F||E|2020-03-31|2022-03 with Edifice|
+||7|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||8|stable|||||F|2021-09-30|2026-09 with Fortress|
 ||9|not-released|||||G|2022-09|TBD|
 |ignition-physics|1|EOL ❌||B|||A B|2019-03-01|2020-12 with Blueprint|
 ||2|stable||B F|F||C|2019-12-10|2024-12 with Citadel|
 ||3|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
-||4|stable|||F||E|2020-03-31|2022-03 with Edifice|
+||4|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||5|stable|||||F|2021-09-30|2026-09 with Fortress|
 ||6|not-released|||||G|2022-09|TBD|
 |ignition-plugin|1|stable||B F|||A B C D E F G|2019-03-01|TBD|
@@ -92,14 +92,14 @@ How to read the columns:
 ||2|EOL ❌||B|||B|2019-05-20|2020-12 with Blueprint|
 ||3|stable||B F|F||C|2019-12-10|2024-12 with Citadel|
 ||4|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
-||5|stable|||F||E|2020-03-31|2022-03 with Edifice|
+||5|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||6|stable|||||F|2021-09-30|2026-09 with Fortress|
 ||7|not-released|||||G|2022-09|TBD|
 |ignition-sensors|1|EOL ❌||B|||A|2019-03-01|2019-09 with Acropolis|
 ||2|EOL ❌||B|||B|2019-05-21|2020-12 with Blueprint|
 ||3|stable||B F|F||C|2019-12-10|2024-12 with Citadel|
 ||4|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
-||5|stable|||F||E|2020-03-31|2022-03 with Edifice|
+||5|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||6|stable|||||F|2021-09-30|2026-09 with Fortress|
 ||7|not-released|||||G|2022-09|TBD|
 |ignition-tools|0|EOL ❌||X A B|||A B|2018-02-22|2020-12 with Blueprint|
@@ -115,7 +115,7 @@ How to read the columns:
 ||7|EOL ❌||B|||B|2019-05-20|2020-12 with Blueprint|
 ||8|stable||B F|F|11|C|2019-12-10|2025-01-25 with Gazebo 11|
 ||9|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
-||10|stable|||F||E|2020-03-31|2022-03 with Edifice|
+||10|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||11|stable|||||F|2021-09-30|2026-09 with Fortress|
 ||12|not-released|||||G|2022-09|TBD|
 |ignition-utils|1|stable|||||E F G|2020-03-31|TBD|
@@ -130,7 +130,7 @@ How to read the columns:
 ||8|EOL ❌||B|||A B|2019-03-01|2020-12 with Blueprint|
 ||9|stable||B F|F|11|C|2019-12-10|2025-01-25 with Gazebo 11|
 ||10|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
-||11|stable|||F||E|2020-03-31|2022-03 with Edifice|
+||11|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||12|stable|||||F|2021-09-30|2026-09 with Fortress|
 ||13|not-released|||||G|2022-09|TBD|
 |Gazebo classic|1|EOL ❌||P||||2012-12-09|2015-07-27|

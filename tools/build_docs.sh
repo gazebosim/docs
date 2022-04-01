@@ -48,7 +48,7 @@ if [[ $1 == 'dome' || $1 == 'Dome' ]]; then
   docker build -t ign-dome-docs -f Dockerfile.dome --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
 fi
 
-if [[ $1 == 'all' || $1 == 'edifice' || $1 == 'Edifice' ]]; then
+if [[ $1 == 'edifice' || $1 == 'Edifice' ]]; then
   echo -e "\e[46m\e[30mUploading documentation for Edifice\e[0m\e[39m"
   docker build -t ign-edifice-docs -f Dockerfile.edifice --build-arg IGN_VERSION_PASSWORD --build-arg IGN_VERSION_DATE=`date -Iseconds` --no-cache .
 fi
