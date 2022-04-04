@@ -140,6 +140,7 @@ collection assures that all libraries all compatible and can be used together.
     * [Joint position controller.](https://app.ignitionrobotics.org/OpenRobotics/fuel/worlds/NAO%20joint%20control)
     * [2D teleop widget.](https://github.com/ignitionrobotics/ign-gui/issues/186)
     * [3D plot.](https://github.com/ignitionrobotics/ign-gazebo/issues/231)
+    * [Notification snackbar](https://github.com/ignitionrobotics/ign-gui/issues/44)
 1. APIs that make it easier to migrate from Gazebo classic:
     * [World](https://ignitionrobotics.org/api/gazebo/3.5/migrationworldapi.html)
     * [Model](https://ignitionrobotics.org/api/gazebo/3.5/migrationmodelapi.html)
@@ -218,6 +219,9 @@ collection assures that all libraries all compatible and can be used together.
 1. [Ocean currents.](https://github.com/ignitionrobotics/ign-gazebo/pull/800)
 1. [Hook command line tool to binaries instead of libraries.](https://github.com/ignitionrobotics/ign-tools/issues/7)
 1. [Heightmap support using Ogre 1 and DART.](https://github.com/ignitionrobotics/ign-gazebo/issues/237)
+1. [Turn lights on and off.](https://github.com/ignitionrobotics/ign-gazebo/pull/1343)
+1. [Toggle light visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/638)
+1. [Model photoshoot plugin.](https://github.com/ignitionrobotics/ign-gazebo/pull/1331)
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|

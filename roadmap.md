@@ -32,18 +32,8 @@ compatible non-EOL release and propagate the feature forward.
 
 1. [Quick start dialog.](https://github.com/ignitionrobotics/ign-gazebo/issues/1252)
 1. [Splash screen.](https://github.com/ignitionrobotics/ign-gui/issues/336)
-1. [System inspector.](https://github.com/ignitionrobotics/ign-gazebo/issues/191)
-1. [Notification snackbar](https://github.com/ignitionrobotics/ign-gui/issues/44)
 1. [Bash completion](https://github.com/ignitionrobotics/ign-tools/issues/1)
 1. [ign_ros2_control support for various models](https://github.com/ignitionrobotics/docs/issues/222)
-
-### Edifice
-
-1. [Improved Windows support.](https://github.com/search?q=org%3Aignitionrobotics+label%3AWindows&state=open&type=Issues)
-1. [Wheel slip commands.](https://github.com/ignitionrobotics/ign-gazebo/pull/1241)
-1. [Turn lights on and off.](https://github.com/ignitionrobotics/ign-gazebo/pull/1343)
-1. [Toggle light visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/638)
-1. [Model photoshoot plugin.](https://github.com/ignitionrobotics/ign-gazebo/pull/1331)
 
 ### Fortress
 
@@ -57,15 +47,19 @@ compatible non-EOL release and propagate the feature forward.
 1. [Omniverse](https://developer.nvidia.com/nvidia-omniverse-platform) application.
 1. [Save more changed components to SDF.](https://github.com/ignitionrobotics/ign-gazebo/issues/1312)
 1. [Pose and Twist with covariance.](https://github.com/ignitionrobotics/ign-msgs/pull/224)
+1. [System inspector.](https://github.com/ignitionrobotics/ign-gazebo/issues/191)
+1. [Generic comms system.](https://github.com/ignitionrobotics/ign-gazebo/pull/1416)
+1. [Improved Windows support.](https://github.com/search?q=org%3Aignitionrobotics+label%3AWindows&state=open&type=Issues)
+1. [Wheel slip commands.](https://github.com/ignitionrobotics/ign-gazebo/pull/1241)
 
 ### Garden
 
 1. [Point cloud visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/1156)
+1. [Wide angle camera (Ogre 1).](https://github.com/ignitionrobotics/ign-sensors/issues/24)
+1. [DEM heightmaps.](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
 1. [Camera distortion.](https://github.com/ignitionrobotics/ign-sensors/issues/107)
-1. [Wide angle camera.](https://github.com/ignitionrobotics/ign-sensors/issues/24)
 1. [Force/torque visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/1155)
 1. [Reset API.](https://github.com/ignitionrobotics/ign-gazebo/issues/1107)
-1. [DEM heightmaps.](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
 1. [Triggered cameras.](https://github.com/ignitionrobotics/ign-sensors/issues/185)
 1. [Parameters in Ignition Transport.](https://github.com/ignitionrobotics/ign-gazebo/pull/1280)
 1. [Bridge Ignition services to ROS 2 services.](https://github.com/ignitionrobotics/ros_ign/pull/211)
