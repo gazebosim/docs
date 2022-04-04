@@ -31,7 +31,7 @@ RGBD camera | ✕ | ✓
 Segmentation camera | ✕ | ✓
 Sonar | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/19)
 Thermal camera | ✕  | ✓
-Wide-angle camera | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/24)
+Wide-angle camera | ✓ | ✕ (available from Garden)
 Wireless | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/28)
 
 Sensor features | Gazebo-classic | Ignition Gazebo
@@ -56,7 +56,7 @@ Populations | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issue
 Actors | ✓ | ✓
 Markers | ✓ | ✓
 Heightmaps | ✓ | ✓
-DEM (Digital Elevation Models) | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
+DEM (Digital Elevation Models) | ✓ | ✕ (available from Garden)
 Polylines | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/186)
 World plugins | ✓ | ✓ Now called System plugin
 Model plugins | ✓ | ✓ Now called System plugin
@@ -170,7 +170,7 @@ TimerGUIPlugin | ✓ |
 
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
-ModelPropShop | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/100)
+ModelPropShop | ✓ | [✓](https://ignitionrobotics.org/api/gazebo/5.4/model_photo_shoot.html)
 RestUiPlugin | ✓ |
 RestWebPlugin | ✓ |
 StopWorldPlugin | ✓ |
@@ -208,7 +208,7 @@ Visualize CoM | ✓ |  ✓
 Visualize contacts | ✓ | ✓
 Visualize lights | ✓ | ✓
 Follow / move to | ✓ | ✓
-Copy / paste | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/102)
+Copy / paste | ✓ | ✓
 Building editor | ✓ |
 Model editor | ✓ | [Issues](https://github.com/ignitionrobotics/ign-gazebo/issues?q=is%3Aissue+is%3Aopen+label%3Aeditor)
 FPS view control | ✓ |
