@@ -53,7 +53,7 @@ Library                          | C ➡️  F                        | F ➡️
 [ign-gazebo-main]: https://github.com/ignitionrobotics/ign-gazebo/compare/main...ign-gazebo6
 
 [ign-gui]: https://github.com/ignitionrobotics/ign-gui
-[ign-gui-3-5]: https://github.com/ignitionrobotics/ign-gui/compare/ign-gui6...ign-gui3
+[ign-gui-3-6]: https://github.com/ignitionrobotics/ign-gui/compare/ign-gui6...ign-gui3
 [ign-gui-main]: https://github.com/ignitionrobotics/ign-gui/compare/main...ign-gui6
 
 [ign-launch]: https://github.com/ignitionrobotics/ign-launch
