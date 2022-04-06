@@ -166,10 +166,10 @@ document.
   ```
 
   4. Open a pull request for reviewing ([example PR](https://github.com/ignitionrobotics/ign-physics/pull/132)).
-  Including a link is recommended comparing the current release branch to the
-  latest release. Releases are tagged in GitHub repositories with the scheme
+  Include a link comparing the current release branch to the
+  latest release ([example of a branch comparison](https://github.com/ignitionrobotics/ign-gazebo/compare/ignition-gazebo3_3.5.0...ign-gazebo3)). Releases are tagged in GitHub repositories with the scheme
   `ignition-fooX_X.Y.Z` where foo is the name of the Ignition library and X.Y.Z
-  the code version. ([example of a branch comparison](https://github.com/ignitionrobotics/ign-gazebo/compare/ignition-gazebo3_3.5.0...ign-gazebo3)
+  the code version.
 
 ## Update binary version
 
