@@ -251,11 +251,11 @@ git checkout ign-cmake2
 cd ign-fooX
 git checkout ign-fooX
 
-# Example ign-cmake2 bumped to 2.0.1 with test_token credential
+# Example ign-cmake2 bumped to 2.0.1 with jenkins_token credential
 cd ign-cmake2
 git checkout ign-cmake2
-# please replace <test_token> with real release token (check crendentials section)
-~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.1 <test_token>
+# please replace <jenkins_token> with real release token (check crendentials section)
+~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.1 <jenkins_token>
 ```
 
 #### release.py for prereleases or nightly
@@ -265,11 +265,11 @@ be set. The `--upload-to-repo` argument is mandatory when running `release.py`, 
 should be set to `prerelease` or `nightly`.
 
 ```bash
-# Example ign-cmake2 bumped to prerelease 2.0.0~pre1 with test_token credential
+# Example ign-cmake2 bumped to prerelease 2.0.0~pre1 with jenkins_token credential
 cd ign-cmake2
 git checkout ign-cmake2
-# please replace <test_token> with real release token (check crendentials section)
-~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.0~pre1 <test_token> --upload-to-repo prerelease
+# please replace <jenkins_token> with real release token (check crendentials section)
+~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.0~pre1 <jenkins_token> --upload-to-repo prerelease
 ```
 Nightly invocation is generally coded in the server. The version will be taken from
 the last changelog entry and [modified during building](releasing/versioning_pre_nightly).
@@ -277,11 +277,11 @@ No source code will be uploaded, but taken directly in the binary build from
 `--nightly-src-branch`.
 
 ```bash
-# Example ign-cmake2 nightly from main branch with test_token credential
+# Example ign-cmake2 nightly from main branch with jenkins_token credential
 cd ign-cmake2
 git checkout ign-cmake2
-# please replace <test_token> with real release token (check crendentials section)
-~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.0~pre1 <test_token> --upload-to-repo nightly --nightly-src-branch main
+# please replace <jenkins_token> with real release token (check crendentials section)
+~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.0~pre1 <jenkins_token> --upload-to-repo nightly --nightly-src-branch main
 ```
 #### release.py for revision bumps
 
@@ -291,9 +291,9 @@ release repository is ready with the new release version, `release.py` needs the
 `--only-bump-revision-linux` flag:
 
 ```bash
-# Example ign-cmake2 bumped from 2.0.1-1 to 2.0.1-2 with test_token credential
+# Example ign-cmake2 bumped from 2.0.1-1 to 2.0.1-2 with jenkins_token credential
 cd ign-cmake2
 git checkout ign-cmake2
-# please replace <test_token> with real release token (check crendentials section)
-~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.1 <test_token> --only-bump-revision-linux -release-version 2
+# please replace <jenkins_token> with real release token (check crendentials section)
+~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.1 <jenkins_token> --only-bump-revision-linux -release-version 2
 ```
