@@ -281,7 +281,7 @@ No source code will be uploaded, but taken directly in the binary build from
 cd ign-cmake2
 git checkout ign-cmake2
 # please replace <test_token> with real release token (check crendentials section)
-~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.0~pre1 test_token --upload-to-repo nightly --nightly-src-branch main
+~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.0~pre1 <test_token> --upload-to-repo nightly --nightly-src-branch main
 ```
 #### release.py for revision bumps
 
