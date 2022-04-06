@@ -60,7 +60,7 @@ Actions for releasing a new version of library `foo` with major version `X`:
 ### Prerequisites
 
 To perform a new release, a small number of configurations and credentials need to be made on the developer's system before triggering the release.
-If a permanent operative system is used for releasing, these installation steps only need to be executed once.
+If a permanent operating system is used for releasing, these installation steps only need to be executed once.
 
 #### Team and development checks
 
