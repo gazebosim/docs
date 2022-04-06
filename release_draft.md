@@ -4,7 +4,7 @@
   * [Prerequisites]()
      - [Software and Configurations]()
      - [Credentials]()
-  * [Preparing Ignition Software](
+  * [Preparing Ignition Software]()
      - [Update version]()
      - [Update binary version]()
   * [Launch the release in the building server]()
