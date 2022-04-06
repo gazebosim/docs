@@ -269,7 +269,7 @@ should be set to `prerelease` or `nightly`.
 cd ign-cmake2
 git checkout ign-cmake2
 # please replace <test_token> with real release token (check crendentials section)
-~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.0~pre1 test_token --upload-to-repo prerelease
+~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.0~pre1 <test_token> --upload-to-repo prerelease
 ```
 Nightly invocation is generally coded in the server. The version will be taken from
 the last changelog entry and [modified during building](releasing/versioning_pre_nightly).
