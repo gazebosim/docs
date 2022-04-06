@@ -154,8 +154,8 @@ document.
   ign_configure_project(VERSION_SUFFIX pre1)
   ```
 
-  3. Together with bumping the version number **updating the Changelog and Migration
-  documents** is highly recommended. `Changelog.md` file and `Migration.md` files
+  3. Together with bumping the version number, **updating the Changelog and Migration
+  documents** is required. The `Changelog.md` file and `Migration.md` files
   are located at the top level of every Ignition library. Modify them as needed.
 
   ```bash
