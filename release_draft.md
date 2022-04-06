@@ -162,7 +162,7 @@ document.
   git commit CMakeList.xt
   git commit Changelog.md
   git commit Migration.md
-  git push orign ...
+  git push origin ...
   ```
 
   4. Open a pull request for reviewing ([example PR](https://github.com/ignitionrobotics/ign-physics/pull/132)).
