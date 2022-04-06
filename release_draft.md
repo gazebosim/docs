@@ -20,7 +20,7 @@
 ### Understanding the releasing process
 
 The following picture shows the interactions triggered when using the release
-tool `release.py` explained in this guide:
+tool [`release.py`](https://github.com/ignition-tooling/release-tools/blob/master/release.py) explained in this guide:
 
 ![release.py interactions](releasing/images/releasepy_execution.svg)
 
