@@ -47,8 +47,8 @@ Actions for releasing a new version of library `foo` with major version `X`:
          new PR to coordinate the release process in `homebrew-simulation`
  1. [`repository_uploader_packages`](https://build.osrfoundation.org/job/repository_uploader_packages/)
     imports the packages created by the `ign-fooX-debbuilder` job (there will be
-    one build of the job for each platform combination of Ubuntu/Debian release
-    + architecture) and uploads the .deb packages to
+    one build for each platform combination of Ubuntu/Debian release
+    and architecture) and uploads the .deb packages to
     `packages.osrfoundation.org` and [`osrf-distributions S3`](http://gazebosim.org/distributions).
  1. For macOS, the PR in `homebrew-simulation` waits for a comment from an
     Ignition developer with the order `build bottle` that will trigger the job
