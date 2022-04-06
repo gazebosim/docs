@@ -171,7 +171,7 @@ document.
   `ignition-fooX_X.Y.Z` where foo is the name of the Ignition library and X.Y.Z
   the code version.
 
-## Update binary version
+### Update binary version
 
 Once the PR for bumping the code version is merged, the [binary version](#versions-in-binary-packages) needs
 to be updated for the Debian/Ubuntu binary packages. Brew metadata will be
