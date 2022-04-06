@@ -295,5 +295,5 @@ release repository is ready with the new release version, `release.py` needs the
 cd ign-cmake2
 git checkout ign-cmake2
 # please replace <test_token> with real release token (check crendentials section)
-~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.1 test_token --only-bump-revision-linux -release-version 2
+~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.1 <test_token> --only-bump-revision-linux -release-version 2
 ```
