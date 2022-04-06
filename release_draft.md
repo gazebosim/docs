@@ -241,7 +241,7 @@ The script needs to be run from the repository with the source code (i.e., the r
 # Example of dry-run for ign-cmake2 bumped to 2.0.1
 cd ign-cmake2
 git checkout ign-cmake2
-~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.1 <test_token> --dry-run
+~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.1 dry-run-fake-token --dry-run
 ```
 
 #### release.py for stable releases
