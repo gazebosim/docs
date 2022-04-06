@@ -76,7 +76,7 @@ the process:
 
 #### Software and configurations
 
-The releasing process is only supported on Linux at this moment.
+Triggering the releasing process is only supported on Linux at this moment.
 
 The tool designed to facilitate the process of releasing software for all
 platforms is called [`release.py`](https://github.com/ignition-tooling/release-tools/blob/master/release.py), and is hosted at https://github.com/ignition-tooling/release-tools.
