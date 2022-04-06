@@ -117,9 +117,9 @@ process:
  * Release token: magic sequence of characters needed while running `release.py`
    to interact with `build.osrfoundation.org`. This should be given to Ignition releasers as a part of the AWS credentials set-up.
 
-### Preparing Ignition Code
+## Preparing Ignition Code
 
-## Update code version
+### Update code version
 
 The first step to get a new release ready is to update the current code (upstream)
 version (view the [versioning](#versioning) section for more information). This
