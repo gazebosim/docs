@@ -127,6 +127,41 @@ export PATH=/usr/local/Cellar/ruby/2.6.5/bin:$PATH
 
 ## Ubuntu
 
+### Problems with dual Intel and Nvidia GPU systems
+
+If you are using a dual Intel/Nvidia system it could be the case that the
+simulator is beind run under Intel instead of using the Nvidia GPU. Bugs can
+vary but there could problems with shadows, incorrect laser scans or other
+rendering related issues.
+
+#### prime-select command line tool
+
+Hybrid Intel/Nvidia systems can be configured using the command line tool prime-select.
+One option is to use always Nvidia:
+
+    sudo prime-select nvidia
+    # logout user session and login again
+
+Other option is to configure the render offload for OpenGL applications to use
+Nvidia. This means that your X screen and all normal applications are handled
+by the Intel GPU, but all OpenGL applications that you start from the terminal
+(including Gazebo) are rendered on the Nvidia GPU.
+
+    # place the lines in your .bashrc if you want the change to be permanent
+    export __NV_PRIME_RENDER_OFFLOAD=1
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    # logout user session and login again
+
+#### nvidia-settings GUI tool
+
+nvidia-settings is a GUI program that helps to configure the options for the Nvidia
+graphic cards and includes some controls for hybrid Intel/Nvidia:
+
+The section "PRIME Profiles" can be used to select that the Nvidia card controls
+all the GUI applications by selecting "NVIDIA (Performance Mode)".
+
+The "Application Profiles" can control the use of the Nvidia GPU per application.
+
 ### Unable to create the rendering window
 
 If you're getting errors like "Unable to create the rendering window", it could
