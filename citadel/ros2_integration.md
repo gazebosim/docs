@@ -14,7 +14,7 @@ For this tutorial to work correctly make sure you have the following installed:
 
 * [ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/)
 * [Ignition Citadel](https://ignitionrobotics.org/docs/citadel)
-* [ros_ign_bridge](https://github.com/ignitionrobotics/ros_ign/tree/ros2#from-source)
+* [ros_ign_bridge](https://github.com/ignitionrobotics/ros_ign/tree/foxy#binaries)
 
 ## Bidirectional communication
 
