@@ -130,7 +130,7 @@ export PATH=/usr/local/Cellar/ruby/2.6.5/bin:$PATH
 ### Problems with dual Intel and Nvidia GPU systems
 
 If you are using a dual Intel/Nvidia system it could be the case that the
-simulator is beind run under Intel instead of using the Nvidia GPU. Bugs can
+simulator is being run under Intel instead of using the Nvidia GPU. Bugs can
 vary but there could problems with shadows, incorrect laser scans or other
 rendering related issues.
 
