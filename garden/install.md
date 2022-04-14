@@ -26,7 +26,7 @@ This list of library versions may change up to the release date.
 
 | Library name       | Version       |
 | ------------------ |:-------------:|
-|   ign-cmake        |       2.x     |
+|   ign-cmake        |       3.x     |
 |   ign-common       |       5.x     |
 |   ign-fuel-tools   |       8.x     |
 |   ign-gazebo       |       7.x     |
@@ -35,12 +35,12 @@ This list of library versions may change up to the release date.
 |   ign-math         |       7.x     |
 |   ign-msgs         |       9.x     |
 |   ign-physics      |       6.x     |
-|   ign-plugin       |       1.x     |
+|   ign-plugin       |       2.x     |
 |   ign-rendering    |       7.x     |
 |   ign-sensors      |       7.x     |
 |   ign-tools        |       1.x     |
 |   ign-transport    |      12.x     |
-|   ign-utils        |       1.x     |
+|   ign-utils        |       2.x     |
 |   sdformat         |      13.x     |
 
 ## Supported platforms
