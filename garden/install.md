@@ -38,7 +38,7 @@ This list of library versions may change up to the release date.
 |   ign-plugin       |       2.x     |
 |   ign-rendering    |       7.x     |
 |   ign-sensors      |       7.x     |
-|   ign-tools        |       1.x     |
+|   ign-tools        |       2.x     |
 |   ign-transport    |      12.x     |
 |   ign-utils        |       2.x     |
 |   sdformat         |      13.x     |
