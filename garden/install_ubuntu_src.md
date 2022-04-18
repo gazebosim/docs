@@ -182,6 +182,12 @@ To speed up the build process, you could also disable tests by using
 colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install
 ```
 
+To use debuggers activate debug symbols. Gazebo will run slower, but you'll be able to use GDB:
+
+```bash
+colcon build --cmake-args ' -DBUILD_TESTING=OFF' ' -DCMAKE_BUILD_TYPE=Debug' --merge-install
+```
+
 To build a specific package with all its dependent packages:
 
 ```bash
