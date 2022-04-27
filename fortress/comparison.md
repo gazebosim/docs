@@ -40,7 +40,7 @@ Custom update rate | ✓ | ✓
 Gaussian noise | ✓ | ✓
 Custom sensors | ✓ |  ✓
 Laser retroreflection | ✓ | ✓
-Camera distortion | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/107)
+Camera distortion | ✓ | ✓
 Performance metrics | ✓ |  ✓
 
 ## SDF Features
@@ -114,7 +114,7 @@ VehiclePlugin | ✓ |
 WheelSlipPlugin | ✓ | ✓
 WheelTrackedVehiclePlugin | ✓ | ✓
 KineticEnergyMonitor | ✕ | ✓
-Buoyancy engine | ✓ | ✓
+Buoyancy engine | ✕ | ✓
 
 ### World plugins
 
@@ -270,8 +270,8 @@ ROS integration through the
 
 Supported versions:
 
-* ROS 1 Noetic (from source)
-* ROS 2 Humble (coming soon)
+* ROS 1 Melodic (from source) / Noetic (from source)
+* ROS 2 Galactic (from source) / Humble (binaries)
 
 ## Platforms
 
@@ -291,6 +291,7 @@ Web client (GzWeb) | ✓ |
 COLLADA meshes | ✓ | ✓
 OBJ meshes | ✓ | ✓
 STL meshes | ✓ | ✓
+USD meshes | ✕ | [✓](https://github.com/ignitionrobotics/sdformat/tree/sdf12/examples/usdConverter)
 Code introspection | ✓ | All simulation state is accessible from system plugins or through the `SceneBroadcaster`'s state topic
 Distribute simulation across processes | ✕ | (coming up)
 Incrementally load levels | ✕ | ✓
