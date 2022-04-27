@@ -303,3 +303,4 @@ Hydrodynamics | ✕  | ✓
 Ocean currents | ✕  | ✓
 Test fixture | ✓ | [✓](https://ignitionrobotics.org/api/gazebo/6.6/test_fixture.html)
 Spherical coordinates | ✓ | ✓
+Generic comms system | ✕ | [✓](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo6/examples/worlds/perfect_comms.sdf)
