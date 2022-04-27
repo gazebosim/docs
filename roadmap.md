@@ -63,6 +63,9 @@ compatible non-EOL release and propagate the feature forward.
 1. [Parameters in Ignition Transport.](https://github.com/ignitionrobotics/ign-gazebo/pull/1280)
 1. [Satisfying ASAN for Ignition Math.](https://github.com/ignitionrobotics/ign-math/issues/370)
 1. [Mimic joint type.](https://github.com/ignitionrobotics/sdf_tutorials/pull/62)
+1. [Added mass in SDF.](https://github.com/ignitionrobotics/ign-gazebo/issues/1462)
+1. [SDF APIs to prevent console logging.](https://github.com/ignitionrobotics/sdformat/issues/820)
+1. [Renaming Ignition to Gazebo.](https://community.gazebosim.org/t/a-new-era-for-gazebo/1356)
 
 ## Planned releases
 
