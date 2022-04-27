@@ -256,6 +256,10 @@ collection assures that all libraries all compatible and can be used together.
 1. [Custom shaders.](https://github.com/ignitionrobotics/ign-gazebo/issues/657)
 1. [Visual plugins.](https://github.com/ignitionrobotics/ign-gazebo/issues/265)
 1. [Rendering waves.](https://github.com/ignitionrobotics/ign-rendering/pull/541)
+1. [Generic comms system.](https://github.com/ignitionrobotics/ign-gazebo/pull/1416)
+1. [Wheel slip commands.](https://github.com/ignitionrobotics/ign-gazebo/pull/1241)
+1. [USD importer / exporter.](https://github.com/ignitionrobotics/sdformat/tree/sdf12/examples/usdConverter)
+1. [Bridge Ignition services to ROS 2 services.](https://github.com/ignitionrobotics/ros_ign/pull/211)
 1. Sensors
   1. [Custom sensors.](https://ignitionrobotics.org/api/sensors/6.0/custom_sensors.html)
   1. [Segmentation camera.](https://ignitionrobotics.org/api/sensors/6.0/segmentationcamera_igngazebo.html)

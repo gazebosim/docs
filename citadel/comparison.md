@@ -40,7 +40,7 @@ Custom update rate | ✓ | ✓
 Gaussian noise | ✓ | ✓
 Custom sensors | ✓ |  ✕  (available from Fortress)
 Laser retroreflection | ✓ | ✓
-Camera distortion | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/107)
+Camera distortion | ✓ |  ✕  (available from Fortress)
 Performance metrics | ✓ |  ✓
 
 ## SDF Features
@@ -114,7 +114,7 @@ VehiclePlugin | ✓ |
 WheelSlipPlugin | ✓ | ✓
 WheelTrackedVehiclePlugin | ✓ | ✓
 KineticEnergyMonitor | ✕ | ✓
-Buoyancy engine | ✓ | ✕  (available from Fortress)
+Buoyancy engine | ✕ | ✕  (available from Fortress)
 
 ### World plugins
 
@@ -291,6 +291,7 @@ Web client (GzWeb) | ✓ |
 COLLADA meshes | ✓ | ✓
 OBJ meshes | ✓ | ✓
 STL meshes | ✓ | ✓
+USD meshes | ✕ | ✕ (available from Fortress)
 Code introspection | ✓ | All simulation state is accessible from system plugins or through the `SceneBroadcaster`'s state topic
 Distribute simulation across processes | ✕ | (coming up)
 Incrementally load levels | ✕ | ✓
@@ -302,3 +303,4 @@ Hydrodynamics | ✕  | ✕  (available from Edifice)
 Ocean currents | ✕  | ✕  (available from Edifice)
 Test fixture | ✓ | [✓](https://ignitionrobotics.org/api/gazebo/3.9/test_fixture.html)
 Spherical coordinates | ✓ | ✕ (available from Fortress)
+Generic comms system | ✕ | ✕ (available from Fortress)
