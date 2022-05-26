@@ -1,6 +1,6 @@
 # Source Installation on Ubuntu
 
-These instructions apply to Ubuntu Bionic (18.04) and Focal (20.04).
+These instructions apply to Ubuntu Focal (20.04) and Jammy (22.04).
 
 ## Install tools
 
@@ -119,41 +119,11 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-
 sudo apt-get update
 ```
 
-The command below will install all dependencies in Ubuntu Bionic or Focal:
+The command below will install all dependencies in Ubuntu:
 
 ```bash
 sudo apt -y install \
   $(sort -u $(find . -iname 'packages-'`lsb_release -cs`'.apt' -o -iname 'packages.apt' | grep -v '/\.git/') | sed '/ignition\|sdf/d' | tr '\n' ' ')
-```
-
-### Install compiler requirements
-
-The Ignition Libraries require the gcc compiler version 8 or higher.
-(Windows requires Visual Studio 2019).
-
-#### Ubuntu Bionic
-
-Ubuntu Bionic's default compiler version is not high enough, so the following
-steps are needed to upgrade. These are not needed on Ubuntu Focal.
-
-To install `gcc` version 8 on Ubuntu Bionic:
-
-```bash
-sudo apt-get install g++-8
-```
-
-Set `gcc-8` and `g++-8` to be the default compilers.
-
-```bash
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /usr/bin/g++ g++ /usr/bin/g++-8 --slave /usr/bin/gcov gcov /usr/bin/gcov-8
-```
-
-At this point `gcc`  and `g++` should both report version 8. Test this with
-the following commands.
-
-```bash
-gcc -v
-g++ -v
 ```
 
 ## Building the Ignition Libraries
