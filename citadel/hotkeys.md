@@ -36,15 +36,15 @@
 
   <tr><th colspan="3" class="sub"><b>MAIN WINDOW</b></th></tr>
 
-  <tr><td>Save Config</td><td>Ctrl + s</td><td>hold Ctrl and press "s" for Save the current window configuration</td></tr>
+  <tr><td>Save Config</td><td>Ctrl + s</td><td>hold Ctrl and press "s" to save the current window configuration</td></tr>
 
-  <tr><td>Save Config As</td><td>Ctrl + Shift + s</td><td>hold Ctrl and Shift, and press "s" for Save the current window configuration to a designated location</td></tr>
+  <tr><td>Save Config As</td><td>Ctrl + Shift + s</td><td>hold Ctrl and Shift, and press "s" to save the current window configuration to a designated location</td></tr>
 
-  <tr><td>Load Config</td><td>Ctrl + o</td><td>hold Ctrl and press "o" for Load a window configuration</td></tr>
+  <tr><td>Load Config</td><td>Ctrl + o</td><td>hold Ctrl and press "o" to load a window configuration</td></tr>
 
-  <tr><td>Close</td><td>Ctrl + q</td><td>hold Ctrl and press "o" for Shut down Gazebo</td></tr>
+  <tr><td>Close</td><td>Ctrl + q</td><td>hold Ctrl and press "o" to shut down Gazebo</td></tr>
 
-  <tr><td>Search Menu</td><td>/</td><td>press "/" for Open the search menu for plugins</td></tr>
+  <tr><td>Search Menu</td><td>/</td><td>press "/" to open the search menu for plugins</td></tr>
 
 </table>
 
