@@ -131,7 +131,7 @@ Now we can add the `contact` sensor to the `box` link of the `wall` model:
 
 The definition of the `<sensor>` is straight forward, we just define the `name` and the `type` of the sensor. And inside the `collision` we define the box link collision name which is `collision`.
 
-We need also to add the `TouchPlugin` under the `wall` model as follows:
+We need also to add the `TouchPlugin` inside the `wall` model as follows:
 
 ```xml
 <plugin filename="libignition-gazebo-touchplugin-system.so"
