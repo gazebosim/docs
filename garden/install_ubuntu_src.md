@@ -216,3 +216,64 @@ the results you want:
 ## Troubleshooting
 
 See [Troubleshooting](/docs/fortress/troubleshooting#ubuntu)
+
+## QML Debugging
+
+To perform QML debugging you'll need:
+
+ - Add `--cmake-args -DDQT_QML_DEBUG` flag to colcon
+ - QtCreator
+
+You will need to build Ignition with:
+
+```bash
+colcon build --cmake-args -DQT_QML_DEBUG --merge-install
+```
+
+> **Note:** Advanced users may note only `ign-gazebo` (now `gz-sim`) project needs this flag.
+
+After that's done, launching `ign gazebo -g` will result in the following message:
+
+```
+QML debugging is enabled. Only use this in a safe environment.
+QML Debugger: Waiting for connection on port 40000...
+```
+
+After that you can just head to
+`QtCreator -> Debug -> Start Debugging -> Attach to QML Port...`
+and enter the QML port
+
+![](images/IgnGuiQmlDebugging01.png)
+
+Once you click there, set the port number to 40000 and hit ok
+
+![](images/IgnGuiQmlDebugging02.png)
+
+We're working to improve QtCreator integration so that it works out of the box.
+
+The ruby ign script doesn't yet pass the necessary command line arguments to the application.
+
+Note that because all instances will try to use port 40000, only one instance
+can use it. If you shutdown the process and restart it immediately too quickly,
+the OS may still claim the port is in use and hence the 2nd (re)launch will not
+listen to QML debugger attach requests.
+
+### Avoid QML stall waiting for debugger on startup
+
+During development, you may find troublesome that `ign gazebo -g` won't actually start until
+QtCreator hooks to the QML Debugging port.
+
+If that's a problem, you can edit the C++ file `ign-gazebo/src/ign.cc` and remove `block`
+from it. E.g.
+
+```c++
+// The following:
+const_cast<char *>(
+      "-qmljsdebugger=port:40000,block,services:DebugMessages,QmlDebugger,"
+      "V8Debugger,QmlInspector,DebugTranslation")
+
+// Must become the following
+const_cast<char *>(
+      "-qmljsdebugger=port:40000,services:DebugMessages,QmlDebugger,"
+      "V8Debugger,QmlInspector,DebugTranslation")
+```
