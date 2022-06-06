@@ -31,6 +31,7 @@ RGBD camera | ✕ | ✓
 Segmentation camera | ✕ | ✓
 Sonar | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/19)
 Thermal camera | ✕  | ✓
+Triggered camera | ✕ | ✓
 Wide-angle camera | ✓ | ✕ (available from Garden)
 Wireless | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/28)
 
@@ -57,7 +58,7 @@ Actors | ✓ | ✓
 Markers | ✓ | ✓
 Heightmaps | ✓ | ✓
 DEM (Digital Elevation Models) | ✓ | ✕ (available from Garden)
-Polylines | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/186)
+Polylines | ✓ | ✓
 World plugins | ✓ | ✓ Now called System plugin
 Model plugins | ✓ | ✓ Now called System plugin
 Sensor plugins | ✓ | ✓ Now called System plugin
