@@ -132,6 +132,8 @@ collection assures that all libraries all compatible and can be used together.
 1. [Tracked vehicles](https://github.com/ignitionrobotics/ign-gazebo/pull/869)
 1. [Python interface for Ignition Math.](https://github.com/ignitionrobotics/ign-math/issues/210)
 1. [Integration with ros2_control.](https://github.com/ignitionrobotics/ign_ros2_control/)
+1. [ign_ros2_control support for various models](https://github.com/ignitionrobotics/docs/issues/222)
+1. [Polyline extruded 2D geometries](https://github.com/ignitionrobotics/docs/issues/186)
 1. New graphical interfaces:
     * Widget listing all transport topics.
     * Widget that publishes keys pressed on the keyboard.
@@ -260,11 +262,14 @@ collection assures that all libraries all compatible and can be used together.
 1. [Wheel slip commands.](https://github.com/ignitionrobotics/ign-gazebo/pull/1241)
 1. [USD importer / exporter.](https://github.com/ignitionrobotics/sdformat/tree/sdf12/examples/usdConverter)
 1. [Bridge Ignition services to ROS 2 services.](https://github.com/ignitionrobotics/ros_ign/pull/211)
+1. [Omniverse application](https://github.com/gazebosim/gz-omni)
+1. [Pose and Twist with covariance.](https://github.com/ignitionrobotics/ign-msgs/pull/224)
 1. Sensors
   1. [Custom sensors.](https://ignitionrobotics.org/api/sensors/6.0/custom_sensors.html)
   1. [Segmentation camera.](https://ignitionrobotics.org/api/sensors/6.0/segmentationcamera_igngazebo.html)
   1. [Joint force-torque sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/25)
   1. [GPS / NavSat sensor.](https://github.com/ignitionrobotics/ign-sensors/issues/23)
+  1. [Triggered cameras.](https://github.com/ignitionrobotics/ign-sensors/issues/185)
 1. GUI features
     1. [Consolidate Scene3D with GzScene3D](https://github.com/ignitionrobotics/ign-gui/issues/137)
     1. [Visualize wireframes](https://github.com/ignitionrobotics/ign-gazebo/pull/816)
@@ -273,6 +278,7 @@ collection assures that all libraries all compatible and can be used together.
     1. [Visualize center of mass](https://github.com/ignitionrobotics/ign-gazebo/issues/110)
     1. [Visualize joints](https://github.com/ignitionrobotics/ign-gazebo/issues/106)
     1. [Orthographic view](https://github.com/ignitionrobotics/ign-gazebo/issues/103)
+    1. [System inspector.](https://github.com/ignitionrobotics/ign-gazebo/issues/191)
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|

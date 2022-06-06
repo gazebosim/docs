@@ -33,8 +33,6 @@ compatible non-EOL release and propagate the feature forward.
 1. [Quick start dialog.](https://github.com/ignitionrobotics/ign-gazebo/issues/1252)
 1. [Splash screen.](https://github.com/ignitionrobotics/ign-gui/issues/336)
 1. [Bash completion](https://github.com/ignitionrobotics/ign-tools/issues/1)
-1. [ign_ros2_control support for various models](https://github.com/ignitionrobotics/docs/issues/222)
-1. [Polyline geometries](https://github.com/ignitionrobotics/docs/issues/186)
 
 ### Fortress
 
@@ -44,28 +42,35 @@ compatible non-EOL release and propagate the feature forward.
 1. [GUI model editor](https://github.com/ignitionrobotics/ign-gazebo/labels/editor)
 1. [Bazel build files.](https://github.com/ignitionrobotics/ign-bazel)
 1. [Waves and hydrodynamics for water surface vehicles.](https://github.com/ignitionrobotics/ign-gazebo/issues/1247)
-1. [Omniverse](https://developer.nvidia.com/nvidia-omniverse-platform) application.
 1. [Save more changed components to SDF.](https://github.com/ignitionrobotics/ign-gazebo/issues/1312)
-1. [Pose and Twist with covariance.](https://github.com/ignitionrobotics/ign-msgs/pull/224)
-1. [System inspector.](https://github.com/ignitionrobotics/ign-gazebo/issues/191)
 1. [Improved Windows support.](https://github.com/search?q=org%3Aignitionrobotics+label%3AWindows&state=open&type=Issues)
+1. Custom skybox from SDF.
+1. Gz3D: support heightmaps, skybox and particles.
 
 ### Garden
 
-1. [Point cloud visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/1156)
-1. [Wide angle camera (Ogre 1).](https://github.com/ignitionrobotics/ign-sensors/issues/24)
-1. [DEM heightmaps.](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
-1. [Camera distortion.](https://github.com/ignitionrobotics/ign-sensors/issues/107)
-1. [Wind effects configurable on a location basis.](https://github.com/ignitionrobotics/ign-gazebo/pull/1357)
-1. [Force/torque visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/1155)
-1. [Reset API.](https://github.com/ignitionrobotics/ign-gazebo/issues/1107)
-1. [Triggered cameras.](https://github.com/ignitionrobotics/ign-sensors/issues/185)
-1. [Parameters in Ignition Transport.](https://github.com/ignitionrobotics/ign-gazebo/pull/1280)
-1. [Satisfying ASAN for Ignition Math.](https://github.com/ignitionrobotics/ign-math/issues/370)
-1. [Mimic joint type.](https://github.com/ignitionrobotics/sdf_tutorials/pull/62)
-1. [Added mass in SDF.](https://github.com/ignitionrobotics/ign-gazebo/issues/1462)
-1. [SDF APIs to prevent console logging.](https://github.com/ignitionrobotics/sdformat/issues/820)
-1. [Renaming Ignition to Gazebo.](https://community.gazebosim.org/t/a-new-era-for-gazebo/1356)
+* Already available from source
+    1. [Point cloud visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/1156)
+    1. [Wide angle camera (Ogre 1).](https://github.com/ignitionrobotics/ign-sensors/issues/24)
+    1. [DEM heightmaps.](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
+    1. [Camera distortion.](https://github.com/ignitionrobotics/ign-sensors/issues/107)
+    1. [Wind effects configurable on a location basis.](https://github.com/ignitionrobotics/ign-gazebo/pull/1357)
+* In progress
+    1. [Force/torque visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/1155)
+    1. [Reset API.](https://github.com/ignitionrobotics/ign-gazebo/issues/1107)
+    1. [Parameters in Ignition Transport.](https://github.com/ignitionrobotics/ign-gazebo/pull/1280)
+    1. [Satisfying ASAN for Ignition Math.](https://github.com/ignitionrobotics/ign-math/issues/370)
+    1. [Mimic joint type.](https://github.com/ignitionrobotics/sdf_tutorials/pull/62)
+    1. [Added mass in SDF.](https://github.com/ignitionrobotics/ign-gazebo/issues/1462)
+    1. [SDF APIs to prevent console logging.](https://github.com/ignitionrobotics/sdformat/issues/820)
+    1. [Renaming Ignition to Gazebo.](https://community.gazebosim.org/t/a-new-era-for-gazebo/1356)
+    1. [glTF and GLB mesh support.](https://github.com/gazebosim/gz-common/issues/344)
+    1. [Download Fuel models on the background](https://github.com/gazebosim/gz-sim/issues/1260)
+    1. [Vulkan support (Ogre 2.3)](https://github.com/gazebosim/gz-rendering/pull/553)
+    1. [Improve Bullet support.](https://github.com/gazebosim/gz-physics/issues/44)
+    1. [Generic physics tests.](https://github.com/gazebosim/gz-physics/issues/50)
+    1. Custom rendering sensors.
+    1. Autodesk Revit conversion to SDF.
 
 ## Planned releases
 
