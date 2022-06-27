@@ -31,7 +31,7 @@ These demos on [Server Configuration](https://gazebosim.org/api/gazebo/4.3/serve
 
 The simulation process is depicted in the diagram below, and further explained in the Backend and Frontend process sections that follow.
 
-![Ignition Gazebo architecture diagram](images/GazeboArchitecture.svg)
+![Ignition Gazebo architecture diagram](images/GazeboSimArchitecture.svg)
 
 ## Backend server process
 
