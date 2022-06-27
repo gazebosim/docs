@@ -1,10 +1,10 @@
-# Contributing to Ignition
+# Contributing to Gazebo
 
-Thank you for your interest in contributing to Ignition!
+Thank you for your interest in contributing to Gazebo!
 
-The following is a set of guidelines for contributing to Ignition
-and its components, which are hosted in the [Ignition
-Organization](https://github.com/ignitionrobotics) on GitHub. These
+The following is a set of guidelines for contributing to Gazebo
+and its components, which are hosted in the [Gazebo
+Organization](https://github.com/gazebosim) on GitHub. These
 are mostly guidelines, not rules. Use your best judgment, and feel free to
 propose changes to this document in a pull request.
 
@@ -33,7 +33,7 @@ propose changes to this document in a pull request.
 
 ## Code of Conduct
 
-This project and everyone participating in it is governed by the [Ignition
+This project and everyone participating in it is governed by the [Gazebo
 Code of Conduct](https://github.com/gazebosim/gz-sim/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this
 code. Please report unacceptable behavior at [https://gazebosim.org/support](https://gazebosim.org/support).
 
@@ -41,17 +41,17 @@ code. Please report unacceptable behavior at [https://gazebosim.org/support](htt
 
 ### Repository List
 
-The following is a list of the major Ignition repositories.
+The following is a list of the major Gazebo repositories.
 A complete list can be found at
-[https://github.com/ignitionrobotics/](https://github.com/ignitionrobotics/).
+[https://github.com/gazebosim/](https://github.com/gazebosim/).
 
 * [ign-cmake](https://github.com/gazebosim/gz-cmake): CMake
-modules used to configure and build Ignition libraries.
+modules used to configure and build Gazebo libraries.
 * [ign-common](https://github.com/gazebosim/gz-common): Set of
 general purpose components and utilities, such as 3D mesh processing, console
 logging, and signal handling.
 * [ign-fuel-tools](https://github.com/gazebosim/gz-fuel-tools): Interact
-with Ignition Fuel servers.
+with Gazebo Fuel servers.
 * [ign-gazebo](https://github.com/gazebosim/gz-sim):
 A high-fidelity 3D rigid-body dynamic simulator.
 * [ign-gui](https://github.com/gazebosim/gz-gui): QT-based
@@ -81,9 +81,9 @@ High performance inter- and intra-process communication based on
 classes and functions with minimal dependencies.
 * [sdformat](https://github.com/osrf/sdformat): World description format.
 
-### Ignition Architecture
+### Gazebo Architecture
 
-Documents describing the architecture of Ignition are listed here:
+Documents describing the architecture of Gazebo are listed here:
 
 * [Gazebo Sim Architecture](/docs/all/architecture)
 
@@ -123,9 +123,9 @@ Provide more context by answering these questions:
 
 Include details about your configuration and environment:
 
-* **Which version of Ignition are you using?**?
+* **Which version of Gazebo are you using?**?
 * **What's the name and version of the OS you're using**?
-* **Are you running Ignition in a virtual machine?** If so, which VM software are you using and which operating systems and versions are used for the host and the guest?
+* **Are you running Gazebo in a virtual machine?** If so, which VM software are you using and which operating systems and versions are used for the host and the guest?
 
 ### Suggesting Enhancements
 
@@ -148,7 +148,7 @@ existed.
 * **Check if you're using the latest software version**. A more recent version may contain your desired feature.
 * **Check if there's already [a library](https://gazebosim.org/libs) which provides that enhancement.**
 * **Determine [which repository the enhancement should be suggested in](https://gazebosim.org/docs/all/contributing#repository-list).**
-* **Perform a [cursory search](https://github.com/search?q=org%3Aignitionrobotics&type=Issues)** to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
+* **Perform a [cursory search](https://github.com/search?q=org%3Agazebosim&type=Issues)** to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
 * **Ask on the [community forum](https://community.gazebosim.org) about your
 feature.** Someone else might already have started, and you might be able to
 help.
@@ -167,7 +167,7 @@ repository and provide the following information:
 * **Describe the current behavior** and **explain which behavior you expected to see instead** and why.
 * **Include screenshots and animated GIFs** which show you following the described steps and clearly demonstrate the problem. See [Creating GIFs](https://gazebosim.org/docs/all/contributing#creating-gifs) for GIF creation utilities.
 * **Explain why this enhancement would be useful** to most users and isn't something that can or should be implemented as a separate application.
-* **Specify which version of Ignition you're using.**
+* **Specify which version of Gazebo you're using.**
 * **Specify the name and version of the OS you're using.**
 
 ### Contributing Code
@@ -178,7 +178,7 @@ get acquainted with this development process.
 
 1. **Read the [Reporting Bugs](https://gazebosim.org/docs/all/contributing#reporting-bugs) and [Suggesting Enhancements](https://gazebosim.org/docs/all/contributing#suggesting-enhancements)** sections first.
 
-1. **Fork the Ignition library** you want to contribute to. This will create
+1. **Fork the Gazebo library** you want to contribute to. This will create
    your own personal copy of the library. All of your development should
    take place in your fork.
    - An important thing to do is create a remote pointing to the [upstream remote repository](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork). This way, you can always check for modifications on the original repository and **always** keep your fork repository up to date.
@@ -206,14 +206,14 @@ get acquainted with this development process.
 1. **Follow the [style guide](https://gazebosim.org/docs/all/contributing#style-guides).**
 
     Static code checking analyzes your code for bugs, such as potential memory
-    leaks, and style. Most Ignition libraries use the `cppcheck` static code
+    leaks, and style. Most Gazebo libraries use the `cppcheck` static code
     checker, and a modified version `cpplint`. Ubuntu
     users can install via:
 
         sudo apt-get install cppcheck
 
     To check your code, run the following script from the `build` folder of the project that you're working on.
-    If you're working on *ignition-math*, for instance, the path for the folder should be something similar to `~/citadel_ws/build/ignition-math6`.
+    If you're working on *gz-math*, for instance, the path for the folder should be something similar to `~/citadel_ws/build/gz-math6`.
     The path example is assuming you followed [our installation instructions](/docs/citadel/install) using colcon.
 
     Then, run the script inside this folder:
@@ -266,7 +266,7 @@ get acquainted with this development process.
 
     * [Too large](https://github.com/osrf/gazebo/pull/2776)
 
-1. **Submit a pull request** to the Ignition library through GitHub when you're ready.
+1. **Submit a pull request** to the Gazebo library through GitHub when you're ready.
 
 1. **Check Continuous integration**
 
@@ -279,20 +279,20 @@ get acquainted with this development process.
 
 1. **Respond to reviewers.** At least two other people have to approve your pull request before it can be merged. Please be responsive to any questions and comments.
 
-1. **Done, phew.** Once you have met all the requirements, your code will be merged. Thanks for improving Ignition!
+1. **Done, phew.** Once you have met all the requirements, your code will be merged. Thanks for improving Gazebo!
 
 ### Tracking Progress
 
-Ignition development progress is tracked publicly using a GitHub project board.
+Gazebo development progress is tracked publicly using a GitHub project board.
 Using project boards ensures the community has visibility to what’s coming up,
 external contributors can understand where they can help, and the reasoning behind
 development decisions are visible to everyone.
 
-Contributors should look at the ["Core development" board](https://github.com/orgs/ignitionrobotics/projects/3), though it's possible we may have other boards in our organization at various times.
+Contributors should look at the ["Core development" board](https://github.com/orgs/gazebosim/projects/3), though it's possible we may have other boards in our organization at various times.
 
 #### Repositories
 
-The following repositories from [Ignition](https://github.com/ignitionrobotics/) are tracked:
+The following repositories from [Gazebo](https://github.com/gazebosim/) are tracked:
 
 * [ign-cmake](https://github.com/gazebosim/gz-cmake)
 * [ign-common](https://github.com/gazebosim/gz-common)
@@ -309,9 +309,9 @@ The following repositories from [Ignition](https://github.com/ignitionrobotics/)
 * [ign-tools](https://github.com/gazebosim/gz-tools)
 * [ign-transport](https://github.com/gazebosim/gz-transport)
 * [ign-utils](https://github.com/gazebosim/gz-utils)
-* [docs](https://github.com/ignitionrobotics/docs/)
-* [design](https://github.com/ignitionrobotics/design)
-* [ros_ign](https://github.com/ignitionrobotics/ros_ign)
+* [docs](https://github.com/gazebosim/docs/)
+* [design](https://github.com/gazebosim/design)
+* [ros_ign](https://github.com/gazebosim/ros_ign)
 
 
 New issues and pull requests, and issue and pull request statuses, from across the tracked repositories are all automatically synced with the same board.
@@ -323,8 +323,8 @@ The following repos can't be handled automatically and have to be manually track
 * [gazebo](https://github.com/osrf/gazebo)
 * [homebrew-simulation](https://github.com/osrf/homebrew-simulation)
 * [gazebo_ros_pkgs](https://github.com/ros-simulation/gazebo_ros_pkgs/)
-* [release-tools](https://github.com/ignition-tooling/release-tools)
-* [gazebodistro](https://github.com/ignition-tooling/gazebodistro)
+* [release-tools](https://github.com/gazebo-tooling/release-tools)
+* [gazebodistro](https://github.com/gazebo-tooling/gazebodistro)
 
 #### Board Columns
 
@@ -341,9 +341,9 @@ to work on it, but the community is welcome to do so.
 
 #### Process
 
-All Ignition team members actively:
+All Gazebo team members actively:
 
-* **Watch** all Ignition repositories to receive email notifications of new issues / pull requests
+* **Watch** all Gazebo repositories to receive email notifications of new issues / pull requests
 * Provide **feedback** to issues as soon as possible
 * **Review** pull requests as soon as possible
 
@@ -358,7 +358,7 @@ During weekly simulation meetings, the team:
 * Quickly **triages** the inbox, if there’s anything left in it
 
   * If we won’t work on an issue in the near future, **remove** it from the board.
-    * If we think the issue should be tackled, label it **[help wanted](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22help+wanted%22&state=open&type=Issues)**.
+    * If we think the issue should be tackled, label it **[help wanted](https://github.com/search?q=org%3Agazebosim+label%3A%22help+wanted%22&state=open&type=Issues)**.
   * If we’re going to work on an issue, move it to **To Do**, no assignment necessary initially.
   * If we won’t review a pull request in the near future, **close** it.
 
@@ -404,7 +404,7 @@ Porting changes across branches:
   break in released branches).
 * Periodically, a maintainer will **forward-port** changes to newer release
   branches all the way up to `main`.
-* See [this list](https://github.com/ignitionrobotics/docs/blob/master/tools/branch_comparisons.md) to check if a branch needs porting.
+* See [this list](https://github.com/gazebosim/docs/blob/master/tools/branch_comparisons.md) to check if a branch needs porting.
 * The merge forward can be done with `git merge` in order to keep the commit history
   and so it's easier to compare branches. For example:
 
@@ -436,7 +436,7 @@ Porting changes across branches:
 
 ## Writing Tests
 
-Most Ignition libraries use [GTest](http://code.google.com/p/googletest) for
+Most Gazebo libraries use [GTest](http://code.google.com/p/googletest) for
 general testing and [QTest](http://doc.qt.io/qt-5/qtest.html) for GUI tests.
 There are a few kinds of tests:
 
@@ -463,7 +463,7 @@ coverage, and time constraints. Try to write as complete of a test suite as
 possible, and use the coverage analysis tools as guide. If you have trouble
 writing a test please ask for help in your pull request.
 
-Ignition CMake provides build target called `make coverage` that produces a code
+Gazebo CMake provides build target called `make coverage` that produces a code
 coverage report. You'll need to have [lcov](http://ltp.sourceforge.net/coverage/lcov.php) and [gcov](https://gcc.gnu.org/onlinedocs/gcc/Gcov.html) installed.
 
 1. In your `build` folder, compile with `-DCMAKE_BUILD_TYPE=Coverage`
@@ -545,14 +545,14 @@ You can find more details [here](https://github.com/colcon/colcon-sanitizer-repo
 
 #### Compiling the code and running the tests
 
-Create a Ignition workspace for ASAN/TSAN related tasks. Refer to the [offical documentation to get
-all the Ignition Robotics sources](https://gazebosim.org/docs/latest/install_ubuntu_src#getting-the-sources).
+Create a Gazebo workspace for ASAN/TSAN related tasks. Refer to the [offical documentation to get
+all the Gazebo Robotics sources](https://gazebosim.org/docs/latest/install_ubuntu_src#getting-the-sources).
 
 First, compile all packages:
 
  - ASan
 ```bash
-cd ~/ignition  # you will need to be exactly in this directory
+cd ~/workspace  # you will need to be exactly in this directory
 colcon build --build-base=build-asan --install-base=install-asan \
     --cmake-args -DCMAKE_BUILD_TYPE=Debug \
     --mixin asan-gcc
@@ -576,14 +576,14 @@ but some had “stderr output”. This is fine.
 
  - To run the tests for ASan:
 ```bash
-cd ~/ignition  # you will need to be exactly in this directory
+cd ~/workspace  # you will need to be exactly in this directory
 colcon test --build-base=build-asan --install-base=install-asan \
     --event-handlers sanitizer_report+
 ```
 
  - To run tests for TSan
 ```bash
- cd ~/ignition  # you will need to be exactly in this directory
+ cd ~/workspace  # you will need to be exactly in this directory
 colcon test --build-base=build-tsan --install-base=install-tsan \
   --event-handlers sanitizer_report+
 ```
@@ -594,7 +594,7 @@ Some tests may fail, this is OK. Once done, you can look at the test logs or
 `sanitizer_report.csv`. Examples from tests logs:
 
 ```bash
-cd ~/ignition  # you will need to be exactly in this directory
+cd ~/workspace  # you will need to be exactly in this directory
 cd log/latest_test
 # Displays three lines after the beginning of a ASAN reported issue.
 grep -R '==.*==ERROR: .*Sanitizer' -A 3
