@@ -17,7 +17,7 @@ How to read the columns:
 * **Gazebo**: What Gazebo classic version requires as depedency that specific version (i.e. 9 for Gazebo 9).
 * **Ignition**: What Ignition version uses that specific version (i.e. B for Blueprint).
 * **Release date**: Release date for that specific version. TBD, to be decided, means that there aren't any current plans to release that version.
-* **EOL date**: Date of end of support. In general, each library's version is released as part of an [Ignition release](https://ignitionrobotics.org/docs/all/releases) and EOLs either with that Ignition release, or with a later one. Libraries that are planned to be supported in the upcoming Ignition release have a TBD EOL date because they may also be included in future releases. All EOL dates may be moved to a later date, but never to an earlier date.
+* **EOL date**: Date of end of support. In general, each library's version is released as part of an [Ignition release](https://gazebosim.org/docs/all/releases) and EOLs either with that Ignition release, or with a later one. Libraries that are planned to be supported in the upcoming Ignition release have a TBD EOL date because they may also be included in future releases. All EOL dates may be moved to a later date, but never to an earlier date.
 
 |Package|Version|Status|Ubuntu packages|OSRF packages|ROS packages|Gazebo classic|Ignition|Release date|EOL date|
 |---|---|---|---|---|---|---|---|---|---|

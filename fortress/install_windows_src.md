@@ -7,7 +7,7 @@ building packages `ign-tools`, `ign-physics`, and `ign-gui`, respectively.
 **Note**
 
 You will still be able to use `TPE` as a physics engine
-(see [here](https://ignitionrobotics.org/api/physics/2.2/physicsplugin.html) for more information on `TPE`).
+(see [here](https://gazebosim.org/api/physics/2.2/physicsplugin.html) for more information on `TPE`).
 
 ## Install dependencies
 

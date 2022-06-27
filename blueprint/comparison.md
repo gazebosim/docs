@@ -2,7 +2,7 @@
 
 A list of features present in [Gazebo-classic](https://github.com/osrf/gazebo/)
 version 11 and the status of their migration to
-[Ignition Blueprint](https://ignitionrobotics.org/).
+[Ignition Blueprint](https://gazebosim.org/).
 
 All the issues below are labeled with
 [close the gap](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22close+the+gap%22&type=Issues)
@@ -42,7 +42,7 @@ Custom sensors | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/9)
 Feature | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 SDF frame semantics |✓| ✕ (available from Citadel)
-Load models from local files | ✓ | [✓](https://ignitionrobotics.org/api/gazebo/2.24/resources.html)
+Load models from local files | ✓ | [✓](https://gazebosim.org/api/gazebo/2.24/resources.html)
 Closed kinematic chains | ✓  | [Issue](https://github.com/gazebosim/gz-physics/issues/25)
 Nested models | ✓ | Partial support
 Populations | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/240)

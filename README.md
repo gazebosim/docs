@@ -1,15 +1,15 @@
 # Ignition Documentation
 
-This repository contains documentation about [Ignition](https://ignitionrobotics.org) that does not pertain to a specific
-[Ignition library](https://ignitionrobotics.org/libs). An example would be
+This repository contains documentation about [Ignition](https://gazebosim.org) that does not pertain to a specific
+[Ignition library](https://gazebosim.org/libs). An example would be
 installation instructions for an Ignition release. The documentation
 contained in this repository can be view at
-[https://ignitionrobotics.org/docs](https://ignitionrobotics.org/docs).
+[https://gazebosim.org/docs](https://gazebosim.org/docs).
 
-Each [Ignition library](https://ignitionrobotics.org/libs) maintains
+Each [Ignition library](https://gazebosim.org/libs) maintains
 documentation and tutorials that are scoped to the features and
 capabilities of the library itself. The documentation for a library can be
-found under the `API Reference` section of [https://ignitionrobotics.org/docs](https://ignitionrobotics.org/docs).
+found under the `API Reference` section of [https://gazebosim.org/docs](https://gazebosim.org/docs).
 
 ## Updating ignitionrobotics.org
 
@@ -17,7 +17,7 @@ found under the `API Reference` section of [https://ignitionrobotics.org/docs](h
 
 The documentation in this repository is updated whenever the ign-webserver,
 a private repository to Open Robotics, is deployed. The ign-webserver maintains a clone of this repository, and
-serves the markdown pages to https://ignitionrobotics.org.
+serves the markdown pages to https://gazebosim.org.
 
 ## Library docs
 
