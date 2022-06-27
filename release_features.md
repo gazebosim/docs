@@ -11,8 +11,8 @@ The first major release of Ignition focused on the basics of simulation. The bas
 
 1. Support for [DART](https://dartsim.github.io/) in [Ignition Physics](/libs/physics).
 2. Ogre1.9 and Ogre2.1 support in [Ignition Rendering](/libs/rendering)
-3. [Entity Component System](https://en.wikipedia.org/wiki/Entity_component_system) based simulation engine in [Ignition Gazebo](/libs/gazebo).
-4. A sensor suite that includes contact sensor, logical camera, monocular camera, depth camera, LIDAR, magnetometer, altimeter, and IMU is available through [Ignition Sensors](/libs/sensors) and [Ignition Gazebo](/libs/gazebo).
+3. [Entity Component System](https://en.wikipedia.org/wiki/Entity_component_system) based simulation engine in [Gazebo Sim](/libs/gazebo).
+4. A sensor suite that includes contact sensor, logical camera, monocular camera, depth camera, LIDAR, magnetometer, altimeter, and IMU is available through [Ignition Sensors](/libs/sensors) and [Gazebo Sim](/libs/gazebo).
 5. [Launch system](/libs/launch) capable of running and managing a set of plugins and executables.
 6. Cloud-hosted simulation assets provided by [app.gazebosim.org](https://app.gazebosim.org).
 7. Distributed simulation using lock-stepping.
@@ -51,7 +51,7 @@ collection assures that all libraries all compatible and can be used together.
 1. Global wind model.
 1. Joint state publisher.
 1. Support for UAVs.
-1. Integration of `ign` command line tool into Ignition Gazebo.
+1. Integration of `ign` command line tool into Gazebo Sim.
 1. Logging and playback of simulation state.
 1. Command line tools to control log playback.
 1. Battery model based on vehicle motion and rechargeable batteries.
@@ -75,7 +75,7 @@ collection assures that all libraries all compatible and can be used together.
     * Follow model.
     * Delete model.
     * Grid.
-    * Drag-and-drop models from Fuel to Ignition Gazebo UI.
+    * Drag-and-drop models from Fuel to Gazebo Sim UI.
     * Preset view angles.
     * Hotkeys for transform modes and snapping.
     * Entity selection.
@@ -169,7 +169,7 @@ collection assures that all libraries all compatible and can be used together.
 
 ## Dome (EOL)
 
-1. Particle effects on [Ignition Rendering](https://gazebosim.org/api/rendering/4.1/particles.html) and [Ignition Gazebo](https://github.com/gazebosim/gz-sim/blob/ign-gazebo4/examples/worlds/particle_emitter.sdf).
+1. Particle effects on [Ignition Rendering](https://gazebosim.org/api/rendering/4.1/particles.html) and [Gazebo Sim](https://github.com/gazebosim/gz-sim/blob/ign-gazebo4/examples/worlds/particle_emitter.sdf).
 1. Actor plugins.
 1. Efficient skeleton animations.
 1. [Optical tactile sensor plugin.](https://community.gazebosim.org/t/gsoc-2020-ignition-gazebo-optical-tactile-sensor-plugin/618)

@@ -40,7 +40,7 @@ Error while loading the library [/Users/edifice/edifice_ws/install/lib//libignit
   Referenced from: /usr/local/opt/assimp/lib/libassimp.5.dylib
   Reason: image not found
 [Err] [Physics.cc:275] Unable to load the /Users/edifice/edifice_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib library.
-Escalating to SIGKILL on [Ignition Gazebo Server]
+Escalating to SIGKILL on [Gazebo Sim Server]
 ```
 
 The issue is related to OSX System Integrity Protection(SIP). The workaround is to run `ign` with a different ruby then make sure that ruby is loaded.
@@ -110,7 +110,7 @@ Error while loading the library [/Users/edifice/edifice_ws/install/lib//libignit
   Referenced from: /usr/local/opt/assimp/lib/libassimp.5.dylib
   Reason: image not found
 [Err] [Physics.cc:275] Unable to load the /Users/edifice/edifice_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib library.
-Escalating to SIGKILL on [Ignition Gazebo Server]
+Escalating to SIGKILL on [Gazebo Sim Server]
 ```
 
 The issue is related to OSX System Integrity Protection(SIP). The workaround is to run `ign` with a different ruby then make sure that ruby is loaded.
@@ -130,7 +130,7 @@ export PATH=/usr/local/Cellar/ruby/2.6.5/bin:$PATH
 ### Unable to create the rendering window
 
 If you're getting errors like "Unable to create the rendering window", it could
-mean you're using an old OpenGL version. Ignition Gazebo uses the Ogre 2
+mean you're using an old OpenGL version. Gazebo Sim uses the Ogre 2
 rendering engine by default, which requires an OpenGL version higher than 3.3.
 
 This can be confirmed by checking the Ogre 2 logs at `~/.ignition/rendering/ogre2.log`,

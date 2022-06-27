@@ -2,7 +2,7 @@
 
 Web visualization supports rendering and interacting with running Ignition
 Gazebo simulations. You may find web visualization useful
-when interacting with remote or headless Ignition Gazebo simulations. No
+when interacting with remote or headless Gazebo Sim simulations. No
 additionally dependencies, other than a browser and internet connection, are
 required.
 
@@ -12,7 +12,7 @@ The following steps will guide you through the process of running Ignition
 Gazebo with a websocket server and connecting to the websocket for
 visualization. 
 
-1. Start an Ignition Gazebo instance as usual. We will use the `fuel.sdf`
+1. Start an Gazebo Sim instance as usual. We will use the `fuel.sdf`
    world and run it headless.
 ```
 ign gazebo -v 4 -s -r fuel.sdf
@@ -66,5 +66,5 @@ matching key using an "auth" call on the websocket. If the `<admin_authorization
 
 ## Troubleshooting
 
-1. If you are running Ignition Gazebo in a docker container, make sure to
+1. If you are running Gazebo Sim in a docker container, make sure to
    use the [--network host](https://docs.docker.com/network/network-tutorial-host/) Docker commandline option. Without `--network host` the web application won't be able to connect to the websocket server.

@@ -55,7 +55,7 @@ ros2 run ros_ign_bridge parameter_bridge /keyboard/keypress@std_msgs/msg/Int32@i
 We started a bridge on `/keyboard/keypress` topic with message of type `Int32`.
 For ROS it is `std_msgs/msg/Int32` and for Ignition it is `ignition.msgs.Int32`
 
-In another terminal launch an Ignition Gazebo world, for example the `empty.sdf` world:
+In another terminal launch an Gazebo Sim world, for example the `empty.sdf` world:
 
 ```
 ign gazebo empty.sdf

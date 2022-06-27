@@ -1,24 +1,24 @@
-# Ignition Gazebo Architecture
+# Gazebo Sim Architecture
 
-[Ignition Gazebo](https://gazebosim.org/libs/gazebo) is an application entry-point of Ignition, generally encompassing the use of all other Ignition libraries.
+[Gazebo Sim](https://gazebosim.org/libs/gazebo) is an application entry-point of Ignition, generally encompassing the use of all other Ignition libraries.
 As an executable, it runs a simulation by launching two processes: the backend server process and frontend client process.
 
-The core functionality of Ignition Gazebo is the client-server communication and the various plugins it loads to facilitate the simulation.
+The core functionality of Gazebo Sim is the client-server communication and the various plugins it loads to facilitate the simulation.
 Plugins are libraries that are loaded at runtime.
-They allow Ignition Gazebo to utilize other Ignition libraries.
+They allow Gazebo Sim to utilize other Ignition libraries.
 There are many plugin types in the Ignition framework.
 For example, there are plugins that introduce new physics engines or rendering engines.
-However, for the purpose of this document, any mention of plugins is referring only to Ignition Gazebo server and GUI plugins.
+However, for the purpose of this document, any mention of plugins is referring only to Gazebo Sim server and GUI plugins.
 
 Because they’re loaded at runtime, Ignition does not need to be recompiled to add or remove plugins.
-Ignition Gazebo ships with many plugins by default ([Server plugins](https://gazebosim.org/api/gazebo/4.5/namespaceignition_1_1gazebo_1_1systems.html), [Ignition GUI plugins](https://gazebosim.org/api/gui/4.2/namespaceignition_1_1gui_1_1plugins.html), [Ignition Gazebo GUI plugins]( https://gazebosim.org/api/gazebo/4.5/namespaceignition_1_1gazebo.html), and more), all of which are optional and can be removed by the user.
+Gazebo Sim ships with many plugins by default ([Server plugins](https://gazebosim.org/api/gazebo/4.5/namespaceignition_1_1gazebo_1_1systems.html), [Ignition GUI plugins](https://gazebosim.org/api/gui/4.2/namespaceignition_1_1gui_1_1plugins.html), [Gazebo Sim GUI plugins]( https://gazebosim.org/api/gazebo/4.5/namespaceignition_1_1gazebo.html), and more), all of which are optional and can be removed by the user.
 Users can also add more plugins and even write their own plugins that will be compiled into library files.  
 
 Ignition libraries are modular.
-Plugins let Ignition Gazebo utilize other libraries.
-For example, [Ignition Physics](https://gazebosim.org/libs/physics) and Ignition Gazebo are independent of one another, so Ignition Gazebo has a physics plugin that uses Ignition Physics as a library and incorporates Gazebo specifics, allowing Physics to be a system running in the simulation loop.
+Plugins let Gazebo Sim utilize other libraries.
+For example, [Ignition Physics](https://gazebosim.org/libs/physics) and Gazebo Sim are independent of one another, so Gazebo Sim has a physics plugin that uses Ignition Physics as a library and incorporates Gazebo specifics, allowing Physics to be a system running in the simulation loop.
 
-The Ignition Physics library is only used in the physics plugin, not in other plugins nor in the core of Ignition Gazebo.
+The Ignition Physics library is only used in the physics plugin, not in other plugins nor in the core of Gazebo Sim.
 Some libraries are only used by one plugin, or one in each process (frontend and backend).
 However, some foundational libraries are used by all plugins, like [Ignition Common](https://gazebosim.org/libs/common) which provides common functionality like logging, manipulating strings, file system interaction, etc., to all plugins.
 Other such libraries include [Ignition Plugin](https://gazebosim.org/libs/plugin), [Ignition Math](https://gazebosim.org/libs/math), [SDFormat](https://gazebosim.org/libs/sdformat), and more.
@@ -26,17 +26,17 @@ Other such libraries include [Ignition Plugin](https://gazebosim.org/libs/plugin
 There are certain plugins in both the frontend and backend processes that are loaded by default in every version of Ignition.
 Many other plugins are optional.
 One common optional plugin is the sensors plugin.
-Both optional and default plugins can be removed or added at any time; Ignition Gazebo will continue to run with limited functionality.
+Both optional and default plugins can be removed or added at any time; Gazebo Sim will continue to run with limited functionality.
 These demos on [Server Configuration](https://gazebosim.org/api/gazebo/4.3/server_config.html) and [GUI Configuration](https://gazebosim.org/api/gazebo/4.3/gui_config.html) showcase that functionality.
 
 The simulation process is depicted in the diagram below, and further explained in the Backend and Frontend process sections that follow.
 
-![Ignition Gazebo architecture diagram](images/GazeboArchitecture.svg)
+![Gazebo Sim architecture diagram](images/GazeboArchitecture.svg)
 
 ## Backend server process
 
-Ignition Gazebo is responsible for loading plugins in the backend, referred to as systems.
-The server runs an entity-component system architecture (see [Ignition Gazebo terminology](https://gazebosim.org/api/gazebo/4.2/terminology.html)).
+Gazebo Sim is responsible for loading plugins in the backend, referred to as systems.
+The server runs an entity-component system architecture (see [Gazebo Sim terminology](https://gazebosim.org/api/gazebo/4.2/terminology.html)).
 The backend will usually have multiple systems responsible for everything in the simulation – computing physics, recording logs, receiving user commands, etc.
 
 Systems act on entities and components of those entities.
@@ -45,7 +45,7 @@ Server plugins have access to all entities and what components they have, and ma
 For example, a user could write a system that applies force to an entity by setting a component on that entity, and the physics system would pick that up and react by applying the force to make the entity actually move.
 The modification of entities and components is how server plugins communicate with each other.
 
-The entity component system is self-contained in Ignition Gazebo, and systems act on entities and their components.
+The entity component system is self-contained in Gazebo Sim, and systems act on entities and their components.
 Since other Ignition Libraries don't have direct knowledge/access to entities and components, other Ignition Libraries should be used in systems so that the server plugin can share entities (and their components) with these other Libraries.
 For example, the physics system shares entities and components with the Ignition Physics library in order to achieve physics effects on entities and components.
 
@@ -62,7 +62,7 @@ The visualization of that data, however, is left up to the client side plugins.
 ## Communication process
 
 Any information that crosses the process boundary (whether back-to-front with scene broadcaster or front-to-back with user commands) has to go through [Ignition Transport](https://gazebosim.org/libs/transport), the communication library.
-Synchronization between processes is performed by scene broadcaster, a server-side Ignition Gazebo plugin that uses the Ignition Transport and [Ignition Messages](https://gazebosim.org/libs/msgs) libraries to send messages from the server to the client.
+Synchronization between processes is performed by scene broadcaster, a server-side Gazebo Sim plugin that uses the Ignition Transport and [Ignition Messages](https://gazebosim.org/libs/msgs) libraries to send messages from the server to the client.
 The messages themselves are provided by Ignition Messages, while the framework for creating the publishers and subscribers that exchange messages is from Ignition Transport.
 
 The scene broadcaster system is responsible for getting the state of the world (all of the entities and their component values) from the ever-changing simulation loop running in the back end, packaging that information into a very compact message, and periodically sending it to the frontend process.
