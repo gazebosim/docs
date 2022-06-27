@@ -50,7 +50,7 @@ to get started.
 
 Modifying an existing SDF world is also a good way to get started. Gazebo
 Sim ships with a number of [example SDF
-worlds](https://github.com/ignitionrobotics/ign-gazebo/blob/main/examples/worlds)
+worlds](https://github.com/gazebosim/gz-gazebo/blob/main/examples/worlds)
 that you can freely copy and modify. These example SDF files are
 installed. Many of the SDF files also have instructions located at the
 top of the SDF file. The instructions typically contain information about how to

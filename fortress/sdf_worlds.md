@@ -74,7 +74,7 @@ Now let's define the GUI. Under the `<gui>` tag we specify anything related to t
 </gui>
 ```
 
-[ignition-gui](https://github.com/ignitionrobotics/ign-gui/) has a bunch of plugins to choose from. We will add the ones that are necessary to get our world up and running with basic functionality.
+[ignition-gui](https://github.com/gazebosim/gz-gui/) has a bunch of plugins to choose from. We will add the ones that are necessary to get our world up and running with basic functionality.
 
 ### Scene 3D plugin
 
