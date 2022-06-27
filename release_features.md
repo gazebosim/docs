@@ -30,7 +30,7 @@ collection assures that all libraries all compatible and can be used together.
 |   ign-cmake        |       2.x     |       [Changelog](https://github.com/gazebosim/gz-cmake/blob/ign-cmake2/Changelog.md)     |
 |   ign-common       |       3.x     |       [Changelog](https://github.com/gazebosim/gz-common/blob/ign-common3/Changelog.md)    |
 |   ign-fuel-tools   |       3.x     |       [Changelog](https://github.com/gazebosim/gz-fuel-tools/blob/ign-fuel-tools3/Changelog.md)    |
-|   ign-gazebo       |       1.x     |       [Changelog](https://github.com/gazebosim/gz-gazebo/blob/ign-gazebo1/Changelog.md)     |
+|   ign-gazebo       |       1.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/ign-gazebo1/Changelog.md)     |
 |   ign-gui          |       1.x     |       None       |
 |   ign-launch       |       0.x     |       None       |
 |   ign-math         |       6.x     |       [Changelog](https://github.com/gazebosim/gz-math/blob/ign-math6/Changelog.md)     |
@@ -91,7 +91,7 @@ collection assures that all libraries all compatible and can be used together.
 |   ign-cmake        |       2.x     |       [Changelog](https://github.com/gazebosim/gz-cmake/blob/ign-cmake2/Changelog.md)     |
 |   ign-common       |       3.x     |       [Changelog](https://github.com/gazebosim/gz-common/blob/ign-common3/Changelog.md)    |
 |   ign-fuel-tools   |       3.x     |       [Changelog](https://github.com/gazebosim/gz-fuel-tools/blob/ign-fuel-tools3/Changelog.md)    |
-|   ign-gazebo       |       2.x     |       [Changelog](https://github.com/gazebosim/gz-gazebo/blob/ign-gazebo2/Changelog.md)     |
+|   ign-gazebo       |       2.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/ign-gazebo2/Changelog.md)     |
 |   ign-gui          |       2.x     |       [Changelog](https://github.com/gazebosim/gz-gui/blob/ign-gui2/Changelog.md)       |
 |   ign-launch       |       1.x     |       [Changelog](https://github.com/gazebosim/gz-launch/blob/ign-launch1/Changelog.md)
 |   ign-math         |       6.x     |       [Changelog](https://github.com/gazebosim/gz-math/blob/ign-math6/Changelog.md)
@@ -123,13 +123,13 @@ collection assures that all libraries all compatible and can be used together.
 1. [Easier migration of SDF files from Gazebo classic.](https://gazebosim.org/api/gazebo/3.7/migrationsdf.html)
 1. [Binary Windows install through conda-forge.](https://gazebosim.org/docs/citadel/install_windows)
 1. [Restitution coefficient (bouncing).](https://github.com/gazebosim/gz-physics/pull/139)
-1. [Custom retroreflection for objects detected by lidar.](https://github.com/gazebosim/gz-gazebo/blob/ign-gazebo3/examples/worlds/gpu_lidar_retro_values_sensor.sdf)
+1. [Custom retroreflection for objects detected by lidar.](https://github.com/gazebosim/gz-sim/blob/ign-gazebo3/examples/worlds/gpu_lidar_retro_values_sensor.sdf)
 1. [More SDFormat documentation](http://sdformat.org/tutorials).
 1. Load PBR materials from OBJ.
-1. [Model info CLI.](https://github.com/gazebosim/gz-gazebo/issues/313)
+1. [Model info CLI.](https://github.com/gazebosim/gz-sim/issues/313)
 1. [Test fixture to easily run simulation-based automated tests.](https://gazebosim.org/api/gazebo/3.9/test_fixture.html)
-1. [Drag and drop meshes into the scene.](https://github.com/gazebosim/gz-gazebo/pull/939)
-1. [Tracked vehicles](https://github.com/gazebosim/gz-gazebo/pull/869)
+1. [Drag and drop meshes into the scene.](https://github.com/gazebosim/gz-sim/pull/939)
+1. [Tracked vehicles](https://github.com/gazebosim/gz-sim/pull/869)
 1. [Python interface for Ignition Math.](https://github.com/gazebosim/gz-math/issues/210)
 1. [Integration with ros2_control.](https://github.com/ignitionrobotics/ign_ros2_control/)
 1. [ign_ros2_control support for various models](https://github.com/ignitionrobotics/docs/issues/222)
@@ -141,7 +141,7 @@ collection assures that all libraries all compatible and can be used together.
     * [Screenshot widget.](https://gazebosim.org/api/gui/3.5/screenshot.html)
     * [Joint position controller.](https://app.gazebosim.org/OpenRobotics/fuel/worlds/NAO%20joint%20control)
     * [2D teleop widget.](https://github.com/gazebosim/gz-gui/issues/186)
-    * [3D plot.](https://github.com/gazebosim/gz-gazebo/issues/231)
+    * [3D plot.](https://github.com/gazebosim/gz-sim/issues/231)
     * [Notification snackbar](https://github.com/gazebosim/gz-gui/issues/44)
 1. APIs that make it easier to migrate from Gazebo classic:
     * [World](https://gazebosim.org/api/gazebo/3.5/migrationworldapi.html)
@@ -153,7 +153,7 @@ collection assures that all libraries all compatible and can be used together.
 |   ign-cmake        |       2.x     |       [Changelog](https://github.com/gazebosim/gz-cmake/blob/ign-cmake2/Changelog.md)     |
 |   ign-common       |       3.x     |       [Changelog](https://github.com/gazebosim/gz-common/blob/ign-common3/Changelog.md)    |
 |   ign-fuel-tools   |       4.x     |       [Changelog](https://github.com/gazebosim/gz-fuel-tools/blob/ign-fuel-tools4/Changelog.md)    |
-|   ign-gazebo       |       3.x     |       [Changelog](https://github.com/gazebosim/gz-gazebo/blob/ign-gazebo3/Changelog.md)     |
+|   ign-gazebo       |       3.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/ign-gazebo3/Changelog.md)     |
 |   ign-gui          |       3.x     |       [Changelog](https://github.com/gazebosim/gz-gui/blob/ign-gui3/Changelog.md)       |
 |   ign-launch       |       2.x     |       [Changelog](https://github.com/gazebosim/gz-launch/blob/ign-launch2/Changelog.md)
 |   ign-math         |       6.x     |       [Changelog](https://github.com/gazebosim/gz-math/blob/ign-math6/Changelog.md)
@@ -169,11 +169,11 @@ collection assures that all libraries all compatible and can be used together.
 
 ## Dome (EOL)
 
-1. Particle effects on [Ignition Rendering](https://gazebosim.org/api/rendering/4.1/particles.html) and [Ignition Gazebo](https://github.com/gazebosim/gz-gazebo/blob/ign-gazebo4/examples/worlds/particle_emitter.sdf).
+1. Particle effects on [Ignition Rendering](https://gazebosim.org/api/rendering/4.1/particles.html) and [Ignition Gazebo](https://github.com/gazebosim/gz-sim/blob/ign-gazebo4/examples/worlds/particle_emitter.sdf).
 1. Actor plugins.
 1. Efficient skeleton animations.
 1. [Optical tactile sensor plugin.](https://community.gazebosim.org/t/gsoc-2020-ignition-gazebo-optical-tactile-sensor-plugin/618)
-1. [Support entity names with spaces.](https://github.com/gazebosim/gz-gazebo/issues/239)
+1. [Support entity names with spaces.](https://github.com/gazebosim/gz-sim/issues/239)
 1. Kinetic energy monitor plugin.
 1. [Texture-based thermal signature](https://gazebosim.org/api/sensors/4.1/thermalcameraigngazebo.html) for objects, visible from thermal camera.
 1. [Web visualization of running simulations](https://gazebosim.org/docs/dome/web_visualization).
@@ -183,16 +183,16 @@ collection assures that all libraries all compatible and can be used together.
 1. GUI tools:
     * [Plotting](https://community.gazebosim.org/t/gsoc-2020-plotting-tool-for-ignition/619)
     * [Lidar visualization](https://community.gazebosim.org/t/gsoc-2020-sensor-data-visualization/638)
-    * [Configure physics real time factor and step size.](https://github.com/gazebosim/gz-gazebo/pull/536)
-    * [Configure lights from the GUI or transport.](https://github.com/gazebosim/gz-gazebo/issues/122)
-    * [Contact visualization.](https://github.com/gazebosim/gz-gazebo/issues/234)
+    * [Configure physics real time factor and step size.](https://github.com/gazebosim/gz-sim/pull/536)
+    * [Configure lights from the GUI or transport.](https://github.com/gazebosim/gz-sim/issues/122)
+    * [Contact visualization.](https://github.com/gazebosim/gz-sim/issues/234)
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
 |   ign-cmake        |       2.x     |       [Changelog](https://github.com/gazebosim/gz-cmake/blob/ign-cmake2/Changelog.md)     |
 |   ign-common       |       3.x     |       [Changelog](https://github.com/gazebosim/gz-common/blob/ign-common3/Changelog.md)    |
 |   ign-fuel-tools   |       5.x     |       [Changelog](https://github.com/gazebosim/gz-fuel-tools/blob/ign-fuel-tools5/Changelog.md)    |
-|   ign-gazebo       |       4.x     |       [Changelog](https://github.com/gazebosim/gz-gazebo/blob/ign-gazebo4/Changelog.md)     |
+|   ign-gazebo       |       4.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/ign-gazebo4/Changelog.md)     |
 |   ign-gui          |       4.x     |       [Changelog](https://github.com/gazebosim/gz-gui/blob/ign-gui4/Changelog.md)       |
 |   ign-launch       |       3.x     |       [Changelog](https://github.com/gazebosim/gz-launch/blob/ign-launch3/Changelog.md)
 |   ign-math         |       6.x     |       [Changelog](https://github.com/gazebosim/gz-math/blob/ign-math6/Changelog.md)
@@ -209,28 +209,28 @@ collection assures that all libraries all compatible and can be used together.
 
 1. New utility library with minimal dependencies: [Ignition Utils](https://github.com/gazebosim/gz-utils/).
 1. [Sky box support.](https://github.com/gazebosim/gz-rendering/issues/98)
-1. [Lightmap support.](https://github.com/gazebosim/gz-gazebo/pull/471)
+1. [Lightmap support.](https://github.com/gazebosim/gz-sim/pull/471)
 1. [Capsule and ellipsoid geometries.](https://github.com/osrf/sdformat/issues/376)
 1. [SDF model composition.](https://github.com/osrf/sdformat/issues/278)
 1. [SDFormat interface for non-SDF models.](http://sdformat.org/tutorials?tut=composition_proposal&cat=pose_semantics_docs&#1-5-minimal-libsdformat-interface-types-for-non-sdformat-models)
 1. [Choose render order for overlapping polygons.](https://github.com/gazebosim/gz-rendering/pull/188)
-1. [Light visualization.](https://github.com/gazebosim/gz-gazebo/issues/193)
-1. [Spawn lights from the GUI.](https://github.com/gazebosim/gz-gazebo/issues/119)
-1. [Mecanum wheel controller.](https://github.com/gazebosim/gz-gazebo/issues/579)
+1. [Light visualization.](https://github.com/gazebosim/gz-sim/issues/193)
+1. [Spawn lights from the GUI.](https://github.com/gazebosim/gz-sim/issues/119)
+1. [Mecanum wheel controller.](https://github.com/gazebosim/gz-sim/issues/579)
 1. [Hydrodynamics.](https://gazebosim.org/api/gazebo/5.0/classignition_1_1gazebo_1_1systems_1_1Hydrodynamics.html)
-1. [Ocean currents.](https://github.com/gazebosim/gz-gazebo/pull/800)
+1. [Ocean currents.](https://github.com/gazebosim/gz-sim/pull/800)
 1. [Hook command line tool to binaries instead of libraries.](https://github.com/gazebosim/gz-tools/issues/7)
-1. [Heightmap support using Ogre 1 and DART.](https://github.com/gazebosim/gz-gazebo/issues/237)
-1. [Turn lights on and off.](https://github.com/gazebosim/gz-gazebo/pull/1343)
-1. [Toggle light visualization.](https://github.com/gazebosim/gz-gazebo/issues/638)
-1. [Model photoshoot plugin.](https://github.com/gazebosim/gz-gazebo/pull/1331)
+1. [Heightmap support using Ogre 1 and DART.](https://github.com/gazebosim/gz-sim/issues/237)
+1. [Turn lights on and off.](https://github.com/gazebosim/gz-sim/pull/1343)
+1. [Toggle light visualization.](https://github.com/gazebosim/gz-sim/issues/638)
+1. [Model photoshoot plugin.](https://github.com/gazebosim/gz-sim/pull/1331)
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
 |   ign-cmake        |       2.x     |       [Changelog](https://github.com/gazebosim/gz-cmake/blob/ign-cmake2/Changelog.md)     |
 |   ign-common       |       4.x     |       [Changelog](https://github.com/gazebosim/gz-common/blob/ign-common4/Changelog.md)    |
 |   ign-fuel-tools   |       6.x     |       [Changelog](https://github.com/gazebosim/gz-fuel-tools/blob/ign-fuel-tools6/Changelog.md)    |
-|   ign-gazebo       |       5.x     |       [Changelog](https://github.com/gazebosim/gz-gazebo/blob/ign-gazebo5/Changelog.md)     |
+|   ign-gazebo       |       5.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/ign-gazebo5/Changelog.md)     |
 |   ign-gui          |       5.x     |       [Changelog](https://github.com/gazebosim/gz-gui/blob/ign-gui5/Changelog.md)       |
 |   ign-launch       |       4.x     |       [Changelog](https://github.com/gazebosim/gz-launch/blob/ign-launch4/Changelog.md)
 |   ign-math         |       6.x     |       [Changelog](https://github.com/gazebosim/gz-math/blob/ign-math6/Changelog.md)
@@ -247,19 +247,19 @@ collection assures that all libraries all compatible and can be used together.
 ## Fortress
 
 1. [Headless simulation using EGL.](https://github.com/gazebosim/gz-rendering/issues/223)
-1. [Refactor ECM::Each for performance.](https://github.com/gazebosim/gz-gazebo/issues/711)
+1. [Refactor ECM::Each for performance.](https://github.com/gazebosim/gz-sim/issues/711)
 1. [Upgrade to Ogre 2.2.](https://github.com/gazebosim/gz-rendering/issues/223)
 1. [Improve `<pose>` tag on SDFormat.](https://github.com/osrf/sdformat/issues/252)
 1. [Heightmaps on Ogre 2](https://github.com/gazebosim/gz-rendering/issues/187)
-1. [Spherical coordinates](https://github.com/gazebosim/gz-gazebo/issues/981)
-1. [Buoyancy engine](https://github.com/gazebosim/gz-gazebo/blob/ign-gazebo6/examples/worlds/buoyancy_engine.sdf)
+1. [Spherical coordinates](https://github.com/gazebosim/gz-sim/issues/981)
+1. [Buoyancy engine](https://github.com/gazebosim/gz-sim/blob/ign-gazebo6/examples/worlds/buoyancy_engine.sdf)
 1. [Control lights from ROS 2](https://github.com/ignitionrobotics/ros_ign/pull/187)
-1. [Python interface to Gazebo.](https://github.com/gazebosim/gz-gazebo/issues/789)
-1. [Custom shaders.](https://github.com/gazebosim/gz-gazebo/issues/657)
-1. [Visual plugins.](https://github.com/gazebosim/gz-gazebo/issues/265)
+1. [Python interface to Gazebo.](https://github.com/gazebosim/gz-sim/issues/789)
+1. [Custom shaders.](https://github.com/gazebosim/gz-sim/issues/657)
+1. [Visual plugins.](https://github.com/gazebosim/gz-sim/issues/265)
 1. [Rendering waves.](https://github.com/gazebosim/gz-rendering/pull/541)
-1. [Generic comms system.](https://github.com/gazebosim/gz-gazebo/pull/1416)
-1. [Wheel slip commands.](https://github.com/gazebosim/gz-gazebo/pull/1241)
+1. [Generic comms system.](https://github.com/gazebosim/gz-sim/pull/1416)
+1. [Wheel slip commands.](https://github.com/gazebosim/gz-sim/pull/1241)
 1. [USD importer / exporter.](https://github.com/ignitionrobotics/sdformat/tree/sdf12/examples/usdConverter)
 1. [Bridge Ignition services to ROS 2 services.](https://github.com/ignitionrobotics/ros_ign/pull/211)
 1. [Omniverse application](https://github.com/gazebosim/gz-omni)
@@ -272,20 +272,20 @@ collection assures that all libraries all compatible and can be used together.
   1. [Triggered cameras.](https://github.com/gazebosim/gz-sensors/issues/185)
 1. GUI features
     1. [Consolidate Scene3D with GzScene3D](https://github.com/gazebosim/gz-gui/issues/137)
-    1. [Visualize wireframes](https://github.com/gazebosim/gz-gazebo/pull/816)
-    1. [Visualize transparent](https://github.com/gazebosim/gz-gazebo/pull/878)
-    1. [Visualize inertia](https://github.com/gazebosim/gz-gazebo/issues/111)
-    1. [Visualize center of mass](https://github.com/gazebosim/gz-gazebo/issues/110)
-    1. [Visualize joints](https://github.com/gazebosim/gz-gazebo/issues/106)
-    1. [Orthographic view](https://github.com/gazebosim/gz-gazebo/issues/103)
-    1. [System inspector.](https://github.com/gazebosim/gz-gazebo/issues/191)
+    1. [Visualize wireframes](https://github.com/gazebosim/gz-sim/pull/816)
+    1. [Visualize transparent](https://github.com/gazebosim/gz-sim/pull/878)
+    1. [Visualize inertia](https://github.com/gazebosim/gz-sim/issues/111)
+    1. [Visualize center of mass](https://github.com/gazebosim/gz-sim/issues/110)
+    1. [Visualize joints](https://github.com/gazebosim/gz-sim/issues/106)
+    1. [Orthographic view](https://github.com/gazebosim/gz-sim/issues/103)
+    1. [System inspector.](https://github.com/gazebosim/gz-sim/issues/191)
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
 |   ign-cmake        |       2.x     |       [Changelog](https://github.com/gazebosim/gz-cmake/blob/ign-cmake2/Changelog.md)     |
 |   ign-common       |       4.x     |       [Changelog](https://github.com/gazebosim/gz-common/blob/ign-common4/Changelog.md)    |
 |   ign-fuel-tools   |       7.x     |       [Changelog](https://github.com/gazebosim/gz-fuel-tools/blob/ign-fuel-tools7/Changelog.md)    |
-|   ign-gazebo       |       6.x     |       [Changelog](https://github.com/gazebosim/gz-gazebo/blob/ign-gazebo6/Changelog.md)     |
+|   ign-gazebo       |       6.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/ign-gazebo6/Changelog.md)     |
 |   ign-gui          |       6.x     |       [Changelog](https://github.com/gazebosim/gz-gui/blob/ign-gui6/Changelog.md)       |
 |   ign-launch       |       5.x     |       [Changelog](https://github.com/gazebosim/gz-launch/blob/ign-launch5/Changelog.md)
 |   ign-math         |       6.x     |       [Changelog](https://github.com/gazebosim/gz-math/blob/ign-math6/Changelog.md)

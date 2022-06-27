@@ -34,7 +34,7 @@ propose changes to this document in a pull request.
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the [Ignition
-Code of Conduct](https://github.com/gazebosim/gz-gazebo/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this
+Code of Conduct](https://github.com/gazebosim/gz-sim/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this
 code. Please report unacceptable behavior at [https://gazebosim.org/support](https://gazebosim.org/support).
 
 ## Project Design
@@ -52,7 +52,7 @@ general purpose components and utilities, such as 3D mesh processing, console
 logging, and signal handling.
 * [ign-fuel-tools](https://github.com/gazebosim/gz-fuel-tools): Interact
 with Ignition Fuel servers.
-* [ign-gazebo](https://github.com/gazebosim/gz-gazebo):
+* [ign-gazebo](https://github.com/gazebosim/gz-sim):
 A high-fidelity 3D rigid-body dynamic simulator.
 * [ign-gui](https://github.com/gazebosim/gz-gui): QT-based
 library to configure and manage graphical applications.
@@ -297,7 +297,7 @@ The following repositories from [Ignition](https://github.com/ignitionrobotics/)
 * [ign-cmake](https://github.com/gazebosim/gz-cmake)
 * [ign-common](https://github.com/gazebosim/gz-common)
 * [ign-fuel-tools](https://github.com/gazebosim/gz-fuel-tools)
-* [ign-gazebo](https://github.com/gazebosim/gz-gazebo)
+* [ign-gazebo](https://github.com/gazebosim/gz-sim)
 * [ign-gui](https://github.com/gazebosim/gz-gui)
 * [ign-launch](https://github.com/gazebosim/gz-launch)
 * [ign-math](https://github.com/gazebosim/gz-math)
@@ -613,34 +613,34 @@ a build folder:
 In general, we follow [Google's style guide](https://google.github.io/styleguide/cppguide.html) and rules set forth by `cppcheck`. However, we have added some extras listed below.
 
 1. **This pointer**
-> All class attributes and member functions must be accessed using the `this->` pointer. Here is an [example](https://github.com/gazebosim/gz-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L89).
+> All class attributes and member functions must be accessed using the `this->` pointer. Here is an [example](https://github.com/gazebosim/gz-sim/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L89).
 
 1. **Underscore function parameters**
-> All function parameters must start with an underscore. Here is an [example](https://github.com/gazebosim/gz-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L173-L174).
+> All function parameters must start with an underscore. Here is an [example](https://github.com/gazebosim/gz-sim/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L173-L174).
 
 1. **Do not cuddle braces**
-> All braces must be on their own line. Here is an [example](https://github.com/gazebosim/gz-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L245-L253).
+> All braces must be on their own line. Here is an [example](https://github.com/gazebosim/gz-sim/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L245-L253).
 
 1. **Multi-line code blocks**
-> If a block of code spans multiple lines and is part of a flow control statement, such as an `if`, then it must be wrapped in braces. Here is an [example](https://github.com/gazebosim/gz-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L295-L299).
+> If a block of code spans multiple lines and is part of a flow control statement, such as an `if`, then it must be wrapped in braces. Here is an [example](https://github.com/gazebosim/gz-sim/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L295-L299).
 
 1. **++ operator**
-> This occurs mostly in `for` loops. Prefix the `++` operator, which is [slightly more efficient than postfix in some cases](https://github.com/gazebosim/gz-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/EntityComponentManager_TEST.cc#L108).
+> This occurs mostly in `for` loops. Prefix the `++` operator, which is [slightly more efficient than postfix in some cases](https://github.com/gazebosim/gz-sim/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/EntityComponentManager_TEST.cc#L108).
 
 1. **PIMPL/Opaque pointer**
-> If you are writing a new class, it must use a private data pointer. Here is an [example](https://github.com/gazebosim/gz-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/EntityComponentManager.hh#L682), and you can read more [here](https://en.wikipedia.org/wiki/Opaque_pointer).
+> If you are writing a new class, it must use a private data pointer. Here is an [example](https://github.com/gazebosim/gz-sim/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/EntityComponentManager.hh#L682), and you can read more [here](https://en.wikipedia.org/wiki/Opaque_pointer).
 
 1. **const functions**
-> Any class function that does not change a member variable should be marked as `const`. Here is an [example](https://github.com/gazebosim/gz-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/EntityComponentManager.hh#L453).
+> Any class function that does not change a member variable should be marked as `const`. Here is an [example](https://github.com/gazebosim/gz-sim/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/EntityComponentManager.hh#L453).
 
 1. **const parameters**
-> All parameters that are not modified by a function should be marked as `const`, except for "Plain Old Data" (`int`, `bool`, etc). This applies to parameters that are passed by reference, and pointer. Here is an [example](https://github.com/gazebosim/gz-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/Model.hh#L111-L112).
+> All parameters that are not modified by a function should be marked as `const`, except for "Plain Old Data" (`int`, `bool`, etc). This applies to parameters that are passed by reference, and pointer. Here is an [example](https://github.com/gazebosim/gz-sim/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/Model.hh#L111-L112).
 
 1. **Pointer and reference variables**
-> Place the `*` and `&` next to the variable name, not next to the type. For example: `int &variable` is good, but `int& variable` is not. Here is an [example](https://github.com/gazebosim/gz-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/Model.hh#L96).
+> Place the `*` and `&` next to the variable name, not next to the type. For example: `int &variable` is good, but `int& variable` is not. Here is an [example](https://github.com/gazebosim/gz-sim/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/Model.hh#L96).
 
 1. **Camel case**
-> In general, everything should use camel case. Exceptions include SDF element names, and protobuf variable names. Here is an [example](https://github.com/gazebosim/gz-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/SdfEntityCreator.hh#L64-L65).
+> In general, everything should use camel case. Exceptions include SDF element names, and protobuf variable names. Here is an [example](https://github.com/gazebosim/gz-sim/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/SdfEntityCreator.hh#L64-L65).
 
 1. **Member function names**
 > Member functions, including static member functions, must start with a capital letter, and capitalize every word.
