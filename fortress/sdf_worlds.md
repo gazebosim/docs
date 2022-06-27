@@ -231,7 +231,7 @@ The plugins can also be added from the GUI using the plugin drop-down menu in th
 
 ## Adding models
 
-Instead of building our own models we can use already built ones. [Ignition Fuel](https://app.ignitionrobotics.org/fuel) hosts hundreds of models that can easily be added to an Ignition world. Models can be added as follows.
+Instead of building our own models we can use already built ones. [Ignition Fuel](https://app.gazebosim.org/fuel) hosts hundreds of models that can easily be added to an Ignition world. Models can be added as follows.
 
 ### Spawning a model
 
@@ -239,7 +239,7 @@ For adding various models from fuel to your world chekout this [tutorial](fuel_i
 
 ### Include the model URI
 
-Another way of adding the model to your world is to use the model link. Visit the [Ignition Fuel website](https://app.ignitionrobotics.org/fuel). Choose the model you like and click on the `<>` icon on the model description page. This will copy an SDF snippet to your clipboard, then paste it in your world right above the closing `</world>` tag, like this:
+Another way of adding the model to your world is to use the model link. Visit the [Ignition Fuel website](https://app.gazebosim.org/fuel). Choose the model you like and click on the `<>` icon on the model description page. This will copy an SDF snippet to your clipboard, then paste it in your world right above the closing `</world>` tag, like this:
 
 ```xml
 <include>

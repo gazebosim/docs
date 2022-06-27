@@ -15,13 +15,13 @@ The previous tutorial, [Manipulating Models](manipulating_models), shows you how
 
 ## Choose a Model
 
-Fuel's model collection is at [app.ignitionrobotics.org/fuel/models](https://app.ignitionrobotics.org/fuel/models).
+Fuel's model collection is at [app.gazebosim.org/fuel/models](https://app.gazebosim.org/fuel/models).
 Head over and browse the available content.
 
 ![Fuel models preview](img/fuel.png)
 
 Click on any one of the thumbnails, or use the search bar.
-For example, let's find the [Mine Cart Engine](https://app.ignitionrobotics.org/OpenRobotics/fuel/models/Mine%20Cart%20Engine).
+For example, let's find the [Mine Cart Engine](https://app.gazebosim.org/OpenRobotics/fuel/models/Mine%20Cart%20Engine).
 
 ![Vent](img/mine_cart_engine_detail.png)
 

@@ -61,7 +61,7 @@ In the `<animation>` tag we specify how our actor will move. We can combine diff
 
 ![actor loaded with skin tag](tutorials/actors/actor_skin.gif)
 
-**Note**: You can find many actors and models on [Ignition Fuel](https://app.ignitionrobotics.org/fuel).
+**Note**: You can find many actors and models on [Ignition Fuel](https://app.gazebosim.org/fuel).
 
 ## Scripted trajectory
 
