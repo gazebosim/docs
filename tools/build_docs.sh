@@ -4,14 +4,14 @@
 #   1. Make sure you have the s3cmd tool configured. This script will use your
 #      ~/.s3cfg file to upload documentation.
 #   2. Documentation upload requires a password to
-#      https://api.ignitionrobotics.org. The password is listed on the
+#      https://api.gazebosim.org. The password is listed on the
 #      internal Open Robotics wiki. Set the IGN_VERSION_PASSWORD environment
 #      variable to the correct password before running this script.
-#   3. Run this command when you want to upload ALL of the Ignition library
+#   3. Run this command when you want to upload ALL of the Gazebo library
 #      documentation. This will not upload the documentation contained in this
 #      repository. To do that, you'll need to make a release of the
-#      api.ignitionrobotics.org server (see the
-#      github.com/ignitionrobotics/ign-webserver repository).
+#      api.gazebosim.org server (see the
+#      github.com/gazebo-web/gazebosim-web-backend repository).
 #
 #           sh ./build_docs.sh <release_name | all>
 #
