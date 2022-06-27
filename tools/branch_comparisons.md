@@ -48,9 +48,9 @@ Library                          | C ➡️  F                        | F ➡️
 [ign-fuel-tools-4-7]: https://github.com/gazebosim/gz-fuel-tools/compare/ign-fuel-tools7...ign-fuel-tools4
 [ign-fuel-tools-main]: https://github.com/gazebosim/gz-fuel-tools/compare/main...ign-fuel-tools7
 
-[ign-gazebo]: https://github.com/gazebosim/gz-gazebo
-[ign-gazebo-3-6]: https://github.com/gazebosim/gz-gazebo/compare/ign-gazebo6...ign-gazebo3
-[ign-gazebo-main]: https://github.com/gazebosim/gz-gazebo/compare/main...ign-gazebo6
+[ign-gazebo]: https://github.com/gazebosim/gz-sim
+[ign-gazebo-3-6]: https://github.com/gazebosim/gz-sim/compare/ign-gazebo6...ign-gazebo3
+[ign-gazebo-main]: https://github.com/gazebosim/gz-sim/compare/main...ign-gazebo6
 
 [ign-gui]: https://github.com/gazebosim/gz-gui
 [ign-gui-3-6]: https://github.com/gazebosim/gz-gui/compare/ign-gui6...ign-gui3
