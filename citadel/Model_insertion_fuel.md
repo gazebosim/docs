@@ -15,13 +15,13 @@ The previous tutorial, [Manipulating Models](manipulating_models), shows you how
 
 ## Choose a Model
 
-Fuel's model collection is at [app.ignitionrobotics.org/fuel/models](https://app.ignitionrobotics.org/fuel/models).
+Fuel's model collection is at [app.gazebosim.org/fuel/models](https://app.gazebosim.org/fuel/models).
 Head over and browse the available content.
 
 ![Fuel models preview](img/fuel.png)
 
 Click on any one of the thumbnails, or use the search bar.
-For example, let's find the [PR2_SDF17](https://app.ignitionrobotics.org/openrobotics/fuel/models/PR2_SDF17).
+For example, let's find the [PR2_SDF17](https://app.gazebosim.org/openrobotics/fuel/models/PR2_SDF17).
 
 ![Vent](img/pr2_detail.png)
 

@@ -35,7 +35,7 @@ ign launch -v 4 websocket.ign
 ```
 
 1. Visualize the simulation by going to
-   [https://app.ignitionrobotics.org/visualization](https://app.ignitionrobotics.org/visualization) and pressing the Connect button.
+   [https://app.gazebosim.org/visualization](https://app.gazebosim.org/visualization) and pressing the Connect button.
 
 1. It may take a few seconds for the scene to load. Your browser needs to
    fetch all of the models in the world.
@@ -54,7 +54,7 @@ matching key using an "auth" call on the websocket. If the `<admin_authorization
 ## Code and Support
 
 1. The code for the web application,
-   [app.ignitionrobotics.org](https://app.ignitionrobotics.org), lives at
+   [app.gazebosim.org](https://app.gazebosim.org), lives at
    [https://gitlab.com/ignitionrobotics/web/app](https://gitlab.com/ignitionrobotics/web/app).
 
 1. The javascript library used to render the 3D scene lives at
