@@ -14,7 +14,7 @@ The first major release of Ignition focused on the basics of simulation. The bas
 3. [Entity Component System](https://en.wikipedia.org/wiki/Entity_component_system) based simulation engine in [Ignition Gazebo](/libs/gazebo).
 4. A sensor suite that includes contact sensor, logical camera, monocular camera, depth camera, LIDAR, magnetometer, altimeter, and IMU is available through [Ignition Sensors](/libs/sensors) and [Ignition Gazebo](/libs/gazebo).
 5. [Launch system](/libs/launch) capable of running and managing a set of plugins and executables.
-6. Cloud-hosted simulation assets provided by [app.ignitionrobotics.org](https://app.ignitionrobotics.org).
+6. Cloud-hosted simulation assets provided by [app.gazebosim.org](https://app.gazebosim.org).
 7. Distributed simulation using lock-stepping.
 8. Dynamic loading/unloading of simulation models based on the location of performer, usually a robot.
 9. Simulation state logging.
@@ -139,7 +139,7 @@ collection assures that all libraries all compatible and can be used together.
     * Widget that publishes keys pressed on the keyboard.
     * Collision visualization.
     * [Screenshot widget.](https://gazebosim.org/api/gui/3.5/screenshot.html)
-    * [Joint position controller.](https://app.ignitionrobotics.org/OpenRobotics/fuel/worlds/NAO%20joint%20control)
+    * [Joint position controller.](https://app.gazebosim.org/OpenRobotics/fuel/worlds/NAO%20joint%20control)
     * [2D teleop widget.](https://github.com/gazebosim/gz-gui/issues/186)
     * [3D plot.](https://github.com/gazebosim/gz-gazebo/issues/231)
     * [Notification snackbar](https://github.com/gazebosim/gz-gui/issues/44)

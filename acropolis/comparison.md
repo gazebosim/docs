@@ -199,6 +199,6 @@ GUI plugins | ✓ | ✓ Ignition GUI plugins
 System plugins | ✓ |
 Distribute simulation across processes | ✕ | (coming up)
 Incrementally load levels | ✕ | ✓
-Online model database | [gazebo_models repository](https://github.com/osrf/gazebo_models/) | [Ignition Fuel](https://app.ignitionrobotics.org/fuel/models)
+Online model database | [gazebo_models repository](https://github.com/osrf/gazebo_models/) | [Ignition Fuel](https://app.gazebosim.org/fuel/models)
 SDF frame semantics | | 
 Saved simulation states | ✓ |

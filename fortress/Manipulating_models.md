@@ -152,5 +152,5 @@ choose which entity to align to.
 ## Next Up
 
 So far you've interacted with basic shape models to learn about Ignition's GUI.
-It's also possible to insert more detailed models from [Ignition Fuel](https://app.ignitionrobotics.org) into the GUI.
+It's also possible to insert more detailed models from [Ignition Fuel](https://app.gazebosim.org) into the GUI.
 Check out the [Model Insertion from Fuel](fuel_insert) tutorial to learn how.

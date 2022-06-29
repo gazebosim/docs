@@ -57,7 +57,7 @@ top of the SDF file. The instructions typically contain information about how to
 run Sim with the SDF file in order to experience a particular feature.
 
 There are a wide variety of simulation resources at your disposal on
-[https://app.ignitionrobotics.org/fuel](https://app.ignitionrobotics.org/fuel).
+[https://app.gazebosim.org/fuel](https://app.gazebosim.org/fuel).
 If you find a model you'd like to use, then click on the `<>` icon in the
 model description page, highlighted in the image below, to copy an SDF
 snippet into your clipboard. This snippet can be pasted directly into your
