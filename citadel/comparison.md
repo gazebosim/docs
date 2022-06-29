@@ -53,7 +53,7 @@ SDF parametrization | ✕ | ✕  (available from Dome)
 Load models from local files | ✓ | [✓](https://gazebosim.org/api/gazebo/3.3/resources.html)
 Closed kinematic chains | ✓  | [Issue](https://github.com/gazebosim/gz-physics/issues/25)
 Nested models | ✓ | Partial support, fully available from Edifice
-Populations | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/240)
+Populations | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/240)
 Actors | ✓ | ✓
 Markers | ✓ | ✓
 Heightmaps | ✓ | ✕ (Ogre 1 from Edifice, Ogre 2 from Fortress)
@@ -72,12 +72,12 @@ System plugins | ✓ | ✓ Through Ignition Launch
 
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
-ActorPlugin | ✓ | ✕ See [FollowActor](https://github.com/gazebosim/gz-gazebo/blob/main/src/systems/follow_actor/FollowActor.hh) for a demo of Actor APIs
+ActorPlugin | ✓ | ✕ See [FollowActor](https://github.com/gazebosim/gz-sim/blob/main/src/systems/follow_actor/FollowActor.hh) for a demo of Actor APIs
 ActuatorPlugin | ✓ |
 ArduCopterPlugin | ✓ |
 AttachLightPlugin | ✓ | ✕ Does not apply, use SDF
 Breadcrumbs | ✕ | ✓
-BuoyancyPlugin | ✓ | [✓](https://github.com/gazebosim/gz-gazebo/blob/ign-gazebo3/examples/worlds/buoyancy.sdf)
+BuoyancyPlugin | ✓ | [✓](https://github.com/gazebosim/gz-sim/blob/ign-gazebo3/examples/worlds/buoyancy.sdf)
 CartDemoPlugin | ✓ | ✕
 CessnaPlugin | ✓ |
 DiffDrivePlugin | ✓ | ✓
@@ -122,7 +122,7 @@ Buoyancy engine | ✕ | ✕  (available from Fortress)
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 ArrangePlugin | ✓ |
-ContainPlugin | ✓ | Partial port, [Issue](https://github.com/gazebosim/gz-gazebo/issues/162)
+ContainPlugin | ✓ | Partial port, [Issue](https://github.com/gazebosim/gz-sim/issues/162)
 HydraPlugin | ✓ |
 JoyPlugin | ✓ | ✓ Migrated as an Ignition Launch plugin
 MisalignmentPlugin | ✓ |
@@ -136,18 +136,18 @@ WindPlugin | ✓ | ✓
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 BreakableJointPlugin | ✓ |
-CameraPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/49)
+CameraPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
 ContactPlugin | ✓ | ✓
-DepthCameraPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/49)
+DepthCameraPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
 FiducialCameraPlugin | ✓ |
-ForceTorquePlugin | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/49)
-GpuRayPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/49)
-ImuSensorPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/49)
+ForceTorquePlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
+GpuRayPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
+ImuSensorPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
 LensFlareSensorPlugin | ✓ |
 PressurePlugin | ✓ |
-RayPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/49)
+RayPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
 RaySensorNoisePlugin | ✓ | ✕ Use SDF
-SonarPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/49)
+SonarPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
 
 ### Visual plugins
 
@@ -181,19 +181,19 @@ StopWorldPlugin | ✓ |
 Feature | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 Play / pause / step | ✓ | ✓
-Reset world / models | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/203)
+Reset world / models | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/203)
 World stats | ✓ | ✓
 Topic echo | ✓ | ✓
 Image viewer | ✓ | ✓
 Translate / rotate | ✓ | ✓
-Scale models | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/195)
+Scale models | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/195)
 Insert models from Fuel | Partial support | ✓
 Insert models from disk | ✓ | ✓
 Insert simple shapes | ✓ | ✓
 Insert simple lights | ✓ | ✕  (available from Edifice)
 Delete models | ✓ | ✓
 World tree | ✓ | ✓
-Scene properties | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/246)
+Scene properties | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/246)
 Log recording / playback | ✓ | ✓
 Plotting | ✓ | ✕  (available from Dome)
 Video recording | ✓ | ✓
@@ -211,10 +211,10 @@ Visualize lights | ✓ | ✕  (available from Edifice)
 Follow / move to | ✓ | ✓
 Copy / paste | ✓ | ✕ (available from Fortress)
 Building editor | ✓ |
-Model editor | ✓ | [Issues](https://github.com/gazebosim/gz-gazebo/issues?q=is%3Aissue+is%3Aopen+label%3Aeditor)
+Model editor | ✓ | [Issues](https://github.com/gazebosim/gz-sim/issues?q=is%3Aissue+is%3Aopen+label%3Aeditor)
 FPS view control | ✓ |
 Orthographic projection | ✓ | ✕ (available from Fortress)
-Undo / redo | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/104)
+Undo / redo | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/104)
 Save world | ✓ | ✓
 Save GUI configuration | ✓ | ✓
 Color scheme and themes | ✕ | ✓
@@ -279,8 +279,8 @@ Supported versions:
 Platform | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 Ubuntu | ✓ | ✓
-OSX | ✓ | Most of the stack works, outstanding issues: [command line](https://github.com/gazebosim/gz-gazebo/issues/25), [render window](https://github.com/gazebosim/gz-gazebo/issues/44)
-Windows | ✓ | The stack works up to ign-gazebo: [Issue](https://github.com/gazebosim/gz-gazebo/issues/168)
+OSX | ✓ | Most of the stack works, outstanding issues: [command line](https://github.com/gazebosim/gz-sim/issues/25), [render window](https://github.com/gazebosim/gz-sim/issues/44)
+Windows | ✓ | The stack works up to ign-gazebo: [Issue](https://github.com/gazebosim/gz-sim/issues/168)
 
 ## Others
 
@@ -297,7 +297,7 @@ Code introspection | ✓ | All simulation state is accessible from system plugin
 Distribute simulation across processes | ✕ | (coming up)
 Incrementally load levels | ✕ | ✓
 Online model database | [gazebo_models repository](https://github.com/osrf/gazebo_models/) | [Ignition Fuel](https://app.gazebosim.org/fuel/models)
-Saved simulation states | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/137)
+Saved simulation states | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/137)
 Sphere, cylinder and box primitives | ✓ | ✓
 Ellipsoid and capsule primitives | ✕ | ✕  (available from Edifice)
 Hydrodynamics | ✕  | ✕  (available from Edifice)

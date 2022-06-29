@@ -116,7 +116,7 @@ It accepts messages of type `ignition.msgs.Int32` on the `/keyboard/keypress` to
 
 Now launch `building_robot.sdf` then add the Key Publisher plugin and our robot should move forward as we press the Up arrow key &#8593;.
 
-There is a demo explaining how the [Triggered Publisher](https://github.com/gazebosim/gz-gazebo/blob/ign-gazebo2/tutorials/triggered_publisher.md) works.
+There is a demo explaining how the [Triggered Publisher](https://github.com/gazebosim/gz-sim/blob/ign-gazebo2/tutorials/triggered_publisher.md) works.
 
 ### Moving using arrow keys
 
