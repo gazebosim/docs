@@ -30,19 +30,19 @@ compatible non-EOL release and propagate the feature forward.
 
 ### Citadel
 
-1. [Quick start dialog.](https://github.com/ignitionrobotics/ign-gazebo/issues/1252)
-1. [Splash screen.](https://github.com/ignitionrobotics/ign-gui/issues/336)
-1. [Bash completion](https://github.com/ignitionrobotics/ign-tools/issues/1)
+1. [Quick start dialog.](https://github.com/gazebosim/gz-gazebo/issues/1252)
+1. [Splash screen.](https://github.com/gazebosim/gz-gui/issues/336)
+1. [Bash completion](https://github.com/gazebosim/gz-tools/issues/1)
 
 ### Fortress
 
-1. [Run server and client in the same process.](https://github.com/ignitionrobotics/ign-gazebo/pull/793)
-1. [Command line: use binaries instead of shared libraries](https://github.com/ignitionrobotics/ign-tools/issues/7)
-1. [Bounding box camera.](https://github.com/ignitionrobotics/ign-sensors/issues/135)
-1. [GUI model editor](https://github.com/ignitionrobotics/ign-gazebo/labels/editor)
-1. [Bazel build files.](https://github.com/ignitionrobotics/ign-bazel)
-1. [Waves and hydrodynamics for water surface vehicles.](https://github.com/ignitionrobotics/ign-gazebo/issues/1247)
-1. [Save more changed components to SDF.](https://github.com/ignitionrobotics/ign-gazebo/issues/1312)
+1. [Run server and client in the same process.](https://github.com/gazebosim/gz-gazebo/pull/793)
+1. [Command line: use binaries instead of shared libraries](https://github.com/gazebosim/gz-tools/issues/7)
+1. [Bounding box camera.](https://github.com/gazebosim/gz-sensors/issues/135)
+1. [GUI model editor](https://github.com/gazebosim/gz-gazebo/labels/editor)
+1. [Bazel build files.](https://github.com/gazebosim/gz-bazel)
+1. [Waves and hydrodynamics for water surface vehicles.](https://github.com/gazebosim/gz-gazebo/issues/1247)
+1. [Save more changed components to SDF.](https://github.com/gazebosim/gz-gazebo/issues/1312)
 1. [Improved Windows support.](https://github.com/search?q=org%3Aignitionrobotics+label%3AWindows&state=open&type=Issues)
 1. Custom skybox from SDF.
 1. Gz3D: support heightmaps, skybox and particles.
@@ -50,18 +50,18 @@ compatible non-EOL release and propagate the feature forward.
 ### Garden
 
 * Already available from source
-    1. [Point cloud visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/1156)
-    1. [Wide angle camera (Ogre 1).](https://github.com/ignitionrobotics/ign-sensors/issues/24)
-    1. [DEM heightmaps.](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
-    1. [Camera distortion.](https://github.com/ignitionrobotics/ign-sensors/issues/107)
-    1. [Wind effects configurable on a location basis.](https://github.com/ignitionrobotics/ign-gazebo/pull/1357)
+    1. [Point cloud visualization.](https://github.com/gazebosim/gz-gazebo/issues/1156)
+    1. [Wide angle camera (Ogre 1).](https://github.com/gazebosim/gz-sensors/issues/24)
+    1. [DEM heightmaps.](https://github.com/gazebosim/gz-gazebo/issues/235)
+    1. [Camera distortion.](https://github.com/gazebosim/gz-sensors/issues/107)
+    1. [Wind effects configurable on a location basis.](https://github.com/gazebosim/gz-gazebo/pull/1357)
 * In progress
-    1. [Force/torque visualization.](https://github.com/ignitionrobotics/ign-gazebo/issues/1155)
-    1. [Reset API.](https://github.com/ignitionrobotics/ign-gazebo/issues/1107)
-    1. [Parameters in Ignition Transport.](https://github.com/ignitionrobotics/ign-gazebo/pull/1280)
-    1. [Satisfying ASAN for Ignition Math.](https://github.com/ignitionrobotics/ign-math/issues/370)
+    1. [Force/torque visualization.](https://github.com/gazebosim/gz-gazebo/issues/1155)
+    1. [Reset API.](https://github.com/gazebosim/gz-gazebo/issues/1107)
+    1. [Parameters in Ignition Transport.](https://github.com/gazebosim/gz-gazebo/pull/1280)
+    1. [Satisfying ASAN for Ignition Math.](https://github.com/gazebosim/gz-math/issues/370)
     1. [Mimic joint type.](https://github.com/ignitionrobotics/sdf_tutorials/pull/62)
-    1. [Added mass in SDF.](https://github.com/ignitionrobotics/ign-gazebo/issues/1462)
+    1. [Added mass in SDF.](https://github.com/gazebosim/gz-gazebo/issues/1462)
     1. [SDF APIs to prevent console logging.](https://github.com/ignitionrobotics/sdformat/issues/820)
     1. [Renaming Ignition to Gazebo.](https://community.gazebosim.org/t/a-new-era-for-gazebo/1356)
     1. [glTF and GLB mesh support.](https://github.com/gazebosim/gz-common/issues/344)

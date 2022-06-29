@@ -136,7 +136,7 @@ The current upstream version of Ignition libraries can be found in the repositor
 The Ignition version numbers follows the [Semantic
 Versioning](https://semver.org/) scheme, so versions are composed of
 `MAJOR.MINOR.PATCH` numbers. The Ignition libraries also support the option of
-creating prereleases. Using [this ign-cmake command](https://github.com/ignitionrobotics/ign-cmake/blob/9698f484ae84c6c8ea6118a6d4950aef62eeaa23/examples/prerelease/CMakeLists.txt#L4)
+creating prereleases. Using [this ign-cmake command](https://github.com/gazebosim/gz-cmake/blob/9698f484ae84c6c8ea6118a6d4950aef62eeaa23/examples/prerelease/CMakeLists.txt#L4)
 it's trivial for libraries to declare a prerelease number:
 
 ```cmake

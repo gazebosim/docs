@@ -34,7 +34,7 @@ propose changes to this document in a pull request.
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the [Ignition
-Code of Conduct](https://github.com/ignitionrobotics/ign-gazebo/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this
+Code of Conduct](https://github.com/gazebosim/gz-gazebo/blob/main/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this
 code. Please report unacceptable behavior at [https://ignitionrobotics.org/support](https://ignitionrobotics.org/support).
 
 ## Project Design
@@ -45,39 +45,39 @@ The following is a list of the major Ignition repositories.
 A complete list can be found at
 [https://github.com/ignitionrobotics/](https://github.com/ignitionrobotics/).
 
-* [ign-cmake](https://github.com/ignitionrobotics/ign-cmake): CMake
+* [ign-cmake](https://github.com/gazebosim/gz-cmake): CMake
 modules used to configure and build Ignition libraries.
-* [ign-common](https://github.com/ignitionrobotics/ign-common): Set of
+* [ign-common](https://github.com/gazebosim/gz-common): Set of
 general purpose components and utilities, such as 3D mesh processing, console
 logging, and signal handling.
-* [ign-fuel-tools](https://github.com/ignitionrobotics/ign-fuel-tools): Interact
+* [ign-fuel-tools](https://github.com/gazebosim/gz-fuel-tools): Interact
 with Ignition Fuel servers.
-* [ign-gazebo](https://github.com/ignitionrobotics/ign-gazebo):
+* [ign-gazebo](https://github.com/gazebosim/gz-gazebo):
 A high-fidelity 3D rigid-body dynamic simulator.
-* [ign-gui](https://github.com/ignitionrobotics/ign-gui): QT-based
+* [ign-gui](https://github.com/gazebosim/gz-gui): QT-based
 library to configure and manage graphical applications.
-* [ign-launch](https://github.com/ignitionrobotics/ign-launch): Launch
+* [ign-launch](https://github.com/gazebosim/gz-launch): Launch
 executables and plugins.
-* [ign-math](https://github.com/ignitionrobotics/ign-math): A math
+* [ign-math](https://github.com/gazebosim/gz-math): A math
 library targeted toward robotic applications.
-* [ign-msgs](https://github.com/ignitionrobotics/ign-msgs): Protobuf
+* [ign-msgs](https://github.com/gazebosim/gz-msgs): Protobuf
 messages and utilities for simulation and robotics.
-* [ign-physics](https://github.com/ignitionrobotics/ign-physics):
+* [ign-physics](https://github.com/gazebosim/gz-physics):
 Plugin based library for physics simulation.
-* [ign-plugin](https://github.com/ignitionrobotics/ign-plugin): Library
+* [ign-plugin](https://github.com/gazebosim/gz-plugin): Library
 for registering, loading, and managing plugin libraries.
-* [ign-rendering](https://github.com/ignitionrobotics/ign-rendering):
+* [ign-rendering](https://github.com/gazebosim/gz-rendering):
 Library that supports rendering through different engines, such as
 [OGRE](https://www.ogre3d.org/) and [Optix](https://developer.nvidia.com/optix).
-* [ign-sensors](https://github.com/ignitionrobotics/ign-sensors): A set
+* [ign-sensors](https://github.com/gazebosim/gz-sensors): A set
 of models that generate realistic sensor data.
-* [ign-tools](https://github.com/ignitionrobotics/ign-tools): Provides
+* [ign-tools](https://github.com/gazebosim/gz-tools): Provides
 the `ign` command line interface that can be configured and used by multiple
 libraries.
-* [ign-transport](https://github.com/ignitionrobotics/ign-transport):
+* [ign-transport](https://github.com/gazebosim/gz-transport):
 High performance inter- and intra-process communication based on
 [ZeroMQ](http://zeromq.org/) and [Protobuf](https://developers.google.com/protocol-buffers/).
-* [ign-utils](https://github.com/ignitionrobotics/ign-utils): General purpose
+* [ign-utils](https://github.com/gazebosim/gz-utils): General purpose
 classes and functions with minimal dependencies.
 * [sdformat](https://github.com/osrf/sdformat): World description format.
 
@@ -294,21 +294,21 @@ Contributors should look at the ["Core development" board](https://github.com/or
 
 The following repositories from [Ignition](https://github.com/ignitionrobotics/) are tracked:
 
-* [ign-cmake](https://github.com/ignitionrobotics/ign-cmake)
-* [ign-common](https://github.com/ignitionrobotics/ign-common)
-* [ign-fuel-tools](https://github.com/ignitionrobotics/ign-fuel-tools)
-* [ign-gazebo](https://github.com/ignitionrobotics/ign-gazebo)
-* [ign-gui](https://github.com/ignitionrobotics/ign-gui)
-* [ign-launch](https://github.com/ignitionrobotics/ign-launch)
-* [ign-math](https://github.com/ignitionrobotics/ign-math)
-* [ign-msgs](https://github.com/ignitionrobotics/ign-msgs)
-* [ign-physics](https://github.com/ignitionrobotics/ign-physics)
-* [ign-plugin](https://github.com/ignitionrobotics/ign-plugin)
-* [ign-rendering](https://github.com/ignitionrobotics/ign-rendering)
-* [ign-sensors](https://github.com/ignitionrobotics/ign-sensors)
-* [ign-tools](https://github.com/ignitionrobotics/ign-tools)
-* [ign-transport](https://github.com/ignitionrobotics/ign-transport)
-* [ign-utils](https://github.com/ignitionrobotics/ign-utils)
+* [ign-cmake](https://github.com/gazebosim/gz-cmake)
+* [ign-common](https://github.com/gazebosim/gz-common)
+* [ign-fuel-tools](https://github.com/gazebosim/gz-fuel-tools)
+* [ign-gazebo](https://github.com/gazebosim/gz-gazebo)
+* [ign-gui](https://github.com/gazebosim/gz-gui)
+* [ign-launch](https://github.com/gazebosim/gz-launch)
+* [ign-math](https://github.com/gazebosim/gz-math)
+* [ign-msgs](https://github.com/gazebosim/gz-msgs)
+* [ign-physics](https://github.com/gazebosim/gz-physics)
+* [ign-plugin](https://github.com/gazebosim/gz-plugin)
+* [ign-rendering](https://github.com/gazebosim/gz-rendering)
+* [ign-sensors](https://github.com/gazebosim/gz-sensors)
+* [ign-tools](https://github.com/gazebosim/gz-tools)
+* [ign-transport](https://github.com/gazebosim/gz-transport)
+* [ign-utils](https://github.com/gazebosim/gz-utils)
 * [docs](https://github.com/ignitionrobotics/docs/)
 * [design](https://github.com/ignitionrobotics/design)
 * [ros_ign](https://github.com/ignitionrobotics/ros_ign)
@@ -613,34 +613,34 @@ a build folder:
 In general, we follow [Google's style guide](https://google.github.io/styleguide/cppguide.html) and rules set forth by `cppcheck`. However, we have added some extras listed below.
 
 1. **This pointer**
-> All class attributes and member functions must be accessed using the `this->` pointer. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L89).
+> All class attributes and member functions must be accessed using the `this->` pointer. Here is an [example](https://github.com/gazebosim/gz-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L89).
 
 1. **Underscore function parameters**
-> All function parameters must start with an underscore. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L173-L174).
+> All function parameters must start with an underscore. Here is an [example](https://github.com/gazebosim/gz-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L173-L174).
 
 1. **Do not cuddle braces**
-> All braces must be on their own line. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L245-L253).
+> All braces must be on their own line. Here is an [example](https://github.com/gazebosim/gz-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L245-L253).
 
 1. **Multi-line code blocks**
-> If a block of code spans multiple lines and is part of a flow control statement, such as an `if`, then it must be wrapped in braces. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L295-L299).
+> If a block of code spans multiple lines and is part of a flow control statement, such as an `if`, then it must be wrapped in braces. Here is an [example](https://github.com/gazebosim/gz-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L295-L299).
 
 1. **++ operator**
-> This occurs mostly in `for` loops. Prefix the `++` operator, which is [slightly more efficient than postfix in some cases](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/EntityComponentManager_TEST.cc#L108).
+> This occurs mostly in `for` loops. Prefix the `++` operator, which is [slightly more efficient than postfix in some cases](https://github.com/gazebosim/gz-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/EntityComponentManager_TEST.cc#L108).
 
 1. **PIMPL/Opaque pointer**
-> If you are writing a new class, it must use a private data pointer. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/EntityComponentManager.hh#L682), and you can read more [here](https://en.wikipedia.org/wiki/Opaque_pointer).
+> If you are writing a new class, it must use a private data pointer. Here is an [example](https://github.com/gazebosim/gz-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/EntityComponentManager.hh#L682), and you can read more [here](https://en.wikipedia.org/wiki/Opaque_pointer).
 
 1. **const functions**
-> Any class function that does not change a member variable should be marked as `const`. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/EntityComponentManager.hh#L453).
+> Any class function that does not change a member variable should be marked as `const`. Here is an [example](https://github.com/gazebosim/gz-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/EntityComponentManager.hh#L453).
 
 1. **const parameters**
-> All parameters that are not modified by a function should be marked as `const`, except for "Plain Old Data" (`int`, `bool`, etc). This applies to parameters that are passed by reference, and pointer. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/Model.hh#L111-L112).
+> All parameters that are not modified by a function should be marked as `const`, except for "Plain Old Data" (`int`, `bool`, etc). This applies to parameters that are passed by reference, and pointer. Here is an [example](https://github.com/gazebosim/gz-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/Model.hh#L111-L112).
 
 1. **Pointer and reference variables**
-> Place the `*` and `&` next to the variable name, not next to the type. For example: `int &variable` is good, but `int& variable` is not. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/Model.hh#L96).
+> Place the `*` and `&` next to the variable name, not next to the type. For example: `int &variable` is good, but `int& variable` is not. Here is an [example](https://github.com/gazebosim/gz-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/Model.hh#L96).
 
 1. **Camel case**
-> In general, everything should use camel case. Exceptions include SDF element names, and protobuf variable names. Here is an [example](https://github.com/ignitionrobotics/ign-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/SdfEntityCreator.hh#L64-L65).
+> In general, everything should use camel case. Exceptions include SDF element names, and protobuf variable names. Here is an [example](https://github.com/gazebosim/gz-gazebo/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/SdfEntityCreator.hh#L64-L65).
 
 1. **Member function names**
 > Member functions, including static member functions, must start with a capital letter, and capitalize every word.

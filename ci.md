@@ -221,7 +221,7 @@ There are 2 things you'll want to configure before triggering a build:
 custom configuration. For example, see
 [this change](https://github.com/ignition-tooling/release-tools/commit/28fcb9d8ad66ad0a29ad4d2675c4c451d41fba19)
 for building a custom `ign-rendering` branch on
-[this ign-sensors pull request](https://github.com/ignitionrobotics/ign-rendering/pull/138#issuecomment-692994562).
+[this ign-sensors pull request](https://github.com/gazebosim/gz-rendering/pull/138#issuecomment-692994562).
 
 If you want to share the status of your custom build on a pull request,
 click on `Embeddable Build Status` and copy the markdown code into the pull

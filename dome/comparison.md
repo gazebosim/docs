@@ -18,20 +18,20 @@ Bounding Box camera | ✕ | ✕  (available from Fortress)
 Camera | ✓ | ✓
 Contact sensor | ✓ | ✓
 Depth camera | ✓ | ✓
-Force-torque | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/25)
-GPS | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/23)
+Force-torque | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/25)
+GPS | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/23)
 GPU Ray | ✓ | ✓ Renamed to GPU Lidar
 IMU | ✓ | ✓
 Logical camera | ✓ | ✓
 Magnetometer | ✓ | ✓
 Multi-camera | ✓ | ✕  Use individual cameras with same update rate
-Ray | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/26)
-RFID sensor and tag | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/27)
+Ray | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/26)
+RFID sensor and tag | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/27)
 Segmentation camera | ✕ | ✕  (available from Fortress)
-Sonar | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/19)
+Sonar | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/19)
 Thermal camera | ✕  | ✓
-Wide-angle camera | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/24)
-Wireless | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/28)
+Wide-angle camera | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/24)
+Wireless | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/28)
 
 Sensor features | Gazebo-classic | Ignition Gazebo
 -- | -- | --
@@ -39,7 +39,7 @@ Custom update rate | ✓ | ✓
 Gaussian noise | ✓ | ✓
 Custom sensors | ✓ |  ✕  (available from Fortress)
 Laser retroreflection | ✓ | ✓
-Camera distortion | ✓ | [Issue](https://github.com/ignitionrobotics/ign-sensors/issues/107)
+Camera distortion | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/107)
 Performance metrics | ✓ |  ✓
 
 ## SDF Features
@@ -49,18 +49,18 @@ Feature | Gazebo-classic | Ignition Gazebo
 SDF frame semantics |✓| ✓
 SDF parametrization | ✕ | [✓](http://sdformat.org/tutorials?tut=param_passing_proposal)
 Load models from local files | ✓ | [✓](https://ignitionrobotics.org/api/gazebo/4.0/resources.html)
-Closed kinematic chains | ✓  | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/25)
+Closed kinematic chains | ✓  | [Issue](https://github.com/gazebosim/gz-physics/issues/25)
 Nested models | ✓ | Partial support, fully available from Edifice
-Populations | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/240)
+Populations | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/240)
 Actors | ✓ | ✓
 Markers | ✓ | ✓
 Heightmaps | ✓ | ✕ (Ogre 1 from Edifice, Ogre 2 from Fortress)
-DEM (Digital Elevation Models) | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/235)
-Polylines | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/186)
+DEM (Digital Elevation Models) | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/235)
+Polylines | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/186)
 World plugins | ✓ | ✓ Now called System plugin
 Model plugins | ✓ | ✓ Now called System plugin
 Sensor plugins | ✓ | ✓ Now called System plugin
-Visual plugins | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/265)
+Visual plugins | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/265)
 GUI plugins | ✓ | ✓ Ignition GUI plugins and Gazebo GUI systems
 System plugins | ✓ | ✓ Through Ignition Launch
 
@@ -70,12 +70,12 @@ System plugins | ✓ | ✓ Through Ignition Launch
 
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
-ActorPlugin | ✓ | ✕ See [FollowActor](https://github.com/ignitionrobotics/ign-gazebo/blob/main/src/systems/follow_actor/FollowActor.hh) for a demo of Actor APIs
+ActorPlugin | ✓ | ✕ See [FollowActor](https://github.com/gazebosim/gz-gazebo/blob/main/src/systems/follow_actor/FollowActor.hh) for a demo of Actor APIs
 ActuatorPlugin | ✓ |
 ArduCopterPlugin | ✓ |
 AttachLightPlugin | ✓ | ✕ Does not apply, use SDF
 Breadcrumbs | ✕ | ✓
-BuoyancyPlugin | ✓ | [✓](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo4/examples/worlds/buoyancy.sdf)
+BuoyancyPlugin | ✓ | [✓](https://github.com/gazebosim/gz-gazebo/blob/ign-gazebo4/examples/worlds/buoyancy.sdf)
 CartDemoPlugin | ✓ | ✕
 CessnaPlugin | ✓ |
 DiffDrivePlugin | ✓ | ✓
@@ -86,7 +86,7 @@ GimbalSmall2dPlugin | ✓ |
 GravityCompensationPlugin | ✓ |
 HarnessPlugin | ✓ |
 HydraDemoPlugin | ✓ |
-InitialVelocityPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/50)
+InitialVelocityPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/50)
 JointControlPlugin | ✓ (force / pos / vel, from SDF) | ✓ (vel, from msg)
 JointStatePublisher | ✕ | ✓
 JointTrajectoryPlugin | ✓ |
@@ -96,7 +96,7 @@ LedPlugin | ✓ |
 LiftDragPlugin | ✓ | ✓
 LinearBatteryConsumerPlugin | ✓ | ✓
 LinearBatteryPlugin | ✓ | ✓
-LinkPlot3DPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/231)
+LinkPlot3DPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/231)
 MudPlugin | ✓ |
 MulticopterMotorModel | ✕ | ✓
 PlaneDemoPlugin | ✓ |
@@ -120,7 +120,7 @@ Buoyancy engine | ✓ | ✕  (available from Fortress)
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 ArrangePlugin | ✓ |
-ContainPlugin | ✓ | Partial port, [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/162)
+ContainPlugin | ✓ | Partial port, [Issue](https://github.com/gazebosim/gz-gazebo/issues/162)
 HydraPlugin | ✓ |
 JoyPlugin | ✓ | ✓ Migrated as an Ignition Launch plugin
 MisalignmentPlugin | ✓ |
@@ -134,18 +134,18 @@ WindPlugin | ✓ | ✓
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 BreakableJointPlugin | ✓ |
-CameraPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
+CameraPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/49)
 ContactPlugin | ✓ | ✓
-DepthCameraPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
+DepthCameraPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/49)
 FiducialCameraPlugin | ✓ |
-ForceTorquePlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
-GpuRayPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
-ImuSensorPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
+ForceTorquePlugin | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/49)
+GpuRayPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/49)
+ImuSensorPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/49)
 LensFlareSensorPlugin | ✓ |
 PressurePlugin | ✓ |
-RayPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
+RayPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/49)
 RaySensorNoisePlugin | ✓ | ✕ Use SDF
-SonarPlugin | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/49)
+SonarPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/49)
 
 ### Visual plugins
 
@@ -169,7 +169,7 @@ TimerGUIPlugin | ✓ |
 
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
-ModelPropShop | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/100)
+ModelPropShop | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/100)
 RestUiPlugin | ✓ |
 RestWebPlugin | ✓ |
 StopWorldPlugin | ✓ |
@@ -179,19 +179,19 @@ StopWorldPlugin | ✓ |
 Feature | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 Play / pause / step | ✓ | ✓
-Reset world / models | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/203)
+Reset world / models | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/203)
 World stats | ✓ | ✓
 Topic echo | ✓ | ✓
 Image viewer | ✓ | ✓
 Translate / rotate | ✓ | ✓
-Scale models | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/195)
+Scale models | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/195)
 Insert models from Fuel | Partial support | ✓
 Insert models from disk | ✓ | ✓
 Insert simple shapes | ✓ | ✓
 Insert simple lights | ✓ | ✕  (available from Edifice)
 Delete models | ✓ | ✓
 World tree | ✓ | ✓
-Scene properties | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/246)
+Scene properties | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/246)
 Log recording / playback | ✓ | ✓
 Plotting | ✓ | ✓
 Video recording | ✓ | ✓
@@ -207,12 +207,12 @@ Visualize CoM | ✓ |  ✕ (available from Fortress)
 Visualize contacts | ✓ | ✓
 Visualize lights | ✓ | ✕  (available from Edifice)
 Follow / move to | ✓ | ✓
-Copy / paste | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/102)
+Copy / paste | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/102)
 Building editor | ✓ |
-Model editor | ✓ | [Issues](https://github.com/ignitionrobotics/ign-gazebo/issues?q=is%3Aissue+is%3Aopen+label%3Aeditor)
+Model editor | ✓ | [Issues](https://github.com/gazebosim/gz-gazebo/issues?q=is%3Aissue+is%3Aopen+label%3Aeditor)
 FPS view control | ✓ |
 Orthographic projection | ✓ | ✕ (available from Fortress)
-Undo / redo | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/104)
+Undo / redo | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/104)
 Save world | ✓ | ✓
 Save GUI configuration | ✓ | ✓
 Color scheme and themes | ✕ | ✓
@@ -230,10 +230,10 @@ in Gazebo.
 
 Feature | Gazebo-classic | Ignition Gazebo
 -- | -- | --
-ODE engine | ✓ | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/63)
+ODE engine | ✓ | [Issue](https://github.com/gazebosim/gz-physics/issues/63)
 Bullet engine | ✓ | ✓
 DART engine | ✓ | ✓ Plugin shipped with ign-physics
-Simbody engine | ✓ | [Issue](https://github.com/ignitionrobotics/ign-physics/issues/63)
+Simbody engine | ✓ | [Issue](https://github.com/gazebosim/gz-physics/issues/63)
 TPE engine | ✕ | ✓
 Custom engine plugins | ✕ | ✓
 Collide bitmasks | ✓ | ✓
@@ -277,8 +277,8 @@ Supported versions:
 Platform | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 Ubuntu | ✓ | ✓
-OSX | ✓ | Most of the stack works, outstanding issues: [command line](https://github.com/ignitionrobotics/ign-gazebo/issues/25), [render window](https://github.com/ignitionrobotics/ign-gazebo/issues/44)
-Windows | ✓ | The stack works up to ign-gazebo: [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/168)
+OSX | ✓ | Most of the stack works, outstanding issues: [command line](https://github.com/gazebosim/gz-gazebo/issues/25), [render window](https://github.com/gazebosim/gz-gazebo/issues/44)
+Windows | ✓ | The stack works up to ign-gazebo: [Issue](https://github.com/gazebosim/gz-gazebo/issues/168)
 
 ## Others
 
@@ -294,7 +294,7 @@ Code introspection | ✓ | All simulation state is accessible from system plugin
 Distribute simulation across processes | ✕ | (coming up)
 Incrementally load levels | ✕ | ✓
 Online model database | [gazebo_models repository](https://github.com/osrf/gazebo_models/) | [Ignition Fuel](https://app.ignitionrobotics.org/fuel/models)
-Saved simulation states | ✓ | [Issue](https://github.com/ignitionrobotics/ign-gazebo/issues/137)
+Saved simulation states | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/137)
 Sphere, cylinder and box primitives | ✓ | ✓
 Ellipsoid and capsule primitives | ✕ | ✕  (available from Edifice)
 Hydrodynamics | ✕  | ✕  (available from Edifice)
