@@ -1,6 +1,5 @@
 # Troubleshooting
 
-
 ## Ignition libraries are not found
 If you see this error message:
 

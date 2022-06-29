@@ -57,6 +57,15 @@ export PATH=/usr/local/Cellar/ruby/2.6.5/bin:$PATH
 
 ## Ubuntu
 
+### Out of memory issues
+
+There can be out of memory issue during the compilation of Gazebo, especially during
+compilation of gz-physics. To prevent out of memory issues you can restrict the number of jobs:
+
+```bash
+MAKEFLAGS="-j<Number of jobs> " colcon build --executor sequential
+```
+
 ### Unable to create the rendering window
 
 If you're getting errors like "Unable to create the rendering window", it could
