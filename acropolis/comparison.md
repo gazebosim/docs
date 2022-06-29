@@ -5,7 +5,7 @@ Please refer to the latest supported version.**
 # Feature comparison
 
 A list of features present in [Gazebo-classic](https://github.com/osrf/gazebo/) and
-the status of their migration to [Ignition](https://ignitionrobotics.org/).
+the status of their migration to [Ignition](https://gazebosim.org/).
 
 ## Sensors
 

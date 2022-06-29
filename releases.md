@@ -14,13 +14,13 @@ An Ignition release follows the form "Ignition Codename", for example Ignition A
 
 | Name                                                     | Date      | EOL date  | Notes |
 |----------------------------------------------------------|-----------|-----------|-------|
-| [Acropolis](https://ignitionrobotics.org/docs/acropolis) | Feb, 2019 | Sep, 2019 | EOL   |
-| [Blueprint](https://ignitionrobotics.org/docs/blueprint) | May, 2019 | Dec, 2020 | EOL   |
-| [Citadel](https://ignitionrobotics.org/docs/citadel)     | Dec, 2019 | Dec, 2024 | LTS   |
-| [Dome](https://ignitionrobotics.org/docs/dome)           | Sep, 2020 | Dec, 2021 | EOL   |
-| [Edifice](https://ignitionrobotics.org/docs/edifice)     | Mar, 2021 | Mar, 2022 | EOL   |
-| [Fortress](https://ignitionrobotics.org/docs/fortress)   | Sep, 2021 | Sep, 2026 | LTS   |
-| [Garden](https://ignitionrobotics.org/docs/garden)       | Sep, 2022 | Sep, 2024 |       |
+| [Acropolis](https://gazebosim.org/docs/acropolis) | Feb, 2019 | Sep, 2019 | EOL   |
+| [Blueprint](https://gazebosim.org/docs/blueprint) | May, 2019 | Dec, 2020 | EOL   |
+| [Citadel](https://gazebosim.org/docs/citadel)     | Dec, 2019 | Dec, 2024 | LTS   |
+| [Dome](https://gazebosim.org/docs/dome)           | Sep, 2020 | Dec, 2021 | EOL   |
+| [Edifice](https://gazebosim.org/docs/edifice)     | Mar, 2021 | Mar, 2022 | EOL   |
+| [Fortress](https://gazebosim.org/docs/fortress)   | Sep, 2021 | Sep, 2026 | LTS   |
+| [Garden](https://gazebosim.org/docs/garden)       | Sep, 2022 | Sep, 2024 |       |
 | Ignition-H                                               | Sep, 2023 | Sep, 2028 | LTS   |
 | Ignition-I                                               | Sep, 2024 | Sep, 2026 |       |
 
@@ -66,7 +66,7 @@ For example, "Ubuntu Focal on amd64".
 Each release is targeted at a specific set of platforms. A support level applies
 to an entire Ignition release, including all library versions within it. The
 supported platforms for each release are listed on their home pages (i.e.
-[Fortress](https://ignitionrobotics.org/docs/fortress)).
+[Fortress](https://gazebosim.org/docs/fortress)).
 
 In general, there are three categories of support for a platform:
 

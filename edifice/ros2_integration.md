@@ -13,7 +13,7 @@ from ROS and apply it to Ignition and vice versa.
 For this tutorial to work correctly make sure you have the following installed:
 
 * [ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/)
-* [Ignition Edifice](https://ignitionrobotics.org/docs/edifice)
+* [Ignition Edifice](https://gazebosim.org/docs/edifice)
 * [ros_ign_bridge](https://github.com/ignitionrobotics/ros_ign/tree/ros2#from-source)
 
 ## Bidirectional communication

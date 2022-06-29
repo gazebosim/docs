@@ -2,7 +2,7 @@
 
 A list of features present in [Gazebo-classic](https://github.com/osrf/gazebo/)
 version 11 and the status of their migration to
-[Ignition Edifice](https://ignitionrobotics.org/).
+[Ignition Edifice](https://gazebosim.org/).
 
 All the issues below are labeled with
 [close the gap](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22close+the+gap%22&type=Issues)
@@ -49,7 +49,7 @@ Feature | Gazebo-classic | Ignition Gazebo
 -- | -- | --
 SDF frame semantics |✓| ✓
 SDF parametrization | ✕ | [✓](http://sdformat.org/tutorials?tut=param_passing_proposal)
-Load models from local files | ✓ | [✓](https://ignitionrobotics.org/api/gazebo/5.3/resources.html)
+Load models from local files | ✓ | [✓](https://gazebosim.org/api/gazebo/5.3/resources.html)
 Closed kinematic chains | ✓  | [Issue](https://github.com/gazebosim/gz-physics/issues/25)
 Nested models | ✓ | ✓
 Populations | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/240)
@@ -170,7 +170,7 @@ TimerGUIPlugin | ✓ |
 
 Plugin | Gazebo-classic | Ignition Gazebo
 -- | -- | --
-ModelPropShop | ✓ | [✓](https://ignitionrobotics.org/api/gazebo/5.4/model_photo_shoot.html)
+ModelPropShop | ✓ | [✓](https://gazebosim.org/api/gazebo/5.4/model_photo_shoot.html)
 RestUiPlugin | ✓ |
 RestWebPlugin | ✓ |
 StopWorldPlugin | ✓ |
@@ -196,7 +196,7 @@ Scene properties | ✓ | [Issue](https://github.com/gazebosim/gz-gazebo/issues/2
 Log recording / playback | ✓ | ✓
 Plotting | ✓ | ✓
 Video recording | ✓ | ✓
-Screenshot | ✓ | [✓](https://ignitionrobotics.org/api/gui/3.5/screenshot.html)
+Screenshot | ✓ | [✓](https://gazebosim.org/api/gui/3.5/screenshot.html)
 View angles | ✓ | ✓
 Apply force / torque | ✓ |
 Visualize as transparent | ✓ | ✕ (available from Fortress)
@@ -252,7 +252,7 @@ Feature | Gazebo-classic | Ignition Gazebo
 Ogre 1.x engine | ✓ | ✓
 Ogre 2.x engine | ✕ | ✓
 Optix engine | ✕ | ✓ Partial support
-Custom engine plugins | ✕ | [✓](https://ignitionrobotics.org/api/rendering/5.0/renderingplugin.html)
+Custom engine plugins | ✕ | [✓](https://gazebosim.org/api/rendering/5.0/renderingplugin.html)
 Sky | ✓ | ✓
 Fog | ✓ |
 Material scripts | ✓ (Ogre 1.x scripts) | Does not apply
@@ -300,5 +300,5 @@ Sphere, cylinder and box primitives | ✓ | ✓
 Ellipsoid and capsule primitives | ✕ | ✓
 Hydrodynamics | ✕  | ✓
 Ocean currents | ✕  | ✓
-Test fixture | ✓ | [✓](https://ignitionrobotics.org/api/gazebo/5.3/test_fixture.html)
+Test fixture | ✓ | [✓](https://gazebosim.org/api/gazebo/5.3/test_fixture.html)
 Spherical coordinates | ✓ | ✕ (available from Fortress)
