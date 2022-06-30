@@ -5,7 +5,7 @@ Please refer to the latest supported version.**
 # Feature comparison
 
 A list of features present in [Gazebo-classic](https://github.com/osrf/gazebo/) and
-the status of their migration to [Ignition](https://gazebosim.org/).
+the status of their migration to [Gazebo](https://gazebosim.org/).
 
 ## Sensors
 
@@ -139,7 +139,7 @@ Position, resize and configure widgets | ✕ | ✓
 
 ## Physics
 
-In Ignition Physics, physics engines are integrated as plugins, so any engine
+In Gazebo Physics, physics engines are integrated as plugins, so any engine
 can be integrated without changing the core source code, as it was the case
 in Gazebo.
 
@@ -147,13 +147,13 @@ Feature | Gazebo-classic | Gazebo Sim
 -- | -- | --
 ODE engine | ✓ |
 Bullet engine | ✓ |
-DART engine | ✓ | ✓ Plugin shipped with ign-physics
+DART engine | ✓ | ✓ Plugin shipped with gz-physics
 Simbody engine | ✓ |
 Custom engine plugins | ✕ | ✓
 
 ## Rendering
 
-In Ignition Rendering, render engines are integrated as plugins, so any engine
+In Gazebo Rendering, render engines are integrated as plugins, so any engine
 can be integrated without changing the core source code.
 
 Feature | Gazebo-classic | Gazebo Sim
@@ -167,11 +167,11 @@ Fog | ✓ |
 
 ## ROS integration
 
-ROS integration with Ignition will be done primarily via a
+ROS integration with Gazebo will be done primarily via a
 transport bridge instead of plugins, contained in the
-[ros_ign](https://github.com/osrf/ros1_ign) package.
+[ros_gz](https://github.com/osrf/ros1_ign) package.
 
-* **ROS 1**: See full message list at [ros_ign](https://github.com/osrf/ros_ign)
+* **ROS 1**: See full message list at [ros_gz](https://github.com/osrf/ros_ign)
 * **ROS 2**: Available from Blueprint
 
 ## Others
@@ -195,10 +195,10 @@ World plugins | ✓ | ✓ Now called System plugin
 Model plugins | ✓ | ✓ Now called System plugin
 Sensor plugins | ✓ |
 Visual plugins | ✓ |
-GUI plugins | ✓ | ✓ Ignition GUI plugins
+GUI plugins | ✓ | ✓ Gazebo GUI plugins
 System plugins | ✓ |
 Distribute simulation across processes | ✕ | (coming up)
 Incrementally load levels | ✕ | ✓
-Online model database | [gazebo_models repository](https://github.com/osrf/gazebo_models/) | [Ignition Fuel](https://app.gazebosim.org/fuel/models)
+Online model database | [gazebo_models repository](https://github.com/osrf/gazebo_models/) | [Gazebo Fuel](https://app.gazebosim.org/fuel/models)
 SDF frame semantics | | 
 Saved simulation states | ✓ |
