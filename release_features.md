@@ -132,7 +132,7 @@ collection assures that all libraries all compatible and can be used together.
 1. [Tracked vehicles](https://github.com/gazebosim/gz-sim/pull/869)
 1. [Python interface for Gazebo Math.](https://github.com/gazebosim/gz-math/issues/210)
 1. [Integration with ros2_control.](https://github.com/gazebosim/gz_ros2_control/)
-1. [ign_ros2_control support for various models](https://github.com/gazbosim/docs/issues/222)
+1. [gz_ros2_control support for various models](https://github.com/gazbosim/docs/issues/222)
 1. [Polyline extruded 2D geometries](https://github.com/gazebosim/docs/issues/186)
 1. New graphical interfaces:
     * Widget listing all transport topics.
