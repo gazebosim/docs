@@ -546,7 +546,7 @@ You can find more details [here](https://github.com/colcon/colcon-sanitizer-repo
 #### Compiling the code and running the tests
 
 Create a Gazebo workspace for ASAN/TSAN related tasks. Refer to the [offical documentation to get
-all the Gazebo Robotics sources](https://gazebosim.org/docs/latest/install_ubuntu_src#getting-the-sources).
+all the Gazebo sources](https://gazebosim.org/docs/latest/install_ubuntu_src#getting-the-sources).
 
 First, compile all packages:
 
