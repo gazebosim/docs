@@ -170,15 +170,9 @@ To build a single package:
 colcon build --packages-select PACKAGE_NAME
 ```
 
-To restrict the number of jobs to prevent out of memory issues:
-
-```bash
-MAKEFLAGS="-j<Number of jobs> " colcon build --executor sequential
-```
-
 Visit [colcon documentation](https://colcon.readthedocs.io/en/released/#) to view more `colcon` build and test options.
 
-If there are no errors, all the binaries should be ready to use.
+If there are no errors, all the binaries should be ready to use. You can check the [Troubleshooting] section for errors.
 
 ## Using the workspace
 
@@ -221,7 +215,7 @@ the results you want:
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/fortress/troubleshooting#ubuntu)
+See [Troubleshooting](/docs/garden/troubleshooting#ubuntu)
 
 ## QML Debugging
 
