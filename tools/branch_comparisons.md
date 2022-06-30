@@ -2,8 +2,8 @@
 
 These links take to comparisons between branches.
 
-If a cell in the table is `-`, this means that the two Ignition releases use
-the same version of this Ignition library. So, for example, `ign-cmake` has a
+If a cell in the table is `-`, this means that the two Gazebo releases use
+the same version of this Gazebo library. So, for example, `ign-cmake` has a
 `-` for C ➡️  E because Citadel and Edifice use `ign-cmake2`.
 
 When the comparison link says "There isn’t anything to compare," this means

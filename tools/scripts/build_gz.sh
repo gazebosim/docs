@@ -1,11 +1,11 @@
 #!/bin/bash
 # Command line parameters:
-# 1 - GitHub organization name. For example ignitionrobotics or osrf.
-# 2 - the name of the ignition repository. For example ign-math.
+# 1 - GitHub organization name. For example gazebosim or osrf.
+# 2 - the name of the Gazebo repository. For example gz-math.
 # 3 - the name of the branch. For example ign-math6
 # 4 - 'y' or 'n' without the quotes that indicate whether or not to upload docs
 # 5 - Release date in the ISO 8601 format. See the command `date -Iseconds`.
-# 6 - Password to https://api.ignitionrobotics.org/1.0/versions.
+# 6 - Password to https://api.gazebosim.org/1.0/versions.
 
 set -o verbose
 
@@ -43,7 +43,7 @@ if [[ ! -z "$4" && "$4" != "n" ]]; then
   libName="${libName//-/_}"
 
   echo -e "\e[46m\e[30mAdding version [$version] for library [$libName], release date [$5]...\e[0m\e[39m"
-  curl -k -X POST -d '{"libName":"'"$libName"'", "version":"'"$version"'", "releaseDate":"'"$5"'","password":"'"$6"'"}' https://api.ignitionrobotics.org/1.0/versions
+  curl -k -X POST -d '{"libName":"'"$libName"'", "version":"'"$version"'", "releaseDate":"'"$5"'","password":"'"$6"'"}' https://api.gazebosim.org/1.0/versions
   echo -e "\e[46m\e[30mAdded version [$version] for library [$libName], release date [$5]\e[0m\e[39m"
 fi
 echo ::endgroup::

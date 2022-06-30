@@ -9,7 +9,7 @@ the status of their migration to [Ignition](https://gazebosim.org/).
 
 ## Sensors
 
-Sensor | Gazebo-classic | Ignition Gazebo
+Sensor | Gazebo-classic | Gazebo Sim
 -- | -- | --
 Altimeter | ✓ | ✓
 Camera | ✓ | ✓
@@ -31,7 +31,7 @@ Wireless receiver | ✓ |
 Wireless transceiver | ✓ |
 Wireless transmitter | ✓ |
 
-Sensor features | Gazebo-classic | Ignition Gazebo
+Sensor features | Gazebo-classic | Gazebo Sim
 -- | -- | --
 Custom update rate | ✓ | Some sensors do, others need upgrading
 Gaussian noise | ✓ | Some sensors do, others need upgrading
@@ -39,7 +39,7 @@ Custom sensors | ✓ | ✓
 
 ## Plugins
 
-Plugin | Gazebo-classic | Ignition Gazebo
+Plugin | Gazebo-classic | Gazebo Sim
 -- | -- | --
 ActorPlugin | ✓ |
 ActuatorPlugin | ✓ |
@@ -107,7 +107,7 @@ GravityCompensationPlugin | ✓ |
 
 ## GUI
 
-Feature | Gazebo-classic | Ignition Gazebo
+Feature | Gazebo-classic | Gazebo Sim
 -- | -- | --
 Play / pause / step | ✓ | ✓
 Reset world / models | ✓ |
@@ -143,7 +143,7 @@ In Ignition Physics, physics engines are integrated as plugins, so any engine
 can be integrated without changing the core source code, as it was the case
 in Gazebo.
 
-Feature | Gazebo-classic | Ignition Gazebo
+Feature | Gazebo-classic | Gazebo Sim
 -- | -- | --
 ODE engine | ✓ |
 Bullet engine | ✓ |
@@ -156,7 +156,7 @@ Custom engine plugins | ✕ | ✓
 In Ignition Rendering, render engines are integrated as plugins, so any engine
 can be integrated without changing the core source code.
 
-Feature | Gazebo-classic | Ignition Gazebo
+Feature | Gazebo-classic | Gazebo Sim
 -- | -- | --
 Ogre 1.x engine | ✓ | ✓
 Ogre 2.x engine | ✕ | ✓
@@ -176,7 +176,7 @@ transport bridge instead of plugins, contained in the
 
 ## Others
 
-Feature | Gazebo-classic | Ignition Gazebo
+Feature | Gazebo-classic | Gazebo Sim
 -- | -- | --
 Nested models | ✓ | Partial support
 Log / playback | ✓ | Partial support
