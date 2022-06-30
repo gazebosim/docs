@@ -40,7 +40,7 @@ How to read the columns:
 ||6|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||7|stable|||||F|2021-09-30|2026-09 with Fortress|
 ||8|not-released|||||G|2022-09|TBD|
-|gz-gazebo|1|EOL ❌||B|||A|2019-03-02|2019-09 with Acropolis|
+|gz-sim|1|EOL ❌||B|||A|2019-03-02|2019-09 with Acropolis|
 ||2|EOL ❌||B|||B|2019-05-21|2020-12 with Blueprint|
 ||3|stable||B F|F||C|2019-12-10|2024-12 with Citadel|
 ||4|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
