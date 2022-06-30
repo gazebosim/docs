@@ -30,7 +30,7 @@ collection assures that all libraries all compatible and can be used together.
 |   gz-cmake        |       2.x     |       [Changelog](https://github.com/gazebosim/gz-cmake/blob/ign-cmake2/Changelog.md)     |
 |   gz-common       |       3.x     |       [Changelog](https://github.com/gazebosim/gz-common/blob/ign-common3/Changelog.md)    |
 |   gz-fuel-tools   |       3.x     |       [Changelog](https://github.com/gazebosim/gz-fuel-tools/blob/ign-fuel-tools3/Changelog.md)    |
-|   gz-gazebo       |       1.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/ign-gazebo1/Changelog.md)     |
+|   gz-sim       |       1.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/ign-gazebo1/Changelog.md)     |
 |   gz-gui          |       1.x     |       None       |
 |   gz-launch       |       0.x     |       None       |
 |   gz-math         |       6.x     |       [Changelog](https://github.com/gazebosim/gz-math/blob/ign-math6/Changelog.md)     |
@@ -91,7 +91,7 @@ collection assures that all libraries all compatible and can be used together.
 |   gz-cmake        |       2.x     |       [Changelog](https://github.com/gazebosim/gz-cmake/blob/ign-cmake2/Changelog.md)     |
 |   gz-common       |       3.x     |       [Changelog](https://github.com/gazebosim/gz-common/blob/ign-common3/Changelog.md)    |
 |   gz-fuel-tools   |       3.x     |       [Changelog](https://github.com/gazebosim/gz-fuel-tools/blob/ign-fuel-tools3/Changelog.md)    |
-|   gz-gazebo       |       2.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/ign-gazebo2/Changelog.md)     |
+|   gz-sim       |       2.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/ign-gazebo2/Changelog.md)     |
 |   gz-gui          |       2.x     |       [Changelog](https://github.com/gazebosim/gz-gui/blob/ign-gui2/Changelog.md)       |
 |   gz-launch       |       1.x     |       [Changelog](https://github.com/gazebosim/gz-launch/blob/ign-launch1/Changelog.md)
 |   gz-math         |       6.x     |       [Changelog](https://github.com/gazebosim/gz-math/blob/ign-math6/Changelog.md)
@@ -153,7 +153,7 @@ collection assures that all libraries all compatible and can be used together.
 |   gz-cmake        |       2.x     |       [Changelog](https://github.com/gazebosim/gz-cmake/blob/ign-cmake2/Changelog.md)     |
 |   gz-common       |       3.x     |       [Changelog](https://github.com/gazebosim/gz-common/blob/ign-common3/Changelog.md)    |
 |   gz-fuel-tools   |       4.x     |       [Changelog](https://github.com/gazebosim/gz-fuel-tools/blob/ign-fuel-tools4/Changelog.md)    |
-|   gz-gazebo       |       3.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/ign-gazebo3/Changelog.md)     |
+|   gz-sim       |       3.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/ign-gazebo3/Changelog.md)     |
 |   gz-gui          |       3.x     |       [Changelog](https://github.com/gazebosim/gz-gui/blob/ign-gui3/Changelog.md)       |
 |   gz-launch       |       2.x     |       [Changelog](https://github.com/gazebosim/gz-launch/blob/ign-launch2/Changelog.md)
 |   gz-math         |       6.x     |       [Changelog](https://github.com/gazebosim/gz-math/blob/ign-math6/Changelog.md)
@@ -192,7 +192,7 @@ collection assures that all libraries all compatible and can be used together.
 |   gz-cmake        |       2.x     |       [Changelog](https://github.com/gazebosim/gz-cmake/blob/ign-cmake2/Changelog.md)     |
 |   gz-common       |       3.x     |       [Changelog](https://github.com/gazebosim/gz-common/blob/ign-common3/Changelog.md)    |
 |   gz-fuel-tools   |       5.x     |       [Changelog](https://github.com/gazebosim/gz-fuel-tools/blob/ign-fuel-tools5/Changelog.md)    |
-|   gz-gazebo       |       4.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/ign-gazebo4/Changelog.md)     |
+|   gz-sim       |       4.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/ign-gazebo4/Changelog.md)     |
 |   gz-gui          |       4.x     |       [Changelog](https://github.com/gazebosim/gz-gui/blob/ign-gui4/Changelog.md)       |
 |   gz-launch       |       3.x     |       [Changelog](https://github.com/gazebosim/gz-launch/blob/ign-launch3/Changelog.md)
 |   gz-math         |       6.x     |       [Changelog](https://github.com/gazebosim/gz-math/blob/ign-math6/Changelog.md)
@@ -230,7 +230,7 @@ collection assures that all libraries all compatible and can be used together.
 |   gz-cmake        |       2.x     |       [Changelog](https://github.com/gazebosim/gz-cmake/blob/ign-cmake2/Changelog.md)     |
 |   gz-common       |       4.x     |       [Changelog](https://github.com/gazebosim/gz-common/blob/ign-common4/Changelog.md)    |
 |   gz-fuel-tools   |       6.x     |       [Changelog](https://github.com/gazebosim/gz-fuel-tools/blob/ign-fuel-tools6/Changelog.md)    |
-|   gz-gazebo       |       5.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/ign-gazebo5/Changelog.md)     |
+|   gz-sim       |       5.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/ign-gazebo5/Changelog.md)     |
 |   gz-gui          |       5.x     |       [Changelog](https://github.com/gazebosim/gz-gui/blob/ign-gui5/Changelog.md)       |
 |   gz-launch       |       4.x     |       [Changelog](https://github.com/gazebosim/gz-launch/blob/ign-launch4/Changelog.md)
 |   gz-math         |       6.x     |       [Changelog](https://github.com/gazebosim/gz-math/blob/ign-math6/Changelog.md)
@@ -285,7 +285,7 @@ collection assures that all libraries all compatible and can be used together.
 |   gz-cmake        |       2.x     |       [Changelog](https://github.com/gazebosim/gz-cmake/blob/ign-cmake2/Changelog.md)     |
 |   gz-common       |       4.x     |       [Changelog](https://github.com/gazebosim/gz-common/blob/ign-common4/Changelog.md)    |
 |   gz-fuel-tools   |       7.x     |       [Changelog](https://github.com/gazebosim/gz-fuel-tools/blob/ign-fuel-tools7/Changelog.md)    |
-|   gz-gazebo       |       6.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/ign-gazebo6/Changelog.md)     |
+|   gz-sim       |       6.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/ign-gazebo6/Changelog.md)     |
 |   gz-gui          |       6.x     |       [Changelog](https://github.com/gazebosim/gz-gui/blob/ign-gui6/Changelog.md)       |
 |   gz-launch       |       5.x     |       [Changelog](https://github.com/gazebosim/gz-launch/blob/ign-launch5/Changelog.md)
 |   gz-math         |       6.x     |       [Changelog](https://github.com/gazebosim/gz-math/blob/ign-math6/Changelog.md)
