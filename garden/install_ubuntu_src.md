@@ -207,7 +207,7 @@ the results you want:
   1. If you installed your workspace with `colcon` as instructed above, "uninstalling"
      could be just a matter of opening a new terminal and not sourcing the
      workspace's `setup.sh`. This way, your environment will behave as though
-     there is no Gazebo installed on your system.
+     Gazebo is not installed on your system.
 
   2. If, in addition to not wanting to use the libraries, you're also trying to
      free up space, you can delete the entire workspace directory with:
