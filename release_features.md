@@ -1,18 +1,18 @@
-# Ignition Release Features
+# Gazebo Release Features
 
 Here you will find the set of features that are available in each release.
 
 Take a look at the [Roadmap](/docs/roadmap) for information about upcoming
-features, some of which may land in released versions of Ignition.
+features, some of which may land in released versions of Gazebo.
 
 ## Acropolis (EOL)
 
-The first major release of Ignition focused on the basics of simulation. The basics primarily encompassed integration of physics, sensors, graphical tools, and programmatic interfaces.
+The first major release of Gazebo focused on the basics of simulation. The basics primarily encompassed integration of physics, sensors, graphical tools, and programmatic interfaces.
 
-1. Support for [DART](https://dartsim.github.io/) in [Ignition Physics](/libs/physics).
-2. Ogre1.9 and Ogre2.1 support in [Ignition Rendering](/libs/rendering)
+1. Support for [DART](https://dartsim.github.io/) in [Gazebo Physics](/libs/physics).
+2. Ogre1.9 and Ogre2.1 support in [Gazebo Rendering](/libs/rendering)
 3. [Entity Component System](https://en.wikipedia.org/wiki/Entity_component_system) based simulation engine in [Gazebo Sim](/libs/gazebo).
-4. A sensor suite that includes contact sensor, logical camera, monocular camera, depth camera, LIDAR, magnetometer, altimeter, and IMU is available through [Ignition Sensors](/libs/sensors) and [Gazebo Sim](/libs/gazebo).
+4. A sensor suite that includes contact sensor, logical camera, monocular camera, depth camera, LIDAR, magnetometer, altimeter, and IMU is available through [Gazebo Sensors](/libs/sensors) and [Gazebo Sim](/libs/gazebo).
 5. [Launch system](/libs/launch) capable of running and managing a set of plugins and executables.
 6. Cloud-hosted simulation assets provided by [app.gazebosim.org](https://app.gazebosim.org).
 7. Distributed simulation using lock-stepping.
@@ -22,7 +22,7 @@ The first major release of Ignition focused on the basics of simulation. The bas
     plugins include 3D scene viewer, image viewer, topic echo, topic
     publisher, world control, and world statistics.
 
-The Acropolis collection is composed by many different Ignition libraries. The
+The Acropolis collection is composed by many different Gazebo libraries. The
 collection assures that all libraries all compatible and can be used together.
 
 | Library name       | Version       | Changelog     |
@@ -116,7 +116,7 @@ collection assures that all libraries all compatible and can be used together.
 1. Buoyancy model.
 1. [Trivial Physics Engine](https://community.gazebosim.org/t/announcing-new-physics-engine-tpe-trivial-physics-engine/629)
 1. [Tutorial series](https://community.gazebosim.org/t/gsoc-2020-new-ignition-gazebo-demos/613).
-1. [Improved Ignition Physics documentation.](https://community.gazebosim.org/t/gsod-2020-ignition-physics-tutorial-and-api-documentation/746)
+1. [Improved Gazebo Physics documentation.](https://community.gazebosim.org/t/gsod-2020-ignition-physics-tutorial-and-api-documentation/746)
 1. [Custom rendering engines.](https://gazebosim.org/api/rendering/3.2/renderingplugin.html)
 1. [Logical audio sensor and source.](https://gazebosim.org/api/gazebo/3.7/logicalaudiosensor.html)
 1. Lockstepped video recording that can optionally use simulation time instead of real time.
@@ -130,10 +130,10 @@ collection assures that all libraries all compatible and can be used together.
 1. [Test fixture to easily run simulation-based automated tests.](https://gazebosim.org/api/gazebo/3.9/test_fixture.html)
 1. [Drag and drop meshes into the scene.](https://github.com/gazebosim/gz-sim/pull/939)
 1. [Tracked vehicles](https://github.com/gazebosim/gz-sim/pull/869)
-1. [Python interface for Ignition Math.](https://github.com/gazebosim/gz-math/issues/210)
-1. [Integration with ros2_control.](https://github.com/ignitionrobotics/ign_ros2_control/)
-1. [ign_ros2_control support for various models](https://github.com/ignitionrobotics/docs/issues/222)
-1. [Polyline extruded 2D geometries](https://github.com/ignitionrobotics/docs/issues/186)
+1. [Python interface for Gazebo Math.](https://github.com/gazebosim/gz-math/issues/210)
+1. [Integration with ros2_control.](https://github.com/gazebosim/gz_ros2_control/)
+1. [ign_ros2_control support for various models](https://github.com/gazbosim/docs/issues/222)
+1. [Polyline extruded 2D geometries](https://github.com/gazebosim/docs/issues/186)
 1. New graphical interfaces:
     * Widget listing all transport topics.
     * Widget that publishes keys pressed on the keyboard.
@@ -169,7 +169,7 @@ collection assures that all libraries all compatible and can be used together.
 
 ## Dome (EOL)
 
-1. Particle effects on [Ignition Rendering](https://gazebosim.org/api/rendering/4.1/particles.html) and [Gazebo Sim](https://github.com/gazebosim/gz-sim/blob/ign-gazebo4/examples/worlds/particle_emitter.sdf).
+1. Particle effects on [Gazebo Rendering](https://gazebosim.org/api/rendering/4.1/particles.html) and [Gazebo Sim](https://github.com/gazebosim/gz-sim/blob/ign-gazebo4/examples/worlds/particle_emitter.sdf).
 1. Actor plugins.
 1. Efficient skeleton animations.
 1. [Optical tactile sensor plugin.](https://community.gazebosim.org/t/gsoc-2020-ignition-gazebo-optical-tactile-sensor-plugin/618)
@@ -179,7 +179,7 @@ collection assures that all libraries all compatible and can be used together.
 1. [Web visualization of running simulations](https://gazebosim.org/docs/dome/web_visualization).
 1. [Bullet physics engine.](https://github.com/gazebosim/gz-physics/issues/44)
 1. [Parametrized SDF files.](http://sdformat.org/tutorials?tut=param_passing_proposal)
-1. [libSDFormat now uses ign-cmake](https://github.com/ignitionrobotics/sdformat/issues/181)
+1. [libSDFormat now uses ign-cmake](https://github.com/gazebosim/sdformat/issues/181)
 1. GUI tools:
     * [Plotting](https://community.gazebosim.org/t/gsoc-2020-plotting-tool-for-ignition/619)
     * [Lidar visualization](https://community.gazebosim.org/t/gsoc-2020-sensor-data-visualization/638)
@@ -207,7 +207,7 @@ collection assures that all libraries all compatible and can be used together.
 
 ## Edifice (EOL)
 
-1. New utility library with minimal dependencies: [Ignition Utils](https://github.com/gazebosim/gz-utils/).
+1. New utility library with minimal dependencies: [Gazebo Utils](https://github.com/gazebosim/gz-utils/).
 1. [Sky box support.](https://github.com/gazebosim/gz-rendering/issues/98)
 1. [Lightmap support.](https://github.com/gazebosim/gz-sim/pull/471)
 1. [Capsule and ellipsoid geometries.](https://github.com/osrf/sdformat/issues/376)
@@ -253,15 +253,15 @@ collection assures that all libraries all compatible and can be used together.
 1. [Heightmaps on Ogre 2](https://github.com/gazebosim/gz-rendering/issues/187)
 1. [Spherical coordinates](https://github.com/gazebosim/gz-sim/issues/981)
 1. [Buoyancy engine](https://github.com/gazebosim/gz-sim/blob/ign-gazebo6/examples/worlds/buoyancy_engine.sdf)
-1. [Control lights from ROS 2](https://github.com/ignitionrobotics/ros_ign/pull/187)
+1. [Control lights from ROS 2](https://github.com/gazebosim/ros_gz/pull/187)
 1. [Python interface to Gazebo.](https://github.com/gazebosim/gz-sim/issues/789)
 1. [Custom shaders.](https://github.com/gazebosim/gz-sim/issues/657)
 1. [Visual plugins.](https://github.com/gazebosim/gz-sim/issues/265)
 1. [Rendering waves.](https://github.com/gazebosim/gz-rendering/pull/541)
 1. [Generic comms system.](https://github.com/gazebosim/gz-sim/pull/1416)
 1. [Wheel slip commands.](https://github.com/gazebosim/gz-sim/pull/1241)
-1. [USD importer / exporter.](https://github.com/ignitionrobotics/sdformat/tree/sdf12/examples/usdConverter)
-1. [Bridge Ignition services to ROS 2 services.](https://github.com/ignitionrobotics/ros_ign/pull/211)
+1. [USD importer / exporter.](https://github.com/gazebosim/sdformat/tree/sdf12/examples/usdConverter)
+1. [Bridge Gazebo services to ROS 2 services.](https://github.com/gazebosim/ros_ign/pull/211)
 1. [Omniverse application](https://github.com/gazebosim/gz-omni)
 1. [Pose and Twist with covariance.](https://github.com/gazebosim/gz-msgs/pull/224)
 1. Sensors
