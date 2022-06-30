@@ -1,6 +1,6 @@
-# Ignition Garden
+# Gazebo Garden
 
-Ignition Garden will be the 7th major release of Ignition. It will be a
+Gazebo Garden will be the 7th major release of Gazebo. It will be a
 short-term release.
 
 Up to Garden's release date, the collection should be considered unstable.
@@ -11,7 +11,7 @@ There are no Garden binaries at the moment.
 
 ## Source Installation instructions
 
-Source installation is recommended for users planning on altering Ignition's source code (advanced).
+Source installation is recommended for users planning on altering Gazebo's source code (advanced).
 
  * [Source Installation on Ubuntu](install_ubuntu_src)
  * [Source Installation on macOS](install_osx_src)
@@ -19,28 +19,28 @@ Source installation is recommended for users planning on altering Ignition's sou
 
 ## Garden Libraries
 
-The Garden collection is composed of many different Ignition libraries. The
+The Garden collection is composed of many different Gazebo libraries. The
 collection assures that all libraries are compatible and can be used together.
 
 This list of library versions may change up to the release date.
 
 | Library name       | Version       |
 | ------------------ |:-------------:|
-|   ign-cmake        |       3.x     |
-|   ign-common       |       5.x     |
-|   ign-fuel-tools   |       8.x     |
-|   ign-gazebo       |       7.x     |
-|   ign-gui          |       7.x     |
-|   ign-launch       |       6.x     |
-|   ign-math         |       7.x     |
-|   ign-msgs         |       9.x     |
-|   ign-physics      |       6.x     |
-|   ign-plugin       |       2.x     |
-|   ign-rendering    |       7.x     |
-|   ign-sensors      |       7.x     |
-|   ign-tools        |       2.x     |
-|   ign-transport    |      12.x     |
-|   ign-utils        |       2.x     |
+|   gz-cmake         |       3.x     |
+|   gz-common        |       5.x     |
+|   gz-fuel-tools    |       8.x     |
+|   gz-sim           |       7.x     |
+|   gz-gui           |       7.x     |
+|   gz-launch        |       6.x     |
+|   gz-math          |       7.x     |
+|   gz-msgs          |       9.x     |
+|   gz-physics       |       6.x     |
+|   gz-plugin        |       2.x     |
+|   gz-rendering     |       7.x     |
+|   gz-sensors       |       7.x     |
+|   gz-tools         |       2.x     |
+|   gz-transport     |      12.x     |
+|   gz-utils         |       2.x     |
 |   sdformat         |      13.x     |
 
 ## Supported platforms
@@ -55,5 +55,5 @@ These are the **officially** supported platforms:
 
 Platforms supported at **best-effort** include arm architectures, Windows and
 macOS. See
-[this ticket](https://github.com/ignition-tooling/release-tools/issues/597)
+[this ticket](https://github.com/gazebo-tooling/release-tools/issues/597)
 for the full status.
