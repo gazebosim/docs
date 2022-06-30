@@ -1,14 +1,14 @@
-# Ignition Releases
+# Gazebo Releases
 
 This page details the set of past and planned releases.
 
 ## What is a Release?
 
-A release of Ignition consists of a set of versioned [Ignition Libraries](/libs). Each library follows [semantic versioning](https://semver.org), and the major version of a library is guaranteed not to change with an Ignition release. This essentially means you can develop code against a release of Ignition without the worry of breaking changes being made upstream.
+A release of Gazebo consists of a set of versioned [Gazebo Libraries](/libs). Each library follows [semantic versioning](https://semver.org), and the major version of a library is guaranteed not to change with an Gazebo release. This essentially means you can develop code against a release of Gazebo without the worry of breaking changes being made upstream.
 
 ### Naming Scheme
 
-An Ignition release follows the form "Ignition Codename", for example Ignition Acropolis. The codename is alphabetically increasing, and chosen to fall loosely within the architectural domain.
+A Gazebo release follows the form "Gazebo Codename", for example Gazebo Acropolis. The codename is alphabetically increasing, and chosen to fall loosely within the architectural domain.
 
 ## Release List
 
@@ -21,12 +21,12 @@ An Ignition release follows the form "Ignition Codename", for example Ignition A
 | [Edifice](https://gazebosim.org/docs/edifice)     | Mar, 2021 | Mar, 2022 | EOL   |
 | [Fortress](https://gazebosim.org/docs/fortress)   | Sep, 2021 | Sep, 2026 | LTS   |
 | [Garden](https://gazebosim.org/docs/garden)       | Sep, 2022 | Sep, 2024 |       |
-| Ignition-H                                               | Sep, 2023 | Sep, 2028 | LTS   |
-| Ignition-I                                               | Sep, 2024 | Sep, 2026 |       |
+| Gazebo-H                                               | Sep, 2023 | Sep, 2028 | LTS   |
+| Gazebo-I                                               | Sep, 2024 | Sep, 2026 |       |
 
 ## Library Versions
 
-Ignition adheres to [semantic versioning](https://semver.org), with the
+Gazebo adheres to [semantic versioning](https://semver.org), with the
 addition that ABI is considered part of the public interface. In summary:
 
 * **Major** version increased when incompatible ABI/API changes are made.
@@ -55,7 +55,7 @@ Ign-(N+2)   | void bar();
 
 ### Support lifecycle
 
-Check out [this table](https://github.com/ignitionrobotics/docs/blob/master/tools/versions.md)
+Check out [this table](https://github.com/gazebosim/docs/blob/master/tools/versions.md)
 for a list of release and EOL dates for all versions of all libraries.
 
 ### Supported platforms
@@ -64,7 +64,7 @@ Platforms are defined as a combination of operating system and architecture.
 For example, "Ubuntu Focal on amd64".
 
 Each release is targeted at a specific set of platforms. A support level applies
-to an entire Ignition release, including all library versions within it. The
+to an entire Gazebo release, including all library versions within it. The
 supported platforms for each release are listed on their home pages (i.e.
 [Fortress](https://gazebosim.org/docs/fortress)).
 
