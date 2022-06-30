@@ -10,7 +10,7 @@ although other ways of correctly getting and building the sources are also possi
 The easiest way to get the sources of all libraries is to use
 [vcstool](https://github.com/dirk-thomas/vcstool).
 
-To compile all the different libraries and ign-gazebo in the right order
+To compile all the different libraries and gz-sim in the right order
 [colcon](https://colcon.readthedocs.io/en/released/) is recommended.
 The colcon tool is available on all platforms using pip (or pip3, if pip fails).
 
@@ -51,14 +51,14 @@ mkdir -p ~/workspace/src
 cd ~/workspace/src
 ```
 
-All the sources of ignition-garden are declared in a yaml file. Download
+All the sources of gazebo-garden are declared in a yaml file. Download
 it to the workspace:
 
 ```bash
-wget https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-garden.yaml
+wget https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-garden.yaml
 ```
 
-Use `vcstool` to automatically retrieve all the Ignition libraries sources from
+Use `vcstool` to automatically retrieve all the Gazebo libraries sources from
 their repositories:
 
 ```bash
@@ -92,7 +92,7 @@ brew install assimp boost bullet cmake cppzmq dartsim@6.10.0 doxygen eigen fcl f
 ```
 
 `dartsim@6.10.0` and `qt5` are not sym-linked. To use those dependencies when building
-`ignition-physics2` and `ignition-gui3`, run the following after installation to add them to `/use/local`:
+`gazebo-physics2` and `gazebo-gui3`, run the following after installation to add them to `/use/local`:
 
 ```bash
 # dartsim@6.10.0
@@ -105,7 +105,7 @@ export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/usr/local/opt/qt@5
 
 ### Install compiler requirements
 
-The Ignition Libraries require the Xcode 10 compiler on MacOS Mojave.
+The Gazebo Libraries require the Xcode 10 compiler on MacOS Mojave.
 
 On Mac machines, gcc is acquired by installing Xcode command line tools.
 The required version of Xcode for Garden is Xcode 10.3, which can be downloaded from
@@ -114,9 +114,9 @@ You will need to sign in to your Apple account and download the Mojave version o
 Xcode command line tools. Command line tools can also be obtained by downloading
 Xcode from the Apple App Store (installing the full app may take over an hour).
 
-## Building the Ignition Libraries in MacOS Catalina (10.15)
+## Building the Gazebo Libraries in MacOS Catalina (10.15)
 
-If you want to compile Ignition Libraries in MacOS Catalina (10.15) you will need to apply some patches in your filesystem:
+If you want to compile Gazebo Libraries in MacOS Catalina (10.15) you will need to apply some patches in your filesystem:
 
  - `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Ruby.framework/Headers/ruby/ruby/intern.h`
 
@@ -168,7 +168,7 @@ Now we can appply the patch:
 sudo patch -p0 < config.patch
 ```
 
-## Building the Ignition Libraries
+## Building the Gazebo Libraries
 
 Once the compiler and all the sources are in place it is time to compile them.
 Start the procedure by changing into the workspace and listing the packages
@@ -179,7 +179,7 @@ cd ~/workspace/
 colcon graph
 ```
 
-`colcon graph` should list the Ignition libraries with an
+`colcon graph` should list the Gazebo libraries with an
 [interdependency diagram](https://colcon.readthedocs.io/en/released/reference/verb/graph.html#example-output).
 If that is the case, then you are ready
 to build the whole set of libraries:
@@ -233,11 +233,11 @@ Or in zsh:
 ```
 
 This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)
-page to start using Ignition!
+page to start using Gazebo!
 
 ## Uninstalling source-based install
 
-If you need to uninstall Ignition or switch to a binary-based install once you
+If you need to uninstall Gazebo or switch to a binary-based install once you
 have already installed the library from source, navigate to your source code
 directory's build folders and run `make uninstall`:
 

@@ -10,7 +10,7 @@ although other ways of correctly getting and building the sources are also possi
 The easiest way to get the sources of all libraries is to use
 [vcstool](https://github.com/dirk-thomas/vcstool).
 
-To compile all the different libraries and ign-gazebo in the right order
+To compile all the different libraries and gz-sim in the right order
 [colcon](https://colcon.readthedocs.io/en/released/) is recommended.
 The colcon tool is available on all platforms using pip (or pip3, if pip fails).
 
@@ -69,7 +69,7 @@ sudo apt-get install python3-vcstool python3-colcon-common-extensions
 
 ## Git
 
-Ignition libraries use `git` for version control, so it must be available
+Gazebo libraries use `git` for version control, so it must be available
 in the system for `vcstool` to work properly.
 
 ```bash
@@ -89,14 +89,14 @@ mkdir -p ~/workspace/src
 cd ~/workspace/src
 ```
 
-All the sources of ignition-garden are declared in a yaml file. Download
+All the sources of gazebo-garden are declared in a yaml file. Download
 it to the workspace:
 
 ```bash
-wget https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-garden.yaml
+wget https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-garden.yaml
 ```
 
-Use `vcstool` to automatically retrieve all the Ignition libraries sources from
+Use `vcstool` to automatically retrieve all the Gazebo libraries sources from
 their repositories:
 
 ```bash
@@ -123,10 +123,10 @@ The command below will install all dependencies in Ubuntu:
 
 ```bash
 sudo apt -y install \
-  $(sort -u $(find . -iname 'packages-'`lsb_release -cs`'.apt' -o -iname 'packages.apt' | grep -v '/\.git/') | sed '/ignition\|sdf/d' | tr '\n' ' ')
+  $(sort -u $(find . -iname 'packages-'`lsb_release -cs`'.apt' -o -iname 'packages.apt' | grep -v '/\.git/') | sed '/gazebo\|sdf/d' | tr '\n' ' ')
 ```
 
-## Building the Ignition Libraries
+## Building the Gazebo Libraries
 
 Once the compiler and all the sources are in place it is time to compile them.
 Start the procedure by changing into the workspace and listing the packages
@@ -137,7 +137,7 @@ cd ~/workspace/
 colcon graph
 ```
 
-`colcon graph` should list the Ignition libraries with an
+`colcon graph` should list the Gazebo libraries with an
 [interdependency diagram](https://colcon.readthedocs.io/en/released/reference/verb/graph.html#example-output).
 If that is the case, then you are ready
 to build the whole set of libraries:
@@ -197,7 +197,7 @@ Or in zsh:
 ```
 
 This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)
-page to start using Ignition!
+page to start using Gazebo!
 
 ## Uninstalling source-based install
 
@@ -207,7 +207,7 @@ the results you want:
   1. If you installed your workspace with `colcon` as instructed above, "uninstalling"
      could be just a matter of opening a new terminal and not sourcing the
      workspace's `setup.sh`. This way, your environment will behave as though
-     there is no Ignition install on your system.
+     there is no Gazebo installed on your system.
 
   2. If, in addition to not wanting to use the libraries, you're also trying to
      free up space, you can delete the entire workspace directory with:
@@ -230,15 +230,15 @@ To perform QML debugging you'll need:
  - Add `--cmake-args -DDQT_QML_DEBUG` flag to colcon
  - QtCreator
 
-You will need to build Ignition with:
+You will need to build Gazebo with:
 
 ```bash
 colcon build --cmake-args -DQT_QML_DEBUG --merge-install
 ```
 
-> **Note:** Advanced users may note only `ign-gazebo` (now `gz-sim`) project needs this flag.
+> **Note:** Advanced users may note that only the `gz-sim` project needs this flag.
 
-After that's done, launching `ign gazebo -g` will result in the following message:
+After that's done, launching `gz sim -g` will result in the following message:
 
 ```
 QML debugging is enabled. Only use this in a safe environment.
@@ -249,15 +249,15 @@ After that you can just head to
 `QtCreator -> Debug -> Start Debugging -> Attach to QML Port...`
 and enter the QML port
 
-![](images/IgnGuiQmlDebugging01.png)
+![](images/GzGuiQmlDebugging01.png)
 
 Once you click there, set the port number to 40000 and hit ok
 
-![](images/IgnGuiQmlDebugging02.png)
+![](images/GzGuiQmlDebugging02.png)
 
 We're working to improve QtCreator integration so that it works out of the box.
 
-The ruby ign script doesn't yet pass the necessary command line arguments to the application.
+The ruby `gz` script doesn't yet pass the necessary command line arguments to the application.
 
 Note that because all instances will try to use port 40000, only one instance
 can use it. If you shutdown the process and restart it immediately too quickly,
@@ -266,10 +266,10 @@ listen to QML debugger attach requests.
 
 ### Avoid QML stall waiting for debugger on startup
 
-During development, you may find troublesome that `ign gazebo -g` won't actually start until
+During development, you may find troublesome that `gz sim -g` won't actually start until
 QtCreator hooks to the QML Debugging port.
 
-If that's a problem, you can edit the C++ file `ign-gazebo/src/ign.cc` and remove `block`
+If that's a problem, you can edit the C++ file `gz-sim/src/gz.cc` and remove `block`
 from it. E.g.
 
 ```c++

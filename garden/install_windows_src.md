@@ -2,7 +2,7 @@
 
 Command line tools, DART physics engine, and GUI capabilities are
 not currently supported in Windows. These functionalities correspond to the currently
-building packages `ign-tools`, `ign-physics`, and `ign-gui`, respectively.
+building packages `gz-tools`, `gz-physics`, and `gz-gui`, respectively.
 
 **Note**
 
@@ -32,11 +32,11 @@ You will still be able to use `TPE` as a physics engine
 
 4. Navigate to your `condabin`, if necessary, and then create and activate a Conda environment:
   ```bash
-  conda create -n ign-ws
-  conda activate ign-ws
+  conda create -n gz-ws
+  conda activate gz-ws
   ```
 
-  Once you have activate an environment, a prefix like `(ign-ws)` will be prepended to
+  Once you have activate an environment, a prefix like `(gz-ws)` will be prepended to
   your prompt, and you can use the `conda` command outside of the `condabin` directory.
 
   You can use `conda info --envs` to see all of your environments.
@@ -54,25 +54,25 @@ You will still be able to use `TPE` as a physics engine
   ```
 
 6. Navigate to where you would like to build the library, create and enter your workspace directory,
-   create the `src` directory which will contain the Ignition source code.
+   create the `src` directory which will contain the Gazebo source code.
   ```bash
-  mkdir ign-ws
-  cd ign-ws
+  mkdir gz-ws
+  cd gz-ws
   mkdir src
   ```
 
 7. Then clone the repositories
   ```bash
     # CMD
-    curl -sk https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-garden.yaml -o collection-garden
+    curl -sk https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-garden.yaml -o collection-garden
     vcs import src < collection-garden
 
     # PowerShell
-    curl https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-garden.yaml -o collection-garden
+    curl https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-garden.yaml -o collection-garden
     vcs import --input collection-garden src
   ```
 
-## Building the Ignition Libraries
+## Building the Gazebo Libraries
 
 Once the compiler and all the sources are in place it is time to compile them.
 Start the procedure by navigating to your workspace and listing the packages
@@ -82,17 +82,17 @@ recognized by `colcon`:
 colcon graph
 ```
 
-`colcon graph` should list the Ignition libraries with an
+`colcon graph` should list the Gazebo libraries with an
 [interdependency diagram](https://colcon.readthedocs.io/en/released/reference/verb/graph.html#example-output).
 If that is the case, then you are ready to build the whole set of libraries:
 
 ```bash
-colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install --packages-up-to ignition-gazebo5
+colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install --packages-up-to gazebo-sim7
 ```
 Tests are turned off as they are not currently supported on Windows.
 
-**Note:** All of the Ignition packages up to, but not including `ign-gazebo`
-are currently building.  The above command should successfully build all packages except for `ign-gazebo`.
+**Note:** All of the Gazebo packages up to, but not including `gz-sim`
+are currently building.  The above command should successfully build all packages except for `gz-sim`.
 
 To build a specific package with all its dependent packages:
 
@@ -125,7 +125,7 @@ call install\setup.bat
 ```
 
 This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)
-page to start using Ignition!
+page to start using Gazebo!
 
 ## Uninstalling source-based install
 
@@ -135,7 +135,7 @@ the results you want:
   1. If you installed your workspace with `colcon` as instructed above, "uninstalling"
      could be just a matter of opening a new terminal and not sourcing the
      workspace's `setup.bat`. This way, your environment will behave as though
-     there is no Ignition install on your system.
+     there is no Gazebo installed on your system.
 
   2. If, in addition to not wanting to use the libraries, you're also trying to
      free up space, you can delete the entire workspace directory from within
