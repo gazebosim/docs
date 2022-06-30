@@ -83,6 +83,6 @@ resources to get you going.
 
 1. [How to contribute](/docs/all/contributing) guide.
 1. [Feature comparision](/docs/citadel/comparison) list. This page lists the
-   feature gaps between Gazebo classic and Ignition Gazebo.
+   feature gaps between Gazebo classic and Gazebo Sim.
 1. Take a look at the various [libraries](/libs), and the issue tracker
    associated with each.

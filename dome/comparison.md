@@ -10,7 +10,7 @@ on GitHub.
 
 ## Sensors
 
-Sensor | Gazebo-classic | Ignition Gazebo
+Sensor | Gazebo-classic | Gazebo Sim
 -- | -- | --
 Air pressure | ✕  | ✓
 Altimeter | ✓ | ✓
@@ -33,7 +33,7 @@ Thermal camera | ✕  | ✓
 Wide-angle camera | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/24)
 Wireless | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/28)
 
-Sensor features | Gazebo-classic | Ignition Gazebo
+Sensor features | Gazebo-classic | Gazebo Sim
 -- | -- | --
 Custom update rate | ✓ | ✓
 Gaussian noise | ✓ | ✓
@@ -44,7 +44,7 @@ Performance metrics | ✓ |  ✓
 
 ## SDF Features
 
-Feature | Gazebo-classic | Ignition Gazebo
+Feature | Gazebo-classic | Gazebo Sim
 -- | -- | --
 SDF frame semantics |✓| ✓
 SDF parametrization | ✕ | [✓](http://sdformat.org/tutorials?tut=param_passing_proposal)
@@ -68,7 +68,7 @@ System plugins | ✓ | ✓ Through Ignition Launch
 
 ### Model plugins
 
-Plugin | Gazebo-classic | Ignition Gazebo
+Plugin | Gazebo-classic | Gazebo Sim
 -- | -- | --
 ActorPlugin | ✓ | ✕ See [FollowActor](https://github.com/gazebosim/gz-sim/blob/main/src/systems/follow_actor/FollowActor.hh) for a demo of Actor APIs
 ActuatorPlugin | ✓ |
@@ -117,7 +117,7 @@ Buoyancy engine | ✓ | ✕  (available from Fortress)
 
 ### World plugins
 
-Plugin | Gazebo-classic | Ignition Gazebo
+Plugin | Gazebo-classic | Gazebo Sim
 -- | -- | --
 ArrangePlugin | ✓ |
 ContainPlugin | ✓ | Partial port, [Issue](https://github.com/gazebosim/gz-sim/issues/162)
@@ -131,7 +131,7 @@ WindPlugin | ✓ | ✓
 
 ### Sensor plugins
 
-Plugin | Gazebo-classic | Ignition Gazebo
+Plugin | Gazebo-classic | Gazebo Sim
 -- | -- | --
 BreakableJointPlugin | ✓ |
 CameraPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
@@ -149,7 +149,7 @@ SonarPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
 
 ### Visual plugins
 
-Plugin | Gazebo-classic | Ignition Gazebo
+Plugin | Gazebo-classic | Gazebo Sim
 -- | -- | --
 AmbientOcclusionVisualPlugin | ✓ |
 BlinkVisualPlugin | ✓ |
@@ -158,7 +158,7 @@ ShaderParamVisualPlugin | ✓ |
 
 ### GUI plugins
 
-Plugin | Gazebo-classic | Ignition Gazebo
+Plugin | Gazebo-classic | Gazebo Sim
 -- | -- | --
 CessnaGUIPlugin | ✓ |
 KeyboardGUIPlugin | ✓ | `ignition::gui::KeyPublisher`
@@ -167,7 +167,7 @@ TimerGUIPlugin | ✓ |
 
 ### System plugins
 
-Plugin | Gazebo-classic | Ignition Gazebo
+Plugin | Gazebo-classic | Gazebo Sim
 -- | -- | --
 ModelPropShop | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/100)
 RestUiPlugin | ✓ |
@@ -176,7 +176,7 @@ StopWorldPlugin | ✓ |
 
 ## GUI
 
-Feature | Gazebo-classic | Ignition Gazebo
+Feature | Gazebo-classic | Gazebo Sim
 -- | -- | --
 Play / pause / step | ✓ | ✓
 Reset world / models | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/203)
@@ -228,7 +228,7 @@ In Ignition Physics, physics engines are integrated as plugins, so any engine
 can be integrated without changing the core source code, as it was the case
 in Gazebo.
 
-Feature | Gazebo-classic | Ignition Gazebo
+Feature | Gazebo-classic | Gazebo Sim
 -- | -- | --
 ODE engine | ✓ | [Issue](https://github.com/gazebosim/gz-physics/issues/63)
 Bullet engine | ✓ | ✓
@@ -246,7 +246,7 @@ Solver | ✓ |  ✕  (available from Edifice)
 In Ignition Rendering, render engines are integrated as plugins, so any engine
 can be integrated without changing the core source code.
 
-Feature | Gazebo-classic | Ignition Gazebo
+Feature | Gazebo-classic | Gazebo Sim
 -- | -- | --
 Ogre 1.x engine | ✓ | ✓
 Ogre 2.x engine | ✕ | ✓
@@ -274,7 +274,7 @@ Supported versions:
 
 ## Platforms
 
-Platform | Gazebo-classic | Ignition Gazebo
+Platform | Gazebo-classic | Gazebo Sim
 -- | -- | --
 Ubuntu | ✓ | ✓
 OSX | ✓ | Most of the stack works, outstanding issues: [command line](https://github.com/gazebosim/gz-sim/issues/25), [render window](https://github.com/gazebosim/gz-sim/issues/44)
@@ -282,7 +282,7 @@ Windows | ✓ | The stack works up to ign-gazebo: [Issue](https://github.com/gaz
 
 ## Others
 
-Feature | Gazebo-classic | Ignition Gazebo
+Feature | Gazebo-classic | Gazebo Sim
 -- | -- | --
 Nested models | ✓ | ✕  (available from Edifice)
 Log / playback | ✓ | ✓

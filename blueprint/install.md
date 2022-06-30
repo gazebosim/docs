@@ -235,7 +235,7 @@ will be set in the current shell.
 ## Unable to create the rendering window
 
 If you're getting errors like "Unable to create the rendering window", it could
-mean you're using an old OpenGL version. Ignition Gazebo uses the Ogre 2
+mean you're using an old OpenGL version. Gazebo Sim uses the Ogre 2
 rendering engine by default, which requires an OpenGL version higher than 3.3.
 
 This can be confirmed by checking the Ogre 2 logs at `~/.ignition/rendering/ogre2.log`,
