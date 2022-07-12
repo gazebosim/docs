@@ -14,15 +14,15 @@ A Gazebo release follows the form "Gazebo Codename", for example Gazebo Acropoli
 
 | Name                                                     | Date      | EOL date  | Notes |
 |----------------------------------------------------------|-----------|-----------|-------|
-| [Acropolis](https://gazebosim.org/docs/acropolis) | Feb, 2019 | Sep, 2019 | EOL   |
-| [Blueprint](https://gazebosim.org/docs/blueprint) | May, 2019 | Dec, 2020 | EOL   |
-| [Citadel](https://gazebosim.org/docs/citadel)     | Dec, 2019 | Dec, 2024 | LTS   |
-| [Dome](https://gazebosim.org/docs/dome)           | Sep, 2020 | Dec, 2021 | EOL   |
-| [Edifice](https://gazebosim.org/docs/edifice)     | Mar, 2021 | Mar, 2022 | EOL   |
-| [Fortress](https://gazebosim.org/docs/fortress)   | Sep, 2021 | Sep, 2026 | LTS   |
-| [Garden](https://gazebosim.org/docs/garden)       | Sep, 2022 | Sep, 2024 |       |
-| Gazebo-H                                               | Sep, 2023 | Sep, 2028 | LTS   |
-| Gazebo-I                                               | Sep, 2024 | Sep, 2026 |       |
+| [Acropolis](https://gazebosim.org/docs/acropolis)        | Feb, 2019 | Sep, 2019 | EOL   |
+| [Blueprint](https://gazebosim.org/docs/blueprint)        | May, 2019 | Dec, 2020 | EOL   |
+| [Citadel](https://gazebosim.org/docs/citadel)            | Dec, 2019 | Dec, 2024 | LTS   |
+| [Dome](https://gazebosim.org/docs/dome)                  | Sep, 2020 | Dec, 2021 | EOL   |
+| [Edifice](https://gazebosim.org/docs/edifice)            | Mar, 2021 | Mar, 2022 | EOL   |
+| [Fortress](https://gazebosim.org/docs/fortress)          | Sep, 2021 | Sep, 2026 | LTS   |
+| [Garden](https://gazebosim.org/docs/garden)              | Sep, 2022 | Nov, 2024 |       |
+| Gazebo-H                                                 | Sep, 2023 | Sep, 2028 | LTS   |
+| Gazebo-I                                                 | Sep, 2024 | Sep, 2026 |       |
 
 ## Library Versions
 
