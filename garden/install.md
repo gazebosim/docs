@@ -57,3 +57,10 @@ Platforms supported at **best-effort** include arm architectures, Windows and
 macOS. See
 [this ticket](https://github.com/gazebo-tooling/release-tools/issues/597)
 for the full status.
+
+## Migration Guide
+
+Gazebo Garden is the first major release that [uses the Gazebo brand instead of Ignition](https://community.gazebosim.org/t/a-new-era-for-gazebo/1356). So if you are upgrading from a prior release (e.g. Fortress), you will need to do some steps to migrate your packages.
+
+- [Migration Guide](migration)
+
