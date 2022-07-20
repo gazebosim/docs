@@ -2,7 +2,8 @@
 
 Hello Gazebo community!!
 
-As you know, a couple months ago it was announced that [we’d be retiring the “Ignition” name in favor of “Gazebo”.](https://community.gazebosim.org/t/a-new-era-for-gazebo/1356) This migration guide will serve you help you execute the necessary changes in your own packages, and luckily it won’t be as troublesome as the move from Gazebo Classic!
+In April 2022, it was announced that [we’d be retiring the “Ignition” name in favor of “Gazebo”.](https://community.gazebosim.org/t/a-new-era-for-gazebo/1356)
+This migration guide will serve you help you execute the necessary changes in your own packages, and luckily it won’t be as troublesome as the move from Gazebo Classic!
 
 # Overview
 
@@ -10,11 +11,11 @@ As you know, a couple months ago it was announced that [we’d be retiring the �
 
 So what’s happening in practice? In summary:
 
-- Whenever the name `Ignition` or `ign` is used, the Gazebo counterpart (`Gazebo` or `gz`) will be used instead, preserving case
-- `ign-gazebo` / `Ignition Gazebo` will become `gz-sim` / `Gazebo Sim`
-- The Ignition logo will also be replaced by the Gazebo logo.
+- Whenever the name `Ignition` or `ign` is used, the Gazebo counterpart (`Gazebo` or `gz`) is used instead, preserving case
+- `ign-gazebo` / `Ignition Gazebo` became `gz-sim` / `Gazebo Sim`
+- The Ignition logo has been replaced by the Gazebo logo.
 
-These changes will be made in:
+These changes were made in:
 
 - Websites
 - GitHub organizations and repositories
@@ -22,24 +23,42 @@ These changes will be made in:
 - UIs
 - Namespaces, command line tools, shared libraries, directories, APIs, files
 
-This means that a bulk of the migration effort will involve intelligent find-and-replaces of filenames, directories, and source code.
-
+This means that a bulk of the migration effort on a user's part will involve intelligent find-and-replaces of filenames, directories, and source code.
 You may also look at the [tracking GitHub issue](https://github.com/gazebo-tooling/release-tools/issues/698) if you need to trace any changes made to support the migration in the core libraries.
 
 ## Tick-tocks and Hard-tocks
 
-This section provides just an overview of the different changes made, for a more detailed listing of tick-tocks, see the `[MIGRATION.md](http://MIGRATION.md)` file in each of the individual core libraries’ repositories. Additionally the migration pointers in a later section of this migration guide should help you get your packages ready and working with Gazebo.
+This section provides just an overview of the different changes made, for a more detailed listing of tick-tocks, see the migration file in each of the individual core libraries’ repositories:
 
-Generally speaking, you should still be able to use either the Ignition counterpart or Gazebo counterpart for **most things** if you are using Garden, due to explicit tick-tocking logic written in the stack. Just note that using the Ignition counterpart will generally cause deprecation warnings to be emitted.
+- [gz-cmake](https://github.com/gazebosim/gz-cmake/blob/main/Migration.md)
+- [gz-common](https://github.com/gazebosim/gz-common/blob/main/Migration.md)
+- [gz-fuel-tools](https://github.com/gazebosim/gz-fuel-tools/blob/main/Migration.md)
+- [gz-gui](https://github.com/gazebosim/gz-gui/blob/main/Migration.md)
+- [gz-launch](https://github.com/gazebosim/gz-launch/blob/main/Migration.md)
+- [gz-math](https://github.com/gazebosim/gz-math/blob/main/Migration.md)
+- [gz-msgs](https://github.com/gazebosim/gz-msgs/blob/main/Migration.md)
+- [gz-physics](https://github.com/gazebosim/gz-physics/blob/main/Migration.md)
+- [gz-plugin](https://github.com/gazebosim/gz-plugin/blob/main/Migration.md)
+- [gz-rendering](https://github.com/gazebosim/gz-rendering/blob/main/Migration.md)
+- [gz-sensors](https://github.com/gazebosim/gz-sensors/blob/main/Migration.md)
+- [gz-sim](https://github.com/gazebosim/gz-sim/blob/main/Migration.md)
+- [gz-tools](https://github.com/gazebosim/gz-tools/blob/main/Migration.md)
+- [gz-transport](https://github.com/gazebosim/gz-transport/blob/main/Migration.md)
+- [gz-utils](https://github.com/gazebosim/gz-utils/blob/main/Migration.md)
+- [sdformat](https://github.com/gazebosim/sdformat/blob/main/Migration.md)
+
+Additionally the migration pointers in a later section of this migration guide should help you get your packages ready and working with Gazebo.
+
+Generally speaking, you should still be able to use either the Ignition counterpart or Gazebo counterpart for **most things** if you are using Garden, due to explicit tick-tocking logic written in the stack.
+Just note that using the Ignition counterpart will generally cause deprecation warnings to be emitted.
 
 ### Tick-tocks
 
-Tick-tocks for the following are implemented, though not all of them will emit deprecation warnings. These tick-tocks are implemented either as aliases, or otherwise have some sort of redirection mechanism (e.g. symlinks, directory retargets, string replacements in source) to target the Gazebo counterpart instead.
+Tick-tocks for the following are implemented, though not all of them will emit deprecation warnings.
+These tick-tocks are implemented either as aliases, or otherwise have some sort of redirection mechanism (e.g. symlinks, directory retargets, string replacements in source) to target the Gazebo counterpart instead.
 
 Also, in the source code, most of these tick-tocks will have an associated comment calling out that they are deprecated, or have a `GZ_DEPRECATED()` macro call.
 
-<details>
-<summary>Tick-tocks</summary>
 
 **Namespaces**
 
@@ -59,7 +78,9 @@ Also, in the source code, most of these tick-tocks will have an associated comme
 - Plugins
     - e.g. `ignition::gazebo::systems::LiftDrag` → `gz::sim::systems::LiftDrag`
 - Shared libraries
-    - e.g. `libignition-gazebo-buoyancy-engine-system.so` → `gz-sim-buoyancy-engine-system`
+    - e.g. `libignition-gazebo-buoyancy-engine-system.so` → `libgz-sim-buoyancy-engine-system.so`
+    - You may remove the `lib` and `.so` prefix and suffixes!
+      - e.g. `libignition-gazebo-buoyancy-engine-system.so` → `gz-sim-buoyancy-engine-system`
 - C++ Macros in public headers
     - e.g. `IGN_PARTITION` → `GZ_PARTITION`
 
@@ -96,15 +117,14 @@ Also, in the source code, most of these tick-tocks will have an associated comme
     - e.g. [ignitionrobotics.org](http://ignitionrobotics.org) → [gazebosim.org](http://gazebosim.org)
 - SDF and launch tags
     - e.g. `<ignition-gui>` → `<gz-gui>`
+- SDF namespaces
+    - e.g. `ignition:type`
 
-</details>
 
 ### Hard-tocks
 
-There are some exceptions that have been hard-tocked instead, meaning that you **MUST** use the Gazebo counterpart. Using the Ignition counterpart will likely cause compilation or something else to break (unless it’s just a documentation change.)
-
-<details>
-<summary>Hard-tocks</summary>
+There are some exceptions that have been hard-tocked instead, meaning that you **MUST** use the Gazebo counterpart.
+Using the Ignition counterpart will likely cause compilation or something else to break (unless it’s just a documentation change.)
 
 **Namespaces**
 
@@ -113,14 +133,8 @@ There are some exceptions that have been hard-tocked instead, meaning that you *
 
 **Source**
 
-- C++ Macros in private headers (typically something in a `detail/` directory)
-    - e.g. `DETAIL_IGNITION_UTILS_WARN_RESUME` → `DETAIL_GZ_UTILS_WARN_RESUME`
-- Class names, members, functions, and variables in private headers, or function-local scope
-    - e.g. `kIgnAuthDomain` → `kGzAuthDomain`
 - Install space
     - e.g. `install/share/ignition` → `install/share/gz`
-- Header guards (where appropriate)
-    - e.g. `IGNITION_COMMON_MATERIAL_HH_` → `GZ_COMMON_MATERIAL_HH_`
 
 **CMake and Packaging**
 
@@ -137,6 +151,7 @@ There are some exceptions that have been hard-tocked instead, meaning that you *
     - e.g. `sim.ign` → `sim.gzlaunch`, `<ign`  → `<gz`
 - Config and log paths (PENDING)
     - e.g. `~/.ignition/gui/log` → `~/.gz/gui/log`
+    - Some config paths have been tick-tocked (e.g. `~/.ignition/gazebo/plugins`)
 - Fuel URL (PENDING)
     - e.g. https://fuel.ignitionrobotics.org
 - Fuel cache paths (ALSO PENDING)
@@ -146,14 +161,7 @@ There are some exceptions that have been hard-tocked instead, meaning that you *
 - `gz-launch` Websocket server
     - e.g. `ign.js` → `gz.js`
 
-**Additionally**
-
-- `gz-common` plugins are deprecated, use `gz-plugin` instead
-- `gz-common` `SuppressWarning` is deprecated, use `gz-utils` instead
-
 Also, anything that is internal to the core Gazebo libraries and not used in downstream libraries (e.g. header guards, private headers or source, tests, documentation) is hard-tocked.
-
-</details>
 
 ## Untocks
 
@@ -185,7 +193,8 @@ What might help greatly is to:
 - Pay attention to compilation warnings/errors, which usually (but not always) give suggestions for what to replace!
 - If in doubt, trace the change to changes listed in the [tracking issue](https://github.com/gazebo-tooling/release-tools/issues/698)
 
-Also, if you are building the Gazebo stack from source, you should do a clean, fresh rebuild and install. Delete your `build` and `install` directories, and run the build with `--merge-install`.
+Also, if you are building the Gazebo stack from source, you should do a clean, fresh rebuild and install.
+Delete your `build` and `install` directories, and run the build with `--merge-install`.
 
 ### Gotchas
 
@@ -208,7 +217,10 @@ However, here are a lot of edge cases that make it difficult to create a script 
 
 Additionally, take note of the following behaviors:
 
-- Config files are not overwritten, so you might need to delete or manually migrate Ignition-counterpart references in your config files to get them to point to the appropriate Gazebo-counterpart locations
+- Pre-existing config files do not get overwritten, so if you'd like to use your old configurations or have a config file in a custom location, you might need to manually migrate Ignition-counterpart references in your config files to get them to point to the appropriate counterpart
+  - For example, a prior config file targeting `gz-sim` file could be using an `ignition::gazebo::systems::Physics` plugin.
+    You might encounter deprecation warnings because that reference has not yet been migrated.
+
 - Because the install spaces have changed, if you have hard-coded locations involving `ignition`, you might need to migrate them to `gz`
 
 ## Migration Steps
@@ -314,8 +326,8 @@ Replace: <gz
 Find: </ignition
 Replace: </gz
 
-Find: ignition:type
-Replace: gz:type
+Find: ignition:
+Replace: gz:
 ```
 
 Some examples:
@@ -330,11 +342,11 @@ The plugin finder is able to find plugins even if their filenames are stripped o
 In `.sdf` files and source files (e.g. `.cc`):
 
 ```cpp
-Find: ign(ition)?-gazebo([^. ]*)\.so
-Replace: gz-sim\2
+Find: (lib)?ign(ition)?-gazebo([^. ]*)\.so
+Replace: gz-sim\3
 
-Find: ign(ition)?([^. ]*)\.so
-Replace: gz\2
+Find: (lib)?ign(ition)?([^. ]*)\.so
+Replace: gz\3
 
 Find: ignition::gazebo
 Replace: gz::sim
@@ -431,6 +443,24 @@ You probably want to manually inspect:
 - `Ign`
 - `ignition`
 
+And also be mindful that certain instances of `gazebo` (usually as part of an API) need to use `sim` instead.
+
+### Migrate Your CLI Usage
+
+Where you used to use:
+
+```cpp
+ign gazebo shapes.sdf
+```
+
+Now you should use:
+
+```cpp
+gz sim shapes.sdf
+```
+
+Notice that the `gazebo` verb is **deprecated**.
+
 ### Double-Check
 
 These might be useful to double-check if you have any lingering stuff, or erroneously migrated instances
@@ -448,18 +478,16 @@ You should match these **case-insensitively**.
 - `\.ign(ition)?`
 - `ign(ition)?[-_]`
 
-### Migrate Your CLI Usage
+# Additional Packages
 
-Where you used to use:
+This section details changes that have taken place in some other Gazebo related packages.
 
-```cpp
-ign gazebo shapes.sdf
-```
 
-Now you should use:
 
-```cpp
-gz sim shapes.sdf
-```
+## ros_gz
 
-Notice that the `gazebo` verb is **deprecated**.
+`ros_ign` has been renamed to `ros_gz`.
+All internal references to `ign` or `ignition` that pre-Garden versions of Gazebo don't rely on have been migrated.
+
+If you want to run `ros_gz` demos with custom sim version or sim args, use the `gz_version` and `gz_args` launch parameters.
+Using the `ign_version` launch parameter will also require you to explicitly set the `ign_args` launch parameters instead.
