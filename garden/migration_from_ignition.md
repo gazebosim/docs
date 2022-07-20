@@ -30,7 +30,7 @@ You may also look at the [tracking GitHub issue](https://github.com/gazebo-tooli
 
 This section provides just an overview of the different changes made, for a more detailed listing of tick-tocks, see the `[MIGRATION.md](http://MIGRATION.md)` file in each of the individual core libraries’ repositories. Additionally the migration pointers in a later section of this migration guide should help you get your packages ready and working with Gazebo.
 
-Generally speaking, you should still be able to use either the Ignition counterpart or Gazebo counterpart for **most things** if you are using Garden, due to explicit tick-tocking logic written in the stack. Just note that using the Ignition counterpart will generally cause deprecation warnings to emit.
+Generally speaking, you should still be able to use either the Ignition counterpart or Gazebo counterpart for **most things** if you are using Garden, due to explicit tick-tocking logic written in the stack. Just note that using the Ignition counterpart will generally cause deprecation warnings to be emitted.
 
 ### Tick-tocks
 
@@ -93,7 +93,7 @@ Also, in the source code, most of these tick-tocks will have an associated comme
 - GitHub actions and workflows
     - e.g. `ignition-tooling` → `gazebo-tooling`
 - Websites
-    - e.g. `[ignitionrobotics.org](http://ignitionrobotics.org)` → `gazebosim.org`
+    - e.g. [ignitionrobotics.org](http://ignitionrobotics.org) → [gazebosim.org](http://gazebosim.org)
 - SDF and launch tags
     - e.g. `<ignition-gui>` → `<gz-gui>`
 
@@ -160,7 +160,7 @@ Also, anything that is internal to the core Gazebo libraries and not used in dow
 A very small selection of things have not been migrated, mostly for backwards compatibility reasons (e.g. supporting Fortress.)
 
 - Branch names for versions of Gazebo libraries targeting releases before Garden
-    - e.g. `ign-cmake1`
+    - e.g. `ign-cmake2`
 - Some links
     - e.g. [https://osrf-migration.github.io/ignition-gh-pages](https://osrf-migration.github.io/ignition-gh-pages)
 - Fuel user agent related
@@ -170,7 +170,7 @@ A very small selection of things have not been migrated, mostly for backwards co
 
 ## Overview
 
-The following migration guidelines are just that—guidelines and suggestions for how to get your package migrated, that hopefully should cover most general cases.
+The following migration guidelines are just that—guidelines and suggestions for how to get your package migrated, that should cover most general cases.
 
 Just keep in mind the overarching goal of replacing every Ignition counterpart (`IGN`, `Ign`, `Ignition`, `ign`, `ignition`) to the Gazebo counterpart (`GZ`, `Gz`, `gz`).
 
