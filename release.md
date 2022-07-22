@@ -58,7 +58,7 @@ releasing process:
  * **[packages.osrfoundation.org](http://packages.osrfoundation.org/)**: Debian/Ubuntu .deb repositories. The URLs
    are ready to be used by the APT packages system.
 
- * **osrf-distributions S3**: [cloud storage](http://gazebosim.org/distributions/bottles-simulation/)
+ * **osrf-distributions S3**: [cloud storage](http://classic.gazebosim.org/distributions/bottles-simulation/)
    space to save the different artifacts produced during the release process. The
    S3 space is no more than an archive of artifacts that need to be manually
    downloaded (i.e: to get an old version of a .deb package) or handled by other
@@ -75,22 +75,24 @@ stability of the software:
    * Linux stable binaries (right distribution must be selected from {ubuntu/debian}):
      http://packages.osrfoundation.org/gazebo/{ubuntu/debian}-stable
    * macOS stable binaries:
-     http://gazebosim.org/distributions/ (in their respective directories)
+     http://classic.gazebosim.org/distributions/bottles-simulation/
 
  * **prerelease**: prereleases are designed to be tested as candidates to
    stable.
    * Linux prerelease binaries (right distribution must be selected from {ubuntu/debian}):
      http://packages.osrfoundation.org/gazebo/{ubuntu/debian}-prerelease
-   * macOS prerelease binaries (they are stored in the same place as stable releases but under bottles-simulation):
-     http://gazebosim.org/distributions/bottles-simulation/
+   * macOS prerelease binaries (they are stored in the same place as stable releases):
+     http://classic.gazebosim.org/distributions/bottles-simulation/
 
  * **nightly**: automatically generated releases used in continuous integration
    systems reflecting the latest changes in the repositories.
    * Linux nightly binaries (right distribution must be selected from {ubuntu/debian}):
      http://packages.osrfoundation.org/gazebo/{ubuntu/debian}-nightly
    * macOS nightly binaries:
-     *Unsupported* (see [the homebrew-simulation issue](https://github.com/osrf/homebrew-simulation/issues/1314)
-     for more information)
+     Nightly binaries are not currently supported. Any installation of an unreleased
+     package will build the `main` branch from source
+     (see [the homebrew-simulation issue](https://github.com/osrf/homebrew-simulation/issues/1314)
+     for more information).
 
 ### Metadata for Releasing
 
