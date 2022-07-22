@@ -58,7 +58,7 @@ releasing process:
  * **[packages.osrfoundation.org](http://packages.osrfoundation.org/)**: Debian/Ubuntu .deb repositories. The URLs
    are ready to be used by the APT packages system.
 
- * **osrf-distributions S3**: [cloud storage](http://gazebosim.org/distributions/bottles-simulation/)
+ * **osrf-distributions S3**: [cloud storage](http://classic.gazebosim.org/distributions/bottles-simulation/)
    space to save the different artifacts produced during the release process. The
    S3 space is no more than an archive of artifacts that need to be manually
    downloaded (i.e: to get an old version of a .deb package) or handled by other
@@ -75,22 +75,47 @@ stability of the software:
    * Linux stable binaries (right distribution must be selected from {ubuntu/debian}):
      http://packages.osrfoundation.org/gazebo/{ubuntu/debian}-stable
    * macOS stable binaries:
-     http://gazebosim.org/distributions/ (in their respective directories)
+     http://classic.gazebosim.org/distributions/bottles-simulation/
 
  * **prerelease**: prereleases are designed to be tested as candidates to
    stable.
    * Linux prerelease binaries (right distribution must be selected from {ubuntu/debian}):
      http://packages.osrfoundation.org/gazebo/{ubuntu/debian}-prerelease
-   * macOS prerelease binaries (they are stored in the same place as stable releases but under bottles-simulation):
-     http://gazebosim.org/distributions/bottles-simulation/
+   * macOS prerelease binaries (they are stored in the same place as stable releases):
+     http://classic.gazebosim.org/distributions/bottles-simulation/
 
  * **nightly**: automatically generated releases used in continuous integration
    systems reflecting the latest changes in the repositories.
    * Linux nightly binaries (right distribution must be selected from {ubuntu/debian}):
      http://packages.osrfoundation.org/gazebo/{ubuntu/debian}-nightly
    * macOS nightly binaries:
-     *Unsupported* (see [the homebrew-simulation issue](https://github.com/osrf/homebrew-simulation/issues/1314)
-     for more information)
+     Nightly binaries are not currently supported. Any installation of an unreleased
+     package will build the `main` branch from source
+     (see [the homebrew-simulation issue](https://github.com/osrf/homebrew-simulation/issues/1314)
+     for more information).
+
+### Using the `gzdev repository` command
+
+The [gzdev repository](https://github.com/gazebo-tooling/gzdev#repository)
+command is a convenient way to configure Ubuntu / Debian systems to use a
+particular set of Gazebo software releases.
+For example, support for prerelease software can be enabled with the following
+command:
+
+`gzdev repository enable osrf prerelease`
+
+The command also has a
+[configuration file](https://github.com/gazebo-tooling/gzdev/blob/master/plugins/config/repository.yaml)
+with repository settings associated with specific packages by name or name
+pattern. For example, the following command will enable the package repositories
+associated with the `gz-cmake3` package:
+
+`gzdev repository enable --project=gz-cmake3`
+
+During the Gazebo Garden development period, this packaage was
+[configured by name](https://github.com/gazebo-tooling/gzdev/blob/7fe5d2c5d758c6b0964e9937d6b82150402d14c2/plugins/config/repository.yaml#L28-L33)
+to use stable and nightly binaries.
+It is customary to use nightly binaries for all unreleased package versions.
 
 ### Metadata for Releasing
 
