@@ -61,7 +61,7 @@ export PATH=$PATH:$HOME/.local/bin/
 An alternative method is to use the `.deb` packages available on Debian or Ubuntu:
 
 ```bash
-sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros-latest.list'
+sudo sh -c 'echo "deb http://packages.ros.org/ros2/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros2-latest.list'
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install python3-vcstool python3-colcon-common-extensions
