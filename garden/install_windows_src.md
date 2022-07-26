@@ -50,7 +50,7 @@ You will still be able to use `TPE` as a physics engine
   colcon-common-extensions eigen freeimage gts ^
   glib dlfcn-win32 ffmpeg ruby tinyxml2 tinyxml ^
   protobuf urdfdom zeromq cppzmq ogre jsoncpp ^
-  libzip qt --channel conda-forge
+  libzip qt pybind11 --channel conda-forge
   ```
 
 6. Navigate to where you would like to build the library, create and enter your workspace directory,
@@ -87,7 +87,7 @@ colcon graph
 If that is the case, then you are ready to build the whole set of libraries:
 
 ```bash
-colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install --packages-up-to gazebo-sim7
+colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install --packages-up-to gz-sim7
 ```
 Tests are turned off as they are not currently supported on Windows.
 
