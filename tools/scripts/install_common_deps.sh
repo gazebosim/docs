@@ -28,6 +28,13 @@ sudo apt-get install -y \
   pkg-config \
   ruby-dev \
   ruby-ronn \
-  s3cmd \
-  software-properties-common \
-  texlive-latex-base
+  software-properties-common
+
+sudo curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo unzip awscliv2.zip
+sudo ./aws/install
+
+# Configure AWS so that API docs can be uploaded to s3.
+aws configure set aws_access_key_id $1
+aws configure set aws_secret_access_key $2
+aws configure set default.region us-east-1

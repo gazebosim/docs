@@ -15,9 +15,9 @@ found under the `API Reference` section of [https://gazebosim.org/docs](https://
 
 ## Main docs
 
-The documentation in this repository is updated whenever the ign-webserver,
-a private repository to Open Robotics, is deployed. The ign-webserver maintains a clone of this repository, and
-serves the markdown pages to https://gazebosim.org.
+The documentation in this repository is updated whenever the
+[gazebosim-web-backend](https://github.com/gazebo-web/gazebosim-web-backend),
+is deployed. The gazebosim-web-backend webserver maintains a clone of this repository, and serves the markdown pages to https://gazebosim.org/docs.
 
 ## Library docs
 
