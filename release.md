@@ -94,7 +94,7 @@ stability of the software:
      (see [the homebrew-simulation issue](https://github.com/osrf/homebrew-simulation/issues/1314)
      for more information).
 
-### Using the `gzdev repository` command
+### Using the gzdev repository command
 
 The [gzdev repository](https://github.com/gazebo-tooling/gzdev#repository)
 command is a convenient way to configure Ubuntu / Debian systems to use a
