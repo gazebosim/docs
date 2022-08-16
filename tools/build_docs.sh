@@ -56,6 +56,12 @@ if [[ $1 == 'all' || $1 == 'fortress' || $1 == 'Fortress' ]]; then
   docker build -t gz-fortress-docs -f Dockerfile.fortress --build-arg GZ_VERSION_PASSWORD --build-arg GZ_VERSION_DATE=`date -Iseconds` --no-cache --build-arg AWS_ACCESS_KEY --build-arg AWS_SECRET_KEY .
 fi
 
+if [[ $1 == 'all' || $1 == 'garden' || $1 == 'Garden' ]]; then
+  echo -e "\e[46m\e[30mUploading documentation for Garden\e[0m\e[39m"
+  docker build -t gz-garden-docs -f Dockerfile.garden --build-arg GZ_VERSION_PASSWORD --build-arg GZ_VERSION_DATE=`date -Iseconds` --no-cache --build-arg AWS_ACCESS_KEY --build-arg AWS_SECRET_KEY .
+fi
+
+
 # Reminder to tic over cloudfront.
 echo "WARNING"
 echo "  A CloudFront invalidation is required. Run the following command with the appropriate \$CLOUDFRONT_DISTRIBUTION_ID:\n"

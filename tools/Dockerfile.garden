@@ -1,0 +1,87 @@
+FROM ubuntu:focal
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN echo ::group::Container setup
+
+RUN apt-get update \
+ && apt-get install -y \
+      sudo tzdata \
+ && apt-get clean
+
+ARG GZ_VERSION_PASSWORD
+ARG GZ_VERSION_DATE
+ARG AWS_ACCESS_KEY
+ARG AWS_SECRET_KEY
+
+COPY scripts/install_common_deps.sh scripts/install_common_deps.sh
+RUN scripts/install_common_deps.sh $AWS_ACCESS_KEY $AWS_SECRET_KEY
+
+COPY scripts/enable_gcc8.sh scripts/enable_gcc8.sh
+RUN scripts/enable_gcc8.sh
+
+COPY scripts/build_gz.sh scripts/build_gz.sh
+
+RUN echo ::endgroup::
+
+RUN scripts/build_gz.sh gazebosim gz-cmake gz-cmake3 n \
+      $GZ_VERSION_DATE \
+      $GZ_VERSION_PASSWORD; exit 0
+
+RUN scripts/build_gz.sh gazebosim gz-math gz-math7 y \
+      $GZ_VERSION_DATE \
+      $GZ_VERSION_PASSWORD; exit 0
+
+RUN scripts/build_gz.sh gazebosim gz-tools gz-tools2 n \
+      $GZ_VERSION_DATE \
+      $GZ_VERSION_PASSWORD; exit 0
+
+RUN scripts/build_gz.sh gazebosim gz-plugin gz-plugin2 y \
+      $GZ_VERSION_DATE \
+      $GZ_VERSION_PASSWORD; exit 0
+
+RUN scripts/build_gz.sh gazebosim gz-common gz-common5 y \
+      $GZ_VERSION_DATE \
+      $GZ_VERSION_PASSWORD; exit 0
+
+# SDFormat's documentation is uploaded in a different way
+# Keeping it here for completeness
+# RUN scripts/build_gz.sh osrf sdformat sdf11 n \
+#       $GZ_VERSION_DATE \
+#       $GZ_VERSION_PASSWORD; exit 0
+
+RUN scripts/build_gz.sh gazebosim gz-msgs gz-msgs9 y \
+      $GZ_VERSION_DATE \
+      $GZ_VERSION_PASSWORD; exit 0
+
+RUN scripts/build_gz.sh gazebosim gz-transport gz-transport12 y \
+      $GZ_VERSION_DATE \
+      $GZ_VERSION_PASSWORD; exit 0
+
+RUN scripts/build_gz.sh gazebosim gz-fuel-tools gz-fuel-tools8 y \
+      $GZ_VERSION_DATE \
+      $GZ_VERSION_PASSWORD; exit 0
+
+RUN scripts/build_gz.sh gazebosim gz-rendering gz-rendering7 y \
+      $GZ_VERSION_DATE \
+      $GZ_VERSION_PASSWORD; exit 0
+
+RUN scripts/build_gz.sh gazebosim gz-sensors gz-sensors7 y \
+      $GZ_VERSION_DATE \
+      $GZ_VERSION_PASSWORD; exit 0
+
+RUN scripts/build_gz.sh gazebosim gz-gui gz-gui7 y \
+      $GZ_VERSION_DATE \
+      $GZ_VERSION_PASSWORD; exit 0
+
+RUN scripts/build_gz.sh gazebosim gz-physics gz-physics6 y \
+      $GZ_VERSION_DATE \
+      $GZ_VERSION_PASSWORD; exit 0
+
+RUN scripts/build_gz.sh gazebosim gz-sim gz-sim7 y \
+      $GZ_VERSION_DATE \
+      $GZ_VERSION_PASSWORD; exit 0
+
+RUN scripts/build_gz.sh gazebosim gz-launch gz-launch6 y \
+      $GZ_VERSION_DATE \
+      $GZ_VERSION_PASSWORD; exit 0
