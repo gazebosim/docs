@@ -5,6 +5,27 @@ Here you will find the set of features that are available in each release.
 Take a look at the [Roadmap](/docs/roadmap) for information about upcoming
 features, some of which may land in released versions of Gazebo.
 
+## Garden
+
+| Library name       | Version       | Changelog     |
+| ------------------ |:-------------:|:-------------:|
+|   gz-cmake        |       3.x     |       [Changelog](https://github.com/gazebosim/gz-cmake/blob/gz-cmake3/Changelog.md)     |
+|   gz-common       |       5.x     |       [Changelog](https://github.com/gazebosim/gz-common/blob/gz-common5/Changelog.md)    |
+|   gz-fuel-tools   |       8.x     |       [Changelog](https://github.com/gazebosim/gz-fuel-tools/blob/gz-fuel-tools8/Changelog.md)    |
+|   gz-gui          |       7.x     |       [Changelog](https://github.com/gazebosim/gz-gui/blob/gz-gui7/Changelog.md)       |
+|   gz-launch       |       6.x     |       [Changelog](https://github.com/gazebosim/gz-launch/blob/gz-launch6/Changelog.md)
+|   gz-math         |       7.x     |       [Changelog](https://github.com/gazebosim/gz-math/blob/gz-math7/Changelog.md)
+|   gz-msgs         |       9.x     |       [Changelog](https://github.com/gazebosim/gz-msgs/blob/gz-msgs9/Changelog.md)
+|   gz-physics      |       6.x     |       [Changelog](https://github.com/gazebosim/gz-physics/blob/gz-physics6/Changelog.md)
+|   gz-plugin       |       2.x     |       [Changelog](https://github.com/gazebosim/gz-plugin/blob/gz-plugin2/Changelog.md)     |
+|   gz-rendering    |       7.x     |       [Changelog](https://github.com/gazebosim/gz-rendering/blob/gz-rendering7/Changelog.md)      |
+|   gz-sensors      |       7.x     |       [Changelog](https://github.com/gazebosim/gz-sensors/blob/gz-sensors7/Changelog.md)      |
+|   gz-sim          |       7.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/gz-sim7/Changelog.md)     |
+|   gz-tools        |       2.x     |       [Changelog](https://github.com/gazebosim/gz-tools/blob/gz-tools2/Changelog.md)     |
+|   gz-transport    |      12.x     |       [Changelog](https://github.com/gazebosim/gz-transport/blob/gz-transport12/Changelog.md)      |
+|   gz-utils        |       2.x     |       [Changelog](https://github.com/gazebosim/gz-utils/blob/gz-utils2/Changelog.md)      |
+|   sdformat        |      13.x     |       [Changelog](https://github.com/osrf/sdformat/blob/sdf13/Changelog.md)        |
+
 ## Fortress
 
 1. [Headless simulation using EGL.](https://github.com/gazebosim/gz-rendering/issues/223)
