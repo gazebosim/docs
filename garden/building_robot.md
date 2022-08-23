@@ -2,7 +2,7 @@
 
 In this tutorial we will learn how to build our own robot in SDFormat. We will build a simple two wheeled robot.
 
- You can find the finished SDF file for the tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/fortress/tutorials/building_robot/building_robot.sdf).
+ You can find the finished SDF file for the tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/garden/tutorials/building_robot/building_robot.sdf).
 
 ## What is SDF
 
@@ -78,7 +78,7 @@ We will start by building a simple world and then build our robot in it. Open a 
 
 Save the file, navigate to the directory where you saved the file and launch the simulator:
 
-`ign gazebo building_robot.sdf`
+`gz sim building_robot.sdf`
 
 **Note**: You can name your file any name and save it anywhere on your computer.
 
@@ -175,7 +175,7 @@ The `<collision>` tag defines the collision properties of the link, how our link
 
 After copying all the parts above into the world file in order, run the world again:
 
-`ign gazebo building_robot.sdf`
+`gz sim building_robot.sdf`
 
 Our model should look like this:
 
@@ -432,7 +432,7 @@ We used `type='ball'` which gives 3 rotational degrees of freedom.
 
 Run the world:
 
-`ign gazebo building_robot.sdf`
+`gz sim building_robot.sdf`
 
 It should look like this:
 

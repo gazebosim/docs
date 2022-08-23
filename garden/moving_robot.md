@@ -2,8 +2,8 @@
 
 In this tutorial we will learn how to move our robot. We will use the
 robot we built in the [Build your own robot](building_robot)
-tutorial. You can download the robot from [here](https://github.com/ignitionrobotics/docs/blob/master/fortress/tutorials/building_robot/building_robot.sdf).
-You can also find the finished world of this tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/fortress/tutorials/moving_robot/moving_robot.sdf).
+tutorial. You can download the robot from [here](https://github.com/ignitionrobotics/docs/blob/master/garden/tutorials/building_robot/building_robot.sdf).
+You can also find the finished world of this tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/garden/tutorials/moving_robot/moving_robot.sdf).
 
 ## What is a plugin
 
@@ -46,11 +46,11 @@ Our model will subscribe (listen) to the messages sent on the `cmd_vel` topic.
 
 Launch the robot world:
 
-`ign gazebo building_robot.sdf`
+`gz sim building_robot.sdf`
 
 In another terminal let's send a message to to our robot:
 
-`ign topic -t "/cmd_vel" -m ignition.msgs.Twist -p "linear: {x: 0.5}, angular: {z: 0.05}"`
+`gz topic -t "/cmd_vel" -m gz.msgs.Twist -p "linear: {x: 0.5}, angular: {z: 0.05}"`
 
 Now you should have your robot moving in the simulation.
 
@@ -76,17 +76,17 @@ Let's try this plugin as follows:
 
 * In one terminal type
 
-    `ign gazebo building_robot.sdf`
+    `gz sim building_robot.sdf`
 
 * In the top right corner click on the plugins dropdown list (vertical ellipsis), click the Key Publisher.
 
 * In another terminal type
 
-    `ign topic -e -t /keyboard/keypress`
+    `gz topic -e -t /keyboard/keypress`
 
 The last command will display all messages sent on `/keyboard/keypress` topic.
 
-In the ignition window press different keys and you should see data (numbers) on the terminal where you run the `ign topic -e -t /keyboard/keypress` command.
+In the ignition window press different keys and you should see data (numbers) on the terminal where you run the `gz topic -e -t /keyboard/keypress` command.
 
 ![KeyPublisher](tutorials/moving_robot/keypublisher_data.png)
 
@@ -124,13 +124,13 @@ To see what values are sent on the `/keyboard/keypress` topic when pressing the 
 
 * Run the model in one terminal:
 
-    `ign gazebo building_robot.sdf`
+    `gz sim building_robot.sdf`
 
 * In the top right corner click on the plugins dropdown list (vertical ellipsis), click the Key Publisher.
 
 * In another terminal run the following command:
 
-    `ign topic -e -t /keyboard/keypress`
+    `gz topic -e -t /keyboard/keypress`
 
 Start pressing the arrows keys and see what values they give:
 

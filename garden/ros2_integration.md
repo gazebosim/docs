@@ -13,7 +13,7 @@ from ROS and apply it to Ignition and vice versa.
 For this tutorial to work correctly make sure you have the following installed:
 
 * [ROS 2 Rolling](https://docs.ros.org/en/rolling/Installation.html)
-* [Ignition Fortress](https://gazebosim.org/docs/fortress)
+* [Gazebo Garden](https://gazebosim.org/docs/garden)
 * [ros_ign_bridge](https://github.com/ignitionrobotics/ros_ign/tree/ros2#from-source)
 
 ## Bidirectional communication
@@ -58,7 +58,7 @@ For ROS it is `std_msgs/msg/Int32` and for Ignition it is `ignition.msgs.Int32`
 In another terminal launch an Gazebo Sim world, for example the `empty.sdf` world:
 
 ```
-ign gazebo empty.sdf
+gz sim empty.sdf
 ```
 
 Then add the `Key Publisher` plugin from the dropdown menu on the top right corner.

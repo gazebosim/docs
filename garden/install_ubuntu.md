@@ -1,8 +1,8 @@
 # Binary Installation on Ubuntu
 
-Fortress binaries are provided for Ubuntu Bionic and Focal. All of the Fortress
+Garden binaries are provided for Ubuntu Focal and Jammy. All of the Garden
 binaries are hosted in the osrfoundation repository. To install all of them,
-the metapackage `ignition-fortress` can be installed.
+the metapackage `gz-garden` can be installed.
 
 First install some necessary tools:
 
@@ -11,17 +11,17 @@ sudo apt-get update
 sudo apt-get install lsb-release wget gnupg
 ```
 
-Then install Ignition Fortress:
+Then install Gazebo Garden:
 
 
 ```bash
 sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
 sudo apt-get update
-sudo apt-get install ignition-fortress
+sudo apt-get install gz-garden
 ```
 
-All libraries should be ready to use and the `ign gazebo` app ready to be executed.
+All libraries should be ready to use and the `gz sim` app ready to be executed.
 
 Head back to the [Getting started](/docs/all/getstarted)
 page to start using Ignition!
@@ -32,9 +32,9 @@ If you need to uninstall Ignition or switch to a source-based install once you
 have already installed the library from binaries, run the following command:
 
 ```bash
-sudo apt remove ignition-fortress && sudo apt autoremove
+sudo apt remove gz-garden && sudo apt autoremove
 ```
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/fortress/troubleshooting#ubuntu)
+See [Troubleshooting](/docs/garden/troubleshooting#ubuntu)

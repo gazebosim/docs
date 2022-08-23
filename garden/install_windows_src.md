@@ -150,4 +150,4 @@ the results you want:
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/fortress/troubleshooting#windows)
+See [Troubleshooting](/docs/garden/troubleshooting#windows)

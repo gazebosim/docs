@@ -8,10 +8,10 @@ Ignition Fuel hosts hundreds of models that can easily be added to a world runni
 Start by getting Ignition up and running with an empty world:
 
 ```bash
-ign gazebo empty.sdf
+gz sim empty.sdf
 ```
 
-The previous tutorial, [Manipulating Models](manipulating_models), shows you how to interact with models, which might be helpful once you add some Fuel models to your world.
+The previous tutorial, [Manipulating Models](Manipulating_models), shows you how to interact with models, which might be helpful once you add some Fuel models to your world.
 
 ## Choose a Model
 

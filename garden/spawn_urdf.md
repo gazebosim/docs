@@ -18,21 +18,21 @@ To spawn a URDF model in Gazebo Sim, we will start a world and make use of the w
 
 Start by launching an empty world in Gazebo Sim:
 ```bash
-ign gazebo empty.sdf
+gz sim empty.sdf
 ```
 
 You should see a window that looks like this:
 
 ![empty_world](tutorials/spawn_urdf/empty_world.png)
 
-In another terminal, get the list of available services by running `ign service -l`.
+In another terminal, get the list of available services by running `gz service -l`.
 Look for a `create` service.
 You should see this service in the list:
 ```
 /world/empty/create
 ```
 
-We can double-check that this is the service we want to use by running `ign service -is /world/empty/create`.
+We can double-check that this is the service we want to use by running `gz service -is /world/empty/create`.
 This will show us the service's request and response message types:
 ```
 ignition.msgs.EntityFactory, ignition.msgs.Boolean
@@ -44,7 +44,7 @@ The [libsdformat](https://gazebosim.org/libs/sdformat) library will then interna
 
 The following command spawns the URDF file `model.urdf` into the Gazebo Sim world as a model named `urdf_model`:
 ```bash
-ign service -s /world/empty/create --reqtype ignition.msgs.EntityFactory --reptype ignition.msgs.Boolean --timeout 1000 --req 'sdf_filename: "/path/to/model.urdf", name: "urdf_model"'
+gz service -s /world/empty/create --reqtype ignition.msgs.EntityFactory --reptype ignition.msgs.Boolean --timeout 1000 --req 'sdf_filename: "/path/to/model.urdf", name: "urdf_model"'
 ```
 
 If `model.urdf` is the URDF representation of [rrbot.xacro](https://github.com/ros-simulation/gazebo_ros_demos/blob/kinetic-devel/rrbot_description/urdf/rrbot.xacro) in the `gazebo_ros_demos` package, executing the service call above should result in a simulation that now looks like this:

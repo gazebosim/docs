@@ -4,30 +4,31 @@ This guide is an introduction to the Ignition Graphical User Interface (GUI).
 
 ## Prerequisites
 
-Before beginning, you should have [Ignition installed](/docs/fortress/install).
-If you installed [from source](/docs/fortress/install)
-you will need to [source](/docs/fortress/install_ubuntu_src#using-the-workspace) the workspace;
+Before beginning, you should have [Garden installed](/docs/garden/install).
+If you installed [from source](/docs/garden/install)
+you will need to [source](/docs/garden/install_ubuntu_src#using-the-workspace) the workspace;
 otherwise, you're good to go!
 
 Start by getting Ignition up and running with a sample world:
 
 ```bash
-ign gazebo shapes.sdf
+gz sim shapes.sdf
 ```
 
-`ign gazebo` will run the latest version of Ignition you have installed.
-You can check if you have more than one version of Ignition installed by running `ign gazebo --versions`.
-For example, if you have Fortress and Dome installed, `--versions` might return:
+`gz sim` will run the latest version of Ignition you have installed.
+You can check if you have more than one version of Ignition installed by running `gz sim --versions`.
+For example, if you have Garden, Fortress and Dome installed, `--versions` might return:
 
 ```bash
+7.0.0~pre1
 6.0.0
 5.0.0
 ```
 
-To ensure you're working with Fortress, include the `--force-version` directive when starting up:
+To ensure you're working with Garden, include the `--force-version` directive when starting up:
 
 ```bash
-ign gazebo --force-version 6.0.0 shapes.sdf
+gz sim --force-version 7.0.0~pre1 shapes.sdf
 ```
 
 ## GUI

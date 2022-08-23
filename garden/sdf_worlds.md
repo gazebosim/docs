@@ -1,6 +1,6 @@
 # SDF worlds
 
-In this tutorial we will learn how to build our world using SDF, and how to add models to it. Open your text editor and add code as you follow along with this tutorial. You can also download the finished world for this tutorial from [here](https://github.com/ignitionrobotics/docs/blob/master/fortress/tutorials/sdf_worlds/world_demo.sdf).
+In this tutorial we will learn how to build our world using SDF, and how to add models to it. Open your text editor and add code as you follow along with this tutorial. You can also download the finished world for this tutorial from [here](https://github.com/ignitionrobotics/docs/blob/master/garden/tutorials/sdf_worlds/world_demo.sdf).
 
 ## Defining a world
 
@@ -172,11 +172,11 @@ With these tags we can choose what values to display (expand the bottom right co
 
 Run the world:
 
-`ign gazebo world_demo.sdf`
+`gz sim world_demo.sdf`
 
 Press the play button and in another terminal listen to the messages:
 
-`ign topic -e -t /world/world_demo/stats`
+`gz topic -e -t /world/world_demo/stats`
 
 The message should look like this:
 
@@ -275,7 +275,7 @@ Then we have to set it to the `world_tutorial` directory, like this:
 
 Run your world:
 
-`ign gazebo world_demo.sdf`
+`gz sim world_demo.sdf`
 
 You should see the model in the origin of the world. You can also set its coordinates using the `<pose>`tag.
 

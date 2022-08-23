@@ -16,7 +16,7 @@ The Align Tool aligns entities along or about a specific entity's bounding box.
 Start by getting Ignition up and running with a sample world:
 
 ```bash
-ign gazebo shapes.sdf
+gz sim shapes.sdf
 ```
 
 The previous tutorial, [Understanding the GUI](gui), explains the basics of navigating the Ignition GUI.

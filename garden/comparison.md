@@ -2,7 +2,7 @@
 
 A list of features present in [Gazebo-classic](https://github.com/osrf/gazebo/)
 version 11 and the status of their migration to
-[Ignition Fortress](https://gazebosim.org/).
+[Gazebo Garden](https://gazebosim.org/).
 
 All the issues below are labeled with
 [close the gap](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22close+the+gap%22&type=Issues)

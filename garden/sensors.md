@@ -8,14 +8,14 @@ to other models in our world. We will use three different sensors:
 an IMU sensor, a Contact sensor and a Lidar sensor. We will also
 learn how to launch multiple tasks with just one file using `ign_launch`.
 
-You can find the final world of this tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/fortress/tutorials/sensors/sensor_tutorial.sdf)
+You can find the final world of this tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/garden/tutorials/sensors/sensor_tutorial.sdf)
 
 ## IMU sensor
 
 The inertial measurement unit (IMU) outputs the `orientation` of our
 robot in quaternions, the `angular_velocity` in the three axes (X, Y, Z),
 and the `linear_acceleration` in the three axes. Let's use our
-[moving_robot.sdf](https://github.com/ignitionrobotics/docs/blob/master/fortress/tutorials/moving_robot/moving_robot.sdf) world and modify it. Create a new file
+[moving_robot.sdf](https://github.com/ignitionrobotics/docs/blob/master/garden/tutorials/moving_robot/moving_robot.sdf) world and modify it. Create a new file
 `sensor_tutorial.sdf` and add the code from `moving_robot.sdf` to it.
 To define the `IMU` sensor add this code under the `<world>` tag:
 
@@ -54,11 +54,11 @@ Let's describe the tags:
 
 To read the data from the `IMU`, run the world in one terminal and press the play button:
 
-`ign gazebo sensor_tutorial.sdf`
+`gz sim sensor_tutorial.sdf`
 
 In another terminal, run:
 
-`ign topic -e -t /imu`
+`gz topic -e -t /imu`
 
 The last command listens to the messages sent over the `/imu` topic. The IMU data are `orientation`, `angular_velocity` and `linear_acceleration` as described above. It should look like this:
 
@@ -151,15 +151,15 @@ has been touched. The tags of the plugin are as follows:
 
  Run the world in one terminal:
 
-`ign gazebo sensor_tutorial.sdf`
+`gz sim sensor_tutorial.sdf`
 
 In another terminal, listen to the `/wall/touched` topic:
 
-`ign topic -e -t /wall/touched`
+`gz topic -e -t /wall/touched`
 
 Drive your robot forward to the wall using the keyboard arrow keys. Make sure to start the simulation by hitting the play button, and enable the Key Publisher plugin as well by clicking on the plugins dropdown list (vertical ellipsis), then selecting "Key Publisher".
 
-When you hit the bump you should see a message `data: true` on the terminal where you ran the `ign topic -e -t /wall/touched`.
+When you hit the bump you should see a message `data: true` on the terminal where you ran the `gz topic -e -t /wall/touched`.
 
 Now we can use the `TriggeredPublisher` plugin to make our robot stop when hits the wall as follows:
 
@@ -296,7 +296,7 @@ This program is called a node. We will build a node that subscribes
 to the `/lidar` topic and reads its data.
 Have a look at this [tutorial](https://gazebosim.org/api/transport/9.0/messages.html)
 to learn how to build a `publisher` and a `subscriber` node.
-You can download the finished node for this demo from [here](https://github.com/ignitionrobotics/docs/blob/master/fortress/tutorials/sensors/lidar_node.cc).
+You can download the finished node for this demo from [here](https://github.com/ignitionrobotics/docs/blob/master/garden/tutorials/sensors/lidar_node.cc).
 
 #### The lidar_node
 
@@ -360,7 +360,7 @@ Inside the main we subscribe to the `lidar` topic, and wait until the node is sh
 
 #### Build the node
 
-Download the [CMakeLists.txt](https://github.com/ignitionrobotics/docs/blob/master/fortress/tutorials/sensors/CMakeLists.txt), and in the same folder of `lidar_node` create `build/` directory:
+Download the [CMakeLists.txt](https://github.com/ignitionrobotics/docs/blob/master/garden/tutorials/sensors/CMakeLists.txt), and in the same folder of `lidar_node` create `build/` directory:
 
 ```{.sh}
 mkdir build
@@ -385,7 +385,7 @@ Run the node from terminal 1:
 Run the world from terminal 2:
 
 ```{.sh}
-ign gazebo sensor_tutorial.sdf
+gz sim sensor_tutorial.sdf
 ```
 
 Now you can see the robot move forward and as it approaches the wall it starts to turn left until it's clear and moves forward again (be sure to press the play button in the bottom-left corner to make the robot start moving).
@@ -414,7 +414,7 @@ And the second command is `./build/lidar_node` which runs the `lidar_node`.
 Save the file as `sensor_launch.ign`, and then run it using the following command:
 
 ```{.sh}
-ign launch sensor_launch.ign
+gz launch sensor_launch.ign
 ```
 
 Press the play button to start the simulation. Hurray! Our robot is now moving and avoiding the wall.

@@ -28,4 +28,4 @@ High level instructions:
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/fortress/troubleshooting)
+See [Troubleshooting](/docs/garden/troubleshooting)

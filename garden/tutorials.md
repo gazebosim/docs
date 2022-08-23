@@ -5,7 +5,6 @@ These tutorials cover general concepts to help get you started with Ignition.
 
 ## ROS integration
 
-* [ROS Integration](ros_integration)
 * [ROS 2 Integration](ros2_integration)
 
 ## GUI tutorials
