@@ -22,7 +22,7 @@
 The following picture shows the interactions triggered when using the release
 tool [`release.py`](https://github.com/ignition-tooling/release-tools/blob/master/release.py) explained in this guide:
 
-![release.py interactions](releasing/images/releasepy_execution.svg)
+![release.py interactions](releasing/images/releasepy_execution.png)
 
 Actions for releasing a new version of library `foo` with major version `X`:
 
