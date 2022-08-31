@@ -248,4 +248,4 @@ sudo make uninstall
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/fortress/troubleshooting#macos)
+See [Troubleshooting](/docs/garden/troubleshooting#macos)

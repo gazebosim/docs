@@ -19,7 +19,7 @@ You should set up the environment variable `GZ_CONFIG_PATH=/usr/local/share/gaze
 After installing all the dependencies and starting the build process, you may encounter an error that looks like this:
 
 ```bash
-/Users/user/fortress_ws/src/sdformat/src/parser_urdf.cc:30:10: fatal error: 'urdf_model/model.h' file not found
+/Users/user/garden_ws/src/sdformat/src/parser_urdf.cc:30:10: fatal error: 'urdf_model/model.h' file not found
 #include <urdf_model/model.h>
          ^~~~~~~~~~~~~~~~~~~~
 1 error generated.
@@ -50,7 +50,7 @@ When running the `gz sim -s` command, an error like the one below may show up:
 Error while loading the library [/Users/garden/garden_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib]: dlopen(/Users/garden/garden_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib, 5): Library not loaded: @rpath/libIrrXML.dylib
   Referenced from: /usr/local/opt/assimp/lib/libassimp.5.dylib
   Reason: image not found
-[Err] [Physics.cc:275] Unable to load the /Users/fortress/fortress_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib library.
+[Err] [Physics.cc:275] Unable to load the /Users/garden/garden_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib library.
 Escalating to SIGKILL on [Gazebo Sim Server]
 ```
 
