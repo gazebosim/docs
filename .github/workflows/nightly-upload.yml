@@ -12,12 +12,10 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Setup S3 cmd
+    - name: Setup aws cli
       run: |
         sudo apt-get update &&
-        sudo apt-get install s3cmd awscli &&
-        s3cmd --configure --access_key=${{ secrets.AWS_ACCESS_KEY_ID }} --secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }} --no-encrypt --dump-config > $HOME/.s3cfg &&
-        ls $HOME/.s3cfg
+        sudo apt-get install awscli
     - name: Run nightly upload
       run: cd tools && bash build_docs.sh all
       env:

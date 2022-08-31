@@ -7,11 +7,11 @@ RUN apt-get update \
 
 ARG GZ_VERSION_PASSWORD
 ARG GZ_VERSION_DATE
-ARG AWS_ACCESS_KEY
-ARG AWS_SECRET_KEY
+ARG AWS_ACCESS_KEY_ID
+ARG AWS_SECRET_ACCESS_KEY
 
 COPY scripts/install_common_deps.sh scripts/install_common_deps.sh
-RUN scripts/install_common_deps.sh $AWS_ACCESS_KEY $AWS_SECRET_KEY
+RUN scripts/install_common_deps.sh $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY
 
 COPY scripts/enable_gcc8.sh scripts/enable_gcc8.sh
 RUN scripts/enable_gcc8.sh
