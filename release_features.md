@@ -46,12 +46,16 @@ features, some of which may land in released versions of Gazebo.
 1. [Bridge Gazebo services to ROS 2 services.](https://github.com/gazebosim/ros_ign/pull/211)
 1. [Omniverse application](https://github.com/gazebosim/gz-omni)
 1. [Pose and Twist with covariance.](https://github.com/gazebosim/gz-msgs/pull/224)
+1. [Kinematic loops for detachable joints.](https://github.com/gazebosim/gz-physics/pull/352)
+1. [ROS bridge configurable via YAML.](https://github.com/gazebosim/ros_gz/pull/238)
+1. [ROS bridge as a node component.](https://github.com/gazebosim/ros_gz/pull/238)
 1. Sensors
   1. [Custom sensors.](https://gazebosim.org/api/sensors/6.0/custom_sensors.html)
   1. [Segmentation camera.](https://gazebosim.org/api/sensors/6.0/segmentationcamera_igngazebo.html)
   1. [Joint force-torque sensor.](https://github.com/gazebosim/gz-sensors/issues/25)
   1. [GPS / NavSat sensor.](https://github.com/gazebosim/gz-sensors/issues/23)
   1. [Triggered cameras.](https://github.com/gazebosim/gz-sensors/issues/185)
+  1. [Bounding box camera.](https://github.com/gazebosim/gz-sensors/issues/135)
 1. GUI features
     1. [Consolidate Scene3D with GzScene3D](https://github.com/gazebosim/gz-gui/issues/137)
     1. [Visualize wireframes](https://github.com/gazebosim/gz-sim/pull/816)
@@ -187,6 +191,7 @@ features, some of which may land in released versions of Gazebo.
 1. [Integration with ros2_control.](https://github.com/gazebosim/gz_ros2_control/)
 1. [gz_ros2_control support for various models](https://github.com/gazbosim/docs/issues/222)
 1. [Polyline extruded 2D geometries](https://github.com/gazebosim/docs/issues/186)
+1. [Apply forces and torques via transport or SDF](https://github.com/gazebosim/gz-sim/pull/1593)
 1. New graphical interfaces:
     * Widget listing all transport topics.
     * Widget that publishes keys pressed on the keyboard.
