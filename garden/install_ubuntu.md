@@ -1,8 +1,8 @@
 # Binary Installation on Ubuntu
 
-Garden binaries are provided for Ubuntu Focal and Jammy. All of the Garden
-binaries are hosted in the osrfoundation repository. To install all of them,
-the metapackage `gz-garden` can be installed.
+Garden pre-release binaries are provided for Ubuntu Focal and Jammy. The
+Garden binaries are hosted in the packages.osrfoundation.org repository.
+To install all of them, the metapackage `gz-garden` can be installed.
 
 First install some necessary tools:
 
@@ -17,6 +17,7 @@ Then install Gazebo Garden:
 ```bash
 sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-prerelease $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-prerelease.list > /dev/null
 sudo apt-get update
 sudo apt-get install gz-garden
 ```
@@ -24,11 +25,11 @@ sudo apt-get install gz-garden
 All libraries should be ready to use and the `gz sim` app ready to be executed.
 
 Head back to the [Getting started](/docs/all/getstarted)
-page to start using Ignition!
+page to start using Gazebo!
 
 ## Uninstalling binary install
 
-If you need to uninstall Ignition or switch to a source-based install once you
+If you need to uninstall Gazebo or switch to a source-based install once you
 have already installed the library from binaries, run the following command:
 
 ```bash
