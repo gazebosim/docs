@@ -30,7 +30,6 @@ compatible non-EOL release and propagate the feature forward.
 
 ### Citadel
 
-1. [Quick start dialog.](https://github.com/gazebosim/gz-sim/issues/1252)
 1. [Bash completion](https://github.com/gazebosim/gz-tools/issues/1)
 1. [Expose camera calibration parameters](https://github.com/gazebosim/sdformat/pull/1088)
 
@@ -45,7 +44,6 @@ compatible non-EOL release and propagate the feature forward.
 1. [Improved Windows support.](https://github.com/search?q=org%3Agazebosim+label%3AWindows&state=open&type=Issues)
 1. [Custom skybox from SDF.](https://github.com/gazebosim/sdformat/pull/1037)
 1. Gz3D: support heightmaps, skybox and particles.
-1. [SDF support on ROS 2.](https://github.com/gazebosim/ros_gz/pull/265)
 1. [Parameters in Gazebo Transport.](https://github.com/gazebosim/gz-transport/pull/305)
 
 ### Garden

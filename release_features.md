@@ -49,6 +49,7 @@ features, some of which may land in released versions of Gazebo.
 1. [Kinematic loops for detachable joints.](https://github.com/gazebosim/gz-physics/pull/352)
 1. [ROS bridge configurable via YAML.](https://github.com/gazebosim/ros_gz/pull/238)
 1. [ROS bridge as a node component.](https://github.com/gazebosim/ros_gz/pull/238)
+1. [SDF support on ROS 2.](https://github.com/gazebosim/ros_gz/pull/265)
 1. Sensors
   1. [Custom sensors.](https://gazebosim.org/api/sensors/6.0/custom_sensors.html)
   1. [Segmentation camera.](https://gazebosim.org/api/sensors/6.0/segmentationcamera_igngazebo.html)
@@ -201,6 +202,7 @@ features, some of which may land in released versions of Gazebo.
     * [2D teleop widget.](https://github.com/gazebosim/gz-gui/issues/186)
     * [3D plot.](https://github.com/gazebosim/gz-sim/issues/231)
     * [Notification snackbar](https://github.com/gazebosim/gz-gui/issues/44)
+   1. [Quick start dialog.](https://github.com/gazebosim/gz-sim/issues/1252)
 1. APIs that make it easier to migrate from Gazebo classic:
     * [World](https://gazebosim.org/api/gazebo/3.5/migrationworldapi.html)
     * [Model](https://gazebosim.org/api/gazebo/3.5/migrationmodelapi.html)
