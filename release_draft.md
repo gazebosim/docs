@@ -35,7 +35,7 @@ Actions for releasing a new version of library `foo` with major version `X`:
       1. [`generic-release-homebrew_pull_request_updater`](https://build.osrfoundation.org/job/generic-release-homebrew_pull_request_updater/):
       one call for Homebrew macOS release
  1. `build.osrfoundation.org` jobs start the work of creating releases:
-      1. `ignition-fooX-debbuilder`: use tarball with release sources and metadata from `ign-fooX-release`
+      1. `ign-fooX-debbuilder`: use tarball with release sources and metadata from `ign-fooX-release`
       1. `generic-release-homebrew_pull_request_updater`: use
          [`homebrew-simulation`](https://github.com/osrf/homebrew-simulation/)
          repository metadata together with the release sources
@@ -241,7 +241,7 @@ The script needs to be run from the repository with the source code (i.e., the r
 # Example of dry-run for ign-cmake2 bumped to 2.0.1
 cd ign-cmake2
 git checkout ign-cmake2
-~/release-tools/release-repo-scripts/release.py ign-cmake2 2.0.1 dry-run-fake-token --dry-run
+~/release-tools/release.py ign-cmake2 2.0.1 dry-run-fake-token --dry-run
 ```
 
 #### release.py for stable releases
