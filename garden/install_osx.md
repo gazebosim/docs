@@ -16,14 +16,14 @@ brew tap osrf/simulation
 brew install gz-garden
 ```
 
-All libraries should be ready to use and the `ign gazebo -s` server app ready to be executed.
+All libraries should be ready to use and the `gz sim -s` server app ready to be executed.
 
 Head back to the [Getting started](/docs/all/getstarted)
-page to start using Ignition!
+page to start using Gazebo!
 
 ## Uninstalling binary install
 
-If you need to uninstall Ignition or switch to a source-based install once you
+If you need to uninstall Gazebo or switch to a source-based install once you
 have already installed the library from binaries, run the following command:
 
 ```bash

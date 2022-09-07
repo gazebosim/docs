@@ -1,6 +1,6 @@
 # SDF worlds
 
-In this tutorial we will learn how to build our world using SDF, and how to add models to it. Open your text editor and add code as you follow along with this tutorial. You can also download the finished world for this tutorial from [here](https://github.com/ignitionrobotics/docs/blob/master/garden/tutorials/sdf_worlds/world_demo.sdf).
+In this tutorial we will learn how to build our world using SDF, and how to add models to it. Open your text editor and add code as you follow along with this tutorial. You can also download the finished world for this tutorial from [here](https://github.com/gazebosim/docs/blob/master/garden/tutorials/sdf_worlds/world_demo.sdf).
 
 ## Defining a world
 
@@ -38,8 +38,8 @@ Plugins are a dynamically loaded chunk of code. For example:
 
 ```xml
 <plugin
-    filename="libignition-gazebo-physics-system.so"
-    name="ignition::gazebo::systems::Physics">
+    filename="libgz-sim-physics-system.so"
+    name="gz::sim::systems::Physics">
 </plugin>
 ```
 
@@ -47,8 +47,8 @@ The `Physics` plugin is very important for simulating the dynamics of the world.
 
 ```xml
 <plugin
-    filename="libignition-gazebo-user-commands-system.so"
-    name="ignition::gazebo::systems::UserCommands">
+    filename="libgz-sim-user-commands-system.so"
+    name="gz::sim::systems::UserCommands">
 </plugin>
 ```
 
@@ -56,8 +56,8 @@ The `UserCommands` plugin is responsible for creating models, moving models, del
 
 ```xml
 <plugin
-    filename="libignition-gazebo-scene-broadcaster-system.so"
-    name="ignition::gazebo::systems::SceneBroadcaster">
+    filename="libgz-sim-scene-broadcaster-system.so"
+    name="gz::sim::systems::SceneBroadcaster">
 </plugin>
 ```
 
@@ -65,7 +65,7 @@ The `UserCommands` plugin is responsible for creating models, moving models, del
 
 ## GUI
 
-Now let's define the GUI. Under the `<gui>` tag we specify anything related to the `GUI` of Ignition.
+Now let's define the GUI. Under the `<gui>` tag we specify anything related to the `GUI` of Gazebo.
 
 ```xml
 <gui fullscreen="0">
@@ -74,18 +74,18 @@ Now let's define the GUI. Under the `<gui>` tag we specify anything related to t
 </gui>
 ```
 
-[ignition-gui](https://github.com/gazebosim/gz-gui/) has a bunch of plugins to choose from. We will add the ones that are necessary to get our world up and running with basic functionality.
+[gazebo-gui](https://github.com/gazebosim/gz-gui/) has a bunch of plugins to choose from. We will add the ones that are necessary to get our world up and running with basic functionality.
 
 ### Scene 3D plugin
 
 ```xml
 <!-- 3D scene -->
 <plugin filename="GzScene3D" name="3D View">
-    <ignition-gui>
+    <gz-gui>
         <title>3D View</title>
         <property type="bool" key="showTitleBar">false</property>
         <property type="string" key="state">docked</property>
-    </ignition-gui>
+    </gz-gui>
 
     <engine>ogre2</engine>
     <scene>scene</scene>
@@ -107,7 +107,7 @@ For the rendering engine we can choose `ogre` or `ogre2`. The `<ambient_light>` 
 ```xml
 <!-- World control -->
 <plugin filename="WorldControl" name="World control">
-    <ignition-gui>
+    <gz-gui>
         <title>World control</title>
         <property type="bool" key="showTitleBar">false</property>
         <property type="bool" key="resizable">false</property>
@@ -120,7 +120,7 @@ For the rendering engine we can choose `ogre` or `ogre2`. The `<ambient_light>` 
         <line own="left" target="left"/>
         <line own="bottom" target="bottom"/>
         </anchors>
-    </ignition-gui>
+    </gz-gui>
 
     <play_pause>true</play_pause>
     <step>true</step>
@@ -134,14 +134,15 @@ The `World control` plugin is responsible for controlling the world. Some of its
 
 * `<play_pause>` if `true` we will have the play-pause button on the bottom left corner.
 * `<stats_topic>` tag specifies the topic at which the world stats like simulation time and real time are published on.
-* `<start_paused>` if `true` the simulation will be paused at the start of Ignition.
+* `<start_paused>` if `true` the simulation will be paused at the start of
+Gazebo.
 
 ### World stats plugin
 
 ```xml
 <!-- World statistics -->
 <plugin filename="WorldStats" name="World stats">
-    <ignition-gui>
+    <gz-gui>
         <title>World stats</title>
         <property type="bool" key="showTitleBar">false</property>
         <property type="bool" key="resizable">false</property>
@@ -154,7 +155,7 @@ The `World control` plugin is responsible for controlling the world. Some of its
         <line own="right" target="right"/>
         <line own="bottom" target="bottom"/>
         </anchors>
-    </ignition-gui>
+    </gz-gui>
 
     <sim_time>true</sim_time>
     <real_time>true</real_time>
@@ -196,9 +197,9 @@ In this plugin we can see all the entities of our world (everything in simulatio
 
 It is blank because we didn't add anything to our world yet.
 
-There are a bunch of useful ignition-gui plugins like the `Transform control` plugin that allows us to manipulate different components of our world, and translate and rotate the entities. Check out this [tutorial](manipulating_models) explaining how to manipulate models.
+There are a bunch of useful gz-gui plugins like the `Transform control` plugin that allows us to manipulate different components of our world, and translate and rotate the entities. Check out this [tutorial](manipulating_models) explaining how to manipulate models.
 
-The plugins can also be added from the GUI using the plugin drop-down menu in the top right corner of Ignition. Now that we are done with the GUI, let's add different elements to our world. **Don't** forget to add the closing tag `</gui>`.
+The plugins can also be added from the GUI using the plugin drop-down menu in the top right corner of Gazebo. Now that we are done with the GUI, let's add different elements to our world. **Don't** forget to add the closing tag `</gui>`.
 
 ## Light
 
@@ -231,7 +232,7 @@ The plugins can also be added from the GUI using the plugin drop-down menu in th
 
 ## Adding models
 
-Instead of building our own models we can use already built ones. [Ignition Fuel](https://app.gazebosim.org/fuel) hosts hundreds of models that can easily be added to an Ignition world. Models can be added as follows.
+Instead of building our own models we can use already built ones. [Gazebo Fuel](https://app.gazebosim.org/fuel) hosts hundreds of models that can easily be added to an Gazebo world. Models can be added as follows.
 
 ### Spawning a model
 
@@ -239,12 +240,12 @@ For adding various models from fuel to your world chekout this [tutorial](fuel_i
 
 ### Include the model URI
 
-Another way of adding the model to your world is to use the model link. Visit the [Ignition Fuel website](https://app.gazebosim.org/fuel). Choose the model you like and click on the `<>` icon on the model description page. This will copy an SDF snippet to your clipboard, then paste it in your world right above the closing `</world>` tag, like this:
+Another way of adding the model to your world is to use the model link. Visit the [Gazebo Fuel website](https://app.gazebosim.org/fuel). Choose the model you like and click on the `<>` icon on the model description page. This will copy an SDF snippet to your clipboard, then paste it in your world right above the closing `</world>` tag, like this:
 
 ```xml
 <include>
     <uri>
-    https://fuel.ignitionrobotics.org/1.0/OpenRobotics/models/Coke
+    https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke
     </uri>
 </include>
 ```
@@ -285,6 +286,6 @@ Now that you have a custom world, the [next tutorial](sensors) will teach you ho
 
 ## Video walk-through
 
-A video walk-through of this tutorial is available from our YouTube channel: [Ignition tutorials: Creating worlds](https://youtu.be/48TX-XJ14Gs).
+A video walk-through of this tutorial is available from our YouTube channel: [Gazebo tutorials: Creating worlds](https://youtu.be/48TX-XJ14Gs).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/48TX-XJ14Gs" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

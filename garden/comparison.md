@@ -5,7 +5,7 @@ version 11 and the status of their migration to
 [Gazebo Garden](https://gazebosim.org/).
 
 All the issues below are labeled with
-[close the gap](https://github.com/search?q=org%3Aignitionrobotics+label%3A%22close+the+gap%22&type=Issues)
+[close the gap](https://github.com/search?q=org%3Agazebosim+label%3A%22close+the+gap%22&type=Issues)
 on GitHub.
 
 ## Sensors
@@ -63,8 +63,8 @@ World plugins | ✓ | ✓ Now called System plugin
 Model plugins | ✓ | ✓ Now called System plugin
 Sensor plugins | ✓ | ✓ Now called System plugin
 Visual plugins | ✓ | ✓
-GUI plugins | ✓ | ✓ Ignition GUI plugins and Gazebo GUI systems
-System plugins | ✓ | ✓ Through Ignition Launch
+GUI plugins | ✓ | ✓ Gazebo GUI plugins and Gazebo GUI systems
+System plugins | ✓ | ✓ Through Gazebo Launch
 
 ## Plugins
 
@@ -92,8 +92,8 @@ InitialVelocityPlugin | ✓ | ✓ (use VelocityControl or JointController)
 JointControlPlugin | ✓ (force / pos / vel, from SDF) | ✓ (vel, from msg)
 JointStatePublisher | ✕ | ✓
 JointTrajectoryPlugin | ✓ |
-KeysToCmdVelPlugin | ✓ | Use `ignition::gui::KeyPublisher` with `ignition::gazebo::systems::TriggeredPublisher`
-KeysToJointsPlugin | ✓ | Use `ignition::gui::KeyPublisher` with `ignition::gazebo::systems::TriggeredPublisher`
+KeysToCmdVelPlugin | ✓ | Use `gz::gui::KeyPublisher` with `gz::gazebo::systems::TriggeredPublisher`
+KeysToJointsPlugin | ✓ | Use `gz::gui::KeyPublisher` with `gz::gazebo::systems::TriggeredPublisher`
 LedPlugin | ✓ |
 LiftDragPlugin | ✓ | ✓
 LinearBatteryConsumerPlugin | ✓ | ✓
@@ -124,7 +124,7 @@ Plugin | Gazebo-classic | Gazebo Sim
 ArrangePlugin | ✓ |
 ContainPlugin | ✓ | Partial port, [Issue](https://github.com/gazebosim/gz-sim/issues/162)
 HydraPlugin | ✓ |
-JoyPlugin | ✓ | ✓ Migrated as an Ignition Launch plugin
+JoyPlugin | ✓ | ✓ Migrated as an Gazebo Launch plugin
 MisalignmentPlugin | ✓ |
 RubblePlugin | ✓ |
 StaticMapPlugin | ✓ |
@@ -163,7 +163,7 @@ ShaderParamVisualPlugin | ✓ | ✓
 Plugin | Gazebo-classic | Gazebo Sim
 -- | -- | --
 CessnaGUIPlugin | ✓ |
-KeyboardGUIPlugin | ✓ | `ignition::gui::KeyPublisher`
+KeyboardGUIPlugin | ✓ | `gz::gui::KeyPublisher`
 LookAtDemoPlugin | ✓ |
 TimerGUIPlugin | ✓ |
 
@@ -226,7 +226,7 @@ Edit physics properties | ✓ | ✓
 
 ## Physics
 
-In Ignition Physics, physics engines are integrated as plugins, so any engine
+In Gazebo Physics, physics engines are integrated as plugins, so any engine
 can be integrated without changing the core source code, as it was the case
 in Gazebo.
 
@@ -245,7 +245,7 @@ Solver | ✓ |  ✓
 
 ## Rendering
 
-In Ignition Rendering, render engines are integrated as plugins, so any engine
+In Gazebo Rendering, render engines are integrated as plugins, so any engine
 can be integrated without changing the core source code.
 
 Feature | Gazebo-classic | Gazebo Sim
@@ -267,7 +267,7 @@ Render order | ✕  | ✓
 ## ROS integration
 
 ROS integration through the
-[ros_ign](https://github.com/ignitionrobotics/ros_ign) packages.
+[ros_ign](https://github.com/gazebosim/ros_ign) packages.
 
 Supported versions:
 
@@ -292,11 +292,11 @@ Web client (GzWeb) | ✓ |
 COLLADA meshes | ✓ | ✓
 OBJ meshes | ✓ | ✓
 STL meshes | ✓ | ✓
-USD meshes | ✕ | [✓](https://github.com/ignitionrobotics/sdformat/tree/sdf12/examples/usdConverter)
+USD meshes | ✕ | [✓](https://github.com/gazebosim/sdformat/tree/sdf12/examples/usdConverter)
 Code introspection | ✓ | All simulation state is accessible from system plugins or through the `SceneBroadcaster`'s state topic
 Distribute simulation across processes | ✕ | (coming up)
 Incrementally load levels | ✕ | ✓
-Online model database | [gazebo_models repository](https://github.com/osrf/gazebo_models/) | [Ignition Fuel](https://app.gazebosim.org/fuel/models)
+Online model database | [gazebo_models repository](https://github.com/osrf/gazebo_models/) | [Gazebo Fuel](https://app.gazebosim.org/fuel/models)
 Saved simulation states | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/137)
 Sphere, cylinder and box primitives | ✓ | ✓
 Ellipsoid and capsule primitives | ✕ | ✓

@@ -1,6 +1,6 @@
 # Understanding the GUI
 
-This guide is an introduction to the Ignition Graphical User Interface (GUI).
+This guide is an introduction to the Gazebo Graphical User Interface (GUI).
 
 ## Prerequisites
 
@@ -9,14 +9,14 @@ If you installed [from source](/docs/garden/install)
 you will need to [source](/docs/garden/install_ubuntu_src#using-the-workspace) the workspace;
 otherwise, you're good to go!
 
-Start by getting Ignition up and running with a sample world:
+Start by getting Gazebo up and running with a sample world:
 
 ```bash
 gz sim shapes.sdf
 ```
 
-`gz sim` will run the latest version of Ignition you have installed.
-You can check if you have more than one version of Ignition installed by running `gz sim --versions`.
+`gz sim` will run the latest version of Gazebo you have installed.
+You can check if you have more than one version of Gazebo installed by running `gz sim --versions`.
 For example, if you have Garden, Fortress and Dome installed, `--versions` might return:
 
 ```bash
@@ -57,7 +57,7 @@ The following is what it looks like after inserting shapes:
 ![shape insertion](img/shape_insertion.png)
 
 The plugins button lists all the available plugins.
-You can scroll down this list to see all the plugins that are available for your version of Ignition.
+You can scroll down this list to see all the plugins that are available for your version of Gazebo.
 When you select one, its interface will appear in the right panel.
 
 ### The Right Panel
@@ -125,4 +125,4 @@ The function of the World Control options will become clearer once you begin man
 
 ## Next Up
 
-Now that you're comfortable with Ignition GUI navigation and terminology, let's start learning about more meaningful model interactions with the [Manipulating Models](manipulating_models) tutorial.
+Now that you're comfortable with Gazebo GUI navigation and terminology, let's start learning about more meaningful model interactions with the [Manipulating Models](manipulating_models) tutorial.

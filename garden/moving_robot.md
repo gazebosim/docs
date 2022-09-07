@@ -2,8 +2,8 @@
 
 In this tutorial we will learn how to move our robot. We will use the
 robot we built in the [Build your own robot](building_robot)
-tutorial. You can download the robot from [here](https://github.com/ignitionrobotics/docs/blob/master/garden/tutorials/building_robot/building_robot.sdf).
-You can also find the finished world of this tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/garden/tutorials/moving_robot/moving_robot.sdf).
+tutorial. You can download the robot from [here](https://github.com/gazebosim/docs/blob/master/garden/tutorials/building_robot/building_robot.sdf).
+You can also find the finished world of this tutorial [here](https://github.com/gazebosim/docs/blob/master/garden/tutorials/moving_robot/moving_robot.sdf).
 
 ## What is a plugin
 
@@ -18,8 +18,8 @@ model tags.
 
 ```xml
 <plugin
-    filename="libignition-gazebo-diff-drive-system.so"
-    name="ignition::gazebo::systems::DiffDrive">
+    filename="libgz-sim-diff-drive-system.so"
+    name="gz::sim::systems::DiffDrive">
     <left_joint>left_wheel_joint</left_joint>
     <right_joint>right_wheel_joint</right_joint>
     <wheel_separation>1.2</wheel_separation>
@@ -61,9 +61,9 @@ After the `-m` we specify the message type.
 Our robot expects messages of type `Twist` which consists of two components, `linear` and `angular`.
 After the `-p` option we specify the content (value) of the message: linear speed `x: 0.5` and angular speed `z: 0.05`.
 
-**Hint:** You can know what every topic option does using this command: `ign topic -h`
+**Hint:** You can know what every topic option does using this command: `gz topic -h`
 
-For more information about `Topics` and `Messages` in Ignition check the [Transport library tutorials](https://gazebosim.org/api/transport/9.0/tutorials.html)
+For more information about `Topics` and `Messages` in Gazebo check the [Transport library tutorials](https://gazebosim.org/api/transport/9.0/tutorials.html)
 
 ## Moving the robot using the keyboard
 
@@ -71,7 +71,7 @@ Instead of sending messages from the terminal we will send messages using the ke
 
 ### KeyPublisher
 
-`KeyPublisher` is an `ign-gui` plugin that reads the keyboard's keystrokes and sends them on a default topic `/keyboard/keypress`.
+`KeyPublisher` is an `gz-gui` plugin that reads the keyboard's keystrokes and sends them on a default topic `/keyboard/keypress`.
 Let's try this plugin as follows:
 
 * In one terminal type
@@ -86,7 +86,7 @@ Let's try this plugin as follows:
 
 The last command will display all messages sent on `/keyboard/keypress` topic.
 
-In the ignition window press different keys and you should see data (numbers) on the terminal where you run the `gz topic -e -t /keyboard/keypress` command.
+In the Gazebo window press different keys and you should see data (numbers) on the terminal where you run the `gz topic -e -t /keyboard/keypress` command.
 
 ![KeyPublisher](tutorials/moving_robot/keypublisher_data.png)
 
@@ -100,23 +100,23 @@ Let's add the following code under the `<world>` tag:
 
 ```xml
 <!-- Moving Forward-->
-<plugin filename="libignition-gazebo-triggered-publisher-system.so"
-        name="ignition::gazebo::systems::TriggeredPublisher">
-    <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
+<plugin filename="libgz-sim-triggered-publisher-system.so"
+        name="gz::sim::systems::TriggeredPublisher">
+    <input type="gz.msgs.Int32" topic="/keyboard/keypress">
         <match field="data">16777235</match>
     </input>
-    <output type="ignition.msgs.Twist" topic="/cmd_vel">
+    <output type="gz.msgs.Twist" topic="/cmd_vel">
         linear: {x: 0.5}, angular: {z: 0.0}
     </output>
 </plugin>
 ```
 
 This code defines the `triggered-publisher` plugin.
-It accepts messages of type `ignition.msgs.Int32` on the `/keyboard/keypress` topic and if the value in the `data` field matches `16777235`(Up arrow key) it outputs a `Twist` message on the `cmd_vel` topic with values `x: 0.5`, `z: 0.0`.
+It accepts messages of type `gz.msgs.Int32` on the `/keyboard/keypress` topic and if the value in the `data` field matches `16777235`(Up arrow key) it outputs a `Twist` message on the `cmd_vel` topic with values `x: 0.5`, `z: 0.0`.
 
 Now launch `building_robot.sdf` then add the Key Publisher plugin and our robot should move forward as we press the Up arrow key &#8593; (make sure you start the simulation by pressing the play button to see the robot move forward after pressing the Up arrow key).
 
-There is a demo explaining how the [Triggered Publisher](https://github.com/gazebosim/gz-sim/blob/ign-gazebo2/tutorials/triggered_publisher.md) works.
+There is a demo explaining how the [Triggered Publisher](https://github.com/gazebosim/gz-sim/blob/gz-sim7/tutorials/triggered_publisher.md) works.
 
 ### Moving using arrow keys
 
@@ -144,12 +144,12 @@ For example, the Down arrow:
 
 ```xml
 <!-- Moving Backward-->
-<plugin filename="libignition-gazebo-triggered-publisher-system.so"
-        name="ignition::gazebo::systems::TriggeredPublisher">
-    <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
+<plugin filename="libgz-sim-triggered-publisher-system.so"
+        name="gz::sim::systems::TriggeredPublisher">
+    <input type="gz.msgs.Int32" topic="/keyboard/keypress">
         <match field="data">16777237</match>
     </input>
-    <output type="ignition.msgs.Twist" topic="/cmd_vel">
+    <output type="gz.msgs.Twist" topic="/cmd_vel">
         linear: {x: -0.5}, angular: {z: 0.0}
     </output>
 </plugin>
@@ -168,6 +168,6 @@ In the [next tutorial](sdf_worlds), you'll learn to create your own simulated wo
 
 ## Video walk-through
 
-A video walk-through of this tutorial is available from our YouTube channel: [Ignition tutorials: Moving robot](https://youtu.be/oHtQYPDGk3Y).
+A video walk-through of this tutorial is available from our YouTube channel: [Gazebo tutorials: Moving robot](https://youtu.be/oHtQYPDGk3Y).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/oHtQYPDGk3Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

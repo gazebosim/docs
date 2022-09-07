@@ -2,7 +2,7 @@
 
 In this tutorial we will learn how to build our own robot in SDFormat. We will build a simple two wheeled robot.
 
- You can find the finished SDF file for the tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/garden/tutorials/building_robot/building_robot.sdf).
+ You can find the finished SDF file for the tutorial [here](https://github.com/gazebosim/docs/blob/master/garden/tutorials/building_robot/building_robot.sdf).
 
 ## What is SDF
 
@@ -14,23 +14,23 @@ We will start by building a simple world and then build our robot in it. Open a 
 
 ```xml
 <?xml version="1.0" ?>
-<sdf version="1.8">
+<sdf version="1.10">
     <world name="car_world">
         <physics name="1ms" type="ignored">
             <max_step_size>0.001</max_step_size>
             <real_time_factor>1.0</real_time_factor>
         </physics>
         <plugin
-            filename="libignition-gazebo-physics-system.so"
-            name="ignition::gazebo::systems::Physics">
+            filename="libgz-sim-physics-system.so"
+            name="gz::sim::systems::Physics">
         </plugin>
         <plugin
-            filename="libignition-gazebo-user-commands-system.so"
-            name="ignition::gazebo::systems::UserCommands">
+            filename="libgz-sim-user-commands-system.so"
+            name="gz::sim::systems::UserCommands">
         </plugin>
         <plugin
-            filename="libignition-gazebo-scene-broadcaster-system.so"
-            name="ignition::gazebo::systems::SceneBroadcaster">
+            filename="libgz-sim-scene-broadcaster-system.so"
+            name="gz::sim::systems::SceneBroadcaster">
         </plugin>
 
         <light type="directional" name="sun">
@@ -442,6 +442,6 @@ Hurray! We build our first robot. You can learn more details about SDFormat tags
 
 ## Video walk-through
 
-A video walk-through of this tutorial is available from our YouTube channel: [Ignition tutorials: Building a robot](https://youtu.be/Z-gjU0KAjiw).
+A video walk-through of this tutorial is available from our YouTube channel: [Gazebo tutorials: Building a robot](https://youtu.be/Z-gjU0KAjiw).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Z-gjU0KAjiw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

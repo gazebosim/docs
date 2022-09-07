@@ -1,9 +1,9 @@
 # Manipulating Models
 
-This tutorial will walk you through using various plugins to assist model and scene manipulation in the Ignition GUI.
+This tutorial will walk you through using various plugins to assist model and scene manipulation in the Gazebo GUI.
 
 The Transform Control plugin is a combination of keybindings and transform control options: selection, translation, rotation and snapping.
-This chart of [Ignition's keyboard shortcuts](hotkeys) may be helpful for this tutorial.
+This chart of [Gazebo's keyboard shortcuts](hotkeys) may be helpful for this tutorial.
 
 The View Angle plugin allows you to quickly and easily adjust the direction from which your scene faces an entity in the simulation.
 
@@ -13,13 +13,13 @@ The Align Tool aligns entities along or about a specific entity's bounding box.
 
 ## Prerequisites
 
-Start by getting Ignition up and running with a sample world:
+Start by getting Gazebo up and running with a sample world:
 
 ```bash
 gz sim shapes.sdf
 ```
 
-The previous tutorial, [Understanding the GUI](gui), explains the basics of navigating the Ignition GUI.
+The previous tutorial, [Understanding the GUI](gui), explains the basics of navigating the Gazebo GUI.
 
 ## Transform Control
 
@@ -151,6 +151,6 @@ choose which entity to align to.
 
 ## Next Up
 
-So far you've interacted with basic shape models to learn about Ignition's GUI.
-It's also possible to insert more detailed models from [Ignition Fuel](https://app.gazebosim.org) into the GUI.
+So far you've interacted with basic shape models to learn about Gazebo's GUI.
+It's also possible to insert more detailed models from [Gazebo Fuel](https://app.gazebosim.org) into the GUI.
 Check out the [Model Insertion from Fuel](fuel_insert) tutorial to learn how.

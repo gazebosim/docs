@@ -1,7 +1,7 @@
 # Actors
 
 In this tutorial we will learn how to add `actors` to our world and how to create a scripted animation.
-You can find the final world of this tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/garden/tutorials/actors/actor_demo.sdf).
+You can find the final world of this tutorial [here](https://github.com/gazebosim/docs/blob/master/garden/tutorials/actors/actor_demo.sdf).
 
 Animations are very useful if we want to have entities following a predefined path in simulation without being affected by the physics. This means that they won't fall due to gravity or collide with other objects. They will however, have a 3D visualization which can be seen by RGB cameras, and 3D meshes which can be detected by GPU based sensors. The tutorial explains how to create open-loop trajectories which don't interact with the rest of the simulation.
 
@@ -36,17 +36,17 @@ You can check out the full specification for the `<actor>` SDF element
 
 Gazebo Sim supports two different skeleton animation file formats: COLLADA (.dae) and Biovision Hierarchy (.bvh).
 
-Open any world, [empty.sdf](https://raw.githubusercontent.com/ignitionrobotics/ign-gazebo/main/examples/worlds/empty.sdf) world
+Open any world, [empty.sdf](https://raw.githubusercontent.com/gazebosim/gz-gazebo/main/examples/worlds/empty.sdf) world
 for example, and add an actor called `actor_walking` as follows:
 
 ```xml
 <actor name="actor_walking">
     <skin>
-        <filename>https://fuel.ignitionrobotics.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename>
+        <filename>https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename>
         <scale>1.0</scale>
     </skin>
     <animation name="walk">
-        <filename>https://fuel.ignitionrobotics.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename>
+        <filename>https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename>
     </animation>
 </actor>
 ```
@@ -61,7 +61,7 @@ In the `<animation>` tag we specify how our actor will move. We can combine diff
 
 ![actor loaded with skin tag](tutorials/actors/actor_skin.gif)
 
-**Note**: You can find many actors and models on [Ignition Fuel](https://app.gazebosim.org/fuel).
+**Note**: You can find many actors and models on [Gazebo Fuel](https://app.gazebosim.org/fuel).
 
 ## Scripted trajectory
 
@@ -153,6 +153,6 @@ Now it's your turn! Try out different trajectory descriptions.
 
 ## Video walk-through
 
-A video walk-through of this tutorial is available from our YouTube channel: [Ignition tutorials: Animated human actors](https://youtu.be/1VZexw67a2o)
+A video walk-through of this tutorial is available from our YouTube channel: [Gazebo tutorials: Animated human actors](https://youtu.be/1VZexw67a2o)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1VZexw67a2o" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

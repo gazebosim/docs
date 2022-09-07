@@ -1,11 +1,11 @@
 # Model Insertion from Fuel
 
-Ignition Fuel hosts hundreds of models that can easily be added to a world running in the Ignition GUI.
+Gazebo Fuel hosts hundreds of models that can easily be added to a world running in the Gazebo GUI.
 
 
 ## Prerequisites
 
-Start by getting Ignition up and running with an empty world:
+Start by getting Gazebo up and running with an empty world:
 
 ```bash
 gz sim empty.sdf
@@ -40,4 +40,4 @@ If you prefer to add a Fuel model permanently to an `sdf` file, you can just as 
 
 ## Next Up
 
-Now that you know how to add models hosted on Ignition Fuel, it is time to learn how to [Build Your Own Robot](building_robot).
+Now that you know how to add models hosted on Gazebo Fuel, it is time to learn how to [Build Your Own Robot](building_robot).
