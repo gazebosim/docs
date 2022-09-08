@@ -8,20 +8,20 @@ to other models in our world. We will use three different sensors:
 an IMU sensor, a Contact sensor and a Lidar sensor. We will also
 learn how to launch multiple tasks with just one file using `ign_launch`.
 
-You can find the final world of this tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/garden/tutorials/sensors/sensor_tutorial.sdf)
+You can find the final world of this tutorial [here](https://github.com/gazebosim/docs/blob/master/garden/tutorials/sensors/sensor_tutorial.sdf)
 
 ## IMU sensor
 
 The inertial measurement unit (IMU) outputs the `orientation` of our
 robot in quaternions, the `angular_velocity` in the three axes (X, Y, Z),
 and the `linear_acceleration` in the three axes. Let's use our
-[moving_robot.sdf](https://github.com/ignitionrobotics/docs/blob/master/garden/tutorials/moving_robot/moving_robot.sdf) world and modify it. Create a new file
+[moving_robot.sdf](https://github.com/gazebosim/docs/blob/master/garden/tutorials/moving_robot/moving_robot.sdf) world and modify it. Create a new file
 `sensor_tutorial.sdf` and add the code from `moving_robot.sdf` to it.
 To define the `IMU` sensor add this code under the `<world>` tag:
 
 ```xml
-<plugin filename="libignition-gazebo-imu-system.so"
-        name="ignition::gazebo::systems::Imu">
+<plugin filename="libgz-sim-imu-system.so"
+        name="gz::sim::systems::Imu">
 </plugin>
 ```
 
@@ -114,8 +114,8 @@ Now run the world and make sure that the wall appears in the simulation like thi
 Let's add the contact sensor to the wall. As with the `IMU` sensor, we should first define the `Contact` sensor by adding the following code:
 
 ```xml
-<plugin filename="libignition-gazebo-contact-system.so"
-        name="ignition::gazebo::systems::Contact">
+<plugin filename="libgz-sim-contact-system.so"
+        name="gz::sim::systems::Contact">
 </plugin>
 ```
 
@@ -134,8 +134,8 @@ The definition of the `<sensor>` is straight forward, we just define the `name` 
 We need also to add the `TouchPlugin` under the `wall` model as follows:
 
 ```xml
-<plugin filename="libignition-gazebo-touchplugin-system.so"
-        name="ignition::gazebo::systems::TouchPlugin">
+<plugin filename="libgz-sim-touchplugin-system.so"
+        name="gz::sim::systems::TouchPlugin">
     <target>vehicle_blue</target>
     <namespace>wall</namespace>
     <time>0.001</time>
@@ -164,12 +164,12 @@ When you hit the bump you should see a message `data: true` on the terminal wher
 Now we can use the `TriggeredPublisher` plugin to make our robot stop when hits the wall as follows:
 
 ```xml
-<plugin filename="libignition-gazebo-triggered-publisher-system.so"
-        name="ignition::gazebo::systems::TriggeredPublisher">
-    <input type="ignition.msgs.Boolean" topic="/wall/touched">
+<plugin filename="libgz-sim-triggered-publisher-system.so"
+        name="gz::sim::systems::TriggeredPublisher">
+    <input type="gz.msgs.Boolean" topic="/wall/touched">
         <match>data: true</match>
     </input>
-    <output type="ignition.msgs.Twist" topic="/cmd_vel">
+    <output type="gz.msgs.Twist" topic="/cmd_vel">
         linear: {x: 0.0}, angular: {z: 0.0}
     </output>
 </plugin>
@@ -196,8 +196,8 @@ Then add this plugin under the `<world>` tag, to be able to use the `lidar` sens
 
 ```xml
     <plugin
-      filename="libignition-gazebo-sensors-system.so"
-      name="ignition::gazebo::systems::Sensors">
+      filename="libgz-sim-sensors-system.so"
+      name="gz::sim::systems::Sensors">
       <render_engine>ogre2</render_engine>
     </plugin>
 ```
@@ -255,11 +255,11 @@ range data points.
 
 Now run the world and press the play button in the bottom-left corner:
 
-`ign gazebo sensor_tutorial.sdf`
+`gz sim sensor_tutorial.sdf`
 
 Look at the lidar messages on the `/lidar` topic, specifically the `ranges` data:
 
-`ign topic -e -t /lidar`
+`gz topic -e -t /lidar`
 
 The lidar message has the following attributes:
 
@@ -296,21 +296,21 @@ This program is called a node. We will build a node that subscribes
 to the `/lidar` topic and reads its data.
 Have a look at this [tutorial](https://gazebosim.org/api/transport/9.0/messages.html)
 to learn how to build a `publisher` and a `subscriber` node.
-You can download the finished node for this demo from [here](https://github.com/ignitionrobotics/docs/blob/master/garden/tutorials/sensors/lidar_node.cc).
+You can download the finished node for this demo from [here](https://github.com/gazebosim/docs/blob/master/garden/tutorials/sensors/lidar_node.cc).
 
 #### The lidar_node
 
 ```cpp
-ignition::transport::Node node;
+gz::transport::Node node;
 std::string topic_pub = "/cmd_vel";
-ignition::msgs::Twist data;
-auto pub = node.Advertise<ignition::msgs::Twist>(topic_pub);
+gz::msgs::Twist data;
+auto pub = node.Advertise<gz::msgs::Twist>(topic_pub);
 ```
 
 We declare a `node` which will publish to `cmd_vel` topic and defined the message type `Twist`. Then advertise our node.
 
 ```cpp
-void cb(const ignition::msgs::LaserScan &_msg)
+void cb(const gz::msgs::LaserScan &_msg)
 {
   bool allMore = true;
   for (int i = 0; i < _msg.ranges_size(); i++)
@@ -350,7 +350,7 @@ int main(int argc, char **argv)
     }
 
     // Zzzzzz.
-    ignition::transport::waitForShutdown();
+    gz::transport::waitForShutdown();
 
     return 0;
 }
@@ -360,7 +360,7 @@ Inside the main we subscribe to the `lidar` topic, and wait until the node is sh
 
 #### Build the node
 
-Download the [CMakeLists.txt](https://github.com/ignitionrobotics/docs/blob/master/garden/tutorials/sensors/CMakeLists.txt), and in the same folder of `lidar_node` create `build/` directory:
+Download the [CMakeLists.txt](https://github.com/gazebosim/docs/blob/master/garden/tutorials/sensors/CMakeLists.txt), and in the same folder of `lidar_node` create `build/` directory:
 
 ```{.sh}
 mkdir build
@@ -390,26 +390,26 @@ gz sim sensor_tutorial.sdf
 
 Now you can see the robot move forward and as it approaches the wall it starts to turn left until it's clear and moves forward again (be sure to press the play button in the bottom-left corner to make the robot start moving).
 
-## Ignition launch
+## Gazebo launch
 
 Instead of running two different tasks from two different terminals we can make a launch file which will run the `sensor_world` and the `lidar_node` at the same time. Open your text editor and add the following code.
 
 ```xml
 <?xml version='1.0'?>
-<ignition version='1.0'>
+<gz version='1.0'>
   <executable name='sensor-world'>
-    <command>ign gazebo sensor_tutorial.sdf</command>
+    <command>gz sim sensor_tutorial.sdf</command>
   </executable>
 
   <executable name='lidar_node'>
     <command>./build/lidar_node</command>
   </executable>
 
-</ignition>
+</gz>
 ```
 
 The launch file is an XML file. We simply define what commands will run under the `<executable>` tag.
-The first command is `ign gazebo sensor_tutorial.sdf` which launches the world.
+The first command is `gz sim sensor_tutorial.sdf` which launches the world.
 And the second command is `./build/lidar_node` which runs the `lidar_node`.
 Save the file as `sensor_launch.ign`, and then run it using the following command:
 
@@ -423,6 +423,6 @@ To add even more complexity to your simulation, learn how to add actors to a wor
 
 ## Video walk-through
 
-A video walk-through of this tutorial is available from our YouTube channel: [Ignition tutorials: Sensors](https://youtu.be/WcFyGPEfhHc)
+A video walk-through of this tutorial is available from our YouTube channel: [Gazebo tutorials: Sensors](https://youtu.be/WcFyGPEfhHc)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/WcFyGPEfhHc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

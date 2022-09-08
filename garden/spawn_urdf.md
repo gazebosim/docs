@@ -14,7 +14,7 @@ If you have a `xacro` representation of a robot model, you can turn the `xacro` 
 
 ## Spawning the URDF
 
-To spawn a URDF model in Gazebo Sim, we will start a world and make use of the world's `create` service, which uses the [EntityFactory](https://gazebosim.org/api/msgs/8.1/classignition_1_1msgs_1_1EntityFactory.html) message type.
+To spawn a URDF model in Gazebo Sim, we will start a world and make use of the world's `create` service, which uses the [EntityFactory](https://gazebosim.org/api/msgs/9/entity__factory_8pb_8h.html) message type.
 
 Start by launching an empty world in Gazebo Sim:
 ```bash
@@ -35,7 +35,7 @@ You should see this service in the list:
 We can double-check that this is the service we want to use by running `gz service -is /world/empty/create`.
 This will show us the service's request and response message types:
 ```
-ignition.msgs.EntityFactory, ignition.msgs.Boolean
+gz.msgs.EntityFactory, gz.msgs.Boolean
 ```
 
 Now that we have found the service that has an `EntityFactory` request type, we can call this service and pass the URDF file to the service's request so that the robot represented by this URDF file is spawned in the Gazebo Sim world.
@@ -44,7 +44,7 @@ The [libsdformat](https://gazebosim.org/libs/sdformat) library will then interna
 
 The following command spawns the URDF file `model.urdf` into the Gazebo Sim world as a model named `urdf_model`:
 ```bash
-gz service -s /world/empty/create --reqtype ignition.msgs.EntityFactory --reptype ignition.msgs.Boolean --timeout 1000 --req 'sdf_filename: "/path/to/model.urdf", name: "urdf_model"'
+gz service -s /world/empty/create --reqtype gz.msgs.EntityFactory --reptype gz.msgs.Boolean --timeout 1000 --req 'sdf_filename: "/path/to/model.urdf", name: "urdf_model"'
 ```
 
 If `model.urdf` is the URDF representation of [rrbot.xacro](https://github.com/ros-simulation/gazebo_ros_demos/blob/kinetic-devel/rrbot_description/urdf/rrbot.xacro) in the `gazebo_ros_demos` package, executing the service call above should result in a simulation that now looks like this:

@@ -1,7 +1,7 @@
 # Binary Installation on Windows 10
 
-Most Ignition packages are available in Windows 10 using the [conda-forge package manager](https://conda-forge.org/),
-and the Ignition feedstock recipes can be found [here](https://github.com/conda-forge?q=libignition&type=&language=).
+Most Gazebo packages are available in Windows 10 using the [conda-forge package manager](https://conda-forge.org/),
+and the Gazebo feedstock recipes can be found [here](https://github.com/conda-forge?q=libignition&type=&language=).
 
 The remaining packages currently have an [outstanding ticket](https://github.com/conda-forge/staged-recipes/issues/13551),
 and will not be supported until they are added to the `conda-forge` feedstock.
@@ -29,7 +29,7 @@ In order to use `conda-forge`, you will need to
   conda create -n ign-ws
   conda activate ign-ws
   ```
-4. Install desired Ignition packages, since all of Ignition isn't currently supported, you will need to choose which package(s)
+4. Install desired Gazebo packages, since all of Gazebo isn't currently supported, you will need to choose which package(s)
 you want to install based on your application.
   ```bash
   conda install libignition-<package_name><#> --channel conda-forge
@@ -57,7 +57,7 @@ where `<major>` is the major release number, `<minor>` is the minor release numb
 
 ## Uninstalling binary install
 
-If you need to uninstall Ignition or switch to a source-based install once you
+If you need to uninstall Gazebo or switch to a source-based install once you
 have already installed the library from binaries, run the following command:
 
 ```bash
