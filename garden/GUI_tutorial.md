@@ -88,7 +88,9 @@ Currently, you can navigate the scene with a mouse in several ways:
   * *Move to*: center the scene on an entity
   * *Follow*: choose an entity for the view to  stay centered on, whether it moves or you pan around
   * *Remove*: erase the entity from the simulation
-  * *View > Collisions*: view collisions of the entity (that are defined in the SDF file)
+  * *Copy*: copy the entity to the virtual clipboard
+  * *Paste*: paste the entity from the virtual clipboard creating a duplicate
+  * *View*: open a submenu with different options to visualize the simulation aspects of the entity like the collisions, the centre of mass, etc.
 * **Left-click and drag**: pan around the scene
 * **Right-click and drag**: zoom in and out
 * **Scroll wheel forward/backward**: zoom in and out
@@ -101,7 +103,7 @@ More complex methods for interacting with the entities within a scene will be ex
 The grid visible in the scene can be adjusted by a plugin.
 You can adjust features of the world's grid, including cell size, grid position, cell count, and even color.
 
-Open the the Grid Config plugin by selecting it from the plugins button from the toolbar and selecting it from the dropdown list.
+Open the Grid Config plugin by selecting it from the plugins button from the toolbar and selecting it from the dropdown list (below the Entity tree, use the scrollbar if your screen did not display it).
 
 ![Select Grid Config](img/grid_config.png)
 
