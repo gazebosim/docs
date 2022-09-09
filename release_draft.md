@@ -1,18 +1,18 @@
 #### Table of Contents
 
-[Triggering a Release](#Triggering-a-Release)
-  * [Prerequisites](#Prerequisites)
-     - [Software and Configurations]()
-     - [Credentials]()
-  * [Preparing Gz Code](#Preparing-Gz-Code)
-     - [Update version]()
-     - [Update binary version]()
-  * [Launch the release in the building server](#Launch-the-release-in-the-building-server)
-    - [Executing release.py]()
-      - [dry-run simulation mode]()
-      - [release.py for stable releases]()
-      - [release.py for prerelease or nightlies]()
-      - [release.py for revision bumps]()
+[Triggering a Release](#triggering-a-release)
+  * [Prerequisites](#prerequisites)
+     - [Software and Configurations](#software-and-configurations)
+     - [Credentials](#credentials)
+  * [Preparing Gz Code](#preparing-gz-code)
+     - [Update code version](#update-code-version)
+     - [Update binary version](#update-binary-version)
+  * [Launch the release in the building server](#launch-the-release-in-the-building-server)
+    - [Executing release.py](#executing-release.py)
+      - [dry-run simulation mode](#dtr-run-simulation-mode)
+      - [release.py for stable releases](#release.py-for-stable-releases)
+      - [release.py for prerelease or nightlies](#release.py-for-prereleases-or-nightlies)
+      - [release.py for revision bumps](#release.py-for-revision-bumps)
 
 ## Triggering a Release
 
