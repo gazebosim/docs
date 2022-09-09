@@ -280,8 +280,10 @@ ROS integration through the
 
 Supported versions:
 
-* ROS 1 Melodic (from source) / Noetic (from source)
-* ROS 2 Galactic (from source) / Humble (binaries)
+* ROS 1 Noetic (from source)
+* ROS 2 Humble (from source) / Rolling (from source)
+
+Note: binaries for ROS2 might be available sometime after the Garden release.
 
 ## Platforms
 
