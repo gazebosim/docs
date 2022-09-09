@@ -22,9 +22,11 @@ Force-torque | ✓ | ✓
 GPS / NavSat | ✓ |  ✓
 GPU Ray | ✓ | ✓ Renamed to GPU Lidar
 IMU | ✓ | ✓
+Logical audio sensor | ✕ | ✓
 Logical camera | ✓ | ✓
-Magnetometer | ✓ | ✓
+Magnetometer | ✕ | ✓
 Multi-camera | ✓ | ✕  Use individual cameras with same update rate
+Optical tactile sensor | ✕ | ✓
 Ray | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/26)
 RFID sensor and tag | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/27)
 RGBD camera | ✕ | ✓
@@ -72,6 +74,7 @@ System plugins | ✓ | ✓ Through Gazebo Launch
 
 Plugin | Gazebo-classic | Gazebo Sim
 -- | -- | --
+AckermannSteering | ✕ | ✓
 ActorPlugin | ✓ | ✕ See [FollowActor](https://github.com/gazebosim/gz-sim/blob/main/src/systems/follow_actor/FollowActor.hh) for a demo of Actor APIs
 ActuatorPlugin | ✓ |
 ArduCopterPlugin | ✓ |
@@ -79,7 +82,8 @@ AttachLightPlugin | ✓ | ✕ Does not apply, use SDF
 Breadcrumbs | ✕ | ✓
 BuoyancyPlugin | ✓ | [✓](https://github.com/gazebosim/gz-sim/blob/ign-gazebo6/examples/worlds/buoyancy.sdf)
 CartDemoPlugin | ✓ | ✕
-CessnaPlugin | ✓ |
+CessnaPlugin | ✓ | ✕
+DetachableJoint | ✕ | ✓
 DiffDrivePlugin | ✓ | ✓
 ElevatorPlugin | ✓ | ✓
 FlashLightPlugin | ✓ |
@@ -91,7 +95,7 @@ HydraDemoPlugin | ✓ |
 InitialVelocityPlugin | ✓ | ✓ (use VelocityControl or JointController)
 JointControlPlugin | ✓ (force / pos / vel, from SDF) | ✓ (vel, from msg)
 JointStatePublisher | ✕ | ✓
-JointTrajectoryPlugin | ✓ |
+JointTrajectoryPlugin | ✓ | ✓
 KeysToCmdVelPlugin | ✓ | Use `gz::gui::KeyPublisher` with `gz::gazebo::systems::TriggeredPublisher`
 KeysToJointsPlugin | ✓ | Use `gz::gui::KeyPublisher` with `gz::gazebo::systems::TriggeredPublisher`
 LedPlugin | ✓ |
@@ -99,8 +103,10 @@ LiftDragPlugin | ✓ | ✓
 LinearBatteryConsumerPlugin | ✓ | ✓
 LinearBatteryPlugin | ✓ | ✓
 LinkPlot3DPlugin | ✓ | ✓ (renamed to Plot3D)
+MecanumDrive | ✕ | ✓
 MudPlugin | ✓ |
 MulticopterMotorModel | ✕ | ✓
+OdometryPublisherPlugin | ✕ | ✓
 PlaneDemoPlugin | ✓ |
 PosePublisher | ✕ | ✓
 RandomVelocityPlugin | ✓ |
@@ -140,10 +146,12 @@ CameraPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
 ContactPlugin | ✓ | ✓
 DepthCameraPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
 FiducialCameraPlugin | ✓ |
-ForceTorquePlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
+ForceTorquePlugin | ✓ | ✓
 GpuRayPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
-ImuSensorPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
+ImuSensorPlugin | ✓ | ✓
 LensFlareSensorPlugin | ✓ |
+MagnetometerPlugin | ✕ | ✓
+OpticalTactilePlugin | ✕ | ✓
 PressurePlugin | ✓ |
 RayPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
 RaySensorNoisePlugin | ✓ | ✕ Use SDF
@@ -171,6 +179,7 @@ TimerGUIPlugin | ✓ |
 
 Plugin | Gazebo-classic | Gazebo Sim
 -- | -- | --
+ColladaWorldExporter | ✕ | ✓
 ModelPropShop | ✓ | [✓](https://gazebosim.org/api/gazebo/5.4/model_photo_shoot.html)
 RestUiPlugin | ✓ |
 RestWebPlugin | ✓ |
