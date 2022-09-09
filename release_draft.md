@@ -8,11 +8,11 @@
      - [Update code version](#update-code-version)
      - [Update binary version](#update-binary-version)
   * [Launch the release in the building server](#launch-the-release-in-the-building-server)
-    - [Executing release.py](#executing-release.py)
-      - [dry-run simulation mode](#dtr-run-simulation-mode)
-      - [release.py for stable releases](#release.py-for-stable-releases)
-      - [release.py for prerelease or nightlies](#release.py-for-prereleases-or-nightlies)
-      - [release.py for revision bumps](#release.py-for-revision-bumps)
+     - [Executing release.py](#executing-releasepy)
+       - [dry-run simulation mode](#dry-run-simulation-mode)
+       - [release.py for stable releases](#releasepy-for-stable-releases)
+       - [release.py for prerelease or nightlies](#releasepy-for-prereleases-or-nightlies)
+       - [release.py for revision bumps](#releasepy-for-revision-bumps)
 
 ## Triggering a Release
 
@@ -258,7 +258,7 @@ git checkout gz-cmake3
 ~/release-tools/release-repo-scripts/release.py gz-cmake3 3.0.1 <jenkins_token>
 ```
 
-#### release.py for prereleases or nightly
+#### release.py for prereleases or nightlies
 
 When releasing prereleases or nightly releases, there are some special flags to
 be set. The `--upload-to-repo` argument is mandatory when running `release.py`, and
