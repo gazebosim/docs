@@ -4,9 +4,9 @@ In this tutorial we will learn how to Integrate ROS 2 with Gazebo. We will estab
 communication between them. This can help in many aspects; we can receive data or commands
 from ROS and apply it to Gazebo and vice versa.
 
-## ros_ign_bridge
+## ros_gz_bridge
 
-`ros_ign_bridge` provides a network bridge which enables the exchange of messages between ROS 2 and Gazebo Transport. Its support is limited to only certain message types. Please, check this [README](https://github.com/gazebosim/ros_ign/blob/ros2/ros_ign_bridge/README.md) to verify if your message type is supported by the bridge.
+`ros_gz_bridge` provides a network bridge which enables the exchange of messages between ROS 2 and Gazebo Transport. Its support is limited to only certain message types. Please, check this [README](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md) to verify if your message type is supported by the bridge.
 
 ## Requirements
 
@@ -14,7 +14,7 @@ For this tutorial to work correctly make sure you have the following installed:
 
 * [ROS 2 Rolling](https://docs.ros.org/en/rolling/Installation.html)
 * [Gazebo Garden](https://gazebosim.org/docs/garden)
-* [ros_ign_bridge](https://github.com/gazebosim/ros_ign/tree/ros2#from-source)
+* [ros_gz_bridge](https://github.com/gazebosim/ros_gz/tree/ros2#from-source)
 
 ## Bidirectional communication
 
@@ -23,10 +23,10 @@ We can initialize a bidirectional bridge so we can have ROS as the publisher and
 For example:
 
 ```
-ros2 run ros_ign_bridge parameter_bridge /TOPIC@ROS_MSG@IGN_MSG
+ros2 run ros_gz_bridge parameter_bridge /TOPIC@ROS_MSG@IGN_MSG
 ```
 
-The `ros2 run ros_ign_bridge parameter_bridge` command simply runs the `parameter_bridge` code from the `ros_ign_bridge` package. Then, we specify our topic `/TOPIC` over which the messages will be sent. The first `@` symbol delimits the topic name from the message types. Following the first `@` symbol is the ROS message type.
+The `ros2 run ros_gz_bridge parameter_bridge` command simply runs the `parameter_bridge` code from the `ros_gz_bridge` package. Then, we specify our topic `/TOPIC` over which the messages will be sent. The first `@` symbol delimits the topic name from the message types. Following the first `@` symbol is the ROS message type.
 
 The ROS message type is followed by an `@`, `[`, or `]` symbol where:
 
@@ -34,14 +34,14 @@ The ROS message type is followed by an `@`, `[`, or `]` symbol where:
 * `[`  is a bridge from Gazebo to ROS.
 * `]`  is a bridge from ROS to Gazebo.
 
-Have a look at these [examples](https://github.com/gazebosim/ros_ign/blob/ros2/ros_ign_bridge/README.md#example-1a-ignition-transport-talker-and-ros-2-listener)
+Have a look at these [examples](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md#example-1a-gazebo-transport-talker-and-ros-2-listener)
 explaining how to make communication connections from ROS to Gazebo and vice versa.
 
 ## Publish key strokes to ROS
 
 Let's send messages to ROS using the `Key Publisher` an Gazebo plugin.
 
-**Note:** Make sure to have all workspaces you need (ROS, Gazebo and, `ros_ign`...) sourced.
+**Note:** Make sure to have all workspaces you need (ROS, Gazebo and, `ros_gz`...) sourced.
 
 
 First we will start a bridge between ROS and Gazebo specifying the topic
@@ -49,7 +49,7 @@ at which the `Key Publisher` plugin sends messages and also the type
 of the messages as follows:
 
 ```
-ros2 run ros_ign_bridge parameter_bridge /keyboard/keypress@std_msgs/msg/Int32@gz.msgs.Int32
+ros2 run ros_gz_bridge parameter_bridge /keyboard/keypress@std_msgs/msg/Int32@gz.msgs.Int32
 ```
 
 We started a bridge on `/keyboard/keypress` topic with message of type `Int32`.
@@ -76,7 +76,7 @@ This command listens to the messages sent over the `/keyboard/keypress` topic.
 On the Gazebo window, press on the keyboard keys and you should
 find data on the listener terminal. This is what the terminals should look like:
 
-![exchange_messages](tutorials/ros2_integration/ros_ign.png)
+![exchange_messages](tutorials/ros2_integration/ros_gz.png)
 
 Now it's your turn! Try to send data from ROS to Gazebo. You can also try different data types and different directions of communication.
 
