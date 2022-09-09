@@ -173,7 +173,7 @@ document.
 
 ### Update binary version
 
-Once the PR for bumping the code version is merged, the [binary version](#versions-in-binary-packages) needs
+Once the PR for bumping the code version is merged, the binary version needs
 to be updated for the Debian/Ubuntu binary packages. Brew metadata will be
 updated by the building server when creating the binary `bottles`.
 
