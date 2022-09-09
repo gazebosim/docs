@@ -32,7 +32,7 @@ Segmentation camera | ✕ | ✓
 Sonar | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/19)
 Thermal camera | ✕  | ✓
 Triggered camera | ✕ | ✓
-Wide-angle camera | ✓ | ✕ (available from Garden)
+Wide-angle camera | ✓ | ([ogre 1.x only](https://github.com/gazebosim/gz-sensors/issues/24))
 Wireless | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/28)
 
 Sensor features | Gazebo-classic | Gazebo Sim
@@ -57,7 +57,7 @@ Populations | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/240)
 Actors | ✓ | ✓
 Markers | ✓ | ✓
 Heightmaps | ✓ | ✓
-DEM (Digital Elevation Models) | ✓ | ✕ (available from Garden)
+DEM (Digital Elevation Models) | ✓ | ✓
 Polylines | ✓ | ✓
 World plugins | ✓ | ✓ Now called System plugin
 Model plugins | ✓ | ✓ Now called System plugin
@@ -81,7 +81,7 @@ BuoyancyPlugin | ✓ | [✓](https://github.com/gazebosim/gz-sim/blob/ign-gazebo
 CartDemoPlugin | ✓ | ✕
 CessnaPlugin | ✓ |
 DiffDrivePlugin | ✓ | ✓
-ElevatorPlugin | ✓ |
+ElevatorPlugin | ✓ | ✓
 FlashLightPlugin | ✓ |
 FollowerPlugin | ✓ |
 GimbalSmall2dPlugin | ✓ |
