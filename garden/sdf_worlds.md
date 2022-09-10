@@ -262,7 +262,7 @@ The previous methods download your model on run time. For saving the model perma
 </include>
 ```
 
-We need to set `IGN_GAZEBO_RESOURCE_PATH` environment variable to the parent folder of our model. For example, if our directory looks like this:
+We need to set `GZ_SIM_RESOURCE_PATH` environment variable to the parent folder of our model. For example, if our directory looks like this:
 
 ```
 world_tutorial<br/>
@@ -272,7 +272,7 @@ world_tutorial<br/>
 
 Then we have to set it to the `world_tutorial` directory, like this:
 
-`export IGN_GAZEBO_RESOURCE_PATH="$HOME/world_tutorial"`
+`export GZ_SIM_RESOURCE_PATH="$HOME/world_tutorial"`
 
 Run your world:
 
