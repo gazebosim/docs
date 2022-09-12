@@ -56,8 +56,8 @@ The following image shows the scene and the Entity Tree after adding three shape
 
 ![shape insertion](tutorials/gui/shape_insertion.png)
 
-The first five buttons on the second row are for "Transform Control". 
-To learn more about this plugin, go to the "Transform Control" section of [Manipulating Models](manipulating_models) tutorial.
+The first five buttons on the second row are for `Transform Control`. 
+To learn more about this plugin, go to the `Transform Control` section of [Manipulating Models](manipulating_models) tutorial.
 
 The plugins button lists all the available plugins.
 You can scroll down this list to see all the plugins that are available for your version of Gazebo.
