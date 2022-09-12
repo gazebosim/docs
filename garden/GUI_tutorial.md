@@ -52,7 +52,7 @@ The shape buttons allow you to directly insert a box, sphere, cylinder capsule, 
 Simply click on the shape you would like to insert, and place it into the world.
 The shape will automatically snap onto the ground plane, and its properties will show up on the Entity Tree plugin window.
 
-The following image shows the scene and the Entity Tree after adding three shapes (box_0, sphere_0 and capsule_0):
+The following image shows the scene and the Entity Tree after adding three shapes (`box_0`, `sphere_0` and `capsule_0`):
 
 ![shape insertion](tutorials/gui/shape_insertion.png)
 
