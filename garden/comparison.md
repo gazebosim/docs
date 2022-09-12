@@ -24,7 +24,7 @@ GPU Ray | ✓ | ✓ Renamed to GPU Lidar
 IMU | ✓ | ✓
 Logical audio sensor | ✕ | ✓
 Logical camera | ✓ | ✓
-Magnetometer | ✕ | ✓
+Magnetometer | ✓ | ✓
 Multi-camera | ✓ | ✕  Use individual cameras with same update rate
 Optical tactile sensor | ✕ | ✓
 Ray | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/26)
