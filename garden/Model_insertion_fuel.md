@@ -18,7 +18,7 @@ The previous tutorial, [Manipulating Models](Manipulating_models), shows you how
 Fuel's model collection is at [app.gazebosim.org/fuel/models](https://app.gazebosim.org/fuel/models).
 Head over and browse the available content.
 
-![Fuel models preview](tutorials/fuel_insert//fuel.png)
+![Fuel models preview](tutorials/fuel_insert/fuel.png)
 
 Click on any one of the thumbnails, or use the search bar.
 For example, let's find the [Mine Cart Engine](https://app.gazebosim.org/OpenRobotics/fuel/models/Mine%20Cart%20Engine).
