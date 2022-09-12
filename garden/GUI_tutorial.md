@@ -96,10 +96,10 @@ Currently, you can navigate the scene with a mouse in several ways:
   * *Paste*: paste the entity from the virtual clipboard creating a duplicate
   * *View*: open a submenu with different options to visualize the simulation aspects of the entity like the collisions, the centre of mass, etc.
 * **Left-click and drag**: pan around the scene
-* **SHIFT + left-click and drag**: rotate the scene
 * **Right-click and drag**: zoom in and out
 * **Scroll wheel forward/backward**: zoom in and out
 * **Scroll wheel click and drag**: rotate the scene
+  * Or use **Shift key + left-click and drag**
 
 More complex methods for interacting with the entities within a scene will be explained in-depth in the coming tutorials.
 
