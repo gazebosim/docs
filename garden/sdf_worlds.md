@@ -282,7 +282,7 @@ You should see the model in the origin of the world.
 
 ![world with can](tutorials/sdf_worlds/coke_world.png)
 
-You can also set its coordinates using the `<pose>`tag.
+You can also set its coordinates using the `<pose>` tag.
 If you want to spawn multiple instances of the same model you must give them different names with the `<name>` tag. 
 
 ```
