@@ -299,8 +299,6 @@ If you want to spawn multiple instances of the same model you must give them dif
 ```
 ![two cans](tutorials/sdf_worlds/two_cokes.png)
 
-
-
 Now that you have a custom world, the [next tutorial](sensors) will teach you how to add sensors to a robot to allow it to interact with the world around it.
 
 ## Video walk-through
