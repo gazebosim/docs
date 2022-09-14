@@ -294,9 +294,7 @@ If you want to spawn multiple instances of the same model you must give them dif
     <include>
         <name>Coke1</name>
         <pose>0 0.1 0 0 0 0</pose>
-        <uri>
-        https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke
-        </uri>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke</uri>
     </include>
 ```
 ![two cans](tutorials/sdf_worlds/two_cokes.png)
