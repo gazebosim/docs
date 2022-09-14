@@ -36,7 +36,7 @@ You can check out the full specification for the `<actor>` SDF element
 
 Gazebo Sim supports two different skeleton animation file formats: COLLADA (.dae) and Biovision Hierarchy (.bvh).
 
-Open any world, [empty.sdf](https://raw.githubusercontent.com/gazebosim/gz-gazebo/main/examples/worlds/empty.sdf) world
+Open any world, [empty.sdf](https://raw.githubusercontent.com/gazebosim/gz-sim/main/examples/worlds/empty.sdf) world
 for example, and add an actor called `actor_walking` as follows:
 
 ```xml
@@ -47,6 +47,7 @@ for example, and add an actor called `actor_walking` as follows:
     </skin>
     <animation name="walk">
         <filename>https://fuel.gazebosim.org/1.0/Mingfei/models/actor/tip/files/meshes/walk.dae</filename>
+        <interpolate_x>true</interpolate_x>
     </animation>
 </actor>
 ```
@@ -57,7 +58,7 @@ In the `<skin>` tag we just loaded a COLLADA file `walk.dae` which specifies how
 
 ### Animation
 
-In the `<animation>` tag we specify how our actor will move. We can combine different skins with different animations as long as they have compatible skeletons. Now run the world and we should see our model moving.
+In the `<animation>` tag we specify how our actor will move using the `<filename>` tag. `<interpolate_x>` is used to interpolate the animation within waypoints while following trajectory. Setting it as true allows for a more realistic and smooth animation. We can combine different skins with different animations as long as they have compatible skeletons. Now run the world and we should see our model moving.
 
 ![actor loaded with skin tag](tutorials/actors/actor_skin.gif)
 
@@ -132,7 +133,7 @@ Let's define the trajectory as a sequence of waypoints:
     </script>
 ```
 
-Within the `<trajectory>` tag we define a series of waypoints which our actor will follow. The `<trajectory>` has three attributes: `id`, `type`, and `tension`. The `type` should have the same name as the animation `walk`. The `tension` parameter is used to control how closely the trajectory will stick to the given waypoints. The default `tension` value is zero, which equates to a Catmull-Rom spline, which may cause the animation to overshoot waypoints. A `tension` value of one will cause the animation to stick to the waypoints. The `tension` value should be in the range 0 to 1.
+Within the `<trajectory>` tag we define a series of waypoints which our actor will follow. The `<trajectory>` has three attributes: `id`, `type`, and `tension`. The `type` should have the same name as the value specified in `name` attribute of the `<animation>` tag. Therefore, in this case it is specified as `walk`. The `tension` parameter is used to control how closely the trajectory will stick to the given waypoints. The default `tension` value is zero, which equates to a Catmull-Rom spline, which may cause the animation to overshoot waypoints. A `tension` value of one will cause the animation to stick to the waypoints. The `tension` value should be in the range 0 to 1.
 
 Under the `trajectory` tag we define the following:
 
