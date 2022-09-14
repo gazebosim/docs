@@ -278,9 +278,26 @@ Run your world:
 
 `gz sim world_demo.sdf`
 
-You should see the model in the origin of the world. You can also set its coordinates using the `<pose>`tag.
+You should see the model in the origin of the world. 
 
 ![world with can](tutorials/sdf_worlds/coke_world.png)
+
+You can also set its coordinates using the `<pose>` tag.
+If you want to spawn multiple instances of the same model you must give them different names with the `<name>` tag. 
+
+```
+    <include>
+        <name>Coke0</name>
+        <pose>0 0 0 0 0 0</pose>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke</uri>
+    </include>
+    <include>
+        <name>Coke1</name>
+        <pose>0 0.1 0 0 0 0</pose>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke</uri>
+    </include>
+```
+![two cans](tutorials/sdf_worlds/two_cokes.png)
 
 Now that you have a custom world, the [next tutorial](sensors) will teach you how to add sensors to a robot to allow it to interact with the world around it.
 
