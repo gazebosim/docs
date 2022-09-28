@@ -48,21 +48,21 @@ compatible non-EOL release and propagate the feature forward.
 
 ### Garden
 
-* Already available from source
-    1. [Point cloud visualization.](https://github.com/gazebosim/gz-sim/issues/1156)
-    1. [Wide angle camera (Ogre 1).](https://github.com/gazebosim/gz-sensors/issues/24)
-    1. [DEM heightmaps.](https://github.com/gazebosim/gz-sim/issues/235)
-    1. [Camera distortion.](https://github.com/gazebosim/gz-sensors/issues/107)
-    1. [Wind effects configurable on a location basis.](https://github.com/gazebosim/gz-sim/pull/1357)
-    1. [Reset API.](https://github.com/gazebosim/gz-sim/issues/1107)
-    1. [Renaming Ignition to Gazebo.](https://community.gazebosim.org/t/a-new-era-for-gazebo/1356)
-    1. [glTF and GLB mesh support.](https://github.com/gazebosim/gz-common/issues/344)
-    1. [Vulkan support (Ogre 2.3)](https://github.com/gazebosim/gz-rendering/pull/553)
-    1. [Lunar terrain and coordinates.](https://github.com/gazebosim/sdformat/pull/1050)
-    1. [Static plugins](https://github.com/gazebosim/gz-plugin/pull/97)
-    1. [Conversion between SDF and MJCF](https://github.com/gazebosim/gz-mujoco/tree/main/sdformat_mjcf)
-    1. [Python API for SDFormat](http://sdformat.org/tutorials?tut=python_bindings&cat=developers&)
-    1. [Material shininess](https://github.com/gazebosim/sdformat/pull/985)
+1. [Point cloud visualization.](https://github.com/gazebosim/gz-sim/issues/1156)
+1. [Wide angle camera (Ogre 1).](https://github.com/gazebosim/gz-sensors/issues/24)
+1. [DEM heightmaps.](https://github.com/gazebosim/gz-sim/issues/235)
+1. [Camera distortion.](https://github.com/gazebosim/gz-sensors/issues/107)
+1. [Wind effects configurable on a location basis.](https://github.com/gazebosim/gz-sim/pull/1357)
+1. [Reset API.](https://github.com/gazebosim/gz-sim/issues/1107)
+1. [Renaming Ignition to Gazebo.](https://community.gazebosim.org/t/a-new-era-for-gazebo/1356)
+1. [glTF and GLB mesh support.](https://github.com/gazebosim/gz-common/issues/344)
+1. [Vulkan support (Ogre 2.3)](https://github.com/gazebosim/gz-rendering/pull/553)
+1. [Lunar terrain and coordinates.](https://github.com/gazebosim/sdformat/pull/1050)
+1. [Static plugins](https://github.com/gazebosim/gz-plugin/pull/97)
+1. [Conversion between SDF and MJCF](https://github.com/gazebosim/gz-mujoco/tree/main/sdformat_mjcf)
+1. [Python API for SDFormat](http://sdformat.org/tutorials?tut=python_bindings&cat=developers&)
+1. [Material shininess](https://github.com/gazebosim/sdformat/pull/985)
+
 * In progress
     1. [Satisfying ASAN for Gazebo Math.](https://github.com/gazebosim/gz-math/issues/370)
     1. [Mimic joint type.](https://github.com/gazebosim/sdf_tutorials/pull/62)
