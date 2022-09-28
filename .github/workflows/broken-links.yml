@@ -8,7 +8,7 @@ on:
     - cron: "00 18 * * *"
 
 jobs:
-  linkChecker:
+  broken-link-checker:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -23,4 +23,6 @@ jobs:
       - name: Link Checker
         uses: lycheeverse/lychee-action@4a5af7cd2958a2282cefbd9c10f63bdb89982d76     # for v1.5.1
         with:
-          args: --cache --max-cache-age 1d --max-concurrency 48 './**/*.md'
+          args: --cache --max-cache-age 1d --max-concurrency 20 './**/*.md'
+          format: json
+          fail: true
