@@ -11,7 +11,7 @@ Start by getting Gazebo up and running with an empty world:
 gz sim empty.sdf
 ```
 
-The previous tutorial, [Manipulating Models](Manipulating_models), shows you how to interact with models, which might be helpful once you add some Fuel models to your world.
+The previous tutorial, [Manipulating Models](Manipulating_models.md), shows you how to interact with models, which might be helpful once you add some Fuel models to your world.
 
 ## Choose a Model
 
