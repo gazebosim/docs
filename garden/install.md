@@ -3,11 +3,13 @@
 Gazebo Garden will be the 7th major release of Gazebo. It will be a
 short-term release.
 
-Up to Garden's release date, the collection should be considered unstable.
-
 ## Binary installation instructions
 
-There are no Garden binaries at the moment.
+Binary installation is the recommended method of installing Gazebo.
+
+ * [Binary Installation on Ubuntu](install_ubuntu)
+ * [Binary Installation on macOS](install_osx)
+ * [Binary Installation on Windows](install_windows)
 
 ## Source Installation instructions
 
