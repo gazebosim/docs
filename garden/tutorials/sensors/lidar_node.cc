@@ -15,20 +15,20 @@
  *
 */
 
-#include <ignition/msgs/twist.pb.h>
-#include <ignition/msgs/laserscan.pb.h>
-#include <ignition/transport/Node.hh>
+#include <gz/msgs/twist.pb.h>
+#include <gz/msgs/laserscan.pb.h>
+#include <gz/transport/Node.hh>
 
 
 std::string topic_pub = "/cmd_vel";   //publish to this topic
-ignition::transport::Node node;
-auto pub = node.Advertise<ignition::msgs::Twist>(topic_pub);
+gz::transport::Node node;
+auto pub = node.Advertise<gz::msgs::Twist>(topic_pub);
 
 //////////////////////////////////////////////////
 /// \brief Function called each time a topic update is received.
-void cb(const ignition::msgs::LaserScan &_msg)
+void cb(const gz::msgs::LaserScan &_msg)
 {
-  ignition::msgs::Twist data;
+  gz::msgs::Twist data;
 
   bool allMore = true;
   for (int i = 0; i < _msg.ranges_size(); i++)
@@ -64,7 +64,7 @@ int main(int argc, char **argv)
   }
 
   // Zzzzzz.
-  ignition::transport::waitForShutdown();
+  gz::transport::waitForShutdown();
 
   return 0;
 }
