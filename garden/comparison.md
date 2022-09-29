@@ -67,6 +67,8 @@ Sensor plugins | ✓ | ✓ Now called System plugin
 Visual plugins | ✓ | ✓
 GUI plugins | ✓ | ✓ Gazebo GUI plugins and Gazebo GUI systems
 System plugins | ✓ | ✓ Through Gazebo Launch
+SDF python bindings | x | ✓ | In sdformat13
+SDF <-> Mujoco MJCF | x | ✓ | In sdformat13, [documentation](https://github.com/gazebosim/gz-mujoco/blob/main/sdformat_mjcf/README.md)
 
 ## Plugins
 
@@ -316,3 +318,5 @@ Ocean currents | ✕  | ✓
 Test fixture | ✓ | [✓](https://gazebosim.org/api/gazebo/6.6/test_fixture.html)
 Spherical coordinates | ✓ | ✓
 Generic comms system | ✕ | [✓](https://github.com/gazebosim/gz-sim/blob/ign-gazebo6/examples/worlds/perfect_comms.sdf)
+Acoustic communication | ✕ | ✓
+Static linked plugins | ✕ | ✓
