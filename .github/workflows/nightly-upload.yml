@@ -16,7 +16,11 @@ jobs:
     - name: Setup aws cli
       run: |
         sudo apt-get update &&
-        sudo apt-get install awscli
+        sudo apt-get install curl &&
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" &&
+        unzip awscliv2.zip &&
+        sudo ./aws/install &&
+        aws --version
     - name: Run nightly upload
       run: cd tools && ./build_docs.sh all
       shell: bash
@@ -28,6 +32,4 @@ jobs:
       run: |
         aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} &&
         aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} &&
-        cat ~/.aws/credentials &&
-        pwd &&
         aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths '/*'
