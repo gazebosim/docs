@@ -274,6 +274,11 @@ Supported versions:
 * ROS 1 Melodic (from source) / Noetic (from source)
 * ROS 2 Galactic (from source) / Humble (binaries)
 
+For **ROS 2 Rolling**, the Rolling distribution moves with the next future release
+of ROS 2 defined in [REP-2000](https://www.ros.org/reps/rep-2000.html). For the Gz
+Garden release this means that it will be adopted when ROS 2 Iron goes into the
+[REP-2000](https://www.ros.org/reps/rep-2000.html).
+
 ## Platforms
 
 Platform | Gazebo-classic | Gazebo Sim
