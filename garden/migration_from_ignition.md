@@ -536,7 +536,7 @@ to download, update, and upload all of your models and worlds.
 
 1. Get an [access token here](https://app.gazebosim.org/settings#access_tokens).
 2. [Download this
-   script](https://app.gazebosim.org/assets/scripts/update_fuel_models.py).
+   script](https://app.gazebosim.org/assets/scripts/update_fuel_assets.py).
 3. Execute the script using your Fuel owner name and access key
     ```
     python3 ./update_fuel_models.py -o OWNER_NAME -k ACCESS_KEY
