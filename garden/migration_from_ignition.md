@@ -491,3 +491,53 @@ All internal references to `ign` or `ignition` that pre-Garden versions of Gazeb
 
 If you want to run `ros_gz` demos with custom sim version or sim args, use the `gz_version` and `gz_args` launch parameters.
 Using the `ign_version` launch parameter will also require you to explicitly set the `ign_args` launch parameters instead.
+
+## Updating Fuel URLs
+
+Part the renaming process entailed moving the [Fuel](app.gazebosim.org) server from `fuel.ignitionrobotics.org` to `fuel.gazebosim.org`. Fuel models and worlds that reference `fuel.ignitionrobotics.org` need to be updated to use `fuel.gazebosim.org`.
+
+For example, a world that includes a model using an `ignitionrobotics` URL
+such as
+
+```
+<?xml version="1.0" ?>
+<sdf version="1.10">
+  <world name="default">
+    <include>
+      <uri>https://fuel.ignitionrobotics.org/1.0/openrobotics/models/double pendulum with base</uri>
+    </include>
+  </world>
+</sdf>
+```
+
+needs to be updated to 
+
+```
+<?xml version="1.0" ?>
+<sdf version="1.10">
+  <world name="default">
+    <include>
+      <uri>https://fuel.gazebosim.org/1.0/openrobotics/models/double pendulum with base</uri>
+    </include>
+  </world>
+</sdf>
+```
+
+In a similar manner, models and their assets also require URL updates.
+Mesh files, such as Collada, can contain Fuel references as well as SDF and
+`model.config` files.
+
+We have created a script that will update all of your models and worlds with correct URLs. This script is only applicably to you if you own, have created, models or worlds on [Fuel](app.gazebosim.org). 
+
+### Steps
+
+The following steps will have you download a python script which can be used
+to download, update, and upload all of your models and worlds.
+
+1. Get an [access token here](https://app.gazebosim.org/settings#access_tokens).
+2. [Download this
+   script](https://app.gazebosim.org/assets/scripts/update_fuel_models.py).
+3. Execute the script using your Fuel owner name and access key
+    ```
+    python3 ./update_fuel_models.py -o OWNER_NAME -k ACCESS_KEY
+    ```
