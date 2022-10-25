@@ -1,6 +1,6 @@
 #### Table of Contents
 
-[Triggering a Release](#triggering-a-release)
+[Understanding the releasing process](#understanding-the-releasing-process)
   * [Prerequisites](#prerequisites)
      - [Software and Configurations](#software-and-configurations)
      - [Credentials](#credentials)
