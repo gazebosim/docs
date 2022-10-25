@@ -213,7 +213,7 @@ information about how they are used).
   being updated as well as a `git diff` before uploading information to the GitHub
   release repository.
 
-## Launch the release in the building server
+## Triggering the release
 
 After updating the code and releasing metadata everything is ready to launch the
 build in the server. Now, the following needs to happen:
