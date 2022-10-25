@@ -8,7 +8,7 @@
   * [Preparing Gz Code](#preparing-gz-code)
      - [Update code version](#update-code-version)
      - [Update binary version](#update-binary-version)
-  * [Launch the release in the building server](#launch-the-release-in-the-building-server)
+  [Triggering the Release](#triggering-the-release)
      - [Executing release.py](#executing-releasepy)
        - [dry-run simulation mode](#dry-run-simulation-mode)
        - [release.py for stable releases](#releasepy-for-stable-releases)
