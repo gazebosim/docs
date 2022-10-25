@@ -98,8 +98,9 @@ Some Debian tools require the following variables to be set:
 export DEBEMAIL="<username>@openrobotics.org"
 export DEBFULLNAME="<Your full name>"
 ```
-**Note:** the two above exported variables can be added to `.bashrc` to have
-them configured automatically on every run.
+
+> **Note:** the two above exported variables can be added to `.bashrc` to have
+> them configured automatically on every run.
 
 
 ### Access and Credentials
