@@ -75,7 +75,7 @@ the process:
 
 #### Software and configurations
 
-Triggering the releasing process is only supported on Linux at this moment.
+> Triggering the releasing process is only supported on Linux at this moment.
 
 The tool designed to facilitate the process of releasing software for all
 platforms is called [`release.py`](https://github.com/gazebo-tooling/release-tools/blob/master/release.py), and is hosted at https://github.com/gazebo-tooling/release-tools.
