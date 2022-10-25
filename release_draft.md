@@ -61,7 +61,7 @@ ign or gz, ign/gz is used for this propose) `foo` with major version `X`:
 To perform a new release, a small number of configurations and credentials need to be made on the developer's system before triggering the release.
 If a permanent operating system is used for releasing, these installation steps only need to be executed once.
 
-#### Team and development checks
+### Team and development checks
 
 When creating a new release, there are some guidelines to follow before starting
 the process:
