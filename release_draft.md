@@ -56,7 +56,7 @@ ign or gz, ign/gz is used for this propose) `foo` with major version `X`:
     release sources from `osrf-distributions S3` to generate the binary bottles.
     They will be uploaded to `osrf-distributions S3`.
 
-### Prerequisites
+## Prerequisites
 
 To perform a new release, a small number of configurations and credentials need to be made on the developer's system before triggering the release.
 If a permanent operating system is used for releasing, these installation steps only need to be executed once.
