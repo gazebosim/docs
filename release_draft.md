@@ -1,7 +1,8 @@
 #### Table of Contents
 
 [Understanding the releasing process](#understanding-the-releasing-process)
-  * [Prerequisites](#prerequisites)
+  [Prerequisites](#prerequisites)
+       - [Team and development checks](#team-and-development-checks)
      - [Software and Configurations](#software-and-configurations)
      - [Credentials](#credentials)
   * [Preparing Gz Code](#preparing-gz-code)
