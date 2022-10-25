@@ -102,7 +102,11 @@ export DEBFULLNAME="<Your full name>"
 them configured automatically on every run.
 
 
-#### Credentials
+### Access and Credentials
+
+Before starting the release process, make sure to ask for write access to:
+1.  The Gz library intended to be released and
+2.  `gazebo-release` repository.
 
 There are some credentials needed to interact with the release
 process:
