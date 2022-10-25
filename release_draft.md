@@ -73,7 +73,7 @@ the process:
    X the major version of the version bump planned) that could go into the new
    release.
 
-#### Software and configurations
+### Software and configurations
 
 > Triggering the releasing process is only supported on Linux at this moment.
 
