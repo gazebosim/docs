@@ -15,9 +15,7 @@
        - [release.py for prerelease or nightlies](#releasepy-for-prereleases-or-nightlies)
        - [release.py for revision bumps](#releasepy-for-revision-bumps)
 
-## Triggering a Release
-
-### Understanding the releasing process
+## Understanding the releasing process
 
 The following picture shows the interactions triggered when using the release
 tool [`release.py`](https://github.com/gazebo-tooling/release-tools/blob/master/release.py) explained in this guide:
