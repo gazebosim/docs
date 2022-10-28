@@ -2,10 +2,10 @@
 
 [Understanding the releasing process](#understanding-the-releasing-process)
   [Prerequisites](#prerequisites)
-       - [Team and development checks](#team-and-development-checks)
+     - [Team and development checks](#team-and-development-checks)
      - [Software and Configurations](#software-and-configurations)
      - [Access and Credentials](#access-and-credentials)
-  * [Preparing Gz Code](#preparing-gz-code)
+  [Preparing Gz Code](#preparing-gz-code)
      - [Update code version](#update-code-version)
      - [Update binary version](#update-binary-version)
   [Triggering the Release](#triggering-the-release)
