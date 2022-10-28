@@ -313,3 +313,36 @@ git checkout gz-cmake3
 # please replace <jenkins_token> with real release token (check crendentials section)
 ~/release-tools/release-repo-scripts/release.py gz-cmake3 3.0.1 <jenkins_token> --only-bump-revision-linux -release-version 2
 ```
+
+## Checking the Building Process
+
+For checking that the build process is ongoing as expected:
+
+  1. Several `-debbuilder` jobs should be in https://build.osrfoundation.org/.
+     For watching the jobs to see if any of them fail or are marked unstable,
+     open the page for a specific debbuild, such as
+     https://build.osrfoundation.org/job/gz-math7-debbuilder/.
+
+     1. If there is a failure, check the list of supported
+        architectures in the corresponding [Gazebo Platform Support issue](https://github.com/gazebo-tooling/release-tools/issues?q=label%3A%22Tier+Platform+Support%22+)
+
+     1. To check if a debbuild has previously succeeded for a given architecture,
+        check packages.osrfoundation.org to see the most recent successful builds.
+        (i.e most recent [Ubuntu builds of ignition-gazebo6](https://packages.osrfoundation.org/gazebo/ubuntu-stable/pool/main/i/ignition-gazebo6/)
+        or the [Debian builds of ignition-gazebo6](https://packages.osrfoundation.org/gazebo/debian-stable/pool/main/i/ignition-gazebo6/).
+
+     1. If the failure is on a supported architecture, check the source repository for an existing report of this failure and if none
+        exists, report the failure (see [gazebosim/gz-math#161](https://github.com/gazebosim/gz-math/issues/161)
+        for an example).
+
+     1. If a build is unstable, check if it was unstable before this release and if it has already been reported.
+        A common cause of unstable debbuilds is newly installed files that are not captured by the pattenrs in the `.install`
+        files in the `-release` repository. This can be checked by searching for `dh_missing` in the console log of the
+        unstable build and looking for a list of uninstalled files. Example pull requests that fix problems with `dh_missing`
+        are [gazebo-release/gz-transport11-release#4](https://github.com/gazebo-release/gz-transport11-release/pull/4)
+        and [gazebo-release/gz-tools-release#4](https://github.com/gazebo-release/gz-tools-release/pull/4).
+
+  1. A pull request was opened to https://github.com/osrf/homebrew-simulation
+     1. This pull request may take a minute or two to open.
+     1. Once it is open, make a comment containing the text "build bottle".
+        For further details, see the [README at osrf/homebrew-simulation](https://github.com/osrf/homebrew-simulation#to-build-bottles).
