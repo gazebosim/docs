@@ -1,20 +1,20 @@
 #### Table of Contents
 
  * [Understanding the releasing process](#understanding-the-releasing-process)
- * [Initial Setup](#initial-setup)
+ * [Initial Setup (one time configuration)](#initial-setup)
      - [Software and Configurations](#software-and-configurations)
      - [Access and Credentials](#access-and-credentials)
- * [Launching a New Release](#launching-a-new-release)
-     - [STEP 0: Team and development checks](#team-and-development-checks)   
-     - [Preparing Gz Code](#preparing-gz-code)
-        - [STEP 1: Update code version and changelogs](#update-code-version-and-changelogs)
-        - [STEP 2: Update packages version](#update-packages-version)
+ * [For Each Release](#for-each-release)
+     - [STEP 0: Team and development checks](#team-and-development-checks)
+     - [STEP 1: Update code version and changelogs](#update-code-version-and-changelogs)
+     - [STEP 2: Update packages version](#update-packages-version)
      - [Triggering the Release](#triggering-the-release)
         - [STEP 3: Executing release.py](#executing-releasepy)
           - [dry-run simulation mode](#dry-run-simulation-mode)
           - [release.py for stable releases](#releasepy-for-stable-releases)
           - [release.py for prerelease or nightlies](#releasepy-for-prereleases-or-nightlies)
           - [release.py for revision bumps](#releasepy-for-revision-bumps)
+     - [Checking the Building Process](#checking-the-building-process)
 
 ## Understanding the releasing process
 
@@ -109,7 +109,7 @@ process:
  * Release token: magic sequence of characters needed while running `release.py`
    to interact with `build.osrfoundation.org`. This should be given to Gz releasers as a part of the AWS credentials set-up.
 
-## Launching a New Release
+## For Each Release
 
 ### Team and development checks
 
@@ -122,8 +122,6 @@ the process:
    one with the name `ign/gz-fooX` where foo is the name of the Gz library and
    X the major version of the version bump planned) that could go into the new
    release.
-
-## Preparing Gz Code
 
 ### Update code version and changelogs
 
@@ -179,7 +177,7 @@ document.
 
 ### Update packages version
 
-Once the PR for bumping the code version is merged, the binary packages version 
+Once the PR for bumping the code version is merged, the binary packages version
 needs to be updated for the Debian/Ubuntu packages. Brew metadata will be
 updated by the building server when creating the binary packages
 (known as `bottles`).
