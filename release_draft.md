@@ -284,9 +284,8 @@ git checkout gz-cmake3
 ~/release-tools/release-repo-scripts/release.py gz-cmake3 3.0.0~pre1 <jenkins_token> --upload-to-repo prerelease
 ```
 Nightly invocation is generally coded in the server. The version will be taken from
-the last changelog entry and [modified during building](releasing/versioning_pre_nightly).
-No source code will be uploaded, but taken directly in the binary build from
-`--nightly-src-branch`.
+the last changelog entry and modified during building. No source code will be uploaded,
+but taken directly in the binary build from the branch pointed by `--nightly-src-branch`.
 
 ```bash
 # Example gz-cmake3 nightly from main branch with jenkins_token credential
@@ -294,7 +293,14 @@ cd gz-cmake3
 git checkout gz-cmake3
 # please replace <jenkins_token> with real release token (check crendentials section)
 ~/release-tools/release-repo-scripts/release.py gz-cmake3 3.0.0~pre1 <jenkins_token> --upload-to-repo nightly --nightly-src-branch main
+
 ```
+
+##### Binary version schema for prereleases and nightlies
+
+Prerelease and nightlies binary versions use particular naming schema to define right
+ordering for package managers. [This information about versioning](https://classic.gazebosim.org/tutorials?tut=install_unstable&cat=install#Versioninginnightlyandprerelease) in Gazebo Classic applies to the [Gazebo] too.
+
 #### release.py for revision bumps
 
 Bumping the [revision number for binary packages](#versioning) is a special case of releasing
