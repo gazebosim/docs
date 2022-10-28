@@ -1,19 +1,20 @@
 #### Table of Contents
 
  * [Understanding the releasing process](#understanding-the-releasing-process)
- * [Prerequisites](#prerequisites)
-     - [Team and development checks](#team-and-development-checks)
+ * [Initial Setup](#initial-setup)
      - [Software and Configurations](#software-and-configurations)
      - [Access and Credentials](#access-and-credentials)
- * [Preparing Gz Code](#preparing-gz-code)
-     - [Update code version](#update-code-version)
-     - [Update binary version](#update-binary-version)
- * [Triggering the Release](#triggering-the-release)
-     - [Executing release.py](#executing-releasepy)
-       - [dry-run simulation mode](#dry-run-simulation-mode)
-       - [release.py for stable releases](#releasepy-for-stable-releases)
-       - [release.py for prerelease or nightlies](#releasepy-for-prereleases-or-nightlies)
-       - [release.py for revision bumps](#releasepy-for-revision-bumps)
+ * [Launching a New Release](#launching-a-new-release)
+     - [STEP 0: Team and development checks](#team-and-development-checks)   
+     - [Preparing Gz Code](#preparing-gz-code)
+        - [STEP 1: Update code version and changelogs](#update-code-version-and-changelogs)
+        - [STEP 2: Update packages version](#update-packages-version)
+     - [Triggering the Release](#triggering-the-release)
+        - [STEP 3: Executing release.py](#executing-releasepy)
+          - [dry-run simulation mode](#dry-run-simulation-mode)
+          - [release.py for stable releases](#releasepy-for-stable-releases)
+          - [release.py for prerelease or nightlies](#releasepy-for-prereleases-or-nightlies)
+          - [release.py for revision bumps](#releasepy-for-revision-bumps)
 
 ## Understanding the releasing process
 
@@ -56,22 +57,10 @@ ign or gz, ign/gz is used for this propose) `foo` with major version `X`:
     release sources from `osrf-distributions S3` to generate the binary bottles.
     They will be uploaded to `osrf-distributions S3`.
 
-## Prerequisites
+## Initial setup
 
-To perform a new release, a small number of configurations and credentials need to be made on the developer's system before triggering the release.
+A small number of configurations and credentials need to be made on the developer's system before triggering the release.
 If a permanent operating system is used for releasing, these installation steps only need to be executed once.
-
-### Team and development checks
-
-When creating a new release, there are some guidelines to follow before starting
-the process:
-
- * Ask the team if there are any concerns about making the release.
- * Check if there are changes to previous library versions that need to be forward-ported.
- * See if there are open PRs against the release branch (release branch is the
-   one with the name `ign/gz-fooX` where foo is the name of the Gz library and
-   X the major version of the version bump planned) that could go into the new
-   release.
 
 ### Software and configurations
 
@@ -102,7 +91,6 @@ export DEBFULLNAME="<Your full name>"
 > **Note:** the two above exported variables can be added to `.bashrc` to have
 > them configured automatically on every run.
 
-
 ### Access and Credentials
 
 Before starting the release process, make sure to ask for write access to:
@@ -121,9 +109,23 @@ process:
  * Release token: magic sequence of characters needed while running `release.py`
    to interact with `build.osrfoundation.org`. This should be given to Gz releasers as a part of the AWS credentials set-up.
 
+## Launching a New Release
+
+### Team and development checks
+
+When creating a new release, there are some guidelines to follow before starting
+the process:
+
+ * Ask the team if there are any concerns about making the release.
+ * Check if there are changes to previous library versions that need to be forward-ported.
+ * See if there are open PRs against the release branch (release branch is the
+   one with the name `ign/gz-fooX` where foo is the name of the Gz library and
+   X the major version of the version bump planned) that could go into the new
+   release.
+
 ## Preparing Gz Code
 
-### Update code version
+### Update code version and changelogs
 
 The first step to get a new release ready is to update the current code (upstream)
 version (view the [versioning](#versioning) section for more information). This
@@ -175,11 +177,17 @@ document.
   `ignition/gz-fooX_X.Y.Z` where foo is the name of the Gz library and X.Y.Z
   the code version.
 
-### Update binary version
+### Update packages version
 
-Once the PR for bumping the code version is merged, the binary version needs
-to be updated for the Debian/Ubuntu binary packages. Brew metadata will be
-updated by the building server when creating the binary `bottles`.
+Once the PR for bumping the code version is merged, the binary packages version 
+needs to be updated for the Debian/Ubuntu packages. Brew metadata will be
+updated by the building server when creating the binary packages
+(known as `bottles`).
+
+The version in the packages (binary version) should be similar to the one updated
+in the code in the step above but usually has some other components that reflect the
+package metadata version (i.e: new code version 2.1.0, new version in Debian packages
+is usually 2.1.0-1).
 
 There should be a repository matching the name and major version of Gz
 library that you want to bump in the
