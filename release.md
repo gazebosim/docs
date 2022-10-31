@@ -4,16 +4,6 @@ This documentation covers the releasing process done by the members of the
 Gazebo team. It offers a general overview and documentation of the
 procedures and tools used, and provides a step by step guide to do releases.
 
-#### Table of Contents
-
-General Overview
-
-  * Platforms Supported
-  * Infrastructure
-  * Type of Releases
-  * Metadata for releasing
-  * Versioning
-
 ## General overview
 
 Gazebo development supports different ways of installing the software in the
