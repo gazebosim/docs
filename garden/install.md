@@ -3,11 +3,13 @@
 Gazebo Garden will be the 7th major release of Gazebo. It will be a
 short-term release.
 
-Up to Garden's release date, the collection should be considered unstable.
-
 ## Binary installation instructions
 
-There are no Garden binaries at the moment.
+Binary installation is the recommended method of installing Gazebo.
+
+ * [Binary Installation on Ubuntu](install_ubuntu)
+ * [Binary Installation on macOS](install_osx)
+ * [Binary Installation on Windows](install_windows)
 
 ## Source Installation instructions
 
@@ -60,7 +62,7 @@ for the full status.
 
 ## Migration Guide
 
-Gazebo Garden is the first major release that [uses the Gazebo brand instead of Ignition](https://community.gazebosim.org/t/a-new-era-for-gazebo/1356).
+Gazebo Garden is the first major release that [uses the Gazebo brand instead of Gazebo](https://community.gazebosim.org/t/a-new-era-for-gazebo/1356).
 So if you are upgrading from a prior release (e.g. Fortress), you will need to do some steps to migrate your packages.
 
 - [Guide for Migrating From Ignition](migration_from_ignition)

@@ -1,29 +1,35 @@
 name: Upload docs to production
 
 on:
-   schedule:
-     # UTC timezone
-     - cron: '0 6 * * *'
+  schedule:
+   # UTC timezone
+   - cron: '0 6 * * *'
+  workflow_dispatch:
 
 jobs:
   upload:
     name: Upload docs to production
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-20.04
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Setup S3 cmd
+    - name: Setup aws cli
       run: |
         sudo apt-get update &&
-        sudo apt-get install s3cmd awscli &&
-        s3cmd --configure --access_key=${{ secrets.AWS_ACCESS_KEY_ID }} --secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }} --no-encrypt --dump-config > $HOME/.s3cfg &&
-        ls $HOME/.s3cfg
+        sudo apt-get install curl &&
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" &&
+        unzip awscliv2.zip &&
+        sudo ./aws/install --update &&
+        aws --version
     - name: Run nightly upload
-      run: cd tools && bash build_docs.sh all
+      run: cd tools && ./build_docs.sh all
+      shell: bash
       env:
         GZ_VERSION_PASSWORD: ${{ secrets.GZ_VERSION_PASSWORD }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     - name: Invalidate Cloudfront distribution
       run: |
         aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} &&
         aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} &&
-        aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths '/*'
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths '/*' --region us-east-1

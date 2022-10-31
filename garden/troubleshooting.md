@@ -1,16 +1,16 @@
 # Troubleshooting
 
-## Ignition libraries are not found
+## Gazebo libraries are not found
 If you see this error message:
 
 ```bash
-I cannot find any available 'ign' command:
-	* Did you install any ignition library?
-	* Did you set the IGN_CONFIG_PATH environment variable?
-	    E.g.: export IGN_CONFIG_PATH=$HOME/local/share/ignition
+I cannot find any available 'gz' command:
+	* Did you install any gazebo library?
+	* Did you set the GZ_CONFIG_PATH environment variable?
+	    E.g.: export GZ_CONFIG_PATH=$HOME/local/share/gazebo
 ```
 
-You should set up the environment variable `IGN_CONFIG_PATH=/usr/local/share/ignition/`
+You should set up the environment variable `GZ_CONFIG_PATH=/usr/local/share/gazebo/`
 
 
 ## macOS
@@ -19,7 +19,7 @@ You should set up the environment variable `IGN_CONFIG_PATH=/usr/local/share/ign
 After installing all the dependencies and starting the build process, you may encounter an error that looks like this:
 
 ```bash
-/Users/user/fortress_ws/src/sdformat/src/parser_urdf.cc:30:10: fatal error: 'urdf_model/model.h' file not found
+/Users/user/garden_ws/src/sdformat/src/parser_urdf.cc:30:10: fatal error: 'urdf_model/model.h' file not found
 #include <urdf_model/model.h>
          ^~~~~~~~~~~~~~~~~~~~
 1 error generated.
@@ -44,17 +44,17 @@ colcon build --cmake-args -DUSE_INTERNAL_URDF=ON --merge-install
 This command will ignore the system installation of `urdfdom` and use the internal version instead.
 
 ### Unable to load .dylib file
-When running the `ign gazebo -s` command, an error like the one below may show up:
+When running the `gz sim -s` command, an error like the one below may show up:
 
 ```bash
-Error while loading the library [/Users/fortress/fortress_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib]: dlopen(/Users/fortress/fortress_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib, 5): Library not loaded: @rpath/libIrrXML.dylib
+Error while loading the library [/Users/garden/garden_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib]: dlopen(/Users/garden/garden_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib, 5): Library not loaded: @rpath/libIrrXML.dylib
   Referenced from: /usr/local/opt/assimp/lib/libassimp.5.dylib
   Reason: image not found
-[Err] [Physics.cc:275] Unable to load the /Users/fortress/fortress_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib library.
-Escalating to SIGKILL on [Ignition Gazebo Server]
+[Err] [Physics.cc:275] Unable to load the /Users/garden/garden_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib library.
+Escalating to SIGKILL on [Gazebo Sim Server]
 ```
 
-The issue is related to OSX System Integrity Protection (SIP). The workaround is to run `ign` with a different ruby then make sure that ruby is loaded.
+The issue is related to OSX System Integrity Protection (SIP). The workaround is to run `gz` with a different ruby then make sure that ruby is loaded.
 
 ```bash
 brew install ruby
@@ -66,7 +66,7 @@ export PATH=/usr/local/Cellar/ruby/2.6.5/bin:$PATH
 . ~/.bashrc
 ```
 
-### No rule to make target `'/usr/lib/libm.dylib', needed by 'lib/libignition-physics3-dartsim-plugin.3.1.0.dylib'. Stop.`
+### No rule to make target `'/usr/lib/libm.dylib', needed by 'lib/libgz-physics6-dartsim-plugin.6.1.0.dylib'. Stop.`
 Try to run `brew outdated` followed by a `brew upgrade` may fix some of it.
 
 
@@ -118,10 +118,10 @@ The "Application Profiles" can control the use of the Nvidia GPU per application
 
 ### Unable to create the rendering window
 If you're getting errors like "Unable to create the rendering window", it could
-mean you're using an old OpenGL version. Ignition Gazebo uses the Ogre 2
+mean you're using an old OpenGL version. Gazebo Sim uses the Ogre 2
 rendering engine by default, which requires an OpenGL version higher than 3.3.
 
-This can be confirmed by checking the Ogre 2 logs at `~/.ignition/rendering/ogre2.log`,
+This can be confirmed by checking the Ogre 2 logs at `~/.gz/rendering/ogre2.log`,
 which should have an error like:
 
     "OGRE EXCEPTION(3:RenderingAPIException): OpenGL 3.3 is not supported. Please update your graphics card drivers."
@@ -133,9 +133,9 @@ You can also check your OpenGL version running:
 You should be able to use Ogre 1 without any issues however. You can check if
 that's working by running a world which uses Ogre 1 instead of Ogre 2, such as:
 
-    ign gazebo -v 3 lights.sdf
+    gz sim -v 3 lights.sdf
 
-If that loads, you can continue to use Ignition with Ogre 1, just use the
+If that loads, you can continue to use Gazebo Sim with Ogre 1, just use the
 `--render-engine ogre` option.
 
 To enable Ogre 2 support, you'll need to update your computer's OpenGL version.
@@ -146,13 +146,13 @@ The Ogre 2 debs from the osrfoundation repository are built from a fork of
 Ogre's `v2-1` branch with changes needed for deb packaging and allowing it to
 be co-installable with Ogre 1.x. The code can be found here:
 
-https://github.com/osrf/ogre-2.1-release
+https://github.com/gazebo-forks/ogre-2.1-release
 
 
 ## Windows
 
 ### VisualStudioVersion is not set, please run within a Visual Studio Command Prompt.
-When you try to compile Ignition you might see an error in your prompt like:
+When you try to compile Gazebo you might see an error in your prompt like:
 
     VisualStudioVersion is not set, please run within a Visual Studio Command Prompt.
 

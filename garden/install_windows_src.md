@@ -47,7 +47,7 @@ You will still be able to use `TPE` as a physics engine
 
   ```bash
   conda install cmake git vcstool curl pkg-config ^
-  colcon-common-extensions eigen freeimage gts ^
+  colcon-common-extensions eigen freeimage gdal gts ^
   glib dlfcn-win32 ffmpeg ruby tinyxml2 tinyxml ^
   protobuf urdfdom zeromq cppzmq ogre jsoncpp ^
   libzip qt pybind11 --channel conda-forge
@@ -150,4 +150,4 @@ the results you want:
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/fortress/troubleshooting#windows)
+See [Troubleshooting](/docs/garden/troubleshooting#windows)

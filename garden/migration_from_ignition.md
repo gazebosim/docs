@@ -5,9 +5,9 @@ Hello Gazebo community!!
 In April 2022, it was announced that [we’d be retiring the “Ignition” name in favor of “Gazebo”.](https://community.gazebosim.org/t/a-new-era-for-gazebo/1356)
 This migration guide will serve you help you execute the necessary changes in your own packages, and luckily it won’t be as troublesome as the move from Gazebo Classic!
 
-# Overview
+## Overview
 
-## Changes
+### Changes
 
 So what’s happening in practice? In summary:
 
@@ -26,7 +26,7 @@ These changes were made in:
 This means that a bulk of the migration effort on a user's part will involve intelligent find-and-replaces of filenames, directories, and source code.
 You may also look at the [tracking GitHub issue](https://github.com/gazebo-tooling/release-tools/issues/698) if you need to trace any changes made to support the migration in the core libraries.
 
-## Tick-tocks and Hard-tocks
+### Tick-tocks and Hard-tocks
 
 This section provides just an overview of the different changes made, for a more detailed listing of tick-tocks, see the migration file in each of the individual core libraries’ repositories:
 
@@ -52,7 +52,7 @@ Additionally the migration pointers in a later section of this migration guide s
 Generally speaking, you should still be able to use either the Ignition counterpart or Gazebo counterpart for **most things** if you are using Garden, due to explicit tick-tocking logic written in the stack.
 Just note that using the Ignition counterpart will generally cause deprecation warnings to be emitted.
 
-### Tick-tocks
+#### Tick-tocks
 
 Tick-tocks for the following are implemented, though not all of them will emit deprecation warnings.
 These tick-tocks are implemented either as aliases, or otherwise have some sort of redirection mechanism (e.g. symlinks, directory retargets, string replacements in source) to target the Gazebo counterpart instead.
@@ -121,7 +121,7 @@ Also, in the source code, most of these tick-tocks will have an associated comme
     - e.g. `ignition:type`
 
 
-### Hard-tocks
+#### Hard-tocks
 
 There are some exceptions that have been hard-tocked instead, meaning that you **MUST** use the Gazebo counterpart.
 Using the Ignition counterpart will likely cause compilation or something else to break (unless it’s just a documentation change.)
@@ -163,7 +163,7 @@ Using the Ignition counterpart will likely cause compilation or something else t
 
 Also, anything that is internal to the core Gazebo libraries and not used in downstream libraries (e.g. header guards, private headers or source, tests, documentation) is hard-tocked.
 
-## Untocks
+### Untocks
 
 A very small selection of things have not been migrated, mostly for backwards compatibility reasons (e.g. supporting Fortress.)
 
@@ -174,15 +174,15 @@ A very small selection of things have not been migrated, mostly for backwards co
 - Fuel user agent related
     - e.g. `X-Ign-Resource-Version`, `IgnitionFuelTools`
 
-# Migration
+## Migration
 
-## Overview
+### Overview
 
 The following migration guidelines are just that—guidelines and suggestions for how to get your package migrated, that should cover most general cases.
 
 Just keep in mind the overarching goal of replacing every Ignition counterpart (`IGN`, `Ign`, `Ignition`, `ign`, `ignition`) to the Gazebo counterpart (`GZ`, `Gz`, `gz`).
 
-### Recommendations
+#### Recommendations
 
 What might help greatly is to:
 
@@ -196,7 +196,7 @@ What might help greatly is to:
 Also, if you are building the Gazebo stack from source, you should do a clean, fresh rebuild and install.
 Delete your `build` and `install` directories, and run the build with `--merge-install`.
 
-### Gotchas
+#### Gotchas
 
 Most of the migration effort you should do is mainly finding and replacing instances of Ignition-related terms with the Gazebo-related one.
 
@@ -223,17 +223,17 @@ Additionally, take note of the following behaviors:
 
 - Because the install spaces have changed, if you have hard-coded locations involving `ignition`, you might need to migrate them to `gz`
 
-## Migration Steps
+### Migration Steps
 
 It’s important to execute the steps within each of the individual sections in-order! The steps will typically go from specific to general.
 
-### Migrate Files and File References
+#### Migrate Files and File References
 
 1. In your package root, look for files and directories matching the (case-insensitive) pattern of `ign(ition)?[_|-]gazebo`, and migrate `ign` / `ignition` appropriately to `gz`, and `gazebo` to `sim`
 2. In your package root, look for files and directories with (case-insensitive) `ign` / `ignition`, and move them to `gz`, matching case
 3. Update all internal references to the migrated files and directories in (1) and (2) in your package
 
-### Migrate CMake
+#### Migrate CMake
 
 In `CMakeLists.txt` files (and their references in your source files!):
 
@@ -281,7 +281,7 @@ Replace: gz-
 
 **Note:** Be wary that sometimes CMake arguments trickle down to the source files, so ensure you also migrate them appropriately
 
-### Migrate Macros and Environment Variables
+#### Migrate Macros and Environment Variables
 
 - [Helpful list of env var migrations](https://github.com/gazebo-tooling/release-tools/issues/734)
 - [Helpful list of macro migrations](https://github.com/gazebo-tooling/release-tools/issues/737) (see the toggled drop-down block, some are skipped!)
@@ -315,7 +315,7 @@ Additionally, the logging macros have also been migrated! Migrate any uses!
 - `ignLogClose` -> `gzLogClose`
 - `ignLogDirectory` -> `gzLogDirectory`
 
-### Migrate SDF
+#### Migrate SDF
 
 In `.sdf` files:
 
@@ -335,7 +335,7 @@ Some examples:
 - `<gz:odometer`
 - `<gz-gui`
 
-### Migrate Plugins and Shared Libraries
+#### Migrate Plugins and Shared Libraries
 
 The plugin finder is able to find plugins even if their filenames are stripped of `lib` and `.so`.
 
@@ -355,7 +355,7 @@ Find: ignition::
 Replace: gz::
 ```
 
-### Migrate Bindings
+#### Migrate Bindings
 
 In Python files (e.g. `.py`)
 
@@ -374,7 +374,7 @@ Find: ign(ition)?/
 Replace: gz/
 ```
 
-### Migrate Messages
+#### Migrate Messages
 
 In your message definitions
 
@@ -392,7 +392,7 @@ Find: ign(ition)?/
 Replace: gz/
 ```
 
-### Migrate Headers and Sources
+#### Migrate Headers and Sources
 
 Sweeping checks everywhere (pay special attention to reviewing these!)
 
@@ -445,7 +445,7 @@ You probably want to manually inspect:
 
 And also be mindful that certain instances of `gazebo` (usually as part of an API) need to use `sim` instead.
 
-### Migrate Your CLI Usage
+#### Migrate Your CLI Usage
 
 Where you used to use:
 
@@ -461,7 +461,7 @@ gz sim shapes.sdf
 
 Notice that the `gazebo` verb is **deprecated**.
 
-### Double-Check
+#### Double-Check
 
 These might be useful to double-check if you have any lingering stuff, or erroneously migrated instances
 
@@ -478,13 +478,13 @@ You should match these **case-insensitively**.
 - `\.ign(ition)?`
 - `ign(ition)?[-_]`
 
-# Additional Packages
+## Additional Packages
 
 This section details changes that have taken place in some other Gazebo related packages.
 
 
 
-## ros_gz
+### ros_gz
 
 `ros_ign` has been renamed to `ros_gz`.
 All internal references to `ign` or `ignition` that pre-Garden versions of Gazebo don't rely on have been migrated.
