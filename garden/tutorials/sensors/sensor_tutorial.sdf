@@ -6,36 +6,39 @@
             <real_time_factor>1.0</real_time_factor>
         </physics>
         <plugin
-            filename="ignition-gazebo-physics-system"
-            name="ignition::gazebo::systems::Physics">
+            filename="libgz-sim-physics-system.so"
+            name="gz::sim::systems::Physics">
         </plugin>
         <plugin
-            filename="ignition-gazebo-user-commands-system"
-            name="ignition::gazebo::systems::UserCommands">
+            filename="libgz-sim-user-commands-system.so"
+            name="gz::sim::systems::UserCommands">
         </plugin>
         <plugin
-            filename="ignition-gazebo-scene-broadcaster-system"
-            name="ignition::gazebo::systems::SceneBroadcaster">
+            filename="libgz-sim-scene-broadcaster-system.so"
+            name="gz::sim::systems::SceneBroadcaster">
         </plugin>
-        <plugin filename="ignition-gazebo-imu-system"
-                name="ignition::gazebo::systems::Imu">
+        <plugin
+            filename="libgz-sim-imu-system.so"
+            name="gz::sim::systems::Imu">
         </plugin>
-        <plugin filename="ignition-gazebo-sensors-system"
-                name="ignition::gazebo::systems::Sensors">
+        <plugin
+            filename="libgz-sim-sensors-system.so"
+            name="gz::sim::systems::Sensors">
             <render_engine>ogre2</render_engine>
         </plugin>
-        <plugin filename="ignition-gazebo-contact-system"
-                name="ignition::gazebo::systems::Contact">
+        <plugin 
+            filename="libgz-sim-contact-system.so"
+            name="gz::sim::systems::Contact">
         </plugin>
         <gui fullscreen="0">
 
             <!-- 3D scene -->
             <plugin filename="GzScene3D" name="3D View">
-                <ignition-gui>
-                <title>3D View</title>
-                <property type="bool" key="showTitleBar">false</property>
-                <property type="string" key="state">docked</property>
-                </ignition-gui>
+                <gz-gui>
+                    <title>3D View</title>
+                    <property type="bool" key="showTitleBar">false</property>
+                    <property type="string" key="state">docked</property>
+                </gz-gui>
 
                 <engine>ogre2</engine>
                 <scene>scene</scene>
@@ -45,20 +48,20 @@
 
             <!-- World control -->
             <plugin filename="WorldControl" name="World control">
-                <ignition-gui>
-                <title>World control</title>
-                <property type="bool" key="showTitleBar">false</property>
-                <property type="bool" key="resizable">false</property>
-                <property type="double" key="height">72</property>
-                <property type="double" key="width">121</property>
-                <property type="double" key="z">1</property>
+                <gz-gui>
+                    <title>World control</title>
+                    <property type="bool" key="showTitleBar">false</property>
+                    <property type="bool" key="resizable">false</property>
+                    <property type="double" key="height">72</property>
+                    <property type="double" key="width">121</property>
+                    <property type="double" key="z">1</property>
 
-                <property type="string" key="state">floating</property>
-                <anchors target="3D View">
-                    <line own="left" target="left"/>
-                    <line own="bottom" target="bottom"/>
-                </anchors>
-                </ignition-gui>
+                    <property type="string" key="state">floating</property>
+                    <anchors target="3D View">
+                        <line own="left" target="left"/>
+                        <line own="bottom" target="bottom"/>
+                    </anchors>
+                </gz-gui>
 
                 <play_pause>true</play_pause>
                 <step>true</step>
@@ -69,20 +72,20 @@
 
             <!-- World statistics -->
             <plugin filename="WorldStats" name="World stats">
-                <ignition-gui>
-                <title>World stats</title>
-                <property type="bool" key="showTitleBar">false</property>
-                <property type="bool" key="resizable">false</property>
-                <property type="double" key="height">110</property>
-                <property type="double" key="width">290</property>
-                <property type="double" key="z">1</property>
+                <gz-gui>
+                    <title>World stats</title>
+                    <property type="bool" key="showTitleBar">false</property>
+                    <property type="bool" key="resizable">false</property>
+                    <property type="double" key="height">110</property>
+                    <property type="double" key="width">290</property>
+                    <property type="double" key="z">1</property>
 
-                <property type="string" key="state">floating</property>
-                <anchors target="3D View">
-                    <line own="right" target="right"/>
-                    <line own="bottom" target="bottom"/>
-                </anchors>
-                </ignition-gui>
+                    <property type="string" key="state">floating</property>
+                    <anchors target="3D View">
+                        <line own="right" target="right"/>
+                        <line own="bottom" target="bottom"/>
+                    </anchors>
+                </gz-gui>
 
                 <sim_time>true</sim_time>
                 <real_time>true</real_time>
@@ -192,27 +195,27 @@
                     <topic>lidar</topic>
                     <update_rate>10</update_rate>
                     <ray>
-                    <scan>
-                        <horizontal>
-                        <samples>640</samples>
-                        <resolution>1</resolution>
-                        <min_angle>-1.396263</min_angle>
-                        <max_angle>1.396263</max_angle>
-                        </horizontal>
-                        <vertical>
-                        <samples>1</samples>
-                        <resolution>0.01</resolution>
-                        <min_angle>0</min_angle>
-                        <max_angle>0</max_angle>
-                        </vertical>
-                    </scan>
+                        <scan>
+                            <horizontal>
+                            <samples>640</samples>
+                            <resolution>1</resolution>
+                            <min_angle>-1.396263</min_angle>
+                            <max_angle>1.396263</max_angle>
+                            </horizontal>
+                            <vertical>
+                            <samples>1</samples>
+                            <resolution>0.01</resolution>
+                            <min_angle>0</min_angle>
+                            <max_angle>0</max_angle>
+                            </vertical>
+                        </scan>
                     <range>
                         <min>0.08</min>
                         <max>10.0</max>
                         <resolution>0.01</resolution>
                     </range>
                     </ray>
-                    <alwaysOn>1</alwaysOn>
+                    <always_on>1</always_on>
                     <visualize>true</visualize>
                 </sensor>
             </link>
@@ -365,8 +368,8 @@
 
             <!--diff drive plugin-->
             <plugin
-                filename="ignition-gazebo-diff-drive-system"
-                name="ignition::gazebo::systems::DiffDrive">
+                filename="libgz-sim-diff-drive-system.so"
+                name="gz::sim::systems::DiffDrive">
                 <left_joint>left_wheel_joint</left_joint>
                 <right_joint>right_wheel_joint</right_joint>
                 <wheel_separation>1.2</wheel_separation>
@@ -419,8 +422,8 @@
                     </contact>
                 </sensor>
             </link>
-            <plugin filename="ignition-gazebo-touchplugin-system"
-                    name="ignition::gazebo::systems::TouchPlugin">
+            <plugin filename="libgz-sim-touchplugin-system.so"
+                    name="gz::sim::systems::TouchPlugin">
                 <target>vehicle_blue</target>
                 <namespace>wall</namespace>
                 <time>0.001</time>
@@ -428,57 +431,54 @@
             </plugin>
         </model>
 
+        <!-- Moving Left-->
+        <plugin filename="libgz-sim-triggered-publisher-system.so"
+                name="gz::sim::systems::TriggeredPublisher">
+            <input type="gz.msgs.Int32" topic="/keyboard/keypress">
+                <match field="data">16777234</match>
+            </input>
+            <output type="gz.msgs.Twist" topic="/cmd_vel">
+                linear: {x: 0.0}, angular: {z: 0.5}
+            </output>
+        </plugin>
         <!-- Moving Forward-->
-        <plugin filename="ignition-gazebo-triggered-publisher-system"
-                name="ignition::gazebo::systems::TriggeredPublisher">
-            <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
+        <plugin filename="libgz-sim-triggered-publisher-system.so"
+                name="gz::sim::systems::TriggeredPublisher">
+            <input type="gz.msgs.Int32" topic="/keyboard/keypress">
                 <match field="data">16777235</match>
             </input>
-            <output type="ignition.msgs.Twist" topic="/cmd_vel">
+            <output type="gz.msgs.Twist" topic="/cmd_vel">
                 linear: {x: 0.5}, angular: {z: 0.0}
             </output>
         </plugin>
-
+        <!-- Moving Right-->
+        <plugin filename="libgz-sim-triggered-publisher-system.so"
+                name="gz::sim::systems::TriggeredPublisher">
+            <input type="gz.msgs.Int32" topic="/keyboard/keypress">
+                <match field="data">16777236</match>
+            </input>
+            <output type="gz.msgs.Twist" topic="/cmd_vel">
+                linear: {x: 0.0}, angular: {z: -0.5}
+            </output>
+        </plugin>
         <!-- Moving Backward-->
-        <plugin filename="ignition-gazebo-triggered-publisher-system"
-                name="ignition::gazebo::systems::TriggeredPublisher">
-            <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
+        <plugin filename="libgz-sim-triggered-publisher-system.so"
+                name="gz::sim::systems::TriggeredPublisher">
+            <input type="gz.msgs.Int32" topic="/keyboard/keypress">
                 <match field="data">16777237</match>
             </input>
-            <output type="ignition.msgs.Twist" topic="/cmd_vel">
+            <output type="gz.msgs.Twist" topic="/cmd_vel">
                 linear: {x: -0.5}, angular: {z: 0.0}
             </output>
         </plugin>
 
-        <!-- Rotating right-->
-        <plugin filename="ignition-gazebo-triggered-publisher-system"
-                name="ignition::gazebo::systems::TriggeredPublisher">
-            <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
-                <match field="data">16777236</match>
-            </input>
-            <output type="ignition.msgs.Twist" topic="/cmd_vel">
-                linear: {x: 0.0}, angular: {z: -0.5}
-            </output>
-        </plugin>
-
-        <!--Rotating left-->
-        <plugin filename="ignition-gazebo-triggered-publisher-system"
-                name="ignition::gazebo::systems::TriggeredPublisher">
-            <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
-                <match field="data">16777234</match>
-            </input>
-            <output type="ignition.msgs.Twist" topic="/cmd_vel">
-                linear: {x: 0.0}, angular: {z: 0.5}
-            </output>
-        </plugin>
-
         <!--stop when hit the wall-->
-        <plugin filename="ignition-gazebo-triggered-publisher-system"
-                name="ignition::gazebo::systems::TriggeredPublisher">
-            <input type="ignition.msgs.Boolean" topic="/wall/touched">
+        <plugin filename="libgz-sim-triggered-publisher-system.so"
+                name="gz::sim::systems::TriggeredPublisher">
+            <input type="gz.msgs.Boolean" topic="/wall/touched">
                 <match>data: true</match>
             </input>
-            <output type="ignition.msgs.Twist" topic="/cmd_vel">
+            <output type="gz.msgs.Twist" topic="/cmd_vel">
                 linear: {x: 0.0}, angular: {z: 0.0}
             </output>
         </plugin>

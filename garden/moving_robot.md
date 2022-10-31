@@ -160,7 +160,7 @@ Map each arrow (key stroke) with the desired message (movement) as we did with t
 * Left &#10142; 16777234 &#10142; linear: {x: 0.0}, angular: {z: 0.5}
 * Up &#10142; 16777235 &#10142; linear: {x: 0.5}, angular: {z: 0.0}
 * Right &#10142; 16777236 &#10142; linear: {x: 0.0}, angular: {z: -0.5}
-* Down &#10142; 16777237 &#10142; linear: {x: 0.5}, angular: {z: 0.0}
+* Down &#10142; 16777237 &#10142; linear: {x: -0.5}, angular: {z: 0.0}
 
 Now it's your turn try to make the robot move using different keys.
 

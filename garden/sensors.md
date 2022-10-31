@@ -80,7 +80,6 @@ obstacle as follows:
     <static>true</static>
     <pose>5 0 0 0 0 0</pose><!--pose relative to the world-->
     <link name='box'>
-        <pose/>
         <visual name='visual'>
             <geometry>
                 <box>
