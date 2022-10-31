@@ -63,7 +63,7 @@ After the `-p` option we specify the content (value) of the message: linear spee
 
 **Hint:** You can know what every topic option does using this command: `ign topic -h`
 
-For more information about `Topics` and `Messages` in Ignition check the [Transport library tutorials](https://ignitionrobotics.org/api/transport/9.0/tutorials.html)
+For more information about `Topics` and `Messages` in Ignition check the [Transport library tutorials](https://gazebosim.org/api/transport/9.0/tutorials.html)
 
 ## Moving the robot using the keyboard
 
@@ -121,7 +121,7 @@ It accepts messages of type `ignition.msgs.Int32` on the `/keyboard/keypress` to
 
 Now launch `building_robot.sdf` and our robot should move forward as we press the Up arrow key &#8593;.
 
-There is a demo explaining how the [Triggered Publisher](https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo2/tutorials/triggered_publisher.md) works.
+There is a demo explaining how the [Triggered Publisher](https://github.com/gazebosim/gz-sim/blob/ign-gazebo2/tutorials/triggered_publisher.md) works.
 
 ### Moving using arrow keys
 

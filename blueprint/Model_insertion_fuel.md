@@ -1,7 +1,7 @@
 # Model Insertion from Fuel
 
 Ignition Fuel hosts hundreds of models that can easily be added to a world running in the Ignition GUI.
-Adding models to a world typically means adding them into your world `sdf` file, but with Fuel you can drag and drop existing models directly into the scene.
+
 
 ## Prerequisites
 
@@ -15,25 +15,24 @@ The previous tutorial, [Manipulating Models](/docs/blueprint/manipulating_models
 
 ## Choose a Model
 
-Fuel's model collection is at [app.ignitionrobotics.org/fuel/models](https://app.ignitionrobotics.org/fuel/models).
+Fuel's model collection is at [app.gazebosim.org/fuel/models](https://app.gazebosim.org/fuel/models).
 Head over and browse the available content.
 
 ![Fuel models preview](img/fuel.png)
 
 Click on any one of the thumbnails, or use the search bar.
-For example, let's find the [Vent](https://app.ignitionrobotics.org/openrobotics/fuel/models/Vent).
+For example, let's find the [Vent](https://app.gazebosim.org/openrobotics/fuel/models/Vent).
 
 ![Vent](img/vent_detail.png)
 
 Note that some of the model files are quite large and may take some time to download into your world.
 Check that the file size on the right is reasonable for your application before moving on.
+s
+## Spawn a Model
 
-## Drag and Drop
+You can spawn models into simulation using the Resource Spawner plugin, or you can simply copy the SDF snippet from the Fuel website using <> button and paste it in your world SDF file.
 
-The only thing left to do is drag and drop.
-Click and hold the `Drag me!` button and do just that: drag your mouse into the GUI scene area.
-
-![Drag and drop](img/vent.gif)
+![spawn](img/husky.gif)
 
 Now you can add more models, or even load in any one of the plugins you learned about to interact with the model the same way you could with the shapes in the previous tutorial.
 

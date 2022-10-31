@@ -13,8 +13,8 @@ from ROS and apply it to Ignition and vice versa.
 For this tutorial to work correctly make sure you have the following installed:
 
 * [ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/)
-* [Ignition Dome](https://ignitionrobotics.org/docs/dome)
-* [ros_ign_bridge](https://github.com/ignitionrobotics/ros_ign/blob/ros2/ros_ign_bridge/README.md#building-the-bridge-from-source)
+* [Ignition Dome](https://gazebosim.org/docs/dome)
+* [ros_ign_bridge](https://github.com/ignitionrobotics/ros_ign/tree/ros2#from-source)
 
 ## Bidirectional communication
 
@@ -55,7 +55,7 @@ ros2 run ros_ign_bridge parameter_bridge /keyboard/keypress@std_msgs/msg/Int32@i
 We started a bridge on `/keyboard/keypress` topic with message of type `Int32`.
 For ROS it is `std_msgs/msg/Int32` and for Ignition it is `ignition.msgs.Int32`
 
-In another terminal launch an Ignition Gazebo world, for example the `empty.sdf` world:
+In another terminal launch an Gazebo Sim world, for example the `empty.sdf` world:
 
 ```
 ign gazebo empty.sdf

@@ -100,7 +100,7 @@ export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/usr/local/opt/dartsim@6.10.0
 export DYLD_FALLBACK_LIBRARY_PATH=${DYLD_FALLBACK_LIBRARY_PATH}:/usr/local/opt/dartsim@6.10.0/lib:/usr/local/opt/octomap/local
 export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:/usr/local/opt/dartsim@6.10.0/lib/pkgconfig
 # qt5
-export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/usr/local/opt/qt
+export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/usr/local/opt/qt@5
 ```
 
 ### Install compiler requirements
@@ -226,7 +226,7 @@ Or in zsh:
 . ~/workspace/install/setup.zsh
 ```
 
-This is the end of the source install instructions; head back to the [Getting started](getting_started.html)
+This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)
 page to start using Ignition!
 
 ## Uninstalling source-based install
@@ -242,55 +242,4 @@ sudo make uninstall
 
 ## Troubleshooting
 
-### Unable to find `urdf_model.h` error
-
-After installing all the dependencies and starting the build process, you may encounter an error that looks like this:
-
-```bash
-/Users/user/edifice_ws/src/sdformat/src/parser_urdf.cc:30:10: fatal error: 'urdf_model/model.h' file not found
-#include <urdf_model/model.h>
-         ^~~~~~~~~~~~~~~~~~~~
-1 error generated.
-make[2]: *** [src/CMakeFiles/sdformat9.dir/parser_urdf.cc.o] Error 1
-make[1]: *** [src/CMakeFiles/sdformat9.dir/all] Error 2
-make: *** [all] Error 2
-Failed   <<< sdformat9	[ Exited with code 2 ]
-```
-
-First check if `urdfdom` and `urdfdom_headers` are installed by running:
-
-```bash
-brew install urdfdom urdfdom_headers
-```
-
-Then if the error persists, compile with the internal version of `urdfdom` by running:
-
-```bash
-colcon build --cmake-args -DUSE_INTERNAL_URDF=ON --merge-install
-```
-
-This command will ignore the system installation of `urdfdom` and use the internal version instead.
-
-### Unable to load .dylib file
-
-When running the `ign gazebo -s` command, an error like the one below may show up:
-
-```bash
-Error while loading the library [/Users/edifice/edifice_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib]: dlopen(/Users/edifice/edifice_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib, 5): Library not loaded: @rpath/libIrrXML.dylib
-  Referenced from: /usr/local/opt/assimp/lib/libassimp.5.dylib
-  Reason: image not found
-[Err] [Physics.cc:275] Unable to load the /Users/edifice/edifice_ws/install/lib//libignition-physics2-dartsim-plugin.2.dylib library.
-Escalating to SIGKILL on [Ignition Gazebo Server]
-```
-
-The issue is related to OSX System Integrity Protection(SIP). The workaround is to run `ign` with a different ruby then make sure that ruby is loaded.
-
-```bash
-brew install ruby
-
-# Add the following to ~/.bashrc
-export PATH=/usr/local/Cellar/ruby/2.6.5/bin:$PATH
-
-# Source ~/.bashrc in terminal
-. ~/.bashrc
-```
+See [Troubleshooting](/docs/edifice/troubleshooting#macos)

@@ -1,9 +1,9 @@
 name: Upload docs to production
 
 on:
-  schedule:
-    # UTC timezone
-    - cron: '0 6 * * *'
+   schedule:
+     # UTC timezone
+     - cron: '0 6 * * *'
 
 jobs:
   upload:
@@ -21,7 +21,7 @@ jobs:
     - name: Run nightly upload
       run: cd tools && bash build_docs.sh all
       env:
-        IGN_VERSION_PASSWORD: ${{ secrets.IGN_VERSION_PASSWORD }}
+        GZ_VERSION_PASSWORD: ${{ secrets.GZ_VERSION_PASSWORD }}
     - name: Invalidate Cloudfront distribution
       run: |
         aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} &&

@@ -131,7 +131,7 @@ Now we can add the `contact` sensor to the `box` link of the `wall` model:
 
 The definition of the `<sensor>` is straight forward, we just define the `name` and the `type` of the sensor. And inside the `collision` we define the box link collision name which is `collision`.
 
-We need also to add the `TouchPlugin` under the `wall` model as follows:
+We need also to add the `TouchPlugin` inside the `wall` model as follows:
 
 ```xml
 <plugin filename="libignition-gazebo-touchplugin-system.so"
@@ -294,7 +294,7 @@ To do that, we'll write a short C++ program that listens to
 the sensor data and sends velocity commands to the robot.
 This program is called a node. We will build a node that subscribes
 to the `/lidar` topic and reads its data.
-Have a look at this [tutorial](https://ignitionrobotics.org/api/transport/9.0/messages.html)
+Have a look at this [tutorial](https://gazebosim.org/api/transport/9.0/messages.html)
 to learn how to build a `publisher` and a `subscriber` node.
 You can download the finished node for this demo from [here](https://github.com/ignitionrobotics/docs/blob/master/citadel/tutorials/sensors/lidar_node.cc).
 

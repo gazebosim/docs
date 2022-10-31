@@ -1,4 +1,4 @@
-# Ignition Keyboard Shortcuts
+# Gazebo Keyboard Shortcuts
 
 <div style="display: table">
 
@@ -33,6 +33,18 @@
   <tr><td>Snap when translating</td><td>Ctrl + drag</td><td>hold Ctrl while translating a model to move in customizable increments (default 1m)</td></tr>
 
   <tr><td>Align to world frame</td><td>Shift</td><td>hold Shift while manipulating a model to temporarily align axis its to the world frame</td></tr>
+
+  <tr><th colspan="3" class="sub"><b>MAIN WINDOW</b></th></tr>
+
+  <tr><td>Save Config</td><td>Ctrl + s</td><td>hold Ctrl and press "s" to save the current window configuration</td></tr>
+
+  <tr><td>Save Config As</td><td>Ctrl + Shift + s</td><td>hold Ctrl and Shift, and press "s" to save the current window configuration to a designated location</td></tr>
+
+  <tr><td>Load Config</td><td>Ctrl + o</td><td>hold Ctrl and press "o" to load a window configuration</td></tr>
+
+  <tr><td>Close</td><td>Ctrl + q</td><td>hold Ctrl and press "o" to shut down Gazebo</td></tr>
+
+  <tr><td>Search Menu</td><td>/</td><td>press "/" to open the search menu for plugins</td></tr>
 
 </table>
 

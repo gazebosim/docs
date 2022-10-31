@@ -5,11 +5,11 @@ Please refer to the latest supported version.**
 # Feature comparison
 
 A list of features present in [Gazebo-classic](https://github.com/osrf/gazebo/) and
-the status of their migration to [Ignition](https://ignitionrobotics.org/).
+the status of their migration to [Gazebo](https://gazebosim.org/).
 
 ## Sensors
 
-Sensor | Gazebo-classic | Ignition Gazebo
+Sensor | Gazebo-classic | Gazebo Sim
 -- | -- | --
 Altimeter | ✓ | ✓
 Camera | ✓ | ✓
@@ -31,7 +31,7 @@ Wireless receiver | ✓ |
 Wireless transceiver | ✓ |
 Wireless transmitter | ✓ |
 
-Sensor features | Gazebo-classic | Ignition Gazebo
+Sensor features | Gazebo-classic | Gazebo Sim
 -- | -- | --
 Custom update rate | ✓ | Some sensors do, others need upgrading
 Gaussian noise | ✓ | Some sensors do, others need upgrading
@@ -39,7 +39,7 @@ Custom sensors | ✓ | ✓
 
 ## Plugins
 
-Plugin | Gazebo-classic | Ignition Gazebo
+Plugin | Gazebo-classic | Gazebo Sim
 -- | -- | --
 ActorPlugin | ✓ |
 ActuatorPlugin | ✓ |
@@ -107,7 +107,7 @@ GravityCompensationPlugin | ✓ |
 
 ## GUI
 
-Feature | Gazebo-classic | Ignition Gazebo
+Feature | Gazebo-classic | Gazebo Sim
 -- | -- | --
 Play / pause / step | ✓ | ✓
 Reset world / models | ✓ |
@@ -139,24 +139,24 @@ Position, resize and configure widgets | ✕ | ✓
 
 ## Physics
 
-In Ignition Physics, physics engines are integrated as plugins, so any engine
+In Gazebo Physics, physics engines are integrated as plugins, so any engine
 can be integrated without changing the core source code, as it was the case
 in Gazebo.
 
-Feature | Gazebo-classic | Ignition Gazebo
+Feature | Gazebo-classic | Gazebo Sim
 -- | -- | --
 ODE engine | ✓ |
 Bullet engine | ✓ |
-DART engine | ✓ | ✓ Plugin shipped with ign-physics
+DART engine | ✓ | ✓ Plugin shipped with gz-physics
 Simbody engine | ✓ |
 Custom engine plugins | ✕ | ✓
 
 ## Rendering
 
-In Ignition Rendering, render engines are integrated as plugins, so any engine
+In Gazebo Rendering, render engines are integrated as plugins, so any engine
 can be integrated without changing the core source code.
 
-Feature | Gazebo-classic | Ignition Gazebo
+Feature | Gazebo-classic | Gazebo Sim
 -- | -- | --
 Ogre 1.x engine | ✓ | ✓
 Ogre 2.x engine | ✕ | ✓
@@ -167,16 +167,16 @@ Fog | ✓ |
 
 ## ROS integration
 
-ROS integration with Ignition will be done primarily via a
+ROS integration with Gazebo will be done primarily via a
 transport bridge instead of plugins, contained in the
-[ros_ign](https://github.com/osrf/ros1_ign) package.
+[ros_gz](https://github.com/osrf/ros1_ign) package.
 
-* **ROS 1**: See full message list at [ros_ign](https://github.com/osrf/ros_ign)
+* **ROS 1**: See full message list at [ros_gz](https://github.com/osrf/ros_ign)
 * **ROS 2**: Available from Blueprint
 
 ## Others
 
-Feature | Gazebo-classic | Ignition Gazebo
+Feature | Gazebo-classic | Gazebo Sim
 -- | -- | --
 Nested models | ✓ | Partial support
 Log / playback | ✓ | Partial support
@@ -195,10 +195,10 @@ World plugins | ✓ | ✓ Now called System plugin
 Model plugins | ✓ | ✓ Now called System plugin
 Sensor plugins | ✓ |
 Visual plugins | ✓ |
-GUI plugins | ✓ | ✓ Ignition GUI plugins
+GUI plugins | ✓ | ✓ Gazebo GUI plugins
 System plugins | ✓ |
 Distribute simulation across processes | ✕ | (coming up)
 Incrementally load levels | ✕ | ✓
-Online model database | [gazebo_models repository](https://github.com/osrf/gazebo_models/) | [Ignition Fuel](https://app.ignitionrobotics.org/fuel/models)
+Online model database | [gazebo_models repository](https://github.com/osrf/gazebo_models/) | [Gazebo Fuel](https://app.gazebosim.org/fuel/models)
 SDF frame semantics | | 
 Saved simulation states | ✓ |

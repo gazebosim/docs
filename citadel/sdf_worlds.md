@@ -74,7 +74,7 @@ Now let's define the GUI. Under the `<gui>` tag we specify anything related to t
 </gui>
 ```
 
-[ignition-gui](https://github.com/ignitionrobotics/ign-gui/) has a bunch of plugins to choose from. We will add the ones that are necessary to get our world up and running with basic functionality.
+[ignition-gui](https://github.com/gazebosim/gz-gui/) has a bunch of plugins to choose from. We will add the ones that are necessary to get our world up and running with basic functionality.
 
 ### Scene 3D plugin
 
@@ -231,15 +231,15 @@ The plugins can also be added from the GUI using the plugin drop-down menu in th
 
 ## Adding models
 
-Instead of building our own models we can use already built ones. [Ignition Fuel](https://app.ignitionrobotics.org/fuel) hosts hundreds of models that can easily be added to an Ignition world. Models can be added as follows.
+Instead of building our own models we can use already built ones. [Ignition Fuel](https://app.gazebosim.org/fuel) hosts hundreds of models that can easily be added to an Ignition world. Models can be added as follows.
 
-### Drag and drop the model
+### Spawning a model
 
-Adding models to a world typically means adding them into your world sdf file, but with Fuel you can drag and drop existing models directly into the scene. Checkout this [tutorial](fuel_insert) on how to add models to your world by drag and drop.
+For adding various models from fuel to your world chekout this [tutorial](fuel_insert).
 
 ### Include the model URI
 
-Another way of adding the model to your world is to use the model link. Visit the [Ignition Fuel website](https://app.ignitionrobotics.org/fuel). Choose the model you like and click on the `<>` icon on the model description page. This will copy an SDF snippet to your clipboard, then paste it in your world right above the closing `</world>` tag, like this:
+Another way of adding the model to your world is to use the model link. Visit the [Ignition Fuel website](https://app.gazebosim.org/fuel). Choose the model you like and click on the `<>` icon on the model description page. This will copy an SDF snippet to your clipboard, then paste it in your world right above the closing `</world>` tag, like this:
 
 ```xml
 <include>

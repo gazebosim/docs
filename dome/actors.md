@@ -7,7 +7,7 @@ Animations are very useful if we want to have entities following a predefined pa
 
 ## Actors
 
-In Ignition Gazebo, an animated model is called an `actor`.
+In Gazebo Sim, an animated model is called an `actor`.
 
 There are two types of animations which can be used separately or combined together:
 
@@ -34,7 +34,7 @@ You can check out the full specification for the `<actor>` SDF element
 
 ## Skeleton
 
-Ignition Gazebo supports two different skeleton animation file formats: COLLADA (.dae) and Biovision Hierarchy (.bvh).
+Gazebo Sim supports two different skeleton animation file formats: COLLADA (.dae) and Biovision Hierarchy (.bvh).
 
 Open any world, [empty.sdf](https://raw.githubusercontent.com/ignitionrobotics/ign-gazebo/main/examples/worlds/empty.sdf) world
 for example, and add an actor called `actor_walking` as follows:
@@ -61,11 +61,11 @@ In the `<animation>` tag we specify how our actor will move. We can combine diff
 
 ![actor loaded with skin tag](tutorials/actors/actor_skin.gif)
 
-**Note**: You can find many actors and models on [Ignition Fuel](https://app.ignitionrobotics.org/fuel).
+**Note**: You can find many actors and models on [Ignition Fuel](https://app.gazebosim.org/fuel).
 
 ## Scripted trajectory
 
-This is the high level animation of actors, which consists of specifying a series of poses to be reached at specific times. Ignition Gazebo takes care of interpolating the motion between them so the movement is fluid.
+This is the high level animation of actors, which consists of specifying a series of poses to be reached at specific times. Gazebo Sim takes care of interpolating the motion between them so the movement is fluid.
 
 Animations that have displacement on the X axis, like `walk.dae`, will have the skeleton animated while following a trajectory. But for animations that don't, such as `talk_b.dae`, their skeletons won't move if there's a trajectory.
 

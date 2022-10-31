@@ -1,7 +1,18 @@
-# Binary Installation on Ubuntu Bionic
+# Binary Installation on Ubuntu
 
-All of the Citadel binaries are hosted in the osrfoundation repository. To install
-all of them, the metapackage `ignition-citadel` can be installed:
+Citadel binaries are provided for Ubuntu Bionic and Focal. All of the Citadel
+binaries are hosted in the osrfoundation repository. To install all of them,
+the metapackage `ignition-citadel` can be installed.
+
+First install some necessary tools:
+
+```bash
+sudo apt-get update
+sudo apt-get install lsb-release wget gnupg
+```
+
+Then install Ignition Citadel:
+
 
 ```bash
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
@@ -12,7 +23,7 @@ sudo apt-get install ignition-citadel
 
 All libraries should be ready to use and the `ign gazebo` app ready to be executed.
 
-Head back to the [Getting started](/docs/all/get_started)
+Head back to the [Getting started](/docs/all/getstarted)
 page to start using Ignition!
 
 ## Uninstalling binary install
@@ -26,4 +37,4 @@ sudo apt remove ignition-citadel && sudo apt autoremove
 
 ## Troubleshooting
 
-See [Troubleshooting](troubleshooting)
+See [Troubleshooting](/docs/citadel/troubleshooting#ubuntu)

@@ -2,15 +2,15 @@
 
 Only the following Ignition packages are currently available on `conda-forge`,
 the package manager Ignition uses for Windows binary installations:
-- `ign-common`
-- `ign-msgs`
-- `ign-math`
 - `ign-cmake`
+- `ign-common`
 - `ign-fuel-tools`
-- `ign-transport`
-- `ign-tools`
+- `ign-math`
+- `ign-msgs`
 - `ign-physics`
 - `ign-plugin`
+- `ign-tools`
+- `ign-transport`
 
 The above mentioned Ignition packages are available in Windows 10 using the [conda-forge package manager](https://conda-forge.org/),
 and the Ignition feedstock recipes can be found [here](https://github.com/conda-forge?q=libignition&type=&language=).
@@ -78,4 +78,4 @@ conda uninstall libignition-<package_name> --channel conda-forge
 
 ## Troubleshooting
 
-See [Troubleshooting](troubleshooting)
+See [Troubleshooting](/docs/citadel/troubleshooting)

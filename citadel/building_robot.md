@@ -163,7 +163,7 @@ Under the `</model>` tag we will add our robot model as follows:
 
 ```xml
 <model name='vehicle_blue' canonical_link='chassis'>
-    <pose relative_to=world>0 0 0 0 0 0</pose>
+    <pose relative_to='world'>0 0 0 0 0 0</pose>
 ```
 
 Here we define the name of our model `vehicle_blue`, which should be a unique name among its siblings (other tags or models on the same level).
