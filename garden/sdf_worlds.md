@@ -38,7 +38,7 @@ Plugins are a dynamically loaded chunk of code. For example:
 
 ```xml
 <plugin
-    filename="libgz-sim-physics-system.so"
+    filename="gz-sim-physics-system"
     name="gz::sim::systems::Physics">
 </plugin>
 ```
@@ -47,7 +47,7 @@ The `Physics` plugin is very important for simulating the dynamics of the world.
 
 ```xml
 <plugin
-    filename="libgz-sim-user-commands-system.so"
+    filename="gz-sim-user-commands-system"
     name="gz::sim::systems::UserCommands">
 </plugin>
 ```
@@ -56,7 +56,7 @@ The `UserCommands` plugin is responsible for creating models, moving models, del
 
 ```xml
 <plugin
-    filename="libgz-sim-scene-broadcaster-system.so"
+    filename="gz-sim-scene-broadcaster-system"
     name="gz::sim::systems::SceneBroadcaster">
 </plugin>
 ```

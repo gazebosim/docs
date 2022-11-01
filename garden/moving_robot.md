@@ -18,7 +18,7 @@ model tags.
 
 ```xml
 <plugin
-    filename="libgz-sim-diff-drive-system.so"
+    filename="gz-sim-diff-drive-system"
     name="gz::sim::systems::DiffDrive">
     <left_joint>left_wheel_joint</left_joint>
     <right_joint>right_wheel_joint</right_joint>
@@ -100,7 +100,7 @@ Let's add the following code under the `<world>` tag:
 
 ```xml
 <!-- Moving Forward-->
-<plugin filename="libgz-sim-triggered-publisher-system.so"
+<plugin filename="gz-sim-triggered-publisher-system"
         name="gz::sim::systems::TriggeredPublisher">
     <input type="gz.msgs.Int32" topic="/keyboard/keypress">
         <match field="data">16777235</match>
@@ -144,7 +144,7 @@ For example, the Down arrow:
 
 ```xml
 <!-- Moving Backward-->
-<plugin filename="libgz-sim-triggered-publisher-system.so"
+<plugin filename="gz-sim-triggered-publisher-system"
         name="gz::sim::systems::TriggeredPublisher">
     <input type="gz.msgs.Int32" topic="/keyboard/keypress">
         <match field="data">16777237</match>

@@ -20,7 +20,7 @@ and the `linear_acceleration` in the three axes. Let's use our
 To define the `IMU` sensor add this code under the `<world>` tag:
 
 ```xml
-<plugin filename="libgz-sim-imu-system.so"
+<plugin filename="gz-sim-imu-system"
         name="gz::sim::systems::Imu">
 </plugin>
 ```
@@ -113,7 +113,7 @@ Now run the world and make sure that the wall appears in the simulation like thi
 Let's add the contact sensor to the wall. As with the `IMU` sensor, we should first define the `Contact` sensor by adding the following code:
 
 ```xml
-<plugin filename="libgz-sim-contact-system.so"
+<plugin filename="gz-sim-contact-system"
         name="gz::sim::systems::Contact">
 </plugin>
 ```
@@ -133,7 +133,7 @@ The definition of the `<sensor>` is straight forward, we just define the `name` 
 We need also to add the `TouchPlugin` under the `wall` model as follows:
 
 ```xml
-<plugin filename="libgz-sim-touchplugin-system.so"
+<plugin filename="gz-sim-touchplugin-system"
         name="gz::sim::systems::TouchPlugin">
     <target>vehicle_blue</target>
     <namespace>wall</namespace>
@@ -163,7 +163,7 @@ When you hit the bump you should see a message `data: true` on the terminal wher
 Now we can use the `TriggeredPublisher` plugin to make our robot stop when hits the wall as follows:
 
 ```xml
-<plugin filename="libgz-sim-triggered-publisher-system.so"
+<plugin filename="gz-sim-triggered-publisher-system"
         name="gz::sim::systems::TriggeredPublisher">
     <input type="gz.msgs.Boolean" topic="/wall/touched">
         <match>data: true</match>
@@ -195,7 +195,7 @@ Then add this plugin under the `<world>` tag, to be able to use the `lidar` sens
 
 ```xml
     <plugin
-      filename="libgz-sim-sensors-system.so"
+      filename="gz-sim-sensors-system"
       name="gz::sim::systems::Sensors">
       <render_engine>ogre2</render_engine>
     </plugin>
