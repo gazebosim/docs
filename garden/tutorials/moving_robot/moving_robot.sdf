@@ -6,16 +6,16 @@
             <real_time_factor>1.0</real_time_factor>
         </physics>
         <plugin
-            filename="libignition-gazebo-physics-system.so"
-            name="ignition::gazebo::systems::Physics">
+            filename="gz-sim-physics-system"
+            name="gz::sim::systems::Physics">
         </plugin>
         <plugin
-            filename="libignition-gazebo-user-commands-system.so"
-            name="ignition::gazebo::systems::UserCommands">
+            filename="gz-sim-user-commands-system"
+            name="gz::sim::systems::UserCommands">
         </plugin>
         <plugin
-            filename="libignition-gazebo-scene-broadcaster-system.so"
-            name="ignition::gazebo::systems::SceneBroadcaster">
+            filename="gz-sim-scene-broadcaster-system"
+            name="gz::sim::systems::SceneBroadcaster">
         </plugin>
 
         <light type="directional" name="sun">
@@ -245,8 +245,8 @@
 
             <!--diff drive plugin-->
             <plugin
-                filename="libignition-gazebo-diff-drive-system.so"
-                name="ignition::gazebo::systems::DiffDrive">
+                filename="gz-sim-diff-drive-system"
+                name="gz::sim::systems::DiffDrive">
                 <left_joint>left_wheel_joint</left_joint>
                 <right_joint>right_wheel_joint</right_joint>
                 <wheel_separation>1.2</wheel_separation>
@@ -256,47 +256,44 @@
             </plugin>
         </model>
 
+        <!-- Moving Left-->
+        <plugin filename="gz-sim-triggered-publisher-system"
+                name="gz::sim::systems::TriggeredPublisher">
+            <input type="gz.msgs.Int32" topic="/keyboard/keypress">
+                <match field="data">16777234</match>
+            </input>
+            <output type="gz.msgs.Twist" topic="/cmd_vel">
+                linear: {x: 0.0}, angular: {z: 0.5}
+            </output>
+        </plugin>
         <!-- Moving Forward-->
-        <plugin filename="libignition-gazebo-triggered-publisher-system.so"
-                name="ignition::gazebo::systems::TriggeredPublisher">
-            <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
+        <plugin filename="gz-sim-triggered-publisher-system"
+                name="gz::sim::systems::TriggeredPublisher">
+            <input type="gz.msgs.Int32" topic="/keyboard/keypress">
                 <match field="data">16777235</match>
             </input>
-            <output type="ignition.msgs.Twist" topic="/cmd_vel">
+            <output type="gz.msgs.Twist" topic="/cmd_vel">
                 linear: {x: 0.5}, angular: {z: 0.0}
             </output>
         </plugin>
-
-        <!-- Moving Backward-->
-        <plugin filename="libignition-gazebo-triggered-publisher-system.so"
-                name="ignition::gazebo::systems::TriggeredPublisher">
-            <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
-                <match field="data">16777237</match>
-            </input>
-            <output type="ignition.msgs.Twist" topic="/cmd_vel">
-                linear: {x: -0.5}, angular: {z: 0.0}
-            </output>
-        </plugin>
-
-        <!-- Rotating right-->
-        <plugin filename="libignition-gazebo-triggered-publisher-system.so"
-                name="ignition::gazebo::systems::TriggeredPublisher">
-            <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
+        <!-- Moving Right-->
+        <plugin filename="gz-sim-triggered-publisher-system"
+                name="gz::sim::systems::TriggeredPublisher">
+            <input type="gz.msgs.Int32" topic="/keyboard/keypress">
                 <match field="data">16777236</match>
             </input>
-            <output type="ignition.msgs.Twist" topic="/cmd_vel">
+            <output type="gz.msgs.Twist" topic="/cmd_vel">
                 linear: {x: 0.0}, angular: {z: -0.5}
             </output>
         </plugin>
-
-        <!--Rotating left-->
-        <plugin filename="libignition-gazebo-triggered-publisher-system.so"
-                name="ignition::gazebo::systems::TriggeredPublisher">
-            <input type="ignition.msgs.Int32" topic="/keyboard/keypress">
-                <match field="data">16777234</match>
+        <!-- Moving Backward-->
+        <plugin filename="gz-sim-triggered-publisher-system"
+                name="gz::sim::systems::TriggeredPublisher">
+            <input type="gz.msgs.Int32" topic="/keyboard/keypress">
+                <match field="data">16777237</match>
             </input>
-            <output type="ignition.msgs.Twist" topic="/cmd_vel">
-                linear: {x: 0.0}, angular: {z: 0.5}
+            <output type="gz.msgs.Twist" topic="/cmd_vel">
+                linear: {x: -0.5}, angular: {z: 0.0}
             </output>
         </plugin>
     </world>
