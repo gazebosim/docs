@@ -84,29 +84,6 @@ stability of the software:
      (see [the homebrew-simulation issue](https://github.com/osrf/homebrew-simulation/issues/1314)
      for more information).
 
-### Using the gzdev repository command
-
-The [gzdev repository](https://github.com/gazebo-tooling/gzdev#repository)
-command is a convenient way to configure Ubuntu / Debian systems to use a
-particular set of Gazebo software releases.
-For example, support for prerelease software can be enabled with the following
-command:
-
-`gzdev repository enable osrf prerelease`
-
-The command also has a
-[configuration file](https://github.com/gazebo-tooling/gzdev/blob/master/plugins/config/repository.yaml)
-with repository settings associated with specific packages by name or name
-pattern. For example, the following command will enable the package repositories
-associated with the `gz-cmake3` package:
-
-`gzdev repository enable --project=gz-cmake3`
-
-During the Gazebo Garden development period, this packaage was
-[configured by name](https://github.com/gazebo-tooling/gzdev/blob/7fe5d2c5d758c6b0964e9937d6b82150402d14c2/plugins/config/repository.yaml#L28-L33)
-to use stable and nightly binaries.
-It is customary to use nightly binaries for all unreleased package versions.
-
 ### Metadata for Releasing
 
 All package managers need to define different data fields in order to provide
