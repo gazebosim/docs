@@ -90,7 +90,7 @@ document.
 
    2. The current upstream version can be found in `CMakeLists.txt` file
    following the CMake `project declaration`:
- 
+
        ```cmake
        # Gz library named foo and version X.Y.Z
        project(gz-fooX VERSION X.Y.Z)
@@ -104,21 +104,19 @@ document.
       ```
 
   3. Together with bumping the version number, **updating the Changelog and Migration
-  documents** is required. The `Changelog.md` file and `Migration.md` files
-  are located at the top level of every Gz library. Modify them as needed.
+  documents** is required. For updating the `Changelog.md` file, the script
+  [source_changelog.bash](https://github.com/gazebo-tooling/release-tools/blob/master/source-repo-scripts/source_changelog.bash)
+  can be useful:
 
       ```bash
-      git commit CMakeList.xt
-      git commit Changelog.md
-      git commit Migration.md
-      git push origin ...
+      cd <path to source code>
+      bash <path to release-tools>/source-repo-scripts/source_changelog.bash <previous tag>
+      # e.g. bash ../release-tools/source-repo-scripts/source_changelog.bash 3.5.0
       ```
+  The `Migration.md` document needs to be updated if some breaking changes are in the Changelog.
 
-  4. Open a pull request for reviewing ([example PR](https://github.com/gazebosim/gz-physics/pull/132)).
-  Include a link comparing the current release branch to the
-  latest release ([example of a branch comparison](https://github.com/gazebosim/gz-sim/compare/ignition-gazebo3_3.5.0...ign-gazebo3)). Releases are tagged in GitHub repositories with the scheme
-  `ignition/gz-fooX_X.Y.Z` where foo is the name of the Gz library and X.Y.Z
-  the code version.
+  4. Open a pull request for reviewing ([example PR](https://github.com/gazebosim/gz-physics/pull/447)).
+  When opening a PR look for the "Release" section in the template and follow the instructions there.
 
 ### 3. Update packages version
 
@@ -152,7 +150,7 @@ information about how they are used).
     # Gz library named foo and major version X
     cd gz-fooX-release
     ~/release-tools/release-repo-scripts/changelog_spawn.sh X.Y.Z-R
-    
+
     # Example gz-cmake3 bumped from 3.0.0 to 3.0.1
     cd gz-cmake3-release
     ~/release-tools/release-repo-scripts/changelog_spawn.sh 3.0.1-1
