@@ -163,7 +163,7 @@ end
 For *prereleases* and *nightly* binaries the versions are a bit special so the
 package manager can handle precedence between all the flavours nicely. There is
 [more information available on this topic for the Gazebo
-libraries](releasing/versioning_pre_nightly.md).
+libraries](releasing/versioning_pre_nightly).
 
 ## Processes triggered when using release.py
 

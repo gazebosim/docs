@@ -71,13 +71,13 @@ the process:
 ### 2. Update code version and changelogs
 
 The first step to get a new release ready is to update the current code (upstream)
-version (view the [versioning](#versioning) section for more information). This
+version (view the [versioning](release#versioning) section for more information). This
 bump could be in the major number (non-compatible changes), minor number (new
 features), patch number (patches and bugfixes).
 
 **Bumping major number** of the version implies some work to have the
 [metadata](#metadata-for-releasing) updated correctly. There is a [dedicated
-document](releasing/bump_major.md) that you should go through before continuing to work through the steps in this
+document](releasing/bump_major) that you should go through before continuing to work through the steps in this
 document.
 
    1. To update the upstream version a local checkout of the Gz library is
@@ -146,7 +146,7 @@ information about how they are used).
     git clone https://github.com/gazebo-release/gz-fooX-release
     ```
 
-2. To bump the package versions that will appear in Debian/Ubuntu binary packages there is a helper script in `release-tools` (see [prerequisites](#prerequisites)). The script is called `changelog_spawn.sh` and require to be executed while the active directory is a `release repository`:
+2. To bump the package versions that will appear in Debian/Ubuntu binary packages there is a helper script in `release-tools` (see [initial setup](#initial-setup)). The script is called `changelog_spawn.sh` and require to be executed while the active directory is a `release repository`:
 
     ```bash
     # Gz library named foo and major version X
@@ -171,7 +171,8 @@ build in the server. Now, the following needs to happen:
      1. Debian/Ubuntu: use `ign/gz-fooX-debbuilder` job names
      1. Brew: entry job is `generic-release-homebrew_pull_request_updater`
 
-The `release.py` script will perform all these actions.
+The `release.py` script will perform all these actions. For more information of all the processes
+triggered by the `release.py` script please check [the release process](release#using-the-gzdev-repository-command).
 
 ### 4. Executing release.py
 
@@ -183,7 +184,7 @@ Running `release.py` from the source code repository will generate and
 upload some Git tags ("release tags") to the source code repository.
 
 You will also need the token described in the [credentials
-section](#credentials).
+section](#access-and-credentials).
 
 **dry-run simulation mode**
 
@@ -251,7 +252,7 @@ ordering for package managers. [This information about versioning](https://class
 
 **release.py for revision bumps**
 
-Bumping the [revision number for binary packages](#versioning) is a special
+Bumping the [revision number for binary packages](release#versioning) is a special
 case of releasing since the original tarball with the source code will
 remain the same. Once the release repository is ready with the new release
 version, `release.py` needs the `--only-bump-revision-linux` flag:
