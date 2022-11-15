@@ -7,7 +7,7 @@ developer's system before triggering the release.  If a permanent operating
 system is used for releasing, these installation steps only need to be
 executed once.
 
-### Software and configurations
+### 1. Software and configurations
 
 > Triggering the releasing process is only supported on Linux at this moment.
 
@@ -36,7 +36,7 @@ export DEBFULLNAME="<Your full name>"
 > **Note:** the two above exported variables can be added to `.bashrc` to have
 > them configured automatically on every run.
 
-### Access and Credentials
+### 2. Access and Credentials
 
 Before starting the release process, make sure to ask for write access to:
 1.  The Gz library intended to be released and
@@ -56,7 +56,7 @@ process:
 
 ## For Each Release
 
-### Team and development checks
+### 1. Team and development checks
 
 When creating a new release, there are some guidelines to follow before starting
 the process:
@@ -68,7 +68,7 @@ the process:
    X the major version of the version bump planned) that could go into the new
    release.
 
-### Update code version and changelogs
+### 2. Update code version and changelogs
 
 The first step to get a new release ready is to update the current code (upstream)
 version (view the [versioning](#versioning) section for more information). This
@@ -120,7 +120,7 @@ document.
   `ignition/gz-fooX_X.Y.Z` where foo is the name of the Gz library and X.Y.Z
   the code version.
 
-### Update packages version
+### 3. Update packages version
 
 Once the PR for bumping the code version is merged, the binary packages version
 needs to be updated for the Debian/Ubuntu packages. Brew metadata will be
@@ -173,7 +173,7 @@ build in the server. Now, the following needs to happen:
 
 The `release.py` script will perform all these actions.
 
-### Executing release.py
+### 4. Executing release.py
 
 Make sure you are in the source code repository before running `release.py`.
 You should be on the branch to be released, after the pull request bumping
