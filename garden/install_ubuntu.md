@@ -4,6 +4,8 @@ Garden binaries are provided for Ubuntu Focal and Jammy. The
 Garden binaries are hosted in the packages.osrfoundation.org repository.
 To install all of them, the metapackage `gz-garden` can be installed.
 
+**WARNING:** `gz-garden` cannot be installed alongside gazebo-classic (eg. `gazebo11`) since both use the `gz` command line tool. Trying to install `gz-garden` on a system that already has gazebo-classic installed from binaries will cause gazebo-classic and its dependencies to be uninstalled. Currently, the workarounds for this are to install from source or to use Docker for either [`gz-garden`](https://gazebosim.org/docs/garden/ign_docker_env) or [`gazebo-classic`](https://hub.docker.com/_/gazebo) so they are not installed side-by-side on the same system.
+
 First install some necessary tools:
 
 ```bash
@@ -26,7 +28,6 @@ All libraries should be ready to use and the `gz sim` app ready to be executed.
 Head back to the [Getting started](/docs/all/getstarted)
 page to start using Gazebo!
 
-**WARNING:** `gz-garden` cannot be installed alongside gazebo-classic (eg. `gazebo11`) since both use the `gz` command line tool. Trying to install `gz-garden` on a system that already has gazebo-classic installed from binaries will cause gazebo-classic and its dependencies to be uninstalled. Currently, the workarounds for this are to install from source or to use Docker for either [`gz-garden`](https://gazebosim.org/docs/garden/ign_docker_env) or [`gazebo-classic`](https://hub.docker.com/_/gazebo) so they are not installed side-by-side on the same system.
 
 ## Uninstalling binary install
 
