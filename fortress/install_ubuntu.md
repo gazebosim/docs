@@ -1,6 +1,6 @@
 # Binary Installation on Ubuntu
 
-Fortress binaries are provided for Ubuntu Bionic and Focal. All of the Fortress
+Fortress binaries are provided for Ubuntu Bionic, Focal and Jammy. All of the Fortress
 binaries are hosted in the osrfoundation repository. To install all of them,
 the metapackage `ignition-fortress` can be installed.
 
