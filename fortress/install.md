@@ -57,7 +57,7 @@ These are the **officially** supported platforms:
 
 * Ubuntu Bionic on amd64/i386
 * Ubuntu Focal on amd64
-* (Ubuntu Jammy on amd64 once that's released)
+* Ubuntu Jammy on amd64
 
 Platforms supported at **best-effort** include arm architectures, Windows and
 macOS. See
