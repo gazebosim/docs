@@ -26,6 +26,8 @@ All libraries should be ready to use and the `gz sim` app ready to be executed.
 Head back to the [Getting started](/docs/all/getstarted)
 page to start using Gazebo!
 
+**WARNING:** `gz-garden` cannot be installed alongside gazebo-classic (eg. `gazebo11`). Trying to install `gz-garden` on a system that already has gazebo-classic installed from binaries will cause gazebo-classic and its dependencies to be uninstalled. Currently, the workarounds for this are to install from source or to use Docker for either `gz-garden` or gazebo-classic so they are not installed side-by-side on the same system.
+
 ## Uninstalling binary install
 
 If you need to uninstall Gazebo or switch to a source-based install once you
