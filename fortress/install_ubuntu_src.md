@@ -1,6 +1,6 @@
 # Source Installation on Ubuntu
 
-These instructions apply to Ubuntu Bionic (18.04) and Focal (20.04).
+These instructions apply to Ubuntu Bionic (18.04), Focal (20.04) and Jammy (22.04).
 
 ## Install tools
 
@@ -119,7 +119,7 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-
 sudo apt-get update
 ```
 
-The command below will install all dependencies in Ubuntu Bionic or Focal:
+The command below will install all dependencies in Ubuntu Bionic, Focal or Jammy:
 
 ```bash
 sudo apt -y install \
@@ -134,7 +134,7 @@ The Ignition Libraries require the gcc compiler version 8 or higher.
 #### Ubuntu Bionic
 
 Ubuntu Bionic's default compiler version is not high enough, so the following
-steps are needed to upgrade. These are not needed on Ubuntu Focal.
+steps are needed to upgrade. These are not needed on Ubuntu Focal or Jammy.
 
 To install `gcc` version 8 on Ubuntu Bionic:
 
