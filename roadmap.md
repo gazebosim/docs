@@ -80,7 +80,8 @@ compatible non-EOL release and propagate the feature forward.
 
 ## Planned releases
 
-Please see the [Releases](/docs/all/releases) for the timeline of and information about future distributions.
+Please see the [Releases](https://github.com/gazebosim/docs/blob/master/releases.md) for the timeline of and information about future distributions.
+
 
 ## Contributing to Gazebo
 
