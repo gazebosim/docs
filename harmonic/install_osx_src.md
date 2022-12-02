@@ -67,7 +67,6 @@ vcs import < collection-harmonic.yaml
 
 The src subdirectory should contain all the sources ready to be built.
 
-
 ## Install dependencies
 
 Add `osrf/simulation` to Homebrew formulae
@@ -88,11 +87,13 @@ brew cask install xquartz
 General dependencies:
 
 ```bash
-brew install assimp boost bullet cmake cppzmq dartsim@6.10.0 doxygen eigen fcl ffmpeg flann freeimage freetype gflags google-benchmark gts ipopt irrlicht jsoncpp libccd libyaml libzzip libzip nlopt ode open-scene-graph ossp-uuid ogre1.9 ogre2.2 pkg-config protobuf qt qwt rapidjson ruby tbb tinyxml tinyxml2 urdfdom zeromq
+brew install assimp boost bullet cmake cppzmq dartsim@6.10.0 doxygen eigen fcl ffmpeg flann freeimage freetype gflags google-benchmark gts ipopt irrlicht jsoncpp libccd libyaml libzzip libzip nlopt ode open-scene-graph ossp-uuid ogre1.9 ogre2.3 pkg-config protobuf qt qwt rapidjson ruby tbb tinyxml tinyxml2 urdfdom zeromq
 ```
 
 `dartsim@6.10.0` and `qt5` are not sym-linked. To use those dependencies when building
-`gazebo-physics2` and `gazebo-gui3`, run the following after installation to add them to `/use/local`:
+`gz-physics6` and `gz-gui8`, run the following after installation:
+
+For Macs with Intel processors, add them to `/usr/local`:
 
 ```bash
 # dartsim@6.10.0
@@ -101,6 +102,17 @@ export DYLD_FALLBACK_LIBRARY_PATH=${DYLD_FALLBACK_LIBRARY_PATH}:/usr/local/opt/d
 export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:/usr/local/opt/dartsim@6.10.0/lib/pkgconfig
 # qt5
 export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/usr/local/opt/qt@5
+```
+
+Note if you are on an ARM based Apple Silicon Mac machine, you will need to add them to /opt/homebrew instead:
+
+```bash
+# dartsim@6.10.0
+export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/homebrew/opt/dartsim@6.10.0
+export DYLD_FALLBACK_LIBRARY_PATH=${DYLD_FALLBACK_LIBRARY_PATH}:/opt/homoebrew/opt/dartsim@6.10.0/lib:/opt/homebrew/opt/octomap/local
+export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:/opt/homebrew/opt/dartsim@6.10.0/lib/pkgconfig
+# qt5
+export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/homebrew/opt/qt@5
 ```
 
 ### Install compiler requirements

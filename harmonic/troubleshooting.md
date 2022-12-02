@@ -5,13 +5,17 @@ If you see this error message:
 
 ```bash
 I cannot find any available 'gz' command:
-	* Did you install any gazebo library?
+	* Did you install any Gazebo library?
 	* Did you set the GZ_CONFIG_PATH environment variable?
-	    E.g.: export GZ_CONFIG_PATH=$HOME/local/share/gazebo
+	    E.g.: export GZ_CONFIG_PATH=$HOME/local/share/gz
 ```
 
-You should set up the environment variable `GZ_CONFIG_PATH=/usr/local/share/gazebo/`
+You should set up the environment variable:
 
+```
+# replace <path_to_install_dir> to your Gazebo installation directory
+GZ_CONFIG_PATH=<path_to_install_dir>/share/gz/
+```
 
 ## macOS
 
@@ -68,7 +72,6 @@ export PATH=/usr/local/Cellar/ruby/2.6.5/bin:$PATH
 
 ### No rule to make target `'/usr/lib/libm.dylib', needed by 'lib/libgz-physics6-dartsim-plugin.6.1.0.dylib'. Stop.`
 Try to run `brew outdated` followed by a `brew upgrade` may fix some of it.
-
 
 ## Ubuntu
 
@@ -143,10 +146,10 @@ As suggested on the Ogre logs, this may require updating your graphics card
 drivers.
 
 The Ogre 2 debs from the osrfoundation repository are built from a fork of
-Ogre's `v2-1` branch with changes needed for deb packaging and allowing it to
+Ogre's `v2-3` branch with changes needed for deb packaging and allowing it to
 be co-installable with Ogre 1.x. The code can be found here:
 
-https://github.com/gazebo-forks/ogre-2.1-release
+https://github.com/gazebo-forks/ogre-2.3-release
 
 
 ## Windows

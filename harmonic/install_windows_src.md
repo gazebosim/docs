@@ -87,7 +87,7 @@ colcon graph
 If that is the case, then you are ready to build the whole set of libraries:
 
 ```bash
-colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install --packages-up-to gz-sim7
+colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install --packages-up-to gz-sim8
 ```
 Tests are turned off as they are not currently supported on Windows.
 
