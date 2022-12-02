@@ -76,26 +76,38 @@ Now let's define the GUI. Under the `<gui>` tag we specify anything related to t
 
 [gazebo-gui](https://github.com/gazebosim/gz-gui/) has a bunch of plugins to choose from. We will add the ones that are necessary to get our world up and running with basic functionality.
 
-### Scene 3D plugin
-
 ```xml
 <!-- 3D scene -->
-<plugin filename="GzScene3D" name="3D View">
-    <gz-gui>
-        <title>3D View</title>
-        <property type="bool" key="showTitleBar">false</property>
-        <property type="string" key="state">docked</property>
-    </gz-gui>
+<plugin filename="MinimalScene" name="3D View">
+  <gz-gui>
+    <title>3D View</title>
+    <property type="bool" key="showTitleBar">false</property>
+    <property type="string" key="state">docked</property>
+  </gz-gui>
 
-    <engine>ogre2</engine>
-    <scene>scene</scene>
-    <ambient_light>1.0 1.0 1.0</ambient_light>
-    <background_color>0.8 0.8 0.8</background_color>
-    <camera_pose>-6 0 6 0 0.5 0</camera_pose>
+  <engine>ogre2</engine>
+  <scene>scene</scene>
+  <ambient_light>0.4 0.4 0.4</ambient_light>
+  <background_color>0.8 0.8 0.8</background_color>
+  <camera_pose>-6 0 6 0 0.5 0</camera_pose>
+  <camera_clip>
+    <near>0.25</near>
+    <far>25000</far>
+  </camera_clip>
+</plugin>
+<plugin filename="GzSceneManager" name="Scene Manager">
+  <gz-gui>
+    <property key="resizable" type="bool">false</property>
+    <property key="width" type="double">5</property>
+    <property key="height" type="double">5</property>
+    <property key="state" type="string">floating</property>
+    <property key="showTitleBar" type="bool">false</property>
+  </gz-gui>
 </plugin>
 ```
 
-The `GzScene3D` plugin is responsible for displaying the 3D scene of our world. It has the following properties (most of the GUI plugins have them):
+`MinimalScene` and `GzSceneManager` are responsible for displaying the 3D scene of our world.
+It has the following properties (most of the GUI plugins have them):
 
 * `showTitleBar` if true it will show the blue title bar over the plugin with the name mentioned in the `<title>` tag.
 * `state` is the state of the plugin it can be docked in its place using `docked` or it can be `floating`.
@@ -278,12 +290,12 @@ Run your world:
 
 `gz sim world_demo.sdf`
 
-You should see the model in the origin of the world. 
+You should see the model in the origin of the world.
 
 ![world with can](tutorials/sdf_worlds/coke_world.png)
 
 You can also set its coordinates using the `<pose>` tag.
-If you want to spawn multiple instances of the same model you must give them different names with the `<name>` tag. 
+If you want to spawn multiple instances of the same model you must give them different names with the `<name>` tag.
 
 ```
     <include>
