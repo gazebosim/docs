@@ -172,7 +172,7 @@ colcon build --packages-select PACKAGE_NAME
 
 Visit [colcon documentation](https://colcon.readthedocs.io/en/released/#) to view more `colcon` build and test options.
 
-If there are no errors, all the binaries should be ready to use. You can check the [Troubleshooting](/docs/Harmonic/troubleshooting#ubuntu) section for errors.
+If there are no errors, all the binaries should be ready to use. You can check the [Troubleshooting](/docs/harmonic/troubleshooting#ubuntu) section for errors.
 
 ## Using the workspace
 
@@ -215,7 +215,7 @@ the results you want:
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/Harmonic/troubleshooting#ubuntu)
+See [Troubleshooting](/docs/harmonic/troubleshooting#ubuntu)
 
 ## QML Debugging
 
