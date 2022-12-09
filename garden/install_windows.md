@@ -1,6 +1,6 @@
-<blockquote class="warning">
+<div class="warning">
 WARNING: Current Windows support is experimental.
-</blockquote>
+</div>
 
 # Binary Installation on Windows 10
 
