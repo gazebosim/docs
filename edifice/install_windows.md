@@ -1,3 +1,7 @@
+<div class="warning">
+WARNING: Current Windows support is experimental.
+</div>
+
 # Binary Installation on Windows 10
 
 Only the following Ignition packages are currently available on `conda-forge`,

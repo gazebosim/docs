@@ -1,3 +1,7 @@
+<div class="warning">
+WARNING: Current Windows support is experimental.
+</div>
+
 # Binary Installation on Windows 10
 
 Most Gazebo packages are available in Windows 10 using the [conda-forge package manager](https://conda-forge.org/),

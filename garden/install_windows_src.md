@@ -1,3 +1,7 @@
+<div class="warning">
+WARNING: Current Windows support is experimental.
+</div>
+
 # Source Installation on Windows 10
 
 Command line tools, DART physics engine, and GUI capabilities are

@@ -1,3 +1,7 @@
+<div class="warning">
+WARNING: Current Windows support is experimental.
+</div>
+
 # Source Installation on Windows 10
 
 Currently, `ign-gazebo` and `ign-launch` are not supported on Windows 10.
