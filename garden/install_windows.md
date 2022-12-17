@@ -27,13 +27,12 @@ In order to use `conda-forge`, you will need to
 
 3. Create and activate a new Conda environment:
   ```bash
-  conda create -n ign-ws
-  conda activate ign-ws
+  conda create -n gz-env
+  conda activate gz-env
   ```
-4. Install desired Gazebo packages, since all of Gazebo isn't currently supported, you will need to choose which package(s)
-you want to install based on your application.
+4. Install desired Gazebo packages you want to install based on your application. Use `libgz-sim` to fully install the latest version of Gazebo.
   ```bash
-  conda install libignition-<package_name><#> --channel conda-forge
+  conda install libgz-<package_name><#> --channel conda-forge
   ```
   Be sure to replace `<package_name>` with your desired package name (ie, common, msgs, etc.)
   and `<#>` with the release version.  If left unspecified, `conda-forge` will install the
@@ -44,15 +43,15 @@ you want to install based on your application.
 
 You can view all available versions of a specific package with:
 ```bash
-conda search libignition-<package_name>* --channel conda-forge
+conda search libgz-<package_name>* --channel conda-forge
 ```
 and view their dependencies with
 ```bash
-conda search libignition-<package_name>* --channel conda-forge --info
+conda search libgz-<package_name>* --channel conda-forge --info
 ```
 and install a specific minor version with
 ```bash
-conda install libignition-<package_name>=<major>.<minor>.<patch> --channel conda-forge
+conda install libgz-<package_name>=<major>.<minor>.<patch> --channel conda-forge
 ```
 where `<major>` is the major release number, `<minor>` is the minor release number, and `<patch` is the patch release number.
 
@@ -62,7 +61,7 @@ If you need to uninstall Gazebo or switch to a source-based install once you
 have already installed the library from binaries, run the following command:
 
 ```bash
-conda uninstall libignition-<package_name> --channel conda-forge
+conda uninstall libgz-<package_name> --channel conda-forge
 ```
 
 ## Troubleshooting
