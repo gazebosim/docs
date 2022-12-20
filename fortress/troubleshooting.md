@@ -121,7 +121,8 @@ The "Application Profiles" can control the use of the Nvidia GPU per application
 
 If you're getting errors like "Unable to create the rendering window", it could
 mean you're using an old OpenGL version. Gazebo Sim uses the Ogre 2
-rendering engine by default, which requires an OpenGL version higher than 3.3.
+rendering engine by default, which requires an OpenGL version higher than 3.3,
+ideally 4.3.
 
 This can be confirmed by checking the Ogre 2 logs at `~/.ignition/rendering/ogre2.log`,
 which should have an error like:
@@ -132,20 +133,13 @@ You can also check your OpenGL version running:
 
     glxinfo | grep "OpenGL version"
 
-You should be able to use Ogre 1 without any issues however. You can check if
-that's working by running a world which uses Ogre 1 instead of Ogre 2, such as:
-
-    ign gazebo -v 3 lights.sdf
-
-If that loads, you can continue to use Ignition with Ogre 1, just use the
-`--render-engine ogre` option.
-
 To enable Ogre 2 support, you'll need to update your computer's OpenGL version.
 As suggested on the Ogre logs, this may require updating your graphics card
 drivers.
 
-If you run into OpenGL issues when running Gazebo with Ogre 2 on virtual
-machines. You can try disabling DRI:
+If you still run into OpenGL issues when running Gazebo with Ogre 2, it could
+be that certain extensions are not supported by your driver or you are running
+inside a virtual machine. In this case, you can try disabling DRI:
 
     export LIBGL_DRI3_DISABLE=1
 
@@ -158,6 +152,14 @@ Ogre's `v2-2` branch with changes needed for deb packaging and allowing it to
 be co-installable with Ogre 1.x. The code can be found here:
 
 https://github.com/osrf/ogre-2.2-release
+
+You should be able to use Ogre 1 without any issues however. You can check if
+that's working by running a world which uses Ogre 1 instead of Ogre 2, such as:
+
+    ign gazebo -v 3 lights.sdf
+
+If that loads, you can continue to use Ignition with Ogre 1, just use the
+`--render-engine ogre` option.
 
 ## Windows
 
