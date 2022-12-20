@@ -146,12 +146,20 @@ To enable Ogre 2 support, you'll need to update your computer's OpenGL version.
 As suggested on the Ogre logs, this may require updating your graphics card
 drivers.
 
+If you run into OpenGL issues when running Gazebo with Ogre 2 on virtual
+machines. You can try disabling DRI:
+
+    export LIBGL_DRI3_DISABLE=1
+
+or force software rendering
+
+    export LIBGL_ALWAYS_SOFTWARE=1
+
 The Ogre 2 debs from the osrfoundation repository are built from a fork of
 Ogre's `v2-3` branch with changes needed for deb packaging and allowing it to
 be co-installable with Ogre 1.x. The code can be found here:
 
 https://github.com/gazebo-forks/ogre-2.3-release
-
 
 ## Windows
 

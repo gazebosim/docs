@@ -118,6 +118,7 @@ all the GUI applications by selecting "NVIDIA (Performance Mode)".
 The "Application Profiles" can control the use of the Nvidia GPU per application.
 
 ### Unable to create the rendering window
+
 If you're getting errors like "Unable to create the rendering window", it could
 mean you're using an old OpenGL version. Gazebo Sim uses the Ogre 2
 rendering engine by default, which requires an OpenGL version higher than 3.3.
@@ -143,12 +144,20 @@ To enable Ogre 2 support, you'll need to update your computer's OpenGL version.
 As suggested on the Ogre logs, this may require updating your graphics card
 drivers.
 
+If you run into OpenGL issues when running Gazebo with Ogre 2 on virtual
+machines. You can try disabling DRI:
+
+    export LIBGL_DRI3_DISABLE=1
+
+or force software rendering
+
+    export LIBGL_ALWAYS_SOFTWARE=1
+
 The Ogre 2 debs from the osrfoundation repository are built from a fork of
-Ogre's `v2-1` branch with changes needed for deb packaging and allowing it to
+Ogre's `v2-2` branch with changes needed for deb packaging and allowing it to
 be co-installable with Ogre 1.x. The code can be found here:
 
-https://github.com/osrf/ogre-2.1-release
-
+https://github.com/osrf/ogre-2.2-release
 
 ## Windows
 
