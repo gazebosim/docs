@@ -23,7 +23,7 @@ GZ_CONFIG_PATH=<path_to_install_dir>/share/gz/
 After installing all the dependencies and starting the build process, you may encounter an error that looks like this:
 
 ```bash
-/Users/user/garden_ws/src/sdformat/src/parser_urdf.cc:30:10: fatal error: 'urdf_model/model.h' file not found
+/Users/user/harmonic_ws/src/sdformat/src/parser_urdf.cc:30:10: fatal error: 'urdf_model/model.h' file not found
 #include <urdf_model/model.h>
          ^~~~~~~~~~~~~~~~~~~~
 1 error generated.
@@ -51,10 +51,10 @@ This command will ignore the system installation of `urdfdom` and use the intern
 When running the `gz sim -s` command, an error like the one below may show up:
 
 ```bash
-Error while loading the library [/Users/garden/garden_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib]: dlopen(/Users/garden/garden_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib, 5): Library not loaded: @rpath/libIrrXML.dylib
+Error while loading the library [/Users/harmonic/harmonic_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib]: dlopen(/Users/harmonic/harmonic_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib, 5): Library not loaded: @rpath/libIrrXML.dylib
   Referenced from: /usr/local/opt/assimp/lib/libassimp.5.dylib
   Reason: image not found
-[Err] [Physics.cc:275] Unable to load the /Users/garden/garden_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib library.
+[Err] [Physics.cc:275] Unable to load the /Users/harmonic/harmonic_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib library.
 Escalating to SIGKILL on [Gazebo Sim Server]
 ```
 
@@ -72,7 +72,6 @@ export PATH=/usr/local/Cellar/ruby/2.6.5/bin:$PATH
 
 ### No rule to make target `'/usr/lib/libm.dylib', needed by 'lib/libgz-physics6-dartsim-plugin.6.1.0.dylib'. Stop.`
 Try to run `brew outdated` followed by a `brew upgrade` may fix some of it.
-
 
 ## Ubuntu
 

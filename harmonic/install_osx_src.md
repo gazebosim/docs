@@ -16,14 +16,14 @@ The colcon tool is available on all platforms using pip (or pip3, if pip fails).
 
 ## Python3 from homebrew
 
-Tools and dependencies for Garden can be installed using the [homebrew package manager](https://brew.sh/).
+Tools and dependencies for Harmonic can be installed using the [homebrew package manager](https://brew.sh/).
 The homebrew tool can be installed by entering the following in a terminal:
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 ```
 
-Garden is compatible with Python3; it can be installed by running the following in a terminal:
+Harmonic is compatible with Python3; it can be installed by running the following in a terminal:
 
 ```bash
 brew install python3
@@ -51,22 +51,21 @@ mkdir -p ~/workspace/src
 cd ~/workspace/src
 ```
 
-All the sources of gazebo-garden are declared in a yaml file. Download
+All the sources of gazebo-harmonic are declared in a yaml file. Download
 it to the workspace:
 
 ```bash
-wget https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-garden.yaml
+wget https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-harmonic.yaml
 ```
 
 Use `vcstool` to automatically retrieve all the Gazebo libraries sources from
 their repositories:
 
 ```bash
-vcs import < collection-garden.yaml
+vcs import < collection-harmonic.yaml
 ```
 
 The src subdirectory should contain all the sources ready to be built.
-
 
 ## Install dependencies
 
@@ -92,7 +91,7 @@ brew install assimp boost bullet cmake cppzmq dartsim@6.10.0 doxygen eigen fcl f
 ```
 
 `dartsim@6.10.0` and `qt5` are not sym-linked. To use those dependencies when building
-`gz-physics6` and `gz-gui7`, run the following after installation:
+`gz-physics6` and `gz-gui8`, run the following after installation:
 
 For Macs with Intel processors, add them to `/usr/local`:
 
@@ -121,7 +120,7 @@ export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/homebrew/opt/qt@5
 The Gazebo Libraries require the Xcode 10 compiler on MacOS Mojave.
 
 On Mac machines, gcc is acquired by installing Xcode command line tools.
-The required version of Xcode for Garden is Xcode 10.3, which can be downloaded from
+The required version of Xcode for Harmonic is Xcode 10.3, which can be downloaded from
 [Apple Developer Site](https://developer.apple.com/download/more/).
 You will need to sign in to your Apple account and download the Mojave version of
 Xcode command line tools. Command line tools can also be obtained by downloading
@@ -261,4 +260,4 @@ sudo make uninstall
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/garden/troubleshooting#macos)
+See [Troubleshooting](/docs/harmonic/troubleshooting#macos)

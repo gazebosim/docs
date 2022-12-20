@@ -78,6 +78,10 @@ compatible non-EOL release and propagate the feature forward.
     1. [Acoustic comms](https://github.com/gazebosim/gz-sim/pull/1608)
     1. [Environmental sensors](https://github.com/gazebosim/gz-sim/pull/1660)
 
+### Harmonic
+
+Coming soon.
+
 ## Planned releases
 
 Please see the [Releases](https://github.com/gazebosim/docs/blob/master/releases.md) for the timeline of and information about future distributions.

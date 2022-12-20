@@ -89,18 +89,18 @@ mkdir -p ~/workspace/src
 cd ~/workspace/src
 ```
 
-All the sources of gazebo-garden are declared in a yaml file. Download
+All the sources of gazebo-harmonic are declared in a yaml file. Download
 it to the workspace:
 
 ```bash
-wget https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-garden.yaml
+wget https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-harmonic.yaml
 ```
 
 Use `vcstool` to automatically retrieve all the Gazebo libraries sources from
 their repositories:
 
 ```bash
-vcs import < collection-garden.yaml
+vcs import < collection-harmonic.yaml
 ```
 
 The src subdirectory should contain all the sources ready to be built.
@@ -108,7 +108,7 @@ The src subdirectory should contain all the sources ready to be built.
 ## Install dependencies
 
 Before compiling it is necessary to install all the dependencies of the different
-packages that compose the Garden collection. Every platform has a different
+packages that compose the Harmonic collection. Every platform has a different
 method to install software dependencies.
 
 Add `packages.osrfoundation.org` to the apt sources list:
@@ -172,7 +172,7 @@ colcon build --packages-select PACKAGE_NAME
 
 Visit [colcon documentation](https://colcon.readthedocs.io/en/released/#) to view more `colcon` build and test options.
 
-If there are no errors, all the binaries should be ready to use. You can check the [Troubleshooting](/docs/garden/troubleshooting#ubuntu) section for errors.
+If there are no errors, all the binaries should be ready to use. You can check the [Troubleshooting](/docs/harmonic/troubleshooting#ubuntu) section for errors.
 
 ## Using the workspace
 
@@ -215,7 +215,7 @@ the results you want:
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/garden/troubleshooting#ubuntu)
+See [Troubleshooting](/docs/harmonic/troubleshooting#ubuntu)
 
 ## QML Debugging
 
