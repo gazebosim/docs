@@ -124,7 +124,7 @@ The "Application Profiles" can control the use of the Nvidia GPU per application
 If you're getting errors like "Unable to create the rendering window", it could
 mean you're using an old OpenGL version. Gazebo Sim uses the Ogre 2
 rendering engine by default, which requires an OpenGL version higher than 3.3,
-preferrably 4.3.
+preferrably 4.3+.
 
 This can be confirmed by checking the Ogre 2 logs at `~/.gz/rendering/ogre2.log`,
 which should have an error like:
