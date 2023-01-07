@@ -1,6 +1,6 @@
 # What is Copyright
 
-** THis page was mostly copied from [Google's Copyright page](https://support.google.com/legal/answer/3463239?hl=en&ref_topic=4558877).
+**This page was mostly copied from [Google's Copyright page](https://support.google.com/legal/answer/3463239?hl=en&ref_topic=4558877).**
 
 ## Which types of work are subject to copyright?
 

@@ -1,3 +1,5 @@
+# Contributing a New World
+
 A world consists of a description of global properties and a set of models
 that populate the environment. The description format is SDF, and you can
 find example worlds at [https://app.gazebosim.org/fuel/worlds](https://app.gazebosim.org/fuel/worlds). Worlds can be used by simulators to launch and simulate models in a specific environment.

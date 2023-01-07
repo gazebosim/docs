@@ -1,3 +1,5 @@
+# Contributing a New Model
+
 The easiest way to contribute a new model is via [https://app.gazebosim.org/fuel/models/upload](https://app.gazebosim.org/fuel/models/upload).
 
 Fuel assumes that a model conforms to Gazebo's model structure. At minimum,
