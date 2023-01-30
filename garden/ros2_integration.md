@@ -14,7 +14,7 @@ For this tutorial to work correctly make sure you have the following installed:
 
 * [ROS 2 Rolling](https://docs.ros.org/en/rolling/Installation.html) or [ROS 2 Humble](https://docs.ros.org/en/humble/Installation.html)
 * [Gazebo Garden](https://gazebosim.org/docs/garden)
-* [ros_gz_bridge](https://github.com/gazebosim/ros_ign/tree/ros2#from-source)
+* [ros_gz_bridge](https://github.com/gazebosim/ros_gz/tree/ros2#from-source)
 
 ## Bidirectional communication
 
@@ -74,9 +74,7 @@ ros2 topic echo /keyboard/keypress
 This command listens to the messages sent over the `/keyboard/keypress` topic.
 
 On the Gazebo window, press on the keyboard keys and you should
-find data on the listener terminal. This is what the terminals should look like:
-
-![exchange_messages](tutorials/ros2_integration/ros_ign.png)
+find data on the listener terminal.
 
 Now it's your turn! Try to send data from ROS to Gazebo. You can also try different data types and different directions of communication.
 

@@ -18,7 +18,7 @@ After installing Gazebo in Step 1, you can launch Gazebo Sim, a 3D robotics
 simulator, from a terminal using
 
 ```
-ign gazebo shapes.sdf
+gz sim shapes.sdf
 ```
 
 This command will launch both the Sim server and Sim GUI with a world
@@ -28,13 +28,13 @@ Add the `-v 4` command line argument to generate error, warning,
 informational, and debugging messages on the console.
 
 ```
-ign gazebo shapes.sdf -v 4
+gz sim shapes.sdf -v 4
 ```
 
 Gazebo Sim can also be run headless, i.e. without the GUI, by using the `-s` (server only) flag.
 
 ```
-ign gazebo -s shapes.sdf -v 4
+gz sim -s shapes.sdf -v 4
 ```
 
 Similarly, the GUI can be run independently using the `-g` (gui only) flag.

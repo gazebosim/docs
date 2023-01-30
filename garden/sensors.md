@@ -6,7 +6,7 @@
 In this tutorial we will learn how to add sensors to our robot and
 to other models in our world. We will use three different sensors:
 an IMU sensor, a Contact sensor and a Lidar sensor. We will also
-learn how to launch multiple tasks with just one file using `ign_launch`.
+learn how to launch multiple tasks with just one file using `gz launch`.
 
 You can find the final world of this tutorial [here](https://github.com/gazebosim/docs/blob/master/garden/tutorials/sensors/sensor_tutorial.sdf)
 
@@ -410,10 +410,10 @@ Instead of running two different tasks from two different terminals we can make 
 The launch file is an XML file. We simply define what commands will run under the `<executable>` tag.
 The first command is `gz sim sensor_tutorial.sdf` which launches the world.
 And the second command is `./build/lidar_node` which runs the `lidar_node`.
-Save the file as `sensor_launch.ign`, and then run it using the following command:
+Save the file as `sensor_launch.gzlaunch`, and then run it using the following command:
 
 ```{.sh}
-gz launch sensor_launch.ign
+gz launch sensor_launch.gzlaunch
 ```
 
 Press the play button to start the simulation. Hurray! Our robot is now moving and avoiding the wall.

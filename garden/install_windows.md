@@ -5,7 +5,7 @@ WARNING: Current Windows support is experimental.
 # Binary Installation on Windows 10
 
 Most Gazebo packages are available in Windows 10 using the [conda-forge package manager](https://conda-forge.org/),
-and the Gazebo feedstock recipes can be found [here](https://github.com/conda-forge?q=libignition&type=&language=).
+and the Gazebo feedstock recipes can be found [here](https://github.com/search?q=org:conda-forge+libgz&type=code).
 
 Additionally, command line tools, the DART physics engine, and some tests are not currently supported in Windows.
 

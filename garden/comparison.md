@@ -245,7 +245,7 @@ Feature | Gazebo-classic | Gazebo Sim
 -- | -- | --
 ODE engine | ✓ | [Issue](https://github.com/gazebosim/gz-physics/issues/63)
 Bullet engine | ✓ | ✓
-DART engine | ✓ | ✓ Plugin shipped with ign-physics
+DART engine | ✓ | ✓ Plugin shipped with gz-physics
 Simbody engine | ✓ | [Issue](https://github.com/gazebosim/gz-physics/issues/63)
 TPE engine | ✕ | ✓
 Custom engine plugins | ✕ | ✓
@@ -278,7 +278,7 @@ Render order | ✕  | ✓
 ## ROS integration
 
 ROS integration through the
-[ros_ign](https://github.com/gazebosim/ros_ign) packages.
+[ros_gz](https://github.com/gazebosim/ros_gz) packages.
 
 Supported versions:
 
