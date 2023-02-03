@@ -251,6 +251,18 @@ Or in zsh:
 . ~/workspace/install/setup.zsh
 ```
 
+You should now be able to launch gazebo:
+
+```sh
+# launch server in one terminal
+gz sim -v 4 shapes.sdf -s
+
+
+# launch gui in a seprate terminal
+# remember to source the workspace setup script
+gz sim -v 4 g
+```
+
 This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)
 page to start using Gazebo!
 
