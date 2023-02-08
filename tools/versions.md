@@ -55,7 +55,8 @@ How to read the columns:
 ||4|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
 ||5|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||6|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
-||7|stable||F J|||G|2022-09-27|TBD|
+||7|stable||F J|||G|2022-09-27|2024-11 with Garden|
+||8|not-released|||||H|2023-09|TBD|
 |gz-launch|0|EOL ❌||B|||A|2019-03-18|2019-09 with Acropolis|
 ||1|EOL ❌||B|||B|2019-05-21|2020-12 with Blueprint|
 ||2|stable||B F|F||C|2019-12-10|2024-12 with Citadel|
