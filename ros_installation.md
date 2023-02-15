@@ -18,7 +18,9 @@ apt-get install ros-${ROS_DISTRO}-ros-gz
 
 This command is going to install the Gazebo libraries corresponding to the
 version detailed below in the section: "Using the default Gazebo version
-for a ROS distribution using binary installations".
+for a ROS distribution using binary installations". The rest of this
+document provides more information and other possible installations but
+at this point ROS and Gz are installed and ready.
 
 # Gazebo versions and ROS integration
 
@@ -58,7 +60,7 @@ This means that including the osrfoundation repository is not strictly needed
 to get the Gazebo binary package in Ubuntu. It can be installed from the ROS
 repository.
 
-## Using the default Gazebo version for a ROS distribution using :binary installations
+## Using the default Gazebo version for a ROS distribution using binary installations
 
 For the users that need to run a specific version of ROS and want to use all
 the gazebo ROS related packages out-of-the-box, this is the recommended
@@ -101,7 +103,7 @@ ROS packages `ros-noetic-ros-gz` will be available pulling the necessary
 Gazebo Citadel dependencies.
 
 ## Using an specific Gazebo version with ROS2
-***Warning!: Using this option, you won't be able to use any ROS Ubuntu package
+***Warning!:*** Using this option, you won't be able to use any ROS Ubuntu package
 related to Gz libraries from ROS deb repository.
 
 Selecting a different release of Gz than the one officially supported in each
