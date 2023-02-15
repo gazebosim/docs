@@ -8,7 +8,7 @@ simulation using Gazebo.
 ## Step 1: Install
 
 The recommended installation for non expert users is the use of binary
-packages available for the platform to use when possible.
+packages available for the platform to use:
 
 |Platform|Gz Versions|
 |---|---|
