@@ -22,9 +22,9 @@ at this point ROS and Gz are installed and ready.
 
 # Gazebo versions and ROS integration
 
-Gazebo is an independent project like boost, ogre or any other project used by
-ROS. Usually, the latest version of Gazebo available at the beginning of every
-ROS release cycle (for example Gazebo Fortress for ROS2 Humble) is selected as
+Gazebo is an independent project like Boost, Ogre or any other project used by
+ROS. Usually, the latest version of Gazebo is available at the beginning of every
+ROS release cycle (for example Gazebo Fortress for ROS 2 Humble) is selected as
 the official one to be fully integrated and supported and will be kept during
 the whole life of the ROS distribution.
 
@@ -38,7 +38,7 @@ the same ROS distro.
 
 ### Gz simulator Ubuntu packages
 
-The easiest way of installing Gazebo is to use packages. There are two main
+The easiest way of installing Gazebo is to use binary packages. There are two main
 repositories which host Gz simulator and Gz libraries: one is `packages.ros.org` and the
 other is `packages.osrfoundation.org`. At the time of writing:
 
@@ -59,32 +59,32 @@ This means that including the osrfoundation repository is not strictly needed
 to get the Gazebo binary package in Ubuntu. It can be installed from the ROS
 repository.
 
-## Using the default Gazebo version for a ROS distribution using binary installations
+## Installing the default Gazebo version for a ROS distribution using binary installations
 
-For the users that need to run a specific version of ROS and want to use all
+For users that need to run a specific version of ROS and want to use all
 the gazebo ROS related packages out-of-the-box, this is the recommended
 section:
 
 ### ROS2 Humble and ROS2 Rolling
-ROS2 Humble and ROS2 Rolling support officially the Gazebo Fortress version.
+ROS 2 Humble and ROS 2 Rolling support officially the Gazebo Fortress version.
 For a fully-integrated ROS system, Fortress is the recommened version. The way
 to proceed is just to use the ROS repository and do ***not*** use the
 osrfoundation repository.
 
 ROS packages `ros-humble-ros-gz` and `ros-rolling-ros-gz` will be available
-pulling the necessary Gazebo Fortress dependencies.
+, these packages automatically install the necessary dependencies for Gazebo Fortress.
 
-### ROS2 Galactic
-ROS2 Galactic supports officially the Gazebo Edifice
-version. For a fully-integrated ROS system, Edifice is the recommened
+### ROS 2 Galactic
+ROS 2 Galactic officially supports Gazebo Edifice
+ For a fully-integrated ROS system, Edifice is the recommened
 version. The way to proceed is just to use the ROS repository and do ***not***
 use the osrfoundation repository.
 
 ROS packages `ros-galactic-ros-gz` will be available pulling the necessary
 Gazebo Edifice dependencies.
 
-### ROS2 Foxy
-ROS2 Foxy supports officially the Gazebo Citadel
+### ROS 2 Foxy
+ROS 2 Foxy supports officially the Gazebo Citadel
 version. For a fully-integrated ROS system, Citadel is the recommened
 version. The way to proceed is just to use the ROS repository and do ***not***
 use the osrfoundation repository.
@@ -92,8 +92,8 @@ use the osrfoundation repository.
 ROS packages `ros-foxy-ros-gz` will be available pulling the necessary
 Gazebo Citadel dependencies.
 
-### ROS1 Noetic
-ROS1 Noetic supports officially the Gazebo Citadel
+### ROS 1 Noetic
+ROS Noetic officially supports Gazebo Citadel
 version. For a fully-integrated ROS system, Citadel is the recommened
 version. The way to proceed is just to use the ROS repository and do ***not***
 use the osrfoundation repository.
@@ -101,7 +101,7 @@ use the osrfoundation repository.
 ROS packages `ros-noetic-ros-gz` will be available pulling the necessary
 Gazebo Citadel dependencies.
 
-## Using an specific Gazebo version with ROS2
+## Using an specific Gazebo version with ROS 2
 ***Warning!:*** Using this option, you won't be able to use any ROS Ubuntu package
 related to Gz libraries from ROS deb repository.
 
@@ -113,28 +113,28 @@ they are not supporting the new Gz version chosen.
 
 ### Gz Garden
 
-Gz Garden can be used with ROS2 Humble and ROS2 Rolling, the [`ros_gz
+Gz Garden can be used with ROS 2 Humble and ROS 2 Rolling, the [`ros_gz
 bridge`](https://github.com/gazebosim/ros_gz) supports the compilations from
 source.
 
  * Folow [the instruction to install gz-garden](https://gazebosim.org/docs/garden/install_ubuntu#binary-installation-on-ubuntu)
    from osrfoundation.org repository
- * Follow the instructions to compile the ros_gz bridge from source in a colcon workspace
-   * [ROS2 Humble](https://github.com/gazebosim/ros_gz/tree/humble#from-source)
+ * Follow the instructions to compile the `ros_gz` bridge from source in a colcon workspace
+   * [ROS 2 Humble](https://github.com/gazebosim/ros_gz/tree/humble#from-source)
      * Be sure of using `export GZ_VERSION=humble`
-   * [ROS2 Rolling](https://github.com/gazebosim/ros_gz/tree/ros2#from-source)
+   * [ROS 2 Rolling](https://github.com/gazebosim/ros_gz/tree/ros2#from-source)
      * Be sure of using `export GZ_VERSION=rolling`
 
 ### Gz Fortress
 
-Gz Fortress can be also used with ROS2 Galactic and ROS1 Noetic, the [`ros_gz
+Gz Fortress can be also used with ROS 2 Galactic and ROS 1 Noetic, the [`ros_gz
 bridge`](https://github.com/gazebosim/ros_gz) supports the compilation from
 source.
 
- * Folow [the instruction to install gz-fortress](https://gazebosim.org/docs/fortress/install_ubuntu#binary-installation-on-ubuntu)
+ * Follow [these instruction to install gz-fortress](https://gazebosim.org/docs/fortress/install_ubuntu#binary-installation-on-ubuntu)
    from osrfoundation.org repository
  * Follow the instructions to compile the ros_gz bridge from source in a colcon workspace
-   * [ROS2 Galactic](https://github.com/gazebosim/ros_gz/tree/galactic#from-source)
+   * [ROS 2 Galactic](https://github.com/gazebosim/ros_gz/tree/galactic#from-source)
      * Be sure of using `export GZ_VERSION=fortress`
    * [ROS1 Noetic]()https://github.com/gazebosim/ros_gz/tree/noetic#from-source
      * Be sure of using `export GZ_VERSION=fortress`
@@ -147,9 +147,9 @@ source.
  * Folow [the instruction to install gz-edifice](https://gazebosim.org/docs/edifice/install_ubuntu#binary-installation-on-ubuntu)
    from osrfoundation.org repository
  * Follow the instructions to compile the ros_gz bridge from source in a colcon workspace
-   * [ROS2 Foxy](https://github.com/gazebosim/ros_gz/tree/foxy#from-source)
+   * [ROS 2 Foxy](https://github.com/gazebosim/ros_gz/tree/foxy#from-source)
      * Be sure of using `export GZ_VERSION=foxy`
-   * [ROS2 Rolling](https://github.com/gazebosim/ros_gz/tree/ros2#from-source)
+   * [ROS 2 Rolling](https://github.com/gazebosim/ros_gz/tree/ros2#from-source)
      * Be sure of using `export GZ_VERSION=rolling`
    * [ROS1 Noetic]()https://github.com/gazebosim/ros_gz/tree/noetic#from-source
      * Be sure of using `export GZ_VERSION=edifice`
@@ -157,7 +157,7 @@ source.
 ## Using the latest Gz binary versions
 
 The Gz team usually backport and release new versions of each of the supported
-Gz releases and libraries (i.e: bumping gz-sim 7.0.0 to gz-sim 7.1.0). These
+Gz releases and libraries (i.e: bumping `gz-sim 7.0.0` to gz-sim `7.1.0`). These
 updates are hosted first in the osrfoundation repository. The ROS repository
 syncs from the osrfoundation repository frequently but versions can be
 different.
