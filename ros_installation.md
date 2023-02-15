@@ -106,7 +106,7 @@ Gazebo Citadel dependencies.
 related to Gz libraries from ROS deb repository.
 
 Selecting a different release of Gz than the one officially supported in each
-ROS distribution will require to compile the [`ros_gz
+ROS distribution will require that you manually compile the [`ros_gz
 bridge`](https://github.com/gazebosim/ros_gz) from source. Same applies for
 other ROS packages using Gz libraries that could also require code changes in
 they are not supporting the new Gz version chosen.
