@@ -1,4 +1,4 @@
-# Introduction
+# Install Gazebo and ROS
 
 This document provides an overview about the options to use different versions
 of ROS in combination with different versions of Gz. It is recommended to read
