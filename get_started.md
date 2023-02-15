@@ -7,7 +7,7 @@ simulation using Gazebo.
 
 ## Step 1: Install
 
-The recommended installation for non expert users is the use of binary
+The recommended installation for new users is the use of binary
 packages available for the platform to use:
 
 |Platform|Gz Versions|
@@ -20,7 +20,7 @@ packages available for the platform to use:
 | Mac Catalina | [Gz Garden](docs/garden/install_osx) (recommended), [Gz Fortress](docs/fortress/install_osx) and [Gz Citadel](docs/citadel/install_osx)
 
 Windows support via conda-forge is not fully functional, there are known runtime problems
-[stopping Gz to work](https://github.com/gazebosim/gz-sim/issues/168).
+[Gz for Windows Issue](https://github.com/gazebosim/gz-sim/issues/168).
 
 If the desired platform is not listed above or if a particular feature in a
 given Gz release is needed, there is an installation package per release
