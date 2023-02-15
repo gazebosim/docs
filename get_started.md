@@ -7,6 +7,9 @@ simulation using Gazebo.
 
 ## Step 1: Install
 
+***Note:*** If you are a [ROS](ros.org) user, please read first the tutorial about
+the [ROS/Gz installation](docs/ros_installation.md).
+
 The recommended installation for non expert users is the use of binary
 packages available for the platform to use when possible.
 
