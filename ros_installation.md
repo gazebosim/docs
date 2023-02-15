@@ -154,7 +154,7 @@ source.
    * [ROS2 Rolling](https://github.com/gazebosim/ros_gz/tree/ros2#from-source)
      * Be sure of using `export GZ_VERSION=rolling`
    * [ROS1 Noetic]()https://github.com/gazebosim/ros_gz/tree/noetic#from-source
-     * Be sure of using `export GZ_VERSION=`edifice`
+     * Be sure of using `export GZ_VERSION=edifice`
 
 ## Using the latest Gz binary versions
 
