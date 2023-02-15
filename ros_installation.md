@@ -8,13 +8,11 @@ it before installing the [ros_gz bridge](https://github.com/gazebosim/ros_gz).
 
 If you are planning on using a specific version of ROS and don't have a reason
 to use a specific version of Gazebo, you should proceed with the default
-version of Gazebo available from the ROS repository when installing the ros_gz
+version of Gazebo available from the ROS repository when installing the `ros_gz`
 bridge:
 
-```
-apt-get install ros-${ROS_DISTRO}-ros-gz
-
-```
+```bash
+sudo apt-get install ros-${ROS_DISTRO}-ros-gz
 
 This command is going to install the Gazebo libraries corresponding to the
 version detailed below in the section: "Using the default Gazebo version
