@@ -12,12 +12,12 @@ packages available for the platform to use when possible.
 
 |Platform|Gz Versions|
 |---|---|
-| Ubuntu 22.04 Jammy | [Gz Garden (recommended)](docs/garden/install_ubuntu), [Gz Fortress](docs/fortress/install_ubuntu)
-| Ubuntu 20.04 Focal | [Gz Garden (recommended)](docs/garden/install_buuntu), [Gz Fortress](docs/fortress/install_ubuntu), [Gz Citadel](docs/citadel/install_ubuntu)
+| Ubuntu 22.04 Jammy | [Gz Garden](docs/garden/install_ubuntu) (recommended) and [Gz Fortress](docs/fortress/install_ubuntu)
+| Ubuntu 20.04 Focal | [Gz Garden](docs/garden/install_buuntu) (recommended), [Gz Fortress](docs/fortress/install_ubuntu) and [Gz Citadel](docs/citadel/install_ubuntu)
 | Ubuntu 18.04 Bionic | [Gz Citadel](docs/citadel/install_ubuntu)
-| Mac Monterey | [Gz Garden (recommended)](docs/garden/install_osx), [Gz Fortress](docs/fortress/install_osx) and [Gz Citadel](docs/citadel/install_osx)
-| Mac BigSur | [Gz Garden (recommended)](docs/garden/install_osx), [Gz Fortress](docs/fortress/install_osx) and [Gz Citadel](docs/citadel/install_osx)
-| Mac Catalina | [Gz Garden (recommended)](docs/garden/install_osx), [Gz Fortress](docs/fortress/install_osx) and [Gz Citadel](docs/citadel/install_osx)
+| Mac Monterey | [Gz Garden](docs/garden/install_osx) (recommended), [Gz Fortress](docs/fortress/install_osx) and [Gz Citadel](docs/citadel/install_osx)
+| Mac BigSur | [Gz Garden](docs/garden/install_osx) (recommended), [Gz Fortress](docs/fortress/install_osx) and [Gz Citadel](docs/citadel/install_osx)
+| Mac Catalina | [Gz Garden](docs/garden/install_osx) (recommended), [Gz Fortress](docs/fortress/install_osx) and [Gz Citadel](docs/citadel/install_osx)
 
 Windows support via conda-forge is not fully functional, there are known runtime problems
 [stoping Gz to work](https://github.com/gazebosim/gz-sim/issues/168).
