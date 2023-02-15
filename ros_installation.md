@@ -148,9 +148,9 @@ source.
    from osrfoundation.org repository
  * Follow the instructions to compile the ros_gz bridge from source in a colcon workspace
    * [ROS 2 Foxy](https://github.com/gazebosim/ros_gz/tree/foxy#from-source)
-     * Be sure of using `export GZ_VERSION=foxy`
+     * Be sure of using `export GZ_VERSION=edifice`
    * [ROS 2 Rolling](https://github.com/gazebosim/ros_gz/tree/ros2#from-source)
-     * Be sure of using `export GZ_VERSION=rolling`
+     * Be sure of using `export GZ_VERSION=edifice`
    * [ROS1 Noetic]()https://github.com/gazebosim/ros_gz/tree/noetic#from-source
      * Be sure of using `export GZ_VERSION=edifice`
 
