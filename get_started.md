@@ -7,10 +7,28 @@ simulation using Gazebo.
 
 ## Step 1: Install
 
-Each release of Gazebo ships with a new installation tutorial. You can
-read [the latest installation tutorial here](/docs/latest/install). Please
-visit the [main documentation](/docs) pages for a list of all releases,
-along with links to their respective installation tutorials.
+The recommended installation for non expert users is the use of binary
+packages available for the platform to use when possible.
+
+|Platform|Gz Versions|
+|---|---|
+| Ubuntu 22.04 Jammy | [Gz Garden (recommended)](docs/garden/install_ubuntu), [Gz Fortress](docs/fortress/install_ubuntu)
+| Ubuntu 20.04 Focal | [Gz Garden (recommended)](docs/garden/install_buuntu), [Gz Fortress](docs/fortress/install_ubuntu), [Gz Citadel](docs/citadel/install_ubuntu)
+| Ubuntu 18.04 Bionic | [Gz Citadel](docs/citadel/install_ubuntu)
+| Mac Monterey | [Gz Garden (recommended)](docs/garden/install_osx), [Gz Fortress](docs/fortress/install_osx) and [Gz Citadel](docs/citadel/install_osx)
+| Mac BigSur | [Gz Garden (recommended)](docs/garden/install_osx), [Gz Fortress](docs/fortress/install_osx) and [Gz Citadel](docs/citadel/install_osx)
+| Mac Catalina | [Gz Garden (recommended)](docs/garden/install_osx), [Gz Fortress](docs/fortress/install_osx) and [Gz Citadel](docs/citadel/install_osx)
+
+Windows support via conda-forge is not fully functional, there are known runtime problems
+[stoping Gz to work](https://github.com/gazebosim/gz-sim/issues/168).
+
+If the desired plaform is not listed above or if a particular feature in a
+given Gz release is needed, there is a installation package per release
+available with all the installation options:
+
+* [Gz Garden](docs/garden/install) installation options
+* [Gz Fortress](docs/fortress/install) installation options
+* [Gz Citadel](docs/citadel/install) installation options
 
 ## Step 2: Run
 
