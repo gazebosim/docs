@@ -13,6 +13,7 @@ bridge:
 
 ```bash
 sudo apt-get install ros-${ROS_DISTRO}-ros-gz
+```
 
 This command is going to install the Gazebo libraries corresponding to the
 version detailed below in the section: "Using the default Gazebo version
