@@ -120,6 +120,7 @@ source.
 
  * Folow [the instruction to install gz-garden](https://gazebosim.org/docs/garden/install_ubuntu#binary-installation-on-ubuntu)
    from osrfoundation.org repository
+ * Install [rosdep rules for Gazebo Garden](https://github.com/osrf/osrf-rosdep#installing-rosdep-rules-to-resolve-gazebo-garden-libraries)
  * Follow the instructions to compile the `ros_gz` bridge from source in a colcon workspace
    * [ROS 2 Humble](https://github.com/gazebosim/ros_gz/tree/humble#from-source)
      * Be sure of using `export GZ_VERSION=garden`
