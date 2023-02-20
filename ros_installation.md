@@ -75,7 +75,7 @@ osrfoundation repository.
 ROS packages `ros-humble-ros-gz` and `ros-rolling-ros-gz` will be available
 , these packages automatically install the necessary dependencies for Gazebo Fortress.
 
-### ROS 2 Galactic
+### ROS 2 Galactic 
 ROS 2 Galactic officially supports Gazebo Edifice
  For a fully-integrated ROS system, Edifice is the recommened
 version. The way to proceed is just to use the ROS repository and do ***not***
