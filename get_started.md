@@ -23,12 +23,13 @@ Windows support via conda-forge is not fully functional, there are known runtime
 [Gazebo for Windows Issue](https://github.com/gazebosim/gz-sim/issues/168).
 
 If the desired platform is not listed above or if a particular feature in a
-given Gazebo release is needed, there is an installation package per release
-available with all the installation options:
+given [Gazebo release](https://gazebosim.org/docs/latest/releases) is needed,
+there is an installation package per release available with all the
+installation options:
 
-* [Gazebo Garden](docs/garden/install) installation options
-* [Gazebo Fortress](docs/fortress/install) installation options
-* [Gazebo Citadel](docs/citadel/install) installation options
+* [Gazebo Garden installation](docs/garden/install) options (EOL 2024 Sep)
+* [Gazebo Fortress (LTS) installation](docs/fortress/install) options (EOL 2026 Sep)
+* [Gazebo Citadel (LTS) installation](docs/citadel/install) options (EOL 2024 Dec)
 
 ## Step 2: Run
 
