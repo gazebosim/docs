@@ -10,25 +10,25 @@ simulation using Gazebo.
 The recommended installation for new users is the use of binary
 packages available for the platform to use:
 
-|Platform|Gz Versions|
+|Platform|Gazebo Versions|
 |---|---|
-| Ubuntu 22.04 Jammy | [Gz Garden](docs/garden/install_ubuntu) (recommended) and [Gz Fortress](docs/fortress/install_ubuntu)
-| Ubuntu 20.04 Focal | [Gz Garden](docs/garden/install_ubuntu) (recommended), [Gz Fortress](docs/fortress/install_ubuntu) and [Gz Citadel](docs/citadel/install_ubuntu)
-| Ubuntu 18.04 Bionic | [Gz Citadel](docs/citadel/install_ubuntu)
-| Mac Monterey | [Gz Garden](docs/garden/install_osx) (recommended), [Gz Fortress](docs/fortress/install_osx) and [Gz Citadel](docs/citadel/install_osx)
-| Mac BigSur | [Gz Garden](docs/garden/install_osx) (recommended), [Gz Fortress](docs/fortress/install_osx) and [Gz Citadel](docs/citadel/install_osx)
-| Mac Catalina | [Gz Garden](docs/garden/install_osx) (recommended), [Gz Fortress](docs/fortress/install_osx) and [Gz Citadel](docs/citadel/install_osx)
+| Ubuntu 22.04 Jammy | [Gazebo Garden](docs/garden/install_ubuntu) (recommended) and [Gazebo Fortress](docs/fortress/install_ubuntu)
+| Ubuntu 20.04 Focal | [Gazebo Garden](docs/garden/install_ubuntu) (recommended), [Gazebo Fortress](docs/fortress/install_ubuntu) and [Gazebo Citadel](docs/citadel/install_ubuntu)
+| Ubuntu 18.04 Bionic | [Gazebo Citadel](docs/citadel/install_ubuntu)
+| Mac Monterey | [Gazebo Garden](docs/garden/install_osx) (recommended), [Gazebo Fortress](docs/fortress/install_osx) and [Gazebo Citadel](docs/citadel/install_osx)
+| Mac BigSur | [Gazebo Garden](docs/garden/install_osx) (recommended), [Gazebo Fortress](docs/fortress/install_osx) and [Gazebo Citadel](docs/citadel/install_osx)
+| Mac Catalina | [Gazebo Garden](docs/garden/install_osx) (recommended), [Gazebo Fortress](docs/fortress/install_osx) and [Gazebo Citadel](docs/citadel/install_osx)
 
 Windows support via conda-forge is not fully functional, there are known runtime problems
-[Gz for Windows Issue](https://github.com/gazebosim/gz-sim/issues/168).
+[Gazebo for Windows Issue](https://github.com/gazebosim/gz-sim/issues/168).
 
 If the desired platform is not listed above or if a particular feature in a
-given Gz release is needed, there is an installation package per release
+given Gazebo release is needed, there is an installation package per release
 available with all the installation options:
 
-* [Gz Garden](docs/garden/install) installation options
-* [Gz Fortress](docs/fortress/install) installation options
-* [Gz Citadel](docs/citadel/install) installation options
+* [Gazebo Garden](docs/garden/install) installation options
+* [Gazebo Fortress](docs/fortress/install) installation options
+* [Gazebo Citadel](docs/citadel/install) installation options
 
 ## Step 2: Run
 
