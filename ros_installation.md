@@ -77,7 +77,7 @@ ROS packages `ros-humble-ros-gz` and `ros-rolling-ros-gz` will be available
 
 ### ROS 2 Galactic 
 ROS 2 Galactic officially supports Gazebo Edifice
- For a fully-integrated ROS system, Edifice is the recommened
+For a fully-integrated ROS system, Edifice is the recommened
 version. The way to proceed is just to use the ROS repository and do ***not***
 use the osrfoundation repository.
 
