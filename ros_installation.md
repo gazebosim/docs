@@ -109,7 +109,7 @@ related to Gazebo libraries from ROS deb repository.
 Selecting a different release of Gazebo than the one officially supported in each
 ROS distribution will require that you manually compile the [`ros_gz
 bridge`](https://github.com/gazebosim/ros_gz) from source. Same applies for
-other ROS packages using Gazebo libraries that could also require code changes in
+other ROS packages using Gazebo libraries that could also require code changes if
 they are not supporting the new Gazebo version chosen.
 
 ### Gazebo Garden
