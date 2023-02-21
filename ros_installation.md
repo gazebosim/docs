@@ -184,6 +184,9 @@ read how to compile it from source in this document under the section
 
 #### Where I can find the different features implemented on each Gazebo version?
 
+The best place is the Gazebo web page that hosts a list of the
+[main features available in each Gazebo distribution](https://gazebosim.org/docs/latest/release-features).
+
 Some notes are regularly posted on the [Gazebo community
 site](https://community.gazebosim.org/tags/c/release-announcements-and-discussions/10/release)
 and special posts and videos are also posted there when a new release is out:
