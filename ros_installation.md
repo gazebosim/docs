@@ -42,14 +42,14 @@ The easiest way of installing Gazebo is to use binary packages. There are two ma
 repositories which host Gazebo simulator and Gazebo libraries: one is `packages.ros.org` and the
 other is `packages.osrfoundation.org`. At the time of writing:
 
- * ***packages.ros.org***
+ * **packages.ros.org**
    * ROS1 Noetic: Gazebo Citadel
    * ROS2 Foxy: Gazebo Citadel
    * ROS2 Galactic: Gazebo Edifice
    * ROS2 Humble: Gazebo Fortress
    * ROS2 Rolling: Gazebo Fortress (changing frequently)
 
- * ***packages.osrfoundation.org***
+ * **packages.osrfoundation.org**
    * Gazebo Citadel
    * Gazebo Edifice
    * Gazebo Fortress
