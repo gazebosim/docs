@@ -161,7 +161,7 @@ source.
 
 The Gazebo team usually backport and release new versions of each of the supported
 Gazebo releases and libraries (i.e: bumping `gz-sim 7.0.0` to gz-sim `7.1.0`). These
-updates are hosted first in the osrfoundation repository. The ROS repository
+updates are hosted first in the packages.osrfoundation.org repository. The ROS repository
 syncs from the osrfoundation repository frequently but versions can be
 different.
 
