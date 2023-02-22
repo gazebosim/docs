@@ -23,9 +23,7 @@ packages available for the platform to use:
 | Mac Monterey | [Gazebo Garden](/docs/garden/install_osx) (recommended), [Gazebo Fortress](/docs/fortress/install_osx) and [Gazebo Citadel](/docs/citadel/install_osx)
 | Mac BigSur | [Gazebo Garden](/docs/garden/install_osx) (recommended), [Gazebo Fortress](/docs/fortress/install_osx) and [Gazebo Citadel](/docs/citadel/install_osx)
 | Mac Catalina | [Gazebo Garden](/docs/garden/install_osx) (recommended), [Gazebo Fortress](/docs/fortress/install_osx) and [Gazebo Citadel](/docs/citadel/install_osx)
-
-Windows support via conda-forge is not fully functional, there are known runtime problems
-[Gazebo for Windows Issue](https://github.com/gazebosim/gz-sim/issues/168).
+| Windows | Support via conda-forge is not fully functional, there are known runtime problems [Gazebo for Windows Issue](https://github.com/gazebosim/gz-sim/issues/168).
 
 If the desired platform is not listed above or if a particular feature in a
 given [Gazebo release](/docs/latest/releases) is needed,
