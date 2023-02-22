@@ -157,7 +157,7 @@ source.
    * [ROS1 Noetic](https://github.com/gazebosim/ros_gz/tree/noetic#from-source)
      * Be sure of using `export GZ_VERSION=edifice`
 
-## Using the latest Gazebo binary versions
+## Using the latest Gazebo versions from each Gazebo distribution
 
 The Gazebo team usually backport and release new versions of each of the supported
 Gazebo releases and libraries (i.e: bumping `gz-sim 7.0.0` to gz-sim `7.1.0`). These
