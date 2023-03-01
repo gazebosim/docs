@@ -56,7 +56,7 @@ other is `packages.osrfoundation.org`. At the time of writing:
    * Gazebo Garden
 
 This means that including the osrfoundation repository is not strictly needed
-to get the Gazebo binary packages it can be installed from the ROS
+to get the Gazebo binary packages, it can be installed from the ROS
 repository.
 
 ## Installing the default Gazebo version for a ROS distribution using binary installations
