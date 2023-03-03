@@ -37,7 +37,11 @@ installation options:
 ## Step 2: Run
 
 After installing Gazebo in Step 1, you can launch Gazebo Sim, a 3D robotics
-simulator, from a terminal using
+simulator, from a terminal.
+
+* If you are on macOS, see specific instructions in the [macOS section](#macos).
+
+Launch Gazebo by running:
 
 ```
 gz sim shapes.sdf
@@ -97,3 +101,25 @@ covering the basics of the GUI, creating worlds and robots, and more.
 Each [Gazebo library](/libs) also has a set of tutorials and
 examples. Explore these resources, and don't forget to ask questions and
 find solutions at [answers.gazebosim.org](http://answers.gazebosim.org).
+
+# macOS
+
+On macOS, you will need to run Gazebo using two terminals, one for the server
+and another for the GUI:
+
+```sh
+# launch server in one terminal
+gz sim -v 4 shapes.sdf -s
+```
+
+```sh
+# launch gui in a separate terminal
+gz sim -v 4 -g
+```
+
+The GUI on macOS is currently known to be unstable. Basic interaction with
+the 3D scene such as camera view control and translation / rotation tools
+should be functional. However, some GUI plugins like the Component Inspector
+may be buggy and interaction with certain GUI elements may cause the GUI
+to crash. Please ticket an issue at https://github.com/gazebosim/gz-sim/
+if you run into GUI problems on macOS.

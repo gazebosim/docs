@@ -259,7 +259,7 @@ You should now be able to launch gazebo:
 # launch server in one terminal
 gz sim -v 4 shapes.sdf -s
 
-# launch gui in a seprate terminal
+# launch gui in a separate terminal
 # remember to source the workspace setup script
 gz sim -v 4 -g
 ```
