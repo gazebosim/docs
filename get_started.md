@@ -9,7 +9,7 @@ simulation using Gazebo.
 
 <div class="warning">
   <strong>Note:</strong> If you are a <a href="https://ros.org">ROS</a> user, please first read our tutorial about
-  the <a href="ros_installation">ROS/Gazebo installation</a>.
+  the <a href="docs/latest/ros_installation">ROS/Gazebo installation</a>.
 </div>
 
 The recommended installation for new users is the use of binary
