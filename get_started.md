@@ -8,8 +8,8 @@ simulation using Gazebo.
 ## Step 1: Install
 
 <div class="warning">
-<strong>Note:</strong> If you are a [ROS](https://ros.org) user, please first read our tutorial about
-the [ROS/Gazebo installation](ros_installation).
+  <strong>Note:</strong> If you are a <a href="https://ros.org">ROS</a> user, please first read our tutorial about
+  the <a href="ros_installation">ROS/Gazebo installation</a>.
 </div>
 
 The recommended installation for new users is the use of binary
