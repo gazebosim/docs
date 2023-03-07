@@ -485,7 +485,7 @@ ign() {
       fi
     else
       echo "[ERROR] It seems like you don't have Gazebo installed!"
-      exit 1
+      return 1
     fi
   fi
 }
