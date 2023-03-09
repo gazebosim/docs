@@ -10,11 +10,9 @@ from ROS and apply it to Ignition and vice versa.
 
 ## Requirements
 
-For this tutorial to work correctly make sure you have the following installed:
-
-* [ROS 2 Rolling](https://docs.ros.org/en/rolling/Installation.html)
-* [Ignition Fortress](https://gazebosim.org/docs/fortress)
-* [ros_ign_bridge](https://github.com/ignitionrobotics/ros_ign/tree/ros2#from-source)
+Please follow the [Install Gazebo and ROS document](docs/latest/ros_installation)
+before starting this tutorial. A working installation of ROS 2 and Gazebo is
+required to go further.
 
 ## Bidirectional communication
 

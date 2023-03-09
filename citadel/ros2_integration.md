@@ -10,11 +10,9 @@ from ROS and apply it to Ignition and vice versa.
 
 ## Requirements
 
-For this tutorial to work correctly make sure you have the following installed:
-
-* [ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/)
-* [Ignition Citadel](https://gazebosim.org/docs/citadel)
-* [ros_ign_bridge](https://github.com/ignitionrobotics/ros_ign/tree/foxy#binaries)
+Please follow the [Install Gazebo and ROS document](docs/latest/ros_installation)
+before starting this tutorial. A working installation of ROS 2 and Gazebo is
+required to go further.
 
 ## Bidirectional communication
 
