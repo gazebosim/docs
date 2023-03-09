@@ -10,11 +10,9 @@ from ROS and apply it to Gazebo and vice versa.
 
 ## Requirements
 
-For this tutorial to work correctly make sure you have the following installed:
-
-* [ROS 2 Rolling](https://docs.ros.org/en/rolling/Installation.html) or [ROS 2 Humble](https://docs.ros.org/en/humble/Installation.html)
-* [Gazebo Garden](https://gazebosim.org/docs/garden)
-* [ros_gz_bridge](https://github.com/gazebosim/ros_gz/tree/ros2#from-source)
+Please follow the [Install Gazebo and ROS document](docs/latest/ros_installation)
+before starting this tutorial. A working installation of ROS 2 and Gazebo is
+required to go further.
 
 ## Bidirectional communication
 
