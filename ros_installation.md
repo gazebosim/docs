@@ -172,7 +172,7 @@ from source.
  * Install [rosdep rules for Gazebo Garden](https://github.com/osrf/osrf-rosdep#installing-rosdep-rules-to-resolve-gazebo-garden-libraries)
  * Follow the instructions to compile `ros_gz` from source in a colcon workspace
    * [ROS 2 Humble](https://github.com/gazebosim/ros_gz/tree/humble#from-source)
-    * Be sure of using `export GZ_VERSION=garden`
+     * Be sure of using `export GZ_VERSION=garden`
    * [ROS 2 Rolling](https://github.com/gazebosim/ros_gz/tree/ros2#from-source)
      * Be sure of using `export GZ_VERSION=garden`
 
