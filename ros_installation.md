@@ -14,7 +14,7 @@ alphabetically, and the documentation for each version of ROS and Gazebo will
 indicate if it is an LTS version. It is worth noting that each version of ROS
 works best with a specific version of each Tier 1 platform. Tier one platforms
 are platforms / host operating systems that are used in the development of ROS
-and Gazebo.All of this information is outlined in
+and Gazebo. All of this information is outlined in
 [REP-2000](https://www.ros.org/reps/rep-2000.html). To summarize, the best user
 experience is to use the latest LTS version of ROS and the Tier 1 platform /
 operating system recommend for that version of ROS. If you host operating system
