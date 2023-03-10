@@ -150,7 +150,7 @@ automatically install both Gazebo Citadel and the ros-gz bridge.
 <div class="warning">
 <strong>Warning:</strong> Only use this approach if you absolutely need to run
 a version of Gazebo that is not officially supported by your ROS distro. Using
-this approach will make it impossible to use the official ROS Ubuntu packages.
+this approach will make it impossible to use the official ROS Ubuntu packages that depend on Gazebo.
 
 We do not recommend this approach for beginners!
 </div>
