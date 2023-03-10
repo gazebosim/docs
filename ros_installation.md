@@ -64,7 +64,8 @@ sudo apt-get install ros-${ROS_DISTRO}-ros-gz
 This command will install the Gazebo libraries recommended for your ROS
 installation.
 
-**The rest of this document provides more information and other, alternative,
+<div class="warning">
+The rest of this document provides more information and other, alternative,
 installations pathways. We do not recommend the following approaches for new
 users.**
 
