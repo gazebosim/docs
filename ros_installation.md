@@ -67,7 +67,8 @@ installation.
 <div class="warning">
 The rest of this document provides more information and other, alternative,
 installations pathways. We do not recommend the following approaches for new
-users.**
+users.
+</div>
 
 # Specific ROS and Gazebo Pairings
 
