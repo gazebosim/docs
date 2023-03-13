@@ -160,7 +160,7 @@ We do not recommend this approach for beginners!
 To select a different release of Gazebo than the one officially supported by
 your ROS distribution you must **manually compile**
 [`ros_gz`](https://github.com/gazebosim/ros_gz) from source. This rule applies for
-every  ROS packages that uses a Gazebo library. This approach may also require
+every  ROS package that uses a Gazebo library. This approach may also require
 that you modify your  ROS or Gazebo source code to support this compilation.
 
 ### Gazebo Garden (Not Recommended)
