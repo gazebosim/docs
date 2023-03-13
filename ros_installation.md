@@ -121,38 +121,49 @@ the gazebo ROS related packages out-of-the-box, taking
 the following approach is recommended
 
 ### ROS 2 Humble and ROS 2 Rolling
-ROS 2 Humble and ROS 2 Rolling officially support Gazebo Fortress, meaning
-Fortress is the recommended version of Gazebo to use. 
 
-To install this combination of ROS and Gazebo first install ROS and then install
-either `ros-humble-ros-gz` and `ros-rolling-ros-gz` from `packages.ros.org`.
-These packages will automatically install both Gazebo Fortress and the ros-gz
+* ROS 2 Humble and ROS 2 Rolling officially support Gazebo Fortress, meaning
+Fortress is the recommended version of Gazebo to use.
+* To install this combination of ROS and Gazebo first install ROS and then
+install either `ros-humble-ros-gz` and `ros-rolling-ros-gz` from
+`packages.ros.org`.
+* These packages will automatically install both Gazebo Fortress and the ros-gz
 bridge.
 
-### ROS 2 Galactic 
-**ROS 2 Galactic is presently end of life, and we do not recommend using this
-version of ROS or Gazebo.** However, if you must this version of ROS, it officially supports
-Gazebo Edifice. To install Gazebo Edifice simply install `ros-galactic-ros-gz`
-from `packages.ros.org`. This package will automatically install both Gazebo
+### ROS 2 Galactic
+
+* **ROS 2 Galactic is presently end of life, and we do not recommend using this
+version of ROS or Gazebo.** However, if you must this version of ROS, it
+officially supports Gazebo Edifice.
+* To install Gazebo Edifice simply install `ros-galactic-ros-gz`
+from `packages.ros.org`.
+* This package will automatically install both Gazebo
 Edifice and the ros-gz bridge.
 
 ### ROS 2 Foxy
-ROS 2 Foxy officially supports Gazebo Citadel, meaning the recommended version
-of Gazebo for ROS 2 Foxy is Citadel.To install Gazebo Citadel with Foxy simply
-install `ros-foxy-ros-gz` from `packages.ros.org`. This package will
-automatically install both Gazebo Citadel and the ros-gz bridge.
+
+* ROS 2 Foxy officially supports Gazebo Citadel, meaning the recommended version
+of Gazebo for ROS 2 Foxy is Citadel.
+* To install Gazebo Citadel with Foxy simply
+install `ros-foxy-ros-gz` from `packages.ros.org`.
+* This package will automatically install both Gazebo Citadel and the ros-gz
+  bridge.
 
 ### ROS 1 Noetic
-ROS Noetic officially supports Gazebo Citadel, meaning the recommended version
-of Gazebo for ROS Noetic is Citadel.To install Gazebo Citadel with Noetic simply
-install `ros-noetic-ros-gz` from `packages.ros.org`. This package will
-automatically install both Gazebo Citadel and the ros-gz bridge.
+
+* ROS Noetic officially supports Gazebo Citadel, meaning the recommended version
+of Gazebo for ROS Noetic is Citadel.
+* To install Gazebo Citadel with Noetic simply
+install `ros-noetic-ros-gz` from `packages.ros.org`.
+* This package will automatically install both Gazebo Citadel and the ros-gz
+  bridge.
 
 ## Using a specific and unsupported Gazebo version with ROS 2
 <div class="warning">
-<strong>Warning:</strong> Only use this approach if you absolutely need to run
-a version of Gazebo that is not officially supported by your ROS distro. Using
-this approach will make it impossible to use the official ROS Ubuntu packages that depend on Gazebo.
+<strong>Warning:</strong> Only use this approach if you absolutely need to run a
+version of Gazebo that is not officially supported by your ROS distro. Using
+this approach will make it impossible to use the official ROS Ubuntu packages
+that depend on Gazebo.
 
 We do not recommend this approach for beginners!
 </div>
@@ -243,11 +254,13 @@ The best place is the Gazebo web page that hosts a list of the
 Some notes are regularly posted on the [Gazebo community
 site](https://community.gazebosim.org/tags/c/release-announcements-and-discussions/10/release)
 and special posts and videos are also posted there when a new release is out:
-See the one for [Garden](https://community.gazebosim.org/t/gazebo-garden-release/1627) or the
-one for [Fortress](https://community.gazebosim.org/t/ignition-fortress-release/1127) as
+See the one for
+[Garden](https://community.gazebosim.org/t/gazebo-garden-release/1627) or the
+one for
+[Fortress](https://community.gazebosim.org/t/ignition-fortress-release/1127) as
 examples.
 
 Additionally, navigating through the different releases of Gazebo in the top
-right corner of the [Gazebo documentation page](https://gazebosim.org/docs) there
-is a left menu entry called "Feature Comparison" that provides comparison
+right corner of the [Gazebo documentation page](https://gazebosim.org/docs)
+there is a left menu entry called "Feature Comparison" that provides comparison
 against gazebo-classic features.
