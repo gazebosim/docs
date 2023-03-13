@@ -7,7 +7,7 @@ it before installing [ros_gz](https://github.com/gazebosim/ros_gz).
 # Picking the "Correct" Versions of ROS & Gazebo
 
 If this is your first time using ROS and Gazebo, and you are not following
-specific instructions or a tutorials, we recommend using the latest long term
+specific instructions or tutorials, we recommend using the latest long term
 support (LTS) versions of both ROS and Gazebo for the best user
 experience. Successive versions of ROS and Gazebo releases are named
 alphabetically, and the documentation for each version of ROS and Gazebo will
