@@ -19,7 +19,7 @@ and Gazebo. All of this information is outlined in
 
 To summarize, the best user experience is to use the latest LTS version of ROS
 and the Tier 1 platform / operating system recommend for that version of ROS. If
-you host operating system does not match the Tier 1 operating system, consider
+your host operating system does not match the Tier 1 operating system, consider
 using the Tier 1 platform in a virtual machine. This approach has the added
 benefit of not modifying your host OS and allowing you to roll back your
 mistakes.
