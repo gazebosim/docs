@@ -36,12 +36,13 @@ This table includes all currently supported versions of ROS and Gazebo. All
 other ROS and Gazebo releases are end of life and we do not recommend their
 continued use.
 
-|                        	| **GZ Citadel (LTS)** 	| **GZ Fortress (LTS)** 	| **GZ Garden** 	|
-|------------------------	|----------------------	|-----------------------	|---------------	|
-| **ROS 2 Rolling**      	| X                    	| ✔️                     	| P             	|
-| **ROS 2 Humble (LTS)** 	| X                    	| ✔️                     	| P             	|
-| **ROS 2 Foxy (LTS)**   	| ✔️                    	| X                     	| X             	|
-| **ROS 1 Noetic (LTS)** 	| ✔️                    	| P                     	| X             	|
+
+|                         | **GZ Citadel (LTS)**  | **GZ Fortress (LTS)**   | **GZ Garden**   |
+|------------------------ |---------------------- |-----------------------  |---------------  |
+| **ROS 2 Rolling**       | X                     | ✔️                       | P               |
+| **ROS 2 Humble (LTS)**  | X                     | ✔️                       | P               |
+| **ROS 2 Foxy (LTS)**    | ✔️                     | X                       | X               |
+| **ROS 1 Noetic (LTS)**  | ✔️                     | P                       | X               |
 
 
 * ✔️ - Recommended combination
