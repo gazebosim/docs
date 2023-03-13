@@ -117,8 +117,8 @@ repository.
 ## Installing the default Gazebo version for a ROS distribution using binary installations
 
 For users that need to run a specific version of ROS and want to use all
-the gazebo ROS related packages out-of-the-box, this is the recommended taking
-the following approach
+the gazebo ROS related packages out-of-the-box, taking
+the following approach is recommended
 
 ### ROS 2 Humble and ROS 2 Rolling
 ROS 2 Humble and ROS 2 Rolling officially support Gazebo Fortress, meaning
