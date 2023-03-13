@@ -40,7 +40,7 @@ Other libraries:
 - [Physics](/api/physics/2/tutorials.html)
 - [Plugin](/api/plugin/1/tutorials.html)
 - [Rendering](/api/rendering/3/tutorials.html)
-- [Sdformat](/api/sdformat/9/tutorials.html)
 - [Sensors](/api/sensors/3/tutorials.html)
 - [Tools](/api/tools/1/tutorials.html)
 - [Transport](/api/transport/8/tutorials.html)
+- [Sdformat](/api/sdformat/9/)
