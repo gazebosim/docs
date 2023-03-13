@@ -1,7 +1,7 @@
 # Installing Gazebo with ROS
 
 This document provides guidance on using different versions
-of ROS in combination with different versions of Gazebo. We recommended to read
+of ROS in combination with different versions of Gazebo. We recommend reading
 it before installing [ros_gz](https://github.com/gazebosim/ros_gz).
 
 # Picking the "Correct" Versions of ROS & Gazebo
