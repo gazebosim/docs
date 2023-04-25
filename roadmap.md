@@ -8,11 +8,37 @@ info@openrobotics.org.
 
 ## Quarterly Roadmap
 
-## 2022 Q1 (Jan - Mar) / Q2 (Apr - Jun) - ongoing
+## 2023 Q1 (Jan - Mar) / Q2 (Apr - Jun) - ongoing
 
 * **Out-of-box experience**: Improve end-user experience
     * [All open tickets](https://github.com/search?q=org%3Agazebosim+label%3A%22OOBE+%F0%9F%93%A6%E2%9C%A8%22&state=open&type=Issues)
-    * [Status](https://github.com/orgs/gazebosim/projects/3?card_filter_query=label%3A%22oobe+%F0%9F%93%A6%E2%9C%A8%22)
+    * [Status](https://github.com/orgs/gazebosim/projects/1?card_filter_query=label%3A%22oobe+%F0%9F%93%A6%E2%9C%A8%22)
+
+* **APIs that ease migration from Gazebo-classic**
+    * Tickets: [gz-sim#325](https://github.com/gazebosim/gz-sim/issues/325), [gz-sim#85](https://github.com/gazebosim/gz-sim/issues/85)
+
+* **Provide infrastructure to generate bindings for gz-msg protos instead of packaging generated code**
+    * Tickets: Part of [gz-sim#494](https://github.com/gazebosim/gz-sim/issues/494), Related to: [gz-sim#36](https://github.com/gazebosim/gz-msgs/issues/36) and [gz-sim#113](https://github.com/gazebosim/gz-msgs/issues/113)
+
+* **Complete Python scripting capability with documentation and examples**
+    * Goals: 
+      * Ability to control simulation from python
+      * Ability to write system "plugins" in python
+      * Using Gazebo in a jupyter notebook
+    * Tickets: Part of [gz-sim#790](https://github.com/gazebosim/gz-sim/issues/790)
+
+## 2023 Q3 (Jul - Sept)
+
+* **Complete Python scripting capability with documentation and examples**
+    * Tickets: Part of [gz-sim#790](https://github.com/gazebosim/gz-sim/issues/790)
+
+* **Improve interoperability with ROS**
+    * Goals:
+      -  Make Joint state publisher work with SDF
+      -  Eliminate the need for having both URDF and SDF files in robot model packages
+      -  Create more documentation around ROS 2 launch and resources (eg. meshes)
+      -  Create a better workflow for creating custom message bridges other than forking the `ros_gz` repo. 
+      -  Events emitted by Gazebo to indicate completion of world/model loading.
 
 ## Feature Roadmap
 
