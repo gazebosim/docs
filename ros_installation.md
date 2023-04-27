@@ -118,8 +118,8 @@ repository.
 ## Installing the default Gazebo version for a ROS distribution using binary installations
 
 For users that need to run a specific version of ROS and want to use all
-the gazebo ROS related packages out-of-the-box, taking
-the following approach is recommended
+the Gazebo ROS related packages out-of-the-box, taking
+the following approach is recommended:
 
 ### ROS 2 Humble and ROS 2 Rolling
 
@@ -134,8 +134,8 @@ bridge.
 ### ROS 2 Galactic
 
 * **ROS 2 Galactic is presently end of life, and we do not recommend using this
-version of ROS or Gazebo.** However, if you must this version of ROS, it
-officially supports Gazebo Edifice.
+version of ROS.** However, if you must this version of ROS, it
+officially supports the also end of life Gazebo Edifice.
 * To install Gazebo Edifice simply install `ros-galactic-ros-gz`
 from `packages.ros.org`.
 * This package will automatically install both Gazebo
@@ -245,7 +245,7 @@ depending on your platform.
 
 Unfortunately there are no Gazebo Garden packages for any ROS distribution. Please
 read how to compile it from source in this document under the section
-"Using an specific Gazebo version with ROS2" >> "Gazebo Garden"
+"[Using an specific Gazebo version with ROS2](https://staging.gazebosim.org/docs/garden/ros_installation#using-a-specific-and-unsupported-gazebo-version-with-ros-2)" >> "Gazebo Garden"
 
 #### Where I can find the different features implemented on each Gazebo version?
 
@@ -261,7 +261,6 @@ one for
 [Fortress](https://community.gazebosim.org/t/ignition-fortress-release/1127) as
 examples.
 
-Additionally, navigating through the different releases of Gazebo in the top
-right corner of the [Gazebo documentation page](https://gazebosim.org/docs)
-there is a left menu entry called "Feature Comparison" that provides comparison
-against gazebo-classic features.
+Additionally, when navigating through the different versions of Gazebo there is a menu item
+called "[Feature Comparison](https://gazebosim.org/docs/garden/comparison)" which provides a comparison with the features of Gazebo-Classic.
+In the top right corner of the [Gazebo documentation page](https://gazebosim.org/docs) the specific Gazebo version to compare with can be selected.
