@@ -39,15 +39,15 @@ continued use.
 
 |                         | **GZ Citadel (LTS)**  | **GZ Fortress (LTS)**   | **GZ Garden**   |
 |------------------------ |---------------------- |-----------------------  |---------------  |
-| **ROS 2 Rolling**       | X                     | ✔️                       | P               |
-| **ROS 2 Humble (LTS)**  | X                     | ✔️                       | P               |
-| **ROS 2 Foxy (LTS)**    | ✔️                     | X                       | X               |
-| **ROS 1 Noetic (LTS)**  | ✔️                     | P                       | X               |
+| **ROS 2 Rolling**       | ❌                    | ✅                      | ⚡               |
+| **ROS 2 Humble (LTS)**  | ❌                    | ✅                      | ⚡               |
+| **ROS 2 Foxy (LTS)**    | ✅                    | ❌                      | ❌              |
+| **ROS 1 Noetic (LTS)**  | ✅                    | ⚡                       | ❌              |
 
 
-* ✔️ - Recommended combination
-* X - Incompatible / not possible.
-* P - Possible,*but not recommended*. These combinations of ROS and Gazebo can
+* ✅ - Recommended combination
+* ❌ - Incompatible / not possible.
+* ⚡ - Possible, *but not recommended*. These combinations of ROS and Gazebo can
   be made to work together, but some effort is required.
 
 
