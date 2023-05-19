@@ -66,8 +66,7 @@ For example, "Ubuntu Focal on amd64".
 
 Each release is targeted at a specific set of platforms. A support level applies
 to an entire Gazebo release, including all library versions within it. The
-supported platforms for each release are listed on their home pages (i.e.
-[Fortress](https://gazebosim.org/docs/fortress)).
+supported platforms for each release are listed [below](/docs/all/releases#platforms-by-release).
 
 In general, there are three categories of support for a platform:
 
@@ -89,7 +88,127 @@ In general, there are three categories of support for a platform:
   platforms may be considered if they don't break any supported platforms and
   reviewed as time allows.
 
+# Platforms by Release
+
+## Acropolis (End of Life)
+
+Acropolis is supported on the platforms below.
+
+ * Ubuntu Bionic on amd64/i386
+ * MacOS Mojave
+
+Windows support is still experimental although most of the packages should work
+as expected. There are no binaries for Windows at this moment. The `ign-gazebo`
+package is still not available for Windows, the installation should be done from
+source code.
+
+
+## Blueprint (End of Life)
+
+Blueprint is supported on the platforms below:
+
+ * Ubuntu Bionic on amd64/i386
+ * MacOS Mojave
+     * Gazebo currently only works in headless mode
+
+Windows support is still experimental although most of the packages should work
+as expected. There are no binaries for Windows at this moment. The `ign-gazebo`
+package is still not available for Windows, the installation should be done from
+source code.
+
+
+## Citadel
+
+Citadel is supported on the platforms below.
+
+These are the **officially** supported platforms:
+
+* Ubuntu Bionic on amd64/i386
+* Ubuntu Focal on amd64
+
+Platforms supported at **best-effort** include arm architectures, Windows and
+macOS. See
+[this ticket](https://github.com/ignition-tooling/release-tools/issues/595)
+for the full status.
+
+
+## Dome (End of Life)
+
+Dome is supported on the platforms below.
+
+These are the **officially** supported platforms:
+
+* Ubuntu Bionic on amd64/i386
+* Ubuntu Focal on amd64
+
+Platforms supported at **best-effort** include arm architectures, Windows and
+macOS. See
+[this ticket](https://github.com/ignition-tooling/release-tools/issues/297)
+for the full status.
+
+
+## Edifice (End of Life)
+
+Edifice is supported on the platforms below.
+
+These are the **officially** supported platforms:
+
+* Ubuntu Bionic on amd64/i386
+* Ubuntu Focal on amd64
+
+Platforms supported at **best-effort** include arm architectures, Windows and
+macOS. See
+[this ticket](https://github.com/ignition-tooling/release-tools/issues/421)
+for the full status.
+
+
+## Fortress
+
+Fortress is supported on the platforms below.
+
+These are the **officially** supported platforms:
+
+* Ubuntu Bionic on amd64/i386
+* Ubuntu Focal on amd64
+* Ubuntu Jammy on amd64
+
+Platforms supported at **best-effort** include arm architectures, Windows and
+macOS. See
+[this ticket](https://github.com/ignition-tooling/release-tools/issues/596)
+for the full status.
+
+
+## Garden
+
+Garden is supported on the platforms below.
+
+These are the **officially** supported platforms:
+
+* Ubuntu Focal on amd64
+* Ubuntu Jammy on amd64
+
+Platforms supported at **best-effort** include arm architectures, Windows and
+macOS. See
+[this ticket](https://github.com/gazebo-tooling/release-tools/issues/597)
+for the full status.
+
+## Harmonic (Planned)
+
+Harmonic is planned to be supported on the platforms below.
+This list may change up to the release date.
+
+These are the **officially** supported platforms:
+
+* Ubuntu Jammy on amd64
+* Ubuntu 24.04 on amd64
+
+Platforms supported at **best-effort** include arm architectures, Windows and
+macOS. See
+[this ticket](https://github.com/gazebo-tooling/release-tools/issues/928)
+for the full status.
+
+---
+
 If you or your company are interested in directly supporting, or
 sponsoring the support of other platforms, please contact
 `info@openrobotics.org`.
-

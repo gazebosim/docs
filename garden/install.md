@@ -47,18 +47,7 @@ This list of library versions may change up to the release date.
 
 ## Supported platforms
 
-Garden is planned to be [supported](/docs/all/releases) on the platforms below.
-This list may change up to the release date.
-
-These are the **officially** supported platforms:
-
-* Ubuntu Focal on amd64
-* Ubuntu Jammy on amd64
-
-Platforms supported at **best-effort** include arm architectures, Windows and
-macOS. See
-[this ticket](https://github.com/gazebo-tooling/release-tools/issues/597)
-for the full status.
+See [supported platforms](releases#garden).
 
 ## Migration Guide
 
