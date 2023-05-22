@@ -102,7 +102,6 @@ as expected. There are no binaries for Windows at this moment. The `ign-gazebo`
 package is still not available for Windows, the installation should be done from
 source code.
 
-
 ## Blueprint (End of Life)
 
 Blueprint is supported on the platforms below:
