@@ -115,7 +115,6 @@ as expected. There are no binaries for Windows at this moment. The `ign-gazebo`
 package is still not available for Windows, the installation should be done from
 source code.
 
-
 ## Citadel
 
 Citadel is supported on the platforms below.
@@ -129,7 +128,6 @@ Platforms supported at **best-effort** include arm architectures, Windows and
 macOS. See
 [this ticket](https://github.com/ignition-tooling/release-tools/issues/595)
 for the full status.
-
 
 ## Dome (End of Life)
 
@@ -145,7 +143,6 @@ macOS. See
 [this ticket](https://github.com/ignition-tooling/release-tools/issues/297)
 for the full status.
 
-
 ## Edifice (End of Life)
 
 Edifice is supported on the platforms below.
@@ -159,7 +156,6 @@ Platforms supported at **best-effort** include arm architectures, Windows and
 macOS. See
 [this ticket](https://github.com/ignition-tooling/release-tools/issues/421)
 for the full status.
-
 
 ## Fortress
 
@@ -175,7 +171,6 @@ Platforms supported at **best-effort** include arm architectures, Windows and
 macOS. See
 [this ticket](https://github.com/ignition-tooling/release-tools/issues/596)
 for the full status.
-
 
 ## Garden
 
