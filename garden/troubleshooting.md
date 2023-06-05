@@ -64,7 +64,7 @@ The issue is related to OSX System Integrity Protection (SIP). The workaround is
 brew install ruby
 
 # Add the following to ~/.bashrc
-export PATH=/usr/local/Cellar/ruby/2.6.5/bin:$PATH
+export PATH=$(brew --prefix)/opt/ruby/bin:$PATH
 
 # Source ~/.bashrc in terminal
 . ~/.bashrc
