@@ -170,14 +170,36 @@ We do not recommend this approach for beginners!
 </div>
 
 To select a different release of Gazebo than the one officially supported by
-your ROS distribution you must **manually compile**
-[`ros_gz`](https://github.com/gazebosim/ros_gz) from source. This rule applies for
-every  ROS package that uses a Gazebo library. This approach may also require
-that you modify your  ROS or Gazebo source code to support this compilation.
+your ROS distribution you must either **use non ROS official Gazebo binary packages** or
+**manually compile**
+[`ros_gz`](https://github.com/gazebosim/ros_gz) from source (this rule applies for
+every ROS package that uses a Gazebo library):
+
+  * **Use non ROS official ros_gz binary packages:** *packages.osrfoundation.org* provides
+    binary packages for `ros_gz` for some combinations of Gazebo and ROS that are different
+    from the existing in ROS. In some circumstances these packages can be outdated or
+    even buggy, the use of them is reserved for advanced users.
+
+  * **Manually compile ros_gz:** some combinations of Gazebo and ROS can be prepared to be
+    built together but don't have official or unofficial binary packages.
+
+Both approaches may also require that you modify your ROS or Gazebo source code to support this compilation.
 
 ### Gazebo Garden (Not Recommended)
 
-Gazebo Garden can be used with ROS 2 Humble and ROS 2 Rolling, but
+Gazebo Garden can be used with ROS 2 Humble and non official ROS binary packages hosted
+in packages.osrfoundation.org. These packages conflict with `ros-humble-ros-gz*`
+packages (based on Gazebo Fortress).
+
+To install the binary Gazebo Garden/ROS 2 Humble packages:
+
+
+ * Folow [these instruction to install gz-garden](https://gazebosim.org/docs/garden/install_ubuntu#binary-installation-on-ubuntu)
+   from `osrfoundation.org` repository
+ * Install the unofficial binary packages from apt:
+   * `apt-get install ros-humble-ros-gzgarden`
+
+Gazebo Garden can be used with ROS 2 Rolling but
 [`ros_gz`](https://github.com/gazebosim/ros_gz) will need to be compiled
 from source.
 
@@ -185,8 +207,6 @@ from source.
    from `osrfoundation.org` repository
  * Install [rosdep rules for Gazebo Garden](https://github.com/osrf/osrf-rosdep#installing-rosdep-rules-to-resolve-gazebo-garden-libraries)
  * Follow the instructions to compile `ros_gz` from source in a colcon workspace
-   * [ROS 2 Humble](https://github.com/gazebosim/ros_gz/tree/humble#from-source)
-     * Be sure of using `export GZ_VERSION=garden`
    * [ROS 2 Rolling](https://github.com/gazebosim/ros_gz/tree/ros2#from-source)
      * Be sure of using `export GZ_VERSION=garden`
 
