@@ -27,6 +27,12 @@ features, some of which may land in released versions of Gazebo.
 1. [Environmental lookup sensors.](https://github.com/gazebosim/gz-sim/pull/1616)
 1. [Allow loading SDFormat model files from the command line (instead of world files only).](https://github.com/gazebosim/gz-sim/pull/1775)
 1. [Simple acoustic communication plugin.](https://github.com/gazebosim/gz-sim/pull/1704)
+1. [Airspeed sensor.](https://github.com/gazebosim/gz-sensors/pull/305)
+1. [Hydrodynamic added mass.](https://github.com/gazebosim/gz-sim/issues/1462)
+1. [Magnetometer value based on location.](https://github.com/gazebosim/gz-sim/pull/1907)
+1. [Lens flare support for Ogre and Ogre2.](https://github.com/gazebosim/gz-rendering/issues/730)
+1. [Allow specifying initial simulation time with a CLI argument](https://github.com/gazebosim/gz-sim/pull/1801)
+1. [Joints defined at the world level](https://github.com/gazebosim/sdformat/issues/1115)
 
 [^1]: All the functionality for creating custom rendering sensors is in Garden, but the PR listed, which serves as an 
   example, is only available in Harmonic.
@@ -93,6 +99,9 @@ features, some of which may land in released versions of Gazebo.
 1. [Hydrodynamics for water surface vehicles.](https://github.com/gazebosim/gz-sim/pull/818)
 1. [Custom skybox from SDF.](https://github.com/gazebosim/sdformat/pull/1037)
 1. [Gz3D: support heightmaps, skybox and particles.](https://github.com/gazebo-web/gzweb/pull/35)
+1. [Tools for creating new Gazebo projects](https://github.com/gazebosim/gz_pkg_create)
+1. [Simplify determination of a sensor's topic name for rendering sensors.](https://github.com/gazebosim/gz-sim/pull/1908)
+1. [APIs that ease migration from classic.](https://github.com/gazebosim/gz-sim/issues/325)
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
@@ -234,7 +243,8 @@ features, some of which may land in released versions of Gazebo.
     * [World](https://gazebosim.org/api/gazebo/3.5/migrationworldapi.html)
     * [Model](https://gazebosim.org/api/gazebo/3.5/migrationmodelapi.html)
     * [Link](https://gazebosim.org/api/gazebo/3.5/migrationlinkapi.html)
-1. [Expose camera calibration parameters](https://github.com/gazebosim/sdformat/pull/1088)
+1. [Expose camera calibration parameters.](https://github.com/gazebosim/sdformat/pull/1088)
+1. [Speed up Resource Spawner.](https://github.com/gazebosim/gz-sim/issues/1936)
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
