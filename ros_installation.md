@@ -181,7 +181,7 @@ every ROS package that uses a Gazebo library):
     even buggy, the use of them is reserved for advanced users.
 
   * **Manually compile ros_gz:** some combinations of Gazebo and ROS can be prepared to be
-    built together but have no binary packages, neither official nor unofficial.
+    built together but have no binary packages, neither in `packages.ros.org` or `packages.osrfoundation.org`
 
 Both approaches may also require that you modify your ROS or Gazebo source code to support this compilation.
 
@@ -196,7 +196,7 @@ To install the binary Gazebo Garden/ROS 2 Humble packages:
  * Folow [these instruction to install gz-garden](https://gazebosim.org/docs/garden/install_ubuntu#binary-installation-on-ubuntu)
    from [`packages.osrfoundation.org`](https://packages.osrfoundation.org/gazebo/ubuntu/)
    repository.
- * Install `ros_gz` from the unofficial binary packages from apt:
+ * Install `ros_gz` from the non official binary packages from apt:
    * `apt-get install ros-humble-ros-gzgarden`
 
 Gazebo Garden can be used with ROS 2 Rolling but
