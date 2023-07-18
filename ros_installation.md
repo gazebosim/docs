@@ -175,28 +175,27 @@ your ROS distribution you must either **use non ROS official Gazebo binary packa
 [`ros_gz`](https://github.com/gazebosim/ros_gz) from source (this rule applies for
 every ROS package that uses a Gazebo library):
 
-  * **Use non ROS official ros_gz binary packages:** *packages.osrfoundation.org* provides
+  * **Use non ROS official ros_gz binary packages:** `packages.osrfoundation.org` provides
     binary packages for `ros_gz` for some combinations of Gazebo and ROS that are different
-    from the existing in ROS. In some circumstances these packages can be outdated or
+    from the officially supported combination. In some circumstances the non-official packages can be outdated or
     even buggy, the use of them is reserved for advanced users.
 
   * **Manually compile ros_gz:** some combinations of Gazebo and ROS can be prepared to be
-    built together but don't have official or unofficial binary packages.
+    built together but have no binary packages, neither official nor unofficial.
 
 Both approaches may also require that you modify your ROS or Gazebo source code to support this compilation.
 
 ### Gazebo Garden (Not Recommended)
 
-Gazebo Garden can be used with ROS 2 Humble and non official ROS binary packages hosted
-in packages.osrfoundation.org. These packages conflict with `ros-humble-ros-gz*`
-packages (based on Gazebo Fortress).
+Gazebo Garden can be used with ROS 2 Humble and non ROS official binary packages hosted
+in `packages.osrfoundation.org`. These packages conflict with `ros-humble-ros-gz*`
+packages (Humble officially supports Gazebo Fortress).
 
 To install the binary Gazebo Garden/ROS 2 Humble packages:
 
-
  * Folow [these instruction to install gz-garden](https://gazebosim.org/docs/garden/install_ubuntu#binary-installation-on-ubuntu)
    from `osrfoundation.org` repository
- * Install the unofficial binary packages from apt:
+ * Install `ros_gz` from the unofficial binary packages from apt:
    * `apt-get install ros-humble-ros-gzgarden`
 
 Gazebo Garden can be used with ROS 2 Rolling but
