@@ -87,21 +87,24 @@ A video walk-through of this tutorial is available from our YouTube channel: [Ga
 
 Take a step further and try out demos from [`ros_gz_sim_demos`](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_sim_demos).
 
-For the sdf_parser demo, install [`ros_gz`](https://github.com/gazebosim/ros_gz/tree/ros2) and the parser plugin `sdformat_urdf` from source in a colcon workspace.
+For the `sdf_parser` demo, install [`ros_gz`](https://github.com/gazebosim/ros_gz/tree/ros2) and the parser plugin `sdformat_urdf` from source in a colcon workspace.
 Read more `sdformat_urdf` about [here](https://github.com/ros/sdformat_urdf/blob/ros2/sdformat_urdf/README.md).
 
 Run the demo launch file with the rviz launch argument set:
-```
+
+```bash
 ros2 launch ros_gz_sim_demos sdf_parser.launch.py rviz:=True
 ```
 
 Start the simulation in Gazebo and wait a few seconds for TFs to be published.
 
 In another terminal, send either ROS or Gazebo commands for the vehicle to move in circles:
-```
+
+```bash
 gz topic -t "/model/vehicle/cmd_vel" -m gz.msgs.Twist -p "linear: {x: 1.0}, angular: {z: -0.1}"
 ros2 topic pub /model/vehicle/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 5.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -0.1}}
 ```
+
 And verify the vehicle matching its trajectory in Gazebo and RViz.
 
 https://github.com/gazebosim/docs/assets/24695820/7344734b-4f69-4441-807e-f06751116a03
