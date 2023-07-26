@@ -193,7 +193,7 @@ get acquainted with this development process.
    your life easier.
 
 1. **Write your code.** This is the fun part, but is good to remember:
-   - Always [sign your commits](https://docs.github.com/en/github/authenticating-to-github/signing-commits) (See the bullet about Developer Certificate of Origin in the [Process](https://gazebosim.org/docs/all/contributing#process) section below)
+   - Always [signoff on your commits](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository#about-commit-signoffs) (See the bullet about Developer Certificate of Origin in the [Process](https://gazebosim.org/docs/all/contributing#process) section below)
    - Look at the existing code and try to maintain the existing style and pattern as much as possible
    - **Always** keep your branch updated with the original repository
 
