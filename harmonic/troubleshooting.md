@@ -163,6 +163,23 @@ that's working by running a world which uses Ogre 1 instead of Ogre 2, such as:
 If that loads, you can continue to use Ignition with Ogre 1, just use the
 `--render-engine ogre` option.
 
+### Wayland issues
+
+For users on Wayland, you will need to make sure Gazebo is launched with
+XWayland.
+
+If you see an error message like the one below:
+
+```
+Unable to create the rendering window: OGRE EXCEPTION(3:RenderingAPIException): currentGLContext was specified with no current GL context in GLXWindow::create at ./RenderSystems/GL3Plus/src/windowing/GLX/OgreGLXWindow.cpp (line 165)
+```
+
+try unsetting the `WAYLAND_DISPLAY` environment variable, e.g.
+
+```sh
+env -u WAYLAND_DISPLAY gz sim -v 4 shapes.sdf
+```
+
 ## Windows
 
 ### VisualStudioVersion is not set, please run within a Visual Studio Command Prompt.
