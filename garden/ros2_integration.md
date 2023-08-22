@@ -11,7 +11,7 @@ simulatenously simulated by a Gazebo world.
 
 ## Requirements
 
-Please follow the [Install Gazebo and ROS document](docs/latest/ros_installation)
+Please follow the [Install Gazebo and ROS document](docs/ros_installation)
 before starting this tutorial. A working installation of ROS 2 and Gazebo is
 required to go further.
 
@@ -107,6 +107,6 @@ ros2 topic pub /model/vehicle/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 5.0,
 
 And verify the vehicle matching its trajectory in Gazebo and RViz.
 
-https://github.com/gazebosim/docs/assets/24695820/7344734b-4f69-4441-807e-f06751116a03
+![gz_rviz](tutorials/ros2_integration/gz_rviz.mp4)
 
-For more details on implementation see [ROS 2 and Gazebo Integration Tutorial](docs/garden/ros2_gazebo_integration_tutorial).
+For more details on implementation of this demo see [ROS 2 and Gazebo Integration Tutorial](docs/garden/ros2_gazebo_integration_tutorial).

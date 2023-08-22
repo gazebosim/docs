@@ -2,6 +2,8 @@
 
 In this tutorial, you will learn how to use the `ros_gz_project_template` to create a (recommended) structured workspace for your ROS 2 and Gazebo projects. This template offers a consistent layout, automated build process, and integration with both ROS 2 and Gazebo, enabling you to focus on developing your robotics applications.
 
+// TODO: aims to explain how to use the template as well what comprises it and why
+
 ## Prerequisites:
 
 1. ROS 2 installed on your system or in a container
@@ -10,12 +12,17 @@ In this tutorial, you will learn how to use the `ros_gz_project_template` to cre
 
 ## Installation Steps
 
+1. If you are starting a project, create new workspace or go to your existing project's source directory:
+
+```bash
+    mkdir -p ~/project_ws/src
+    cd ~/project_ws/src
+```
+
 1. Directly `Use this template` and create your project repository on Github.
    Or start by cloning the `ros_gz_project_template` repository:
 
    ```bash
-    mkdir -p ~/project_ws/src
-    cd ~/project_ws/src
     wget https://raw.githubusercontent.com/gazebosim/ros_gz_project_template/main/template_workspace.yaml
     vcs import < template_workspace.yaml
    ```
@@ -32,17 +39,24 @@ In this tutorial, you will learn how to use the `ros_gz_project_template` to cre
    cd ~/project_ws
    ```
 
-## Included packages
+## Package structure
 
-At this point you'll have the following packages:
+At this point you'll have the following packages in your project workspace:
 
-* `ros_gz_example_description` - holds the sdf description of the simulated system and any other assets
+* `ros_gz_example_description` - holds the sdf description of the simulated system and any other simulation assets.
+
+Simulation ssets means your models or robot descriptions in URDF or SDF, meshes and materials files to help visualize different parts of the robot and finally compiling all these elements in a simulated world sdf.
 
 * `ros_gz_example_gazebo` - holds gazebo specific code and configurations.  Namely this is where systems end up.
+
+This can be done by installing the models directory and exporting the paths to your environment. Setting up paths can be also automated using ament hooks.
+Here first we append the share path to gazebo resource path and then ament_prepend_unique_value pushes the resource path in the front for gazebo resources to be quickly found.
 
 * `ros_gz_example_application` - holds ros2 specific code and configurations
 
 * `ros_gz_example_bringup` - holds launch files and high level utilities
+ communication bridge between ros and gazebo
+
 
 ## Build and develop
 
