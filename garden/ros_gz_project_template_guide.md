@@ -12,6 +12,9 @@ In this guide, you will learn how to use the `ros_gz_project_template` to create
 ```
 
 1. Directly `Use this template` and create your project repository on Github.
+
+   ![use_template](tutorials/ros2_integration/use_template.png)
+
    Or start by cloning the `ros_gz_project_template` repository:
 
    ```bash
@@ -32,48 +35,41 @@ In this guide, you will learn how to use the `ros_gz_project_template` to create
    ```
 
 ## Package structure
+// TODO
 
 At this point you'll have the following packages in your project workspace:
 
-* `ros_gz_example_description` - holds the sdf description of the simulated system and any other simulation assets. Simulation assets means your models or robot descriptions in URDF or SDF, meshes and materials files to help visualize different parts of the robot and finally compiling all these elements in a simulated world sdf. Existing assets can be used by installing the models directory and exporting the paths to your environment. Setting up paths can be also automated using ament hooks. Here first we append the share path to gazebo resource path and then ament_prepend_unique_value pushes the resource path in the front for gazebo resources to be quickly found.
+* `ros_gz_example_description` - holds the sdf description of the simulated system and any other simulation assets. Simulation assets means your models or robot descriptions in URDF or SDF, meshes and materials files to help visualize different parts of the robot and finally compiling all these elements in a simulated world sdf. Existing assets can be used by installing the models directory and exporting the paths to your environment. Setting up paths can be also automated using ament hooks. Here first we append the share path to gazebo resource path and then `ament_prepend_unique_value` pushes the resource path in the front for gazebo resources to be quickly found.
 
-* `ros_gz_example_gazebo` - holds gazebo specific code and configurations.  Namely this is where systems end up.
+* `ros_gz_example_gazebo` - holds gazebo specific code and configurations. Namely this is where systems end up.
 
 * `ros_gz_example_application` - holds ros2 specific code and configurations
 
 * `ros_gz_example_bringup` - holds launch files and high level utilities, communication bridge between ros and gazebo
 
+## Development
 
-## Build and develop
-
-1. Configure Your Project:
-
-   Open the `CMakeLists.txt` file and modify the project name and version:
-
-   ```bash
-   project(your_project_name VERSION 0.1.0)
-   ```
-
-1. Set the Gazebo version to Garden:
+1. Set the `GZ_VERSION` environment variable to the Gazebo version you'd like to compile against, for example:
 
     ```bash
     export GZ_VERSION=garden
     ```
 
-1. Install ROS dependencies
+1. Install dependencies
 
     ```bash
     source /opt/ros/<ROS_DISTRO>/setup.bash
     sudo rosdep init
     rosdep update
-    rosdep install --from-paths src --ignore-src -r -y -i
+    rosdep install --from-paths src --ignore-src -r -i -y --rosdistro <ROS_DISTRO>
     ```
 
-1. Modify and Test:
+1. Modify
 
    Explore the `src/your_project_name` directory to add/modify the ROS 2 packages associated with your project.
+   // TODO ROS 2 bridge vs embedding
 
-1. Build and install
+1. Build
 
     ```bash
     cd ~/project_ws
@@ -93,7 +89,6 @@ At this point you'll have the following packages in your project workspace:
    ```bash
    ros2 launch ros_gz_example_bringup diff_drive.launch.py
    ```
-
 
 ## ROSCon 2022
 Check out a ROSCon 2022 talk titled [ROS 2 and Gazebo Integration Best Practices](https://vimeo.com/showcase/9954564/video/767127300), to learn more about best practices of integrating simulation with ROS 2, drawn from accumulated experience and successful deployments. The talk will additionally cover tips and techniques to ease migration to the latest versions.

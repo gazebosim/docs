@@ -3,7 +3,11 @@
 `rrbot` is a simple two-link robotic arm with revolute joints, and this tutorial serves as an illustrative example using the same to demonstrate the interoperability of ROS 2 and Gazebo Sim.
 
 ## Overview
-`ros_gz_project_template` provides an organized structure for ROS 2 and Gazebo projects, including necessary directories, build files, and launch scripts. We'll leverage ROS 2's communication and control mechanisms to interact with the robot. Gazebo is used as the simulation environment, providing realistic physics simulation and visualization of the `rrbot` robot arm. The robot model is described using SDFormat (Simulation Description Format), which defines the robot's structure, joints, links, and their properties. While Gazebo's physics engine simulates the dynamics of the robot, RViz, a visualization tool in ROS 2, displays the robot model and its motion based on data published by the control nodes, all using the same robot description file. Users can interact with `rrbot` through ROS 2 commands to move the robot's arms or retrieve joint state information.
+`ros_gz_project_template` provides an organized structure for ROS 2 and Gazebo projects, including necessary directories, build files, and launch scripts.
+We'll leverage ROS 2's communication and control mechanisms to interact with the robot. Gazebo is used as the simulation environment, providing realistic physics simulation and visualization of the `rrbot` robot arm.
+The robot model is described using [SDFormat](http://sdformat.org/) (Simulation Description Format), which defines the robot's structure, joints, links, and their properties.
+While Gazebo's physics engine simulates the dynamics of the robot, [RViz](https://github.com/ros2/rviz), a visualization tool in ROS 2, displays the robot model and its motion based on data published by the control nodes, all using the same robot description file.
+Users can interact with `rrbot` through ROS 2 commands to move the robot's arms or retrieve joint state information.
 
 ## Prerequisites
 
@@ -70,11 +74,17 @@ Visualize in RViz and with the help of the GUI, configure your robot model.
 Maintaining only one description file, now can be controlled with directly with Gazebo. Simulation ros_gz will publish joint-states and that is used by rviz and other ros tools.
 This is typically helpful when you want robot_state_publisher to publish tf transforms for a robot description, but also want to provide the robot description via code. Take SDFormat XML describing a robot in simulation and publish joint states from the simulation, letting robot_state_publisher handle turning those joint states into tf transforms.
 
+### ros_gz_bridge
+// TODO
+
+
 ### sdformat_urdf
 Coming back to using existing assets.
 This parser plugin library converts an sdf file to urdf c++ dom structures, which could be used by ROS counterparts of your project.
 
 To embed this functionality, we simply need to print the sdf file to robot_description ros topic and internally it'll find a suitable parser, sdformat_urdf in this case, to read the file. 
+
+// TODO
 
 
 
