@@ -1,4 +1,4 @@
-# Source Installation on Windows 10
+# Source Installation on Windows 10 or 11
 
 Command line tools, DART physics engine, and GUI capabilities are
 not currently supported in Windows. These functionalities correspond to the currently
@@ -11,8 +11,9 @@ You will still be able to use `TPE` as a physics engine
 
 ## Install dependencies
 
-1. Install a [Conda package management system](https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html).
-   Miniconda suffices. You will likely want to check the box to add `conda` to your `PATH`
+1. Install a conda distribution. As Gazebo uses all dependencies from the conda-forge channel,
+   we sugged to install miniforge following [the official miniforge installation docs](https://github.com/conda-forge/miniforge#windows)
+   You will likely want to check the box to add `conda` to your `PATH`
    during the installation process so that you won't have to do this step manually.
 
 2. Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
@@ -47,9 +48,9 @@ You will still be able to use `TPE` as a physics engine
 
   ```bash
   conda install cmake git vcstool curl pkg-config ^
-  colcon-common-extensions eigen freeimage gdal gts ^
+  colcon-common-extensions dartsim eigen freeimage gdal gts ^
   glib dlfcn-win32 ffmpeg ruby tinyxml2 tinyxml ^
-  protobuf urdfdom zeromq cppzmq ogre jsoncpp ^
+  libprotobuf urdfdom zeromq cppzmq ogre ogre-next jsoncpp ^
   libzip qt pybind11 --channel conda-forge
   ```
 
