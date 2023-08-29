@@ -92,7 +92,7 @@ brew install assimp boost bullet cmake cppzmq dartsim@6.10.0 doxygen eigen fcl f
 ```
 
 `dartsim@6.10.0` and `qt@5` are not sym-linked. To use those dependencies when building
-`gz-physics6` and `gz-gui8`, run the following after installation:
+`gz-physics7` and `gz-gui8`, run the following after installation:
 
 For Macs with Intel processors, add them to `/usr/local`:
 
@@ -105,7 +105,7 @@ export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:/usr/local/opt/dartsim@6.10.0/lib/pkgc
 export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/usr/local/opt/qt@5
 ```
 
-Note if you are on an ARM based Apple Silicon Mac machine, you will need to add them to /opt/homebrew instead:
+Note if you are on an ARM based Apple Silicon Mac machine, you will need to add them to `/opt/homebrew` instead:
 
 ```bash
 # dartsim@6.10.0
