@@ -12,7 +12,7 @@ You will still be able to use `TPE` as a physics engine
 ## Install dependencies
 
 1. Install a conda distribution. As Gazebo uses all dependencies from the conda-forge channel,
-   we sugged to install miniforge following [the official miniforge installation docs](https://github.com/conda-forge/miniforge#windows)
+   we suggest to install miniforge following [the official miniforge installation docs](https://github.com/conda-forge/miniforge#windows)
    You will likely want to check the box to add `conda` to your `PATH`
    during the installation process so that you won't have to do this step manually.
 
