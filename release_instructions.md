@@ -212,7 +212,7 @@ git checkout ign/gz-fooX
 cd gz-cmake3
 git checkout gz-cmake3
 # please replace <jenkins_token> with real release token (check crendentials section)
-~/release-tools/release-repo-scripts/release.py gz-cmake3 3.0.1 <jenkins_token>
+~/release-tools/release.py gz-cmake3 3.0.1 <jenkins_token>
 ```
 
 **release.py for prereleases or nightlies**
@@ -226,7 +226,7 @@ to be set. The `--upload-to-repo` argument is mandatory when running
 cd gz-cmake3
 git checkout gz-cmake3
 # please replace <jenkins_token> with real release token (check crendentials section)
-~/release-tools/release-repo-scripts/release.py gz-cmake3 3.0.0~pre1 <jenkins_token> --upload-to-repo prerelease
+~/release-tools/release.py gz-cmake3 3.0.0~pre1 <jenkins_token> --upload-to-repo prerelease
 ```
 
 Nightly invocation is generally coded in the server. The version will be
@@ -239,7 +239,7 @@ branch pointed by `--nightly-src-branch`.
 cd gz-cmake3
 git checkout gz-cmake3
 # please replace <jenkins_token> with real release token (check crendentials section)
-~/release-tools/release-repo-scripts/release.py gz-cmake3 3.0.0~pre1 <jenkins_token> --upload-to-repo nightly --nightly-src-branch main
+~/release-tools/release.py gz-cmake3 3.0.0~pre1 <jenkins_token> --upload-to-repo nightly --nightly-src-branch main
 
 ```
 
@@ -260,7 +260,7 @@ version, `release.py` needs the `--only-bump-revision-linux` flag:
 cd gz-cmake3
 git checkout gz-cmake3
 # please replace <jenkins_token> with real release token (check crendentials section)
-~/release-tools/release-repo-scripts/release.py gz-cmake3 3.0.1 <jenkins_token> --only-bump-revision-linux -release-version 2
+~/release-tools/release.py gz-cmake3 3.0.1 <jenkins_token> --only-bump-revision-linux -release-version 2
 ```
 
 ## Checking the Building Process
