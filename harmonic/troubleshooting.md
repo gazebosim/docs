@@ -51,10 +51,10 @@ This command will ignore the system installation of `urdfdom` and use the intern
 When running the `gz sim -s` command, an error like the one below may show up:
 
 ```bash
-Error while loading the library [/Users/harmonic/harmonic_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib]: dlopen(/Users/harmonic/harmonic_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib, 5): Library not loaded: @rpath/libIrrXML.dylib
+Error while loading the library [/Users/garden/garden_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib]: dlopen(/Users/garden/garden_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib, 5): Library not loaded: @rpath/libIrrXML.dylib
   Referenced from: /usr/local/opt/assimp/lib/libassimp.5.dylib
   Reason: image not found
-[Err] [Physics.cc:275] Unable to load the /Users/harmonic/harmonic_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib library.
+[Err] [Physics.cc:275] Unable to load the /Users/garden/garden_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib library.
 Escalating to SIGKILL on [Gazebo Sim Server]
 ```
 
