@@ -1,6 +1,6 @@
 # Binary Installation on MacOS
 
-All the Harmonic binaries are available in Catalina and BigSur using the
+All the Harmonic binaries are available in Big Sur and Monterey using the
 [homebrew package manager](https://brew.sh/).
 
 The homebrew tool can be installed using:

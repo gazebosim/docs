@@ -7,7 +7,11 @@ long-term release.
 
 ## Binary installation instructions
 
-There are no Harmonic binaries at the moment
+Binary installation is the recommended method of installing Gazebo.
+
+ * [Binary Installation on Ubuntu](install_ubuntu)
+ * [Binary Installation on macOS](install_osx)
+ * [Binary Installation on Windows](install_windows)
 
 ## Source Installation instructions
 
