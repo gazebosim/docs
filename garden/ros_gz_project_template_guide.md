@@ -35,17 +35,18 @@ In this guide, you will learn how to use the `ros_gz_project_template` to create
    ```
 
 ## Package structure
-// TODO
 
 At this point you'll have the following packages in your project workspace:
 
-* `ros_gz_example_description` - holds the sdf description of the simulated system and any other simulation assets. Simulation assets means your models or robot descriptions in URDF or SDF, meshes and materials files to help visualize different parts of the robot and finally compiling all these elements in a simulated world sdf. Existing assets can be used by installing the models directory and exporting the paths to your environment. Setting up paths can be also automated using ament hooks. Here first we append the share path to gazebo resource path and then `ament_prepend_unique_value` pushes the resource path in the front for gazebo resources to be quickly found.
+* `ros_gz_example_description` - holds the sdf description of the simulated system and any other simulation assets. 
+Simulation assets means your models or robot descriptions in URDF or SDF, meshes and materials files to help visualize different parts of the robot and finally compiling all these elements in a simulated world SDF. Existing assets can be used by installing the models directory and exporting the paths to your environment. 
+Setting up paths can be also automated using ament environment hooks with a DSV file prepending the model share path to Gazebo resource path. 
 
-* `ros_gz_example_gazebo` - holds gazebo specific code and configurations. Namely this is where systems end up.
+* `ros_gz_example_gazebo` - holds gazebo specific code and configurations. Namely this is where user-defined worlds and custom systems end up.
 
-* `ros_gz_example_application` - holds ros2 specific code and configurations
+* `ros_gz_example_application` - holds ROS 2 specific code and configurations. Namely where control, planning or any high level algoritms reside.
 
-* `ros_gz_example_bringup` - holds launch files and high level utilities, communication bridge between ros and gazebo
+* `ros_gz_example_bringup` - holds launch files and high level utilities, communication bridge between ROS and Gazebo. Any robot or hardware specific configurations go here.
 
 ## Development
 
@@ -66,8 +67,10 @@ At this point you'll have the following packages in your project workspace:
 
 1. Modify
 
-   Explore the `src/your_project_name` directory to add/modify the ROS 2 packages associated with your project.
-   // TODO ROS 2 bridge vs embedding
+   Explore the `src/your_project_name` directory to add/modify the packages associated with your project.
+   There are two primary mechanisms to integrate ROS 2 and Gazebo depending on your application:
+    1. Use ros_gz_bridge to dynamically connect topics between ROS 2 and Gazebo (which is demonstrated as an example in this template)
+    1. Embed ROS 2 directly in a Gazebo system plugin
 
 1. Build
 

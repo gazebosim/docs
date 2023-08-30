@@ -3,7 +3,6 @@
 `rrbot` is a simple two-link robotic arm with revolute joints, and this tutorial serves as an illustrative example using the same to demonstrate the interoperability of ROS 2 and Gazebo Sim.
 
 ## Overview
-`ros_gz_project_template` provides an organized structure for ROS 2 and Gazebo projects, including necessary directories, build files, and launch scripts.
 We'll leverage ROS 2's communication and control mechanisms to interact with the robot. Gazebo is used as the simulation environment, providing realistic physics simulation and visualization of the `rrbot` robot arm.
 The robot model is described using [SDFormat](http://sdformat.org/) (Simulation Description Format), which defines the robot's structure, joints, links, and their properties.
 While Gazebo's physics engine simulates the dynamics of the robot, [RViz](https://github.com/ros2/rviz), a visualization tool in ROS 2, displays the robot model and its motion based on data published by the control nodes, all using the same robot description file.
@@ -15,18 +14,20 @@ Users can interact with `rrbot` through ROS 2 commands to move the robot's arms 
 1. Basic familiarity with ROS concepts and terminal commands. 
 1. Checkout [ROS 2 Integration](docs/garden/ros2_integration) to get familiar with `ros_gz_bridge` before starting this tutorial.
 
-
 ## Setup
 
-Clone the `ros_gz_project_template` to try the example setup. See [Getting Started with `ros_gz_project_template` for ROS 2 and Gazebo Development](docs/garden/ros_gz_project_template) for guidance on using the template.
-
-// TODO: don't need the template to explain, only reference it for full source code
-
 Start a fresh ROS 2 launch file or add the following nodes in your project's main launch file. We aim to achieve:
-1. Setting up a 
+1. A robot model development and test setup
+1. Configure RViz (and other ROS 2 tools) to control a robot model simulated by a Gazebo world
 
-## Implement
+Note: The full source code for this tutorial can be found in the [ros_gz_example_brigup package](https://github.com/gazebosim/ros_gz_project_template/tree/main/ros_gz_example_bringup/launch) launch files.
+
+## Implementation
+
 ### Load robot description to the parameter server
+
+Load the robot description file to set the `robot_description` parameter on the parameter server.
+
 ```python
     sdf_file  =  os.path.join(pkg_project_description, 'models', 'rrbot', 'model.sdf')
     with open(sdf_file, 'r') as infp:
@@ -35,7 +36,11 @@ Start a fresh ROS 2 launch file or add the following nodes in your project's mai
 
 ### Launch state publisher nodes
 
-The `joint_state_publisher` reads the `robot_description` parameter from the parameter server, finds all of the non-fixed joints and publishes a [JointState](https://docs.ros.org/en/api/sensor_msgs/html/msg/JointState.html) message with all those joints defined.
+For publishing and controlling the robot pose, we need joint states of the robot.
+
+![jsp](tutorials/ros2_integration/jsp_diagram.jpg)
+
+1. The `joint_state_publisher` reads the `robot_description` parameter from the parameter server, finds all of the non-fixed joints and publishes a [JointState](https://docs.ros.org/en/api/sensor_msgs/html/msg/JointState.html) message with all those joints defined.
 
 ```python
     joint_state_publisher_gui = Node(
@@ -46,8 +51,15 @@ The `joint_state_publisher` reads the `robot_description` parameter from the par
         output=['screen']
     )
 ```
+1. Visualize in RViz and with the help of the `joint_state_publisher_gui`, configure your robot model.
+See [documentation](https://wiki.ros.org/joint_state_publisher?distro=noetic) for node API.
 
-The `robot_state_publisher` takes the description and joint angles of the robot as inputs and publishes the 3D poses of the robot links, using a kinematic tree model of the robot.
+This functionality is useful during initial development of the model. Afterwards, once you've set up simulation, it might be less useful.
+At this point we have achieved the first aim defined in [Setup](#Setup). 
+
+
+1. Now if you'd want to extend this to visualize robot motion, we need positions and transforms.
+The `robot_state_publisher` takes the description and joint angles of the robot as inputs and publishes the 3D poses of the robot links, using a kinematic tree model of the robot. 
 
 ```python
     robot_state_publisher = Node(
@@ -62,33 +74,40 @@ The `robot_state_publisher` takes the description and joint angles of the robot 
     )
 ```
 
-// Diagram
-![jsp](tutorials/ros2_integration/jsp_diagram.jpg)
+These 3D poses are published on the `/tf` topic which is useful to track/plan robot's motion, communicate between different parts of the robot or evaluate robot's performance.
 
-### Run RViz
-Visualize in RViz and with the help of the GUI, configure your robot model.
+### Configure a communication bridge
 
-// TODO: GIF
+These joint states can either come from `joint_state_publisher` as seen earlier or from simulated [JointStatePub](https://gazebosim.org/api/gazebo/4.5/classignition_1_1gazebo_1_1systems_1_1JointStatePublisher.html#details) system's joint_state message.
 
+Configure a bridge between ROS topic `/joint_states` and Gazebo topic `/world/demo/model/diff_drive/joint_state` by adding remappings in the node setup or by creating a bridge.yaml: 
 
-Maintaining only one description file, now can be controlled with directly with Gazebo. Simulation ros_gz will publish joint-states and that is used by rviz and other ros tools.
-This is typically helpful when you want robot_state_publisher to publish tf transforms for a robot description, but also want to provide the robot description via code. Take SDFormat XML describing a robot in simulation and publish joint states from the simulation, letting robot_state_publisher handle turning those joint states into tf transforms.
+```bash
+- ros_topic_name: "/joint_states"
+  gz_topic_name: "/world/demo/model/diff_drive/joint_state"
+  ros_type_name: "sensor_msgs/msg/JointState"
+  gz_type_name: "gz.msgs.Model"
+  direction: GZ_TO_ROS
+```
 
-### ros_gz_bridge
-// TODO
+Learn more about the bridge from [ROS 2 Integration](docs/garden/ros2_integration).
 
+### Maintaining a single robot description format
 
-### sdformat_urdf
-Coming back to using existing assets.
-This parser plugin library converts an sdf file to urdf c++ dom structures, which could be used by ROS counterparts of your project.
+Main pain point of using existing simulation assets with ROS 2 tools is updating URDF files into Gazebo readable format, out of scope for this tutorial, is no longer required. If you are maintaining a URDF and an SDF file in a project, you can now drop the URDF and just use SDF for both ROS and Gazebo.  
+This is made possible by `sdformat_urdf`, parser plugin library that converts an SDF file to URDF C++ DOM structures, making it understandle by the ROS 2 ecosystem. 
+Though there are some limitations of the plugin like not all SDFormat tags are compatible, for example if you have any sensors attached to a joint, it won't be parsed. More details [here](https://github.com/ros/sdformat_urdf/tree/ros2/sdformat_urdf).
 
-To embed this functionality, we simply need to print the sdf file to robot_description ros topic and internally it'll find a suitable parser, sdformat_urdf in this case, to read the file. 
+To embed this functionality, we simply need to print the SDFormat file to `/robot_description` ROS topic and internally it'll find a suitable parser, `sdformat_urdf` in this case, to read the file. This is already done while configuring the `robot_state_publisher` earlier.
 
-// TODO
+### Run RViz and Gazebo
 
+The second aim defined in [Setup](#Setup) is essentially maintaining only one robot description format which now can be controlled with directly with Gazebo. Take SDFormat XML describing a robot and publish joint states from the simulator, letting `robot_state_publisher` handle turning those joint states into tf transforms which is used by RViz and other ROS tools.
 
+![gz_rviz](tutorials/ros2_integration/gz_rviz.mp4)
 
 ## Conclusion
 
-This functionality is useful during initial development of the model. Afterwards, once you've set up simulation, it might be useful while mimicking a joint.
-Configure this functionality on your existing ROS and Gazebo project.
+Configure this functionality to enhance your existing ROS and Gazebo project. 
+`ros_gz_project_template` provides an organized structure for ROS 2 and Gazebo projects, including necessary directories, build files, and launch scripts.
+See [Getting Started with `ros_gz_project_template` for ROS 2 and Gazebo Development](docs/garden/ros_gz_project_template) for guidance on using the template.
