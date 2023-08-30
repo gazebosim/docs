@@ -7,7 +7,11 @@ long-term release.
 
 ## Binary installation instructions
 
-There are no Harmonic binaries at the moment
+Binary installation is the recommended method of installing Gazebo.
+
+ * [Binary Installation on Ubuntu](install_ubuntu)
+ * [Binary Installation on macOS](install_osx)
+ * [Binary Installation on Windows](install_windows)
 
 ## Source Installation instructions
 
@@ -50,8 +54,8 @@ This list may change up to the release date.
 
 These are the **officially** supported platforms:
 
-* Ubuntu Focal on amd64
 * Ubuntu Jammy on amd64
+* Ubuntu 24.04 on amd64
 
 Platforms supported at **best-effort** include arm architectures, Windows and
 macOS. See
