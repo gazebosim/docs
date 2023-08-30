@@ -7,7 +7,11 @@ long-term release.
 
 ## Binary installation instructions
 
-There are no Harmonic binaries at the moment
+Binary installation is the recommended method of installing Gazebo.
+
+ * [Binary Installation on Ubuntu](install_ubuntu)
+ * [Binary Installation on macOS](install_osx)
+ * [Binary Installation on Windows](install_windows)
 
 ## Source Installation instructions
 
@@ -34,14 +38,14 @@ This list of library versions may change up to the release date.
 |   gz-launch        |       7.x     |
 |   gz-math          |       7.x     |
 |   gz-msgs          |      10.x     |
-|   gz-physics       |       6.x     |
+|   gz-physics       |       7.x     |
 |   gz-plugin        |       2.x     |
 |   gz-rendering     |       8.x     |
 |   gz-sensors       |       8.x     |
 |   gz-tools         |       2.x     |
 |   gz-transport     |      13.x     |
 |   gz-utils         |       2.x     |
-|   sdformat         |      13.x     |
+|   sdformat         |      14.x     |
 
 ## Supported platforms
 
@@ -50,8 +54,8 @@ This list may change up to the release date.
 
 These are the **officially** supported platforms:
 
-* Ubuntu Focal on amd64
 * Ubuntu Jammy on amd64
+* Ubuntu 24.04 on amd64
 
 Platforms supported at **best-effort** include arm architectures, Windows and
 macOS. See

@@ -1,6 +1,6 @@
 # Source Installation on Ubuntu
 
-These instructions apply to Ubuntu Focal (20.04) and Jammy (22.04).
+These instructions apply to Ubuntu Jammy (22.04) and Ubuntu 24.04.
 
 ## Install tools
 
