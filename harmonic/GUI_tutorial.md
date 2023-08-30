@@ -17,18 +17,18 @@ gz sim shapes.sdf
 
 `gz sim` will run the latest version of Gazebo you have installed.
 You can check if you have more than one version of Gazebo installed by running `gz sim --versions`.
-For example, if you have Harmonic (7.x.x), Fortress (6.x.x) and Edifice (5.x.x) installed, `--versions` might return:
+For example, if you have Harmonic (8.x.x), Garden (7.x.x), and Fortress (6.x.x) installed, `--versions` might return:
 
 ```bash
+8.0.0
 7.0.0
 6.0.0
-5.0.0
 ```
 
 To ensure you're working with Harmonic, include the `--force-version` directive when starting up:
 
 ```bash
-gz sim --force-version 7.0.0 shapes.sdf
+gz sim --force-version 8.0.0 shapes.sdf
 ```
 
 ## GUI
