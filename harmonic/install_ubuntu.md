@@ -1,6 +1,6 @@
 # Binary Installation on Ubuntu
 
-Harmonic pre-release binaries are provided for Ubuntu Jammy. The
+Harmonic pre-release binaries are provided for Ubuntu Jammy (22.04) and Ubuntu 24.04. The
 Harmonic binaries are hosted in the packages.osrfoundation.org repository.
 To install all of them, the metapackage `gz-harmonic` can be installed.
 

@@ -149,6 +149,10 @@ or force software rendering
 
     export LIBGL_ALWAYS_SOFTWARE=1
 
+If you are using MESA drivers, you can also try overriding the OpenGL version
+
+    export MESA_GL_VERSION_OVERRIDE=3.3
+
 The Ogre 2 debs from the osrfoundation repository are built from a fork of
 Ogre's `v2-3` branch with changes needed for deb packaging and allowing it to
 be co-installable with Ogre 1.x. The code can be found here:
