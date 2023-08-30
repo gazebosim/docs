@@ -50,8 +50,8 @@ This list may change up to the release date.
 
 These are the **officially** supported platforms:
 
-* Ubuntu Focal on amd64
 * Ubuntu Jammy on amd64
+* Ubuntu 24.04 on amd64
 
 Platforms supported at **best-effort** include arm architectures, Windows and
 macOS. See
