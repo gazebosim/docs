@@ -78,9 +78,15 @@ Notes:
   have some differences. Some Jenkins jobs run with on GPU machines and
   provides a nice interface to introspect builds. On the other hand, Actions
   runs coverage and codecheck.
-* The choice of stable / pre-release / nightly dependencies for Linux CI on both
-  Jenkins and Actions is defined on
-  [gzdev's repository.yaml](https://github.com/gazebo-tooling/gzdev/blob/master/plugins/config/repository.yaml)
+* For Linux CI, the choice of stable / pre-release / nightly dependencies on both
+  Jenkins and Actions is defined in
+  [gzdev's repository.yaml](https://github.com/gazebo-tooling/gzdev/blob/master/plugins/config/repository.yaml).
+* For macOS CI, the dependencies and tarball / source branch of each package are
+  specified in the [Formula/*.rb]([url](https://github.com/osrf/homebrew-simulation/tree/master/Formula))
+  files.
+* For Windows CI, the dependencies and source branch of each package are specified
+  in `.yaml` files in the [gazebo-tooling/gazebodistro]([url](https://github.com/gazebo-tooling/gazebodistro))
+  repository.
 
 ## Required checks
 
