@@ -23,7 +23,11 @@ COPY scripts/build_gz.sh scripts/build_gz.sh
 
 RUN echo ::endgroup::
 
-RUN scripts/build_gz.sh gazebosim gz-cmake gz-cmake3 n \
+RUN scripts/build_gz.sh gazebosim gz-cmake gz-cmake3 y \
+      $GZ_VERSION_DATE \
+      $GZ_VERSION_PASSWORD; exit 0
+
+RUN scripts/build_gz.sh gazebosim gz-utils gz-utils2 y \
       $GZ_VERSION_DATE \
       $GZ_VERSION_PASSWORD; exit 0
 
