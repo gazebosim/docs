@@ -82,10 +82,10 @@ Notes:
   Jenkins and Actions is defined in
   [gzdev's repository.yaml](https://github.com/gazebo-tooling/gzdev/blob/master/plugins/config/repository.yaml).
 * For macOS CI, the dependencies and tarball / source branch of each package are
-  specified in the [Formula/*.rb]([url](https://github.com/osrf/homebrew-simulation/tree/master/Formula))
+  specified in the [Formula/*.rb](https://github.com/osrf/homebrew-simulation/tree/master/Formula)
   files.
 * For Windows CI, the dependencies and source branch of each package are specified
-  in `.yaml` files in the [gazebo-tooling/gazebodistro]([url](https://github.com/gazebo-tooling/gazebodistro))
+  in `.yaml` files in the [gazebo-tooling/gazebodistro](https://github.com/gazebo-tooling/gazebodistro)
   repository.
 
 ## Required checks
