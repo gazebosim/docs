@@ -17,7 +17,7 @@ ARG AWS_SECRET_ACCESS_KEY
 COPY scripts/install_common_deps.sh scripts/install_common_deps.sh
 RUN scripts/install_common_deps.sh $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY
 RUN echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-prerelease $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-prerelease.list > /dev/null \
-  apt-get update
+  && apt-get update
 
 COPY scripts/build_gz.sh scripts/build_gz.sh
 
