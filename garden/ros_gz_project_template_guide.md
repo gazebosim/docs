@@ -4,18 +4,17 @@ In this guide, you will learn how to use the `ros_gz_project_template` to create
 
 ## Installation Steps
 
-1. If you are starting a project, create new workspace or go to your existing project's source directory:
+1. If you are starting a project, create a new workspace or go to your existing project's source directory:
 
-```bash
+   ```bash
     mkdir -p ~/project_ws/src
     cd ~/project_ws/src
-```
 
-1. Directly `Use this template` and create your project repository on Github.
+1. Directly use the [`ros_gz_project_template` template](https://github.com/gazebosim/ros_gz_project_template) and create your project repository on GitHub.
 
    ![use_template](tutorials/ros2_integration/use_template.png)
 
-   Or start by cloning the `ros_gz_project_template` repository:
+   Or start by cloning the template repository:
 
    ```bash
     wget https://raw.githubusercontent.com/gazebosim/ros_gz_project_template/main/template_workspace.yaml
@@ -36,13 +35,13 @@ In this guide, you will learn how to use the `ros_gz_project_template` to create
 
 ## Package structure
 
-At this point you'll have the following packages in your project workspace:
+At this point you'll have the following packages in your project:
 
-* `ros_gz_example_description` - holds the sdf description of the simulated system and any other simulation assets. 
+* `ros_gz_example_description` - holds the SDF description of the simulated system and any other simulation assets. 
 Simulation assets means your models or robot descriptions in URDF or SDF, meshes and materials files to help visualize different parts of the robot and finally compiling all these elements in a simulated world SDF. Existing assets can be used by installing the models directory and exporting the paths to your environment. 
 Setting up paths can be also automated using ament environment hooks with a DSV file prepending the model share path to Gazebo resource path. 
 
-* `ros_gz_example_gazebo` - holds gazebo specific code and configurations. Namely this is where user-defined worlds and custom systems end up.
+* `ros_gz_example_gazebo` - holds Gazebo specific code and configurations. Namely this is where user-defined worlds and custom system plugins end up.
 
 * `ros_gz_example_application` - holds ROS 2 specific code and configurations. Namely where control, planning or any high level algoritms reside.
 
@@ -69,7 +68,7 @@ Setting up paths can be also automated using ament environment hooks with a DSV 
 
    Explore the `src/your_project_name` directory to add/modify the packages associated with your project.
    There are two primary mechanisms to integrate ROS 2 and Gazebo depending on your application:
-    1. Use ros_gz_bridge to dynamically connect topics between ROS 2 and Gazebo (which is demonstrated as an example in this template)
+    1. Use [ros_gz_bridge](https://github.com/gazebosim/ros_gz) to dynamically connect topics between ROS 2 and Gazebo (which is demonstrated as an example in this template)
     1. Embed ROS 2 directly in a Gazebo system plugin
 
 1. Build
