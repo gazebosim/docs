@@ -41,12 +41,20 @@ You will still be able to use `TPE` as a physics engine
   conda activate gz-ws
   ```
 
-  Once you have activate an environment, a prefix like `(gz-ws)` will be prepended to
+  Once you have activated an environment, a prefix like `(gz-ws)` will be prepended to
   your prompt, and you can use the `conda` command outside of the `condabin` directory.
 
   You can use `conda info --envs` to see all of your environments.
 
-  To remove an environment, use `conda env remove --name <env_name>`.
+  To remove an environment, use `conda remove --all --name <env_name>`.
+
+  > [!NOTE]
+  > This way of Conda environment creation puts it into a default folder. If you need
+    to install it elsewhere, use `--prefix <env_path>` instead of `--name <env_name>`.
+    Environments in custom paths cannot be referenced by names, so even `conda activate`
+    needs to be passed a path (relative or absolute) instead of the name. If you refer
+    to a subdirectory of the current directory, you have to prepend `.\` so that Conda
+    knows it is a path and not a name.
 
 5. Install dependencies:
 
@@ -57,6 +65,8 @@ You will still be able to use `TPE` as a physics engine
   libprotobuf urdfdom zeromq cppzmq ogre ogre-next jsoncpp ^
   libzip qt pybind11 --channel conda-forge
   ```
+
+  This can take tens of minutes.
 
 6. Navigate to where you would like to build the library, create and enter your workspace directory,
    create the `src` directory which will contain the Gazebo source code.
@@ -117,7 +127,7 @@ If there are no errors, all the binaries should be ready to use.
 
 ## Using the workspace
 
-The workspace needs to be sourced every time a new terminal is used.
+The workspace needs to be sourced every time a new terminal is used (and Conda activated before that).
 
 Run the following command to source the workspace:
 
@@ -131,6 +141,32 @@ call install\setup.bat
 
 This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)
 page to start using Gazebo!
+
+> [!WARNING]
+> Please note that currently, no executables for Gazebo are built on Windows.
+  This means there is no .exe file you could run. As a temporary workaround,
+  you may launch Gazebo server like this:
+
+```cmd
+ruby -r %cd%/install/lib/ruby/gz/cmdsim8.rb -e 'c = Cmd.new()' -e "c.execute(['-s', '--verbose'])"
+```
+
+If you username contains spaces (which is quite common on Windows), you will probably get errors
+saying `Invalid partition name [Computer:My User With Spaces]`. Fix this by changing `GZ_PARTITION`
+to something else:
+
+```cmd
+set GZ_PARTITION=test
+```
+
+Remember to set the same partition in all other consoles.
+
+To echo a topic, similar workaround can be used from another console (with Conda activated and
+sourced install space):
+
+```cmd
+ruby -r %cd%/install/lib/ruby/gz/cmdtransport13.rb -e 'c = Cmd.new()' -e "c.execute(['topic', '-l'])"
+```
 
 ## Uninstalling source-based install
 
@@ -152,6 +188,14 @@ the results you want:
 
   3. If you want to keep the source code, you can remove the
      `install` / `build` / `log` directories as desired, leaving the `src` directory.
+
+  4. Last, if you do not need the conda environment anymore, you can remove it with
+
+     ```bash
+     conda deactivate
+     conda remove --all --name <env_name>
+     # or conda remove --all --prefix <path_to_env> if you installed to custom path
+     ```
 
 ## Troubleshooting
 
