@@ -4,13 +4,14 @@ WARNING: Current Windows support is experimental.
 
 # Source Installation on Windows 10 or 11
 
-Command line tools, DART physics engine, and GUI capabilities are
+DART physics engine and GUI capabilities are
 not currently supported in Windows. These functionalities correspond to the currently
-building packages `gz-tools`, `gz-physics`, and `gz-gui`, respectively.
+building packages `gz-physics` and `gz-gui`, respectively. The packages will build,
+but you can expect runtime failures when using their functionalities.
 
 **Note**
 
-You will still be able to use `TPE` as a physics engine
+You should be able to use `TPE` as a physics engine without any issues
 (see [here](https://gazebosim.org/api/physics/2.2/physicsplugin.html) for more information on `TPE`).
 
 ## Install dependencies
@@ -102,12 +103,9 @@ colcon graph
 If that is the case, then you are ready to build the whole set of libraries:
 
 ```bash
-colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install --packages-up-to gz-sim8
+colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install --packages-up-to gz-sim8 gz-tools2
 ```
 Tests are turned off as they are not currently supported on Windows.
-
-**Note:** All of the Gazebo packages up to, but not including `gz-sim`
-are currently building.  The above command should successfully build all packages except for `gz-sim`.
 
 To build a specific package with all its dependent packages:
 
@@ -143,30 +141,22 @@ This is the end of the source install instructions; head back to the [Getting st
 page to start using Gazebo!
 
 > [!WARNING]
-> Please note that currently, no executables for Gazebo are built on Windows.
-  This means there is no .exe file you could run. As a temporary workaround,
-  you may launch Gazebo server like this:
+> As Gazebo GUI is not yet working, running `gz sim` will not work. You can run only the server with
 
 ```cmd
-ruby -r %cd%/install/lib/ruby/gz/cmdsim8.rb -e 'c = Cmd.new()' -e "c.execute(['-s', '--verbose'])"
+gz sim -s -v
 ```
 
-If you username contains spaces (which is quite common on Windows), you will probably get errors
-saying `Invalid partition name [Computer:My User With Spaces]`. Fix this by changing `GZ_PARTITION`
-to something else:
+> [!WARNING]
+> If you username contains spaces (which is quite common on Windows), you will probably get errors
+  saying `Invalid partition name [Computer:My User With Spaces]`. Fix this by changing `GZ_PARTITION`
+  to something else:
 
 ```cmd
 set GZ_PARTITION=test
 ```
 
 Remember to set the same partition in all other consoles.
-
-To echo a topic, similar workaround can be used from another console (with Conda activated and
-sourced install space):
-
-```cmd
-ruby -r %cd%/install/lib/ruby/gz/cmdtransport13.rb -e 'c = Cmd.new()' -e "c.execute(['topic', '-l'])"
-```
 
 ## Uninstalling source-based install
 
