@@ -4,15 +4,14 @@ WARNING: Current Windows support is experimental.
 
 # Source Installation on Windows 10 or 11
 
-DART physics engine and GUI capabilities are
-not currently supported in Windows. These functionalities correspond to the currently
-building packages `gz-physics` and `gz-gui`, respectively. The packages will build,
+OGRE2 rendering capabilities are not currently supported in Windows, and Gazebo GUI
+works in a limited fashion. These functionalities correspond to the currently
+building packages `gz-rendering` and `gz-sim`, respectively. The packages will build,
 but you can expect runtime failures when using their functionalities.
 
-**Note**
-
-You should be able to use `TPE` as a physics engine without any issues
-(see [here](https://gazebosim.org/api/physics/2.2/physicsplugin.html) for more information on `TPE`).
+> [!NOTE]
+> You should be able to use `ogre` as a rendering engine instead of the default `ogre2`.
+> Just append `--render-engine ogre` to the command line.
 
 ## Install dependencies
 
@@ -21,14 +20,17 @@ You should be able to use `TPE` as a physics engine without any issues
    You will likely want to check the box to add `conda` to your `PATH`
    during the installation process so that you won't have to do this step manually.
 
-2. Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
+2. Install [Visual Studio 2019 or 2022](https://visualstudio.microsoft.com/downloads/).
    The Community version is free for students, open-source developers, and personal
    development. Check "Desktop development with C++" in the Workloads tab,
    check "MFC and ATL support", and uncheck "C++ Cmake Tools." We will install
-   cmake via Conda.
+   cmake via Conda. All other checkboxes can be left unchecked.
+   It is recommended to choose the Visual Studio version based on
+   the supported versions for your ROS distribution if you plan to use Gazebo with
+   ROS.
 
-3. Open a Visual Studio Command Prompt (search for "x64 Native Tools Command Prompt
-   for VS 2019" in the Windows search field near the Windows button). Optionally,
+4. Open a Visual Studio Command Prompt (search for "x64 Native Tools Command Prompt
+   for VS" in the Windows search field near the Windows button). Optionally,
    right-click and pin to the task bar for quick access in the future.
 
   If you did not add Conda to your `PATH` environment variable during Conda installation,
@@ -47,6 +49,12 @@ You should be able to use `TPE` as a physics engine without any issues
 
   You can use `conda info --envs` to see all of your environments.
 
+  To speed up conda installations, also set the following to use libmamba solver.
+  Older conda installations may need to do [additional steps](https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community).
+  ```bash
+  conda config --set solver libmamba
+  ```
+
   To remove an environment, use `conda remove --all --name <env_name>`.
 
   > [!NOTE]
@@ -63,11 +71,11 @@ You should be able to use `TPE` as a physics engine without any issues
   conda install cmake git vcstool curl pkg-config ^
   colcon-common-extensions dartsim eigen freeimage gdal gts ^
   glib dlfcn-win32 ffmpeg ruby tinyxml2 tinyxml ^
-  libprotobuf urdfdom zeromq cppzmq ogre ogre-next jsoncpp ^
+  libprotobuf urdfdom zeromq cppzmq ogre=1.10 ogre-next jsoncpp ^
   libzip qt pybind11 --channel conda-forge
   ```
 
-  This can take tens of minutes.
+  This can take tens of minutes (or less when using libmamba solver).
 
 6. Navigate to where you would like to build the library, create and enter your workspace directory,
    create the `src` directory which will contain the Gazebo source code.
@@ -125,7 +133,8 @@ If there are no errors, all the binaries should be ready to use.
 
 ## Using the workspace
 
-The workspace needs to be sourced every time a new terminal is used (and Conda activated before that).
+The workspace needs to be sourced every time a new terminal is used (
+and Conda environment activated before that).
 
 Run the following command to source the workspace:
 
@@ -157,6 +166,16 @@ set GZ_PARTITION=test
 ```
 
 Remember to set the same partition in all other consoles.
+
+### Gazebo GUI workaround
+
+Although running `gz sim` without arguments is not supported on Windows,
+and `gz sim -g` is also not supported, there is a workaround you can apply
+to be able to launch `gz sim -g` on Windows.
+
+> Manually comment [these lines](https://github.com/gazebosim/gz-sim/blob/gz-sim7_7.5.0/src/cmd/cmdsim.rb.in#L497-L501) and [these lines](https://github.com/gazebosim/gz-sim/blob/gz-sim7_7.5.0/src/cmd/cmdsim.rb.in#L558-L562) in file install\lib\ruby\gz\cmdsim8.rb .
+
+This should allow you to run the GUI in a separate console, connecting to the server running in another console.
 
 ## Uninstalling source-based install
 
