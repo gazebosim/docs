@@ -12,7 +12,7 @@ Users can interact with `rrbot` through ROS 2 commands to move the robot's arms 
 
 1. A working installation of ROS 2 and Gazebo is required to go further. Please follow the [Install Gazebo and ROS document](docs/ros_installation). 
 2. Basic familiarity with ROS concepts and terminal commands.
-3. Checkout [ROS 2 Integration](docs/garden/ros2_integration) to get familiar with `ros_gz_bridge` before starting this tutorial.
+3. Checkout [ROS 2 Integration](docs/garden/ros2_integration) to get familiar with [`ros_gz_bridge`](https://github.com/gazebosim/ros_gz) before starting this tutorial.
 
 ## Setup
 
@@ -40,7 +40,7 @@ For publishing and controlling the robot pose, we need joint states of the robot
 
 ![jsp](tutorials/ros2_integration/jsp_diagram.jpg)
 
-1. The `joint_state_publisher` reads the `robot_description` parameter from the parameter server, finds all of the non-fixed joints and publishes a [JointState](https://docs.ros.org/en/api/sensor_msgs/html/msg/JointState.html) message with all those joints defined.
+1. The [`joint_state_publisher`](https://github.com/ros/joint_state_publisher) reads the `robot_description` parameter from the parameter server, finds all of the non-fixed joints and publishes a [JointState](https://docs.ros.org/en/api/sensor_msgs/html/msg/JointState.html) message with all those joints defined.
    ```python
     joint_state_publisher_gui = Node(
         package='joint_state_publisher_gui',
@@ -51,12 +51,12 @@ For publishing and controlling the robot pose, we need joint states of the robot
     )
     ```
 2. Visualize in RViz and with the help of the `joint_state_publisher_gui`, configure your robot model.
-See [documentation](https://index.ros.org/p/joint_state_publisher_gui/#rolling) for node API.
+   See [documentation](https://index.ros.org/p/joint_state_publisher_gui/#rolling) for node API.
    This functionality is useful during initial development of the model. Afterwards, once you've set up simulation, it might be less useful.
    At this point we have achieved the first aim defined in [Setup](#Setup). 
 
 3. Now if you'd want to extend this to visualize robot motion, we need positions and transforms.
-The `robot_state_publisher` takes the description and joint angles of the robot as inputs and publishes the 3D poses of the robot links, using a kinematic tree model of the robot. 
+   The [`robot_state_publisher`](https://github.com/ros/robot_state_publisher) takes the description and joint angles of the robot as inputs and publishes the 3D poses of the robot links, using a kinematic tree model of the robot.
     ```python
     robot_state_publisher = Node(
         package='robot_state_publisher',
@@ -73,7 +73,7 @@ The `robot_state_publisher` takes the description and joint angles of the robot 
 
 ### Configure a communication bridge
 
-These joint states can either come from `joint_state_publisher` as seen earlier or from simulated [JointStatePub](https://gazebosim.org/api/gazebo/4.5/classignition_1_1gazebo_1_1systems_1_1JointStatePublisher.html#details) system's `joint_state` message.
+These joint states can either come from `joint_state_publisher` as seen earlier or from simulated [JointStatePub](https://gazebosim.org/api/gazebo/7/classignition_1_1gazebo_1_1systems_1_1JointStatePublisher.html) system's `joint_state` message.
 
 Configure a bridge between ROS topic `/joint_states` and Gazebo topic `/world/demo/model/diff_drive/joint_state` by adding remappings in the node setup or by creating a [bridge.yaml](https://github.com/gazebosim/ros_gz_project_template/blob/main/ros_gz_example_bringup/config/ros_gz_example_bridge.yaml):
 

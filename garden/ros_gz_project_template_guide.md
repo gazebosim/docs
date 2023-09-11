@@ -71,7 +71,6 @@ Note: Ig you're using a specific and unsupported Gazebo version with ROS 2, you 
     The main consideration is in choosing the depth of integration is required between ROS and Gazebo. Using the bridge keeps dependencies separate and Gazebo systems don't have to know about ROS. By embedding ROS 2 nodes directly allows accessing the [EntityComponentManager]
     (https://gazebosim.org/api/sim/7/classignition_1_1gazebo_1_1EntityComponentManager.html) within a Gazebo plugin.
 
-
 4. Build
 
     ```bash
