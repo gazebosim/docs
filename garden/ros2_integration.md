@@ -107,6 +107,6 @@ ros2 topic pub /model/vehicle/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 5.0,
 
 And verify the vehicle matching its trajectory in Gazebo and RViz.
 
-![gz_rviz](tutorials/ros2_integration/gz_rviz.mp4)
+![gz_rviz](tutorials/ros2_integration/gz_rviz.gif)
 
 For more details on implementation of this demo see [ROS 2 and Gazebo Integration Tutorial](docs/garden/ros2_gazebo_integration_tutorial).
