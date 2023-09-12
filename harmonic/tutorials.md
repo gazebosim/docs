@@ -26,21 +26,21 @@ These tutorials cover general concepts to help get you started with Gazebo.
 See the *API & Tutorials* sections on the [Libraries page](/libs) page for more specific content correlating to each Gazebo library.
 
 The entrypoint library is Sim.
-- [Sim](/api/sim/7/tutorials.html)
+- [Sim](/api/sim/8/tutorials.html)
 
 Other libraries:
 - [Cmake](/api/cmake/3/tutorials.html)
 - [Common](/api/common/5/tutorials.html)
-- [Fuel_tools](/api/fuel_tools/8/tutorials.html)
-- [Gui](/api/gui/7/tutorials.html)
-- [Launch](/api/launch/6/tutorials.html)
+- [Fuel_tools](/api/fuel_tools/9/tutorials.html)
+- [Gui](/api/gui/8/tutorials.html)
+- [Launch](/api/launch/7/tutorials.html)
 - [Math](/api/math/7/tutorials.html)
-- [Msgs](/api/msgs/9/tutorials.html)
-- [Physics](/api/physics/6/tutorials.html)
+- [Msgs](/api/msgs/10/tutorials.html)
+- [Physics](/api/physics/7/tutorials.html)
 - [Plugin](/api/plugin/2/tutorials.html)
-- [Rendering](/api/rendering/7/tutorials.html)
-- [Sensors](/api/sensors/7/tutorials.html)
+- [Rendering](/api/rendering/8/tutorials.html)
+- [Sensors](/api/sensors/8/tutorials.html)
 - [Tools](/api/tools/2/tutorials.html)
-- [Transport](/api/transport/12/tutorials.html)
+- [Transport](/api/transport/13/tutorials.html)
 - [Utils](/api/utils/2/tutorials.html)
 - [Sdformat](/api/sdformat/13/)
