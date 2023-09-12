@@ -7,11 +7,11 @@ simulatenously simulated by a Gazebo world.
 
 ## ros_gz_bridge
 
-`ros_gz_bridge` provides a network bridge which enables the exchange of messages between ROS 2 and [Gazebo Transport](https://github.com/gazebosim/gz-transport). Its support is limited to only certain message types. Please, check this [README](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md) to verify if your message type is supported by the bridge.
+[`ros_gz_bridge`](https://github.com/gazebosim/ros_gz) provides a network bridge which enables the exchange of messages between ROS 2 and [Gazebo Transport](https://github.com/gazebosim/gz-transport). Its support is limited to only certain message types. Please, check this [README](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md) to verify if your message type is supported by the bridge.
 
 ## Requirements
 
-Please follow the [Install Gazebo and ROS document](docs/latest/ros_installation)
+Please follow the [Install Gazebo and ROS document](docs/ros_installation)
 before starting this tutorial. A working installation of ROS 2 and Gazebo is
 required to go further.
 
@@ -107,4 +107,6 @@ ros2 topic pub /model/vehicle/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 5.0,
 
 And verify the vehicle matching its trajectory in Gazebo and RViz.
 
-https://github.com/gazebosim/docs/assets/24695820/7344734b-4f69-4441-807e-f06751116a03
+![gz_rviz](tutorials/ros2_integration/gz_rviz.gif)
+
+For more details on implementation of this demo see [ROS 2 and Gazebo Integration Tutorial](docs/garden/ros2_gazebo_integration_tutorial).

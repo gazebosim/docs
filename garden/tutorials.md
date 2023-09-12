@@ -20,6 +20,8 @@ These tutorials cover general concepts to help get you started with Gazebo.
 ## ROS integration
 
 * [ROS 2 Integration](ros2_integration)
+* [ROS 2 and Gazebo Integration Tutorial](ros2_gazebo_integration_tutorial)
+* [Guide to `ros_gz_project_template`](ros_gz_project_tenmplate_guide)
 
 ## Per-library tutorials
 
