@@ -50,8 +50,11 @@ For publishing and controlling the robot pose, we need joint states of the robot
         output=['screen']
     )
     ```
-2. Visualize in RViz and with the help of the `joint_state_publisher_gui`, configure your robot model.
-   See [documentation](https://index.ros.org/p/joint_state_publisher_gui/#rolling) for node API.
+2. Visualize in RViz and with the help of the `joint_state_publisher_gui`, configure your robot model by adjusting joint states and poses using the slider.
+
+   ![jsp_gui](tutorials/ros2_integration/jsp_gui.png)
+
+   See [documentation](http://docs.ros.org/en/rolling/p/joint_state_publisher_gui/) for node API.
    This functionality is useful during initial development of the model.
    At this point we have achieved the first aim defined in [Setup](#Setup). 
 
