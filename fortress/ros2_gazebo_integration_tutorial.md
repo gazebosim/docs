@@ -29,7 +29,7 @@ Note: The full source code for this tutorial can be found in the [ros_gz_example
 Load the robot description file to set the `robot_description` parameter on the parameter server.
 
 ```python
-    sdf_file  =  os.path.join(pkg_project_description, 'models', 'rrbot', 'model.sdf')
+    sdf_file = os.path.join(pkg_project_description, 'models', 'rrbot', 'model.sdf')
     with open(sdf_file, 'r') as infp:
         robot_desc = infp.read()
 ```
@@ -52,7 +52,7 @@ For publishing and controlling the robot pose, we need joint states of the robot
     ```
 2. Visualize in RViz and with the help of the `joint_state_publisher_gui`, configure your robot model.
    See [documentation](https://index.ros.org/p/joint_state_publisher_gui/#rolling) for node API.
-   This functionality is useful during initial development of the model. Afterwards, once you've set up simulation, it might be less useful.
+   This functionality is useful during initial development of the model.
    At this point we have achieved the first aim defined in [Setup](#Setup). 
 
 3. Now if you'd want to extend this to visualize robot motion, we need positions and transforms.
@@ -69,7 +69,7 @@ For publishing and controlling the robot pose, we need joint states of the robot
         ]
     )
     ```
-   These 3D poses are published on the `/tf` topic which is useful to track/plan robot's motion, communicate between different parts of the robot or evaluate robot's performance.
+   These 3D poses are published on the `/tf` topic which is useful to track/plan the robot's motion, communicate between different parts of the robot or evaluate the robot's performance.
 
 ### Configure a communication bridge
 
@@ -91,7 +91,7 @@ Learn more about the bridge from [ROS 2 Integration](docs/fortress/ros2_integrat
 The main pain point of using existing simulation assets with ROS 2 tools was updating URDF files into a Gazebo-readable format. This is no longer required. If you are maintaining a URDF and an SDF file in a project, you can now drop the URDF and just use the SDF for both ROS and Gazebo.
 
 This is made possible by `sdformat_urdf`, a parser plugin library that converts an SDF file to URDF C++ DOM structures, making it understandle by the ROS 2 ecosystem.
-Though there are some limitations of the plugin like not all SDFormat tags are compatible. For example, if you have any sensors attached to a joint, it won't be parsed. More details [here](https://github.com/ros/sdformat_urdf/tree/ros2/sdformat_urdf).
+Although, there are some limitations of the plugin, like not all SDFormat tags are compatible. For example, if you have any sensors attached to a joint, it won't be parsed. More details [here](https://github.com/ros/sdformat_urdf/tree/ros2/sdformat_urdf).
 
 To embed this functionality, we simply need to print the SDFormat file to the `/robot_description` ROS topic, and internally ROS will find a suitable parser, `sdformat_urdf` in this case, to read the file. This is already done while configuring the `robot_state_publisher` earlier.
 
@@ -99,7 +99,7 @@ To embed this functionality, we simply need to print the SDFormat file to the `/
 
 The second aim defined in [Setup](#Setup) is essentially maintaining only one robot description format which now can be controlled directly with Gazebo.
 Using the SDFormat XML description of a robot, the simulator publishes model joint states.
-And `robot_state_publisher` handles turning those joint states into tfs which is used by RViz and other ROS tools.
+And `robot_state_publisher` handles turning those joint states into `tf`s which is used by RViz and other ROS tools.
 This enables visualizing a model in RViz simulated by Gazebo.
 
 ![gz_rviz](tutorials/ros2_integration/gz_rviz.gif)
