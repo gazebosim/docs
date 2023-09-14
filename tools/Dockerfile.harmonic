@@ -6,7 +6,7 @@ RUN echo ::group::Container setup
 
 RUN apt-get update \
  && apt-get install -y \
-      sudo tzdata lsb-release \
+      sudo tzdata lsb-release flex bison \
  && apt-get clean
 
 ARG GZ_VERSION_PASSWORD
@@ -23,36 +23,24 @@ COPY scripts/build_gz.sh scripts/build_gz.sh
 
 RUN echo ::endgroup::
 
-RUN scripts/build_gz.sh gazebosim gz-cmake gz-cmake3 y \
-      $GZ_VERSION_DATE \
-      $GZ_VERSION_PASSWORD; exit 0
+RUN echo ::group::Build doxygen from source
+# The version of doxygen in Jammy has a bug that generates garbled characters
+# when processing xml comment code blocks in markdown. We build doxygen 1.9.2
+# from source here since the problem appears to be fixed in that version.
+# Adapted from the Dockerfile in the doxygen repo
+RUN sudo apt-get remove -y doxygen
+RUN git clone https://github.com/doxygen/doxygen.git -b Release_1_9_2 \
+    && cd doxygen \
+    && mkdir build \
+    && cd build \
+    && cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX=/usr .. \
+    && make \
+    && sudo make install \
+    && cd ../..
+RUN echo ::endgroup::
 
-RUN scripts/build_gz.sh gazebosim gz-utils gz-utils2 y \
-      $GZ_VERSION_DATE \
-      $GZ_VERSION_PASSWORD; exit 0
-
-RUN scripts/build_gz.sh gazebosim gz-math gz-math7 y \
-      $GZ_VERSION_DATE \
-      $GZ_VERSION_PASSWORD; exit 0
-
-RUN scripts/build_gz.sh gazebosim gz-tools gz-tools2 n \
-      $GZ_VERSION_DATE \
-      $GZ_VERSION_PASSWORD; exit 0
-
-RUN scripts/build_gz.sh gazebosim gz-plugin gz-plugin2 y \
-      $GZ_VERSION_DATE \
-      $GZ_VERSION_PASSWORD; exit 0
-
-RUN scripts/build_gz.sh gazebosim gz-common gz-common5 y \
-      $GZ_VERSION_DATE \
-      $GZ_VERSION_PASSWORD; exit 0
-
-# SDFormat's documentation is uploaded in a different way
-# Keeping it here for completeness
-# RUN scripts/build_gz.sh osrf sdformat sdf11 n \
-#       $GZ_VERSION_DATE \
-#       $GZ_VERSION_PASSWORD; exit 0
-
+# Packages such as gz-cmake3 will be built and uploaded with Garden,
+# so here, we just build packages that have been bumped for Harmonic
 RUN scripts/build_gz.sh gazebosim gz-msgs gz-msgs10 y \
       $GZ_VERSION_DATE \
       $GZ_VERSION_PASSWORD; exit 0
