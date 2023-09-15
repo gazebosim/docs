@@ -25,9 +25,6 @@ but you can expect runtime failures when using their functionalities.
    development. Check "Desktop development with C++" in the Workloads tab,
    check "MFC and ATL support", and uncheck "C++ Cmake Tools." We will install
    cmake via Conda. All other checkboxes can be left unchecked.
-   It is recommended to choose the Visual Studio version based on
-   the supported versions for your ROS distribution if you plan to use Gazebo with
-   ROS.
 
 4. Open a Visual Studio Command Prompt (search for "x64 Native Tools Command Prompt
    for VS" in the Windows search field near the Windows button). Optionally,
