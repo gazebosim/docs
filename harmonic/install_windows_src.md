@@ -135,7 +135,7 @@ Run the following command to source the workspace:
 # CMD
 call install\setup.bat
 
-#PowerShell
+# PowerShell
 .\install\setup.ps1
 ```
 
