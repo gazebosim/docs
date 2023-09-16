@@ -142,13 +142,13 @@ call install\setup.bat
 This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)
 page to start using Gazebo!
 
-> **WARNING**
+> **NOTE**
 > As Gazebo GUI is not yet working, running `gz sim` will not work. You can run only the server with
 > ```cmd
 > gz sim -s -v
 > ```
 
-> **WARNING**
+> **NOTE**
 > If your username contains spaces (which is quite common on Windows), you will probably get errors
 >  saying `Invalid partition name [Computer:My User With Spaces]`. Fix this by changing `GZ_PARTITION`
 >  to something else:
