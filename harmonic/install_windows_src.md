@@ -26,72 +26,68 @@ but you can expect runtime failures when using their functionalities.
    check "MFC and ATL support", and uncheck "C++ Cmake Tools." We will install
    cmake via Conda. All other checkboxes can be left unchecked.
 
-4. Open a Visual Studio Command Prompt (search for "x64 Native Tools Command Prompt
+3. Open a Visual Studio Command Prompt (search for "x64 Native Tools Command Prompt
    for VS" in the Windows search field near the Windows button). Optionally,
    right-click and pin to the task bar for quick access in the future.
 
-  If you did not add Conda to your `PATH` environment variable during Conda installation,
-  you may need to navigate to the location of `condabin` in order to use the `conda` command.
-  To find `condabin`, search for "Anaconda Prompt" in the Windows search field near the
-  Windows button, open it, run `where conda`, and look for a line containing the directory `condabin`.
+   If you did not add Conda to your `PATH` environment variable during Conda installation,
+   you may need to navigate to the location of `condabin` in order to use the `conda` command.
+   To find `condabin`, search for "Anaconda Prompt" in the Windows search field near the
+   Windows button, open it, run `where conda`, and look for a line containing the directory `condabin`.
 
 4. Navigate to your `condabin`, if necessary, and then create and activate a Conda environment:
-  ```bash
-  conda create -n gz-ws
-  conda activate gz-ws
-  ```
+   ```bash
+   conda create -n gz-ws
+   conda activate gz-ws
+   ```
+   Once you have activated an environment, a prefix like `(gz-ws)` will be prepended to
+   your prompt, and you can use the `conda` command outside of the `condabin` directory.
 
-  Once you have activated an environment, a prefix like `(gz-ws)` will be prepended to
-  your prompt, and you can use the `conda` command outside of the `condabin` directory.
+   You can use `conda info --envs` to see all of your environments.
 
-  You can use `conda info --envs` to see all of your environments.
+   To speed up conda installations, also set the following to use libmamba solver.
+   Older conda installations may need to do [additional steps](https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community).
+   ```bash
+   conda config --set solver libmamba
+   ```
+   To remove an environment, use `conda remove --all --name <env_name>`.
 
-  To speed up conda installations, also set the following to use libmamba solver.
-  Older conda installations may need to do [additional steps](https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community).
-  ```bash
-  conda config --set solver libmamba
-  ```
-
-  To remove an environment, use `conda remove --all --name <env_name>`.
-
-  > [!NOTE]
-  > This way of Conda environment creation puts it into a default folder. If you need
-    to install it elsewhere, use `--prefix <env_path>` instead of `--name <env_name>`.
-    Environments in custom paths cannot be referenced by names, so even `conda activate`
-    needs to be passed a path (relative or absolute) instead of the name. If you refer
-    to a subdirectory of the current directory, you have to prepend `.\` so that Conda
-    knows it is a path and not a name.
+   > [!NOTE]
+   > This way of Conda environment creation puts it into a default folder. If you need
+     to install it elsewhere, use `--prefix <env_path>` instead of `--name <env_name>`.
+     Environments in custom paths cannot be referenced by names, so even `conda activate`
+     needs to be passed a path (relative or absolute) instead of the name. If you refer
+     to a subdirectory of the current directory, you have to prepend `.\` so that Conda
+     knows it is a path and not a name.
 
 5. Install dependencies:
-
-  ```bash
-  conda install cmake git vcstool curl pkg-config ^
-  colcon-common-extensions dartsim eigen freeimage gdal gts ^
-  glib dlfcn-win32 ffmpeg ruby tinyxml2 tinyxml ^
-  libprotobuf urdfdom zeromq cppzmq ogre=1.10 ogre-next jsoncpp ^
-  libzip qt pybind11 --channel conda-forge
-  ```
-
+   ```bash
+   conda install cmake git vcstool curl pkg-config ^
+   colcon-common-extensions dartsim eigen freeimage gdal gts ^
+   glib dlfcn-win32 ffmpeg ruby tinyxml2 tinyxml ^
+   libprotobuf urdfdom zeromq cppzmq ogre=1.10 ogre-next jsoncpp ^
+   libzip qt pybind11 --channel conda-forge
+   ```
   This can take tens of minutes (or less when using libmamba solver).
 
 6. Navigate to where you would like to build the library, create and enter your workspace directory,
    create the `src` directory which will contain the Gazebo source code.
-  ```bash
-  mkdir gz-ws
-  cd gz-ws
-  mkdir src
-  ```
+   ```bash
+   mkdir gz-ws
+   cd gz-ws
+   mkdir src
+   ```
 
 7. Then clone the repositories
-  ```bash
-    # CMD
-    curl -sk https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-harmonic.yaml -o collection-harmonic
-    vcs import src < collection-harmonic
+   ```bash
+   # CMD
+   curl -sk https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-harmonic.yaml -o collection-harmonic
+   vcs import src < collection-harmonic
 
-    # PowerShell
-    curl https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-harmonic.yaml -o collection-harmonic
-    vcs import --input collection-harmonic src
-  ```
+   # PowerShell
+   curl https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-harmonic.yaml -o collection-harmonic
+   vcs import --input collection-harmonic src
+   ```
 
 ## Building the Gazebo Libraries
 
@@ -170,7 +166,7 @@ Although running `gz sim` without arguments is not supported on Windows,
 and `gz sim -g` is also not supported, there is a workaround you can apply
 to be able to launch `gz sim -g` on Windows.
 
-> Manually comment [these lines](https://github.com/gazebosim/gz-sim/blob/gz-sim7_7.5.0/src/cmd/cmdsim.rb.in#L497-L501) and [these lines](https://github.com/gazebosim/gz-sim/blob/gz-sim7_7.5.0/src/cmd/cmdsim.rb.in#L558-L562) in file install\lib\ruby\gz\cmdsim8.rb .
+> Manually comment [these lines](https://github.com/gazebosim/gz-sim/blob/gz-sim7_7.5.0/src/cmd/cmdsim.rb.in#L497-L501) and [these lines](https://github.com/gazebosim/gz-sim/blob/gz-sim7_7.5.0/src/cmd/cmdsim.rb.in#L558-L562) in file `install\lib\ruby\gz\cmdsim8.rb`.
 
 This should allow you to run the GUI in a separate console, connecting to the server running in another console.
 
