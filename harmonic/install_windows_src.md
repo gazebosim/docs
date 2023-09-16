@@ -9,7 +9,7 @@ works in a limited fashion. These functionalities correspond to the currently
 building packages `gz-rendering` and `gz-sim`, respectively. The packages will build,
 but you can expect runtime failures when using their functionalities.
 
-> [!NOTE]
+> **NOTE**
 > You should be able to use `ogre` as a rendering engine instead of the default `ogre2`.
 > Just append `--render-engine ogre` to the command line.
 
@@ -52,7 +52,7 @@ but you can expect runtime failures when using their functionalities.
    ```
    To remove an environment, use `conda remove --all --name <env_name>`.
 
-   > [!NOTE]
+   > **NOTE**
    > This way of Conda environment creation puts it into a default folder. If you need
      to install it elsewhere, use `--prefix <env_path>` instead of `--name <env_name>`.
      Environments in custom paths cannot be referenced by names, so even `conda activate`
@@ -68,7 +68,7 @@ but you can expect runtime failures when using their functionalities.
    libprotobuf urdfdom zeromq cppzmq ogre=1.10 ogre-next jsoncpp ^
    libzip qt pybind11 --channel conda-forge
    ```
-  This can take tens of minutes (or less when using libmamba solver).
+   This can take tens of minutes (or less when using libmamba solver).
 
 6. Navigate to where you would like to build the library, create and enter your workspace directory,
    create the `src` directory which will contain the Gazebo source code.
@@ -142,23 +142,20 @@ call install\setup.bat
 This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)
 page to start using Gazebo!
 
-> [!WARNING]
+> **WARNING**
 > As Gazebo GUI is not yet working, running `gz sim` will not work. You can run only the server with
+> ```cmd
+> gz sim -s -v
+> ```
 
-```cmd
-gz sim -s -v
-```
-
-> [!WARNING]
-> If you username contains spaces (which is quite common on Windows), you will probably get errors
-  saying `Invalid partition name [Computer:My User With Spaces]`. Fix this by changing `GZ_PARTITION`
-  to something else:
-
-```cmd
-set GZ_PARTITION=test
-```
-
-Remember to set the same partition in all other consoles.
+> **WARNING**
+> If your username contains spaces (which is quite common on Windows), you will probably get errors
+>  saying `Invalid partition name [Computer:My User With Spaces]`. Fix this by changing `GZ_PARTITION`
+>  to something else:
+> ```cmd
+> set GZ_PARTITION=test
+> ```
+> Remember to set the same partition in all other consoles.
 
 ### Gazebo GUI workaround
 
