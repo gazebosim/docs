@@ -44,7 +44,7 @@ info@openrobotics.org.
 
 A number of features are planned for specific releases of Gazebo. The
 features listed here derive from the Quarterly Roadmap, listed above, and other
-ongoing projects.  See the [Release Features](/docs/all/release-features) page
+ongoing projects.  See the [Release Features](release_features.md) page
 for a list of features already available in each release of Gazebo.
 
 A named release of Gazebo, such as Acropolis or Blueprint, is tied to
