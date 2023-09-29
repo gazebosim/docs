@@ -20,7 +20,7 @@ These tutorials cover general concepts to help get you started with Gazebo.
 ## ROS integration
 
 * [Spawn URDF](spawn_urdf)
-* [ROS 2 Integration](ros2_integration)
+* [ROS 2 Integration via Bridge](ros2_integration)
 * [ROS 2 Interoperability](ros2_interop)
 * [ROS 2 Integration Template](ros_gz_project_template_guide)
 
