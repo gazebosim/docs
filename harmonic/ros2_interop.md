@@ -1,4 +1,4 @@
-# ROS 2 and Gazebo Integration Tutorial
+# ROS 2 Interoperability
 
 `rrbot` is a simple two-link robotic arm with revolute joints, and this tutorial serves as an illustrative example using the same to demonstrate the interoperability of ROS 2 and Gazebo Sim.
 
