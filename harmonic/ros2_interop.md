@@ -1,4 +1,4 @@
-# ROS 2 and Gazebo Integration Tutorial
+# ROS 2 Interoperability
 
 `rrbot` is a simple two-link robotic arm with revolute joints, and this tutorial serves as an illustrative example using the same to demonstrate the interoperability of ROS 2 and Gazebo Sim.
 
@@ -10,9 +10,9 @@ Users can interact with `rrbot` through ROS 2 commands to move the robot's arms 
 
 ## Prerequisites
 
-1. A working installation of ROS 2 and Gazebo is required to go further. Please follow the [Install Gazebo and ROS document](docs/ros_installation). 
+1. A working installation of ROS 2 and Gazebo is required to go further. Please follow the [Install Gazebo and ROS document](/docs/ros_installation). 
 2. Basic familiarity with ROS concepts and terminal commands.
-3. Checkout [ROS 2 Integration](docs/harmonic/ros2_integration) to get familiar with [`ros_gz_bridge`](https://github.com/gazebosim/ros_gz) before starting this tutorial.
+3. Check out [ROS 2 Integration](ros2_integration) to get familiar with [`ros_gz_bridge`](https://github.com/gazebosim/ros_gz) before starting this tutorial.
 
 ## Setup
 
@@ -88,7 +88,7 @@ Configure a bridge between ROS topic `/joint_states` and Gazebo topic `/world/de
   direction: GZ_TO_ROS
 ```
 
-Learn more about the bridge from [ROS 2 Integration](docs/harmonic/ros2_integration).
+Learn more about the bridge from [ROS 2 Integration](ros2_integration).
 
 ### Maintaining a single robot description format
 
@@ -112,4 +112,4 @@ This enables visualizing a model in RViz simulated by Gazebo.
 
 Configure this functionality to enhance your existing ROS and Gazebo project.
 `ros_gz_project_template` provides an organized structure for ROS 2 and Gazebo projects, including necessary directories, build files, and launch scripts.
-See [Getting Started with `ros_gz_project_template` for ROS 2 and Gazebo Development](docs/harmonic/ros_gz_project_template) for guidance on using the template.
+See [Getting Started with `ros_gz_project_template` for ROS 2 and Gazebo Development](ros_gz_project_template_guide) for guidance on using the template.
