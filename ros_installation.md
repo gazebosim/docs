@@ -41,7 +41,7 @@ continued use.
 |------------------------ |---------------------- |-----------------------  |---------------  | ----------------------  |
 | **ROS 2 Rolling**       | ❌                    | ✅                      | ⚡              | ⚡                      |
 | **ROS 2 Iron**          | ❌                    | ✅                      | ⚡              | ⚡                      |
-| **ROS 2 Humble (LTS)**  | ❌                    | ✅                      | ⚡              | ⚡                      |
+| **ROS 2 Humble (LTS)**  | ❌                    | ✅                      | ⚡              | ❌                      |
 | **ROS 2 Foxy (LTS)**    | ✅                    | ❌                      | ❌              | ❌                      |
 | **ROS 1 Noetic (LTS)**  | ✅                    | ⚡                      | ❌              | ❌                      |
 
@@ -190,17 +190,17 @@ Both approaches may also require that you modify your ROS or Gazebo source code 
 
 ### Gazebo Harmonic (Not Recommended)
 
-Gazebo Harmonic can be used with ROS 2 Humble and non ROS official binary packages hosted
-in `packages.osrfoundation.org`. These packages conflict with `ros-humble-ros-gz*`
-packages (Humble officially supports Gazebo Fortress).
+Gazebo Harmonic can be used with ROS 2 Iron and non ROS official binary packages hosted
+in `packages.osrfoundation.org`. These packages conflict with `ros-iron-ros-gz*`
+packages (Iron officially supports Gazebo Fortress).
 
-To install the binary Gazebo Harmonic/ROS 2 Humble packages:
+To install the binary Gazebo Harmonic/ROS 2 Iron packages:
 
  * Folow [these instruction to install gz-harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu#binary-installation-on-ubuntu)
    from [`packages.osrfoundation.org`](https://packages.osrfoundation.org/gazebo/ubuntu/)
    repository.
  * Install `ros_gz` from the non official binary packages from apt:
-   * `apt-get install ros-humble-ros-gzharmonic`
+   * `apt-get install ros-iron-ros-gzharmonic`
 
 Gazebo Harmonic can be used with ROS 2 Rolling but
 [`ros_gz`](https://github.com/gazebosim/ros_gz) will need to be compiled
