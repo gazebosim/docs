@@ -11,7 +11,7 @@ simulatenously simulated by a Gazebo world.
 
 ## Requirements
 
-Please follow the [Install Gazebo and ROS document](docs/ros_installation)
+Please follow the [Install Gazebo and ROS document](/docs/latest/ros_installation)
 before starting this tutorial. A working installation of ROS 2 and Gazebo is
 required to go further.
 
@@ -109,4 +109,4 @@ And verify the vehicle matching its trajectory in Gazebo and RViz.
 
 ![gz_rviz](tutorials/ros2_integration/gz_rviz.gif)
 
-For more details on implementation of this demo see [ROS 2 and Gazebo Integration Tutorial](docs/garden/ros2_gazebo_integration_tutorial).
+For more details on implementation of this demo see [ROS 2 Interoperability](ros2_interop).
