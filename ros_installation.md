@@ -37,12 +37,13 @@ other ROS and Gazebo releases are end of life and we do not recommend their
 continued use.
 
 
-|                         | **GZ Citadel (LTS)**  | **GZ Fortress (LTS)**   | **GZ Garden**   |
-|------------------------ |---------------------- |-----------------------  |---------------  |
-| **ROS 2 Rolling**       | ❌                    | ✅                      | ⚡               |
-| **ROS 2 Humble (LTS)**  | ❌                    | ✅                      | ⚡               |
-| **ROS 2 Foxy (LTS)**    | ✅                    | ❌                      | ❌              |
-| **ROS 1 Noetic (LTS)**  | ✅                    | ⚡                       | ❌              |
+|                         | **GZ Citadel (LTS)**  | **GZ Fortress (LTS)**   | **GZ Garden**   | **GZ Harmonic (LTS)**   |
+|------------------------ |---------------------- |-----------------------  |---------------  | ----------------------  |
+| **ROS 2 Rolling**       | ❌                    | ✅                      | ⚡              | ⚡                      |
+| **ROS 2 Iron**          | ❌                    | ✅                      | ⚡              | ⚡                      |
+| **ROS 2 Humble (LTS)**  | ❌                    | ✅                      | ⚡              | ❌                      |
+| **ROS 2 Foxy (LTS)**    | ✅                    | ❌                      | ❌              | ❌                      |
+| **ROS 1 Noetic (LTS)**  | ✅                    | ⚡                      | ❌              | ❌                      |
 
 
 * ✅ - Recommended combination
@@ -103,6 +104,7 @@ of writing the following packages are available on the following hosts:
    * ROS2 Foxy: Gazebo Citadel
    * ROS2 Galactic: Gazebo Edifice
    * ROS2 Humble: Gazebo Fortress
+   * ROS2 Iron: Gazebo Fortress
    * ROS2 Rolling: Gazebo Fortress (changing frequently)
 
  * **packages.osrfoundation.org**
@@ -110,6 +112,7 @@ of writing the following packages are available on the following hosts:
    * Gazebo Edifice
    * Gazebo Fortress
    * Gazebo Garden
+   * Gazebo Harmonic
 
 This means that including the `osrfoundation.org` repository is not strictly needed
 to get the Gazebo binary packages, as it can be installed from the ROS
@@ -184,6 +187,32 @@ every ROS package that uses a Gazebo library):
     built together but have no binary packages, neither in `packages.ros.org` or `packages.osrfoundation.org`
 
 Both approaches may also require that you modify your ROS or Gazebo source code to support this compilation.
+
+### Gazebo Harmonic (Not Recommended)
+
+Gazebo Harmonic can be used with ROS 2 Iron and non ROS official binary packages hosted
+in `packages.osrfoundation.org`. These packages conflict with `ros-iron-ros-gz*`
+packages (Iron officially supports Gazebo Fortress).
+
+To install the binary Gazebo Harmonic/ROS 2 Iron packages:
+
+ * Folow [these instruction to install gz-harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu#binary-installation-on-ubuntu)
+   from [`packages.osrfoundation.org`](https://packages.osrfoundation.org/gazebo/ubuntu/)
+   repository.
+ * Install `ros_gz` from the non official binary packages from apt:
+   * `apt-get install ros-iron-ros-gzharmonic`
+
+Gazebo Harmonic can be used with ROS 2 Rolling but
+[`ros_gz`](https://github.com/gazebosim/ros_gz) will need to be compiled
+from source.
+
+ * Folow [these instruction to install gz-harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu#binary-installation-on-ubuntu)
+   from [`packages.osrfoundation.org`](https://packages.osrfoundation.org/gazebo/ubuntu/)
+   repository.
+ * Install [rosdep rules for Gazebo Harmonic](https://github.com/osrf/osrf-rosdep#installing-rosdep-rules-to-resolve-gazebo-harmonic-libraries)
+ * Follow the instructions to compile `ros_gz` from source in a colcon workspace
+   * [ROS 2 Rolling](https://github.com/gazebosim/ros_gz/tree/ros2#from-source)
+     * Be sure of using `export GZ_VERSION=harmonic`
 
 ### Gazebo Garden (Not Recommended)
 
