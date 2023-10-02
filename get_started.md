@@ -17,12 +17,11 @@ packages available for the platform to use:
 
 |Platform|Gazebo Versions|
 |---|---|
-| Ubuntu 22.04 Jammy | [Gazebo Garden](/docs/garden/install_ubuntu) (recommended) and [Gazebo Fortress](/docs/fortress/install_ubuntu)
+| Ubuntu 22.04 Jammy | [Gazebo Harmonic](/docs/harmonic/install_ubuntu) (recommended), [Gazebo Garden](/docs/garden/install_ubuntu) and [Gazebo Fortress](/docs/fortress/install_ubuntu)
 | Ubuntu 20.04 Focal | [Gazebo Garden](/docs/garden/install_ubuntu) (recommended), [Gazebo Fortress](/docs/fortress/install_ubuntu) and [Gazebo Citadel](/docs/citadel/install_ubuntu)
 | Ubuntu 18.04 Bionic | [Gazebo Citadel](/docs/citadel/install_ubuntu)
-| Mac Monterey | [Gazebo Garden](/docs/garden/install_osx) (recommended), [Gazebo Fortress](/docs/fortress/install_osx) and [Gazebo Citadel](/docs/citadel/install_osx)
+| Mac Monterey | [Gazebo Harmonic](/docs/harmonic/install_osx) (recommended), [Gazebo Garden](/docs/garden/install_osx), [Gazebo Fortress](/docs/fortress/install_osx) and [Gazebo Citadel](/docs/citadel/install_osx)
 | Mac BigSur | [Gazebo Garden](/docs/garden/install_osx) (recommended), [Gazebo Fortress](/docs/fortress/install_osx) and [Gazebo Citadel](/docs/citadel/install_osx)
-| Mac Catalina | [Gazebo Garden](/docs/garden/install_osx) (recommended), [Gazebo Fortress](/docs/fortress/install_osx) and [Gazebo Citadel](/docs/citadel/install_osx)
 | Windows | Support via Conda-Forge is not fully functional, as there are known runtime issues [see this issue for details](https://github.com/gazebosim/gz-sim/issues/168).
 
 If the desired platform is not listed above or if a particular feature in a
@@ -30,6 +29,7 @@ given [Gazebo release](/docs/latest/releases) is needed,
 there is an installation package per release available with all the
 installation options:
 
+* [Gazebo Harmonic installation](/docs/harmonic/install) options (EOL 2028 Sep)
 * [Gazebo Garden installation](/docs/garden/install) options (EOL 2024 Sep)
 * [Gazebo Fortress (LTS) installation](/docs/fortress/install) options (EOL 2026 Sep)
 * [Gazebo Citadel (LTS) installation](/docs/citadel/install) options (EOL 2024 Dec)
