@@ -116,9 +116,10 @@ wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
 sudo apt-get update
 ```
 
-The command below will install all dependencies in Ubuntu:
+The command below must be run from a workspace with the Gazebo source code and will install all dependencies in Ubuntu:
 
 ```bash
+cd ~/workspace/src
 sudo apt -y install \
   $(sort -u $(find . -iname 'packages-'`lsb_release -cs`'.apt' -o -iname 'packages.apt' | grep -v '/\.git/') | sed '/ignition\|sdf/d' | tr '\n' ' ')
 ```
