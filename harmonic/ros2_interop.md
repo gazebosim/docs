@@ -10,7 +10,7 @@ Users can interact with `rrbot` through ROS 2 commands to move the robot's arms 
 
 ## Prerequisites
 
-1. A working installation of ROS 2 and Gazebo is required to go further. Please follow the [Install Gazebo and ROS document](/docs/ros_installation). 
+1. A working installation of ROS 2 and Gazebo is required to go further. Please follow the [Install Gazebo and ROS document](/docs/latest/ros_installation). 
 2. Basic familiarity with ROS concepts and terminal commands.
 3. Check out [ROS 2 Integration](ros2_integration) to get familiar with [`ros_gz_bridge`](https://github.com/gazebosim/ros_gz) before starting this tutorial.
 
@@ -56,7 +56,7 @@ For publishing and controlling the robot pose, we need joint states of the robot
 
    See [documentation](http://docs.ros.org/en/rolling/p/joint_state_publisher_gui/) for node API.
    This functionality is useful during initial development of the model.
-   At this point we have achieved the first aim defined in [Setup](#Setup). 
+   At this point we have achieved the first aim defined in [Setup](#setup). 
 
 3. Now if you'd want to extend this to visualize robot motion, we need positions and transforms.
    The [`robot_state_publisher`](https://github.com/ros/robot_state_publisher) takes the description and joint angles of the robot as inputs and publishes the 3D poses of the robot links, using a kinematic tree model of the robot.
@@ -101,7 +101,7 @@ To embed this functionality, we simply need to print the SDFormat file to the `/
 
 ### Run RViz and Gazebo
 
-The second aim defined in [Setup](#Setup) is essentially maintaining only one robot description format which now can be controlled directly with Gazebo.
+The second aim defined in [Setup](#setup) is essentially maintaining only one robot description format which now can be controlled directly with Gazebo.
 Using the SDFormat XML description of a robot, the simulator publishes model joint states.
 And `robot_state_publisher` handles turning those joint states into `tf`s which is used by RViz and other ROS tools.
 This enables visualizing a model in RViz simulated by Gazebo.
