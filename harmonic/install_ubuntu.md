@@ -1,6 +1,6 @@
 # Binary Installation on Ubuntu
 
-Harmonic pre-release binaries are provided for Ubuntu Jammy (22.04) and Ubuntu 24.04. The
+Harmonic binaries are provided for Ubuntu Jammy (22.04) and Ubuntu 24.04 (when it's released). The
 Harmonic binaries are hosted in the packages.osrfoundation.org repository.
 To install all of them, the metapackage `gz-harmonic` can be installed.
 
@@ -19,7 +19,6 @@ Then install Gazebo Harmonic:
 ```bash
 sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-prerelease $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-prerelease.list > /dev/null
 sudo apt-get update
 sudo apt-get install gz-harmonic
 ```

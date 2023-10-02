@@ -2,7 +2,7 @@
 
 A list of features present in [Gazebo-classic](https://github.com/osrf/gazebo/)
 version 11 and the status of their migration to
-[Gazebo Garden](https://gazebosim.org/).
+[Gazebo Harmonic](https://gazebosim.org/).
 
 All the issues below are labeled with
 [close the gap](https://github.com/search?q=org%3Agazebosim+label%3A%22close+the+gap%22&type=Issues)
@@ -284,14 +284,13 @@ ROS integration through the
 
 Supported versions:
 
-* ROS 1 Noetic (from source)
-* ROS 2 Humble (from source) / Rolling (from source)
+* ROS 2 Iron (from source) / Rolling (from source)
 
-Note: binaries for ROS2 might be available sometime after the Garden release.
+Note: binaries for ROS2 might be available sometime after the Harmonic release.
 
 For **ROS 2 Rolling**, the Rolling distribution moves with the next future release
 of ROS 2 defined in [REP-2000](https://www.ros.org/reps/rep-2000.html). For the Gz
-Garden release this means that it will be adopted when ROS 2 Iron goes into the
+Harmonic release this means that it will be adopted when ROS 2 Jazzy goes into the
 [REP-2000](https://www.ros.org/reps/rep-2000.html).
 
 ## Platforms
@@ -299,7 +298,7 @@ Garden release this means that it will be adopted when ROS 2 Iron goes into the
 Platform | Gazebo-classic | Gazebo Sim
 -- | -- | --
 Ubuntu | ✓ | ✓
-OSX | ✓ | Most of the stack works, outstanding issues: [command line](https://github.com/gazebosim/gz-sim/issues/25), [render window](https://github.com/gazebosim/gz-sim/issues/44)
+OSX | ✓ | Most of the stack works, outstanding issues: [render window](https://github.com/gazebosim/gz-sim/issues/44)
 Windows | ✓ | All libraries compile, low-level libraries function well: [Issue](https://github.com/gazebosim/gz-sim/issues/168)
 
 ## Others
