@@ -29,25 +29,29 @@
 
 if [[ $1 == 'all' || $1 == 'citadel' || $1 == 'Citadel' ]]; then
   echo -e "\e[46m\e[30mUploading documentation for Citadel\e[0m\e[39m"
-  docker build -f Dockerfile.citadel --build-arg GZ_VERSION_PASSWORD --build-arg GZ_VERSION_DATE=`date -Iseconds` --no-cache --build-arg AWS_ACCESS_KEY_ID --build-arg AWS_SECRET_ACCESS_KEY .
+  docker build -t gz-docs-builder -f Dockerfile.citadel --build-arg GZ_VERSION_PASSWORD --build-arg GZ_VERSION_DATE=`date -Iseconds` --no-cache --build-arg AWS_ACCESS_KEY_ID --build-arg AWS_SECRET_ACCESS_KEY .
+  docker image rm -f gz-docs-builder
   docker image prune -f
 fi
 
 if [[ $1 == 'all' || $1 == 'fortress' || $1 == 'Fortress' ]]; then
   echo -e "\e[46m\e[30mUploading documentation for Fortress\e[0m\e[39m"
-  docker build -f Dockerfile.fortress --build-arg GZ_VERSION_PASSWORD --build-arg GZ_VERSION_DATE=`date -Iseconds` --no-cache --build-arg AWS_ACCESS_KEY_ID --build-arg AWS_SECRET_ACCESS_KEY .
+  docker build -t gz-docs-builder -f Dockerfile.fortress --build-arg GZ_VERSION_PASSWORD --build-arg GZ_VERSION_DATE=`date -Iseconds` --no-cache --build-arg AWS_ACCESS_KEY_ID --build-arg AWS_SECRET_ACCESS_KEY .
+  docker image rm -f gz-docs-builder
   docker image prune -f
 fi
 
 if [[ $1 == 'all' || $1 == 'garden' || $1 == 'Garden' ]]; then
   echo -e "\e[46m\e[30mUploading documentation for Garden\e[0m\e[39m"
-  docker build -f Dockerfile.garden --build-arg GZ_VERSION_PASSWORD --build-arg GZ_VERSION_DATE=`date -Iseconds` --no-cache --build-arg AWS_ACCESS_KEY_ID --build-arg AWS_SECRET_ACCESS_KEY .
+  docker build -t gz-docs-builder -f Dockerfile.garden --build-arg GZ_VERSION_PASSWORD --build-arg GZ_VERSION_DATE=`date -Iseconds` --no-cache --build-arg AWS_ACCESS_KEY_ID --build-arg AWS_SECRET_ACCESS_KEY .
+  docker image rm -f gz-docs-builder
   docker image prune -f
 fi
 
 if [[ $1 == 'all' || $1 == 'harmonic' || $1 == 'Harmonic' ]]; then
   echo -e "\e[46m\e[30mUploading documentation for Harmonic\e[0m\e[39m"
-  docker build -f Dockerfile.harmonic --build-arg GZ_VERSION_PASSWORD --build-arg GZ_VERSION_DATE=`date -Iseconds` --no-cache --build-arg AWS_ACCESS_KEY_ID --build-arg AWS_SECRET_ACCESS_KEY .
+  docker build -t gz-docs-builder -f Dockerfile.harmonic --build-arg GZ_VERSION_PASSWORD --build-arg GZ_VERSION_DATE=`date -Iseconds` --no-cache --build-arg AWS_ACCESS_KEY_ID --build-arg AWS_SECRET_ACCESS_KEY .
+  docker image rm -f gz-docs-builder
   docker image prune -f
 fi
 
