@@ -20,13 +20,6 @@ cd ~/
 git clone https://github.com/gazebo-tooling/release-tools.git
 ```
 
-The `release.py` tool will use `sc3md` software to interact with Amazon AWS
-storage to host sources and binaries, so make sure `sc3md` is installed:
-
-```
-sudo apt-get install s3cmd
-```
-
 Some Debian tools require the following variables to be set:
 ```bash
 export DEBEMAIL="<username>@openrobotics.org"
@@ -45,14 +38,8 @@ Before starting the release process, make sure to ask for write access to:
 There are some credentials needed to interact with the release
 process:
 
- * S3 access to Open Robotics:
-  ```
-  s3cmd --configure
-  ```
-  If you don't have AWS credentials, please contact @j-rivero or @nuclearsandwich who will help set you up.
-
  * Release token: magic sequence of characters needed while running `release.py`
-   to interact with `build.osrfoundation.org`. This should be given to Gz releasers as a part of the AWS credentials set-up.
+   to interact with `build.osrfoundation.org`. This should be given to Gz developers that run releases by the Infra team.
 
 ## For Each Release
 
@@ -163,13 +150,14 @@ information about how they are used).
 After updating the code and releasing metadata everything is ready to launch the
 build in the server. Now, the following needs to happen:
 
- 1. Generate a tarball with the Gz library sources corresponding to the new
-    version in the Gz developer local system. Upload the tarball to S3 cloud storage.
- 1. Request `build.osrfoundation.org` server to start the jobs for:
-     1. Debian/Ubuntu: use `ign/gz-fooX-debbuilder` job names
-     1. Brew: entry job is `generic-release-homebrew_pull_request_updater`
+ 1. Tag the corresponding code in the repository and upload that tag to GitHub.
+ 1. Request `build.osrfoundation.org` server to start a chain of job by calling `gz-fooX-source`.
+    1. `gz-fooX-source` will generate the source tarball and call `repository_uploader_packages` to upload it to
+    1. `gz-fooX-source` will call `_releasepy` that will generate the builders jobs:
+        1. Debian/Ubuntu: use `ign/gz-fooX-debbuilder` job names
+        1. Brew: entry job is `generic-release-homebrew_pull_request_updater`
 
-The `release.py` script will perform all these actions. For more information of all the processes
+The `release.py` script  and Jenkins will perform all these actions. For more information of all the processes
 triggered by the `release.py` script please check [the release process](release#using-the-gzdev-repository-command).
 
 ### 4. Executing release.py
@@ -267,31 +255,39 @@ git checkout gz-cmake3
 
 For checking that the build process is ongoing as expected:
 
-1. Several `-debbuilder` jobs should be in https://build.osrfoundation.org/.
-   For watching the jobs to see if any of them fail or are marked unstable,
-   open the page for a specific debbuild, such as
-   https://build.osrfoundation.org/job/gz-math7-debbuilder/.
+1. Checking the source generation and upload:
+   1. The `-source` job triggered directly by `release.py` (script output will point to it) should have finished successfully.
+   1. There should be one new build in the `repository_uploader_packages` job with the name of the software.
+      1. If there is a failure, contact with the Infra team.
+   1. There should be one new build in the `_releasepy` job with the name of the software.
+      1. If there is a failure, you can check the output if you can access to the job workspace in the Jenkins build,
+         since it is disabled by default. Contact with the Infra team for help.
+1. Checking package generation after the `_releasepy` build:
+    1. Several `-debbuilder` jobs should be in https://build.osrfoundation.org/.
+       For watching the jobs to see if any of them fail or are marked unstable,
+       open the page for a specific debbuild, such as
+       https://build.osrfoundation.org/job/gz-math7-debbuilder/.
 
-   1. If there is a failure, check the list of supported
-      architectures in the corresponding [Gazebo Platform Support issue](https://github.com/gazebo-tooling/release-tools/issues?q=label%3A%22Tier+Platform+Support%22+)
+       1. If there is a failure, check the list of supported
+          architectures in the corresponding [Gazebo Platform Support issue](https://github.com/gazebo-tooling/release-tools/issues?q=label%3A%22Tier+Platform+Support%22+)
 
-   1. To check if a debbuild has previously succeeded for a given architecture,
-      check packages.osrfoundation.org to see the most recent successful builds.
-      (i.e most recent [Ubuntu builds of ignition-gazebo6](https://packages.osrfoundation.org/gazebo/ubuntu-stable/pool/main/i/ignition-gazebo6/)
-      or the [Debian builds of ignition-gazebo6](https://packages.osrfoundation.org/gazebo/debian-stable/pool/main/i/ignition-gazebo6/).
+       1. To check if a debbuild has previously succeeded for a given architecture,
+          check packages.osrfoundation.org to see the most recent successful builds.
+          (i.e most recent [Ubuntu builds of ignition-gazebo6](https://packages.osrfoundation.org/gazebo/ubuntu-stable/pool/main/i/ignition-gazebo6/)
+          or the [Debian builds of ignition-gazebo6](https://packages.osrfoundation.org/gazebo/debian-stable/pool/main/i/ignition-gazebo6/).
 
-   1. If the failure is on a supported architecture, check the source repository for an existing report of this failure and if none
-      exists, report the failure (see [gazebosim/gz-math#161](https://github.com/gazebosim/gz-math/issues/161)
-      for an example).
+       1. If the failure is on a supported architecture, check the source repository for an existing report of this failure and if none
+          exists, report the failure (see [gazebosim/gz-math#161](https://github.com/gazebosim/gz-math/issues/161)
+          for an example).
 
-   1. If a build is unstable, check if it was unstable before this release and if it has already been reported.
-      A common cause of unstable debbuilds is newly installed files that are not captured by the patterns in the `.install`
-      files in the `-release` repository. This can be checked by searching for `dh_missing` in the console log of the
-      unstable build and looking for a list of uninstalled files. Example pull requests that fix problems with `dh_missing`
-      are [gazebo-release/gz-transport11-release#4](https://github.com/gazebo-release/gz-transport11-release/pull/4)
-      and [gazebo-release/gz-tools-release#4](https://github.com/gazebo-release/gz-tools-release/pull/4).
+       1. If a build is unstable, check if it was unstable before this release and if it has already been reported.
+          A common cause of unstable debbuilds is newly installed files that are not captured by the patterns in the `.install`
+          files in the `-release` repository. This can be checked by searching for `dh_missing` in the console log of the
+          unstable build and looking for a list of uninstalled files. Example pull requests that fix problems with `dh_missing`
+          are [gazebo-release/gz-transport11-release#4](https://github.com/gazebo-release/gz-transport11-release/pull/4)
+          and [gazebo-release/gz-tools-release#4](https://github.com/gazebo-release/gz-tools-release/pull/4).
 
-1. A pull request was opened to https://github.com/osrf/homebrew-simulation
-   1. This pull request may take a minute or two to open.
-   1. Once it is open, make a comment containing the text "build bottle".
-      For further details, see the [README at osrf/homebrew-simulation](https://github.com/osrf/homebrew-simulation#to-build-bottles).
+    1. A pull request was opened to https://github.com/osrf/homebrew-simulation
+       1. This pull request may take a minute or two to open.
+       1. Once it is open, make a comment containing the text "build bottle".
+          For further details, see the [README at osrf/homebrew-simulation](https://github.com/osrf/homebrew-simulation#to-build-bottles).
