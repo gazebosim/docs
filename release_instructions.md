@@ -224,8 +224,6 @@ branch pointed by `--nightly-src-branch`.
 
 ```bash
 # Example gz-cmake3 nightly from main branch with jenkins_token credential
-cd gz-cmake3
-git checkout gz-cmake3
 # please replace <jenkins_token> with real release token (check crendentials section)
 ~/release-tools/release.py gz-cmake3 3.0.0~pre1 <jenkins_token> --upload-to-repo nightly --nightly-src-branch main
 
@@ -241,14 +239,17 @@ ordering for package managers. [This information about versioning](https://class
 Bumping the [revision number for binary packages](release#versioning) is a special
 case of releasing since the original tarball with the source code will
 remain the same. Once the release repository is ready with the new release
-version, `release.py` needs the `--only-bump-revision-linux` flag:
+version, `release.py` needs the `--only-bump-revision-linux` flag.
+
+Note that the `--source-tarball-uri` parameter is needed with the original tarball
+of the software version. All the tarballs can be found browing in https://classic.gazebosim.org/distributions
+or the information should appear in the parameters of the Jenkins -debbuilder build that created
+the first version of the sofware.
 
 ```bash
 # Example gz-cmake3 bumped from 3.0.1-1 to 3.0.1-2 with jenkins_token credential
-cd gz-cmake3
-git checkout gz-cmake3
 # please replace <jenkins_token> with real release token (check crendentials section)
-~/release-tools/release.py gz-cmake3 3.0.1 <jenkins_token> --only-bump-revision-linux -release-version 2
+~/release-tools/release.py gz-cmake3 3.0.1 <jenkins_token> --source-tarball-uri https://osrf-distributions.s3.amazonaws.com/gz-cmake/releases/gz-cmake-3.0.1.tar.bz2 --only-bump-revision-linux -release-version 2
 ```
 
 ## Checking the Building Process
@@ -256,8 +257,9 @@ git checkout gz-cmake3
 For checking that the build process is ongoing as expected:
 
 1. Checking the source generation and upload:
-   1. The `-source` job triggered directly by `release.py` (script output will point to it) should have finished successfully.
-   1. There should be one new build in the `repository_uploader_packages` job with the name of the software.
+   1. The `gz-fooX-source` job (change fooX by the software name being released, i.e: math7) is triggered directly
+      by `release.py` (script output will point to it) should have finished successfully.
+   1. The `gz-fooX-source` job launches a one new build in the `repository_uploader_packages` job with the name of the software.
       1. If there is a failure, contact with the Infra team.
    1. There should be one new build in the `_releasepy` job with the name of the software.
       1. If there is a failure, you can check the output if you can access to the job workspace in the Jenkins build,
