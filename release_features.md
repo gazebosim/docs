@@ -2,8 +2,31 @@
 
 Here you will find the set of features that are available in each release.
 
-Take a look at the [Roadmap](/docs/roadmap) for information about upcoming
+Take a look at the [Roadmap](/docs/all/roadmap) for information about upcoming
 features, some of which may land in released versions of Gazebo.
+
+## Harmonic
+
+For a complete list of features, please see the [highlights](https://github.com/gazebosim/gz-harmonic/blob/main/highlights.md) and [release notes](https://github.com/gazebosim/gz-harmonic/blob/main/release_notes.md) documentation in the Gazebo Harmonic repository.
+
+| Library name       | Version       | Changelog     |
+| ------------------ |:-------------:|:-------------:|
+|   gz-cmake        |       3.x     |       [Changelog](https://github.com/gazebosim/gz-cmake/blob/gz-cmake3/Changelog.md)     |
+|   gz-common       |       5.x     |       [Changelog](https://github.com/gazebosim/gz-common/blob/gz-common5/Changelog.md)    |
+|   gz-fuel-tools   |       9.x     |       [Changelog](https://github.com/gazebosim/gz-fuel-tools/blob/gz-fuel-tools9/Changelog.md)    |
+|   gz-gui          |       8.x     |       [Changelog](https://github.com/gazebosim/gz-gui/blob/gz-gui8/Changelog.md)       |
+|   gz-launch       |       7.x     |       [Changelog](https://github.com/gazebosim/gz-launch/blob/gz-launch7/Changelog.md)
+|   gz-math         |       7.x     |       [Changelog](https://github.com/gazebosim/gz-math/blob/gz-math7/Changelog.md)
+|   gz-msgs         |      10.x     |       [Changelog](https://github.com/gazebosim/gz-msgs/blob/gz-msgs10/Changelog.md)
+|   gz-physics      |       7.x     |       [Changelog](https://github.com/gazebosim/gz-physics/blob/gz-physics7/Changelog.md)
+|   gz-plugin       |       2.x     |       [Changelog](https://github.com/gazebosim/gz-plugin/blob/gz-plugin2/Changelog.md)     |
+|   gz-rendering    |       8.x     |       [Changelog](https://github.com/gazebosim/gz-rendering/blob/gz-rendering8/Changelog.md)      |
+|   gz-sensors      |       8.x     |       [Changelog](https://github.com/gazebosim/gz-sensors/blob/gz-sensors8/Changelog.md)      |
+|   gz-sim          |       8.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/gz-sim8/Changelog.md)     |
+|   gz-tools        |       2.x     |       [Changelog](https://github.com/gazebosim/gz-tools/blob/gz-tools2/Changelog.md)     |
+|   gz-transport    |      13.x     |       [Changelog](https://github.com/gazebosim/gz-transport/blob/gz-transport13/Changelog.md)      |
+|   gz-utils        |       2.x     |       [Changelog](https://github.com/gazebosim/gz-utils/blob/gz-utils2/Changelog.md)      |
+|   sdformat        |      14.x     |       [Changelog](https://github.com/osrf/sdformat/blob/sdf14/Changelog.md)        |
 
 ## Garden
 
@@ -34,7 +57,7 @@ features, some of which may land in released versions of Gazebo.
 1. [Allow specifying initial simulation time with a CLI argument](https://github.com/gazebosim/gz-sim/pull/1801)
 1. [Joints defined at the world level](https://github.com/gazebosim/sdformat/issues/1115)
 
-[^1]: All the functionality for creating custom rendering sensors is in Garden, but the PR listed, which serves as an 
+[^1]: All the functionality for creating custom rendering sensors is in Garden, but the PR listed, which serves as an
   example, is only available in Harmonic.
 
 | Library name       | Version       | Changelog     |
