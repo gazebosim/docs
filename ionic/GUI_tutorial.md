@@ -17,9 +17,10 @@ gz sim shapes.sdf
 
 `gz sim` will run the latest version of Gazebo you have installed.
 You can check if you have more than one version of Gazebo installed by running `gz sim --versions`.
-For example, if you have Ionic (8.x.x), Garden (7.x.x), and Fortress (6.x.x) installed, `--versions` might return:
+For example, if you have Ionic (9.x.x), Harmonic (8.x.x), Garden (7.x.x), and Fortress (6.x.x) installed, `--versions` might return:
 
 ```bash
+9.0.0
 8.0.0
 7.0.0
 6.0.0
@@ -28,7 +29,7 @@ For example, if you have Ionic (8.x.x), Garden (7.x.x), and Fortress (6.x.x) ins
 To ensure you're working with Ionic, include the `--force-version` directive when starting up:
 
 ```bash
-gz sim --force-version 8.0.0 shapes.sdf
+gz sim --force-version 9.0.0 shapes.sdf
 ```
 
 ## GUI

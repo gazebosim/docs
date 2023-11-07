@@ -104,7 +104,7 @@ colcon graph
 If that is the case, then you are ready to build the whole set of libraries:
 
 ```bash
-colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install --packages-up-to gz-sim8 gz-tools2
+colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install --packages-up-to gz-sim9 gz-tools2
 ```
 Tests are turned off as they are not currently supported on Windows.
 
@@ -163,7 +163,7 @@ Although running `gz sim` without arguments is not supported on Windows,
 and `gz sim -g` is also not supported, there is a workaround you can apply
 to be able to launch `gz sim -g` on Windows.
 
-> Manually comment [these lines](https://github.com/gazebosim/gz-sim/blob/gz-sim7_7.5.0/src/cmd/cmdsim.rb.in#L497-L501) and [these lines](https://github.com/gazebosim/gz-sim/blob/gz-sim7_7.5.0/src/cmd/cmdsim.rb.in#L558-L562) in file `install\lib\ruby\gz\cmdsim8.rb`.
+> Manually comment [these lines](https://github.com/gazebosim/gz-sim/blob/gz-sim7_7.5.0/src/cmd/cmdsim.rb.in#L497-L501) and [these lines](https://github.com/gazebosim/gz-sim/blob/gz-sim7_7.5.0/src/cmd/cmdsim.rb.in#L558-L562) in file `install\lib\ruby\gz\cmdsim9.rb`.
 
 This should allow you to run the GUI in a separate console, connecting to the server running in another console.
 

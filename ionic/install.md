@@ -42,7 +42,7 @@ This list of library versions may change up to the release date.
 |   gz-plugin        |       3.x     |
 |   gz-rendering     |       9.x     |
 |   gz-sensors       |       9.x     |
-|   gz-tools         |       3.x     |
+|   gz-tools         |       2.x     |
 |   gz-transport     |      14.x     |
 |   gz-utils         |       3.x     |
 |   sdformat         |      15.x     |
