@@ -56,8 +56,6 @@ compatible non-EOL release and propagate the feature forward.
 
 ### Citadel
 
-1. [Bash completion](https://github.com/gazebosim/gz-tools/issues/1)
-
 ### Fortress
 
 1. [Run server and client in the same process.](https://github.com/gazebosim/gz-sim/pull/793)
@@ -70,11 +68,9 @@ compatible non-EOL release and propagate the feature forward.
 ### Garden
 
 1. [Satisfying ASAN for Gazebo Math.](https://github.com/gazebosim/gz-math/issues/370)
-1. [Mimic joint type.](https://github.com/gazebosim/sdf_tutorials/pull/62)
 1. [SDF APIs to prevent console logging.](https://github.com/gazebosim/sdformat/issues/820)
 1. [Download Fuel models on the background](https://github.com/gazebosim/gz-sim/issues/1260)
 1. [Bazel build files.](https://github.com/gazebosim/gz-bazel)
-1. [Dynamic wrench application through the GUI (Mouse interaction with simulated models)](https://github.com/gazebosim/gz-sim/issues/306)
 
 ### Harmonic
 

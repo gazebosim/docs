@@ -7,7 +7,7 @@ features, some of which may land in released versions of Gazebo.
 
 ## Harmonic
 
-For a complete list of features, please see the [highlights](https://github.com/gazebosim/gz-harmonic/blob/main/highlights.md) and [release notes](https://github.com/gazebosim/gz-harmonic/blob/main/release_notes.md) documentation in the Gazebo Harmonic repository.
+For a complete list of features included in the initial release of Harmonic, please see the [highlights](https://github.com/gazebosim/gz-harmonic/blob/main/highlights.md) and [release notes](https://github.com/gazebosim/gz-harmonic/blob/main/release_notes.md) documentation in the Gazebo Harmonic repository.
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
@@ -56,6 +56,7 @@ For a complete list of features, please see the [highlights](https://github.com/
 1. [Lens flare support for Ogre and Ogre2.](https://github.com/gazebosim/gz-rendering/issues/730)
 1. [Allow specifying initial simulation time with a CLI argument](https://github.com/gazebosim/gz-sim/pull/1801)
 1. [Joints defined at the world level](https://github.com/gazebosim/sdformat/issues/1115)
+1. [Dynamic wrench application through the GUI (Mouse interaction with simulated models)](https://github.com/gazebosim/gz-sim/issues/306)
 
 [^1]: All the functionality for creating custom rendering sensors is in Garden, but the PR listed, which serves as an
   example, is only available in Harmonic.
@@ -268,6 +269,7 @@ For a complete list of features, please see the [highlights](https://github.com/
     * [Link](https://gazebosim.org/api/gazebo/3.5/migrationlinkapi.html)
 1. [Expose camera calibration parameters.](https://github.com/gazebosim/sdformat/pull/1088)
 1. [Speed up Resource Spawner.](https://github.com/gazebosim/gz-sim/issues/1936)
+1. [Bash completion](https://github.com/gazebosim/gz-tools/issues/1)
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
