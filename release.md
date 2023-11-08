@@ -175,7 +175,7 @@ tool [`release.py`](https://github.com/gazebo-tooling/release-tools/blob/master/
 Actions for releasing a new version of library `gz-foo` with major version `X`:
 
  1. [`release.py`](https://github.com/gazebo-tooling/release-tools/blob/master/release.py)
-    will tag the local repository and call `gz-fooX-source` to generate the sources
+    will tag the local repository and call the `gz-fooX-source` Jenkins job to generate the sources
     corresponding to that tag.
  1. `gz-fooX-source` will generate a tarball with the source code of the new version and
     call `repository_uploader_packages` to upload the tarball to `osrf-distributions S3`.
