@@ -242,7 +242,7 @@ remain the same. Once the release repository is ready with the new release
 version, `release.py` needs the `--only-bump-revision-linux` flag.
 
 Note that the `--source-tarball-uri` parameter is needed with the original tarball
-of the software version. All the tarballs can be found browing in https://classic.gazebosim.org/distributions
+of the software version. All the tarballs can be found at https://classic.gazebosim.org/distributions
 or the information should appear in the parameters of the Jenkins -debbuilder build that created
 the first version of the sofware.
 
