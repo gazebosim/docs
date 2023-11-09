@@ -17,7 +17,7 @@ info@openrobotics.org.
     * Copy/adapt tutorials from https://classic.gazebosim.org/tutorials
     * Improve existing content
     * Establish QA checklist for PRs in https://github.com/gazebosim/docs 
-* **Migrate from Qt5 to Qt6**
+* **Migrate from Qt5 to Qt6** (https://github.com/gazebosim/gz-gui/issues/586)
 * **Define platform dependencies and prepare for the new Ubuntu LTS 24.04 and the interaction with ROS 2 Jazzy.**
 * **Support nested models in Bullet-featherstone gz-physics engine plugin**
 
