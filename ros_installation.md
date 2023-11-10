@@ -229,7 +229,7 @@ To install the binary Gazebo Garden/ROS 2 Humble packages:
    * `apt-get install ros-humble-ros-gzgarden`
 
 Gazebo Garden can be used with ROS 2 Iron and non ROS official binary packages hosted
-in `packages.osrfoundation.org`. These packages conflict with `ros-humble-ros-gz*`
+in `packages.osrfoundation.org`. These packages conflict with `ros-iron-ros-gz*`
 packages (Iron officially supports Gazebo Fortress).
 
 To install the binary Gazebo Garden/ROS 2 Iron packages:
