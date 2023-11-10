@@ -48,7 +48,7 @@ continued use.
 
 * ✅ - Recommended combination
 * ❌ - Incompatible / not possible.
-* ⚡ - Possible, *but not recommended*. These combinations of ROS and Gazebo can
+* ⚡ - Possible, *but use with caution*. These combinations of ROS and Gazebo can
   be made to work together, but some effort is required.
 
 
@@ -188,7 +188,7 @@ every ROS package that uses a Gazebo library):
 
 Both approaches may also require that you modify your ROS or Gazebo source code to support this compilation.
 
-### Gazebo Harmonic (Not Recommended)
+### Gazebo Harmonic with ROS 2 Iron or Rolling (Use with caution)
 
 Gazebo Harmonic can be used with ROS 2 Iron and non ROS official binary packages hosted
 in `packages.osrfoundation.org`. These packages conflict with `ros-iron-ros-gz*`
@@ -214,7 +214,7 @@ from source.
    * [ROS 2 Rolling](https://github.com/gazebosim/ros_gz/tree/ros2#from-source)
      * Be sure of using `export GZ_VERSION=harmonic`
 
-### Gazebo Garden (Not Recommended)
+### Gazebo Garden with ROS 2 Humble, Iron or Rolling (Use with caution)
 
 Gazebo Garden can be used with ROS 2 Humble and non ROS official binary packages hosted
 in `packages.osrfoundation.org`. These packages conflict with `ros-humble-ros-gz*`
@@ -252,7 +252,7 @@ from source.
    * [ROS 2 Rolling](https://github.com/gazebosim/ros_gz/tree/ros2#from-source)
      * Be sure of using `export GZ_VERSION=garden`
 
-### Gazebo Fortress (Not Recommended)
+### Gazebo Fortress with ROS 2 Galactic or ROS 1 Noetic  (Not Recommended)
 
 Gazebo Fortress can be used with ROS 2 Galactic and ROS 1 Noetic by compiling
 [`ros_gz`](https://github.com/gazebosim/ros_gz) from source
@@ -304,11 +304,18 @@ If you don't need ROS support, the recommended version is the latest released
 version that can be [installed using the `osrfoundation.org` repo](https://gazebosim.org/docs)
 depending on your platform.
 
-#### I want to use Gazebo Garden with ROS. Where are the packages?
+#### I want to use Gazebo Harmonic or Gazebo Garden with ROS 2. Where are the packages?
 
-Unfortunately there are no Gazebo Garden packages for any ROS distribution. Please
-read how to compile it from source in this document under the section
-"[Using an specific Gazebo version with ROS2](https://staging.gazebosim.org/docs/garden/ros_installation#using-a-specific-and-unsupported-gazebo-version-with-ros-2)" >> "Gazebo Garden"
+We provide binary packages for `ros_gz` for the following Gazebo and ROS 2 pairings in the packages.osrfoundation.org repository
+but these packages are not official ROS packages, which means if there is a breaking change in the corresponding ROS 2 distribution,
+there will be a short delay before these packages are rebuilt with the changes. Installing these packages may also cause conflicts with
+other ROS packages that depend on Gazebo-classic.
+
+
+|                         | **Gazebo Garden**             | **Gazebo Harmonic (LTS)**   |
+|------------------------ |-----------------------------  | --------------------------  |
+| **ROS 2 Iron**          | `ros-iron-ros-gzgarden`       | `ros-iron-ros-gzharmonic`   |
+| **ROS 2 Humble (LTS)**  | `ros-humble-ros-gzgarden`     | `ros-humble-ros-gzharmonic` |
 
 #### Where I can find the different features implemented on each Gazebo version?
 
