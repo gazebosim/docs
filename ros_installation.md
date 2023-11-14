@@ -315,7 +315,7 @@ other ROS packages that depend on Gazebo-classic.
 |                         | **Gazebo Garden**             | **Gazebo Harmonic (LTS)**   |
 |------------------------ |-----------------------------  | --------------------------  |
 | **ROS 2 Iron**          | `ros-iron-ros-gzgarden`       | `ros-iron-ros-gzharmonic`   |
-| **ROS 2 Humble (LTS)**  | `ros-humble-ros-gzgarden`     | `ros-humble-ros-gzharmonic` |
+| **ROS 2 Humble (LTS)**  | `ros-humble-ros-gzgarden`     |                             |
 
 #### Where I can find the different features implemented on each Gazebo version?
 
