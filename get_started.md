@@ -44,7 +44,7 @@ simulator, from a terminal.
 Launch Gazebo by running:
 
 ```
-gz sim shapes.sdf
+gz sim shapes.sdf  # Fortress and Citadel use "ign gazebo" instead of "gz sim"
 ```
 
 This command will launch both the Sim server and Sim GUI with a world
@@ -54,13 +54,13 @@ Add the `-v 4` command line argument to generate error, warning,
 informational, and debugging messages on the console.
 
 ```
-gz sim shapes.sdf -v 4
+gz sim shapes.sdf -v 4  # Fortress and Citadel use "ign gazebo" instead of "gz sim"
 ```
 
 Gazebo Sim can also be run headless, i.e. without the GUI, by using the `-s` (server only) flag.
 
 ```
-gz sim -s shapes.sdf -v 4
+gz sim -s shapes.sdf -v 4  # Fortress and Citadel use "ign gazebo" instead of "gz sim"
 ```
 
 Similarly, the GUI can be run independently using the `-g` (gui only) flag.
@@ -109,12 +109,12 @@ and another for the GUI:
 
 ```sh
 # launch server in one terminal
-gz sim -v 4 shapes.sdf -s
+gz sim -v 4 shapes.sdf -s  # Fortress and Citadel use "ign gazebo" instead of "gz sim"
 ```
 
 ```sh
 # launch gui in a separate terminal
-gz sim -v 4 -g
+gz sim -v 4 -g  # Fortress and Citadel use "ign gazebo" instead of "gz sim"
 ```
 
 The GUI on macOS is currently known to be unstable. Basic interaction with
