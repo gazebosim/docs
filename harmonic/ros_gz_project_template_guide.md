@@ -78,7 +78,7 @@ Simulation assets include your models or robot descriptions in URDF or SDF, mesh
 
 There is a difference in how ROS and Gazebo resolves URIs, that the ROS side can handle `package://` URIs, but by default SDFormat only supports `model://`. Now `libsdformat` can convert `package://` to `model://` URIs. So existing simulation assets can be loaded by "installing" the models directory and exporting the model paths to your environment.
 
-This can be automated using colcon environment hooks (shell scripts provided by a ROS package) in a [DSV file](https://colcon.readthedocs.io/en/released/developer/environment.html?highlight=dsv#dsv-files). Whenever you source the setup file in a workspace these environment hooks are also being sourced. See an [example](https://github.com/gazebosim/ros_gz_project_template/blob/main/ros_gz_example_gazebo/hooks/ros_gz_example_gazebo.dsv.in) of prepending the model share path to `GZ_SIM_RESOURCE_PATH` which enables Gazebo to load models from a ROS package using the `model://` URI.
+This can be automated using colcon environment hooks (shell scripts provided by a ROS package) in a [DSV file](https://colcon.readthedocs.io/en/released/developer/environment.html?highlight=dsv#dsv-files). Whenever you source the setup file in a workspace these environment hooks are also being sourced. See an [example](https://github.com/gazebosim/ros_gz_project_template/tree/main/ros_gz_example_description/hooks) of prepending the model share path to `GZ_SIM_RESOURCE_PATH` which enables Gazebo to load models from a ROS package using the `model://` URI.
 
 ## Development
 
