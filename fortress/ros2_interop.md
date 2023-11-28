@@ -20,7 +20,7 @@ Start a fresh ROS 2 Python launch file or add the following nodes in your projec
 1. A robot model development and test setup
 2. Configure RViz (and other ROS 2 tools) to control a robot model simulated by a Gazebo world
 
-Note: The full source code for this tutorial can be found in the [ros_gz_example_brigup package](https://github.com/gazebosim/ros_gz_project_template/tree/main/ros_gz_example_bringup/launch) launch files.
+Note: The full source code for this tutorial can be found in the [ros_gz_example_bringup package](https://github.com/gazebosim/ros_gz_project_template/tree/main/ros_gz_example_bringup/launch) launch files.
 
 ## Implementation
 

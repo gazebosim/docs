@@ -18,9 +18,11 @@ In this guide, you will learn how to use the `ros_gz_project_template` to create
    Or start by cloning the template repository:
 
    ```bash
-   wget https://raw.githubusercontent.com/gazebosim/ros_gz_project_template/main/template_workspace.yaml
+   wget https://raw.githubusercontent.com/gazebosim/ros_gz_project_template/fortress/template_workspace.yaml
    vcs import < template_workspace.yaml
    ```
+
+   Note: For using the template with Gazebo Fortress switch to the `fortress` branch of this repository.
 
 3. Rename the cloned repository folder to your desired project name:
 
@@ -32,15 +34,53 @@ In this guide, you will learn how to use the `ros_gz_project_template` to create
 
 At this point you'll have the following packages in your project:
 
-* `ros_gz_example_description` - holds the SDF description of the simulated system and any other simulation assets. 
-Simulation assets means your models or robot descriptions in URDF or SDF, meshes and materials files to help visualize different parts of the robot and finally compiling all these elements in a simulated world SDF. Existing assets can be used by installing the models directory and exporting the paths to your environment. 
-Setting up paths can be also automated using colcon environment hooks with a [DSV file](https://colcon.readthedocs.io/en/released/developer/environment.html?highlight=dsv#dsv-files) prepending the model share path to Gazebo resource path.
+* `ros_gz_example_application` - holds ROS 2 specific code and configurations. Namely where control, planning or any high level algoritms reside.
+
+   <pre> ├── CMakeLists.txt
+   ├── package.xml
+   ├── <span style="color:#12488B"><b>src</b></span>
+       └── ...
+   </pre>
+
+* `ros_gz_example_bringup` - holds launch files and high level utilities, communication bridge between ROS and Gazebo. Any robot or hardware specific configurations go here.
+
+   <pre> ├── <span style="color:#12488B"><b>config</b></span>
+   │   ├── ros_gz_example_bridge.yaml
+   │   └── diff_drive.rviz
+   ├── <span style="color:#12488B"><b>launch</b></span>
+       └── diff_drive.launch.py
+   </pre>
+
+* `ros_gz_example_description` - holds the SDF description of the simulated system and any other [simulation assets](#accessing-simulation-assets).
+
+   <pre> ├── <span style="color:#12488B"><b>hooks</b></span>
+   │   └── ros_gz_example_description.dsv.in
+   ├── <span style="color:#12488B"><b>models</b></span>
+       ├── <span style="color:#12488B"><b>diff_drive</b></span>
+           ├── model.config
+           └── model.sdf
+   </pre>
 
 * `ros_gz_example_gazebo` - holds Gazebo specific code and configurations. Namely this is where user-defined worlds and custom system plugins end up.
 
-* `ros_gz_example_application` - holds ROS 2 specific code and configurations. Namely where control, planning or any high level algoritms reside.
+   <pre> ├── <span style="color:#12488B"><b>include</b></span>
+   │   └── <span style="color:#12488B"><b>ros_gz_example_gazebo</b></span>
+   │       ├── BasicSystem.hh
+   │       └── FullSystem.hh
+   ├── <span style="color:#12488B"><b>src</b></span>
+   │   ├── BasicSystem.cc
+   │   └── FullSystem.cc
+   ├── <span style="color:#12488B"><b>worlds</b></span>
+           └── diff_drive.sdf
+   </pre>
 
-* `ros_gz_example_bringup` - holds launch files and high level utilities, communication bridge between ROS and Gazebo. Any robot or hardware specific configurations go here.
+## Accessing Simulation Assets
+
+Simulation assets include your models or robot descriptions in URDF or SDF, meshes and materials files to help visualize different parts of the robot and finally compiling all these elements in a simulated world SDF. Gazebo offers a few different mechanisms for locating those, initializing it's search on `IGN_GAZEBO_RESOURCE_PATH` environment variable, see gz-sim API on [finding resources](https://gazebosim.org/api/sim/6/resources.html) for more details.
+
+There is a difference in how ROS and Gazebo resolves URIs, that the ROS side can handle `package://` URIs, but by default SDFormat only supports `model://`. Now `libsdformat` can convert `package://` to `model://` URIs. So existing simulation assets can be loaded by "installing" the models directory and exporting the model paths to your environment.
+
+This can be automated using colcon environment hooks (shell scripts provided by a ROS package) in a [DSV file](https://colcon.readthedocs.io/en/released/developer/environment.html?highlight=dsv#dsv-files). Whenever you source the setup file in a workspace these environment hooks are also being sourced. See an [example](https://github.com/gazebosim/ros_gz_project_template/tree/main/ros_gz_example_description/hooks) of prepending the model share path to `IGN_GAZEBO_RESOURCE_PATH` which enables Gazebo to load models from a ROS package using the `model://` URI.
 
 ## Development
 
