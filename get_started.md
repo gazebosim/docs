@@ -20,8 +20,8 @@ packages available for the platform to use:
 | Ubuntu 22.04 Jammy | [Gazebo Harmonic](/docs/harmonic/install_ubuntu) (recommended), [Gazebo Garden](/docs/garden/install_ubuntu) and [Gazebo Fortress](/docs/fortress/install_ubuntu)
 | Ubuntu 20.04 Focal | [Gazebo Garden](/docs/garden/install_ubuntu) (recommended), [Gazebo Fortress](/docs/fortress/install_ubuntu) and [Gazebo Citadel](/docs/citadel/install_ubuntu)
 | Ubuntu 18.04 Bionic | [Gazebo Citadel](/docs/citadel/install_ubuntu)
+| Mac Ventura | [Gazebo Harmonic](/docs/harmonic/install_osx) (recommended), [Gazebo Garden](/docs/garden/install_osx), [Gazebo Fortress](/docs/fortress/install_osx) and [Gazebo Citadel](/docs/citadel/install_osx)
 | Mac Monterey | [Gazebo Harmonic](/docs/harmonic/install_osx) (recommended), [Gazebo Garden](/docs/garden/install_osx), [Gazebo Fortress](/docs/fortress/install_osx) and [Gazebo Citadel](/docs/citadel/install_osx)
-| Mac BigSur | [Gazebo Garden](/docs/garden/install_osx) (recommended), [Gazebo Fortress](/docs/fortress/install_osx) and [Gazebo Citadel](/docs/citadel/install_osx)
 | Windows | Support via Conda-Forge is not fully functional, as there are known runtime issues [see this issue for details](https://github.com/gazebosim/gz-sim/issues/168).
 
 If the desired platform is not listed above or if a particular feature in a
