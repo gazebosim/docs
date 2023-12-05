@@ -102,14 +102,12 @@ of writing the following packages are available on the following hosts:
  * **packages.ros.org**
    * ROS1 Noetic: Gazebo Citadel
    * ROS2 Foxy: Gazebo Citadel
-   * ROS2 Galactic: Gazebo Edifice
    * ROS2 Humble: Gazebo Fortress
    * ROS2 Iron: Gazebo Fortress
    * ROS2 Rolling: Gazebo Fortress (changing frequently)
 
  * **packages.osrfoundation.org**
    * Gazebo Citadel
-   * Gazebo Edifice
    * Gazebo Fortress
    * Gazebo Garden
    * Gazebo Harmonic
@@ -133,16 +131,6 @@ install either `ros-humble-ros-gz` and `ros-rolling-ros-gz` from
 `packages.ros.org`.
 * These packages will automatically install both Gazebo Fortress and the ros-gz
 bridge.
-
-### ROS 2 Galactic
-
-* **ROS 2 Galactic is presently end of life, and we do not recommend using this
-version of ROS.** However, if you must this version of ROS, it
-officially supports the also end of life Gazebo Edifice.
-* To install Gazebo Edifice simply install `ros-galactic-ros-gz`
-from `packages.ros.org`.
-* This package will automatically install both Gazebo
-Edifice and the ros-gz bridge.
 
 ### ROS 2 Foxy
 
@@ -266,23 +254,6 @@ source.
      * Be sure of using `export GZ_VERSION=fortress`
    * [ROS1 Noetic](https://github.com/gazebosim/ros_gz/tree/noetic#from-source)
      * Be sure of using `export GZ_VERSION=fortress`
-
-### Gazebo Edifice (Not Recommended)
-Gazebo Edifice is currently end of life, and its use is not recommeneded,
-However, Gazebo Edifice can be made to work with ROS 2 Foxy, ROS 2 Rolling and
-ROS 1 Noetic, by compiling
-[`ros_gz`](https://github.com/gazebosim/ros_gz) from source.
-
- * Folow [the instruction to install gz-edifice](https://gazebosim.org/docs/edifice/install_ubuntu#binary-installation-on-ubuntu)
-   from `osrfoundation.org` repository
- * Follow the instructions to compile `ros_gz` from source in a colcon workspace
-   * [ROS 2 Foxy](https://github.com/gazebosim/ros_gz/tree/foxy#from-source)
-     * Be sure of using `export GZ_VERSION=edifice`
-   * [ROS 2 Rolling](https://github.com/gazebosim/ros_gz/tree/ros2#from-source)
-     * Be sure of using `export GZ_VERSION=edifice`
-   * [ROS1 Noetic](https://github.com/gazebosim/ros_gz/tree/noetic#from-source)
-     * Be sure of using `export GZ_VERSION=edifice`
-
 
 ## Using the Latest Gazebo Source Code for a Gazebo Distribution
 
