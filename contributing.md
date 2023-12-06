@@ -45,39 +45,39 @@ The following is a list of the major Gazebo repositories.
 A complete list can be found at
 [https://github.com/gazebosim/](https://github.com/gazebosim/).
 
-* [ign-cmake](https://github.com/gazebosim/gz-cmake): CMake
+* [gz-cmake](https://github.com/gazebosim/gz-cmake): CMake
 modules used to configure and build Gazebo libraries.
-* [ign-common](https://github.com/gazebosim/gz-common): Set of
+* [gz-common](https://github.com/gazebosim/gz-common): Set of
 general purpose components and utilities, such as 3D mesh processing, console
 logging, and signal handling.
-* [ign-fuel-tools](https://github.com/gazebosim/gz-fuel-tools): Interact
+* [gz-fuel-tools](https://github.com/gazebosim/gz-fuel-tools): Interact
 with Gazebo Fuel servers.
-* [ign-gazebo](https://github.com/gazebosim/gz-sim):
+* [gz-sim](https://github.com/gazebosim/gz-sim):
 A high-fidelity 3D rigid-body dynamic simulator.
-* [ign-gui](https://github.com/gazebosim/gz-gui): QT-based
+* [gz-gui](https://github.com/gazebosim/gz-gui): QT-based
 library to configure and manage graphical applications.
-* [ign-launch](https://github.com/gazebosim/gz-launch): Launch
+* [gz-launch](https://github.com/gazebosim/gz-launch): Launch
 executables and plugins.
-* [ign-math](https://github.com/gazebosim/gz-math): A math
+* [gz-math](https://github.com/gazebosim/gz-math): A math
 library targeted toward robotic applications.
-* [ign-msgs](https://github.com/gazebosim/gz-msgs): Protobuf
+* [gz-msgs](https://github.com/gazebosim/gz-msgs): Protobuf
 messages and utilities for simulation and robotics.
-* [ign-physics](https://github.com/gazebosim/gz-physics):
+* [gz-physics](https://github.com/gazebosim/gz-physics):
 Plugin based library for physics simulation.
-* [ign-plugin](https://github.com/gazebosim/gz-plugin): Library
+* [gz-plugin](https://github.com/gazebosim/gz-plugin): Library
 for registering, loading, and managing plugin libraries.
-* [ign-rendering](https://github.com/gazebosim/gz-rendering):
+* [gz-rendering](https://github.com/gazebosim/gz-rendering):
 Library that supports rendering through different engines, such as
 [OGRE](https://www.ogre3d.org/) and [Optix](https://developer.nvidia.com/optix).
-* [ign-sensors](https://github.com/gazebosim/gz-sensors): A set
+* [gz-sensors](https://github.com/gazebosim/gz-sensors): A set
 of models that generate realistic sensor data.
-* [ign-tools](https://github.com/gazebosim/gz-tools): Provides
-the `ign` command line interface that can be configured and used by multiple
+* [gz-tools](https://github.com/gazebosim/gz-tools): Provides
+the `gz` command line interface that can be configured and used by multiple
 libraries.
-* [ign-transport](https://github.com/gazebosim/gz-transport):
+* [gz-transport](https://github.com/gazebosim/gz-transport):
 High performance inter- and intra-process communication based on
 [ZeroMQ](http://zeromq.org/) and [Protobuf](https://developers.google.com/protocol-buffers/).
-* [ign-utils](https://github.com/gazebosim/gz-utils): General purpose
+* [gz-utils](https://github.com/gazebosim/gz-utils): General purpose
 classes and functions with minimal dependencies.
 * [sdformat](https://github.com/osrf/sdformat): World description format.
 
@@ -186,7 +186,7 @@ get acquainted with this development process.
 1. **Choose a base branch.** If your changes will break API or ABI, then
    base your new branch off of `main`. If your changes don't break
    API/ABI and you would like them to be released to an existing release
-   with major version `N`, then use branch `ign-<library>N` as the base.
+   with major version `N`, then use branch `gz-<library>N` as the base.
 
 1. **Work out of a branch** Always work out of a new branch, one that is not
    a release / main branch. This is a good habit to get in, and will make
@@ -294,24 +294,24 @@ Contributors should look at the ["Core development" board](https://github.com/or
 
 The following repositories from [Gazebo](https://github.com/gazebosim/) are tracked:
 
-* [ign-cmake](https://github.com/gazebosim/gz-cmake)
-* [ign-common](https://github.com/gazebosim/gz-common)
-* [ign-fuel-tools](https://github.com/gazebosim/gz-fuel-tools)
-* [ign-gazebo](https://github.com/gazebosim/gz-sim)
-* [ign-gui](https://github.com/gazebosim/gz-gui)
-* [ign-launch](https://github.com/gazebosim/gz-launch)
-* [ign-math](https://github.com/gazebosim/gz-math)
-* [ign-msgs](https://github.com/gazebosim/gz-msgs)
-* [ign-physics](https://github.com/gazebosim/gz-physics)
-* [ign-plugin](https://github.com/gazebosim/gz-plugin)
-* [ign-rendering](https://github.com/gazebosim/gz-rendering)
-* [ign-sensors](https://github.com/gazebosim/gz-sensors)
-* [ign-tools](https://github.com/gazebosim/gz-tools)
-* [ign-transport](https://github.com/gazebosim/gz-transport)
-* [ign-utils](https://github.com/gazebosim/gz-utils)
+* [gz-cmake](https://github.com/gazebosim/gz-cmake)
+* [gz-common](https://github.com/gazebosim/gz-common)
+* [gz-fuel-tools](https://github.com/gazebosim/gz-fuel-tools)
+* [gz-gazebo](https://github.com/gazebosim/gz-sim)
+* [gz-gui](https://github.com/gazebosim/gz-gui)
+* [gz-launch](https://github.com/gazebosim/gz-launch)
+* [gz-math](https://github.com/gazebosim/gz-math)
+* [gz-msgs](https://github.com/gazebosim/gz-msgs)
+* [gz-physics](https://github.com/gazebosim/gz-physics)
+* [gz-plugin](https://github.com/gazebosim/gz-plugin)
+* [gz-rendering](https://github.com/gazebosim/gz-rendering)
+* [gz-sensors](https://github.com/gazebosim/gz-sensors)
+* [gz-tools](https://github.com/gazebosim/gz-tools)
+* [gz-transport](https://github.com/gazebosim/gz-transport)
+* [gz-utils](https://github.com/gazebosim/gz-utils)
 * [docs](https://github.com/gazebosim/docs/)
 * [design](https://github.com/gazebosim/design)
-* [ros_ign](https://github.com/gazebosim/ros_ign)
+* [ros_gz](https://github.com/gazebosim/ros_gz)
 
 
 New issues and pull requests, and issue and pull request statuses, from across the tracked repositories are all automatically synced with the same board.
@@ -408,12 +408,12 @@ Porting changes across branches:
 * The merge forward can be done with `git merge` in order to keep the commit history
   and so it's easier to compare branches. For example:
 
-        git checkout ign-<library>M
+        git checkout gz-<library>M
         git pull
-        git checkout ign-<library>N
+        git checkout gz-<library>N
         git pull
         git checkout -b username/M_to_N_<date> # It's important to do this before `git merge`
-        git merge ign-<library>M
+        git merge gz-<library>M
         # Fix conflicts
         git commit -sam"Merge M into N"
         # Open pull request
@@ -423,9 +423,9 @@ Porting changes across branches:
   higher version to a lower version), use `git cherry-pick` instead of `git merge`,
   for example:
 
-        git checkout ign-<library>N
+        git checkout gz-<library>N
         git pull
-        git checkout ign-<library>M
+        git checkout gz-<library>M
         git pull
         git checkout -b N_to_M_<date>
         git cherry-pick <commits from verrsion N>
