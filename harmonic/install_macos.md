@@ -1,15 +1,7 @@
-# Binary Installation on MacOS
+# Binary Installation on macOS
 
 All the Harmonic binaries are available in Big Sur and Monterey using the
-[homebrew package manager](https://brew.sh/).
-
-The homebrew tool can be installed using:
-
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-```
-
-After installing the homebrew package manager, Gazebo Harmonic can be installed running:
+[Homebrew package manager](https://brew.sh/). After installing Homebrew, Gazebo Harmonic can be installed running:
 
 ```bash
 brew tap osrf/simulation
