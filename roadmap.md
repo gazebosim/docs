@@ -8,7 +8,7 @@ info@openrobotics.org.
 
 ## Quarterly Roadmap
 
-## 2024 Q4 (Oct - Dec)
+## 2023 Q4 (Oct - Dec)
 
 * **Improve documentation website (gazebosim.org/docs)**
     * Use a static site generator for the documentation website so that anyone can preview changes made in a PR. (https://github.com/gazebosim/docs/issues/85)
