@@ -119,7 +119,7 @@ We define the first link, the `chassis` of our car and it's pose relative to the
 #### Inertial properties
 
 ```xml
-    <inertial> <!--inertial properties of the link mass, inertia matix-->
+    <inertial> <!--inertial properties of the link mass, inertia matrix-->
         <mass>1.14395</mass>
         <inertia>
             <ixx>0.095329</ixx>
