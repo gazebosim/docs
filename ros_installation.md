@@ -41,7 +41,7 @@ continued use.
 |------------------------ |---------------------- |-----------------------  |---------------  | ----------------------  |
 | **ROS 2 Rolling**       | ❌                    | ✅                      | ⚡              | ⚡                      |
 | **ROS 2 Iron**          | ❌                    | ✅                      | ⚡              | ⚡                      |
-| **ROS 2 Humble (LTS)**  | ❌                    | ✅                      | ⚡              | ❌                      |
+| **ROS 2 Humble (LTS)**  | ❌                    | ✅                      | ⚡              | ⚡                      |
 | **ROS 2 Foxy (LTS)**    | ✅                    | ❌                      | ❌              | ❌                      |
 | **ROS 1 Noetic (LTS)**  | ✅                    | ⚡                      | ❌              | ❌                      |
 
@@ -176,11 +176,19 @@ every ROS package that uses a Gazebo library):
 
 Both approaches may also require that you modify your ROS or Gazebo source code to support this compilation.
 
-### Gazebo Harmonic with ROS 2 Iron or Rolling (Use with caution)
+### Gazebo Harmonic with ROS 2 Humble, Iron or Rolling (Use with caution)
 
-Gazebo Harmonic can be used with ROS 2 Iron and non ROS official binary packages hosted
-in `packages.osrfoundation.org`. These packages conflict with `ros-iron-ros-gz*`
-packages (Iron officially supports Gazebo Fortress).
+Gazebo Harmonic can be used with ROS 2 Humble, ROS 2 Iron and non ROS official binary packages hosted
+in `packages.osrfoundation.org`. These packages conflict with `ros-humble-ros-gz*`/`ros-iron-ros-gz*`
+packages (Humble and Iron officially supports Gazebo Fortress).
+
+To install the binary Gazebo Harmonic/ROS 2 Humble packages:
+
+ * Folow [these instruction to install gz-harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu#binary-installation-on-ubuntu)
+   from [`packages.osrfoundation.org`](https://packages.osrfoundation.org/gazebo/ubuntu/)
+   repository.
+ * Install `ros_gz` from the non official binary packages from apt:
+   * `apt-get install ros-humble-ros-gzharmonic`
 
 To install the binary Gazebo Harmonic/ROS 2 Iron packages:
 
@@ -286,7 +294,7 @@ other ROS packages that depend on Gazebo-classic.
 |                         | **Gazebo Garden**             | **Gazebo Harmonic (LTS)**   |
 |------------------------ |-----------------------------  | --------------------------  |
 | **ROS 2 Iron**          | `ros-iron-ros-gzgarden`       | `ros-iron-ros-gzharmonic`   |
-| **ROS 2 Humble (LTS)**  | `ros-humble-ros-gzgarden`     |                             |
+| **ROS 2 Humble (LTS)**  | `ros-humble-ros-gzgarden`     | `ros-humble-ros-gzharmonic` |
 
 #### Where I can find the different features implemented on each Gazebo version?
 
@@ -297,6 +305,8 @@ Some notes are regularly posted on the [Gazebo community
 site](https://community.gazebosim.org/tags/c/release-announcements-and-discussions/10/release)
 and special posts and videos are also posted there when a new release is out:
 See the one for
+[Harmonic](https://community.gazebosim.org/t/gazebo-harmonic-release/2311) or the
+one for
 [Garden](https://community.gazebosim.org/t/gazebo-garden-release/1627) or the
 one for
 [Fortress](https://community.gazebosim.org/t/ignition-fortress-release/1127) as
