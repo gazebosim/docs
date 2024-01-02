@@ -403,7 +403,7 @@ We didn't use the `relative_to` attribute so the pose is with respect to the fra
         </geometry>
         <material>
             <ambient>0.0 1 0.0 1</ambient>
-            <diffuse>0.0 1 0.0 1 1</diffuse>
+            <diffuse>0.0 1 0.0 1</diffuse>
             <specular>0.0 1 0.0 1</specular>
         </material>
     </visual>
