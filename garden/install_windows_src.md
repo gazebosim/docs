@@ -155,3 +155,72 @@ the results you want:
 ## Troubleshooting
 
 See [Troubleshooting](/docs/garden/troubleshooting#windows)
+
+
+## Additional Developer Notes
+
+A section for additional tips and tricks until I can find a better place to put them in the documentation.
+
+### Windows Terminal
+
+Use [Windows Terminal](https://apps.microsoft.com/store/detail/windows-terminal/9N0DX20HK701?hl=en-us&gl=us).
+It is substantially better than the built-in terminal in every way.
+
+### Use ninja
+
+Ninja is substantially faster on Windows.  Add it via conda:
+
+```bash
+conda install ninja -c conda-forge
+```
+
+Then pass it to colcon via (or use the defaults file as outlined below):
+
+```bash
+colcon build --cmake-args -GNinja
+```
+
+### Use buildcache
+
+[Buildcache](https://github.com/mbitsnbites/buildcache) is similar to ccache but also works on Windows.
+
+Download latest binaries from the [releases page](https://github.com/mbitsnbites/buildcache/releases).
+
+Unzip it somewhere and add it to your `PATH` environment variable.
+
+```bash
+# Summarize cache status (should be non-zero if everything is working)
+buildcache -s
+```
+
+### Colcon defaults file
+
+Use a defaults file to control the behavior of colcon:
+
+```yaml
+{
+  "build": {
+    "merge-install": true,
+    "cmake-args": [
+      "-GNinja",
+      "--no-warn-unused-cli",
+      "-DBUILD_DOCS=OFF",
+      "-DSKIP_SWIG:BOOL=ON",
+      "-DSKIP_PYBIND11:BOOL=OFF",
+      "-DCMAKE_C_COMPILER_LAUNCHER=buildcache",
+      "-DCMAKE_CXX_COMPILER_LAUNCHER=buildcache",
+      "-DCMAKE_EXPORT_COMPILE_COMMANDS=1",
+      "-DCMAKE_BUILD_TYPE=Release",
+    ]
+  },
+  "test": {
+    "merge-install": true,
+  }
+}
+```
+
+Tell colcon to use it by setting environment variable
+
+```bash
+set COLCON_DEFAULTS_FILE=C:\path\to\workspace\defaults.yaml
+```
