@@ -37,19 +37,21 @@ other ROS and Gazebo releases are end of life and we do not recommend their
 continued use.
 
 
-|                         | **GZ Citadel (LTS)**  | **GZ Fortress (LTS)**   | **GZ Garden**   | **GZ Harmonic (LTS)**   |
-|------------------------ |---------------------- |-----------------------  |---------------  | ----------------------  |
-| **ROS 2 Rolling**       | ❌                    | ✅                      | ⚡              | ⚡                      |
-| **ROS 2 Iron**          | ❌                    | ✅                      | ⚡              | ⚡                      |
-| **ROS 2 Humble (LTS)**  | ❌                    | ✅                      | ⚡              | ⚡                      |
-| **ROS 2 Foxy (LTS)**    | ✅                    | ❌                      | ❌              | ❌                      |
-| **ROS 1 Noetic (LTS)**  | ✅                    | ⚡                      | ❌              | ❌                      |
+|                           | **GZ Citadel (LTS)**  | **GZ Fortress (LTS)**   | **GZ Garden**   | **GZ Harmonic (LTS)**   |
+|---------------------------|---------------------- |-----------------------  |---------------  | ----------------------  |
+| **ROS 2 Jazzy (LTS)[^1]** | ❌                    | ❌                      | ⚡              | ✅                      |
+| **ROS 2 Rolling**         | ❌                    | ✅                      | ⚡              | ⚡                      |
+| **ROS 2 Iron**            | ❌                    | ✅                      | ⚡              | ⚡                      |
+| **ROS 2 Humble (LTS)**    | ❌                    | ✅                      | ⚡              | ⚡                      |
+| **ROS 2 Foxy (LTS)**      | ✅                    | ❌                      | ❌              | ❌                      |
+| **ROS 1 Noetic (LTS)**    | ✅                    | ⚡                      | ❌              | ❌                      |
 
 
 * ✅ - Recommended combination
 * ❌ - Incompatible / not possible.
 * ⚡ - Possible, *but use with caution*. These combinations of ROS and Gazebo can
   be made to work together, but some effort is required.
+[^1] When ROS 2 Jazzy is released, it will be paired with Gazebo Harmonic.
 
 
 ## Installing the Default Gazebo/ROS Pairing
