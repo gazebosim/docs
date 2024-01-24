@@ -8,7 +8,7 @@ More information about URDF can be found at [https://wiki.ros.org/urdf](https://
 ## Obtaining a URDF file
 
 This tutorial assumes that the reader already has a URDF file that they'd like to load into Gazebo Sim.
-If you are looking for a URDF file to use, you can use the [`rrbot.urdf`](tutorials/spawn_urdf/rrbot.urdf) that was preprocessed for you. The `rrbot` robot model is from the [`gazebo_ros_demos`](https://github.com/ros-simulation/gazebo_ros_demos) package. You could also use one of the examples listed at [https://wiki.ros.org/urdf/Examples](https://wiki.ros.org/urdf/Examples).
+If you are looking for a URDF file to use, you can use the [`rrbot.urdf`](https://github.com/khaledgabr77/docs/blob/96bd6602bb58c9a815519580a713b050634e6e60/fortress/tutorials/spawn_urdf/rrbot.urdf) that was preprocessed for you. The `rrbot` robot model is from the [`gazebo_ros_demos`](https://github.com/ros-simulation/gazebo_ros_demos) package. You could also use one of the examples listed at [https://wiki.ros.org/urdf/Examples](https://wiki.ros.org/urdf/Examples).
 
 If you have a `xacro` representation of a robot model, you can turn the `xacro` file into a `URDF` file using the [`xacro`](https://index.ros.org/p/xacro/) package: see [this tutorial](https://docs.ros.org/en/foxy/Tutorials/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.html) for more information.
 
