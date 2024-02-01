@@ -18,7 +18,7 @@ This includes assets, such as 3D meshes, as well as some user information,
 such as email addresses during the sign up process. We explicitly do
 not store passwords. The user information we collect uniquely
 identifies a person, and is required by many of the features we
-provided by this web service.
+provide by this web service.
 
 
 ## Information we get from your use of our services. 
