@@ -61,7 +61,7 @@ Copyright notifications must include the following elements. Without this inform
 
    Your complaint must contain the specific URL of the content you believe infringes your rights, or we will be unable to locate it. General information about the location of the content is not adequate. Please include the URL(s) of the exact content at issue.
 
-4. You must agree too and affirm both of the following statements:
+4. You must agree to and affirm both of the following statements:
 
    “I have a good faith belief that use of the copyrighted materials described above as allegedly infringing is not authorized by the copyright owner, its agent, or the law.”
 
