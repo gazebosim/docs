@@ -12,16 +12,16 @@ store the minimal amount of information necessary to create a functional
 service, and we do not share or distribute private information.
 
 
-## Information you give to us. 
+## Information you give to us
 
 This includes assets, such as 3D meshes, as well as some user information,
 such as email addresses during the sign up process. We explicitly do
 not store passwords. The user information we collect uniquely
 identifies a person, and is required by many of the features we
-provided by this web service.
+provide by this web service.
 
 
-## Information we get from your use of our services. 
+## Information we get from your use of our services
 
 We collect meta-data, such as models that you have liked and downloaded.
 This information is used to provide a better user-experience. We do not sell
@@ -33,5 +33,5 @@ or use this information for ads or marketing.
 Content may be immediately removed if it
 
   * contains images that do not represent the actual data,
-  * violates copyright law ( See our [Copyright](/docs/latest/fuel_copyright) and [Fair Use](/docs/latest/fuel_fair_use) pages), or
+  * violates copyright law (See our [Copyright](/docs/latest/fuel_copyright) and [Fair Use](/docs/latest/fuel_fair_use) pages), or
   * contains inappropriate material including but not limited to spam, marketing material, or sexually explicit content.

@@ -51,21 +51,24 @@ Copyright notifications must include the following elements. Without this inform
 
 1. Your contact information
 
-You’ll need to provide information that will allow us to contact you regarding your complaint, such as an email address, physical address or telephone number.
+   You’ll need to provide information that will allow us to contact you regarding your complaint, such as an email address, physical address or telephone number.
 
 2. A description of your work that you believe has been infringed
 
-In your complaint, be sure to clearly and completely describe the copyrighted content you are seeking to protect. If multiple copyrighted works are covered in your complaint, the law allows a representative list of such works.
+   In your complaint, be sure to clearly and completely describe the copyrighted content you are seeking to protect. If multiple copyrighted works are covered in your complaint, the law allows a representative list of such works.
 
 3. Each allegedly infringing URL
 
-Your complaint must contain the specific URL of the content you believe infringes your rights, or we will be unable to locate it. General information about the location of the content is not adequate. Please include the URL(s) of the exact content at issue.
+   Your complaint must contain the specific URL of the content you believe infringes your rights, or we will be unable to locate it. General information about the location of the content is not adequate. Please include the URL(s) of the exact content at issue.
 
-4. You must agree too and affirm both of the following statements:
+4. You must agree to and affirm both of the following statements:
 
-“I have a good faith belief that use of the copyrighted materials described above as allegedly infringing is not authorized by the copyright owner, its agent, or the law.”
-And
-“The information in this notification is accurate and I swear, under penalty of perjury, that I am the copyright owner or am authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.”
+   “I have a good faith belief that use of the copyrighted materials described above as allegedly infringing is not authorized by the copyright owner, its agent, or the law.”
+
+   And
+
+   “The information in this notification is accurate and I swear, under penalty of perjury, that I am the copyright owner or am authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.”
+
 5. Your signature
 
-Complete complaints require the physical or electronic signature of the copyright owner or a representative authorized to act on their behalf. To satisfy this requirement, you may type your full legal name to act as your signature at the bottom of your complaint.
+   Complete complaints require the physical or electronic signature of the copyright owner or a representative authorized to act on their behalf. To satisfy this requirement, you may type your full legal name to act as your signature at the bottom of your complaint.
