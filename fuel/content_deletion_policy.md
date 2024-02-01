@@ -11,7 +11,7 @@ can then lead to breaking changes. We adhere to the following rules in order
 to strike a balance between content deletion and the needs of other users.
 
   1. You can delete any content that you have created and uploaded, but the content will remain in a soft-deleted state for one month.
-    * **Soft-delete** Is when content is marked as deleted, but remains available for download.
+      * **Soft-delete** Is when content is marked as deleted, but remains available for download.
   2. Users who have a dependency on your deleted content will be notified of the deletion.
   3. Content will be permanently removed after the soft-delete period.
 
