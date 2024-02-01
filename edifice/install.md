@@ -48,14 +48,4 @@ collection assures that all libraries are compatible and can be used together.
 
 ## Supported platforms
 
-Edifice is [supported](/docs/all/releases) on the platforms below.
-
-These are the **officially** supported platforms:
-
-* Ubuntu Bionic on amd64/i386
-* Ubuntu Focal on amd64
-
-Platforms supported at **best-effort** include arm architectures, Windows and
-macOS. See
-[this ticket](https://github.com/ignition-tooling/release-tools/issues/421)
-for the full status.
+See [supported platforms](releases#edifice).
