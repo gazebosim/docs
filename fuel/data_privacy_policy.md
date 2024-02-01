@@ -21,7 +21,7 @@ identifies a person, and is required by many of the features we
 provide by this web service.
 
 
-## Information we get from your use of our services. 
+## Information we get from your use of our services
 
 We collect meta-data, such as models that you have liked and downloaded.
 This information is used to provide a better user-experience. We do not sell
