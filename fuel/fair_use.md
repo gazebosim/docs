@@ -21,16 +21,16 @@ determinations.
 
 1. The purpose and character of the use, including whether such use is of commercial nature or is for nonprofit educational purposes
 
-Courts typically focus on whether the use is “transformative.” That is, whether it adds new expression or meaning to the original, or whether it merely copies from the original.
+   Courts typically focus on whether the use is “transformative.” That is, whether it adds new expression or meaning to the original, or whether it merely copies from the original.
 
 2. The nature of the copyrighted work
 
-Using material from primarily factual works is more likely to be fair than using purely fictional works.
+   Using material from primarily factual works is more likely to be fair than using purely fictional works.
 
 3. The amount and substantiality of the portion used in relation to the copyrighted work as a whole
 
-Borrowing small bits of material from an original work is more likely to be considered fair use than borrowing large portions. However, even a small taking may weigh against fair use in some situations if it constitutes the “heart” of the work.
+   Borrowing small bits of material from an original work is more likely to be considered fair use than borrowing large portions. However, even a small taking may weigh against fair use in some situations if it constitutes the “heart” of the work.
 
 4. The effect of the use upon the potential market for, or value of, the copyrighted work
 
-Uses that harm the copyright owner's ability to profit from his or her original work by serving as a replacement for demand for that work are less likely to be fair uses.
+   Uses that harm the copyright owner's ability to profit from his or her original work by serving as a replacement for demand for that work are less likely to be fair uses.
