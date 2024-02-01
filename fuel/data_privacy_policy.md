@@ -12,7 +12,7 @@ store the minimal amount of information necessary to create a functional
 service, and we do not share or distribute private information.
 
 
-## Information you give to us. 
+## Information you give to us
 
 This includes assets, such as 3D meshes, as well as some user information,
 such as email addresses during the sign up process. We explicitly do
