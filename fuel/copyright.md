@@ -51,15 +51,15 @@ Copyright notifications must include the following elements. Without this inform
 
 1. Your contact information
 
-You’ll need to provide information that will allow us to contact you regarding your complaint, such as an email address, physical address or telephone number.
+   You’ll need to provide information that will allow us to contact you regarding your complaint, such as an email address, physical address or telephone number.
 
 2. A description of your work that you believe has been infringed
 
-In your complaint, be sure to clearly and completely describe the copyrighted content you are seeking to protect. If multiple copyrighted works are covered in your complaint, the law allows a representative list of such works.
+   In your complaint, be sure to clearly and completely describe the copyrighted content you are seeking to protect. If multiple copyrighted works are covered in your complaint, the law allows a representative list of such works.
 
 3. Each allegedly infringing URL
 
-Your complaint must contain the specific URL of the content you believe infringes your rights, or we will be unable to locate it. General information about the location of the content is not adequate. Please include the URL(s) of the exact content at issue.
+   Your complaint must contain the specific URL of the content you believe infringes your rights, or we will be unable to locate it. General information about the location of the content is not adequate. Please include the URL(s) of the exact content at issue.
 
 4. You must agree too and affirm both of the following statements:
 
