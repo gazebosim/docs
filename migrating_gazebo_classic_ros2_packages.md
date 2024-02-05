@@ -25,7 +25,7 @@ package as an example. The complete, migrated version of
 We'll start by following the
 [PC Setup](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/)
 guide to install the necessary prerequisites for simulating Turtlebot3. This
-will install additional packages, such as Nav2 and Cartopgrapher, which we will
+will install additional packages, such as Nav2 and Cartographer, which we will
 be using later on in this tutorial, so make sure to not skip this step.
 
 The next step is to clone the `turtlebot3_simulation` package. We'll use the
@@ -93,11 +93,13 @@ After making the change, lines 17-21 of `package.xml` will look like this:
 
 ```xml
 ...
-  <buildtool_depend>ament_cmake</buildtool_depend>
-  <depend>ros_gz_bridge</depend>
-  <depend>ros_gz_sim</depend>
   <depend>geometry_msgs</depend>
   <depend>nav_msgs</depend>
+  <depend>rclcpp</depend>
+  <depend>ros_gz_bridge</depend>
+  <depend>ros_gz_sim</depend>
+  <depend>sensor_msgs</depend>
+  <depend>tf2</depend>
 ...
 ```
 
@@ -120,7 +122,7 @@ Gazebo.
 
 ## Launch the world
 
-We now need to edit `trutlebot3_gazebo/empty_world.launch.py` and replace any
+We now need to edit `turtlebot3_gazebo/empty_world.launch.py` and replace any
 use of `gazebo_ros_pkgs`.
 
 First replace the call to `get_package_share_directory` to find `ros_gz_sim`.
@@ -418,7 +420,7 @@ from the original plugin.
 ```xml
 <plugin filename="gz-sim-joint-state-publisher-system"
   name="gz::sim::systems::JointStatePublisher">
-  <topic>joint_states</topic> <!--from <ros><remaping> -->
+  <topic>joint_states</topic> <!--from <ros><remapping> -->
   <joint_name>wheel_left_joint</joint_name>
   <joint_name>wheel_right_joint</joint_name>
 </plugin>
