@@ -124,7 +124,7 @@ Gazebo.
 
 We now need to edit `turtlebot3_gazebo/empty_world.launch.py` and replace any
 use of `gazebo_ros_pkgs`.
-
+You can find the [Gazebo Classic empty world launch file before editing here](https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/master/turtlebot3_gazebo/launch/turtlebot3_empty_world.launch), and the [updated Gazebo empty world launch file here](https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/launch/empty_world.launch.py).
 First replace the call to `get_package_share_directory` to find `ros_gz_sim`.
 The code will change from:
 
@@ -257,7 +257,7 @@ To use fuel models, replace the `include` tags for `sun` and `ground_place` with
   </uri>
 </include>
 ```
-
+For reference, you can find the [Gazebo Classic empty world here](https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/master/turtlebot3_gazebo/worlds/empty.world), and the [updated new Gazebo empty world here](https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/worlds/empty_world.world).
 Relaunching `empty_world.launch.py` should now start the simulator successfully.
 
 ## Spawn model
@@ -294,9 +294,9 @@ These are coming from the model SDFormat file, which we will modify next.
 ## Modify the model
 
 We will be using the `waffle` robot for this tutorial, so we'll edit the file
-`turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf`. The changes we need to
+[`turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf`](https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/master/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf). The changes we need to
 make are mostly related to plugins and their parameters.
-
+You can reference the Waffle [model SDF file before editing here](https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/master/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf), and [after editing here](https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf). 
 ### libgazebo_ros_imu_sensor.so
 
 This plugin can be removed since there is a generic IMU plugin that handles all
@@ -525,7 +525,7 @@ following content:
 ```
 [The completed yaml file can be found here. ](https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/params/turtlebot3_waffle_bridge.yaml)
 Each entry in the yaml file has a ROS topic name, a Gazebo topic name, a ROS data/message type, and a direction which indicates
-which way messages flow. We will need to update the `CMakeLists.txt` file to
+which way messages flow. We will need to update the [`CMakeLists.txt`](https://github.com/azeey/turtlebot3_simulations/blob/ccb2385fd478e79c898d290d80fa41f35b1bbb83/turtlebot3_gazebo/CMakeLists.txt#L72) file to
 install the new `params` directory we created. The CMake `install` command
 should look like
 
@@ -535,7 +535,7 @@ install(DIRECTORY launch models params rviz urdf worlds
 )
 ```
 
-Finally, we will edit `turtlebot3_gazebo/launch/spawn_turtlebot3.launch.py`, to
+Finally, we will edit [`turtlebot3_gazebo/launch/spawn_turtlebot3.launch.py`](https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/launch/spawn_turtlebot3.launch.py), to
 create the bridge node
 
 ```python
