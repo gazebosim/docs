@@ -319,8 +319,15 @@ and
 For each `<plugin>` in the original model, The following is a list of all the
 plugins in the original model. For each plugin, we will either remove the plugin
 if it's no longer necessary, or use the equivalent plugin from the new Gazebo.
-If an equivalent plugin is used, we will update the SDF parameters of the plugin
-to match the parameters of the new plugin.
+You can use the Feature comparison page
+([Fortress](https://gazebosim.org/docs/fortress/comparison),
+[Harmonic](https://gazebosim.org/docs/harmonic/comparison)) to find out of a
+Gazebo Classic feature (e.g. a Sensor type) is available in Gazebo. If an
+equivalent plugin is used, we will update the SDF parameters of the plugin to
+match the parameters of the new plugin. See the list of systems
+([Fortress](https://gazebosim.org/api/gazebo/6/namespaceignition_1_1gazebo_1_1systems.html),
+[Harmonic](https://gazebosim.org/api/sim/8/namespacegz_1_1sim_1_1systems.html))
+to find equivalent plugins and their parameters.
 
 ### libgazebo_ros_imu_sensor.so
 
@@ -463,14 +470,19 @@ from the original plugin.
 
 ### World plugins
 
-As mentioned earlier, sensors are handled by generic world level plugins. By
-default, if there are no world plugins specified, Gazebo adds the `Physics`,
-`SceneBroadcaster`, and `UserCommands` plugins. However, if we specify any
-plugins at all, Gazebo will assume we want to override the defaults, so will not
-add any default plugins. Therefore, we have to add the additional plugins for
-IMU and Lidar sensors as well as the ones that would have been added by default.
-We will once again edit `turtlebot3_gazebo/worlds/empty_world.world` add the
-following right after `<world name="default">`.
+As mentioned earlier, sensors are handled by generic world level plugins.
+
+<div class="warning">
+  By default, if there are no world plugins specified, Gazebo adds the Physics,
+  SceneBroadcaster, and UserCommands plugins. However, if we specify any
+  plugins at all, Gazebo will assume we want to override the defaults, so will not
+  add any default plugins.
+</div>
+
+Therefore, we have to add the additional plugins for IMU and Lidar sensors as
+well as the ones that would have been added by default. We will once again edit
+`turtlebot3_gazebo/worlds/empty_world.world` add the following right after
+`<world name="default">`.
 
 ```xml
 <plugin
@@ -498,15 +510,15 @@ following right after `<world name="default">`.
 
 ## Bridge ROS topics
 
-The plugins in `gazebo_ros_pkgs` are Gazebo plugins that are also ROS nodes. In
-contrast, interfacing with ROS in `ros_gz` is mainly done through topic bridges.
-The bridge node is a generic node that bridges topics between `gz-transport` and
-ROS 2.
+In Gazebo Classic, communication with ROS is enabled by plugins in
+`gazebo_ros_pkgs` that directly interface with the simulator. In contrast, in
+the new Gazebo, communication with ROS is mainly done through topic bridges
+provided by `ros_gz`. The bridge node is a generic node that bridges topics
+between `gz-transport` and ROS 2.
 
-To create the bridge, we first create a `yaml` file that contains the topic
-names and their mappings. We'll add a new directory `params` in
-`turtlebot3_gazebo` and create `turtlebot3_waffle_bridge.yaml` with the
-following content:
+To create the bridge, we'll use a `yaml` file that contains the topic names and
+their mappings. We'll add a new directory `params` in `turtlebot3_gazebo` and
+create `turtlebot3_waffle_bridge.yaml` with the following content:
 
 ```yaml
 # gz topic published by the simulator core
