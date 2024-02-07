@@ -14,7 +14,7 @@ Knowing these conceptual differences is important in making the transition.
 highly recommend you read the [history](https://gazebosim.org/about) of the
 project to have a better understanding of the terminology used in this tutorial
 and elsewhere.
-
+As a convention we refer to older versions of Gazebo, those with release numbers like Gazebo 9 and Gazebo 11 as "Gazebo Classic." Newer versions of Gazebo, formerly called "Ignition", with lettered releases names like Harmonic, are referred to as just "Gazebo" in this document.  
 This tutorial will show how to migrate an existing ROS 2 package that uses the
 `gazebo_ros_pkgs` package to the new `ros_gz`. We will use the
 [turtlebot3_simulations](https://github.com/ROBOTIS-GIT/turtlebot3_simulations/)
