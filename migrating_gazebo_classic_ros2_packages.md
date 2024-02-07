@@ -2,8 +2,8 @@
 
 The Gazebo simulator has its roots in the Gazebo Classic project, but it has a
 few significant differences that affect how a ROS 2 project uses the simulator.
-One difference is that ROS 2 projects now use the `ros_gz` package instead of
-`gazebo_ros_pkgs` as the source of launch files and other useful utilities.
+One difference is that ROS 2 projects now use the [ros_gz](https://github.com/gazebosim/ros_gz) package instead of
+[gazebo_ros_pkgs](https://github.com/ros-simulation/gazebo_ros_pkgs) as the source of launch files and other useful utilities.
 Another major difference is that `gazebo_ros_pkgs` provided a set of plugins
 that directly get loaded by Gazebo Classic and run as part of the simulation to
 provide an interface between ROS and Gazebo Classic. On the other hand, the
@@ -78,7 +78,7 @@ The changes we need to make are:
 
 ## Update package dependencies
 
-The package depends on `gazebo_ros_pkgs`, which is the package that provides
+The turtlebot 3 package depends on `gazebo_ros_pkgs`, which is the package that provides
 launch files, plugins, and other utilities for using Gazebo classic with ROS 2.
 The equivalent for the new Gazebo is `ros_gz`, but `ros_gz` is actually a
 meta-package that contains a few packages. It's okay to replace
@@ -103,7 +103,7 @@ After making the change, lines 17-21 of `package.xml` will look like this:
 ...
 ```
 
-After making the change, we'll need to install the new dependencies. This should
+After making the change, we'll need to install the new dependencies. The following command will automatically
 install the necessary Gazebo version.
 
 ```bash
@@ -226,7 +226,7 @@ We are now ready to test the launch file. Comment out
 ros2 launch turtlebot3_gazebo empty_world.launch.py
 ```
 
-More than likely, this will fail because Gazebo could not find models referenced
+**More than likely, this will fail**  because Gazebo could not find models referenced
 in the world SDFormat file. The next step is to fix that.
 
 **Note:** Due to a bug in the GUI client, there might be a lingering
@@ -430,7 +430,7 @@ from the original plugin.
 
 As mentioned earlier, sensors are handled by generic world level plugins. By
 default, if there are no world plugins specified, Gazebo adds the `Physics`,
-`SceneBroadcaster`, and `UserCommands` plugins by default. However, if we
+`SceneBroadcaster`, and `UserCommands` plugins. However, if we
 specify any plugins at all, Gazebo will assume we want to override the defaults,
 so will not add any default plugins. Therefore, we have to add the additional
 plugins for IMU and Lidar sensors as well as the ones that would have been added
@@ -523,8 +523,8 @@ following content:
   gz_type_name: "gz.msgs.LaserScan"
   direction: GZ_TO_ROS
 ```
-
-Each topic has ROS and Gazebo topic names, types and a direction which indicates
+[The completed yaml file can be found here. ](https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/params/turtlebot3_waffle_bridge.yaml)
+Each entry in the yaml file has a ROS topic name, a Gazebo topic name, a ROS data/message type, and a direction which indicates
 which way messages flow. We will need to update the `CMakeLists.txt` file to
 install the new `params` directory we created. The CMake `install` command
 should look like
