@@ -19,13 +19,13 @@ project to have a better understanding of the terminology used in this tutorial
 and elsewhere. As a convention we refer to older versions of Gazebo, those with
 release numbers like Gazebo 9 and Gazebo 11 as "Gazebo Classic." Newer versions
 of Gazebo, formerly called "Ignition", with lettered releases names like
-Harmonic, are referred to as just "Gazebo" in this document.
-This tutorial will show how to migrate an existing ROS 2 package that uses the
-`gazebo_ros_pkgs` package to the new `ros_gz`. We will use the
+Harmonic, are referred to as just "Gazebo" in this document. This tutorial will
+show how to migrate an existing ROS 2 package that uses the `gazebo_ros_pkgs`
+package to the new `ros_gz`. We will use the
 [turtlebot3_simulations](https://github.com/ROBOTIS-GIT/turtlebot3_simulations/)
 package as an example. The complete, migrated version of
 `turtlebot3_simulations` covered in this tutorial, can be found in
-[this fork](https://github.com/azeey/turtlebot3_simulations/tree/new_gazebo)
+[this fork](https://github.com/azeey/turtlebot3_simulations/tree/new_gazebo).
 
 We'll start by following the
 [PC Setup](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/)
@@ -316,8 +316,15 @@ You can reference the Waffle
 [model SDF file before editing here](https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf),
 and
 [after editing here](https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf).
+For each `<plugin>` in the original model, The following is a list of all the
+plugins in the original model. For each plugin, we will either remove the plugin
+if it's no longer necessary, or use the equivalent plugin from the new Gazebo.
+If an equivalent plugin is used, we will update the SDF parameters of the plugin
+to match the parameters of the new plugin.
 
 ### libgazebo_ros_imu_sensor.so
+
+> [Plugin in the original model](https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf#L89-L94)
 
 This plugin can be removed since there is a generic IMU plugin that handles all
 IMU sensors. We will add this to the world later. We will set the `<topic>` tag
@@ -338,6 +345,8 @@ bridge later. The entire `<sensor>` tag should now look like:
 ```
 
 ### libgazebo_ros_ray_sensor.so
+
+> [Plugin in the original model](https://github.com/ROBOTIS-GIT/turtlebot3_simulations//blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf#L157-L164)
 
 Similar to the IMU, we will use a generic plugin loaded into the world for
 handling all rendering sensors, which includes Lidar sensors. Currently the
@@ -365,11 +374,15 @@ should look like:
 
 ### libgazebo_ros_camera.so
 
+> [Plugin in the original model](https://github.com/ROBOTIS-GIT/turtlebot3_simulations//blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf#L393-L402)
+
 Remove plugin, set `<topic>` if desired.
 
 - TODO: need to check camera info
 
 ### libgazebo_ros_diff_drive.so
+
+> [Plugin in the original model](https://github.com/ROBOTIS-GIT/turtlebot3_simulations//blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf#L476-L507)
 
 Since this is a model specific plugin, we will replace it with the `DiffDrive`
 plugin. We will match the parameters of `libgazebo_ros_diff_drive` as much as
@@ -430,6 +443,8 @@ The `<wheel_torque>` parameter can be realized by setting effort limits on each
 ```
 
 ### libgazebo_ros_joint_state_publisher.so
+
+> [Plugin in the original model](https://github.com/ROBOTIS-GIT/turtlebot3_simulations//blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf#L509-L517)
 
 We will replace this plugin as well with
 [`JointStatePublisher`](https://gazebosim.org/api/gazebo/6/classignition_1_1gazebo_1_1systems_1_1JointStatePublisher.html).
