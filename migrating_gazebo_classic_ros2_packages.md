@@ -4,10 +4,9 @@ The Gazebo simulator has its roots in the Gazebo Classic project, but it has a
 few significant differences that affect how a ROS 2 project uses the simulator.
 One difference is that ROS 2 projects now use the [ros_gz](https://github.com/gazebosim/ros_gz) package instead of
 [gazebo_ros_pkgs](https://github.com/ros-simulation/gazebo_ros_pkgs) as the source of launch files and other useful utilities.
-Another major difference is that `gazebo_ros_pkgs` provided a set of plugins
+Another major difference is that while [gazebo_ros_pkgs](https://github.com/ros-simulation/gazebo_ros_pkgs) provided a set of plugins
 that directly get loaded by Gazebo Classic and run as part of the simulation to
-provide an interface between ROS and Gazebo Classic. On the other hand, the
-primary mode `ros_gz` is used as bridge between ROS and gz-transport topics.
+provide an interface between ROS and Gazebo Classic, [ros_gz](https://github.com/gazebosim/ros_gz) is primarily used as a bridge between ROS and gz-transport topics.
 Knowing these conceptual differences is important in making the transition.
 
 **Note:** Since the name of the project has gone through two major changes, we
