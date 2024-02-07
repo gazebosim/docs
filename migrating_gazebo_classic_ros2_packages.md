@@ -103,6 +103,8 @@ After making the change, lines 17-21 of `package.xml` will look like this:
 ...
 ```
 
+You can find the [Gazebo Classic package XML file here](https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/package.xml), and the [updated Gazebo package XML file here](https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/package.xml).
+
 After making the change, we'll need to install the new dependencies. The following command will automatically
 install the necessary Gazebo version.
 
@@ -111,10 +113,9 @@ rosdep install --from-paths . -i -y
 ```
 
 This tutorial assumes you are using Gazebo Fortress as it is the version of
-Gazebo officially paired with ROS 2 Humble. It is possible to use newer versions
-of Gazebo, but might require extra work. See
+Gazebo officially paired with ROS 2 Humble. While it is possible to use newer versions of Gazebo with ROS 2 Humble, it requires extra work and is not recommend for most users. See
 [Installing Gazebo with ROS](https://gazebosim.org/docs/latest/ros_installation)
-to learn more. However, if you intend to switch back and forth between the new
+to learn more. If you intend to switch back and forth between the new
 Gazebo and Gazebo Classic, it's best to use Gazebo Fortress since the newer
 versions will automatically uninstall Gazebo Classic. With that being said, the
 concepts covered by the tutorial should work with newer versions of ROS 2 and
@@ -122,9 +123,9 @@ Gazebo.
 
 ## Launch the world
 
-We now need to edit `turtlebot3_gazebo/empty_world.launch.py` and replace any
+We now need to edit `turtlebot3_gazebo/launch/empty_world.launch.py` and replace any
 use of `gazebo_ros_pkgs`.
-You can find the [Gazebo Classic empty world launch file before editing here](https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/master/turtlebot3_gazebo/launch/turtlebot3_empty_world.launch), and the [updated Gazebo empty world launch file here](https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/launch/empty_world.launch.py).
+You can find the [Gazebo Classic empty world launch file before editing here](https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/launch/empty_world.launch.py), and the [updated Gazebo empty world launch file here](https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/launch/empty_world.launch.py).
 First replace the call to `get_package_share_directory` to find `ros_gz_sim`.
 The code will change from:
 
@@ -257,7 +258,8 @@ To use fuel models, replace the `include` tags for `sun` and `ground_place` with
   </uri>
 </include>
 ```
-For reference, you can find the [Gazebo Classic empty world here](https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/master/turtlebot3_gazebo/worlds/empty.world), and the [updated new Gazebo empty world here](https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/worlds/empty_world.world).
+
+For reference, you can find the [Gazebo Classic empty world here](https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/worlds/empty_world.world), and the [updated new Gazebo empty world here](https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/worlds/empty_world.world).
 Relaunching `empty_world.launch.py` should now start the simulator successfully.
 
 ## Spawn model
@@ -294,9 +296,9 @@ These are coming from the model SDFormat file, which we will modify next.
 ## Modify the model
 
 We will be using the `waffle` robot for this tutorial, so we'll edit the file
-[`turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf`](https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/master/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf). The changes we need to
+[`turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf`](https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf). The changes we need to
 make are mostly related to plugins and their parameters.
-You can reference the Waffle [model SDF file before editing here](https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/master/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf), and [after editing here](https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf). 
+You can reference the Waffle [model SDF file before editing here](https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf), and [after editing here](https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf). 
 ### libgazebo_ros_imu_sensor.so
 
 This plugin can be removed since there is a generic IMU plugin that handles all
