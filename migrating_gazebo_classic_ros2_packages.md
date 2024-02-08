@@ -63,6 +63,10 @@ export TURTLEBOT3_MODEL=waffle
 ros2 launch turtlebot3_gazebo empty_world.launch.py
 ```
 
+Here's a screenshot of Turtlebot3 running in Gazebo Classic obtained by
+launching `empty_world.launch.py`.
+![Screenshot of turtlebot 3 running in Gazebo Classic](images/gz_ros2_migration/gazebo_classic_turtlebot3.png)
+
 Once, we're sure that the Gazebo classic simulation is running properly, we
 create a new branch in which we'll make the changes to migrate to the new
 Gazebo.
@@ -386,11 +390,11 @@ should look like:
 
 The Camera sensor will also use a generic plugin that handles all rendering
 sensors loaded into the world. In the SDF file, we will set the `<topic>` and
-tag inside `<sensor>`, and the `<camera_info_topic>` inside `<camera>`, both
-of which will be used in the ROS bridge later. We will also set the
-`<gz_frame_id>` since the default frame id used by the generic plugin in the
-new Gazebo is different from the default used by `libgazebo_ros_camera` in
-Gazebo Classic. The final `<sensor>` tag should look like:
+tag inside `<sensor>`, and the `<camera_info_topic>` inside `<camera>`, both of
+which will be used in the ROS bridge later. We will also set the `<gz_frame_id>`
+since the default frame id used by the generic plugin in the new Gazebo is
+different from the default used by `libgazebo_ros_camera` in Gazebo Classic. The
+final `<sensor>` tag should look like:
 
 ```xml
 <sensor name="camera" type="camera">
@@ -615,7 +619,6 @@ Finally, we will edit
 to create the bridge node:
 
 ```python
-
 bridge_params = os.path.join(
     get_package_share_directory('turtlebot3_gazebo'),
     'params',
@@ -676,6 +679,13 @@ sets up the bridge so that we can communicate with it from ROS 2.
 export TURTLEBOT3_MODEL=waffle
 ros2 launch turtlebot3_gazebo empty_world.launch.py
 ```
+
+Here's a screenshot of Turtlebot3 running in Gazebo obtained by launching
+`empty_world.launch.py`. The Lidar visualization is enabled by adding the
+"Visualize Lidar" GUI plugin (see
+[tutorial](https://gazebosim.org/docs/fortress/gui) on how to add GUI plugins).
+
+![Screenshot of turtlebot 3 running in Gazebo](images/gz_ros2_migration/gazebo_turtlebot3.png)
 
 ## Migrating other files in turtlebot3_gazebo
 
