@@ -89,10 +89,10 @@ with ROS 2. The equivalent for the new Gazebo is `ros_gz`, but `ros_gz` is
 actually a meta-package that contains a few packages. It's okay to replace
 `gazebo_ros_pkgs` with `ros_gz` here, but using just the subset of packages
 needed for your project will reduce the number of dependencies. For the
-`turtlebot3_simulation` package, we will only need `ros_gz_bridge` and
-`ros_gz_sim` for now. `ros_gz_bridge` provides a topic bridge between Gazebo and
-ROS while `ros_gz_sim` provides launch files and other utilities that help with
-starting Gazebo and spawning models.
+`turtlebot3_simulation` package, we will only need `ros_gz_bridge`,
+`ros_gz_image`, and `ros_gz_sim` for now. `ros_gz_bridge` and `ros_gz_image`
+provide topic bridges between Gazebo and ROS while `ros_gz_sim` provides launch
+files and other utilities that help with starting Gazebo and spawning models.
 
 After making the change, lines 17-21 of `package.xml` will look like this:
 
@@ -102,6 +102,7 @@ After making the change, lines 17-21 of `package.xml` will look like this:
   <depend>nav_msgs</depend>
   <depend>rclcpp</depend>
   <depend>ros_gz_bridge</depend>
+  <depend>ros_gz_image</depend>
   <depend>ros_gz_sim</depend>
   <depend>sensor_msgs</depend>
   <depend>tf2</depend>
@@ -383,9 +384,27 @@ should look like:
 
 > [Plugin in the original model](https://github.com/ROBOTIS-GIT/turtlebot3_simulations//blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf#L393-L402)
 
-Remove plugin, set `<topic>` if desired.
+The Camera sensor will also use a generic plugin that handles all rendering
+sensors loaded into the world. In the SDF file, we will set the `<topic>` and
+tag inside `<sensor>`, and the `<camera_info_topic>` inside `<camera>`, both
+of which will be used in the ROS bridge later. We will also set the
+`<gz_frame_id>` since the default frame id used by the generic plugin in the
+new Gazebo is different from the default used by `libgazebo_ros_camera` in
+Gazebo Classic. The final `<sensor>` tag should look like:
 
-- TODO: need to check camera info
+```xml
+<sensor name="camera" type="camera">
+  <always_on>true</always_on>
+  <visualize>true</visualize>
+  <update_rate>30</update_rate>
+  <topic>camera/image_raw</topic>
+  <gz_frame_id>camera_rgb_frame</gz_frame_id>
+  <camera name="intel_realsense_r200">
+    <camera_info_topic>camera/camera_info</camera_info_topic>
+    ... <!-- all the content of <camera> from the original -->
+  </camera>
+</sensor>
+```
 
 ### libgazebo_ros_diff_drive.so
 
@@ -435,7 +454,6 @@ The `<wheel_torque>` parameter can be realized by setting effort limits on each
 `<joint>`. For example:
 
 ```xml
-
 <joint name="wheel_right_joint" type="revolute">
   <parent>base_link</parent>
   <child>wheel_right_link</child>
@@ -569,6 +587,13 @@ create `turtlebot3_waffle_bridge.yaml` with the following content:
   ros_type_name: "sensor_msgs/msg/LaserScan"
   gz_type_name: "gz.msgs.LaserScan"
   direction: GZ_TO_ROS
+
+# gz topic published by Sensors plugin (Camera)
+- ros_topic_name: "camera/camera_info"
+  gz_topic_name: "camera/camera_info"
+  ros_type_name: "sensor_msgs/msg/CameraInfo"
+  gz_type_name: "gz.msgs.CameraInfo"
+  direction: GZ_TO_ROS
 ```
 
 [The completed yaml file can be found here.](https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/params/turtlebot3_waffle_bridge.yaml)
@@ -586,8 +611,8 @@ install(DIRECTORY launch models params rviz urdf worlds
 ```
 
 Finally, we will edit
-[`turtlebot3_gazebo/launch/spawn_turtlebot3.launch.py`](https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/launch/spawn_turtlebot3.launch.py),
-to create the bridge node
+[`turtlebot3_gazebo/launch/spawn_turtlebot3.launch.py`](https://github.com/ROBOTIS-GIT/turtlebot3_simulations//blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/launch/spawn_turtlebot3.launch.py),
+to create the bridge node:
 
 ```python
 
@@ -607,12 +632,42 @@ start_gazebo_ros_bridge_cmd = Node(
     ],
     output='screen',
 )
+```
 
+You might have noticed that in the bridge parameters, we did not include the
+`camera/image_raw` topic. While it is possible to bridge the image topic in a
+similar manner as all the other topics, we will make use of a specialized bridge
+node,
+[`ros_gz_image`](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_image),
+which provides a much more efficient bridge for image topics. We'll add the
+following snippet to `turtlebot3_gazebo/launch/spawn_turtlebot3.launch.py`:
+
+```python
+start_gazebo_ros_image_bridge_cmd = Node(
+    package='ros_gz_image',
+    executable='image_bridge',
+    arguments=['/camera/image_raw'],
+    output='screen',
+)
+```
+
+Finally, we will add all new the actions to the list of `LaunchDescription`s
+returned by the `generate_launch_description` function
+
+```python
 # ...
 
 # Add the action to `ld` toward the end of the file
+
 ld.add_action(start_gazebo_ros_bridge_cmd)
+ld.add_action(start_gazebo_ros_image_bridge_cmd)
+
 ```
+
+You can find the
+[Gazebo Classic `spawn_turtlebot3.launch.py` file here](https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/launch/spawn_turtlebot3.launch.py),
+and the
+[updated Gazebo `spawn_turtlebot3.launch.py` file here](https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/launch/spawn_turtlebot3.launch.py).
 
 We are now ready to launch the empty world which spawns the waffle robot and
 sets up the bridge so that we can communicate with it from ROS 2.
