@@ -65,6 +65,7 @@ ros2 launch turtlebot3_gazebo empty_world.launch.py
 
 Here's a screenshot of Turtlebot3 running in Gazebo Classic obtained by
 launching `empty_world.launch.py`.
+
 ![Screenshot of turtlebot 3 running in Gazebo Classic](images/gz_ros2_migration/gazebo_classic_turtlebot3.png)
 
 Once, we're sure that the Gazebo classic simulation is running properly, we
