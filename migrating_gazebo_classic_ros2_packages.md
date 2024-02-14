@@ -30,8 +30,10 @@ package as an example. The complete, migrated version of
 We'll start by following the
 [PC Setup](https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/)
 guide to install the necessary prerequisites for simulating Turtlebot3. This
-will install additional packages, such as Nav2 and Cartographer, which we will
-be using later on in this tutorial, so make sure to not skip this step.
+will install additional packages, such as
+[Nav2](https://github.com/ros-planning/navigation2) and
+[Cartographer](https://github.com/cartographer-project/cartographer), which we
+will be using later on in this tutorial, so make sure to not skip this step.
 
 The next step is to clone the `turtlebot3_simulation` package. We'll use the
 `humble-devel` branch, which at the time of writing had a SHA of `d16cdbe`
