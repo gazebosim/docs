@@ -690,6 +690,16 @@ Here's a screenshot of Turtlebot3 running in Gazebo obtained by launching
 
 ![Screenshot of turtlebot 3 running in Gazebo](images/gz_ros2_migration/gazebo_turtlebot3.png)
 
+It is also now possible to do the
+[SLAM](https://emanual.robotis.com/docs/en/platform/turtlebot3/slam_simulation/)
+and
+[Navigation](https://emanual.robotis.com/docs/en/platform/turtlebot3/nav_simulation/)
+tutorials from the Turtlebot3 manual (make sure to select the Humble tab).
+However, it requires updating `turtlebot3_world.world` and
+`turtlebot3_world.launch.py` files according what we've discussed in this
+tutorial. For reference, those files have also been migrated in
+[this fork](https://github.com/azeey/turtlebot3_simulations/tree/new_gazebo).
+
 ## Migrating other files in turtlebot3_gazebo
 
 This tutorial does not cover all aspects of migrating models and launch files
