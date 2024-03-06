@@ -21,12 +21,12 @@ When adding a `plugin` to an SDF file which does not currently contain one, the 
 <sdf version='1.9'>
   <world name='demo'>
     <plugin
-        filename="ignition-gazebo-physics-system"
-        name="ignition::gazebo::systems::Physics">
+        filename="gz-sim-physics-system"
+        name="gz::sim::systems::Physics">
     </plugin>
     <plugin
-        filename="ignition-gazebo-scene-broadcaster-system"
-        name="ignition::gazebo::systems::SceneBroadcaster">
+        filename="gz-sim-scene-broadcaster-system"
+        name="gz::sim::systems::SceneBroadcaster">
     </plugin>
 
     <!-- ... -->
