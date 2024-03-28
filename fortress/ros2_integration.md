@@ -6,7 +6,7 @@ from ROS and apply it to Ignition and vice versa.
 
 ## ros_gz_bridge
 
-`ros_gz_bridge` provides a network bridge which enables the exchange of messages between ROS 2 and Ignition Transport. Its support is limited to only certain message types. Please, check this [README](https://github.com/ignitionrobotics/ros_ign/blob/ros2/ros_gz_bridge/README.md) to verify if your message type is supported by the bridge.
+`ros_gz_bridge` provides a network bridge which enables the exchange of messages between ROS 2 and Ignition Transport. Its support is limited to only certain message types. Please, check this [README](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md) to verify if your message type is supported by the bridge.
 
 ## Requirements
 
