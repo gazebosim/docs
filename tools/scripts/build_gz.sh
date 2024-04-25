@@ -42,6 +42,19 @@ if [[ ! -z "$4" && "$4" != "n" ]]; then
   libName=`echo "$2" | grep -oP "(?<=gz-).*"`
   libName="${libName//-/_}"
 
+  majorVersion="${version/\.*/}"
+  # Make sure the majorVersion is a valid number
+  numberCheckRegex='^[0-9]+$'
+  if [[ $majorVersion =~ $numberCheckRegex ]]; then
+    # If this is ign-gazebo (gz-sim <= 6), the upload_doc.sh will upload to api/gazebo so we'll need to
+    # sync to api/sim manually
+    if [[ "$libName" == "sim" && "$majorVersion" -le 6 ]]; then
+      aws s3 sync s3://gazebosim.org/api/gazebo/${majorVersion}/ s3://gazebosim.org/api/sim/${majorVersion}/
+    fi
+  else
+    echo "Invalid major version ${majorVersion}"
+  fi
+
   echo -e "\e[46m\e[30mAdding version [$version] for library [$libName], release date [$5]...\e[0m\e[39m"
   curl -k -X POST -d '{"libName":"'"$libName"'", "version":"'"$version"'", "releaseDate":"'"$5"'","password":"'"$6"'"}' https://api.gazebosim.org/1.0/versions
   echo -e "\e[46m\e[30mAdded version [$version] for library [$libName], release date [$5]\e[0m\e[39m"
