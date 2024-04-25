@@ -46,7 +46,7 @@ if [[ ! -z "$4" && "$4" != "n" ]]; then
   # Make sure the majorVersion is a valid number
   numberCheckRegex='^[0-9]+$'
   if [[ $majorVersion =~ $numberCheckRegex ]]; then
-    # If this is ign-gazebo (gz-sim < 6), the upload_doc.sh will upload to api/gazebo so we'll need to
+    # If this is ign-gazebo (gz-sim <= 6), the upload_doc.sh will upload to api/gazebo so we'll need to
     # sync to api/sim manually
     if [[ "$libName" == "sim" && "$majorVersion" -le 6 ]]; then
       aws s3 sync s3://gazebosim.org/api/gazebo/${majorVersion}/ s3://gazebosim.org/api/sim/${majorVersion}/
