@@ -17,7 +17,7 @@ packages available for the platform to use:
 
 |Platform|Gazebo Versions|
 |---|---|
-| Ubuntu 22.04 Jammy | [Gazebo Harmonic](/docs/harmonic/install_ubuntu) (recommended), [Gazebo Garden](/docs/garden/install_ubuntu) and [Gazebo Fortress](/docs/fortress/install_ubuntu)
+| Ubuntu 22.04 Jammy | [Gazebo Harmonic](/docs/harmonic/install_ubuntu) (recommended), [Gazebo Garden](/docs/garden/install_ubuntu) and [Gazebo Fortress](/docs/fortress/install_ubuntu) (recommended if using ROS 2 Humble or Iron)
 | Ubuntu 20.04 Focal | [Gazebo Garden](/docs/garden/install_ubuntu) (recommended), [Gazebo Fortress](/docs/fortress/install_ubuntu) and [Gazebo Citadel](/docs/citadel/install_ubuntu)
 | Ubuntu 18.04 Bionic | [Gazebo Citadel](/docs/citadel/install_ubuntu)
 | Mac Ventura | [Gazebo Harmonic](/docs/harmonic/install_osx) (recommended), [Gazebo Garden](/docs/garden/install_osx), [Gazebo Fortress](/docs/fortress/install_osx) and [Gazebo Citadel](/docs/citadel/install_osx)
