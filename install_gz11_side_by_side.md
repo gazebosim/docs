@@ -49,7 +49,7 @@ The `gazebo11-gz-cli` is a soft dependency on `gazebo11`. It is installed
 by default but it will be uninstalled when installing the new Gazebo 
 packages and the effect is that the `gz` command for Gazebo Classic replaced 
 by the `gz` tool from new Gazebo. The `gz11` command can be used instead of
-the `gz` command to access to the same functionaly.
+the `gz` command to access to the same functionality.
 
 ## Installing the new packaging from the PPA
 
@@ -57,7 +57,7 @@ From an existing `gazebo11` installation (on `jammy` the Ubuntu official
 repositories will install `11.10.2+dfsg-1` version) or a non existing
 `gazebo11` installation the steps are the following:
 
-```
+```bash
 sudo add-apt-repository ppa:openrobotics/gazebo11-gz-cli
 sudo apt update
 sudo apt-get install gazebo11
