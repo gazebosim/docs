@@ -1,10 +1,13 @@
 # Binary Installation on Ubuntu
 
-Harmonic binaries are provided for Ubuntu Jammy (22.04) and Ubuntu 24.04 (when it's released). The
+Harmonic binaries are provided for Ubuntu Jammy (22.04) and Ubuntu Noble (24.04). The
 Harmonic binaries are hosted in the packages.osrfoundation.org repository.
 To install all of them, the metapackage `gz-harmonic` can be installed.
 
-**WARNING:** `gz-harmonic` cannot be installed alongside gazebo-classic (eg. `gazebo11`) since both use the `gz` command line tool. Trying to install `gz-harmonic` on a system that already has gazebo-classic installed from binaries will cause gazebo-classic and its dependencies to be uninstalled. Currently, the workarounds for this are to install from source or to use Docker [`gazebo-classic`](https://hub.docker.com/_/gazebo) so they are not installed side-by-side on the same system.
+*WARNING:** for gazebo-classic (eg. `gazebo11`) users: `gz-harmonic` cannot be
+installed alongside with `gazebo11` by default. To facilitate the migration
+this can be done using the instruction detailed in
+[Installing Gazebo11 side by side with new Gazebo](/docs/all/install_gz11_side_by_side).
 
 First install some necessary tools:
 
