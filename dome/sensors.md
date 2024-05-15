@@ -362,14 +362,14 @@ Inside the main we subscribe to the `lidar` topic, and wait until the node is sh
 
 Download the [CMakeLists.txt](https://github.com/ignitionrobotics/docs/blob/master/dome/tutorials/sensors/CMakeLists.txt), and in the same folder of `lidar_node` create `build/` directory:
 
-```{.sh}
+```sh
 mkdir build
 cd build
 ```
 
 Run cmake and build the code:
 
-```{.sh}
+```sh
 cmake ..
 make lidar_node
 ```

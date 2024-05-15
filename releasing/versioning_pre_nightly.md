@@ -1,4 +1,4 @@
-## Debian/Ubuntu versioning in nightly and prerelease binaries
+# Debian/Ubuntu versioning in nightly and prerelease binaries
 
 Binary packages produced for prerelease and nightly builds have some
 particularities to establish the priority among them nicely.
@@ -17,7 +17,7 @@ this precedence, the nighlty version uses the trick of setting the version to
 `{X-1.99.99}` (i.e: if the version to release is `9.0.0`, the nightlies used before
 the version will use `8.99.99`).
 
-### Version schemes
+## Version schemes
 
 **Prerelease** versioning scheme: `{upcoming_version}~pre{prerelease_version}`
 
@@ -39,7 +39,7 @@ the version will use `8.99.99`).
  * `nightly_revision`:  revision number to apply to the nightly. It is also
    used to generate a new nightly using the same date timestamp.
 
-### Versions when mixing stable, prerelease and nightly
+## Versions when mixing stable, prerelease and nightly
 
 Which version has priority when using prerelease and stable repositories?
 

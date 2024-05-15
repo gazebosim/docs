@@ -102,7 +102,7 @@ Each [Gazebo library](/libs) also has a set of tutorials and
 examples. Explore these resources, and don't forget to ask questions and
 find solutions at [answers.gazebosim.org](http://answers.gazebosim.org).
 
-# macOS
+## macOS
 
 On macOS, you will need to run Gazebo using two terminals, one for the server
 and another for the GUI:
