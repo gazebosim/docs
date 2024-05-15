@@ -1,0 +1,18 @@
+{% include "!sections/header.html" %}
+
+<div class="doc-heading">
+  <div class="banner d-flex flex-column-reverse flex-sm-row">
+    <div>
+      <div class="d-none d-sm-block">
+        <span class="d-inline fs-2">Docs / Gazebo {{ release_info.name | capitalize }}</span>
+        {% if release_info.lts %}
+          <span class="badge bg-primary fs-4 fw-light ms-2">LTS</span>
+        {% elif release_info.eol %}
+          <span class="badge bg-danger fs-4 fw-light ms-2">EOL</span>
+        {% endif %}
+      </div>
+      <span>{{ release_info.description}}</span>
+    </div>
+    {%- include 'gz-version-switcher.html' -%}
+  </div>
+</div>
