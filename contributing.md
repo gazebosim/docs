@@ -183,8 +183,14 @@ get acquainted with this development process.
    take place in your fork.
    - An important thing to do is create a remote pointing to the [upstream remote repository](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork). This way, you can always check for modifications on the original repository and **always** keep your fork repository up to date.
 
-1. **Choose a base branch.** If your changes will break API or ABI, then
-   base your new branch off of `main`. If your changes don't break
+1. **Choose a base branch.**
+   - If your changes will break API or ABI, then base your new branch off of `main`.
+   - If you are making interdependent changes to multiple repositories without
+     breaking API or ABI, it is also recommended to base your new branches of of `main`
+     to simplify automated testing of the changes and the review process. Your
+     changes may be backported to an existing release once all the changes
+     have been merged.
+   - If your changes don't break
    API/ABI and you would like them to be released to an existing release
    with major version `N`, then use branch `gz-<library>N` as the base.
 
