@@ -1,3 +1,6 @@
+---
+orphan: true
+---
 # Release repositories
 
 > TODO: the document needs to be completed with real information. The points
