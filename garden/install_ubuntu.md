@@ -4,10 +4,12 @@ Garden binaries are provided for Ubuntu Focal and Jammy. The
 Garden binaries are hosted in the packages.osrfoundation.org repository.
 To install all of them, the metapackage `gz-garden` can be installed.
 
-**WARNING:** for gazebo-classic (eg. `gazebo11`) users: `gz-garden` cannot be
+<div class="warning">
+WARNING: for gazebo-classic (eg. `gazebo11`) users: `gz-harmonic` cannot be
 installed alongside with `gazebo11` by default. To facilitate the migration
 this can be done using the instruction detailed in
 [Installing Gazebo11 side by side with new Gazebo](/docs/all/install_gz11_side_by_side).
+</div>
 
 First install some necessary tools:
 
