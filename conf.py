@@ -66,10 +66,11 @@ myst_enable_extensions = [
     "tasklist",
 ]
 
-# TODO(azeey) Setting this to true hides a lot of broken links. Consider using
-# the `attrs_inline` myst extension and handle external links case by case
-# instead of globally.
-# myst_all_links_external = True
+nitpicky = False
+nitpick_ignore_regex = [
+    ("myst", r'/api/.*'),
+    ("myst", r'/libs/?.*'), # Ignore /libs for now.
+]
 
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
