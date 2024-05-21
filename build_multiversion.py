@@ -101,11 +101,11 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
 
     def handle_file_url_rename(file_path, file_url):
         computed_url, ext = os.path.splitext(file_path)
-        print("renames:", file_path, file_url)
+        # print("renames:", file_path, file_url)
         if file_url != computed_url:
             new_path = file_url + ext
             # If the file url is inside a directory, we want the new path to end up in the same directory
-            print("Moving", version_tmp_dir / file_path, version_tmp_dir / new_path)
+            # print("Moving", version_tmp_dir / file_path, version_tmp_dir / new_path)
             shutil.move(version_tmp_dir / file_path, version_tmp_dir / new_path)
             return new_path
         return file_path
