@@ -5,10 +5,10 @@ upstream Ubuntu. However, due to the package
 [update policy of Ubuntu](https://wiki.ubuntu.com/StableReleaseUpdates), the
 Gazebo packages on upstream Ubuntu did not receive any updates. Thus, upstream
 Ubuntu almost always had older versions of Gazebo than what was available from
-the Gazebo package repository (packages.osrfoundation.org). To overcome this,
+the Gazebo package repository ([packages.osrfoundation.org](packages.osrfoundation.org)). To overcome this,
 more up-to-date Gazebo packages were copied to the ROS bootstrap repository
-(repos.ros.org) which were then copied to the main ROS package repository
-(packages.ros.org). However, the process was error prone and keeping package
+([repos.ros.org](repos.ros.org)) which were then copied to the main ROS package repository
+([packages.ros.org](packages.ros.org)). However, the process was error prone and keeping package
 versions in sync between the Gazebo and ROS package repositories was difficult
 since this was a manual process.
 
@@ -85,7 +85,7 @@ To use a Gazebo library provided by a vendor package, you'll need to
 the CMake shims provided by the vendor package. These shims make it possible to
 `find_package` the underlying library and use its CMake targets without
 including the version number in the name. Thus, when upgrading to newer versions
-of Gazebo, the project `CMakeLists` file would not need to be modified.
+of Gazebo, the project `CMakeLists.txt` file would not need to be modified.
 
 Following the example above, The CMake entry for using `gz-cmake`, `gz-utils`
 and `gz-math` will be the following:
@@ -111,7 +111,7 @@ If you want to use a new release of Gazebo that is not officially paired with
 the release of ROS you are using (e.g. Gazebo Ionic with ROS 2 Jazzy), you can
 follow the following steps:
 
-1. Install the binaries from packages.osrfoundation.org. Make sure to install
+1. Install the binaries from [packages.osrfoundation.org](packages.osrfoundation.org). Make sure to install
    the metapackage that includes all library components (e.g. gz-ionic,
    gz-harmonic, etc.)
 1. Clone the set of vendor packages included in
