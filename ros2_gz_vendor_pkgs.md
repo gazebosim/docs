@@ -1,5 +1,7 @@
 # ROS 2 Gazebo Vendor Packages
 
+## History of Gazebo packaging before ROS 2 Jazzy
+
 ROS 2 versions prior to Jazzy used Gazebo packages that were available in
 upstream Ubuntu. However, due to the package
 [update policy of Ubuntu](https://wiki.ubuntu.com/StableReleaseUpdates), the
@@ -11,6 +13,8 @@ more up-to-date Gazebo packages were copied to the ROS bootstrap repository
 ([packages.ros.org](packages.ros.org)). However, the process was error prone and keeping package
 versions in sync between the Gazebo and ROS package repositories was difficult
 since this was a manual process.
+
+## Gazebo vendor packages in ROS 2 Jazzy
 
 As of ROS 2 Jazzy, Gazebo is available from the ROS package repository via
 vendor packages. A ROS vendor package is a ROS package that provides software
@@ -62,7 +66,23 @@ In addition to Gazebo libraries, two dependencies of Gazebo are also vendored:
 Use of this vendor package generally (outside of Gazebo) is not recommended as
 the underlying library version might change without notice.
 
-## Using vendor packages in `package.xml`
+## Running Gazebo from vendor packages
+
+To be able to use the `gz` command to run the usual commands, be sure that at least
+`gz_tools_vendor` package is installed. To have the `gz` command in the PATH, be
+source the `setup.bash` from `/opt/ros/${ROS_DISTRO}` as usual.
+
+```
+# Example running gz sim on Jazzy
+export ROS_DISTRO=jazzy
+sudo apt-get install ros-${ROS_DISTRO}-gz-tools-vendor ros-${ROS_DISTRO}-gz-sim-vendor
+. /opt/ros/jazzy/setup.bash
+gz sim --help
+```
+
+## Building packages using Gazebo vendor packages
+
+### Declaring dependencies in `package.xml`
 
 To use a Gazebo vendor package in your project, you'll need to add the
 appropriate package in your `package.xml`. For example, if you use the Gazebo
@@ -77,7 +97,7 @@ will be the following
   ...
 ```
 
-## Using vendor packages in CMake
+### CMakeLists.txt for building with Gazebo vendor packages
 
 To use a Gazebo library provided by a vendor package, you'll need to
 `find_package` the vendor package and the underlying Gazebo library. Calling
@@ -105,7 +125,16 @@ target_link_libraries(test_gz_vendor PUBLIC gz-math::gz-math gz-utils::gz-utils)
 **Note:** The vendor packages use underscores (`_`) while the Gazebo library
 names use dashes (`-`).
 
-## Using vendor packages with binaries from packages.osrfoundation.org
+
+## Expert use cases
+
+The documentation provided above should cover the users that require to install
+and run the Gazebo simulator together with ROS and developing code that requires
+of Gazebo and ROS.
+
+Below are listed more advanced topics for the expert users.
+
+### Installing Non-Default Gazebo/ROS 2 Pairings with vendor packages
 
 If you want to use a new release of Gazebo that is not officially paired with
 the release of ROS you are using (e.g. Gazebo Ionic with ROS 2 Jazzy), you can
@@ -130,7 +159,7 @@ follow the following steps:
    version number.
 1. Build the workspace
 
-## Gazebo library development with vendor packages
+### Gazebo library development with vendor packages
 
 Building the underlying packages from source might be needed when using a Gazebo
 release that is not officially paired with the ROS release you are using or when
