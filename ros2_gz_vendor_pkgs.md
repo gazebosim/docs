@@ -69,7 +69,7 @@ the underlying library version might change without notice.
 ## Running Gazebo from vendor packages
 
 To be able to use the `gz` command to run the usual commands, be sure that at least
-`gz_tools_vendor` package is installed. To have the `gz` command in the PATH, be
+`gz_tools_vendor` package is installed. To have the `gz` command in the PATH,
 source the `setup.bash` from `/opt/ros/${ROS_DISTRO}` as usual.
 
 ```
