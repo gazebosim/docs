@@ -14,7 +14,7 @@ more up-to-date Gazebo packages were copied to the ROS bootstrap repository
 versions in sync between the Gazebo and ROS package repositories was difficult
 since this was a manual process.
 
-## Gazebo vendor packages in ROS 2 Jazzy
+## Gazebo vendor packages
 
 As of ROS 2 Jazzy, Gazebo is available from the ROS package repository via
 vendor packages. A ROS vendor package is a ROS package that provides software
