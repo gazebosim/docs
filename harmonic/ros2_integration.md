@@ -68,7 +68,7 @@ The package `ros_gz_bridge` contains a launch file named
 `ros_gz_bridge.launch.py`. You can use it to start a ROS 2 and Gazebo bridge.
 Here's an example:
 
-```
+```bash
 ros2 launch ros_gz_bridge ros_gz_bridge.launch.py name:=ros_gz_bridge config_file:=<path_to_your_YAML_file>
 ```
 
