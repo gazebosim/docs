@@ -10,7 +10,7 @@ The package `ros_gz_sim` contains a launch file named
 `ros_gz_spawn_model.launch.py`. You can use it to spawn a new model into an
 existing simulation. Here's an example:
 
-```
+```bash
 ros2 launch ros_gz_sim gz_spawn_model.launch.py world:=empty file:=/home/caguero/ros_gz_ws/src/ros_gz/ros_gz_sim_demos/models/vehicle/model.sdf name:=my_vehicle x:=5.0 y:=5.0 z:=0.5
 ```
 
