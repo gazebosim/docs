@@ -5,6 +5,7 @@ Harmonic binaries are hosted in the packages.osrfoundation.org repository.
 To install all of them, the metapackage `gz-harmonic` can be installed.
 
 <div class="warning">
+  
 WARNING: for gazebo-classic (eg. `gazebo11`) users: `gz-harmonic` cannot be
 installed alongside with `gazebo11` by default. To facilitate the migration
 this can be done using the instruction detailed in
