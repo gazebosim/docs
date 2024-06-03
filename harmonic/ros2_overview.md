@@ -21,7 +21,6 @@ as needed.
 loaded at startup. However, sometimes you need to spawn models at runtime. This
 task can be performed using ROS 2.
 
-
 ## Requirements
 
 Please follow the [Install Gazebo and ROS document](/docs/latest/ros_installation)
