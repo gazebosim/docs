@@ -13,6 +13,8 @@ respectively.
 ros2 launch ros_gz_sim gz_sim.launch.py gz_args:=empty.sdf
 ```
 
+Or you can just start the server:
+
 ```
 ros2 launch ros_gz_sim gz_server.launch.py world_sdf_file:=empty.sdf
 ```
