@@ -27,7 +27,6 @@ Please follow the [Install Gazebo and ROS document](/docs/latest/ros_installatio
 before starting this tutorial. A working installation of ROS 2 and Gazebo is
 required to go further.
 
-
 ## Composition
 
 If you inspect the parameters of the launch files mentioned in the next
