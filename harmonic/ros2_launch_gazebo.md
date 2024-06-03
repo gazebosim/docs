@@ -2,7 +2,6 @@
 
 Gazebo can be launched from a ROS 2 launch system in multiple ways:
 
-
 ## Using the launch files included in
 [ros_gz_sim](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_sim).
 
