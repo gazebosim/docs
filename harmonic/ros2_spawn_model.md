@@ -25,7 +25,7 @@ purpose we have created the `<gz_spawn_model/>` tag that can be used from you
 XML or YAML launch file. In this case, the arguments are passed as attributes
 within this tag. Here's an example:
 
-```
+```xml
 <launch>
   <arg name="world" default="" />
   <arg name="file" default="" />
