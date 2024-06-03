@@ -77,7 +77,8 @@ nitpick_ignore_regex = [
 
 html_theme = "pydata_sphinx_theme"
 html_static_path = ["_static"]
-html_style = "css/gazebo.css"
+html_css_files = ["css/gazebo.css"]
+
 html_theme_options = {
     "header_links_before_dropdown": 4,
     "use_edit_page_button": True,
@@ -97,6 +98,7 @@ html_theme_options = {
         "image_dark": "_static/images/logos/gazebo_horz_neg.svg",
     },
     "check_switcher": False,
+    "show_version_warning_banner": False, # We have our own version, so we disable the one from the theme.
 }
 
 html_sidebars = {"**": ["gz-sidebar-nav"]}
@@ -131,6 +133,11 @@ def load_releases(index_file):
 
     return dict([(release["name"], release) for release in gz_nav_yaml["releases"]])
 
+def get_preferred_release(releases: dict):
+    preferred = [rel for rel in releases.values() if rel.get("preferred", False)]
+    assert len(preferred) == 1
+    print(preferred)
+    return preferred[0]
 
 def create_file_rename_map(nav_yaml_pages, release):
     file_name_map = {}
@@ -177,6 +184,7 @@ def config_init(app: Sphinx, config: Config):
     try:
         releases = load_releases(config.gz_root_index_file)
         app.config.html_context["release_info"] = releases[config.gz_release]
+        app.config.html_context["preferred_release"] = get_preferred_release(releases)
     except KeyError as e:
         print(e)
         raise RuntimeError(

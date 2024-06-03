@@ -86,12 +86,15 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
             name += " (EOL)"
         elif release["lts"]:
             name += " (LTS)"
+        elif release.get("dev", False):
+            name += " (dev)"
 
         switcher.append(
             {
                 "name": name,
                 "version": release["name"],
-                "url": f"/docs/{release['name']}",
+                "url": f"/docs/{release['name']}/",
+                "preferred": release.get("preferred", False)
             }
         )
 
