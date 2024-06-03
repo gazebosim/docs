@@ -2,6 +2,7 @@
 
 Gazebo can be launched from a ROS 2 launch system in multiple ways:
 
+
 1. Using the launch files included in
 [ros_gz_sim](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_sim).
 
@@ -22,7 +23,7 @@ Consult the argument block of each launch file
 and [here](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_sim/launch/gz_server.launch.py#L27-L38)
 to learn about the different parameters that are accepted by each launch file.
 
-1. Using a custom launch file.
+2. Using a custom launch file.
 
 It's also possible to start Gazebo from your custom launch file. For that
 purpose we have created the custom `<gz_server/>` tag that can be used from you
