@@ -61,7 +61,6 @@ speedup performance.
 See [this example](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/test/config/full.yaml)
 for a valid configuration file.
 
-
 ## Launching the bridge using the launch files included in `ros_gz_bridge` package.
 
 The package `ros_gz_bridge` contains a launch file named
