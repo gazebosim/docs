@@ -79,7 +79,7 @@ purpose we have created the `<ros_gz_bridge/>` tag that can be used from you
 XML or YAML launch file. In this case, the arguments are passed as attributes
 within this tag. Here's an example:
 
-```
+```xml
 <launch>
   <arg name="name" default="ros_gz_bridge" />
   <arg name="config_file" default="" />
