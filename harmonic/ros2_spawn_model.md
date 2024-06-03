@@ -18,7 +18,6 @@ Check [this block](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_sim/laun
 from the source code to know all the different parameters accepted by this
 launch file.
 
-
 ## Spawn a model from a custom launch file.
 
 It's also possible to spawn the model from your custom launch file. For that
