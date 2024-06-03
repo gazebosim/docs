@@ -69,7 +69,7 @@ The package `ros_gz_bridge` contains a launch file named
 Here's an example:
 
 ```
-ros2 launch ros_gz_bridge ros_gz_bridge.launch.py config_file:=<path_to_your_YAML_file>
+ros2 launch ros_gz_bridge ros_gz_bridge.launch.py name:=ros_gz_bridge config_file:=<path_to_your_YAML_file>
 ```
 
 ## Launching the bridge from a custom launch file.

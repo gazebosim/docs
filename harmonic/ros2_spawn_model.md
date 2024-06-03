@@ -19,7 +19,7 @@ from the source code to know all the different parameters accepted by this
 launch file.
 
 
-1. Spawn a model from a custom launch file.
+## Spawn a model from a custom launch file.
 
 It's also possible to spawn the model from your custom launch file. For that
 purpose we have created the `<gz_spawn_model/>` tag that can be used from you
