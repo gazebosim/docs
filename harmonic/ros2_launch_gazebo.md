@@ -9,7 +9,7 @@ The package `ros_gz_sim` contains two launch files named `gz_server.launch.py`
 and `gz_sim.launch.py`. You can use them to start Gazebo server or Gazebo
 respectively.
 
-```
+```bash
 ros2 launch ros_gz_sim gz_sim.launch.py gz_args:=empty.sdf
 ```
 
