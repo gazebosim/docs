@@ -29,7 +29,7 @@ purpose we have created the custom `<gz_server/>` tag that can be used from you
 XML or YAML launch file. In this case, the arguments are passed as attributes
 within this tag. Here's an example for launching Gazebo server:
 
-```
+```xml
 <launch>
   <arg name="world_sdf_file" default="empty.sdf" />
   <arg name="world_sdf_string" default="" />
