@@ -350,6 +350,12 @@ def main(argv=None):
         help="Names of releases to build. Builds all known releases if empty.",
     )
     parser.add_argument("--libs", action="store_true", default=False, help="Build /libs page")
+    parser.add_argument(
+        "--pointers",
+        action="store_true",
+        default=False,
+        help="Build 'latest' and 'all'",
+    )
     args, unknown_args = parser.parse_known_args(argv)
 
     src_dir = Path(__file__).parent
@@ -386,9 +392,10 @@ def main(argv=None):
                 *unknown_args,
             ]
             sphinx_main(sphinx_args)
+
         # Handle "latest" and "all"
-        if preferred_release["name"] in args.releases:
-            release = preferred_release["name"]
+        release = preferred_release["name"]
+        if args.pointers and (release in args.releases):
             for pointer in ["latest", "all"]:
                 release_build_dir = build_docs_dir / pointer
                 pointer_tmp_dir = tmp_dir/pointer
