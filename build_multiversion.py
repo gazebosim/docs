@@ -73,6 +73,7 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
     for dir in ["_static", "_templates"]:
         shutil.copytree(root_src_dir / dir, version_tmp_dir / dir, dirs_exist_ok=True)
 
+    shutil.copy2(root_src_dir / "base_conf.py", version_tmp_dir)
     shutil.copy2(root_src_dir / "conf.py", version_tmp_dir)
 
     for dir in additional_shared_directories:
@@ -315,6 +316,7 @@ $description
 def build_libs(gz_nav_yaml, src_dir, tmp_dir, build_dir):
     libs_dir = tmp_dir / "libs"
     libs_dir.mkdir(exist_ok=True)
+    shutil.copy2(src_dir / "base_conf.py", libs_dir/"base_conf.py")
     shutil.copy2(src_dir / "libs_conf.py", libs_dir/"conf.py")
     if len(gz_nav_yaml["releases"]) == 0:
         print("No releases found in 'index.yaml'.")
@@ -362,7 +364,9 @@ def main(argv=None):
 
     preferred_release = get_preferred_release(gz_nav_yaml["releases"])
     tmp_dir = src_dir / ".tmp"
+    tmp_dir.mkdir(exist_ok=True)
     build_dir = src_dir / ".build"
+    build_dir.mkdir(exist_ok=True)
     if args.libs:
         build_libs(gz_nav_yaml, src_dir, tmp_dir, build_dir)
     else:

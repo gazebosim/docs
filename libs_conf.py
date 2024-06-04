@@ -21,74 +21,17 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import os
+import sys
+from pathlib import Path
 
-project = "Gazebo"
-copyright = "2024, Open Robotics"
-author = "Gazebo Team"
+sys.path.append(str(Path(__file__).parent))
 
-# -- General configuration ---------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
+# Import the base_conf.py and override settings for /libs
+from base_conf import * # noqa
 
-extensions = [
-    "myst_parser",
-    "sphinx_copybutton",
-    "sphinx_design",
-]
-
-templates_path = ["_templates"]
-
-source_suffix = [
-    ".md",
-]
-
-myst_heading_anchors = 4
-
-myst_enable_extensions = [
-    "amsmath",
-    "attrs_inline",
-    "attrs_block",
-    "colon_fence",
-    "deflist",
-    "dollarmath",
-    "fieldlist",
-    "html_admonition",
-    "html_image",
-    "linkify",
-    "replacements",
-    "smartquotes",
-    "strikethrough",
-    "substitution",
-    "tasklist",
-]
-
-html_theme = "pydata_sphinx_theme"
-html_static_path = ["_static"]
-html_css_files = ["css/gazebo.css"]
-
-html_theme_options = {
-    "header_links_before_dropdown": 4,
-    "show_toc_level": 1,
-    "navigation_with_keys": False,
-    "show_prev_next": False,
-    "footer_start": [],
-    "footer_end": [],
-    "secondary_sidebar_items": [],
-    "navbar_align": "left",
-    "navbar_center": ["gz-navbar-nav"],
-    "navbar_end": ["navbar-icon-links", "theme-switcher", "fuel_app_link"],
-    "pygment_light_style": "tango",
-    "pygment_dark_style": "monokai",
-    "logo": {
-        "image_light": "_static/images/logos/gazebo_horz_pos.svg",
-        "image_dark": "_static/images/logos/gazebo_horz_neg.svg",
-    },
-    "check_switcher": False,
-}
-
-html_sidebars = {
-    "index": [],
-    "**": ["gz-sidebar-nav"]
-}
 html_baseurl = os.environ.get(
     "SPHINX_HTML_BASE_URL", "http://localhost:8000/libs/"
 )
+
+html_theme_options["use_edit_page_button"] = False
+html_theme_options["secondary_sidebar_items"] = []

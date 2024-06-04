@@ -21,6 +21,7 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 import os
+import sys
 from pathlib import Path
 import yaml
 
@@ -28,84 +29,13 @@ import yaml
 from sphinx.application import Sphinx
 from sphinx.config import Config
 
-project = "Gazebo"
-copyright = "2024, Open Robotics"
-author = "Gazebo Team"
 
-# -- General configuration ---------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
+sys.path.append(str(Path(__file__).parent))
+from base_conf import * # noqa
 
-extensions = [
-    "myst_parser",
-    "sphinx_copybutton",
-    # 'sphinx_sitemap',
-]
-
-templates_path = ["_templates"]
-
-source_suffix = [
-    ".md",
-]
-
-myst_heading_anchors = 4
-
-myst_enable_extensions = [
-    "amsmath",
-    "attrs_inline",
-    "colon_fence",
-    "deflist",
-    "dollarmath",
-    "fieldlist",
-    "html_admonition",
-    "html_image",
-    "linkify",
-    "replacements",
-    "smartquotes",
-    "strikethrough",
-    "substitution",
-    "tasklist",
-]
-
-nitpicky = False
-nitpick_ignore_regex = [
-    ("myst", r'/api/.*'),
-    ("myst", r'/libs/?.*'), # Ignore /libs for now.
-]
-
-# -- Options for HTML output -------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
-
-html_theme = "pydata_sphinx_theme"
-html_static_path = ["_static"]
-html_css_files = ["css/gazebo.css"]
-
-html_theme_options = {
-    "header_links_before_dropdown": 4,
-    "use_edit_page_button": True,
-    "show_toc_level": 1,
-    "navigation_with_keys": False,
-    "show_prev_next": False,
-    "footer_start": [],
-    "footer_end": [],
-    "secondary_sidebar_items": ["page-toc", "edit-this-page"],
-    "navbar_align": "left",
-    "navbar_center": ["gz-navbar-nav"],
-    "navbar_end": ["navbar-icon-links", "theme-switcher", "fuel_app_link"],
-    "pygment_light_style": "tango",
-    "pygment_dark_style": "monokai",
-    "logo": {
-        "image_light": "_static/images/logos/gazebo_horz_pos.svg",
-        "image_dark": "_static/images/logos/gazebo_horz_neg.svg",
-    },
-    "check_switcher": False,
-    "show_version_warning_banner": False, # We have our own version, so we disable the one from the theme.
-}
-
-html_sidebars = {"**": ["gz-sidebar-nav"]}
 html_baseurl = os.environ.get(
     "SPHINX_HTML_BASE_URL", "http://localhost:8000/docs/latest/"
 )
-
 
 html_context = {
     "github_user": "gazebosim",
@@ -192,6 +122,7 @@ def config_init(app: Sphinx, config: Config):
         raise RuntimeError(
             f"Provided gz_release '{config.gz_release}' not registered in `index.yaml`"
         )
+
 
 def setup(app: Sphinx):
     app.add_config_value("gz_release", "", rebuild="env", types=[str])
