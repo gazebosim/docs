@@ -207,6 +207,9 @@ def get_github_content(lib_name, version, file_path):
     repo_name = github_repo_name(lib_name)
     branch = github_branch(repo_name, version)
     url = f"https://raw.githubusercontent.com/gazebosim/{repo_name}/{branch}/{file_path}"
+    if os.environ.get("SKIP_FETCH_CONTENT", False):
+        return f"Skipped fetching context from {url}"
+
     print(f"fetching {url}")
     result = requests.get(url, allow_redirects=True)
     return result.text
@@ -220,6 +223,10 @@ def generate_individual_lib(library, libs_dir):
 
     template = Template("""\
 # $name
+
+{.gz-libs-lists}
+- [{material-regular}`code;2em` Source Code]($github_url)
+- [{material-regular}`description;2em` API & Tutorials]($api_url)
 
 ::::{tab-set}
 
@@ -238,12 +245,15 @@ $changelog
         "name": lib_name,
         "readme": get_github_content(lib_name, version, "README.md"),
         "changelog": get_github_content(lib_name, version, "Changelog.md"),
+        "github_url": github_url(lib_name),
+        "api_url": api_url(lib_name, version),
     }
     with open(cur_lib_dir / "index.md", "w") as f:
         f.write(template.substitute(mapping))
 
 
-def generate_libs(libraries, libs_dir):
+def generate_libs(gz_nav_yaml, libs_dir):
+    libraries = get_preferred_release(gz_nav_yaml["releases"])["libraries"]
     library_directives = "\n".join([
         f"{library['name'].capitalize()} <{library['name']}/index>"
         for library in libraries
@@ -263,7 +273,7 @@ $library_directives
 
     library_card_template = Template("""\
 :::{card} [$name_cap]($name/index)
-:class-card: gz-libs-card
+:class-card: gz-libs-cards
    - [{material-regular}`fullscreen;2em` Details]($name/index)
    - [{material-regular}`code;2em` Source Code]($github_url)
    - [{material-regular}`description;2em` API & Tutorials]($api_url)
@@ -279,14 +289,23 @@ $description
             index_md_header_template.substitute(library_directives=library_directives)
         )
 
-        for library in libraries:
+        for library in sorted(libraries, key=lambda lib: lib["name"]):
             name = library["name"]
+            try:
+                description = gz_nav_yaml["library_info"][name]["description"]
+            except KeyError as e:
+                print(
+                    f"Description for library {name} not found."
+                    "Make sure there is an entry for it in index.yaml"
+                )
+                print(e)
+                description = ""
             mapping = {
                 "name": name,
                 "name_cap": name.capitalize(),
                 "github_url": github_url(name),
                 "api_url": api_url(name, library["version"]),
-                "description": "Description",
+                "description": description,
             }
             f.write(library_card_template.substitute(mapping))
 
@@ -304,10 +323,9 @@ def build_libs(gz_nav_yaml, src_dir, tmp_dir, build_dir):
     for dir in ["_static", "_templates"]:
         shutil.copytree(src_dir / dir, libs_dir / dir, dirs_exist_ok=True)
 
-    libraries = get_preferred_release(gz_nav_yaml["releases"])["libraries"]
     build_dir = build_dir / "libs"
 
-    generate_libs(libraries, libs_dir)
+    generate_libs(gz_nav_yaml, libs_dir)
 
     sphinx_args = [
         "-b",

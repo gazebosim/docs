@@ -86,8 +86,8 @@ html_theme_options = {
 }
 
 html_sidebars = {
-    "**": [],
-    "libs/*": ["gz-sidebar-nav"]
+    "index": [],
+    "**": ["gz-sidebar-nav"]
 }
 html_baseurl = os.environ.get(
     "SPHINX_HTML_BASE_URL", "http://localhost:8000/libs/"
