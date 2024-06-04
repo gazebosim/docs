@@ -360,6 +360,7 @@ def main(argv=None):
     if not args.releases:
         args.releases = [release["name"] for release in gz_nav_yaml["releases"]]
 
+    preferred_release = get_preferred_release(gz_nav_yaml["releases"])
     tmp_dir = src_dir / ".tmp"
     build_dir = src_dir / ".build"
     if args.libs:
@@ -380,6 +381,25 @@ def main(argv=None):
                 *unknown_args,
             ]
             sphinx_main(sphinx_args)
+        # Handle "latest" and "all"
+        if preferred_release["name"] in args.releases:
+            release = preferred_release["name"]
+            for pointer in ["latest", "all"]:
+                release_build_dir = build_dir / "docs" / pointer
+                pointer_tmp_dir = tmp_dir/pointer
+                pointer_tmp_dir.symlink_to(tmp_dir/release)
+                sphinx_args = [
+                    "-b",
+                    "dirhtml",
+                    f"{pointer_tmp_dir}",
+                    f"{release_build_dir}",
+                    "-D",
+                    f"gz_release={release}",
+                    "-D",
+                    f"gz_root_index_file={index_yaml}",
+                    *unknown_args,
+                ]
+                sphinx_main(sphinx_args)
 
 
 if __name__ == "__main__":
