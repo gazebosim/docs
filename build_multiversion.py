@@ -194,18 +194,14 @@ def api_url(lib_name, version):
         return f"https://gazebosim.org/api/{lib_name}/{version}"
 
 
-def build_libs(gz_nav_yaml, src_dir, tmp_dir, build_dir):
-    libs_dir = tmp_dir / "libs"
-    libs_dir.mkdir(exist_ok=True)
-    shutil.copy2(src_dir / "libs_conf.py", libs_dir/"conf.py")
-    if len(gz_nav_yaml["releases"]) == 0:
-        print("No releases found in 'index.yaml'.")
-        return
+def generate_individual_lib(library, libs_dir):
+    cur_lib_dir = libs_dir / library["name"]
+    cur_lib_dir.mkdir(exist_ok=True)
+    with open(cur_lib_dir / "index.md", "w") as f:
+        f.write(f"# {library['name']}\n\n")
 
-    for dir in ["_static", "_templates"]:
-        shutil.copytree(src_dir / dir, libs_dir / dir, dirs_exist_ok=True)
 
-    libraries = get_preferred_release(gz_nav_yaml["releases"])["libraries"]
+def generate_libs(libraries, libs_dir):
     library_directives = "\n".join([
         f"{library['name'].capitalize()} <{library['name']}/index>"
         for library in libraries
@@ -252,13 +248,25 @@ $description
             }
             f.write(library_card_template.substitute(mapping))
 
-    for library in gz_nav_yaml["releases"][0]["libraries"]:
-        cur_lib_dir = libs_dir / library["name"]
-        cur_lib_dir.mkdir(exist_ok=True)
-        with open(cur_lib_dir / "index.md", "w") as f:
-            f.write(f"# {library['name']}\n\n")
+            generate_individual_lib(library, libs_dir)
 
+
+def build_libs(gz_nav_yaml, src_dir, tmp_dir, build_dir):
+    libs_dir = tmp_dir / "libs"
+    libs_dir.mkdir(exist_ok=True)
+    shutil.copy2(src_dir / "libs_conf.py", libs_dir/"conf.py")
+    if len(gz_nav_yaml["releases"]) == 0:
+        print("No releases found in 'index.yaml'.")
+        return
+
+    for dir in ["_static", "_templates"]:
+        shutil.copytree(src_dir / dir, libs_dir / dir, dirs_exist_ok=True)
+
+    libraries = get_preferred_release(gz_nav_yaml["releases"])["libraries"]
     build_dir = build_dir / "libs"
+
+    generate_libs(libraries, libs_dir)
+
     sphinx_args = [
         "-b",
         "dirhtml",
