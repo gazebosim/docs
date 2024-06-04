@@ -4,8 +4,6 @@ Ionic binaries are provided for Ubuntu Jammy (22.04) and Ubuntu Noble (24.04). T
 Ionic binaries are hosted in the packages.osrfoundation.org repository.
 To install all of them, the metapackage `gz-ionic` can be installed.
 
-**WARNING:** `gz-ionic` cannot be installed alongside gazebo-classic (eg. `gazebo11`) since both use the `gz` command line tool. Trying to install `gz-ionic` on a system that already has gazebo-classic installed from binaries will cause gazebo-classic and its dependencies to be uninstalled. Currently, the workarounds for this are to install from source or to use Docker [`gazebo-classic`](https://hub.docker.com/_/gazebo) so they are not installed side-by-side on the same system.
-
 First install some necessary tools:
 
 ```bash
