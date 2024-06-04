@@ -15,14 +15,15 @@
 
 from pathlib import Path
 from sphinx.cmd.build import main as sphinx_main
+from string import Template
 import argparse
-import os
 import copy
+import json
+import os
+import requests
+import shutil
 import sys
 import yaml
-import shutil
-from string import Template
-import json
 
 additional_shared_directories = ["images", "releasing"]
 
@@ -182,9 +183,17 @@ def get_preferred_release(releases: dict):
     return preferred[0]
 
 
-def github_url(lib_name):
+def github_repo_name(lib_name):
     prefix = "gz-" if lib_name != "sdformat" else ""
-    return f"https://github.com/gazebosim/{prefix}{lib_name.replace('_','-')}"
+    return f"{prefix}{lib_name.replace('_','-')}"
+
+
+def github_branch(repo_name, version):
+    return f"{repo_name}{version}" if repo_name != "sdformat" else f"sdf{version}"
+
+
+def github_url(lib_name):
+    return f"https://github.com/gazebosim/{github_repo_name(lib_name)}"
 
 
 def api_url(lib_name, version):
@@ -194,11 +203,44 @@ def api_url(lib_name, version):
         return f"https://gazebosim.org/api/{lib_name}/{version}"
 
 
+def get_github_content(lib_name, version, file_path):
+    repo_name = github_repo_name(lib_name)
+    branch = github_branch(repo_name, version)
+    url = f"https://raw.githubusercontent.com/gazebosim/{repo_name}/{branch}/{file_path}"
+    print(f"fetching {url}")
+    result = requests.get(url, allow_redirects=True)
+    return result.text
+
+
 def generate_individual_lib(library, libs_dir):
-    cur_lib_dir = libs_dir / library["name"]
+    lib_name = library["name"]
+    version = library["version"]
+    cur_lib_dir = libs_dir / lib_name
     cur_lib_dir.mkdir(exist_ok=True)
+
+    template = Template("""\
+# $name
+
+::::{tab-set}
+
+:::{tab-item} Readme
+$readme
+:::
+
+:::{tab-item} Changelog
+$changelog
+:::
+
+::::
+    """)
+
+    mapping = {
+        "name": lib_name,
+        "readme": get_github_content(lib_name, version, "README.md"),
+        "changelog": get_github_content(lib_name, version, "Changelog.md"),
+    }
     with open(cur_lib_dir / "index.md", "w") as f:
-        f.write(f"# {library['name']}\n\n")
+        f.write(template.substitute(mapping))
 
 
 def generate_libs(libraries, libs_dir):
