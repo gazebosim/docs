@@ -387,7 +387,15 @@ def main(argv=None):
             for pointer in ["latest", "all"]:
                 release_build_dir = build_dir / "docs" / pointer
                 pointer_tmp_dir = tmp_dir/pointer
-                pointer_tmp_dir.symlink_to(tmp_dir/release)
+                try:
+                    pointer_tmp_dir.symlink_to(tmp_dir/release)
+                except FileExistsError:
+                    # It's okay for it to exist, but make sure it's a symlink
+                    if not pointer_tmp_dir.is_symlink:
+                        raise RuntimeError(
+                            f"{pointer_tmp_dir} already exists and is not a symlink"
+                        )
+
                 sphinx_args = [
                     "-b",
                     "dirhtml",
