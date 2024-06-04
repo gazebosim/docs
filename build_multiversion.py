@@ -366,9 +366,10 @@ def main(argv=None):
     if args.libs:
         build_libs(gz_nav_yaml, src_dir, tmp_dir, build_dir)
     else:
+        build_docs_dir = build_dir / "docs"
         for release in args.releases:
             generate_sources(gz_nav_yaml, src_dir, tmp_dir, release)
-            release_build_dir = build_dir / "docs" / release
+            release_build_dir = build_docs_dir / release
             sphinx_args = [
                 "-b",
                 "dirhtml",
@@ -385,7 +386,7 @@ def main(argv=None):
         if preferred_release["name"] in args.releases:
             release = preferred_release["name"]
             for pointer in ["latest", "all"]:
-                release_build_dir = build_dir / "docs" / pointer
+                release_build_dir = build_docs_dir / pointer
                 pointer_tmp_dir = tmp_dir/pointer
                 try:
                     pointer_tmp_dir.symlink_to(tmp_dir/release)
@@ -408,6 +409,17 @@ def main(argv=None):
                     *unknown_args,
                 ]
                 sphinx_main(sphinx_args)
+
+            # Create a redirect to "/latest"
+            redirect_page = build_docs_dir / "index.html"
+            redirect_page.write_text("""\
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="0; url=latest" http-equiv="refresh" />
+  </head>
+</html>
+""")
 
 
 if __name__ == "__main__":
