@@ -21,6 +21,7 @@ import copy
 import sys
 import yaml
 import shutil
+from string import Template
 import json
 
 additional_shared_directories = ["images", "releasing"]
@@ -175,8 +176,101 @@ myst:
             ind_f.write("```\n\n")
 
 
+def get_preferred_release(releases: dict):
+    preferred = [rel for rel in releases if rel.get("preferred", False)]
+    assert len(preferred) == 1
+    return preferred[0]
+
+
+def github_url(lib_name):
+    prefix = "gz-" if lib_name != "sdformat" else ""
+    return f"https://github.com/gazebosim/{prefix}{lib_name.replace('_','-')}"
+
+
+def api_url(lib_name, version):
+    if lib_name == "sdformat":
+        return "http://sdformat.org/api"
+    else:
+        return f"https://gazebosim.org/api/{lib_name}/{version}"
+
+
+def build_libs(gz_nav_yaml, src_dir, tmp_dir, build_dir):
+    libs_dir = tmp_dir / "libs"
+    libs_dir.mkdir(exist_ok=True)
+    shutil.copy2(src_dir / "libs_conf.py", libs_dir/"conf.py")
+    if len(gz_nav_yaml["releases"]) == 0:
+        print("No releases found in 'index.yaml'.")
+        return
+
+    for dir in ["_static", "_templates"]:
+        shutil.copytree(src_dir / dir, libs_dir / dir, dirs_exist_ok=True)
+
+    libraries = get_preferred_release(gz_nav_yaml["releases"])["libraries"]
+    library_directives = "\n".join([
+        f"{library['name'].capitalize()} <{library['name']}/index>"
+        for library in libraries
+    ])
+
+    index_md_header_template = Template("""\
+# Libraries
+
+```{toctree}
+:maxdepth: 1
+:hidden:
+:titlesonly:
+$library_directives
+```
+
+""")
+
+    library_card_template = Template("""\
+:::{card} [$name_cap]($name/index)
+:class-card: gz-libs-card
+   - [{material-regular}`fullscreen;2em` Details]($name/index)
+   - [{material-regular}`code;2em` Source Code]($github_url)
+   - [{material-regular}`description;2em` API & Tutorials]($api_url)
++++,
+
+$description
+:::
+
+
+""")
+    with open(libs_dir / "index.md", "w") as f:
+        f.write(
+            index_md_header_template.substitute(library_directives=library_directives)
+        )
+
+        for library in libraries:
+            name = library["name"]
+            mapping = {
+                "name": name,
+                "name_cap": name.capitalize(),
+                "github_url": github_url(name),
+                "api_url": api_url(name, library["version"]),
+                "description": "Description",
+            }
+            f.write(library_card_template.substitute(mapping))
+
+    for library in gz_nav_yaml["releases"][0]["libraries"]:
+        cur_lib_dir = libs_dir / library["name"]
+        cur_lib_dir.mkdir(exist_ok=True)
+        with open(cur_lib_dir / "index.md", "w") as f:
+            f.write(f"# {library['name']}\n\n")
+
+    build_dir = build_dir / "libs"
+    sphinx_args = [
+        "-b",
+        "dirhtml",
+        f"{libs_dir}",
+        f"{build_dir}",
+    ]
+    sphinx_main(sphinx_args)
+
+
 def main(argv=None):
-    # We will assume that this file is in the same directory as documentation sources and conf.py files.
+    # We will assume that this file is in the same directory as documentation
+    # sources and conf.py files.
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "-r",
@@ -185,6 +279,7 @@ def main(argv=None):
         nargs="*",
         help="Names of releases to build. Builds all known releases if empty.",
     )
+    parser.add_argument("--libs", action="store_true", default=False, help="Build /libs page")
     args, unknown_args = parser.parse_known_args(argv)
 
     src_dir = Path(__file__).parent
@@ -198,23 +293,25 @@ def main(argv=None):
         args.releases = [release["name"] for release in gz_nav_yaml["releases"]]
 
     tmp_dir = src_dir / ".tmp"
-    for release in args.releases:
-        generate_sources(gz_nav_yaml, src_dir, tmp_dir, release)
-        build_dir = src_dir / ".build" / "docs" / release
-        sphinx_args = [
-            "-b",
-            "dirhtml",
-            f"{tmp_dir/release}",
-            f"{build_dir}",
-            "-D",
-            f"gz_release={release}",
-            "-D",
-            f"gz_root_index_file={index_yaml}",
-            *unknown_args,
-        ]
-        print(f"sphinx_args: {sphinx_args}")
-
-        sphinx_main(sphinx_args)
+    build_dir = src_dir / ".build"
+    if args.libs:
+        build_libs(gz_nav_yaml, src_dir, tmp_dir, build_dir)
+    else:
+        for release in args.releases:
+            generate_sources(gz_nav_yaml, src_dir, tmp_dir, release)
+            release_build_dir = build_dir / "docs" / release
+            sphinx_args = [
+                "-b",
+                "dirhtml",
+                f"{tmp_dir/release}",
+                f"{release_build_dir }",
+                "-D",
+                f"gz_release={release}",
+                "-D",
+                f"gz_root_index_file={index_yaml}",
+                *unknown_args,
+            ]
+            sphinx_main(sphinx_args)
 
 
 if __name__ == "__main__":

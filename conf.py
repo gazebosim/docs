@@ -133,11 +133,13 @@ def load_releases(index_file):
 
     return dict([(release["name"], release) for release in gz_nav_yaml["releases"]])
 
+
 def get_preferred_release(releases: dict):
     preferred = [rel for rel in releases.values() if rel.get("preferred", False)]
     assert len(preferred) == 1
     print(preferred)
     return preferred[0]
+
 
 def create_file_rename_map(nav_yaml_pages, release):
     file_name_map = {}

@@ -1,25 +1,28 @@
-{% if not release_info.preferred %}
-<aside aria-label="Version warning" class="bd-header-announcement bd-header-version-{{'warning' if release_info.eol else 'info'}}" style="min-height: 3rem;">
-  <div class="bd-header-announcement__content">
-    <div class="sidebar-message">
-      {% if release_info.eol %}
-        This is documentation for <strong>Gazebo {{ release_info.name | capitalize}}</strong>, which has reached its EOL
-        (end-of-life) and is no longer officially supported.
-      {% elif release_info.dev %}
-        This is documentation for <strong> Gazebo {{ release_info.name | capitalize}}</strong> which is still under
-        development.
-      {% else %}
-        This is documentation for <strong> Gazebo {{ release_info.name | capitalize}}</strong>,
-        an older but still supported version of Gazebo. {% endif %}
-      <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version"
-        href="/docs/{{preferred_release.name}}/{{pagename}}">Switch to the latest stable version</a>
+{% if release_info %}
+  {% if not release_info.preferred %}
+  <aside aria-label="Version warning" class="bd-header-announcement bd-header-version-{{'warning' if release_info.eol else 'info'}}" style="min-height: 3rem;">
+    <div class="bd-header-announcement__content">
+      <div class="sidebar-message">
+        {% if release_info.eol %}
+          This is documentation for <strong>Gazebo {{ release_info.name | capitalize}}</strong>, which has reached its EOL
+          (end-of-life) and is no longer officially supported.
+        {% elif release_info.dev %}
+          This is documentation for <strong> Gazebo {{ release_info.name | capitalize}}</strong> which is still under
+          development.
+        {% else %}
+          This is documentation for <strong> Gazebo {{ release_info.name | capitalize}}</strong>,
+          an older but still supported version of Gazebo. {% endif %}
+        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version"
+          href="/docs/{{preferred_release.name}}/{{pagename}}">Switch to the latest stable version</a>
+      </div>
     </div>
-  </div>
-</aside>
+  </aside>
+  {% endif %}
 {% endif %}
 
 {% include "!sections/header.html" %}
 
+{% if release_info %}
 <div class="doc-heading">
   <div class="banner d-flex flex-column-reverse flex-sm-row">
     <div>
@@ -36,3 +39,4 @@
     {%- include 'gz-version-switcher.html' -%}
   </div>
 </div>
+{% endif %}
