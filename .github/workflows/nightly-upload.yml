@@ -25,7 +25,7 @@ jobs:
         # Need to run ./build_docs.sh
         output-credentials: true
     - name: Run nightly upload
-      run: cd tools && ./build_docs.sh all
+      run: echo $AWS_ACCESS_KEY_ID && echo $AWS_SECRET_ACCESS_KEY && cd tools && ./build_docs.sh all
       shell: bash
       env:
         GZ_VERSION_PASSWORD: ${{ secrets.GZ_VERSION_PASSWORD }}
@@ -33,6 +33,4 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ steps.creds.outputs.aws-secret-access-key }}
     - name: Invalidate Cloudfront distribution
       run: |
-        aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} &&
-        aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} &&
         aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths '/*' --region us-east-1
