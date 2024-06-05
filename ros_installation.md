@@ -71,6 +71,14 @@ sudo apt-get install ros-${ROS_DISTRO}-ros-gz
 This command will install the Gazebo libraries recommended for your ROS
 installation.
 
+### ROS 2 Gazebo Vendor packages
+
+As of ROS 2 Jazzy, Gazebo is available from the ROS package repository via
+vendor packages. If your package directly depends on a Gazebo library,
+instead of relying only on `ros_gz`, refer to
+[this documentation](ros2_gz_vendor_pkgs) to learn how to use the
+Gazebo vendor packages.
+
 <div class="warning">
 The rest of this document provides more information and other, alternative,
 installations pathways. We do not recommend the following approaches for new

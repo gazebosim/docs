@@ -16,7 +16,22 @@ found under the `API Reference` section of [https://gazebosim.org/docs](https://
 ## Main docs
 
 The documentation in this repository is built using [Sphinx](https://www.sphinx-doc.org/).
-To build, run:
+To build, you need to install the following:
+
+* python virtualenv
+
+Create the virtual env and activate it:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+Then install the necessary dependencies:
+
+```bash
+pip install -r requirements.txt
+```
 
 ```bash
 python3 build_multiversion.py
