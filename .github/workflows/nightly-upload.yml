@@ -25,7 +25,10 @@ jobs:
         # Need to run ./build_docs.sh
         output-credentials: true
     - name: Describe permissions
-      run: aws describe-permissions
+      run: |
+        aws iam list-user-policies
+        aws iam list-attached-user-policies
+        aws iam list-groups-for-user
     - name: Run nightly upload
       run: cd tools && ./build_docs.sh all
       shell: bash
