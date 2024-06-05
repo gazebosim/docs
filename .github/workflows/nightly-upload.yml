@@ -24,8 +24,10 @@ jobs:
         role-to-assume: arn:aws:iam::200670743174:role/github-oidc-deployment-gz-web-app
         # Need to run ./build_docs.sh
         output-credentials: true
+    - name: Describe permissions
+      run: aws describe-permissions
     - name: Run nightly upload
-      run: echo $AWS_ACCESS_KEY_ID && echo $AWS_SECRET_ACCESS_KEY && cd tools && ./build_docs.sh all
+      run: cd tools && ./build_docs.sh all
       shell: bash
       env:
         GZ_VERSION_PASSWORD: ${{ secrets.GZ_VERSION_PASSWORD }}
