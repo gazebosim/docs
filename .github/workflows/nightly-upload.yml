@@ -26,9 +26,7 @@ jobs:
         output-credentials: true
     - name: Describe permissions
       run: |
-        aws iam get-role
-        aws iam get-role-policy
-        aws iam list-role-policies
+        aws sts get-caller-identity
     - name: Run nightly upload
       run: cd tools && ./build_docs.sh all
       shell: bash
