@@ -69,6 +69,8 @@ jobs:
         working-directory: ${{ env.DOCS_PATH }}
       - name: Build Docs
         run: python build_multiversion.py --pointers --libs --output_dir ${{ github.workspace }}/${{ env.WEBSITE_PATH }}/dist 
+        env:
+          GZ_DEPLOY_URL: "${{ steps.pages.outputs.base_path }}"
         working-directory: ${{ env.DOCS_PATH }}
 
       - name: Upload artifact

@@ -21,6 +21,8 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
+import os
+
 project = "Gazebo"
 copyright = "2024, Open Robotics"
 author = "Gazebo Team"
@@ -99,3 +101,7 @@ html_theme_options = {
 }
 
 html_sidebars = {"**": ["gz-sidebar-nav"]}
+
+html_context = {
+    "deploy_url":  os.environ.get("GZ_DEPLOY_URL", "")
+}

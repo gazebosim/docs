@@ -20,7 +20,6 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
-import os
 import sys
 from pathlib import Path
 import yaml
@@ -31,20 +30,18 @@ from sphinx.config import Config
 
 
 sys.path.append(str(Path(__file__).parent))
-from base_conf import * # noqa
+from base_conf import *  # noqa
 
-html_baseurl = os.environ.get(
-    "SPHINX_HTML_BASE_URL", "http://localhost:8000/docs/latest/"
-)
+html_baseurl = f"{html_context['deploy_url']}/docs/latest"  # noqa
 
-html_context = {
+html_context.update({
     "github_user": "gazebosim",
     "github_repo": "docs",
     "github_version": "master",
     "edit_page_url_template": "{{ github_url }}/{{ github_user }}/{{ github_repo }}"
     "/edit/{{ github_version }}/{{ get_file_from_map(file_name) }}",
     "edit_page_provider_name": "GitHub",
-}
+})
 
 
 def setup_file_map(app: Sphinx, pagename: str, templatename: str, context, doctree):
@@ -109,7 +106,7 @@ def config_init(app: Sphinx, config: Config):
     #
     assert Path(f"{app.srcdir}/_static/switcher.json").exists()
     config.html_theme_options["switcher"] = {
-        "json_url": f"docs/{config.gz_release}/_static/switcher.json",
+        "json_url": f"{html_context['deploy_url']}/docs/{config.gz_release}/_static/switcher.json",
         "version_match": config.gz_release,
     }
 
@@ -117,6 +114,7 @@ def config_init(app: Sphinx, config: Config):
         releases = load_releases(config.gz_root_index_file)
         app.config.html_context["release_info"] = releases[config.gz_release]
         app.config.html_context["preferred_release"] = get_preferred_release(releases)
+
     except KeyError as e:
         print(e)
         raise RuntimeError(
