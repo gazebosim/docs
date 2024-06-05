@@ -339,6 +339,8 @@ def build_libs(gz_nav_yaml, src_dir, tmp_dir, build_dir):
 
 
 def main(argv=None):
+    src_dir = Path(__file__).parent
+
     # We will assume that this file is in the same directory as documentation
     # sources and conf.py files.
     parser = argparse.ArgumentParser()
@@ -349,16 +351,24 @@ def main(argv=None):
         nargs="*",
         help="Names of releases to build. Builds all known releases if empty.",
     )
-    parser.add_argument("--libs", action="store_true", default=False, help="Build /libs page")
+    parser.add_argument(
+        "--output_dir", default=src_dir / ".build", help="Path to output directory"
+    )
+    parser.add_argument(
+        "--libs", action="store_true", default=False, help="Build /libs page"
+    )
+    parser.add_argument(
+        "--libs_only", action="store_true", default=False, help="Build only /libs page"
+    )
     parser.add_argument(
         "--pointers",
         action="store_true",
         default=False,
         help="Build 'latest' and 'all'",
     )
+
     args, unknown_args = parser.parse_known_args(argv)
 
-    src_dir = Path(__file__).parent
     index_yaml = src_dir / "index.yaml"
     assert index_yaml.exists()
 
@@ -371,20 +381,51 @@ def main(argv=None):
     preferred_release = get_preferred_release(gz_nav_yaml["releases"])
     tmp_dir = src_dir / ".tmp"
     tmp_dir.mkdir(exist_ok=True)
-    build_dir = src_dir / ".build"
+    build_dir = Path(args.output_dir)
     build_dir.mkdir(exist_ok=True)
-    if args.libs:
+    if args.libs or args.libs_only:
         build_libs(gz_nav_yaml, src_dir, tmp_dir, build_dir)
-    else:
-        build_docs_dir = build_dir / "docs"
-        for release in args.releases:
-            generate_sources(gz_nav_yaml, src_dir, tmp_dir, release)
-            release_build_dir = build_docs_dir / release
+
+    if args.libs_only:
+        return
+
+    build_docs_dir = build_dir / "docs"
+    for release in args.releases:
+        generate_sources(gz_nav_yaml, src_dir, tmp_dir, release)
+        release_build_dir = build_docs_dir / release
+        sphinx_args = [
+            "-b",
+            "dirhtml",
+            f"{tmp_dir/release}",
+            f"{release_build_dir }",
+            "-D",
+            f"gz_release={release}",
+            "-D",
+            f"gz_root_index_file={index_yaml}",
+            *unknown_args,
+        ]
+        sphinx_main(sphinx_args)
+
+    # Handle "latest" and "all"
+    release = preferred_release["name"]
+    if args.pointers and (release in args.releases):
+        for pointer in ["latest", "all"]:
+            release_build_dir = build_docs_dir / pointer
+            pointer_tmp_dir = tmp_dir/pointer
+            try:
+                pointer_tmp_dir.symlink_to(tmp_dir/release)
+            except FileExistsError:
+                # It's okay for it to exist, but make sure it's a symlink
+                if not pointer_tmp_dir.is_symlink:
+                    raise RuntimeError(
+                        f"{pointer_tmp_dir} already exists and is not a symlink"
+                    )
+
             sphinx_args = [
                 "-b",
                 "dirhtml",
-                f"{tmp_dir/release}",
-                f"{release_build_dir }",
+                f"{pointer_tmp_dir}",
+                f"{release_build_dir}",
                 "-D",
                 f"gz_release={release}",
                 "-D",
@@ -393,37 +434,9 @@ def main(argv=None):
             ]
             sphinx_main(sphinx_args)
 
-        # Handle "latest" and "all"
-        release = preferred_release["name"]
-        if args.pointers and (release in args.releases):
-            for pointer in ["latest", "all"]:
-                release_build_dir = build_docs_dir / pointer
-                pointer_tmp_dir = tmp_dir/pointer
-                try:
-                    pointer_tmp_dir.symlink_to(tmp_dir/release)
-                except FileExistsError:
-                    # It's okay for it to exist, but make sure it's a symlink
-                    if not pointer_tmp_dir.is_symlink:
-                        raise RuntimeError(
-                            f"{pointer_tmp_dir} already exists and is not a symlink"
-                        )
-
-                sphinx_args = [
-                    "-b",
-                    "dirhtml",
-                    f"{pointer_tmp_dir}",
-                    f"{release_build_dir}",
-                    "-D",
-                    f"gz_release={release}",
-                    "-D",
-                    f"gz_root_index_file={index_yaml}",
-                    *unknown_args,
-                ]
-                sphinx_main(sphinx_args)
-
-            # Create a redirect to "/latest"
-            redirect_page = build_docs_dir / "index.html"
-            redirect_page.write_text("""\
+        # Create a redirect to "/latest"
+        redirect_page = build_docs_dir / "index.html"
+        redirect_page.write_text("""\
 <!DOCTYPE html>
 <html>
   <head>
