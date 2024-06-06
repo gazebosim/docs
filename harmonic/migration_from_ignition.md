@@ -239,7 +239,7 @@ In `CMakeLists.txt` files (and their references in your source files!):
 
 **Variables and macro/function calls**
 
-```cpp
+```
 Find: IGN(ITION)?_GAZEBO
 Replace: GZ_SIM
 
@@ -255,7 +255,7 @@ Replace: gz_
 
 **Includes**
 
-```cpp
+```
 Find: include\(Ign
 Replace: include(Gz
 
@@ -341,7 +341,7 @@ The plugin finder is able to find plugins even if their filenames are stripped o
 
 In `.sdf` files and source files (e.g. `.cc`):
 
-```cpp
+```
 Find: (lib)?ign(ition)?-gazebo([^. ]*)\.so
 Replace: gz-sim\3
 
@@ -378,7 +378,7 @@ Replace: gz/
 
 In your message definitions
 
-```cpp
+```
 Find: ign(ition)?\.gazebo
 Replace: gz.sim
 
@@ -398,7 +398,7 @@ Sweeping checks everywhere (pay special attention to reviewing these!)
 
 **Headers**
 
-```cpp
+```
 Find: #include\s*([<"])ign(ition)?/gazebo
 Replace: #include \1gz/sim
 
@@ -416,7 +416,7 @@ Replace: #endif  // GZ$1_H
 
 **Namespaces**
 
-```cpp
+```
 Find: namespace\s*ignition
 Replace: namespace gz
 

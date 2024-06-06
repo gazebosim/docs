@@ -44,6 +44,7 @@ source_suffix = [
 ]
 
 myst_heading_anchors = 4
+myst_all_links_external = True
 
 myst_enable_extensions = [
     "amsmath",
@@ -61,12 +62,6 @@ myst_enable_extensions = [
     "strikethrough",
     "substitution",
     "tasklist",
-]
-
-nitpicky = False
-nitpick_ignore_regex = [
-    ("myst", r'/api/.*'),
-    ("myst", r'/libs/?.*')
 ]
 
 # -- Options for HTML output -------------------------------------------------
