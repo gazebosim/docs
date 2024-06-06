@@ -8,7 +8,7 @@ To install all of them, the metapackage `gz-harmonic` can be installed.
 WARNING: for gazebo-classic (eg. `gazebo11`) users: `gz-harmonic` cannot be
 installed alongside with `gazebo11` by default. To facilitate the migration
 this can be done using the instruction detailed in
-[Installing Gazebo11 side by side with new Gazebo](/docs/all/install_gz11_side_by_side).
+<a href="https://gazebosim.org/docs/harmonic/install_gz11_side_by_side">Installing Gazebo11 side by side with new Gazebo</a>
 </div>
 
 First install some necessary tools:
