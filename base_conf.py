@@ -84,7 +84,6 @@ html_theme_options = {
     "show_prev_next": False,
     "footer_center": ["gz-footer"],
     "footer_start": ["sphinx-version"],
-    # "footer_end": [],
     "secondary_sidebar_items": ["page-toc", "edit-this-page"],
     "navbar_align": "left",
     "navbar_center": ["gz-navbar-nav"],

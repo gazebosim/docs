@@ -20,7 +20,6 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
-import os
 import sys
 from pathlib import Path
 
@@ -29,9 +28,7 @@ sys.path.append(str(Path(__file__).parent))
 # Import the base_conf.py and override settings for /libs
 from base_conf import * # noqa
 
-html_baseurl = os.environ.get(
-    "SPHINX_HTML_BASE_URL", "http://localhost:8000/libs/"
-)
+html_baseurl = f"{html_context['deploy_url']}/libs"  # noqa
 
 html_theme_options["use_edit_page_button"] = False
 html_theme_options["secondary_sidebar_items"] = []

@@ -81,6 +81,7 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
 
     copy_pages(gz_nav_yaml["pages"], root_src_dir, version_tmp_dir)
 
+    deploy_url = os.environ.get("GZ_DEPLOY_URL", "")
     # Write switcher.json file
     switcher = []
     for release in gz_nav_yaml["releases"]:
@@ -96,7 +97,7 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
             {
                 "name": name,
                 "version": release["name"],
-                "url": f"/docs/{release['name']}/",
+                "url": f"{deploy_url}/docs/{release['name']}/",
                 "preferred": release.get("preferred", False)
             }
         )
