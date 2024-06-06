@@ -64,7 +64,6 @@ def load_releases(index_file):
 def get_preferred_release(releases: dict):
     preferred = [rel for rel in releases.values() if rel.get("preferred", False)]
     assert len(preferred) == 1
-    print(preferred)
     return preferred[0]
 
 

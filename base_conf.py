@@ -75,6 +75,7 @@ nitpick_ignore_regex = [
 html_theme = "pydata_sphinx_theme"
 html_static_path = ["_static"]
 html_css_files = ["css/gazebo.css"]
+html_favicon = "_static/icon/favicon.ico"
 
 html_theme_options = {
     "header_links_before_dropdown": 4,
@@ -88,8 +89,8 @@ html_theme_options = {
     "navbar_align": "left",
     "navbar_center": ["gz-navbar-nav"],
     "navbar_end": ["navbar-icon-links", "theme-switcher", "fuel_app_link"],
-    "pygment_light_style": "tango",
-    "pygment_dark_style": "monokai",
+    "pygments_light_style": "tango",
+    "pygments_dark_style": "monokai",
     "logo": {
         "image_light": "_static/images/logos/gazebo_horz_pos.svg",
         "image_dark": "_static/images/logos/gazebo_horz_neg.svg",

@@ -14,7 +14,6 @@
 # limitations under the License.
 
 from pathlib import Path
-from sphinx.cmd.build import main as sphinx_main
 from string import Template
 import argparse
 import copy
@@ -23,6 +22,7 @@ import os
 import requests
 import shutil
 import sys
+import subprocess
 import yaml
 
 additional_shared_directories = ["images", "releasing"]
@@ -331,12 +331,13 @@ def build_libs(gz_nav_yaml, src_dir, tmp_dir, build_dir):
     generate_libs(gz_nav_yaml, libs_dir)
 
     sphinx_args = [
+        "sphinx-build",
         "-b",
         "dirhtml",
         f"{libs_dir}",
         f"{build_dir}",
     ]
-    sphinx_main(sphinx_args)
+    subprocess.run(sphinx_args)
 
 
 def main(argv=None):
@@ -395,6 +396,7 @@ def main(argv=None):
         generate_sources(gz_nav_yaml, src_dir, tmp_dir, release)
         release_build_dir = build_docs_dir / release
         sphinx_args = [
+            "sphinx-build",
             "-b",
             "dirhtml",
             f"{tmp_dir/release}",
@@ -405,7 +407,7 @@ def main(argv=None):
             f"gz_root_index_file={index_yaml}",
             *unknown_args,
         ]
-        sphinx_main(sphinx_args)
+        subprocess.run(sphinx_args)
 
     # Handle "latest" and "all"
     release = preferred_release["name"]
@@ -423,6 +425,7 @@ def main(argv=None):
                     )
 
             sphinx_args = [
+                "sphinx-build",
                 "-b",
                 "dirhtml",
                 f"{pointer_tmp_dir}",
@@ -433,7 +436,7 @@ def main(argv=None):
                 f"gz_root_index_file={index_yaml}",
                 *unknown_args,
             ]
-            sphinx_main(sphinx_args)
+            subprocess.run(sphinx_args)
 
         # Create a redirect to "/latest"
         redirect_page = build_docs_dir / "index.html"
