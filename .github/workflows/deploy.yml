@@ -52,7 +52,7 @@ jobs:
         run: npm ci
         working-directory: ${{ env.WEBSITE_PATH }}
       - name: Build Website
-        run: npm run build -- --base-href "${{ steps.pages.outputs.base_path }}/"
+        run: npm run build -- --base-href "${{ steps.pages.outputs.base_url }}/"
         working-directory: ${{ env.WEBSITE_PATH }}
 
 
@@ -72,7 +72,7 @@ jobs:
       - name: Build Docs
         run: python build_multiversion.py --pointers --libs --output_dir ${{ github.workspace }}/${{ env.WEBSITE_PATH }}/dist 
         env:
-          GZ_DEPLOY_URL: "${{ steps.pages.outputs.base_path }}"
+          GZ_DEPLOY_URL: "${{ steps.pages.outputs.base_url }}"
         working-directory: ${{ env.DOCS_PATH }}
 
       - name: Upload artifact
