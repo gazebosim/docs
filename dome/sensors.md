@@ -378,13 +378,13 @@ make lidar_node
 
 Run the node from terminal 1:
 
-```{.sh}
+```sh
 ./build/lidar_node
 ```
 
 Run the world from terminal 2:
 
-```{.sh}
+```sh
 ign gazebo sensor_tutorial.sdf
 ```
 
@@ -413,7 +413,7 @@ The first command is `ign gazebo sensor_tutorial.sdf` which launches the world.
 And the second command is `./build/lidar_node` which runs the `lidar_node`.
 Save the file as `sensor_launch.ign`, and then run it using the following command:
 
-```{.sh}
+```sh
 ign launch sensor_launch.ign
 ```
 

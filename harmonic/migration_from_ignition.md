@@ -271,7 +271,7 @@ Replace: gz_find_package(Gz-
 
 **Project Names**
 
-```cpp
+```
 Find: ignition-gazebo
 Replace: gz-sim
 
@@ -288,7 +288,7 @@ Replace: gz-
 
 Migrate source macros and environment variables
 
-```cpp
+```
 Find: IGN(ITION)?_GAZEBO
 Replace: GZ_SIM
 
@@ -319,7 +319,7 @@ Additionally, the logging macros have also been migrated! Migrate any uses!
 
 In `.sdf` files:
 
-```cpp
+```
 Find: <ignition
 Replace: <gz
 
@@ -359,7 +359,7 @@ Replace: gz::
 
 In Python files (e.g. `.py`)
 
-```cpp
+```
 Find: ignition.gazebo
 Replace: gz.sim
 
@@ -369,7 +369,7 @@ Replace: gz.
 
 In Ruby files (e.g. `.i`, `.rb`)
 
-```cpp
+```
 Find: ign(ition)?/
 Replace: gz/
 ```
@@ -449,13 +449,13 @@ And also be mindful that certain instances of `gazebo` (usually as part of an AP
 
 Where you used to use:
 
-```cpp
+```
 ign gazebo shapes.sdf
 ```
 
 Now you should use:
 
-```cpp
+```
 gz sim shapes.sdf
 ```
 
