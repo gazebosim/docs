@@ -55,7 +55,7 @@ All the sources of gazebo-ionic are declared in a yaml file. Download
 it to the workspace:
 
 ```bash
-wget https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-ionic.yaml
+curl -O https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-ionic.yaml
 ```
 
 Use `vcstool` to automatically retrieve all the Gazebo libraries sources from
