@@ -13,9 +13,10 @@ ARG GZ_VERSION_PASSWORD
 ARG GZ_VERSION_DATE
 ARG AWS_ACCESS_KEY_ID
 ARG AWS_SECRET_ACCESS_KEY
+ARG AWS_SESSION_TOKEN 
 
 COPY scripts/install_common_deps.sh scripts/install_common_deps.sh
-RUN scripts/install_common_deps.sh $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY
+RUN scripts/install_common_deps.sh $AWS_ACCESS_KEY_ID $AWS_SECRET_ACCESS_KEY $AWS_SESSION_TOKEN
 
 COPY scripts/build_gz.sh scripts/build_gz.sh
 
