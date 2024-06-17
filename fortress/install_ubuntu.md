@@ -1,6 +1,6 @@
 # Binary Installation on Ubuntu
 
-Fortress binaries are provided for Ubuntu Bionic and Focal. All of the Fortress
+Fortress binaries are provided for Ubuntu Bionic, Focal and Jammy. All of the Fortress
 binaries are hosted in the osrfoundation repository. To install all of them,
 the metapackage `ignition-fortress` can be installed.
 
@@ -8,14 +8,14 @@ First install some necessary tools:
 
 ```bash
 sudo apt-get update
-sudo apt-get install lsb-release wget gnupg
+sudo apt-get install lsb-release gnupg
 ```
 
 Then install Ignition Fortress:
 
 
 ```bash
-sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
 sudo apt-get update
 sudo apt-get install ignition-fortress

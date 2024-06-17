@@ -4,16 +4,6 @@ This documentation covers the releasing process done by the members of the
 Gazebo team. It offers a general overview and documentation of the
 procedures and tools used, and provides a step by step guide to do releases.
 
-#### Table of Contents
-
-General Overview
-
-  * Platforms Supported
-  * Infrastructure
-  * Type of Releases
-  * Metadata for releasing
-  * Versioning
-
 ## General overview
 
 Gazebo development supports different ways of installing the software in the
@@ -94,29 +84,6 @@ stability of the software:
      (see [the homebrew-simulation issue](https://github.com/osrf/homebrew-simulation/issues/1314)
      for more information).
 
-### Using the gzdev repository command
-
-The [gzdev repository](https://github.com/gazebo-tooling/gzdev#repository)
-command is a convenient way to configure Ubuntu / Debian systems to use a
-particular set of Gazebo software releases.
-For example, support for prerelease software can be enabled with the following
-command:
-
-`gzdev repository enable osrf prerelease`
-
-The command also has a
-[configuration file](https://github.com/gazebo-tooling/gzdev/blob/master/plugins/config/repository.yaml)
-with repository settings associated with specific packages by name or name
-pattern. For example, the following command will enable the package repositories
-associated with the `gz-cmake3` package:
-
-`gzdev repository enable --project=gz-cmake3`
-
-During the Gazebo Garden development period, this packaage was
-[configured by name](https://github.com/gazebo-tooling/gzdev/blob/7fe5d2c5d758c6b0964e9937d6b82150402d14c2/plugins/config/repository.yaml#L28-L33)
-to use stable and nightly binaries.
-It is customary to use nightly binaries for all unreleased package versions.
-
 ### Metadata for Releasing
 
 All package managers need to define different data fields in order to provide
@@ -196,4 +163,74 @@ end
 For *prereleases* and *nightly* binaries the versions are a bit special so the
 package manager can handle precedence between all the flavours nicely. There is
 [more information available on this topic for the Gazebo
-libraries](releasing/versioning_pre_nightly.md).
+libraries](releasing/versioning_pre_nightly).
+
+## Processes triggered when using release.py
+
+The following picture shows the interactions triggered when using the release
+tool [`release.py`](https://github.com/gazebo-tooling/release-tools/blob/master/release.py) explained in this guide:
+
+![release.py interactions](releasing/images/releasepy_execution.png)
+
+Actions for releasing a new version of library `gz-foo` with major version `X`:
+
+ 1. [`release.py`](https://github.com/gazebo-tooling/release-tools/blob/master/release.py)
+    will tag the local repository and call the `gz-fooX-source` Jenkins job to generate the sources
+    corresponding to that tag.
+ 1. `gz-fooX-source` will generate a tarball with the source code of the new version and
+    call `repository_uploader_packages` to upload the tarball to `osrf-distributions S3`.
+ 1. `gz-fooX-source` will call `_releasepy` with the tarball URI information.
+ 1. `_releasepy` will start the following jobs in the build server
+    `build.osrfoundation.org`:
+      1. `gz-fooX-debbuilder`: multiple calls for different Debian/Ubuntu releases
+      1. [`generic-release-homebrew_pull_request_updater`](https://build.osrfoundation.org/job/generic-release-homebrew_pull_request_updater/):
+      one call for Homebrew macOS release
+ 1. `build.osrfoundation.org` jobs start the work of creating releases:
+      1. `gz-fooX-debbuilder`: use tarball with release sources and metadata from `gz-fooX-release`
+      1. `generic-release-homebrew_pull_request_updater`: use
+         [`homebrew-simulation`](https://github.com/osrf/homebrew-simulation/)
+         repository metadata together with the release sources
+ 1. The output of the first round of initial jobs triggered by `release.py` is
+    different:
+      1. `gz-fooX-debbuilder`: builds the Debian/Ubuntu .deb packages and
+         passes them to the `repository_uploader_packages` job
+      1. `generic-release-homebrew_pull_request_updater`: opens a
+         new PR to coordinate the release process in `homebrew-simulation`
+ 1. [`repository_uploader_packages`](https://build.osrfoundation.org/job/repository_uploader_packages/)
+    imports the packages created by the `gz-fooX-debbuilder` job (there will be
+    one build for each platform combination of Ubuntu/Debian release
+    and architecture) and uploads the .deb packages to
+    `packages.osrfoundation.org` and [`osrf-distributions S3`](http://gazebosim.org/distributions).
+ 1. For macOS, the PR in `homebrew-simulation` waits for a comment from an
+    Gz developer with the order `build bottle` that will trigger the job
+    [`generic-release-homebrew_triggered_bottle_builder`](https://build.osrfoundation.org/job/generic-release-homebrew_bottle_builder/).
+ 1. `generic-release-homebrew_triggered_bottle_builder`will use the tarball with
+    release sources from `osrf-distributions S3` to generate the binary bottles.
+    They will be uploaded to `osrf-distributions S3`.
+
+## Other tools
+
+### Using the gzdev repository command
+
+The [gzdev repository](https://github.com/gazebo-tooling/gzdev#repository)
+command is a convenient way to configure Ubuntu / Debian systems to use a
+particular set of Gazebo software releases.
+For example, support for prerelease software can be enabled with the following
+command:
+
+`gzdev repository enable osrf prerelease`
+
+The command also has a
+[configuration file](https://github.com/gazebo-tooling/gzdev/blob/master/plugins/config/repository.yaml)
+with repository settings associated with specific packages by name or name
+pattern. For example, the following command will enable the package repositories
+associated with the `gz-cmake3` package:
+
+`gzdev repository enable --project=gz-cmake3`
+
+During the Gazebo Garden development period, this packaage was
+[configured by name](https://github.com/gazebo-tooling/gzdev/blob/7fe5d2c5d758c6b0964e9937d6b82150402d14c2/plugins/config/repository.yaml#L28-L33)
+to use stable and nightly binaries.
+It is customary to use nightly binaries for all unreleased package versions.
+
+

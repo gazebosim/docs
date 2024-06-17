@@ -22,9 +22,11 @@ Force-torque | ✓ | ✓
 GPS / NavSat | ✓ |  ✓
 GPU Ray | ✓ | ✓ Renamed to GPU Lidar
 IMU | ✓ | ✓
+Logical audio sensor | ✕ | ✓
 Logical camera | ✓ | ✓
 Magnetometer | ✓ | ✓
 Multi-camera | ✓ | ✕  Use individual cameras with same update rate
+Optical tactile sensor | ✕ | ✓
 Ray | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/26)
 RFID sensor and tag | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/27)
 RGBD camera | ✕ | ✓
@@ -32,7 +34,7 @@ Segmentation camera | ✕ | ✓
 Sonar | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/19)
 Thermal camera | ✕  | ✓
 Triggered camera | ✕ | ✓
-Wide-angle camera | ✓ | ✕ (available from Garden)
+Wide-angle camera | ✓ | ([ogre 1.x only](https://github.com/gazebosim/gz-sensors/issues/24))
 Wireless | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/28)
 
 Sensor features | Gazebo-classic | Gazebo Sim
@@ -57,7 +59,7 @@ Populations | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/240)
 Actors | ✓ | ✓
 Markers | ✓ | ✓
 Heightmaps | ✓ | ✓
-DEM (Digital Elevation Models) | ✓ | ✕ (available from Garden)
+DEM (Digital Elevation Models) | ✓ | ✓
 Polylines | ✓ | ✓
 World plugins | ✓ | ✓ Now called System plugin
 Model plugins | ✓ | ✓ Now called System plugin
@@ -65,6 +67,8 @@ Sensor plugins | ✓ | ✓ Now called System plugin
 Visual plugins | ✓ | ✓
 GUI plugins | ✓ | ✓ Gazebo GUI plugins and Gazebo GUI systems
 System plugins | ✓ | ✓ Through Gazebo Launch
+SDF python bindings | x | ✓ | In sdformat13
+SDF <-> Mujoco MJCF | x | ✓ | In sdformat13, [documentation](https://github.com/gazebosim/gz-mujoco/blob/main/sdformat_mjcf/README.md)
 
 ## Plugins
 
@@ -72,6 +76,7 @@ System plugins | ✓ | ✓ Through Gazebo Launch
 
 Plugin | Gazebo-classic | Gazebo Sim
 -- | -- | --
+AckermannSteering | ✕ | ✓
 ActorPlugin | ✓ | ✕ See [FollowActor](https://github.com/gazebosim/gz-sim/blob/main/src/systems/follow_actor/FollowActor.hh) for a demo of Actor APIs
 ActuatorPlugin | ✓ |
 ArduCopterPlugin | ✓ |
@@ -79,9 +84,10 @@ AttachLightPlugin | ✓ | ✕ Does not apply, use SDF
 Breadcrumbs | ✕ | ✓
 BuoyancyPlugin | ✓ | [✓](https://github.com/gazebosim/gz-sim/blob/ign-gazebo6/examples/worlds/buoyancy.sdf)
 CartDemoPlugin | ✓ | ✕
-CessnaPlugin | ✓ |
+CessnaPlugin | ✓ | ✕
+DetachableJoint | ✕ | ✓
 DiffDrivePlugin | ✓ | ✓
-ElevatorPlugin | ✓ |
+ElevatorPlugin | ✓ | ✓
 FlashLightPlugin | ✓ |
 FollowerPlugin | ✓ |
 GimbalSmall2dPlugin | ✓ |
@@ -91,7 +97,7 @@ HydraDemoPlugin | ✓ |
 InitialVelocityPlugin | ✓ | ✓ (use VelocityControl or JointController)
 JointControlPlugin | ✓ (force / pos / vel, from SDF) | ✓ (vel, from msg)
 JointStatePublisher | ✕ | ✓
-JointTrajectoryPlugin | ✓ |
+JointTrajectoryPlugin | ✓ | ✓
 KeysToCmdVelPlugin | ✓ | Use `gz::gui::KeyPublisher` with `gz::gazebo::systems::TriggeredPublisher`
 KeysToJointsPlugin | ✓ | Use `gz::gui::KeyPublisher` with `gz::gazebo::systems::TriggeredPublisher`
 LedPlugin | ✓ |
@@ -99,8 +105,10 @@ LiftDragPlugin | ✓ | ✓
 LinearBatteryConsumerPlugin | ✓ | ✓
 LinearBatteryPlugin | ✓ | ✓
 LinkPlot3DPlugin | ✓ | ✓ (renamed to Plot3D)
+MecanumDrive | ✕ | ✓
 MudPlugin | ✓ |
 MulticopterMotorModel | ✕ | ✓
+OdometryPublisherPlugin | ✕ | ✓
 PlaneDemoPlugin | ✓ |
 PosePublisher | ✕ | ✓
 RandomVelocityPlugin | ✓ |
@@ -140,10 +148,12 @@ CameraPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
 ContactPlugin | ✓ | ✓
 DepthCameraPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
 FiducialCameraPlugin | ✓ |
-ForceTorquePlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
+ForceTorquePlugin | ✓ | ✓
 GpuRayPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
-ImuSensorPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
+ImuSensorPlugin | ✓ | ✓
 LensFlareSensorPlugin | ✓ |
+MagnetometerPlugin | ✕ | ✓
+OpticalTactilePlugin | ✕ | ✓
 PressurePlugin | ✓ |
 RayPlugin | ✓ | [Issue](https://github.com/gazebosim/gz-sim/issues/49)
 RaySensorNoisePlugin | ✓ | ✕ Use SDF
@@ -171,6 +181,7 @@ TimerGUIPlugin | ✓ |
 
 Plugin | Gazebo-classic | Gazebo Sim
 -- | -- | --
+ColladaWorldExporter | ✕ | ✓
 ModelPropShop | ✓ | [✓](https://gazebosim.org/api/gazebo/5.4/model_photo_shoot.html)
 RestUiPlugin | ✓ |
 RestWebPlugin | ✓ |
@@ -234,7 +245,7 @@ Feature | Gazebo-classic | Gazebo Sim
 -- | -- | --
 ODE engine | ✓ | [Issue](https://github.com/gazebosim/gz-physics/issues/63)
 Bullet engine | ✓ | ✓
-DART engine | ✓ | ✓ Plugin shipped with ign-physics
+DART engine | ✓ | ✓ Plugin shipped with gz-physics
 Simbody engine | ✓ | [Issue](https://github.com/gazebosim/gz-physics/issues/63)
 TPE engine | ✕ | ✓
 Custom engine plugins | ✕ | ✓
@@ -267,12 +278,19 @@ Render order | ✕  | ✓
 ## ROS integration
 
 ROS integration through the
-[ros_ign](https://github.com/gazebosim/ros_ign) packages.
+[ros_gz](https://github.com/gazebosim/ros_gz) packages.
 
 Supported versions:
 
-* ROS 1 Melodic (from source) / Noetic (from source)
-* ROS 2 Galactic (from source) / Humble (binaries)
+* ROS 1 Noetic (from source)
+* ROS 2 Humble (from source) / Rolling (from source)
+
+Note: binaries for ROS2 might be available sometime after the Garden release.
+
+For **ROS 2 Rolling**, the Rolling distribution moves with the next future release
+of ROS 2 defined in [REP-2000](https://www.ros.org/reps/rep-2000.html). For the Gz
+Garden release this means that it will be adopted when ROS 2 Iron goes into the
+[REP-2000](https://www.ros.org/reps/rep-2000.html).
 
 ## Platforms
 
@@ -305,3 +323,5 @@ Ocean currents | ✕  | ✓
 Test fixture | ✓ | [✓](https://gazebosim.org/api/gazebo/6.6/test_fixture.html)
 Spherical coordinates | ✓ | ✓
 Generic comms system | ✕ | [✓](https://github.com/gazebosim/gz-sim/blob/ign-gazebo6/examples/worlds/perfect_comms.sdf)
+Acoustic communication | ✕ | ✓
+Static linked plugins | ✕ | ✓

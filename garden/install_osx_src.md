@@ -1,6 +1,7 @@
 # Source Installation on macOS
 
-This tutorial will work for macOS Catalina 10.15 and macOS BigSur 10.16.
+This tutorial will work for macOS Catalina 10.15, macOS BigSur 10.16,
+and macOS Monterey 12.0.
 
 ## Install tools
 
@@ -55,7 +56,7 @@ All the sources of gazebo-garden are declared in a yaml file. Download
 it to the workspace:
 
 ```bash
-wget https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-garden.yaml
+curl -O https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-garden.yaml
 ```
 
 Use `vcstool` to automatically retrieve all the Gazebo libraries sources from
@@ -82,25 +83,38 @@ Install all dependencies:
 Dependency for Ogre:
 
 ```bash
-brew cask install xquartz
+brew install xquartz --cask
 ```
 
 General dependencies:
 
 ```bash
-brew install assimp boost bullet cmake cppzmq dartsim@6.10.0 doxygen eigen fcl ffmpeg flann freeimage freetype gflags google-benchmark gts ipopt irrlicht jsoncpp libccd libyaml libzzip libzip nlopt ode open-scene-graph ossp-uuid ogre1.9 ogre2.2 pkg-config protobuf qt qwt rapidjson ruby tbb tinyxml tinyxml2 urdfdom zeromq
+brew install assimp boost bullet cmake cppzmq dartsim@6.10.0 doxygen eigen fcl ffmpeg flann freeimage freetype gdal gflags google-benchmark gts ipopt jsoncpp libccd libyaml libzzip libzip nlopt ode open-scene-graph ossp-uuid ogre1.9 ogre2.3 pkg-config protobuf qt@5 qwt-qt5 rapidjson ruby tbb tinyxml tinyxml2 urdfdom zeromq
 ```
 
-`dartsim@6.10.0` and `qt5` are not sym-linked. To use those dependencies when building
-`gazebo-physics2` and `gazebo-gui3`, run the following after installation to add them to `/use/local`:
+`dartsim@6.10.0` and `qt@5` are not sym-linked. To use those dependencies when building
+`gz-physics6` and `gz-gui7`, run the following after installation:
+
+For Macs with Intel processors, add them to `/usr/local`:
 
 ```bash
 # dartsim@6.10.0
 export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/usr/local/opt/dartsim@6.10.0
 export DYLD_FALLBACK_LIBRARY_PATH=${DYLD_FALLBACK_LIBRARY_PATH}:/usr/local/opt/dartsim@6.10.0/lib:/usr/local/opt/octomap/local
 export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:/usr/local/opt/dartsim@6.10.0/lib/pkgconfig
-# qt5
+# qt@5
 export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/usr/local/opt/qt@5
+```
+
+Note if you are on an ARM based Apple Silicon Mac machine, you will need to add them to `/opt/homebrew` instead:
+
+```bash
+# dartsim@6.10.0
+export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/homebrew/opt/dartsim@6.10.0
+export DYLD_FALLBACK_LIBRARY_PATH=${DYLD_FALLBACK_LIBRARY_PATH}:/opt/homoebrew/opt/dartsim@6.10.0/lib:/opt/homebrew/opt/octomap/local
+export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:/opt/homebrew/opt/dartsim@6.10.0/lib/pkgconfig
+# qt@5
+export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/homebrew/opt/qt@5
 ```
 
 ### Install compiler requirements
@@ -186,6 +200,13 @@ to build the whole set of libraries:
 
 ```bash
 colcon build --merge-install
+
+```
+
+Note if you are on an ARM based Apple Silicon Mac machine, you may need to set a couple more cmake args:
+
+```bash
+colcon build --cmake-args -DCMAKE_MACOSX_RPATH=FALSE -DCMAKE_INSTALL_NAME_DIR=$(pwd)/install/lib --merge-install
 ```
 
 To speed up the build process, you could also disable tests by using
@@ -194,7 +215,7 @@ To speed up the build process, you could also disable tests by using
 colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install
 ```
 
-To use debuggers activate debug symbols. Gazebo will run slower, but you'll be able to use GDB:
+To use debuggers activate debug symbols. Gazebo will run slower, but you'll be able to use `lldb`:
 
 ```bash
 colcon build --cmake-args ' -DBUILD_TESTING=OFF' ' -DCMAKE_BUILD_TYPE=Debug' --merge-install
@@ -232,19 +253,19 @@ Or in zsh:
 . ~/workspace/install/setup.zsh
 ```
 
+You should now be able to launch gazebo:
+
+```sh
+# launch server in one terminal
+gz sim -v 4 shapes.sdf -s
+
+# launch gui in a separate terminal
+# remember to source the workspace setup script
+gz sim -v 4 -g
+```
+
 This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)
 page to start using Gazebo!
-
-## Uninstalling source-based install
-
-If you need to uninstall Gazebo or switch to a binary-based install once you
-have already installed the library from source, navigate to your source code
-directory's build folders and run `make uninstall`:
-
-```bash
-cd /workspace
-sudo make uninstall
-```
 
 ## Troubleshooting
 

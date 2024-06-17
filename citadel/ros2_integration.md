@@ -6,15 +6,13 @@ from ROS and apply it to Ignition and vice versa.
 
 ## ros_ign_bridge
 
-`ros_ign_bridge` provides a network bridge which enables the exchange of messages between ROS 2 and Ignition Transport. Its support is limited to only certain message types. Please, check this [README](https://github.com/ignitionrobotics/ros_ign/blob/ros2/ros_ign_bridge/README.md) to verify if your message type is supported by the bridge.
+`ros_ign_bridge` provides a network bridge which enables the exchange of messages between ROS 2 and Ignition Transport. Its support is limited to only certain message types. Please, check this [README](https://github.com/ignitionrobotics/ros_ign/blob/ros2/ros_gz_bridge/README.md) to verify if your message type is supported by the bridge.
 
 ## Requirements
 
-For this tutorial to work correctly make sure you have the following installed:
-
-* [ROS 2 Foxy](https://index.ros.org/doc/ros2/Installation/Foxy/)
-* [Ignition Citadel](https://gazebosim.org/docs/citadel)
-* [ros_ign_bridge](https://github.com/ignitionrobotics/ros_ign/tree/foxy#binaries)
+Please follow the [Install Gazebo and ROS document](docs/latest/ros_installation)
+before starting this tutorial. A working installation of ROS 2 and Gazebo is
+required to go further.
 
 ## Bidirectional communication
 
@@ -34,7 +32,7 @@ The ROS message type is followed by an `@`, `[`, or `]` symbol where:
 * `[`  is a bridge from Ignition to ROS.
 * `]`  is a bridge from ROS to Ignition.
 
-Have a look at these [examples](https://github.com/ignitionrobotics/ros_ign/blob/ros2/ros_ign_bridge/README.md#example-1a-ignition-transport-talker-and-ros-2-listener)
+Have a look at these [examples](https://github.com/ignitionrobotics/ros_ign/blob/ros2/ros_gz_bridge/README.md#example-1a-ignition-transport-talker-and-ros-2-listener)
 explaining how to make communication connections from ROS to Ignition and vice versa.
 
 ## Publish key strokes to ROS

@@ -118,9 +118,11 @@ all the GUI applications by selecting "NVIDIA (Performance Mode)".
 The "Application Profiles" can control the use of the Nvidia GPU per application.
 
 ### Unable to create the rendering window
+
 If you're getting errors like "Unable to create the rendering window", it could
 mean you're using an old OpenGL version. Gazebo Sim uses the Ogre 2
-rendering engine by default, which requires an OpenGL version higher than 3.3.
+rendering engine by default, which requires an OpenGL version higher than 3.3,
+preferrably 4.3+.
 
 This can be confirmed by checking the Ogre 2 logs at `~/.ignition/rendering/ogre2.log`,
 which should have an error like:
@@ -131,6 +133,30 @@ You can also check your OpenGL version running:
 
     glxinfo | grep "OpenGL version"
 
+To enable Ogre 2 support, you'll need to update your computer's OpenGL version.
+As suggested on the Ogre logs, this may require updating your graphics card
+drivers.
+
+If you still run into OpenGL issues when running Gazebo with Ogre 2, it could
+be that certain extensions are not supported by your driver or you are running
+inside a virtual machine. In this case, you can try disabling DRI:
+
+    export LIBGL_DRI3_DISABLE=1
+
+or force software rendering
+
+    export LIBGL_ALWAYS_SOFTWARE=1
+
+If you are using MESA drivers, you can also try overriding the OpenGL version
+
+    export MESA_GL_VERSION_OVERRIDE=3.3
+
+The Ogre 2 debs from the osrfoundation repository are built from a fork of
+Ogre's `v2-2` branch with changes needed for deb packaging and allowing it to
+be co-installable with Ogre 1.x. The code can be found here:
+
+https://github.com/osrf/ogre-2.2-release
+
 You should be able to use Ogre 1 without any issues however. You can check if
 that's working by running a world which uses Ogre 1 instead of Ogre 2, such as:
 
@@ -139,16 +165,22 @@ that's working by running a world which uses Ogre 1 instead of Ogre 2, such as:
 If that loads, you can continue to use Ignition with Ogre 1, just use the
 `--render-engine ogre` option.
 
-To enable Ogre 2 support, you'll need to update your computer's OpenGL version.
-As suggested on the Ogre logs, this may require updating your graphics card
-drivers.
+### Wayland issues
 
-The Ogre 2 debs from the osrfoundation repository are built from a fork of
-Ogre's `v2-1` branch with changes needed for deb packaging and allowing it to
-be co-installable with Ogre 1.x. The code can be found here:
+For users on Wayland, you will need to make sure Gazebo is launched with
+XWayland.
 
-https://github.com/osrf/ogre-2.1-release
+If you see an error message like the one below:
 
+```
+Unable to create the rendering window: OGRE EXCEPTION(3:RenderingAPIException): currentGLContext was specified with no current GL context in GLXWindow::create at ./RenderSystems/GL3Plus/src/windowing/GLX/OgreGLXWindow.cpp (line 165)
+```
+
+try unsetting the `WAYLAND_DISPLAY` environment variable, e.g.
+
+```sh
+env -u WAYLAND_DISPLAY ign gazebo -v 4 shapes.sdf
+```
 
 ## Windows
 

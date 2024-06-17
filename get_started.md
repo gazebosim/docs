@@ -7,18 +7,44 @@ simulation using Gazebo.
 
 ## Step 1: Install
 
-Each release of Gazebo ships with a new installation tutorial. You can
-read [the latest installation tutorial here](/docs/latest/install). Please
-visit the [main documentation](/docs) pages for a list of all releases,
-along with links to their respective installation tutorials.
+<div class="warning">
+  <strong>Note:</strong> If you are a <a href="https://ros.org">ROS</a> user, please first read our tutorial about
+  the <a href="docs/latest/ros_installation">ROS/Gazebo installation</a>.
+</div>
+
+The recommended installation for new users is the use of binary
+packages available for the platform to use:
+
+|Platform|Gazebo Versions|
+|---|---|
+| Ubuntu 22.04 Jammy | [Gazebo Harmonic](/docs/harmonic/install_ubuntu) (recommended), [Gazebo Garden](/docs/garden/install_ubuntu) and [Gazebo Fortress](/docs/fortress/install_ubuntu) (recommended if using ROS 2 Humble or Iron)
+| Ubuntu 20.04 Focal | [Gazebo Garden](/docs/garden/install_ubuntu) (recommended), [Gazebo Fortress](/docs/fortress/install_ubuntu) and [Gazebo Citadel](/docs/citadel/install_ubuntu)
+| Ubuntu 18.04 Bionic | [Gazebo Citadel](/docs/citadel/install_ubuntu)
+| Mac Ventura | [Gazebo Harmonic](/docs/harmonic/install_osx) (recommended), [Gazebo Garden](/docs/garden/install_osx), [Gazebo Fortress](/docs/fortress/install_osx) and [Gazebo Citadel](/docs/citadel/install_osx)
+| Mac Monterey | [Gazebo Harmonic](/docs/harmonic/install_osx) (recommended), [Gazebo Garden](/docs/garden/install_osx), [Gazebo Fortress](/docs/fortress/install_osx) and [Gazebo Citadel](/docs/citadel/install_osx)
+| Windows | Support via Conda-Forge is not fully functional, as there are known runtime issues [see this issue for details](https://github.com/gazebosim/gz-sim/issues/168).
+
+If the desired platform is not listed above or if a particular feature in a
+given [Gazebo release](/docs/latest/releases) is needed,
+there is an installation package per release available with all the
+installation options:
+
+* [Gazebo Harmonic installation](/docs/harmonic/install) options (EOL 2028 Sep)
+* [Gazebo Garden installation](/docs/garden/install) options (EOL 2024 Sep)
+* [Gazebo Fortress (LTS) installation](/docs/fortress/install) options (EOL 2026 Sep)
+* [Gazebo Citadel (LTS) installation](/docs/citadel/install) options (EOL 2024 Dec)
 
 ## Step 2: Run
 
 After installing Gazebo in Step 1, you can launch Gazebo Sim, a 3D robotics
-simulator, from a terminal using
+simulator, from a terminal.
+
+* If you are on macOS, see specific instructions in the [macOS section](#macos).
+
+Launch Gazebo by running:
 
 ```
-ign gazebo shapes.sdf
+gz sim shapes.sdf  # Fortress and Citadel use "ign gazebo" instead of "gz sim"
 ```
 
 This command will launch both the Sim server and Sim GUI with a world
@@ -28,13 +54,13 @@ Add the `-v 4` command line argument to generate error, warning,
 informational, and debugging messages on the console.
 
 ```
-ign gazebo shapes.sdf -v 4
+gz sim shapes.sdf -v 4  # Fortress and Citadel use "ign gazebo" instead of "gz sim"
 ```
 
 Gazebo Sim can also be run headless, i.e. without the GUI, by using the `-s` (server only) flag.
 
 ```
-ign gazebo -s shapes.sdf -v 4
+gz sim -s shapes.sdf -v 4  # Fortress and Citadel use "ign gazebo" instead of "gz sim"
 ```
 
 Similarly, the GUI can be run independently using the `-g` (gui only) flag.
@@ -75,3 +101,25 @@ covering the basics of the GUI, creating worlds and robots, and more.
 Each [Gazebo library](/libs) also has a set of tutorials and
 examples. Explore these resources, and don't forget to ask questions and
 find solutions at [answers.gazebosim.org](http://answers.gazebosim.org).
+
+# macOS
+
+On macOS, you will need to run Gazebo using two terminals, one for the server
+and another for the GUI:
+
+```sh
+# launch server in one terminal
+gz sim -v 4 shapes.sdf -s  # Fortress and Citadel use "ign gazebo" instead of "gz sim"
+```
+
+```sh
+# launch gui in a separate terminal
+gz sim -v 4 -g  # Fortress and Citadel use "ign gazebo" instead of "gz sim"
+```
+
+The GUI on macOS is currently known to be unstable. Basic interaction with
+the 3D scene such as camera view control and translation / rotation tools
+should be functional. However, some GUI plugins like the Component Inspector
+may be buggy and interaction with certain GUI elements may cause the GUI
+to crash. Please ticket an issue at https://github.com/gazebosim/gz-sim/
+if you run into GUI problems on macOS.

@@ -21,15 +21,15 @@ We will start by building a simple world and then build our robot in it. Open a 
             <real_time_factor>1.0</real_time_factor>
         </physics>
         <plugin
-            filename="libgz-sim-physics-system.so"
+            filename="gz-sim-physics-system"
             name="gz::sim::systems::Physics">
         </plugin>
         <plugin
-            filename="libgz-sim-user-commands-system.so"
+            filename="gz-sim-user-commands-system"
             name="gz::sim::systems::UserCommands">
         </plugin>
         <plugin
-            filename="libgz-sim-scene-broadcaster-system.so"
+            filename="gz-sim-scene-broadcaster-system"
             name="gz::sim::systems::SceneBroadcaster">
         </plugin>
 
@@ -119,7 +119,7 @@ We define the first link, the `chassis` of our car and it's pose relative to the
 #### Inertial properties
 
 ```xml
-    <inertial> <!--inertial properties of the link mass, inertia matix-->
+    <inertial> <!--inertial properties of the link mass, inertia matrix-->
         <mass>1.14395</mass>
         <inertia>
             <ixx>0.095329</ixx>

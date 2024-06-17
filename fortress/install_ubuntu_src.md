@@ -1,6 +1,6 @@
 # Source Installation on Ubuntu
 
-These instructions apply to Ubuntu Bionic (18.04) and Focal (20.04).
+These instructions apply to Ubuntu Bionic (18.04), Focal (20.04) and Jammy (22.04).
 
 ## Install tools
 
@@ -24,7 +24,7 @@ cases where the default option cannot be easily changed.
 Install tools needed by this tutorial:
 
 ```bash
-sudo apt install python3-pip wget lsb-release gnupg curl
+sudo apt install python3-pip lsb-release gnupg curl
 ```
 
 ## vcstool and colcon from pip
@@ -93,7 +93,7 @@ All the sources of ignition-fortress are declared in a yaml file. Download
 it to the workspace:
 
 ```bash
-wget https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-fortress.yaml
+curl -O https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-fortress.yaml
 ```
 
 Use `vcstool` to automatically retrieve all the Ignition libraries sources from
@@ -114,14 +114,15 @@ method to install software dependencies.
 Add `packages.osrfoundation.org` to the apt sources list:
 
 ```bash
-sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
 sudo apt-get update
 ```
 
-The command below will install all dependencies in Ubuntu Bionic or Focal:
+The command below must be run from a workspace with the Gazebo source code and will install all dependencies in Ubuntu:
 
 ```bash
+cd ~/workspace/src
 sudo apt -y install \
   $(sort -u $(find . -iname 'packages-'`lsb_release -cs`'.apt' -o -iname 'packages.apt' | grep -v '/\.git/') | sed '/ignition\|sdf/d' | tr '\n' ' ')
 ```
@@ -134,7 +135,7 @@ The Ignition Libraries require the gcc compiler version 8 or higher.
 #### Ubuntu Bionic
 
 Ubuntu Bionic's default compiler version is not high enough, so the following
-steps are needed to upgrade. These are not needed on Ubuntu Focal.
+steps are needed to upgrade. These are not needed on Ubuntu Focal or Jammy.
 
 To install `gcc` version 8 on Ubuntu Bionic:
 

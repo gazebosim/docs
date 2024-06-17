@@ -24,7 +24,7 @@ cases where the default option cannot be easily changed.
 Install tools needed by this tutorial:
 
 ```bash
-sudo apt install python3-pip wget lsb-release gnupg curl
+sudo apt install python3-pip lsb-release gnupg curl
 ```
 
 ## vcstool and colcon from pip
@@ -93,7 +93,7 @@ All the sources of gazebo-garden are declared in a yaml file. Download
 it to the workspace:
 
 ```bash
-wget https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-garden.yaml
+curl -O https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-garden.yaml
 ```
 
 Use `vcstool` to automatically retrieve all the Gazebo libraries sources from
@@ -114,14 +114,15 @@ method to install software dependencies.
 Add `packages.osrfoundation.org` to the apt sources list:
 
 ```bash
-sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
 sudo apt-get update
 ```
 
-The command below will install all dependencies in Ubuntu:
+The command below must be run from a workspace with the Gazebo source code and will install all dependencies in Ubuntu:
 
 ```bash
+cd ~/workspace/src
 sudo apt -y install \
   $(sort -u $(find . -iname 'packages-'`lsb_release -cs`'.apt' -o -iname 'packages.apt' | grep -v '/\.git/') | sed '/gz\|sdf/d' | tr '\n' ' ')
 ```
@@ -172,7 +173,7 @@ colcon build --packages-select PACKAGE_NAME
 
 Visit [colcon documentation](https://colcon.readthedocs.io/en/released/#) to view more `colcon` build and test options.
 
-If there are no errors, all the binaries should be ready to use. You can check the [Troubleshooting] section for errors.
+If there are no errors, all the binaries should be ready to use. You can check the [Troubleshooting](/docs/garden/troubleshooting#ubuntu) section for errors.
 
 ## Using the workspace
 

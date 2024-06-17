@@ -2,10 +2,64 @@
 
 Here you will find the set of features that are available in each release.
 
-Take a look at the [Roadmap](/docs/roadmap) for information about upcoming
+Take a look at the [Roadmap](/docs/all/roadmap) for information about upcoming
 features, some of which may land in released versions of Gazebo.
 
+## Harmonic
+
+For a complete list of features included in the initial release of Harmonic, please see the [highlights](https://github.com/gazebosim/gz-harmonic/blob/main/highlights.md) and [release notes](https://github.com/gazebosim/gz-harmonic/blob/main/release_notes.md) documentation in the Gazebo Harmonic repository.
+
+| Library name       | Version       | Changelog     |
+| ------------------ |:-------------:|:-------------:|
+|   gz-cmake        |       3.x     |       [Changelog](https://github.com/gazebosim/gz-cmake/blob/gz-cmake3/Changelog.md)     |
+|   gz-common       |       5.x     |       [Changelog](https://github.com/gazebosim/gz-common/blob/gz-common5/Changelog.md)    |
+|   gz-fuel-tools   |       9.x     |       [Changelog](https://github.com/gazebosim/gz-fuel-tools/blob/gz-fuel-tools9/Changelog.md)    |
+|   gz-gui          |       8.x     |       [Changelog](https://github.com/gazebosim/gz-gui/blob/gz-gui8/Changelog.md)       |
+|   gz-launch       |       7.x     |       [Changelog](https://github.com/gazebosim/gz-launch/blob/gz-launch7/Changelog.md)
+|   gz-math         |       7.x     |       [Changelog](https://github.com/gazebosim/gz-math/blob/gz-math7/Changelog.md)
+|   gz-msgs         |      10.x     |       [Changelog](https://github.com/gazebosim/gz-msgs/blob/gz-msgs10/Changelog.md)
+|   gz-physics      |       7.x     |       [Changelog](https://github.com/gazebosim/gz-physics/blob/gz-physics7/Changelog.md)
+|   gz-plugin       |       2.x     |       [Changelog](https://github.com/gazebosim/gz-plugin/blob/gz-plugin2/Changelog.md)     |
+|   gz-rendering    |       8.x     |       [Changelog](https://github.com/gazebosim/gz-rendering/blob/gz-rendering8/Changelog.md)      |
+|   gz-sensors      |       8.x     |       [Changelog](https://github.com/gazebosim/gz-sensors/blob/gz-sensors8/Changelog.md)      |
+|   gz-sim          |       8.x     |       [Changelog](https://github.com/gazebosim/gz-sim/blob/gz-sim8/Changelog.md)     |
+|   gz-tools        |       2.x     |       [Changelog](https://github.com/gazebosim/gz-tools/blob/gz-tools2/Changelog.md)     |
+|   gz-transport    |      13.x     |       [Changelog](https://github.com/gazebosim/gz-transport/blob/gz-transport13/Changelog.md)      |
+|   gz-utils        |       2.x     |       [Changelog](https://github.com/gazebosim/gz-utils/blob/gz-utils2/Changelog.md)      |
+|   sdformat        |      14.x     |       [Changelog](https://github.com/osrf/sdformat/blob/sdf14/Changelog.md)        |
+
 ## Garden
+
+1. [Point cloud visualization.](https://github.com/gazebosim/gz-sim/issues/1156)
+1. [Wide angle camera (Ogre 1).](https://github.com/gazebosim/gz-sensors/issues/24)
+1. [DEM heightmaps.](https://github.com/gazebosim/gz-sim/issues/235)
+1. [Camera distortion.](https://github.com/gazebosim/gz-sensors/issues/107)
+1. [Wind effects configurable on a location basis.](https://github.com/gazebosim/gz-sim/pull/1357)
+1. [Simulation Reset API.](https://github.com/gazebosim/gz-sim/issues/1107)
+1. [Renaming Ignition to Gazebo.](https://community.gazebosim.org/t/a-new-era-for-gazebo/1356)
+1. [glTF and GLB mesh support.](https://github.com/gazebosim/gz-common/issues/344)
+1. [Vulkan support (Ogre 2.3)](https://github.com/gazebosim/gz-rendering/pull/553)
+1. [Lunar terrain and coordinates.](https://github.com/gazebosim/sdformat/pull/1050)
+1. [Static plugins.](https://github.com/gazebosim/gz-plugin/pull/97)
+1. [Conversion between SDF and MJCF.](https://github.com/gazebosim/gz-mujoco/tree/main/sdformat_mjcf)
+1. [Python API for SDFormat.](http://sdformat.org/tutorials?tut=python_bindings&cat=developers&)
+1. [Material shininess.](https://github.com/gazebosim/sdformat/pull/985)
+1. [Improve Bullet support (new gz-physics plugin for Bullet's Featherstone API).](https://github.com/gazebosim/gz-physics/issues/44)
+1. [Generic physics tests.](https://github.com/gazebosim/gz-physics/issues/50)
+1. [Custom rendering sensors.](https://github.com/gazebosim/gz-sim/pull/1804)[^1]
+1. [Environmental lookup sensors.](https://github.com/gazebosim/gz-sim/pull/1616)
+1. [Allow loading SDFormat model files from the command line (instead of world files only).](https://github.com/gazebosim/gz-sim/pull/1775)
+1. [Simple acoustic communication plugin.](https://github.com/gazebosim/gz-sim/pull/1704)
+1. [Airspeed sensor.](https://github.com/gazebosim/gz-sensors/pull/305)
+1. [Hydrodynamic added mass.](https://github.com/gazebosim/gz-sim/issues/1462)
+1. [Magnetometer value based on location.](https://github.com/gazebosim/gz-sim/pull/1907)
+1. [Lens flare support for Ogre and Ogre2.](https://github.com/gazebosim/gz-rendering/issues/730)
+1. [Allow specifying initial simulation time with a CLI argument](https://github.com/gazebosim/gz-sim/pull/1801)
+1. [Joints defined at the world level](https://github.com/gazebosim/sdformat/issues/1115)
+1. [Dynamic wrench application through the GUI (Mouse interaction with simulated models)](https://github.com/gazebosim/gz-sim/issues/306)
+
+[^1]: All the functionality for creating custom rendering sensors is in Garden, but the PR listed, which serves as an
+  example, is only available in Harmonic.
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
@@ -51,12 +105,12 @@ features, some of which may land in released versions of Gazebo.
 1. [ROS bridge as a node component.](https://github.com/gazebosim/ros_gz/pull/238)
 1. [SDF support on ROS 2.](https://github.com/gazebosim/ros_gz/pull/265)
 1. Sensors
-  1. [Custom sensors.](https://gazebosim.org/api/sensors/6.0/custom_sensors.html)
-  1. [Segmentation camera.](https://gazebosim.org/api/sensors/6.0/segmentationcamera_igngazebo.html)
-  1. [Joint force-torque sensor.](https://github.com/gazebosim/gz-sensors/issues/25)
-  1. [GPS / NavSat sensor.](https://github.com/gazebosim/gz-sensors/issues/23)
-  1. [Triggered cameras.](https://github.com/gazebosim/gz-sensors/issues/185)
-  1. [Bounding box camera.](https://github.com/gazebosim/gz-sensors/issues/135)
+    1. [Custom sensors.](https://gazebosim.org/api/sensors/6.0/custom_sensors.html)
+    1. [Segmentation camera.](https://gazebosim.org/api/sensors/6.0/segmentationcamera_igngazebo.html)
+    1. [Joint force-torque sensor.](https://github.com/gazebosim/gz-sensors/issues/25)
+    1. [GPS / NavSat sensor.](https://github.com/gazebosim/gz-sensors/issues/23)
+    1. [Triggered cameras.](https://github.com/gazebosim/gz-sensors/issues/185)
+    1. [Bounding box camera.](https://github.com/gazebosim/gz-sensors/issues/135)
 1. GUI features
     1. [Consolidate Scene3D with GzScene3D](https://github.com/gazebosim/gz-gui/issues/137)
     1. [Visualize wireframes](https://github.com/gazebosim/gz-sim/pull/816)
@@ -66,6 +120,12 @@ features, some of which may land in released versions of Gazebo.
     1. [Visualize joints](https://github.com/gazebosim/gz-sim/issues/106)
     1. [Orthographic view](https://github.com/gazebosim/gz-sim/issues/103)
     1. [System inspector.](https://github.com/gazebosim/gz-sim/issues/191)
+1. [Hydrodynamics for water surface vehicles.](https://github.com/gazebosim/gz-sim/pull/818)
+1. [Custom skybox from SDF.](https://github.com/gazebosim/sdformat/pull/1037)
+1. [Gz3D: support heightmaps, skybox and particles.](https://github.com/gazebo-web/gzweb/pull/35)
+1. [Tools for creating new Gazebo projects](https://github.com/gazebosim/gz_pkg_create)
+1. [Simplify determination of a sensor's topic name for rendering sensors.](https://github.com/gazebosim/gz-sim/pull/1908)
+1. [APIs that ease migration from classic.](https://github.com/gazebosim/gz-sim/issues/325)
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|
@@ -207,6 +267,9 @@ features, some of which may land in released versions of Gazebo.
     * [World](https://gazebosim.org/api/gazebo/3.5/migrationworldapi.html)
     * [Model](https://gazebosim.org/api/gazebo/3.5/migrationmodelapi.html)
     * [Link](https://gazebosim.org/api/gazebo/3.5/migrationlinkapi.html)
+1. [Expose camera calibration parameters.](https://github.com/gazebosim/sdformat/pull/1088)
+1. [Speed up Resource Spawner.](https://github.com/gazebosim/gz-sim/issues/1936)
+1. [Bash completion](https://github.com/gazebosim/gz-tools/issues/1)
 
 | Library name       | Version       | Changelog     |
 | ------------------ |:-------------:|:-------------:|

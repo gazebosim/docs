@@ -1,3 +1,7 @@
+<div class="warning">
+WARNING: Current Windows support is experimental.
+</div>
+
 # Source Installation on Windows 10
 
 Command line tools, DART physics engine, and GUI capabilities are
@@ -47,7 +51,7 @@ You will still be able to use `TPE` as a physics engine
 
   ```bash
   conda install cmake git vcstool curl pkg-config ^
-  colcon-common-extensions eigen freeimage gts ^
+  colcon-common-extensions eigen freeimage gdal gts ^
   glib dlfcn-win32 ffmpeg ruby tinyxml2 tinyxml ^
   protobuf urdfdom zeromq cppzmq ogre jsoncpp ^
   libzip qt pybind11 --channel conda-forge

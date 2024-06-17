@@ -10,22 +10,29 @@ jobs:
   upload:
     name: Upload docs to production
     runs-on: ubuntu-20.04
+    permissions:
+      id-token: write
+      contents: read
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Setup aws cli
-      run: |
-        sudo apt-get update &&
-        sudo apt-get install awscli
+    - name: Configure AWS Credentials
+      id: creds
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-region: us-east-1
+        role-to-assume: arn:aws:iam::200670743174:role/github-oidc-deployment-gz-web-app
+        # Need to run ./build_docs.sh
+        output-credentials: true
     - name: Run nightly upload
-      run: cd tools && ./build_docs.sh all
+      run: |
+        cd tools && ./build_docs.sh all
       shell: bash
       env:
         GZ_VERSION_PASSWORD: ${{ secrets.GZ_VERSION_PASSWORD }}
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_ACCESS_KEY_ID: ${{ steps.creds.outputs.aws-access-key-id }}
+        AWS_SECRET_ACCESS_KEY: ${{ steps.creds.outputs.aws-secret-access-key }}
+        AWS_SESSION_TOKEN: ${{ steps.creds.outputs.aws-session-token }}
     - name: Invalidate Cloudfront distribution
       run: |
-        aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }} &&
-        aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }} &&
-        aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths '/*'
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths '/*' --region us-east-1

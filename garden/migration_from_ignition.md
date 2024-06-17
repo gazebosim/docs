@@ -461,7 +461,37 @@ gz sim shapes.sdf
 
 Notice that the `gazebo` verb is **deprecated**.
 
-#### Double-Check
+#### Helpful CLI Redirection
+
+In order to support side-by-side installs of `Garden` and `Fortress`, the `ign` CLI executable (and the `gazebo` verb) will not be installed for `Garden`.
+This means that unless `Fortress` is also installed alongside `Garden`, CLI usage has to be migrated.
+Use `gz` instead of `ign`, and `sim` instead of `gazebo`.
+
+You may add the following script to your `~/.bashrc` file to redirect any `ign` calls to `gz`, so you won't have to migrate all of your scripts (that are still using `ign`), though it is still recommended to make the migration.
+
+```shell
+ign() {
+  if which ign &> /dev/null; then
+    $(which ign) "$@"
+  else
+    if which gz &> /dev/null; then
+      echo "[DEPRECATED] ign is deprecated! Please use gz instead!"
+      if [ "$1" = "gazebo" ]; then
+        echo "[DEPRECATED] The gazebo verb is deprecated! Please use sim instead!"
+        shift
+        $(which gz) sim "$@"
+      else
+        $(which gz) "$@"
+      fi
+    else
+      echo "[ERROR] It seems like you don't have Gazebo installed!"
+      return 1
+    fi
+  fi
+}
+```
+
+### Double-Check
 
 These might be useful to double-check if you have any lingering stuff, or erroneously migrated instances
 

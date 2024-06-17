@@ -38,7 +38,7 @@ Plugins are a dynamically loaded chunk of code. For example:
 
 ```xml
 <plugin
-    filename="libgz-sim-physics-system.so"
+    filename="gz-sim-physics-system"
     name="gz::sim::systems::Physics">
 </plugin>
 ```
@@ -47,7 +47,7 @@ The `Physics` plugin is very important for simulating the dynamics of the world.
 
 ```xml
 <plugin
-    filename="libgz-sim-user-commands-system.so"
+    filename="gz-sim-user-commands-system"
     name="gz::sim::systems::UserCommands">
 </plugin>
 ```
@@ -56,7 +56,7 @@ The `UserCommands` plugin is responsible for creating models, moving models, del
 
 ```xml
 <plugin
-    filename="libgz-sim-scene-broadcaster-system.so"
+    filename="gz-sim-scene-broadcaster-system"
     name="gz::sim::systems::SceneBroadcaster">
 </plugin>
 ```
@@ -270,7 +270,7 @@ The previous methods download your model on run time. For saving the model perma
 </include>
 ```
 
-We need to set `IGN_GAZEBO_RESOURCE_PATH` environment variable to the parent folder of our model. For example, if our directory looks like this:
+We need to set `GZ_SIM_RESOURCE_PATH` environment variable to the parent folder of our model. For example, if our directory looks like this:
 
 ```
 world_tutorial<br/>
@@ -280,15 +280,32 @@ world_tutorial<br/>
 
 Then we have to set it to the `world_tutorial` directory, like this:
 
-`export IGN_GAZEBO_RESOURCE_PATH="$HOME/world_tutorial"`
+`export GZ_SIM_RESOURCE_PATH="$HOME/world_tutorial"`
 
 Run your world:
 
 `gz sim world_demo.sdf`
 
-You should see the model in the origin of the world. You can also set its coordinates using the `<pose>`tag.
+You should see the model in the origin of the world.
 
 ![world with can](tutorials/sdf_worlds/coke_world.png)
+
+You can also set its coordinates using the `<pose>` tag.
+If you want to spawn multiple instances of the same model you must give them different names with the `<name>` tag.
+
+```
+    <include>
+        <name>Coke0</name>
+        <pose>0 0 0 0 0 0</pose>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke</uri>
+    </include>
+    <include>
+        <name>Coke1</name>
+        <pose>0 0.1 0 0 0 0</pose>
+        <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke</uri>
+    </include>
+```
+![two cans](tutorials/sdf_worlds/two_cokes.png)
 
 Now that you have a custom world, the [next tutorial](sensors) will teach you how to add sensors to a robot to allow it to interact with the world around it.
 

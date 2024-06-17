@@ -6,7 +6,7 @@
 In this tutorial we will learn how to add sensors to our robot and
 to other models in our world. We will use three different sensors:
 an IMU sensor, a Contact sensor and a Lidar sensor. We will also
-learn how to launch multiple tasks with just one file using `ign_launch`.
+learn how to launch multiple tasks with just one file using `gz launch`.
 
 You can find the final world of this tutorial [here](https://github.com/gazebosim/docs/blob/master/garden/tutorials/sensors/sensor_tutorial.sdf)
 
@@ -20,7 +20,7 @@ and the `linear_acceleration` in the three axes. Let's use our
 To define the `IMU` sensor add this code under the `<world>` tag:
 
 ```xml
-<plugin filename="libgz-sim-imu-system.so"
+<plugin filename="gz-sim-imu-system"
         name="gz::sim::systems::Imu">
 </plugin>
 ```
@@ -80,7 +80,6 @@ obstacle as follows:
     <static>true</static>
     <pose>5 0 0 0 0 0</pose><!--pose relative to the world-->
     <link name='box'>
-        <pose/>
         <visual name='visual'>
             <geometry>
                 <box>
@@ -114,7 +113,7 @@ Now run the world and make sure that the wall appears in the simulation like thi
 Let's add the contact sensor to the wall. As with the `IMU` sensor, we should first define the `Contact` sensor by adding the following code:
 
 ```xml
-<plugin filename="libgz-sim-contact-system.so"
+<plugin filename="gz-sim-contact-system"
         name="gz::sim::systems::Contact">
 </plugin>
 ```
@@ -134,7 +133,7 @@ The definition of the `<sensor>` is straight forward, we just define the `name` 
 We need also to add the `TouchPlugin` under the `wall` model as follows:
 
 ```xml
-<plugin filename="libgz-sim-touchplugin-system.so"
+<plugin filename="gz-sim-touchplugin-system"
         name="gz::sim::systems::TouchPlugin">
     <target>vehicle_blue</target>
     <namespace>wall</namespace>
@@ -164,7 +163,7 @@ When you hit the bump you should see a message `data: true` on the terminal wher
 Now we can use the `TriggeredPublisher` plugin to make our robot stop when hits the wall as follows:
 
 ```xml
-<plugin filename="libgz-sim-triggered-publisher-system.so"
+<plugin filename="gz-sim-triggered-publisher-system"
         name="gz::sim::systems::TriggeredPublisher">
     <input type="gz.msgs.Boolean" topic="/wall/touched">
         <match>data: true</match>
@@ -196,7 +195,7 @@ Then add this plugin under the `<world>` tag, to be able to use the `lidar` sens
 
 ```xml
     <plugin
-      filename="libgz-sim-sensors-system.so"
+      filename="gz-sim-sensors-system"
       name="gz::sim::systems::Sensors">
       <render_engine>ogre2</render_engine>
     </plugin>
@@ -411,10 +410,10 @@ Instead of running two different tasks from two different terminals we can make 
 The launch file is an XML file. We simply define what commands will run under the `<executable>` tag.
 The first command is `gz sim sensor_tutorial.sdf` which launches the world.
 And the second command is `./build/lidar_node` which runs the `lidar_node`.
-Save the file as `sensor_launch.ign`, and then run it using the following command:
+Save the file as `sensor_launch.gzlaunch`, and then run it using the following command:
 
 ```{.sh}
-gz launch sensor_launch.ign
+gz launch sensor_launch.gzlaunch
 ```
 
 Press the play button to start the simulation. Hurray! Our robot is now moving and avoiding the wall.
