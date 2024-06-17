@@ -95,7 +95,6 @@ Now let's define the GUI. Under the `<gui>` tag we specify anything related to t
 
 The `MinimalScene` plugin is responsible for displaying the 3D scene of our world. It has the following properties (most of the GUI plugins have them):
 
-* `state` is the state of the plugin it can be docked in its place using `docked` or it can be `floating`.
 
 For the rendering engine we can choose `ogre` or `ogre2`. The `<ambient_light>` and the `<background_color>` specify the ambient and the background color of the scene. `<camera_pose>` specifies the `X Y Z` position of the camera followed by its rotation in `Roll Pitch Yaw`.
 
