@@ -39,7 +39,7 @@ continued use.
 
 |                           | **GZ Citadel (LTS)**  | **GZ Fortress (LTS)**   | **GZ Garden**   | **GZ Harmonic (LTS)**   |
 |---------------------------|---------------------- |-----------------------  |---------------  | ----------------------  |
-| **ROS 2 Jazzy (LTS)¹**    | ❌                    | ❌                      | ⚡              | ✅                      |
+| **ROS 2 Jazzy (LTS)**     | ❌                    | ❌                      | ⚡              | ✅                      |
 | **ROS 2 Rolling**         | ❌                    | ✅                      | ⚡              | ⚡                      |
 | **ROS 2 Iron**            | ❌                    | ✅                      | ⚡              | ⚡                      |
 | **ROS 2 Humble (LTS)**    | ❌                    | ✅                      | ⚡              | ⚡                      |
@@ -51,8 +51,6 @@ continued use.
 * ❌ - Incompatible / not possible.
 * ⚡ - Possible, *but use with caution*. These combinations of ROS and Gazebo can
   be made to work together, but some effort is required.
-
-  ¹ When ROS 2 Jazzy is released, it will be paired with Gazebo Harmonic.
 
 
 ## Installing the Default Gazebo/ROS Pairing
