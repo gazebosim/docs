@@ -23,8 +23,8 @@ jobs:
           # - docker_image: ubuntu:focal
           #   gazebo_distribution: fortress
 
-          - docker_image: ubuntu:focal
-            gazebo_distribution: garden
+          # - docker_image: ubuntu:focal
+          #   gazebo_distribution: garden
 
           - docker_image: ubuntu:jammy
             gazebo_distribution: harmonic
@@ -35,7 +35,9 @@ jobs:
         with:
           required-gazebo-distributions: ${{ matrix.gazebo_distribution }}
       - name: 'Add Doxygen'
-        run: sudo apt install -y doxygen
+        run: sudo apt-get install -y doxygen
+      - name: 'Install Gazebo recommended packages'
+        run: sudo apt-get install -y --reinstall gz-${{ matrix.gazebo_distribution}}
       - name: 'Build Docs'
         run: |
           mkdir -p ws/src
