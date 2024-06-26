@@ -14,17 +14,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        gazebo_distribution:
-          - citadel
-          - fortress
-          - garden
-          - harmonic
         include:
-          - docker_image: ubuntu:focal
-            gazebo_distribution: citadel
-
-          - docker_image: ubuntu:focal
-            gazebo_distribution: fortress
+          # - docker_image: ubuntu:focal
+          #   gazebo_distribution: citadel
+          #
+          # - docker_image: ubuntu:focal
+          #   gazebo_distribution: fortress
 
           - docker_image: ubuntu:focal
             gazebo_distribution: garden
@@ -37,6 +32,8 @@ jobs:
         uses: gazebo-tooling/setup-gazebo@1f55cec330de851fa373f1ade8ac6b7ddfe6f013
         with:
           required-gazebo-distributions: ${{ matrix.gazebo_distribution }}
+      - name: 'Add Doxygen'
+        run: sudo apt install doxygen
       - name: 'Build Docs'
         run: |
           mkdir -p ws/src
