@@ -8,6 +8,7 @@ on:
 
 jobs:
   build_api_docs:
+    name: 'Build API Docs (${{ matrix.gazebo_distribution }})'
     runs-on: ubuntu-latest
     container:
       image: ${{ matrix.docker_image }}
@@ -33,7 +34,7 @@ jobs:
         with:
           required-gazebo-distributions: ${{ matrix.gazebo_distribution }}
       - name: 'Add Doxygen'
-        run: sudo apt install doxygen
+        run: sudo apt install -y doxygen
       - name: 'Build Docs'
         run: |
           mkdir -p ws/src
