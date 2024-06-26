@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build_api_docs:
+  build:
     name: 'Build API Docs (${{ matrix.gazebo_distribution }})'
     runs-on: ubuntu-latest
     container:
@@ -44,13 +44,22 @@ jobs:
           rm -rf sdformat
           sudo apt-get -y install $(sort -u $(find . -iname 'packages-'${{ matrix.ubuntu_distribution}}'.apt' -o -iname 'packages.apt' | grep -v '/\.git/') | tr '\n' ' ')
           cd ..
-          colcon build --merge-install --event-handlers console_cohesion+ --cmake-args -DBUILD_DOCS=ON --cmake-target doc
+          colcon build --merge-install --event-handlers console_cohesion+ --cmake-args -DBUILD_DOCS=ON -DBUILD_TESTING=OFF --cmake-target doc --packages-up-to-regex gz-math
           mkdir output
-          for d in build/*; do
-            cp -a $d/doxygen/html/* output/$d
+          for d in $(find build -type d -maxdepth 1); do
+            cp -a $d/doxygen/html/* output/$(basename $d)
           done
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: ${{ matrix.gazebo_distribution }}_api_docs
           path: ws/output
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    name: Deploy
+    steps:
+    - uses: actions/download-artifact@v4
+    - name: Display structure of downloaded files
+      run: ls -R
