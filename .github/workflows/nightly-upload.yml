@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  test_gazebo:
+  build_api_docs:
     runs-on: ubuntu-latest
     container:
       image: ${{ matrix.docker_image }}
@@ -32,7 +32,7 @@ jobs:
           - docker_image: ubuntu:jammy
             gazebo_distribution: harmonic
     steps:
-      - uses: actions/checkout@v4
+      - uses: ros-tooling/setup-ros@v0.7
       - name: 'Set up Gazebo'
         uses: gazebo-tooling/setup-gazebo@1f55cec330de851fa373f1ade8ac6b7ddfe6f013
         with:
