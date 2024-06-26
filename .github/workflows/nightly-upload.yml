@@ -1,4 +1,4 @@
-name: Upload docs to production
+name: Deploy API Docs
 
 on:
   schedule:
@@ -7,32 +7,40 @@ on:
   workflow_dispatch:
 
 jobs:
-  upload:
-    name: Upload docs to production
-    runs-on: ubuntu-20.04
-    permissions:
-      id-token: write
-      contents: read
+  test_gazebo:
+    runs-on: ubuntu-latest
+    container:
+      image: ${{ matrix.docker_image }}
+    strategy:
+      fail-fast: false
+      matrix:
+        gazebo_distribution:
+          - citadel
+          - fortress
+          - garden
+          - harmonic
+        include:
+          - docker_image: ubuntu:focal
+            gazebo_distribution: citadel
+
+          - docker_image: ubuntu:focal
+            gazebo_distribution: fortress
+
+          - docker_image: ubuntu:focal
+            gazebo_distribution: garden
+
+          - docker_image: ubuntu:jammy
+            gazebo_distribution: harmonic
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Configure AWS Credentials
-      id: creds
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-region: us-east-1
-        role-to-assume: arn:aws:iam::200670743174:role/github-oidc-deployment-gz-web-app
-        # Need to run ./build_docs.sh
-        output-credentials: true
-    - name: Run nightly upload
-      run: |
-        cd tools && ./build_docs.sh all
-      shell: bash
-      env:
-        GZ_VERSION_PASSWORD: ${{ secrets.GZ_VERSION_PASSWORD }}
-        AWS_ACCESS_KEY_ID: ${{ steps.creds.outputs.aws-access-key-id }}
-        AWS_SECRET_ACCESS_KEY: ${{ steps.creds.outputs.aws-secret-access-key }}
-        AWS_SESSION_TOKEN: ${{ steps.creds.outputs.aws-session-token }}
-    - name: Invalidate Cloudfront distribution
-      run: |
-        aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths '/*' --region us-east-1
+      - uses: actions/checkout@v4
+      - name: 'Set up Gazebo'
+        uses: gazebo-tooling/setup-gazebo@1f55cec330de851fa373f1ade8ac6b7ddfe6f013
+        with:
+          required-gazebo-distributions: ${{ matrix.gazebo_distribution }}
+      - name: 'Build Docs'
+        run: |
+          mkdir -p ws/src
+          cd ws/src
+          vcs import --input https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-${{ matrix.gazebo_distribution}}.yaml
+          cd ..
+          colcon build --event-handlers console_cohesion+ --cmake-args -DBUILD_DOCS=ON --cmake-target doc --packages-skip-regex sdformat
