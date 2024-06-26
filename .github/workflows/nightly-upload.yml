@@ -17,14 +17,14 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # - ubuntu_distribution: ubuntu:focal
+          # - ubuntu_distribution: focal
           #   gazebo_distribution: citadel
           #
-          # - ubuntu_distribution: ubuntu:focal
+          # - ubuntu_distribution: focal
           #   gazebo_distribution: fortress
 
-          # - ubuntu_distribution: ubuntu:focal
-          #   gazebo_distribution: garden
+          - ubuntu_distribution: focal
+            gazebo_distribution: garden
 
           - ubuntu_distribution: jammy
             gazebo_distribution: harmonic
@@ -45,3 +45,12 @@ jobs:
           sudo apt-get -y install $(sort -u $(find . -iname 'packages-'${{ matrix.ubuntu_distribution}}'.apt' -o -iname 'packages.apt' | grep -v '/\.git/') | tr '\n' ' ')
           cd ..
           colcon build --merge-install --event-handlers console_cohesion+ --cmake-args -DBUILD_DOCS=ON --cmake-target doc
+          mkdir output
+          for d in build/*; do
+            cp -a $d/doxygen/html/* output/$d
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ matrix.gazebo_distribution }}_api_docs
+          path: ws/output
