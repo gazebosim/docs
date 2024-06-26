@@ -36,10 +36,9 @@ jobs:
           required-gazebo-distributions: ${{ matrix.gazebo_distribution }}
       - name: 'Add Doxygen'
         run: sudo apt-get install -y doxygen
-      - name: 'Install Gazebo recommended packages'
+      - name: 'Install missing packages'
         run: |
-          sudo apt-get remove -y gz-${{ matrix.gazebo_distribution}}
-          sudo apt-get install -y gz-${{ matrix.gazebo_distribution}}
+          sudo apt-get install -y libfreeimage-dev
       - name: 'Build Docs'
         run: |
           mkdir -p ws/src
