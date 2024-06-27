@@ -49,7 +49,7 @@ jobs:
         if: always()
         with:
           name: ${{ matrix.gazebo_distribution }}_api_docs
-          path: ws/build
+          path: ws/build/**/doxygen/html
 
   deploy:
     needs: build
@@ -57,5 +57,7 @@ jobs:
     name: Deploy
     steps:
     - uses: actions/download-artifact@v4
+      with:
+        pattern: *_api_docs
     - name: Display structure of downloaded files
       run: ls -R
