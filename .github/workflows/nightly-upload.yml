@@ -48,7 +48,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: ${{ matrix.gazebo_distribution }}_api_docs
+          name: api-docs-${{ matrix.gazebo_distribution }}
           path: ws/build/**/doxygen/html
 
   deploy:
@@ -58,6 +58,8 @@ jobs:
     steps:
     - uses: actions/download-artifact@v4
       with:
-        pattern: *_api_docs
+        path: api-docs
+        pattern: api-docs-*
+        merge-multiple: true
     - name: Display structure of downloaded files
       run: ls -R
