@@ -20,8 +20,8 @@ jobs:
           # - ubuntu_distribution: focal
           #   gazebo_distribution: citadel
           #
-          # - ubuntu_distribution: focal
-          #   gazebo_distribution: fortress
+          - ubuntu_distribution: focal
+            gazebo_distribution: fortress
 
           - ubuntu_distribution: focal
             gazebo_distribution: garden
@@ -44,7 +44,7 @@ jobs:
           rm -rf sdformat
           sudo DEBIAN_FRONTEND=noninteractive apt-get -y install $(sort -u $(find . -iname 'packages-'${{ matrix.ubuntu_distribution}}'.apt' -o -iname 'packages.apt' | grep -v '/\.git/') | tr '\n' ' ')
           cd ..
-          colcon build --merge-install --event-handlers console_cohesion+ --cmake-args -DBUILD_DOCS=ON -DBUILD_TESTING=OFF --cmake-target doc --packages-up-to-regex gz-math
+          colcon build --merge-install --event-handlers console_cohesion+ --cmake-args -DBUILD_DOCS=ON -DBUILD_TESTING=OFF --cmake-target doc
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -61,5 +61,7 @@ jobs:
         path: api-docs
         pattern: api-docs-*
         merge-multiple: true
-    - name: Display structure of downloaded files
-      run: ls -R
+    - uses: actions/upload-artifact@v4
+      with:
+        name: api-docs-merged
+        path: .
