@@ -35,7 +35,9 @@ jobs:
         with:
           required-gazebo-distributions: ${{ matrix.gazebo_distribution }}
       - name: 'Add Doxygen'
-        run: sudo apt-get install -y doxygen
+        run: sudo apt-get install -y doxygen dot
+      - name: 'Add missing dependencies'
+        run: sudo apt-get install -y libopengl-dev
       - name: 'Build Docs'
         run: |
           mkdir -p ws/src
@@ -52,6 +54,7 @@ jobs:
           path: ws/build/**/doxygen/html
 
   deploy:
+    if: always()
     needs: build
     runs-on: ubuntu-latest
     name: Deploy
