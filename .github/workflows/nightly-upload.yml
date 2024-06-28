@@ -35,7 +35,7 @@ jobs:
         with:
           required-gazebo-distributions: ${{ matrix.gazebo_distribution }}
       - name: 'Add Doxygen'
-        run: sudo apt-get install -y doxygen dot
+        run: sudo apt-get install -y doxygen graphviz
       - name: 'Add missing dependencies'
         run: sudo apt-get install -y libopengl-dev
       - name: 'Build Docs'
@@ -44,6 +44,7 @@ jobs:
           cd ws/src
           vcs import --input https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-${{ matrix.gazebo_distribution}}.yaml
           rm -rf sdformat
+          rm -rf gz-tools
           sudo DEBIAN_FRONTEND=noninteractive apt-get -y install $(sort -u $(find . -iname 'packages-'${{ matrix.ubuntu_distribution}}'.apt' -o -iname 'packages.apt' | grep -v '/\.git/') | tr '\n' ' ')
           cd ..
           colcon build --merge-install --event-handlers console_cohesion+ --cmake-args -DBUILD_DOCS=ON -DBUILD_TESTING=OFF --cmake-target doc
