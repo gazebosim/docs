@@ -6,7 +6,7 @@ Gazebo can be launched from a ROS 2 launch system in multiple ways:
 [ros_gz_sim](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_sim).
 
 The package `ros_gz_sim` contains two launch files named `gz_server.launch.py`
-and `gz_sim.launch.py`. You can use them to start Gazebo server or Gazebo
+and `gz_sim.launch.py`. You can use them to start Gazebo server or Gazebo (server and GUI)
 respectively.
 
 ```bash
