@@ -76,9 +76,9 @@ jobs:
         pattern: api-docs-*
         merge-multiple: true
     - name: Display structure of downloaded files
-      run: ls -R
+      run: ls -Ra
     - name: 'Restructure API Docs'
-      run: python3 tools/restructure_doxygen_artifacts.py ${{steps.download.output.download-path}} .api-out
+      run: python3 tools/restructure_doxygen_artifacts.py ${{steps.download.outputs.download-path}} .api-out
     - uses: actions/upload-artifact@v4
       with:
         name: api-docs
