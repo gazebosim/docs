@@ -63,12 +63,12 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v4
-    - name: Configure AWS Credentials
-      id: creds
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-region: us-east-1
-        role-to-assume: arn:aws:iam::200670743174:role/github-oidc-deployment-gz-web-app
+    # - name: Configure AWS Credentials
+    #   id: creds
+    #   uses: aws-actions/configure-aws-credentials@v4
+    #   with:
+    #     aws-region: us-east-1
+    #     role-to-assume: arn:aws:iam::200670743174:role/github-oidc-deployment-gz-web-app
     - uses: actions/download-artifact@v4
       with:
         path: .api-docs
@@ -80,13 +80,13 @@ jobs:
       with:
         name: api-docs
         path: .api-out/*
-    - name: Run nightly upload
-      run: aws s3 sync --dry-run .api-out/ s3://gazebosim.org/api/
-      shell: bash
-      env:
-        AWS_ACCESS_KEY_ID: ${{ steps.creds.outputs.aws-access-key-id }}
-        AWS_SECRET_ACCESS_KEY: ${{ steps.creds.outputs.aws-secret-access-key }}
-        AWS_SESSION_TOKEN: ${{ steps.creds.outputs.aws-session-token }}
-    - name: Invalidate Cloudfront distribution
-      run: |
-        aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths '/*' --region us-east-1
+    # - name: Run nightly upload
+    #   run: aws s3 sync --dry-run .api-out/ s3://gazebosim.org/api/
+    #   shell: bash
+    #   env:
+    #     AWS_ACCESS_KEY_ID: ${{ steps.creds.outputs.aws-access-key-id }}
+    #     AWS_SECRET_ACCESS_KEY: ${{ steps.creds.outputs.aws-secret-access-key }}
+    #     AWS_SESSION_TOKEN: ${{ steps.creds.outputs.aws-session-token }}
+    # - name: Invalidate Cloudfront distribution
+    #   run: |
+    #     aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths '/*' --region us-east-1
