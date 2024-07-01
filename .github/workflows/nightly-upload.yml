@@ -70,12 +70,15 @@ jobs:
     #     aws-region: us-east-1
     #     role-to-assume: arn:aws:iam::200670743174:role/github-oidc-deployment-gz-web-app
     - uses: actions/download-artifact@v4
+      id: download
       with:
         path: .api-docs
         pattern: api-docs-*
         merge-multiple: true
+    - name: Display structure of downloaded files
+      run: ls -R
     - name: 'Restructure API Docs'
-      run: python3 tools/restructure_doxygen_artifacts.py .api-docs .api-out
+      run: python3 tools/restructure_doxygen_artifacts.py ${{steps.download.output.download-path}} .api-out
     - uses: actions/upload-artifact@v4
       with:
         name: api-docs
