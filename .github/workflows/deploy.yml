@@ -2,10 +2,10 @@
 name: Deploy Website and Docs
 
 on:
+  pull_request:
   push:
     branches:
-      - master 
-      - test_sphinx_docs # TODO (azeey) Remove after testing is done
+      - master
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -86,9 +86,11 @@ jobs:
         with:
           name: website-docs-merged
           path: ./
-      - name: Deploy
+      - name: Commit
         uses: peaceiris/actions-gh-pages@v4
-        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/test_sphinx_docs'
+        # The workflow upto this point is good for generating a preview,
+        # but only commit to deploy if we are on the master branch (not a pull request).
+        if: github.ref == 'refs/heads/master'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./
