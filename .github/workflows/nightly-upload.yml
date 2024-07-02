@@ -1,7 +1,6 @@
 name: Deploy API Docs
 
 on:
-  pull_request:
   schedule:
    # UTC timezone
    - cron: '0 6 * * *'
@@ -83,7 +82,7 @@ jobs:
         name: api-docs
         path: .api-out/*
     - name: Run nightly upload
-      run: aws s3 sync --dryrun .api-out/ s3://gazebosim.org/api/
+      run: aws s3 sync .api-out/ s3://gazebosim.org/api/
     - name: Invalidate Cloudfront distribution
       run: |
         aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths '/*' --region us-east-1
