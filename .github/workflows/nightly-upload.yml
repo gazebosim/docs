@@ -59,6 +59,10 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    # Allow only one concurrent deployment between this and the deploy workflow.
+    concurrency:
+      group: pages
+      cancel-in-progress: false
     steps:
     - name: Checkout
       uses: actions/checkout@v4

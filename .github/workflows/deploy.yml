@@ -73,24 +73,23 @@ jobs:
     needs: [build_website, build_docs]
     permissions:
       contents: write
+    # Allow only one concurrent deployment between this and the nightly-upload workflow.
     concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
+      group: pages
+      cancel-in-progress: false
     steps:
       - uses: actions/download-artifact@v4
-        id: download
         with:
           merge-multiple: true
-      - name: list
-        run: ls -aR
       - name: Upload merged
         uses: actions/upload-artifact@v4
         with:
           name: website-docs-merged
           path: ./
-      # - name: Deploy
-      #   uses: peaceiris/actions-gh-pages@v4
-      #   if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/test_sphinx_docs'
-      #   with:
-      #     github_token: ${{ secrets.GITHUB_TOKEN }}
-      #     publish_dir: ./
-      #     keep_files: true
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/test_sphinx_docs'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          keep_files: true
