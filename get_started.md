@@ -17,22 +17,22 @@ packages available for the platform to use:
 
 |Platform|Gazebo Versions|
 |---|---|
-| Ubuntu 22.04 Jammy | [Gazebo Harmonic](/docs/harmonic/install_ubuntu) (recommended), [Gazebo Garden](/docs/garden/install_ubuntu) and [Gazebo Fortress](/docs/fortress/install_ubuntu) (recommended if using ROS 2 Humble or Iron)
-| Ubuntu 20.04 Focal | [Gazebo Garden](/docs/garden/install_ubuntu) (recommended), [Gazebo Fortress](/docs/fortress/install_ubuntu) and [Gazebo Citadel](/docs/citadel/install_ubuntu)
-| Ubuntu 18.04 Bionic | [Gazebo Citadel](/docs/citadel/install_ubuntu)
-| Mac Ventura | [Gazebo Harmonic](/docs/harmonic/install_osx) (recommended), [Gazebo Garden](/docs/garden/install_osx), [Gazebo Fortress](/docs/fortress/install_osx) and [Gazebo Citadel](/docs/citadel/install_osx)
-| Mac Monterey | [Gazebo Harmonic](/docs/harmonic/install_osx) (recommended), [Gazebo Garden](/docs/garden/install_osx), [Gazebo Fortress](/docs/fortress/install_osx) and [Gazebo Citadel](/docs/citadel/install_osx)
+| Ubuntu 22.04 Jammy | [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended), [Gazebo Garden](/docs/garden/install_ubuntu){.external} and [Gazebo Fortress](/docs/fortress/install_ubuntu){.external} (recommended if using ROS 2 Humble or Iron)
+| Ubuntu 20.04 Focal | [Gazebo Garden](/docs/garden/install_ubuntu){.external} (recommended), [Gazebo Fortress](/docs/fortress/install_ubuntu){.external} and [Gazebo Citadel](/docs/citadel/install_ubuntu){.external}
+| Ubuntu 18.04 Bionic | [Gazebo Citadel](/docs/citadel/install_ubuntu){.external}
+| Mac Ventura | [Gazebo Harmonic](/docs/harmonic/install_osx){.external} (recommended), [Gazebo Garden](/docs/garden/install_osx){.external}, [Gazebo Fortress](/docs/fortress/install_osx){.external} and [Gazebo Citadel](/docs/citadel/install_osx){.external}
+| Mac Monterey | [Gazebo Harmonic](/docs/harmonic/install_osx){.external} (recommended), [Gazebo Garden](/docs/garden/install_osx){.external}, [Gazebo Fortress](/docs/fortress/install_osx){.external} and [Gazebo Citadel](/docs/citadel/install_osx){.external}
 | Windows | Support via Conda-Forge is not fully functional, as there are known runtime issues [see this issue for details](https://github.com/gazebosim/gz-sim/issues/168).
 
 If the desired platform is not listed above or if a particular feature in a
-given [Gazebo release](/docs/latest/releases) is needed,
+given [Gazebo release](releases) is needed,
 there is an installation package per release available with all the
 installation options:
 
-* [Gazebo Harmonic installation](/docs/harmonic/install) options (EOL 2028 Sep)
-* [Gazebo Garden installation](/docs/garden/install) options (EOL 2024 Sep)
-* [Gazebo Fortress (LTS) installation](/docs/fortress/install) options (EOL 2026 Sep)
-* [Gazebo Citadel (LTS) installation](/docs/citadel/install) options (EOL 2024 Dec)
+* [Gazebo Harmonic installation](/docs/harmonic/install){.external} options (EOL 2028 Sep)
+* [Gazebo Garden installation](/docs/garden/install){.external} options (EOL 2024 Sep)
+* [Gazebo Fortress (LTS) installation](/docs/fortress/install){.external} options (EOL 2026 Sep)
+* [Gazebo Citadel (LTS) installation](/docs/citadel/install){.external} options (EOL 2024 Dec)
 
 ## Step 2: Run
 
@@ -95,7 +95,7 @@ custom SDF file.
 ## Step 4: Explore and learn
 
 This tutorial has covered the basics of getting started with Gazebo.
-Starting with Citadel, there are more [versioned tutorials](/docs/citadel/tutorials)
+Starting with Citadel, there are more [versioned tutorials](/docs/citadel/tutorials){.external}
 covering the basics of the GUI, creating worlds and robots, and more.
 
 Each [Gazebo library](/libs) also has a set of tutorials and

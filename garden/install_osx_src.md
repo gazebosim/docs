@@ -136,7 +136,7 @@ If you want to compile Gazebo Libraries in MacOS Catalina (10.15) you will need 
 
 Create a file called `intern.patch` with the following content:
 
-```patch
+```diff
 --- intern.h    2019-12-16 18:17:08.000000000 +0100
 +++ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Ruby.framework/Headers/ruby/ruby/intern.h
 @@ -14,6 +14,10 @@
@@ -154,7 +154,7 @@ Create a file called `intern.patch` with the following content:
 
 Now we can apply the patch:
 
-```{.sh}
+```sh
 sudo patch -p0 < intern.patch
 ```
 
@@ -162,7 +162,7 @@ sudo patch -p0 < intern.patch
 
 Create a file called `config.patch` with the following content:
 
-```patch
+```diff
 --- config.h    2019-12-16 18:19:13.000000000 +0100
 +++ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Ruby.framework/Headers/ruby/ruby/config.h
 @@ -410,6 +410,6 @@
@@ -178,7 +178,7 @@ Create a file called `config.patch` with the following content:
 
 Now we can appply the patch:
 
-```{.sh}
+```sh
 sudo patch -p0 < config.patch
 ```
 

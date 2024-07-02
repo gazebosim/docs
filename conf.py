@@ -20,7 +20,7 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
-import os
+import sys
 from pathlib import Path
 import yaml
 
@@ -28,80 +28,30 @@ import yaml
 from sphinx.application import Sphinx
 from sphinx.config import Config
 
-project = "Gazebo"
-copyright = "2024, Open Robotics"
-author = "Gazebo Team"
 
-# -- General configuration ---------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
+sys.path.append(str(Path(__file__).parent))
+from base_conf import *  # noqa
 
-extensions = [
-    "myst_parser",
-    "sphinx_copybutton",
-    # 'sphinx_sitemap',
-]
+html_baseurl = f"{html_context['deploy_url']}/docs/latest"  # noqa
 
-templates_path = ["_templates"]
+html_context.update({
+    "github_user": "gazebosim",
+    "github_repo": "docs",
+    "github_version": "master",
+    "edit_page_url_template": "{{ github_url }}/{{ github_user }}/{{ github_repo }}"
+    "/edit/{{ github_version }}/{{ get_file_from_map(file_name) }}",
+    "edit_page_provider_name": "GitHub",
+})
 
-source_suffix = [
-    ".md",
-]
 
-myst_heading_anchors = 4
+def setup_file_map(app: Sphinx, pagename: str, templatename: str, context, doctree):
+    def get_file_from_map(file_name: str):
+        result = context["file_name_map"].get(Path(file_name).stem)
+        if result:
+            return result
+        return file_name
 
-myst_enable_extensions = [
-    "amsmath",
-    "attrs_inline",
-    "colon_fence",
-    "deflist",
-    "dollarmath",
-    "fieldlist",
-    "html_admonition",
-    "html_image",
-    "linkify",
-    "replacements",
-    "smartquotes",
-    "strikethrough",
-    "substitution",
-    "tasklist",
-]
-
-# TODO(azeey) Setting this to true hides a lot of broken links. Consider using
-# the `attrs_inline` myst extension and handle external links case by case
-# instead of globally.
-# myst_all_links_external = True
-
-# -- Options for HTML output -------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
-
-html_theme = "pydata_sphinx_theme"
-html_static_path = ["_static"]
-html_style = "css/gazebo.css"
-html_theme_options = {
-    "header_links_before_dropdown": 4,
-    # "use_edit_page_button": True,
-    "show_toc_level": 1,
-    "navigation_with_keys": False,
-    "show_prev_next": False,
-    "footer_start": [],
-    "footer_end": [],
-    "secondary_sidebar_items": ["page-toc", "edit-this-page"],
-    "navbar_align": "left",
-    "navbar_center": ["gz-navbar-nav"],
-    "navbar_end": ["navbar-icon-links", "theme-switcher", "fuel_app_link"],
-    "pygment_light_style": "sphinx",
-    "pygment_dark_style": "monokai",
-    "logo": {
-        "image_light": "_static/images/logos/gazebo_horz_pos.svg",
-        "image_dark": "_static/images/logos/gazebo_horz_neg.svg",
-    },
-    "check_switcher": False,
-}
-
-html_sidebars = {"**": ["gz-sidebar-nav"]}
-html_baseurl = os.environ.get(
-    "SPHINX_HTML_BASE_URL", "http://localhost:8000/docs/latest/"
-)
+    context["get_file_from_map"] = get_file_from_map
 
 
 def load_releases(index_file):
@@ -111,31 +61,68 @@ def load_releases(index_file):
     return dict([(release["name"], release) for release in gz_nav_yaml["releases"]])
 
 
+def get_preferred_release(releases: dict):
+    preferred = [rel for rel in releases.values() if rel.get("preferred", False)]
+    assert len(preferred) == 1
+    return preferred[0]
+
+
+def create_file_rename_map(nav_yaml_pages, release):
+    file_name_map = {}
+
+    prefix = f"{release}/" if release is not None else ""
+
+    for page in nav_yaml_pages:
+        file_name_map[page["name"]] = f"{prefix}{page['file']}"
+
+        children = page.get("children")
+        if children:
+            file_name_map.update(create_file_rename_map(children, release))
+
+    return file_name_map
+
+
 def config_init(app: Sphinx, config: Config):
     if not config.gz_release:
         raise RuntimeError("gz_release not provided")
     config.release = config.gz_release  # type: ignore
     config.version = config.gz_release  # type: ignore
 
+    file_name_map = {}
+
+    with open(app.config.gz_root_index_file) as f:
+        file_name_map.update(create_file_rename_map(yaml.safe_load(f)["pages"], None))
+
+    with open(Path(app.srcdir) / "index.yaml") as f:
+        file_name_map.update(
+            create_file_rename_map(yaml.safe_load(f)["pages"], config.release)
+        )
+
+    config.html_context["file_name_map"] = file_name_map
+
     # We've disabled "check_switcher" since it doesn't play well with our directory structure.
     # So we check for the existence of switcher.json here
     #
     assert Path(f"{app.srcdir}/_static/switcher.json").exists()
     config.html_theme_options["switcher"] = {
-        "json_url": f"docs/{config.gz_release}/_static/switcher.json",
+        "json_url": f"{html_context['deploy_url']}/docs/{config.gz_release}/_static/switcher.json",
         "version_match": config.gz_release,
     }
 
     try:
         releases = load_releases(config.gz_root_index_file)
         app.config.html_context["release_info"] = releases[config.gz_release]
+        app.config.html_context["preferred_release"] = get_preferred_release(releases)
+
     except KeyError as e:
         print(e)
         raise RuntimeError(
             f"Provided gz_release '{config.gz_release}' not registered in `index.yaml`"
         )
 
+
 def setup(app: Sphinx):
     app.add_config_value("gz_release", "", rebuild="env", types=[str])
     app.add_config_value("gz_root_index_file", "", rebuild="env", types=[str])
+    app.connect("html-page-context", setup_file_map)
     app.connect("config-inited", config_init)

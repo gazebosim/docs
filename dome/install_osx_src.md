@@ -140,7 +140,7 @@ Create a file called `intern.patch` with the following content:
 
 Now we can apply the patch:
 
-```{.sh}
+```sh
 sudo patch -p0 < intern.patch
 ```
 
@@ -164,7 +164,7 @@ Create a file called `config.patch` with the following content:
 
 Now we can appply the patch:
 
-```{.sh}
+```sh
 sudo patch -p0 < config.patch
 ```
 
