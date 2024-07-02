@@ -361,14 +361,14 @@ Inside the main we subscribe to the `lidar` topic, and wait until the node is sh
 
 Download the [CMakeLists.txt](https://github.com/gazebosim/docs/blob/master/garden/tutorials/sensors/CMakeLists.txt), and in the same folder of `lidar_node` create `build/` directory:
 
-```{.sh}
+```sh
 mkdir build
 cd build
 ```
 
 Run cmake and build the code:
 
-```{.sh}
+```sh
 cmake ..
 make lidar_node
 ```
@@ -377,13 +377,13 @@ make lidar_node
 
 Run the node from terminal 1:
 
-```{.sh}
+```sh
 ./build/lidar_node
 ```
 
 Run the world from terminal 2:
 
-```{.sh}
+```sh
 gz sim sensor_tutorial.sdf
 ```
 
@@ -412,7 +412,7 @@ The first command is `gz sim sensor_tutorial.sdf` which launches the world.
 And the second command is `./build/lidar_node` which runs the `lidar_node`.
 Save the file as `sensor_launch.gzlaunch`, and then run it using the following command:
 
-```{.sh}
+```sh
 gz launch sensor_launch.gzlaunch
 ```
 

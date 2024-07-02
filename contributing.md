@@ -8,29 +8,6 @@ Organization](https://github.com/gazebosim) on GitHub. These
 are mostly guidelines, not rules. Use your best judgment, and feel free to
 propose changes to this document in a pull request.
 
-#### Table of Contents
-
-[Code of Conduct](https://gazebosim.org/docs/all/contributing#code-of-conduct)
-
-[Project Design](https://gazebosim.org/docs/all/contributing#project-design)
-
-  * [Repository List](https://gazebosim.org/docs/all/contributing#repository-list)
-
-[How to Contribute](https://gazebosim.org/docs/all/contributing#how-to-contribute)
-
-  * [Reporting Bugs](https://gazebosim.org/docs/all/contributing#reporting-bugs)
-  * [Suggesting Enhancements](https://gazebosim.org/docs/all/contributing#suggesting-enhancements)
-  * [Contributing Code](https://gazebosim.org/docs/all/contributing#contributing-code)
-  * [Tracking Progress](https://gazebosim.org/docs/all/contributing#tracking-progress)
-
-[Writing Tests](https://gazebosim.org/docs/all/contributing#writing-tests)
-
-  * [Test Coverage](https://gazebosim.org/docs/all/contributing#test-coverage)
-
-[Styleguides](https://gazebosim.org/docs/all/contributing#style-guides)
-
-[Appendix](https://gazebosim.org/docs/all/contributing#appendix)
-
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the [Gazebo

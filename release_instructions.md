@@ -64,7 +64,7 @@ features), patch number (patches and bugfixes).
 
 **Bumping major number** of the version implies some work to have the
 [metadata](#metadata-for-releasing) updated correctly. There is a [dedicated
-document](releasing/bump_major) that you should go through before continuing to work through the steps in this
+document](releasing/bump_major.md) that you should go through before continuing to work through the steps in this
 document.
 
    1. To update the upstream version a local checkout of the Gz library is

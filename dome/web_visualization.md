@@ -62,7 +62,7 @@ matching key using an "auth" call on the websocket. If the `<admin_authorization
 
 1. Is you notice an issue with web visualization, then please
    file a ticket at
-   [https://gitlab.com/ignitionrobotics/web/app/-/issues](https://gitlab.com/ignitionrobotics/web/app/-/issues).
+   [https://github.com/gazebo-web/gzweb/issues](https://github.com/gazebo-web/gzweb/issues).
 
 ## Troubleshooting
 

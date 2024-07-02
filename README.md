@@ -15,9 +15,45 @@ found under the `API Reference` section of [https://gazebosim.org/docs](https://
 
 ## Main docs
 
-The documentation in this repository is updated whenever the
-[gazebosim-web-backend](https://github.com/gazebo-web/gazebosim-web-backend),
-is deployed. The gazebosim-web-backend webserver maintains a clone of this repository, and serves the markdown pages to https://gazebosim.org/docs.
+The documentation in this repository is built using [Sphinx](https://www.sphinx-doc.org/).
+To build, you need to install the following:
+
+* python virtualenv
+
+Create the virtual env and activate it:
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+Then install the necessary dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+```bash
+python3 build_multiversion.py
+```
+
+This will build all the documentation for all versions of Gazebo.
+You can preview the result locally by running an HTTP server on
+the output directory `.build`. For example:
+
+```bash
+python3 -m http.server 8000 -d .build
+
+```
+
+This will serve the website on <http://localhost:8000>
+
+For quicker iteration, you can build the documentation for a subset
+of Gazebo versions. To build `garden` and `harmonic`:
+
+```bash
+python3 build_multiversion.py --release garden harmonic
+```
 
 ## Library docs
 

@@ -384,14 +384,14 @@ Inside the main we subscribe to the `lidar` topic, and wait until the node is sh
 
 Download the [CMakeLists.txt](https://github.com/ignitionrobotics/docs/blob/master/fortress/tutorials/sensors/CMakeLists.txt), and in the same folder of `lidar_node` create `build/` directory:
 
-```{.sh}
+```sh
 mkdir build
 cd build
 ```
 
 Run cmake and build the code:
 
-```{.sh}
+```sh
 cmake ..
 make lidar_node
 ```
@@ -400,13 +400,13 @@ make lidar_node
 
 Run the node from terminal 1:
 
-```{.sh}
+```sh
 ./build/lidar_node
 ```
 
 Run the world from terminal 2:
 
-```{.sh}
+```sh
 ign gazebo sensor_tutorial.sdf
 ```
 
@@ -435,7 +435,7 @@ The first command is `ign gazebo sensor_tutorial.sdf` which launches the world.
 And the second command is `./build/lidar_node` which runs the `lidar_node`.
 Save the file as `sensor_launch.ign`, and then run it using the following command:
 
-```{.sh}
+```sh
 ign launch sensor_launch.ign
 ```
 
