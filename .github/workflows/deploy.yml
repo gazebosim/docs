@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
 name: Deploy Website and Docs
 
 on:
@@ -9,17 +10,9 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-env:
-  WEBSITE_PATH: "website"
-  DOCS_PATH: "docs"
-
 jobs:
-  deploy:
+  build_website:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    concurrency:
-      group: ${{ github.workflow }}-${{ github.ref }}
     steps:
       # Build website from gazebosim-web-frontend
       - name: Checkout
@@ -27,28 +20,35 @@ jobs:
         with:
           repository: gazebo-web/gazebosim-web-frontend
           ref: support_github_pages
-          path: ${{ env.WEBSITE_PATH }}
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: "20"
           cache: npm
-          cache-dependency-path: ${{ env.WEBSITE_PATH }}/package-lock.json
+          cache-dependency-path: package-lock.json
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
       - name: Install Website dependencies
         run: npm ci
-        working-directory: ${{ env.WEBSITE_PATH }}
       - name: Build Website
         run: npm run build -- --base-href "${{ steps.pages.outputs.base_url }}/"
-        working-directory: ${{ env.WEBSITE_PATH }}
+      # Upload the artifact for local preview
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          name: website
+          path: dist
 
       # Build Docs
+  build_docs:
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          path: ${{ env.DOCS_PATH }}
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
@@ -56,23 +56,36 @@ jobs:
           cache: 'pip'
       - name: Install Docs dependencies
         run: pip install -r requirements.txt
-        working-directory: ${{ env.DOCS_PATH }}
       - name: Build Docs
-        run: python build_multiversion.py --pointers --libs --output_dir ${{ github.workspace }}/${{ env.WEBSITE_PATH }}/dist 
+        run: python build_multiversion.py --pointers --libs --output_dir .build
         env:
           GZ_DEPLOY_URL: "${{ steps.pages.outputs.base_url }}"
-        working-directory: ${{ env.DOCS_PATH }}
 
       # Upload the artifact for local preview
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ env.WEBSITE_PATH }}/dist
+          name: docs
+          path: .build
 
-      - name: Deploy
-        uses: peaceiris/actions-gh-pages@v4
-        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/test_sphinx_docs'
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build_website, build_docs]
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/download-artifact@v4
+        id: download
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ${{ env.WEBSITE_PATH }}/dist
-          keep_files: true
+          merge-multiple: true
+      - name: list
+        run: ls -aR
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v4
+      #   if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/test_sphinx_docs'
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./
+      #     keep_files: true
