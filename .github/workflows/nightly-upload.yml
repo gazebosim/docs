@@ -1,4 +1,4 @@
-name: Upload docs to production
+name: Deploy API Docs
 
 on:
   schedule:
@@ -7,40 +7,82 @@ on:
   workflow_dispatch:
 
 jobs:
-  test_gazebo:
+  build:
+    name: 'Build API Docs (${{ matrix.gazebo_distribution }})'
     runs-on: ubuntu-latest
     container:
-      image: ${{ matrix.docker_image }}
+      image: ubuntu:${{ matrix.ubuntu_distribution }}
     strategy:
       fail-fast: false
       matrix:
-        gazebo_distribution:
-          - citadel
-          - fortress
-          - garden
-          - harmonic
         include:
-          - docker_image: ubuntu:focal
+          - ubuntu_distribution: focal
             gazebo_distribution: citadel
 
-          - docker_image: ubuntu:focal
+          - ubuntu_distribution: focal
             gazebo_distribution: fortress
 
-          - docker_image: ubuntu:focal
+          - ubuntu_distribution: focal
             gazebo_distribution: garden
 
-          - docker_image: ubuntu:jammy
+          - ubuntu_distribution: jammy
             gazebo_distribution: harmonic
     steps:
-      - uses: actions/checkout@v4
-      - name: 'Check Gazebo installation on Ubuntu runner'
+      - uses: ros-tooling/setup-ros@v0.7
+      - name: 'Set up Gazebo'
         uses: gazebo-tooling/setup-gazebo@1f55cec330de851fa373f1ade8ac6b7ddfe6f013
         with:
           required-gazebo-distributions: ${{ matrix.gazebo_distribution }}
+      - name: 'Add Doxygen'
+        run: sudo apt-get install -y doxygen graphviz
+      - name: 'Add missing dependencies'
+        run: sudo apt-get install -y libopengl-dev
       - name: 'Build Docs'
         run: |
           mkdir -p ws/src
           cd ws/src
           vcs import --input https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-${{ matrix.gazebo_distribution}}.yaml
+          rm -rf sdformat
+          rm -rf gz-tools
+          sudo DEBIAN_FRONTEND=noninteractive apt-get -y install $(sort -u $(find . -iname 'packages-'${{ matrix.ubuntu_distribution}}'.apt' -o -iname 'packages.apt' | grep -v '/\.git/') | tr '\n' ' ')
           cd ..
-          colcon build --event-handlers console_cohesion+ --cmake-args -DBUILD_DOCS=ON --cmake-target doc --packages-skip-regex sdformat
+          colcon build --merge-install --event-handlers console_cohesion+ --cmake-args -DBUILD_DOCS=ON -DBUILD_TESTING=OFF --cmake-target doc
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: api-docs-${{ matrix.gazebo_distribution }}
+          path: ws/build/**/doxygen/html
+
+  upload:
+    name: Upload docs to production
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+      contents: read
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Configure AWS Credentials
+      id: creds
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-region: us-east-1
+        role-to-assume: arn:aws:iam::200670743174:role/github-oidc-deployment-gz-web-app
+    - uses: actions/download-artifact@v4
+      id: download
+      with:
+        path: .api-docs
+        pattern: api-docs-*
+        merge-multiple: true
+    - name: 'Restructure API Docs'
+      run: python3 tools/restructure_doxygen_artifacts.py ${{steps.download.outputs.download-path}} .api-out
+    - uses: actions/upload-artifact@v4
+      with:
+        name: api-docs
+        path: .api-out/*
+    - name: Run nightly upload
+      run: aws s3 sync .api-out/ s3://gazebosim.org/api/
+    - name: Invalidate Cloudfront distribution
+      run: |
+        aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths '/*' --region us-east-1

@@ -56,7 +56,7 @@ All the sources of gazebo-garden are declared in a yaml file. Download
 it to the workspace:
 
 ```bash
-wget https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-garden.yaml
+curl -O https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-garden.yaml
 ```
 
 Use `vcstool` to automatically retrieve all the Gazebo libraries sources from
