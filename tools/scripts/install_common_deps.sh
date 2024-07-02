@@ -10,17 +10,16 @@ sudo apt-get update
 sudo apt-get install -y \
   gnupg \
   lsb-release \
-  wget
+  curl
 
-sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
+sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] https://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
 
 sudo apt-get update
 
 sudo apt-get install -y \
   build-essential \
   cmake \
-  curl \
   doxygen \
   git \
   pkg-config \
@@ -35,4 +34,5 @@ sudo ./aws/install
 # Configure AWS so that API docs can be uploaded to s3.
 aws configure set aws_access_key_id $1
 aws configure set aws_secret_access_key $2
+aws configure set aws_session_token $3
 aws configure set default.region us-east-1

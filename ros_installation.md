@@ -39,7 +39,7 @@ continued use.
 
 |                           | **GZ Citadel (LTS)**  | **GZ Fortress (LTS)**   | **GZ Garden**   | **GZ Harmonic (LTS)**   |
 |---------------------------|---------------------- |-----------------------  |---------------  | ----------------------  |
-| **ROS 2 Jazzy (LTS)¹**    | ❌                    | ❌                      | ⚡              | ✅                      |
+| **ROS 2 Jazzy (LTS)**     | ❌                    | ❌                      | ⚡              | ✅                      |
 | **ROS 2 Rolling**         | ❌                    | ✅                      | ⚡              | ⚡                      |
 | **ROS 2 Iron**            | ❌                    | ✅                      | ⚡              | ⚡                      |
 | **ROS 2 Humble (LTS)**    | ❌                    | ✅                      | ⚡              | ⚡                      |
@@ -51,8 +51,6 @@ continued use.
 * ❌ - Incompatible / not possible.
 * ⚡ - Possible, *but use with caution*. These combinations of ROS and Gazebo can
   be made to work together, but some effort is required.
-
-  ¹ When ROS 2 Jazzy is released, it will be paired with Gazebo Harmonic.
 
 
 ## Installing the Default Gazebo/ROS Pairing
@@ -70,6 +68,14 @@ sudo apt-get install ros-${ROS_DISTRO}-ros-gz
 
 This command will install the Gazebo libraries recommended for your ROS
 installation.
+
+### ROS 2 Gazebo Vendor packages
+
+As of ROS 2 Jazzy, Gazebo is available from the ROS package repository via
+vendor packages. If your package directly depends on a Gazebo library,
+instead of relying only on `ros_gz`, refer to
+[this documentation](ros2_gz_vendor_pkgs) to learn how to use the
+Gazebo vendor packages.
 
 <div class="warning">
 The rest of this document provides more information and other, alternative,
