@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - master 
-      - sphinx_docs # TODO (azeey) Remove after testing is done
+      - test_sphinx_docs # TODO (azeey) Remove after testing is done
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -12,7 +12,6 @@ on:
 env:
   WEBSITE_PATH: "website"
   DOCS_PATH: "docs"
-  PREV_VERSION_PATH: "prev_version"
 
 jobs:
   deploy:
@@ -72,7 +71,7 @@ jobs:
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v4
-        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/sphinx_docs'
+        if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/test_sphinx_docs'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ${{ env.WEBSITE_PATH }}/dist
