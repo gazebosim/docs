@@ -33,3 +33,5 @@ tutorials, you'll notice that we have included in most cases a parameter named
 `use_composition`. When that parameter is set to `True`, the associated ROS
 node will be included within a ROS container. When this happens all the nodes
 live within the same process and can leverage intraprocess communication.
+
+You can learn more about ROS composition in [this tutorial](https://docs.ros.org/en/galactic/Tutorials/Intermediate/Composition.html).

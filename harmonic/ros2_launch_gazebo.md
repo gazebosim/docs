@@ -36,7 +36,7 @@ within this tag. Here's an example for launching Gazebo server:
   <arg name="world_sdf_file" default="empty.sdf" />
   <arg name="world_sdf_string" default="" />
   <arg name="container_name" default="ros_gz_container" />
-  <arg name="use_composition" default="False" />
+  <arg name="use_composition" default="True" />
   <gz_server 
     world_sdf_file="$(var world_sdf_file)"
     world_sdf_string="$(var world_sdf_string)"
