@@ -34,4 +34,10 @@ tutorials, you'll notice that we have included in most cases a parameter named
 node will be included within a ROS container. When this happens all the nodes
 live within the same process and can leverage intraprocess communication.
 
+Our recommendation is to always set the `use_composition` parameter to `True`.
+That way, the communication between Gazebo and the bridge will be intraprocess.
+If your ROS nodes are also written as composable nodes, make sure that they are
+launched with the `container_node_name` parameter matching the container name
+including Gazebo and the bridge.
+
 You can learn more about ROS composition in [this tutorial](https://docs.ros.org/en/galactic/Tutorials/Intermediate/Composition.html).
