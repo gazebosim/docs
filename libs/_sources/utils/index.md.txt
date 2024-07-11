@@ -1,0 +1,350 @@
+# utils
+
+{.gz-libs-lists}
+- [{material-regular}`code;2em` Source Code](https://github.com/gazebosim/gz-utils)
+- [{material-regular}`description;2em` API & Tutorials](https://gazebosim.org/api/utils/2)
+
+::::{tab-set}
+
+:::{tab-item} Readme
+# Gazebo Utils : Classes and functions for robot applications
+
+**Maintainer:** addisu AT openrobotics DOT org
+
+[![GitHub open issues](https://img.shields.io/github/issues-raw/gazebosim/gz-utils.svg)](https://github.com/gazebosim/gz-utils/issues)
+[![GitHub open pull requests](https://img.shields.io/github/issues-pr-raw/gazebosim/gz-utils.svg)](https://github.com/gazebosim/gz-utils/pulls)
+[![Discourse topics](https://img.shields.io/discourse/https/community.gazebosim.org/topics.svg)](https://community.gazebosim.org)
+[![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+
+Build | Status
+-- | --
+Test coverage | [![codecov](https://codecov.io/gh/gazebosim/gz-utils/tree/gz-utils2/graph/badge.svg)](https://codecov.io/gh/gazebosim/gz-utils/tree/gz-utils2)
+Ubuntu Jammy  | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_utils-ci-gz-utils2-jammy-amd64)](https://build.osrfoundation.org/job/gz_utils-ci-gz-utils2-jammy-amd64)
+Homebrew      | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_utils-ci-gz-utils2-homebrew-amd64)](https://build.osrfoundation.org/job/gz_utils-ci-gz-utils2-homebrew-amd64)
+Windows       | [![Build Status](https://build.osrfoundation.org/job/gz_utils-2-win/badge/icon)](https://build.osrfoundation.org/job/gz_utils-2-win/)
+
+Gazebo Utils, a component of [Gazebo](https://gazebosim.org), provides general purpose
+classes and functions designed for robotic applications.
+
+# Table of Contents
+
+[Features](#features)
+
+[Install](#install)
+
+[Usage](#usage)
+
+[Documentation](#documentation)
+
+[Testing](#testing)
+
+[Folder Structure](#folder-structure)
+
+[Code of Conduct](#code-of-conduct)
+
+[Contributing](#code-of-contributing)
+
+[Versioning](#versioning)
+
+[License](#license)
+
+# Features
+
+Gazebo Utils provides a wide range of functionality, including:
+
+* A helper class to implement the PIMPL pattern
+* A command line parsing utility (vendored [CLI11](https://github.com/CLIUtils/CLI11/))
+* Macros to suppress warnings
+
+# Install
+
+See the [installation tutorial](https://gazebosim.org/api/utils/2/install.html).
+
+# Usage
+
+Please refer to the [examples directory](https://github.com/gazebosim/gz-utils/blob/main/examples/).
+
+# Documentation
+
+API and tutorials can be found at [https://gazebosim.org/libs/utils](https://gazebosim.org/libs/utils).
+
+You can also generate the documentation from a clone of this repository by following these steps.
+
+1. You will need Doxygen. On Ubuntu Doxygen can be installed using
+
+    ```
+    sudo apt-get install doxygen
+    ```
+
+2. Clone the repository
+
+    ```
+    git clone https://github.com/gazebosim/gz-utils
+    ```
+
+3. Configure and build the documentation.
+
+    ```
+    cd gz-utils; mkdir build; cd build; cmake ../; make doc
+    ```
+
+4. View the documentation by running the following command from the build directory.
+
+    ```
+    firefox doxygen/html/index.html
+    ```
+
+# Testing
+
+Follow these steps to run tests and static code analysis in your clone of this repository.
+
+1. Follow the [source install instruction](https://gazebosim.org/api/utils/2/install.html#source-install).
+
+2. Run tests.
+
+    ```
+    make test
+    ```
+
+3. Static code checker.
+
+    ```
+    make codecheck
+    ```
+
+# Folder Structure
+
+Refer to the following table for information about important directories and files in this repository.
+
+```
+gz-utils
+├── cli                      Gazebo CLI component. Vendored from https://github.com/CLIUtils/CLI11/
+├── examples                 Example programs.
+├── include/gz/utils         Header files.
+├── src                      Source files and unit tests.
+├── test
+│    ├── integration         Integration tests.
+│    ├── performance         Performance tests.
+│    └── regression          Regression tests.
+├── tutorials                Tutorials, written in markdown.
+├── Changelog.md             Changelog.
+└── CMakeLists.txt           CMake build script.
+```
+# Contributing
+
+Please see
+[CONTRIBUTING.md](https://gazebosim.org/docs/all/contributing).
+
+# Code of Conduct
+
+Please see
+[CODE_OF_CONDUCT.md](https://github.com/gazebosim/gz-utils/blob/main/CODE_OF_CONDUCT.md)
+
+# Versioning
+
+This library uses [Semantic Versioning](https://semver.org/).
+Additionally, this library is part of the
+[Gazebo project](https://gazebosim.org) which periodically
+releases a versioned set of compatible and complimentary libraries. See the
+[Gazebo website](https://gazebosim.org) for version and
+release information.
+
+# License
+
+This library is licensed under
+[Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0).
+See also the
+[LICENSE](https://github.com/gazebosim/gz-utils/blob/main/LICENSE)
+file.
+
+:::
+
+:::{tab-item} Changelog
+## Gazebo Utils 2.x
+
+## Gazebo Utils 2.2.0 (2023-11-08)
+
+1. Make the single argument constructor inherit the env
+    * [Pull request #113](https://github.com/gazebosim/gz-utils/pull/113)
+
+1. Add new functions for manipulating the environment
+    * [Pull request #114](https://github.com/gazebosim/gz-utils/pull/114)
+
+1. Add license checking support to bazel
+    * [Pull request #108](https://github.com/gazebosim/gz-utils/pull/108)
+
+1. Include what you use
+    * [Pull request #107](https://github.com/gazebosim/gz-utils/pull/107)
+
+1. Ensure all licenses are reflected in the LICENSE file
+    * [Pull request #106](https://github.com/gazebosim/gz-utils/pull/106)
+
+1. Not sure why this was here, but it is unused
+    * [Pull request #105](https://github.com/gazebosim/gz-utils/pull/105)
+
+## Gazebo Utils 2.1.0 (2023-09-26)
+
+1. Documentation fixes
+    * [Pull request #104](https://github.com/gazebosim/gz-utils/pull/104)
+    * [Pull request #103](https://github.com/gazebosim/gz-utils/pull/103)
+
+1. Infrastructure
+    * [Pull request #102](https://github.com/gazebosim/gz-utils/pull/102)
+    * [Pull request #101](https://github.com/gazebosim/gz-utils/pull/101)
+    * [Pull request #85](https://github.com/gazebosim/gz-utils/pull/85)
+
+1. Extra test macros for ARM32/ARM64
+    * [Pull request #99](https://github.com/gazebosim/gz-utils/pull/99)
+
+1. Add a utility for spawning subprocesses
+    * [Pull request #98](https://github.com/gazebosim/gz-utils/pull/98)
+
+1. Support for bazel in Garden
+    * [Pull request #95](https://github.com/gazebosim/gz-utils/pull/95)
+
+1. Rename COPYING to LICENSE
+    * [Pull request #93](https://github.com/gazebosim/gz-utils/pull/93)
+
+1. Add missing config.hh include to gz headers
+    * [Pull request #90](https://github.com/gazebosim/gz-utils/pull/90)
+
+1. ign -> gz Migrate Ignition headers
+    * [Pull request #84](https://github.com/gazebosim/gz-utils/pull/84)
+
+## Gazebo Utils 2.0.0 (2022-09-22)
+
+1. Improve install instructions
+    * [Pull request #80](https://github.com/gazebosim/gz-utils/pull/80)
+
+1. Round out ExtraTestMacros
+    * [Pull request #74](https://github.com/gazebosim/gz-utils/pull/74)
+
+1. Update GoogleTest to latest version
+    * [Pull request #63](https://github.com/gazebosim/gz-utils/pull/63)
+    * [Pull request #77](https://github.com/gazebosim/gz-utils/pull/77)
+
+1. cli_TEST: Fix compatibility with CLI11 2.0
+    * [Pull request #60](https://github.com/gazebosim/gz-utils/pull/60)
+
+1. Include `<functional>` in FormatterFwd
+    * [Pull request #58](https://github.com/gazebosim/gz-utils/pull/58)
+
+1. `ign` to `gz` Migration
+    * [Pull request #53](https://github.com/gazebosim/gz-utils/pull/53)
+    * [Pull request #55](https://github.com/gazebosim/gz-utils/pull/55)
+    * [Pull request #57](https://github.com/gazebosim/gz-utils/pull/57)
+    * [Pull request #59](https://github.com/gazebosim/gz-utils/pull/59)
+    * [Pull request #61](https://github.com/gazebosim/gz-utils/pull/61)
+    * [Pull request #62](https://github.com/gazebosim/gz-utils/pull/62)
+    * [Pull request #64](https://github.com/gazebosim/gz-utils/pull/64)
+    * [Pull request #65](https://github.com/gazebosim/gz-utils/pull/65)
+    * [Pull request #67](https://github.com/gazebosim/gz-utils/pull/67)
+    * [Pull request #69](https://github.com/gazebosim/gz-utils/pull/69)
+    * [Pull request #70](https://github.com/gazebosim/gz-utils/pull/70)
+
+1. Infrastructure
+    * [Pull request #43](https://github.com/gazebosim/gz-utils/pull/43)
+    * [Pull request #49](https://github.com/gazebosim/gz-utils/pull/49)
+    * [Pull request #72](https://github.com/gazebosim/gz-utils/pull/72)
+
+## Gazebo Utils 1.x
+
+## Gazebo Utils 1.5.1 (2022-12-15)
+
+1. Add missing config.hh include to gz headers
+    * [Pull request #90](https://github.com/gazebosim/gz-utils/pull/90)
+
+## Gazebo Utils 1.5.0 (2022-12-08)
+
+1. Ignition to Gazebo header migration.
+    * [Pull request #84](https://github.com/gazebosim/gz-utils/pull/84)
+
+1. CI workflow: use checkout v3.
+    * [Pull request #85](https://github.com/gazebosim/gz-utils/pull/85)
+
+## Gazebo Utils 1.4.1 (2022-11-17)
+
+1. Include <functional> in FormatterFwd.
+    * [Pull request #58](https://github.com/gazebosim/gz-utils/pull/58)
+
+1. cli_TEST: Fix compatibility with CLI11 2.0.
+    * [Pull request #60](https://github.com/gazebosim/gz-utils/pull/60)
+
+1. Add code coverage ignore file.
+    * [Pull request #72](https://github.com/gazebosim/gz-utils/pull/72)
+
+## Gazebo Utils 1.4.0 (2022-03-29)
+
+1. Enable cpplint
+    * [Pull request #41](https://github.com/gazebosim/gz-utils/pull/41)
+
+1. Add doxygen linters
+    * [Pull request #44](https://github.com/gazebosim/gz-utils/pull/44)
+
+1. Custom Gazebo CLI11 formatter
+    * [Pull request #42](https://github.com/gazebosim/gz-utils/pull/42)
+
+1. Drop all main functions from gtest files
+    * [Pull request #45](https://github.com/gazebosim/gz-utils/pull/45)
+
+1. Improvements to enable "-Wconversion"
+    * [Pull request #46](https://github.com/gazebosim/gz-utils/pull/46)
+
+## Gazebo Utils 1.3.0 (2022-02-24)
+
+1. Fix inline namespace issue with clang6
+    * [Pull request #39](https://github.com/gazebosim/gz-utils/pull/39)
+
+1. Move ExtraTestMacros from gz-cmake
+    * [Pull request #37](https://github.com/gazebosim/gz-utils/pull/37)
+
+## Gazebo Utils 1.2.0 (2022-01-28)
+
+1. Enable cpplint on focal
+    * [Pull request #32](https://github.com/gazebosim/gz-utils/pull/32)
+
+1. Add NeverDestroyed utility class
+    * [Pull request #31](https://github.com/gazebosim/gz-utils/pull/31)
+
+1. Move environment functionality to utils
+    * [Pull request #30](https://github.com/gazebosim/gz-utils/pull/30)
+
+1. ImplPtr Get method
+    * [Pull request #27](https://github.com/gazebosim/gz-utils/pull/27)
+
+## Gazebo Utils 1.1.0 (2021-09-02)
+
+1. More complete bazel implementation
+    * [Pull request #21](https://github.com/gazebosim/gz-utils/pull/21)
+
+1. Add GZ_UTILS_VENDOR_CLI11 CMake option to optionally use external CLI11
+    * [Pull request #19](https://github.com/gazebosim/gz-utils/pull/19)
+
+1. Add an example program using CLI11
+    * [Pull request #23](https://github.com/gazebosim/gz-utils/pull/23)
+
+## Gazebo Utils 1.0.0 (2021-03-30)
+
+1. Add basic support for bazel build system.
+    * [Pull request #14](https://github.com/gazebosim/gz-utils/pull/14)
+
+1. Gazebo ImplPtr
+    * [Pull request 1](https://github.com/gazebosim/gz-utils/pull/1)
+    * [Pull request 4](https://github.com/gazebosim/gz-utils/pull/4)
+
+1. Vendor CLI11 library inside gz-utils
+    * [Pull request 2](https://github.com/gazebosim/gz-utils/pull/2)
+
+1. Update warning suppression macros
+    * [Pull request 5](https://github.com/gazebosim/gz-utils/pull/5)
+    * [Pull request 10](https://github.com/gazebosim/gz-utils/pull/10)
+    * [Pull request 11](https://github.com/gazebosim/gz-utils/pull/11)
+
+1. Pre-release cleanup
+    * [Pull request #16](https://github.com/gazebosim/gz-utils/pull/16)
+    * [Pull request #15](https://github.com/gazebosim/gz-utils/pull/15)
+
+:::
+
+::::
+    

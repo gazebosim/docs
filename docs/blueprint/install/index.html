@@ -1,0 +1,861 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Blueprint Installation &#8212; Gazebo blueprint documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/gazebo.css?v=12e630a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=c940b5aa"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'install';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://gazebosim.github.io/docs/docs/blueprint/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'blueprint';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="canonical" href="https://gazebosim.github.io/docs/docs/latestinstall/" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="ROS Integration" href="../ros_integration/" />
+    <link rel="prev" title="Getting Started with Gazebo?" href="../getstarted/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+  
+  <aside aria-label="Version warning" class="bd-header-announcement bd-header-version-warning" style="min-height: 3rem;">
+    <div class="bd-header-announcement__content">
+      <div class="sidebar-message">
+        
+          This is documentation for <strong>Gazebo Blueprint</strong>, which has reached its EOL
+          (end-of-life) and is no longer officially supported.
+        
+        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version"
+        href="../../harmonic/install">Switch to the latest stable version</a>
+      </div>
+    </div>
+  </aside>
+  
+
+
+
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/gazebo_horz_pos.svg" class="logo__image only-light" alt="Gazebo blueprint documentation - Home"/>
+    <script>document.write(`<img src="../_static/gazebo_horz_neg.svg" class="logo__image only-dark" alt="Gazebo blueprint documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+
+
+<div class="doc-header">
+  <div class="banner d-flex flex-column-reverse flex-sm-row">
+    <div>
+      <div class="d-none d-sm-block">
+        <span class="d-inline fs-2">Docs / Gazebo Blueprint</span>
+        
+          <span class="badge bg-danger fs-4 fw-light ms-2">EOL</span>
+        
+      </div>
+      <span>Supported May, 2019 to Dec, 2020</span>
+    </div><div class="gz-version-switcher">
+  <span class="fs-4 fw-light pe-2">Release:</span>
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div></div>
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted/">Get Started</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Blueprint Installation</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../ros_integration/">ROS Integration</a></li>
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../comparison/">Feature Comparison</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gui/">Understanding the GUI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manipulating_models/">Manipulating Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuel_insert/">Model Insertion from Fuel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hotkeys/">Keyboard Shortcuts</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ros_installation/">ROS/Gazebo Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_gz_vendor_pkgs/">ROS 2 Gazebo Vendor Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../install_gz11_side_by_side/">Installing Gazebo11 side by side with new Gazebo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating_gazebo_classic_ros2_packages/">Migration from ROS 2 Gazebo Classic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap/">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-features/">Release Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/">Releases</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../development/">Development</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ci/">Continuous Integration</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../release/">Release process</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../releasing/versioning_pre_nightly/">Debian/Ubuntu versioning in nightly and prerelease binaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases-instructions/">Release Instructions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/">Sim Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../fuel/">Fuel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_content_deletion_policy/">Content Deletion Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_model/">Contributing New Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_world/">Contributing New World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_copyright/">Copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_data_policy/">Data and Privacy Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_fair_use/">What is Fair Use</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../library_reference_nav/">Library Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/cmake/2">cmake</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/common/3">common</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/fuel_tools/3">fuel_tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/gui/2">gui</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/launch/1">launch</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/math/6">math</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/msgs/4">msgs</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/physics/1">physics</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/plugin/1">plugin</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/rendering/2">rendering</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sensors/2">sensors</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sim/2">sim</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/tools/0">tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/transport/7">transport</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sdformat/8">sdformat</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Blueprint...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><strong>Blueprint has reached end-of-life on December 2020.
+This page exists for archival purposes.
+Please refer to the latest supported version.</strong></p>
+<section class="tex2jax_ignore mathjax_ignore" id="blueprint-installation">
+<h1>Blueprint Installation<a class="headerlink" href="#blueprint-installation" title="Link to this heading">#</a></h1>
+<p>Blueprint supports the following platforms:</p>
+<ul class="simple">
+<li><p>Ubuntu Bionic on amd64/i386</p></li>
+<li><p>MacOS Mojave</p>
+<ul>
+<li><p>Gazebo currently only works in headless mode</p></li>
+</ul>
+</li>
+</ul>
+<p>Windows support is still experimental although most of the packages should work
+as expected. There are no binaries for Windows at this moment. The <code class="docutils literal notranslate"><span class="pre">ign-gazebo</span></code>
+package is still not available for Windows, the installation should be done from
+source code.</p>
+<section id="blueprint-libraries">
+<h2>Blueprint Libraries<a class="headerlink" href="#blueprint-libraries" title="Link to this heading">#</a></h2>
+<p>The Blueprint collection is composed by many different Ignition libraries. The
+collection assures that all libraries all compatible and can be used together.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Library name</p></th>
+<th class="head text-center"><p>Version</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>ign-cmake</p></td>
+<td class="text-center"><p>2.x</p></td>
+</tr>
+<tr class="row-odd"><td><p>ign-common</p></td>
+<td class="text-center"><p>3.x</p></td>
+</tr>
+<tr class="row-even"><td><p>ign-fuel-tools</p></td>
+<td class="text-center"><p>3.x</p></td>
+</tr>
+<tr class="row-odd"><td><p>ign-gazebo</p></td>
+<td class="text-center"><p>2.x</p></td>
+</tr>
+<tr class="row-even"><td><p>ign-gui</p></td>
+<td class="text-center"><p>2.x</p></td>
+</tr>
+<tr class="row-odd"><td><p>ign-launch</p></td>
+<td class="text-center"><p>1.x</p></td>
+</tr>
+<tr class="row-even"><td><p>ign-math</p></td>
+<td class="text-center"><p>6.x</p></td>
+</tr>
+<tr class="row-odd"><td><p>ign-msgs</p></td>
+<td class="text-center"><p>4.x</p></td>
+</tr>
+<tr class="row-even"><td><p>ign-physics</p></td>
+<td class="text-center"><p>1.x</p></td>
+</tr>
+<tr class="row-odd"><td><p>ign-plugin</p></td>
+<td class="text-center"><p>1.x</p></td>
+</tr>
+<tr class="row-even"><td><p>ign-rendering</p></td>
+<td class="text-center"><p>2.x</p></td>
+</tr>
+<tr class="row-odd"><td><p>ign-sensors</p></td>
+<td class="text-center"><p>2.x</p></td>
+</tr>
+<tr class="row-even"><td><p>ign-tools</p></td>
+<td class="text-center"><p>0.x</p></td>
+</tr>
+<tr class="row-odd"><td><p>ign-transport</p></td>
+<td class="text-center"><p>7.x</p></td>
+</tr>
+<tr class="row-even"><td><p>sdformat</p></td>
+<td class="text-center"><p>8.x</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="option-1-installation-on-ubuntu-bionic">
+<h1>Option 1: Installation on Ubuntu Bionic<a class="headerlink" href="#option-1-installation-on-ubuntu-bionic" title="Link to this heading">#</a></h1>
+<p>All of the Blueprint binaries are hosted in the osrfoundation repository. To install
+all of them, the metapackage <code class="docutils literal notranslate"><span class="pre">ignition-blueprint</span></code> can be installed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;echo &quot;deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/gazebo-stable.list&#39;</span>
+wget<span class="w"> </span>http://packages.osrfoundation.org/gazebo.key<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ignition-blueprint
+</pre></div>
+</div>
+<p>All libraries should be ready to use and the <code class="docutils literal notranslate"><span class="pre">ign</span> <span class="pre">gazebo</span></code> app ready to be executed.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="option-2-install-on-macos-mojave-10-14">
+<h1>Option 2: Install on MacOS Mojave (10.14)<a class="headerlink" href="#option-2-install-on-macos-mojave-10-14" title="Link to this heading">#</a></h1>
+<p>All the Blueprint binaries are available in Mojave using the <a class="reference external" href="https://brew.sh/">homebrew package manager</a>.
+The homebrew tool can easily be installed using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/master/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+</pre></div>
+</div>
+<p>After installing the homebrew package manager, Ignition Blueprint can be installed running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>tap<span class="w"> </span>osrf/simulation
+brew<span class="w"> </span>install<span class="w"> </span>ignition-blueprint
+</pre></div>
+</div>
+<p>All libraries should be ready to use and the <code class="docutils literal notranslate"><span class="pre">ign</span> <span class="pre">gazebo</span></code> app ready to be executed.</p>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="option-3-source-installation-any-platform">
+<h1>Option 3: Source Installation (any platform)<a class="headerlink" href="#option-3-source-installation-any-platform" title="Link to this heading">#</a></h1>
+<p>The use of some additional tools is recommended to help with the source compilation, although other ways of correctly getting and building the sources are also possible.</p>
+<p>Colcon supports python 3.5 (or higher) which is not the default option in some
+platforms (like Ubuntu Bionic). The python <a class="reference external" href="https://virtualenv.pypa.io/en/latest/">virtualenv</a> could be a useful solution in cases where the default option can not be easily changed.</p>
+<section id="installing-vcstool-and-colcon">
+<h2>Installing vcstool and colcon<a class="headerlink" href="#installing-vcstool-and-colcon" title="Link to this heading">#</a></h2>
+<p>For getting the sources of all libraries the easiest way is to use
+<a class="reference external" href="https://github.com/dirk-thomas/vcstool">vcstool</a>. The tool is available from pip
+in all platforms:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>vcstool
+</pre></div>
+</div>
+<p>Since Ignition libraries use <code class="docutils literal notranslate"><span class="pre">git</span></code> for version control it must be available in the system for <code class="docutils literal notranslate"><span class="pre">vcstool</span></code> to work properly. In Ubuntu:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>git
+</pre></div>
+</div>
+<p>To compile all the different libraries and ign-gazebo in the right order
+it is recommended to use <a class="reference external" href="https://colcon.readthedocs.io/en/released/">colcon</a>.
+The colcon tool is available in all platforms using pip (or pip3, if pip fails):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>colcon-common-extensions
+</pre></div>
+</div>
+<section id="use-deb-packages-in-ubuntu-to-install-vcstool-and-colcon">
+<h3>Use .deb packages in Ubuntu to install vcstool and colcon<a class="headerlink" href="#use-deb-packages-in-ubuntu-to-install-vcstool-and-colcon" title="Link to this heading">#</a></h3>
+<p>An alternative method is to use the .deb packages available on Debian or Ubuntu:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;echo &quot;deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros-latest.list&#39;</span>
+
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>curl<span class="w"> </span><span class="c1"># if curl isn&#39;t already installed</span>
+curl<span class="w"> </span>-s<span class="w"> </span>https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
+
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-vcstool<span class="w"> </span>python3-colcon-common-extensions<span class="w"> </span>git
+</pre></div>
+</div>
+</section>
+</section>
+<section id="getting-the-sources">
+<h2>Getting the sources<a class="headerlink" href="#getting-the-sources" title="Link to this heading">#</a></h2>
+<p>The instructions below use some UNIX commands to manage directories but the
+obvious alternatives on Windows should provide the same result.</p>
+<p>The first step would be to create a developer workspace in which <code class="docutils literal notranslate"><span class="pre">vcstool</span></code> and
+<code class="docutils literal notranslate"><span class="pre">colcon</span></code> can work.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>-p<span class="w"> </span>~/workspace/src
+<span class="nb">cd</span><span class="w"> </span>~/workspace/src
+</pre></div>
+</div>
+<p>All the sources of ignition-blueprint are declared in a yaml file. Download
+it to the workspace.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-blueprint.yaml
+</pre></div>
+</div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">vcstool</span></code> to automatically retrieve all the Ignition libraries sources from
+their repositories:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vcs<span class="w"> </span>import<span class="w"> </span>&lt;<span class="w"> </span>collection-blueprint.yaml
+</pre></div>
+</div>
+<p>The src subdirectory should contain all the sources ready to be built.</p>
+</section>
+<section id="install-dependencies">
+<h2>Install dependencies<a class="headerlink" href="#install-dependencies" title="Link to this heading">#</a></h2>
+<p>Before compiling it is necessary to install all the dependencies of the diferent
+packages that compose the Blueprint collection. Every platform has a different
+method to install software dependencies.</p>
+<p>Add <a class="reference external" href="http://packages.osrfoundation.org">packages.osrfoundation.org</a> to the apt sources list:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;echo &quot;deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/gazebo-stable.list&#39;</span>
+wget<span class="w"> </span>http://packages.osrfoundation.org/gazebo.key<span class="w"> </span>-O<span class="w"> </span>-<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
+sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+</pre></div>
+</div>
+<p>As reference the command below will
+install all dependencies in Ubuntu Bionic:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>cmake<span class="w"> </span>freeglut3-dev<span class="w"> </span>libavcodec-dev<span class="w"> </span>libavdevice-dev<span class="w"> </span>libavformat-dev<span class="w"> </span>libavutil-dev<span class="w"> </span>libdart6-collision-ode-dev<span class="w"> </span>libdart6-dev<span class="w"> </span>libdart6-utils-urdf-dev<span class="w"> </span>libfreeimage-dev<span class="w"> </span>libgflags-dev<span class="w"> </span>libglew-dev<span class="w"> </span>libgts-dev<span class="w"> </span>libogre-1.9-dev<span class="w"> </span>libogre-2.1-dev<span class="w"> </span>libprotobuf-dev<span class="w"> </span>libprotobuf-dev<span class="w"> </span>libprotoc-dev<span class="w"> </span>libqt5core5a<span class="w"> </span>libswscale-dev<span class="w"> </span>libtinyxml2-dev<span class="w"> </span>libtinyxml-dev<span class="w"> </span>pkg-config<span class="w"> </span>protobuf-compiler<span class="w"> </span>python<span class="w"> </span>qml-module-qt-labs-folderlistmodel<span class="w"> </span>qml-module-qt-labs-settings<span class="w"> </span>qml-module-qtquick2<span class="w"> </span>qml-module-qtquick-controls<span class="w"> </span>qml-module-qtquick-controls2<span class="w"> </span>qml-module-qtquick-dialogs<span class="w"> </span>qml-module-qtquick-layouts<span class="w"> </span>qml-module-qtqml-models2<span class="w"> </span>qtbase5-dev<span class="w"> </span>qtdeclarative5-dev<span class="w"> </span>qtquickcontrols2-5-dev<span class="w"> </span>ruby<span class="w"> </span>ruby-ronn<span class="w"> </span>uuid-dev<span class="w"> </span>libzip-dev<span class="w"> </span>libjsoncpp-dev<span class="w"> </span>libcurl4-openssl-dev<span class="w"> </span>libyaml-dev<span class="w"> </span>libzmq3-dev<span class="w"> </span>libsqlite3-dev<span class="w"> </span>libwebsockets-dev<span class="w"> </span>swig<span class="w"> </span>ruby-dev<span class="w"> </span>-y
+</pre></div>
+</div>
+</section>
+<section id="building-the-ignition-libraries">
+<h2>Building the Ignition Libraries<a class="headerlink" href="#building-the-ignition-libraries" title="Link to this heading">#</a></h2>
+<p>The Ignition Libraries require the following compilers on each platform:</p>
+<ul class="simple">
+<li><p>Ubuntu Bionic: gcc 8</p></li>
+<li><p>MacOS Mojave: Xcode 10</p></li>
+<li><p>Windows: Visual Studio 2017</p></li>
+</ul>
+<section id="installing-gcc-version-8-on-ubuntu-bionic">
+<h3>Installing gcc version 8 on Ubuntu Bionic<a class="headerlink" href="#installing-gcc-version-8-on-ubuntu-bionic" title="Link to this heading">#</a></h3>
+<p>To install <code class="docutils literal notranslate"><span class="pre">gcc</span></code> version 8 on Ubuntu Bionic:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>g++-8
+</pre></div>
+</div>
+<p>Set <code class="docutils literal notranslate"><span class="pre">gcc-8</span></code> and <code class="docutils literal notranslate"><span class="pre">g++-8</span></code> to be the default compilers.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>update-alternatives<span class="w"> </span>--install<span class="w"> </span>/usr/bin/gcc<span class="w"> </span>gcc<span class="w"> </span>/usr/bin/gcc-8<span class="w"> </span><span class="m">800</span><span class="w"> </span>--slave<span class="w"> </span>/usr/bin/g++<span class="w"> </span>g++<span class="w"> </span>/usr/bin/g++-8<span class="w"> </span>--slave<span class="w"> </span>/usr/bin/gcov<span class="w"> </span>gcov<span class="w"> </span>/usr/bin/gcov-8
+</pre></div>
+</div>
+<p>At this point <code class="docutils literal notranslate"><span class="pre">gcc</span></code>  and <code class="docutils literal notranslate"><span class="pre">g++</span></code> should both report version 8. Test this with
+the following commands.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gcc<span class="w"> </span>-v
+g++<span class="w"> </span>-v
+</pre></div>
+</div>
+</section>
+<section id="building-the-colcon-workspace">
+<h3>Building the colcon workspace<a class="headerlink" href="#building-the-colcon-workspace" title="Link to this heading">#</a></h3>
+<p>Once the compiler and all the sources are in place it is time to compile them.
+Start the procedure by changing into the workspace and listing the packages
+recognized by <code class="docutils literal notranslate"><span class="pre">colcon</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/workspace/
+colcon<span class="w"> </span>list<span class="w"> </span>-g
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">colcon</span></code> should list the Ignition libraries with their
+interdependencies. If that is the case, then you are ready
+to build the whole set of libraries:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--merge-install
+</pre></div>
+</div>
+<p>If there are no errors, all the binaries should be ready to use.</p>
+</section>
+</section>
+<section id="using-the-workspace">
+<h2>Using the workspace<a class="headerlink" href="#using-the-workspace" title="Link to this heading">#</a></h2>
+<p>The workspace binaries are ready but every time that <code class="docutils literal notranslate"><span class="pre">ign</span> <span class="pre">gazebo</span></code> needs to be
+executed or third party code is going to be developed using the Ignition
+libraries, one command is needed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.<span class="w"> </span>~/workspace/install/local_setup.bash
+<span class="o">(</span>or<span class="w"> </span>call<span class="w"> </span>~/workspace/install/local_setup.bat<span class="w"> </span>on<span class="w"> </span>Windows<span class="o">)</span>
+</pre></div>
+</div>
+<p>After running the command all paths for running apps or developing code
+will be set in the current shell.</p>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="troubleshooting">
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h1>
+<section id="unable-to-create-the-rendering-window">
+<h2>Unable to create the rendering window<a class="headerlink" href="#unable-to-create-the-rendering-window" title="Link to this heading">#</a></h2>
+<p>If you’re getting errors like “Unable to create the rendering window”, it could
+mean you’re using an old OpenGL version. Gazebo Sim uses the Ogre 2
+rendering engine by default, which requires an OpenGL version higher than 3.3.</p>
+<p>This can be confirmed by checking the Ogre 2 logs at <code class="docutils literal notranslate"><span class="pre">~/.ignition/rendering/ogre2.log</span></code>,
+which should have an error like:</p>
+<p>“OGRE EXCEPTION(3:RenderingAPIException): OpenGL 3.3 is not supported. Please update your graphics card drivers.”</p>
+<p>You can also check your OpenGL version running:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>glxinfo | grep &quot;OpenGL version&quot;
+</pre></div>
+</div>
+<p>You should be able to use Ogre 1 without any issues however. You can check if
+that’s working by running a world which uses Ogre 1 instead of Ogre 2, such as:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ign gazebo -v 3 lights.sdf
+</pre></div>
+</div>
+<p>If that loads, you can continue to use Ignition with Ogre 1, just be sure to
+specify <code class="docutils literal notranslate"><span class="pre">ogre</span></code> in your SDF files instead of <code class="docutils literal notranslate"><span class="pre">ogre2</span></code>.</p>
+<p>To enable Ogre 2 support, you’ll need to update your computer’s OpenGL version.
+As suggested on the Ogre logs, this may require updating your graphics card
+drivers.</p>
+<p>The Ogre 2 debs from the osrfoundation repository are built from a fork of
+Ogre’s <code class="docutils literal notranslate"><span class="pre">v2-1</span></code> branch with changes needed for deb packaging and allowing it to
+be co-installable with Ogre 1.x. The code can be found here:</p>
+<p><a class="github reference external" href="https://github.com/osrf/ogre-2.1-release">osrf/ogre-2.1-release</a></p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Blueprint Installation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blueprint-libraries">Blueprint Libraries</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-installation-on-ubuntu-bionic">Option 1: Installation on Ubuntu Bionic</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-install-on-macos-mojave-10-14">Option 2: Install on MacOS Mojave (10.14)</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#option-3-source-installation-any-platform">Option 3: Source Installation (any platform)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-vcstool-and-colcon">Installing vcstool and colcon</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#use-deb-packages-in-ubuntu-to-install-vcstool-and-colcon">Use .deb packages in Ubuntu to install vcstool and colcon</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-the-sources">Getting the sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dependencies">Install dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-ignition-libraries">Building the Ignition Libraries</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-gcc-version-8-on-ubuntu-bionic">Installing gcc version 8 on Ubuntu Bionic</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-colcon-workspace">Building the colcon workspace</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-workspace">Using the workspace</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">Troubleshooting</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#unable-to-create-the-rendering-window">Unable to create the rendering window</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/gazebosim/docs/edit/master/blueprint/install.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p> Brought to you by <a href="https://openrobotics.org">Open Robotics</a>. </p>
+<p> Except where otherwise noted, the gazebosim.org web pages are licensed under <a
+    href="https://creativecommons.org/licenses/by/3.0/us/">Creative Commons
+    Attribution 3.0</a>. </p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

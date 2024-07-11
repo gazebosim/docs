@@ -1,0 +1,2583 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>common &#8212; Gazebo  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/gazebo.css?v=12e630a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=187304be"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'common/index';</script>
+    <link rel="canonical" href="https://gazebosim.github.io/docs/libscommon/" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="fuel_tools" href="../fuel_tools/" />
+    <link rel="prev" title="cmake" href="../cmake/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+
+
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/gazebo_horz_pos.svg" class="logo__image only-light" alt="Gazebo  documentation - Home"/>
+    <script>document.write(`<img src="../_static/gazebo_horz_neg.svg" class="logo__image only-dark" alt="Gazebo  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+
+
+
+<div class="doc-heading">
+  <div class="banner">
+    <div class="d-sm-block">
+      <div class="h1">Development Libraries</div>
+      <span>Explore the complete set of development libraries offered by Gazebo.</span>
+    </div>
+  </div>
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../cmake/">Cmake</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuel_tools/">Fuel_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gui/">Gui</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../launch/">Launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../msgs/">Msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/">Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rendering/">Rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensors/">Sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sim/">Sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transport/">Transport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdformat/">Sdformat</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">common</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="common">
+<h1>common<a class="headerlink" href="#common" title="Link to this heading">#</a></h1>
+<ul class="gz-libs-lists simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common"><svg version="4.0.0.63c5cb3" width="2.0em" height="2.0em" class="sd-material-icon sd-material-icon-code" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg> Source Code</a></p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/api/common/5"><svg version="4.0.0.63c5cb3" width="2.0em" height="2.0em" class="sd-material-icon sd-material-icon-description" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0z" fill="none"></path><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"></path></svg> API &amp; Tutorials</a></p></li>
+</ul>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Readme</label><div class="sd-tab-content docutils">
+<h1 class="rubric" id="gazebo-common-av-graphics-events-and-much-more">Gazebo Common : AV, Graphics, Events, and much more.</h1>
+<p><strong>Maintainer:</strong> nate AT openrobotics DOT org</p>
+<p><a class="reference external" href="https://github.com/gazebosim/gz-common/issues"><img alt="GitHub open issues" src="https://img.shields.io/github/issues-raw/gazebosim/gz-common.svg" /></a>
+<a class="reference external" href="https://github.com/gazebosim/gz-common/pulls"><img alt="GitHub open pull requests" src="https://img.shields.io/github/issues-pr-raw/gazebosim/gz-common.svg" /></a>
+<a class="reference external" href="https://community.gazebosim.org"><img alt="Discourse topics" src="https://img.shields.io/discourse/https/community.gazebosim.org/topics.svg" /></a>
+<a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0"><img alt="Hex.pm" src="https://img.shields.io/hexpm/l/plug.svg" /></a></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Build</p></th>
+<th class="head"><p>Status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Test coverage</p></td>
+<td><p><a class="reference external" href="https://codecov.io/gh/gazebosim/gz-common/tree/gz-common5"><img alt="codecov" src="https://codecov.io/gh/gazebosim/gz-common/tree/gz-common5/graph/badge.svg" /></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Ubuntu Jammy</p></td>
+<td><p><a class="reference external" href="https://build.osrfoundation.org/job/gz_common-ci-gz-common5-jammy-amd64"><img alt="Build Status" src="https://build.osrfoundation.org/buildStatus/icon?job=gz_common-ci-gz-common5-jammy-amd64" /></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Homebrew</p></td>
+<td><p><a class="reference external" href="https://build.osrfoundation.org/job/gz_common-ci-gz-common5-homebrew-amd64"><img alt="Build Status" src="https://build.osrfoundation.org/buildStatus/icon?job=gz_common-ci-gz-common5-homebrew-amd64" /></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows</p></td>
+<td><p><a class="reference external" href="https://build.osrfoundation.org/job/gz_common-5-win/"><img alt="Build Status" src="https://build.osrfoundation.org/job/gz_common-5-win/badge/icon" /></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Gazebo Common, a component of <a class="reference external" href="https://gazebosim.org">Gazebo</a>, provides a set of libraries that
+cover many different use cases. An audio-visual library supports
+processing audio and video files, a graphics library can load a variety 3D
+mesh file formats into a generic in-memory representation, and the core
+library of Gazebo Common contains functionality that spans Base64
+encoding/decoding to thread pools.</p>
+<h1 class="rubric" id="table-of-contents">Table of Contents</h1>
+<p><a class="reference external" href="#features">Features</a></p>
+<p><a class="reference external" href="#install">Install</a></p>
+<p><a class="reference external" href="#usage">Usage</a></p>
+<p><a class="reference external" href="#folder-structure">Folder Structure</a></p>
+<p><a class="reference external" href="#code-of-conduct">Code of Conduct</a></p>
+<p><a class="reference external" href="#code-of-contributing">Contributing</a></p>
+<p><a class="reference external" href="#versioning">Versioning</a></p>
+<p><a class="reference external" href="#license">License</a></p>
+<h1 class="rubric" id="features">Features</h1>
+<p>Some of the many capabilities contained in Gazebo Common are:</p>
+<ul class="simple">
+<li><p><strong>AV</strong>: FFMpeg based audio decoder, and video encoder and decoder.</p></li>
+<li><p><strong>Core</strong>: Base64 encoding and decoding, battery model, console logging,
+cross-platform filesystem interface, URI processing, and a thread pool.</p></li>
+<li><p><strong>Events</strong>: Mouse and keyboard events, and a high-performance signal and
+callback system.</p></li>
+<li><p><strong>Graphics</strong>: Collada, SVG, STL, OBJ, and DEM loaders. In-memory mesh,
+image, and material representations. Animation processing and BVH loader.</p></li>
+<li><p><strong>Profiler</strong>: A common profiler abstraction that can be used to measure and
+visualize run time of various pieces of Gazebo software.</p></li>
+</ul>
+<h1 class="rubric" id="install">Install</h1>
+<p>See the <a class="reference external" href="https://gazebosim.org/api/common/5/install.html">installation tutorial</a>.</p>
+<h1 class="rubric" id="usage">Usage</h1>
+<p>Please refer to the <a class="reference external" href="https://github.com/gazebosim/gz-common/tree/main/examples">examples directory</a>.</p>
+<h1 class="rubric" id="folder-structure">Folder Structure</h1>
+<p>Refer to the following table for information about important directories and files in this repository.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">+--</span> <span class="n">av</span>                       <span class="n">Header</span> <span class="ow">and</span> <span class="n">source</span> <span class="n">files</span> <span class="k">for</span> <span class="n">the</span> <span class="n">AV</span> <span class="n">component</span><span class="o">.</span>
+<span class="o">+--</span> <span class="n">events</span>                   <span class="n">Header</span> <span class="ow">and</span> <span class="n">source</span> <span class="n">files</span> <span class="k">for</span> <span class="n">the</span> <span class="n">Event</span> <span class="n">component</span><span class="o">.</span>
+<span class="o">+--</span> <span class="n">examples</span>                 <span class="n">Example</span> <span class="n">programs</span><span class="o">.</span>
+<span class="o">+--</span> <span class="n">geospatial</span>               <span class="n">Geospatial</span> <span class="n">component</span> <span class="k">for</span> <span class="n">heightmap</span> <span class="o">&amp;</span> <span class="n">DEMs</span>
+<span class="o">+--</span> <span class="n">graphics</span>                 <span class="n">Header</span> <span class="ow">and</span> <span class="n">source</span> <span class="n">files</span> <span class="k">for</span> <span class="n">the</span> <span class="n">Graphics</span> <span class="n">component</span><span class="o">.</span>
+<span class="o">+--</span> <span class="n">include</span><span class="o">/</span><span class="n">gz</span><span class="o">/</span><span class="n">common</span>        <span class="n">Header</span> <span class="n">files</span> <span class="k">for</span> <span class="n">the</span> <span class="n">core</span> <span class="n">component</span><span class="o">.</span>
+<span class="o">+--</span> <span class="n">io</span>                       <span class="n">IO</span> <span class="n">component</span><span class="o">.</span> <span class="n">Read</span> <span class="nb">object</span> <span class="kn">from</span> <span class="nn">stream.</span>
+<span class="o">+--</span> <span class="n">profiler</span>                 <span class="n">Header</span> <span class="ow">and</span> <span class="n">source</span> <span class="n">files</span> <span class="k">for</span> <span class="n">the</span> <span class="n">Profiler</span> <span class="n">component</span><span class="o">.</span>
+<span class="o">+--</span> <span class="n">src</span>                      <span class="n">Core</span> <span class="n">source</span> <span class="n">files</span> <span class="ow">and</span> <span class="n">unit</span> <span class="n">tests</span><span class="o">.</span>
+<span class="o">+--</span> <span class="n">test</span>
+<span class="o">|</span>    <span class="o">+--</span> <span class="n">integration</span>         <span class="n">Integration</span> <span class="n">tests</span><span class="o">.</span>
+<span class="o">|</span>    <span class="o">+--</span> <span class="n">performance</span>         <span class="n">Performance</span> <span class="n">tests</span><span class="o">.</span>
+<span class="o">|</span>    <span class="o">+--</span> <span class="n">plugins</span>             <span class="n">Plugin</span> <span class="n">tests</span><span class="o">.</span>
+<span class="o">|</span>    <span class="o">+--</span> <span class="n">static_assertions</span>   <span class="n">Plugin</span> <span class="n">static</span> <span class="n">assertion</span> <span class="n">tests</span><span class="o">.</span>
+<span class="o">|</span>    <span class="o">+--</span> <span class="n">regression</span>          <span class="n">Regression</span> <span class="n">tests</span><span class="o">.</span>
+<span class="o">+--</span> <span class="n">tutorials</span>                <span class="n">Tutorials</span><span class="p">,</span> <span class="n">written</span> <span class="ow">in</span> <span class="n">markdown</span><span class="o">.</span>
+<span class="o">+--</span> <span class="n">Changelog</span><span class="o">.</span><span class="n">md</span>             <span class="n">Changelog</span><span class="o">.</span>
+<span class="o">+--</span> <span class="n">CMakeLists</span><span class="o">.</span><span class="n">txt</span>           <span class="n">CMake</span> <span class="n">build</span> <span class="n">script</span><span class="o">.</span>
+<span class="o">+--</span> <span class="n">Migration</span><span class="o">.</span><span class="n">md</span>             <span class="n">Migration</span> <span class="n">guide</span><span class="o">.</span>
+</pre></div>
+</div>
+<h1 class="rubric" id="contributing">Contributing</h1>
+<p>Please see the
+<a class="reference external" href="https://gazebosim.org/docs/all/contributing">contributing guide</a>.</p>
+<h1 class="rubric" id="code-of-conduct">Code of Conduct</h1>
+<p>Please see
+<a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/main/CODE_OF_CONDUCT.md">CODE_OF_CONDUCT.md</a>.</p>
+<h1 class="rubric" id="versioning">Versioning</h1>
+<p>This library uses <a class="reference external" href="https://semver.org/">Semantic Versioning</a>. Additionally, this library is part of the <a class="reference external" href="https://gazebosim.org">Gazebo project</a> which periodically releases a versioned set of compatible and complimentary libraries. See the <a class="reference external" href="https://gazebosim.org">Gazebo website</a> for version and release information.</p>
+<h1 class="rubric" id="license">License</h1>
+<p>This library is licensed under <a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. See also the <a class="reference external" href="https://github.com/gazebosim/gz-common/blob/main/LICENSE">LICENSE</a> file.</p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Changelog</label><div class="sd-tab-content docutils">
+<h2 class="rubric" id="gazebo-common-5-x">Gazebo Common 5.x</h2>
+<h2 class="rubric" id="gazebo-common-5-6-0-2024-04-23">Gazebo Common 5.6.0 (2024-04-23)</h2>
+<ol class="arabic simple">
+<li><p>Clarify units for the DEM classes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/595">Pull request #595</a></p></li>
+</ul>
+</li>
+<li><p>Remove pessimizing move</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/593">Pull request #593</a></p></li>
+</ul>
+</li>
+<li><p>Fix bazel build</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/592">Pull request #592</a></p></li>
+</ul>
+</li>
+<li><p>Add new function in MeshManager to merge all submeshes of a mesh into one</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/588">Pull request #588</a></p></li>
+</ul>
+</li>
+<li><p>Adds new function in MeshManager for performing convex decomposition</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/585">Pull request #585</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-5-5-1-2024-03-14">Gazebo Common 5.5.1 (2024-03-14)</h2>
+<ol class="arabic simple">
+<li><p>Various Bazel adjustments for linting</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/582">Pull request #582</a></p></li>
+</ul>
+</li>
+<li><p>Extend AssimpLoader to parse material transmission factor</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/577">Pull request #577</a></p></li>
+</ul>
+</li>
+<li><p>Fix noise issue that appears in certain image textures</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/578">Pull request #578</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-5-5-0-2024-02-26">Gazebo Common 5.5.0 (2024-02-26)</h2>
+<ol class="arabic simple">
+<li><p>Be louder when graphics is missing for geospatial</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/573">Pull request #573</a></p></li>
+</ul>
+</li>
+<li><p>Multiple memory cleanup fixes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/571">Pull request #571</a></p></li>
+</ul>
+</li>
+<li><p>Clarify GDAL version requirement</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/574">Pull request #574</a></p></li>
+</ul>
+</li>
+<li><p>🎈  3.17.0</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/567">Pull request #567</a></p></li>
+</ul>
+</li>
+<li><p>Update CI badges in README</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/566">Pull request #566</a></p></li>
+</ul>
+</li>
+<li><p>Backwards compatible assimp texture name fix</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/565">Pull request #565</a></p></li>
+</ul>
+</li>
+<li><p>Fix error output when creating directories</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/561">Pull request #561</a></p></li>
+</ul>
+</li>
+<li><p>Update github action workflows</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/558">Pull request #558</a></p></li>
+</ul>
+</li>
+<li><p>Fix segfault in case of no write access to log dir</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/546">Pull request #546</a></p></li>
+</ul>
+</li>
+<li><p>ign -&gt; gz</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/547">Pull request #547</a></p></li>
+</ul>
+</li>
+<li><p>Support loading glb with compressed jpeg textures</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/545">Pull request #545</a></p></li>
+</ul>
+</li>
+<li><p>Fix glTF / glb root node transform</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/543">Pull request #543</a></p></li>
+</ul>
+</li>
+<li><p>EnumIface: suppress deprecation warning</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/540">Pull request #540</a></p></li>
+</ul>
+</li>
+<li><p>Prevent loading lightmaps if mesh is a glb file that has an occlusion-metallic-roughness texture</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/538">Pull request #538</a></p></li>
+</ul>
+</li>
+<li><p>🎈 3.16.0</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/519">Pull request #519</a></p></li>
+</ul>
+</li>
+<li><p>Fix cstdint with GCC 13</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/528">Pull request #528</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/517">Pull request #517</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/513">Pull request #513</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-5-4-2-2023-09-26">Gazebo Common 5.4.2 (2023-09-26)</h2>
+<ol class="arabic simple">
+<li><p>Documentation fixes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/534">Pull request #534</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/535">Pull request #535</a></p></li>
+</ul>
+</li>
+<li><p>Fix glTF metalness and roughness map orientation</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/532">Pull request #532</a></p></li>
+</ul>
+</li>
+<li><p>Build examples from CMake rather than executable</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/502">Pull request #502</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-5-4-1-2023-08-21">Gazebo Common 5.4.1 (2023-08-21)</h2>
+<ol class="arabic simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">pull_request_target</span></code>  for triage workflow</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/527">Pull request #527</a></p></li>
+</ul>
+</li>
+<li><p>Fix Github project automation for new project board</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/526">Pull request #526</a></p></li>
+</ul>
+</li>
+<li><p>Fix Github Actions on macOS</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/524">Pull request #524</a></p></li>
+</ul>
+</li>
+<li><p>Only build integration tests if libraries exist</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/523">Pull request #523</a></p></li>
+</ul>
+</li>
+<li><p>Fix compiling under linux</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/521">Pull request #521</a></p></li>
+</ul>
+</li>
+<li><p>Add missing <fstream> header includes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/518">Pull request #518</a></p></li>
+</ul>
+</li>
+<li><p>Header was dropped in the forward port and breaks downstream</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/515">Pull request #515</a></p></li>
+</ul>
+</li>
+<li><p>Port: 4 to 5</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/511">Pull request #511</a></p></li>
+</ul>
+</li>
+<li><p>Lint</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/Lint">Pull request #Lint</a></p></li>
+</ul>
+</li>
+<li><p>🎈 4.7.0</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/510">Pull request #510</a></p></li>
+</ul>
+</li>
+<li><p>Fix build error when using gz:: with ign-common4</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/489">Pull request #489</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-5-4-0-2023-04-28">Gazebo Common 5.4.0 (2023-04-28)</h2>
+<ol class="arabic simple">
+<li><p>Add support for bayer images to be saved in a directory</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/498">Pull request #498</a></p></li>
+</ul>
+</li>
+<li><p>Fix for ffmpeg v6</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/497">Pull request #497</a></p></li>
+</ul>
+</li>
+<li><p>Include cstring for memcpy</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/501">Pull request #501</a></p></li>
+</ul>
+</li>
+<li><p>Fixed MeshManager Singleton</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/451">Pull request #451</a></p></li>
+</ul>
+</li>
+<li><p>Fix for ffmpeg v6</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/497">Pull request #497</a></p></li>
+</ul>
+</li>
+<li><p>Rename COPYING to LICENSE</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/494">Pull request #494</a></p></li>
+</ul>
+</li>
+<li><p>Add marcoag as codeowner</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/493">Pull request #493</a></p></li>
+</ul>
+</li>
+<li><p>CI workflow: use checkout v3</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/490">Pull request #490</a></p></li>
+</ul>
+</li>
+<li><p>Update common5 for bazel builds</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/488">Pull request #488</a></p></li>
+</ul>
+</li>
+<li><p>Fix profile tutorial</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/487">Pull request #487</a></p></li>
+</ul>
+</li>
+<li><p>Update version in Changelog</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/486">Pull request #486</a></p></li>
+</ul>
+</li>
+<li><p>Fixed metalness/roughness in ASSIMP loader</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/485">Pull request #485</a></p></li>
+</ul>
+</li>
+<li><p>Fix Capsule mesh generation</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/475">Pull request #475</a></p></li>
+</ul>
+</li>
+<li><p>Improved coverage remotery</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/467">Pull request #467</a></p></li>
+</ul>
+</li>
+<li><p>Added BVH and STL loader tests</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/466">Pull request #466</a></p></li>
+</ul>
+</li>
+<li><p>Increased Image coverage</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/465">Pull request #465</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-5-3-1-2022-11-17">Gazebo Common 5.3.1 (2022-11-17)</h2>
+<ol class="arabic simple">
+<li><p>Fix out of bounds access to rotation array in assimp loader</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-common/pull/479">Pull request #479</a></p></li>
+</ul>
+</li>
+<li><p>Fix issues detected by ASAN</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-common/pull/480">Pull request #480</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-5-3-0-2022-11-14">Gazebo Common 5.3.0 (2022-11-14)</h2>
+<ol class="arabic simple">
+<li><p>Expose Vertex &amp; Index raw ptrs for efficient reading</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-common/pull/474">Pull request #474</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-5-2-2-2022-10-26">Gazebo Common 5.2.2 (2022-10-26)</h2>
+<ol class="arabic simple">
+<li><p>[Backport] Avoid Io.hh header name clash (#471)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/472">Pull request #472</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-5-2-1-2022-10-19">Gazebo Common 5.2.1 (2022-10-19)</h2>
+<ol class="arabic simple">
+<li><p>Fix arm builds and tests</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/462">Pull request #462</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/463">Pull request #463</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-5-2-0-2022-10-18">Gazebo Common 5.2.0 (2022-10-18)</h2>
+<ol class="arabic simple">
+<li><p>Add CSV data parsing</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/402">Pull request #402</a></p></li>
+</ul>
+</li>
+<li><p>Skip CSV header when reading DataFrame.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/435">Pull request #435</a></p></li>
+</ul>
+</li>
+<li><p>Adds an API to retrieve keys.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/446">Pull request #446</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-5-1-0-2022-10-13">Gazebo Common 5.1.0 (2022-10-13)</h2>
+<ol class="arabic simple">
+<li><p>4 ➡️  5</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/457">Pull request #457</a></p></li>
+</ul>
+</li>
+<li><p>🎈 4.6.1</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/456">Pull request #456</a></p></li>
+</ul>
+</li>
+<li><p>🎈 4.6.0</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/452">Pull request #452</a></p></li>
+</ul>
+</li>
+<li><p>🎈 4.5.2</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/423">Pull request #423</a></p></li>
+</ul>
+</li>
+<li><p>3 ➡️  4</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/448">Pull request #448</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/445">Pull request #445</a></p></li>
+</ul>
+</li>
+<li><p>🎈 3.15.1</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/454">Pull request #454</a></p></li>
+</ul>
+</li>
+<li><p>🎈 3.15.0</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/447">Pull request #447</a></p></li>
+</ul>
+</li>
+<li><p>🎈 3.14.2</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/419">Pull request #419</a></p></li>
+</ul>
+</li>
+<li><p>Don’t install auto-generated profiler.hh</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/453">Pull request #453</a></p></li>
+</ul>
+</li>
+<li><p>Fixed MeshManager Singleton</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/451">Pull request #451</a></p></li>
+</ul>
+</li>
+<li><p>Don’t install CMakeLists.txt</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/449">Pull request #449</a></p></li>
+</ul>
+</li>
+<li><p>ign -&gt; gz Migrate Ignition Headers : gz-common</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/418">Pull request #418</a></p></li>
+</ul>
+</li>
+<li><p>Suppress a bunch of unnecessary test output</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/442">Pull request #442</a></p></li>
+</ul>
+</li>
+<li><p>Fix metallic roughness file path for gltf assets</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/436">Pull request #436</a></p></li>
+</ul>
+</li>
+<li><p>Include cstring for memcpy</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/437">Pull request #437</a></p></li>
+</ul>
+</li>
+<li><p>Backport from 5 to 3 - Fix deprecation warning from new ffmpeg</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/421">Pull request #421</a></p></li>
+</ul>
+</li>
+<li><p>Remove redundant namespace references</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/414">Pull request #414</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-5-0-0-2022-09-22">Gazebo Common 5.0.0 (2022-09-22)</h2>
+<ol class="arabic simple">
+<li><p>Improved visualization hw encoding tutorial gz-common5</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/441">Pull request #441</a></p></li>
+</ul>
+</li>
+<li><p>Updated install instructions gz-common5</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/440">Pull request #440</a></p></li>
+</ul>
+</li>
+<li><p>Fix reading pixel values from single channel 16 bit image</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/439">Pull request #439</a></p></li>
+</ul>
+</li>
+<li><p>Add gdal to prerequisites</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/438">Pull request #438</a></p></li>
+</ul>
+</li>
+<li><p>Cleanup long-deprecated ifdefs</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/329">Pull request #329</a></p></li>
+</ul>
+</li>
+<li><p>Add a test for loading gltf with external textures</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/409">Pull request #409</a></p></li>
+</ul>
+</li>
+<li><p>Fix ABI checker with testing module</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/427">Pull request #427</a></p></li>
+</ul>
+</li>
+<li><p>Implement XDisplacement function for checking x displacement for all nodes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/411">Pull request #411</a></p></li>
+</ul>
+</li>
+<li><p>Fix deprecation warning from new ffmpeg</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/416">Pull request #416</a></p></li>
+</ul>
+</li>
+<li><p>Use assimp for loading meshes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/393">Pull request #393</a></p></li>
+</ul>
+</li>
+<li><p>Add API for getting Image bytes as std::vector</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/372">Pull request #372</a></p></li>
+</ul>
+</li>
+<li><p>Support lunar coordinate transformations</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/377">Pull request #377</a></p></li>
+</ul>
+</li>
+<li><p>Remove configure.bat, export CXX_STANDARD</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/387">Pull request #387</a></p></li>
+</ul>
+</li>
+<li><p>Update GoogleTest to latest version</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/361">Pull request #361</a></p></li>
+</ul>
+</li>
+<li><p>Support compressed images and RGBA data in Image class</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/368">Pull request #368</a></p></li>
+</ul>
+</li>
+<li><p>Expose API to set non earth DEMs flag</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/353">Pull request #353</a></p></li>
+</ul>
+</li>
+<li><p>Fix console bug when IGN_HOMEDIR is unset</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/346">Pull request #346</a></p></li>
+</ul>
+</li>
+<li><p>Test updates for common::testing module.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/315">Pull request #315</a></p></li>
+</ul>
+</li>
+<li><p>Ignition -&gt; Gz Renaming</p>
+<ul class="simple">
+<li><p>Move header files with git mv</p></li>
+<li><p>Create redirection aliases</p></li>
+<li><p>Migrate sources in src, test, examples, and include</p></li>
+<li><p>Remove ignition redirection headers for Plugin <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/350">Pull request #350</a></p></li>
+<li><p>Move Plugin headers back from gz to ignition <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/350">Pull request #350</a></p></li>
+<li><p>ign -&gt; gz: namespaces and logging functions <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/356">Pull request #356</a></p></li>
+<li><p>Deprecation warnings for Plugin <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/350">Pull request #350</a></p></li>
+<li><p>Use ignition headers for plugin <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/350">Pull request #350</a></p></li>
+<li><p>Fix profiler option <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/371">Pull request #371</a></p></li>
+<li><p>ign -&gt; gz Macro Migration : gz-common <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/366">Pull request #366</a></p></li>
+<li><p>[ign -&gt; gz] CMake functions <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/370">Pull request #370</a></p></li>
+<li><p>ign -&gt; gz Environment Variable Migration <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/365">Pull request #365</a></p></li>
+<li><p>Migrate IGNITION- CMake variables <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/381">Pull request #381</a></p></li>
+<li><p>Rename CMake project to gz <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/352">Pull request #352</a></p></li>
+<li><p>ign -&gt; gz Partial Docs Migration and Project Name Followups : gz-common <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/383">Pull request #383</a></p></li>
+<li><p>Partial cmake and source migrations <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/392">Pull request #392</a></p></li>
+<li><p>Migrate ign_remotery_vis <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/392">Pull request #392</a></p></li>
+<li><p>Finale: Source hard-tocks <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/395">Pull request #395</a></p></li>
+<li><p>Remove deprecated include <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/400">Pull request #400</a></p></li>
+</ul>
+</li>
+<li><p>[DOCUMENTATION] Adds full path for the profiler</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/347">Pull request #347</a></p></li>
+</ul>
+</li>
+<li><p>prevent switch case statement fall through.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/345">Pull request #345</a></p></li>
+</ul>
+</li>
+<li><p>Make Timer_TEST more robust</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/343">Pull request #343</a></p></li>
+</ul>
+</li>
+<li><p>Bumps in garden : ign-common5</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/342">Pull request #342</a></p></li>
+</ul>
+</li>
+<li><p>Use ign-utils instead of ign-cmake utilities</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/341">Pull request #341</a></p></li>
+</ul>
+</li>
+<li><p>Bumps in garden : ign-common5</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/340">Pull request #340</a></p></li>
+</ul>
+</li>
+<li><p>examples/CMakeLists.txt: fix find version variable</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/339">Pull request #339</a></p></li>
+</ul>
+</li>
+<li><p>Add common::testing module</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/314">Pull request #314</a></p></li>
+</ul>
+</li>
+<li><p>Fix typo bug in MaterialIndex</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/338">Pull request #338</a></p></li>
+</ul>
+</li>
+<li><p>Fix edge case handling for SubMesh::MaterialIndex</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/319">Pull request #319</a></p></li>
+</ul>
+</li>
+<li><p>DEM improvements to nodata, buffer and other corner cases</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/321">Pull request #321</a></p></li>
+</ul>
+</li>
+<li><p>🧹 Drop all test main functions from gtest files</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/322">Pull request #322</a></p></li>
+</ul>
+</li>
+<li><p>Class with final destructor should be final</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/323">Pull request #323</a></p></li>
+</ul>
+</li>
+<li><p>Geospatial component for heightmaps and DEM support</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/292">Pull request #292</a></p></li>
+</ul>
+</li>
+<li><p>Fix filesystem::separator, parentPath and basename behavior</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/308">Pull request #308</a></p></li>
+</ul>
+</li>
+<li><p>Miscellaneous cleanup of Events API</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/297">Pull request #297</a></p></li>
+</ul>
+</li>
+<li><p>Adds an <code class="docutils literal notranslate"><span class="pre">isRelativePath</span></code> to determine if path is relative</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/312">Pull request #312</a></p></li>
+</ul>
+</li>
+<li><p>Image: make several methods const</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/310">Pull request #310</a></p></li>
+</ul>
+</li>
+<li><p>Utilize ImplPtr in AV component</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/296">Pull request #296</a></p></li>
+</ul>
+</li>
+<li><p>Update tests to use more STL functionality</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/282">Pull request #282</a></p></li>
+</ul>
+</li>
+<li><p>Fixed parentPath() return when input has no parent</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/307">Pull request #307</a></p></li>
+</ul>
+</li>
+<li><p>Utilize ImplPtr for Timer</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/299">Pull request #299</a></p></li>
+</ul>
+</li>
+<li><p>Update to use std::filesystem rather than Boost</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/238">Pull request #238</a></p></li>
+</ul>
+</li>
+<li><p>Use SuppressWarning from ign-utils</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/295">Pull request #295</a></p></li>
+</ul>
+</li>
+<li><p>README: update badge</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/290">Pull request #290</a></p></li>
+</ul>
+</li>
+<li><p>Revert geospatial component for now</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/291">Pull request #291</a></p></li>
+</ul>
+</li>
+<li><p>Move geospatial headers to subfolder</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/289">Pull request #289</a></p></li>
+</ul>
+</li>
+<li><p>Geospatial component for heightmap &amp; DEMs</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/267">Pull request #267</a></p></li>
+</ul>
+</li>
+<li><p>Upload coverage for Focal builds</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/284">Pull request #284</a></p></li>
+</ul>
+</li>
+<li><p>Try to checkout matching branch in macos workflow</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/286">Pull request #286</a></p></li>
+</ul>
+</li>
+<li><p>Bumps in garden: use ignition-math7</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/285">Pull request #285</a></p></li>
+</ul>
+</li>
+<li><p>Add macOS 11 workflow</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/276">Pull request #276</a></p></li>
+</ul>
+</li>
+<li><p>Use ImplPtr where relevant</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/274">Pull request #274</a></p></li>
+</ul>
+</li>
+<li><p>Remove all deprecated functionality from main</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/273">Pull request #273</a></p></li>
+</ul>
+</li>
+<li><p>ign-common5: drop Bionic</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/270">Pull request #270</a></p></li>
+</ul>
+</li>
+<li><p>Update tension for common5</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/260">Pull request #260</a></p></li>
+</ul>
+</li>
+<li><p>Bump main to 5.0.0~pre1</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/193">Pull request #193</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-4-x">Gazebo Common 4.x</h2>
+<h2 class="rubric" id="gazebo-common-4-7-0-2023-05-17">Gazebo Common 4.7.0 (2023-05-17)</h2>
+<ol class="arabic simple">
+<li><p>Forward Ports: 3 -&gt; 4 (#506)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/506">Pull request #506</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/500">Pull request #500</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/495">Pull request #495</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/491">Pull request #491</a></p></li>
+</ul>
+</li>
+<li><p>Fix build error when using gz:: with ign-common4</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/489">Pull request #489</a></p></li>
+</ul>
+</li>
+<li><p>Fix for ffmpeg v6</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/497">Pull request #497</a></p></li>
+</ul>
+</li>
+<li><p>Include cstring for memcpy</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/501">Pull request #501</a></p></li>
+</ul>
+</li>
+<li><p>Fixed MeshManager Singleton</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/451">Pull request #451</a></p></li>
+</ul>
+</li>
+<li><p>Rename COPYING to LICENSE</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/494">Pull request #494</a></p></li>
+</ul>
+</li>
+<li><p>Add marcoag as codeowner</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/493">Pull request #493</a></p></li>
+</ul>
+</li>
+<li><p>CI workflow: use checkout v3</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/490">Pull request #490</a></p></li>
+</ul>
+</li>
+<li><p>Improved coverage remotery</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/467">Pull request #467</a></p></li>
+</ul>
+</li>
+<li><p>Added BVH and STL loader tests</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/466">Pull request #466</a></p></li>
+</ul>
+</li>
+<li><p>Increased Image coverage</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/465">Pull request #465</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-4-6-2-2022-11-17">Gazebo Common 4.6.2 (2022-11-17)</h2>
+<ol class="arabic simple">
+<li><p>Fix Capsule mesh generation.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/475">Pull request #475</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-4-6-1-2022-10-11">Gazebo Common 4.6.1 (2022-10-11)</h2>
+<ol class="arabic simple">
+<li><p>All common3 changes up to 3.15.1 release</p></li>
+</ol>
+<h2 class="rubric" id="gazebo-common-4-6-0-2022-10-11">Gazebo Common 4.6.0 (2022-10-11)</h2>
+<ol class="arabic simple">
+<li><p>All common3 changes up to 3.15.0 release</p></li>
+<li><p>Include cstring for memcpy</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/437">Pull request #437</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-4-5-2-2022-08-16">Gazebo Common 4.5.2 (2022-08-16)</h2>
+<ol class="arabic simple">
+<li><p>Fix deprecation warning from new <code class="docutils literal notranslate"><span class="pre">ffmpeg</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/421">Pull request #421</a></p></li>
+</ul>
+</li>
+<li><p>Remove redundant namespace references</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/414">Pull request #414</a></p></li>
+</ul>
+</li>
+<li><p>Add code coverage ignore file</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/394">Pull request #394</a></p></li>
+</ul>
+</li>
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">IGN_DESIGNATION</span></code> to <code class="docutils literal notranslate"><span class="pre">GZ_DESIGNATION</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/399">Pull request #399</a></p></li>
+</ul>
+</li>
+<li><p>Ignition -&gt; Gazebo</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/396">Pull request #396</a></p></li>
+</ul>
+</li>
+<li><p>Support absolute Win paths with forward slashes in <code class="docutils literal notranslate"><span class="pre">common::FindFile</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/389">Pull request #389</a></p></li>
+</ul>
+</li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">FindSharedLibrary</span></code> for relative plugin paths</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/382">Pull request #382</a></p></li>
+</ul>
+</li>
+<li><p>Fix race condition in <code class="docutils literal notranslate"><span class="pre">FileLogger</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/378">Pull request #378</a></p></li>
+</ul>
+</li>
+<li><p>Synchronize console writes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/227">Pull request #227</a></p></li>
+</ul>
+</li>
+<li><p>Profiler tutorial: viewing from Docker container</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/362">Pull request #362</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-4-5-1-2022-06-21">Gazebo Common 4.5.1 (2022-06-21)</h2>
+<ol class="arabic simple">
+<li><p>Fix spelling in URI error message</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/333">Pull request #333</a></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gzLogInit</span></code> fails if run after console output</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/332">Pull request #332</a></p></li>
+</ul>
+</li>
+<li><p>Fix compatibility with FFmpeg 5.0</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/325">Pull request #325</a></p></li>
+</ul>
+</li>
+<li><p>packages.apt: don’t install ruby-ronn</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/324">Pull request #324</a></p></li>
+</ul>
+</li>
+<li><p>Add some tests for <code class="docutils literal notranslate"><span class="pre">parentPath</span></code>/<code class="docutils literal notranslate"><span class="pre">basename</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/309">Pull request #309</a></p></li>
+</ul>
+</li>
+<li><p>Add CI support for Jammy</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/316">Pull request #316</a></p></li>
+</ul>
+</li>
+<li><p>Minor typo in filesystem documentation</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/313">Pull request #313</a></p></li>
+</ul>
+</li>
+<li><p>Fix out-of-bounds access in sanitizeSlashes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/303">Pull request #303</a></p></li>
+</ul>
+</li>
+<li><p>Fix out-of-bound access in URI</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/304">Pull request #304</a></p></li>
+</ul>
+</li>
+<li><p>Move performance test to examples</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/294">Pull request #294</a></p></li>
+</ul>
+</li>
+<li><p>Fix memory corruption &amp; leaks in Image</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/240">Pull request #240</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-4-5-0-2022-01-12">Gazebo Common 4.5.0 (2022-01-12)</h2>
+<ol class="arabic simple">
+<li><p>Fixed crash when a Collada file has an empty normal vector</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/280">Pull request #280</a></p></li>
+</ul>
+</li>
+<li><p>Support 16 bit heightmaps</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/266">Pull request #266</a></p></li>
+</ul>
+</li>
+<li><p>Fix bug in URIPath assignment operator</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/275">Pull request #275</a></p></li>
+</ul>
+</li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">libexec</span></code> to install binary <code class="docutils literal notranslate"><span class="pre">remotery_vis</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/272">Pull request #272</a></p></li>
+</ul>
+</li>
+<li><p>Normalize normal vectors from OBJ.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/269">Pull request #269</a></p></li>
+</ul>
+</li>
+<li><p>Synchronize console writes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/227">Pull request #227</a></p></li>
+</ul>
+</li>
+<li><p>Added method to remove meshes from the <code class="docutils literal notranslate"><span class="pre">MeshManager</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/222">Pull request #222</a></p></li>
+</ul>
+</li>
+<li><p>Fixed macOS symbol in <code class="docutils literal notranslate"><span class="pre">common::Profiler</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/262">Pull request #262</a></p></li>
+</ul>
+</li>
+<li><p>Fix skip logic for integration tests</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/264">Pull request #264</a></p></li>
+</ul>
+</li>
+<li><p>Use direct evaluation for SKIP_av.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/250">Pull request #250</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-4-4-0-2021-10-15">Gazebo Common 4.4.0 (2021-10-15)</h2>
+<ol class="arabic simple">
+<li><p>Add support for animation tension</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/256">Pull request #256</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-4-3-0-2021-09-27">Gazebo Common 4.3.0 (2021-09-27)</h2>
+<ol class="arabic simple">
+<li><p>Remove gz-utils from TempDirectory</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/248">Pull request #248</a></p></li>
+</ul>
+</li>
+<li><p>Add functions and objects for Temporary Directories</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/244">Pull request #244</a></p></li>
+</ul>
+</li>
+<li><p>Fix memory corruption &amp; leaks in Image</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/240">Pull request #240</a></p></li>
+</ul>
+</li>
+<li><p>Fix a typo in VideoEncoder_TEST.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/231">Pull request #231</a></p></li>
+</ul>
+</li>
+<li><p>Fix segfault caused by destruction order of Event and Connection</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/234">Pull request #234</a></p></li>
+</ul>
+</li>
+<li><p>Infrastructure</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/62">Pull request #62</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/55">Pull request #55</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/241">Pull request #241</a></p></li>
+</ul>
+</li>
+<li><p>Documentation</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/252">Pull request #252</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/253">Pull request #253</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-4-2-0-2021-08-02">Gazebo Common 4.2.0 (2021-08-02)</h2>
+<ol class="arabic simple">
+<li><p>Export lights to dae</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/228">Pull request #228</a></p></li>
+</ul>
+</li>
+<li><p>Add cstring for std::memcpy</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/230">Pull request #230</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-4-1-0-2021-06-22">Gazebo Common 4.1.0 (2021-06-22)</h2>
+<ol class="arabic simple">
+<li><p>Make KeyEvent rule-of-five compliant</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/224">Pull request #224</a></p></li>
+</ul>
+</li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">av_*</span></code> API usage for deprecations</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/220">Pull request #220</a></p></li>
+</ul>
+</li>
+<li><p>Set project-wide standard to C++17</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/221">Pull request #221</a></p></li>
+</ul>
+</li>
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">CMAKE_CXX_FLAGS</span></code> from test targets</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/214">Pull request #214</a></p></li>
+</ul>
+</li>
+<li><p>Support loading PBR textures in OBJLoader</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/216">Pull request #216</a></p></li>
+</ul>
+</li>
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">tools/code_check</span></code> and update codecov</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/219">Pull request #219</a></p></li>
+</ul>
+</li>
+<li><p>Port codecov to new configuration</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/212">Pull request #212</a></p></li>
+</ul>
+</li>
+<li><p>Fix loading collada files with multiple texcoord sets using the same offset</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/208">Pull request #208</a></p></li>
+</ul>
+</li>
+<li><p>Add function to convert single channel image data to RGB image</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/205">Pull request #205</a></p></li>
+</ul>
+</li>
+<li><p>Remove ColladaExporter path constraint</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/204">Pull request #204</a></p></li>
+</ul>
+</li>
+<li><p>Avoid duplication of / in joinPaths (Windows)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/201">Pull request #201</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/209">Pull request #209</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/215">Pull request #215</a></p></li>
+</ul>
+</li>
+<li><p>Fixed colladaLoader on Windows</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/200">Pull request #200</a></p></li>
+</ul>
+</li>
+<li><p>Improved Windows support</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/197">Pull request #197</a></p></li>
+</ul>
+</li>
+<li><p>Function to serialize compressed image to buffer</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/139">Pull request #139</a></p></li>
+</ul>
+</li>
+<li><p>Fixed tutorial link</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/194">Pull request #194</a></p></li>
+</ul>
+</li>
+<li><p>Use matching malloc/free for AudioDecoder.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/192">Pull request #192</a></p></li>
+</ul>
+</li>
+<li><p>Add bazel buildsystem support</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/123">Pull request #123</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-4-0-0-2021-03-30">Gazebo Common 4.0.0 (2021-03-30)</h2>
+<ol class="arabic simple">
+<li><p>Include windows instructions in examples <a class="reference external" href="http://README.md">README.md</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/190">Pull request #190</a></p></li>
+</ul>
+</li>
+<li><p>Fix crash when using BVH animations</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/188">Pull request #188</a></p></li>
+</ul>
+</li>
+<li><p>Rotate capsule to Z-up</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/186">Pull request #186</a></p></li>
+</ul>
+</li>
+<li><p>Add implementation pointer to gz-common classes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/163">Pull request #163</a></p></li>
+</ul>
+</li>
+<li><p>Cleanup and add implementation pointer to Animation classes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/160">Pull request #160</a></p></li>
+</ul>
+</li>
+<li><p>Install the profiler in a version-safe manner</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/170">Pull request #170</a></p></li>
+</ul>
+</li>
+<li><p>Restore support for model:// URIs</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/172">Pull request #172</a></p></li>
+</ul>
+</li>
+<li><p>Deprecated common::Time</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/90">Pull request #90</a></p></li>
+</ul>
+</li>
+<li><p>Update codeowners</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/88">Pull request #88</a></p></li>
+</ul>
+</li>
+<li><p>Workflow updates</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/64">Pull request #64</a></p></li>
+</ul>
+</li>
+<li><p>Update BitBucket Links</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/58">Pull request #58</a></p></li>
+</ul>
+</li>
+<li><p>Corrected <code class="docutils literal notranslate"><span class="pre">BAYER_RGGR8</span></code> to <code class="docutils literal notranslate"><span class="pre">BAYER_BGGR8</span></code> in <code class="docutils literal notranslate"><span class="pre">PixelFormatName</span></code> and
+<code class="docutils literal notranslate"><span class="pre">PixelFormatType</span></code> located in <code class="docutils literal notranslate"><span class="pre">graphics/include/gz/common/Image.hh</span></code>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/191">BitBucket pull request 191</a></p></li>
+</ul>
+</li>
+<li><p>Added URI Authority parsing to the URI class. Authority information can
+be found <a class="reference external" href="https://en.wikipedia.org/wiki/Uniform_Resource_Identifier#Generic_syntax">here</a>. This update also caused some formally valid syntax to become invalid, and some formally invalid syntax to become valid. See the migration guide.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/213">BitBucket pull request xxx</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-x">Gazebo Common 3.x</h2>
+<h2 class="rubric" id="gazebo-common-3-17-0-2024-01-05">Gazebo Common 3.17.0 (2024-01-05)</h2>
+<ol class="arabic simple">
+<li><p>Fix error output when creating directories</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/561">Pull request #561</a></p></li>
+</ul>
+</li>
+<li><p>Update github action workflows</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/558">Pull request #558</a></p></li>
+</ul>
+</li>
+<li><p>Fix segfault in case of no write access to log dir</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/546">Pull request #546</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-16-0-2023-06-05">Gazebo Common 3.16.0 (2023-06-05)</h2>
+<ol class="arabic simple">
+<li><p>Include cstdint to build with GCC 13</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/517">Pull request #517</a></p></li>
+</ul>
+</li>
+<li><p>Fix missing cstdint header in latest gcc build</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/513">Pull request #513</a></p></li>
+</ul>
+</li>
+<li><p>Fix for ffmpeg v6</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/497">Pull request #497</a></p></li>
+</ul>
+</li>
+<li><p>Include cstring for memcpy</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/501">Pull request #501</a></p></li>
+</ul>
+</li>
+<li><p>Fixed MeshManager Singleton</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/451">Pull request #451</a></p></li>
+</ul>
+</li>
+<li><p>Rename COPYING to LICENSE</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/494">Pull request #494</a></p></li>
+</ul>
+</li>
+<li><p>Add marcoag as codeowner</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/493">Pull request #493</a></p></li>
+</ul>
+</li>
+<li><p>CI workflow: use checkout v3</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/490">Pull request #490</a></p></li>
+</ul>
+</li>
+<li><p>Improved coverage remotery</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/467">Pull request #467</a></p></li>
+</ul>
+</li>
+<li><p>Added BVH and STL loader tests</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/466">Pull request #466</a></p></li>
+</ul>
+</li>
+<li><p>Increased Image coverage</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/465">Pull request #465</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-15-1-2022-10-11">Gazebo Common 3.15.1 (2022-10-11)</h2>
+<ol class="arabic simple">
+<li><p>Fix build on case-insensitive filesystems</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/453">Pull request #453</a></p></li>
+</ul>
+</li>
+<li><p>Don’t install CMakeLists.txt</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/449">Pull request #449</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-15-0-2022-10-06">Gazebo Common 3.15.0 (2022-10-06)</h2>
+<ol class="arabic simple">
+<li><p>ign -&gt; gz Migrate Ignition Headers</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/418">Pull request #418</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-14-2-2022-08-16">Gazebo Common 3.14.2 (2022-08-16)</h2>
+<ol class="arabic simple">
+<li><p>Fix deprecation warning from new <code class="docutils literal notranslate"><span class="pre">ffmpeg</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/421">Pull request #414</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-14-1-2022-06-01">Gazebo Common 3.14.1 (2022-06-01)</h2>
+<ol class="arabic simple">
+<li><p>Profiler tutorial: viewing from Docker container</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/362">Pull request #362</a></p></li>
+</ul>
+</li>
+<li><p>ignLogInit can be called after an ignerr, etc</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/332">Pull request #332</a></p></li>
+</ul>
+</li>
+<li><p>Fix compatibility with FFmpeg 5.0</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/325">Pull request #325</a></p></li>
+</ul>
+</li>
+<li><p>Fix out-of-bounds access in sanitizeSlashes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/303">Pull request #303</a></p></li>
+</ul>
+</li>
+<li><p>Fix memory corruption &amp; leaks in Image</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/287">Pull request #287</a></p></li>
+</ul>
+</li>
+<li><p>Normalize normal vectors from OBJ.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/269">Pull request #269</a></p></li>
+</ul>
+</li>
+<li><p>Fixed macos symbol in <code class="docutils literal notranslate"><span class="pre">common::profiler</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/262">Pull request #262</a></p></li>
+</ul>
+</li>
+<li><p>Fix skip logic for integration tests</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/264">Pull request #264</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-14-0-2021-10-12">Gazebo Common 3.14.0 (2021-10-12)</h2>
+<ol class="arabic simple">
+<li><p>Support loading PBR textures in OBJLoader</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/216">Pull request #216</a></p></li>
+</ul>
+</li>
+<li><p>Remove CMAKE_CXX_FLAGS from test targetrs</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/214">Pull request #214</a></p></li>
+</ul>
+</li>
+<li><p>Set project-wide standard to C++17</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/221">Pull request #221</a></p></li>
+</ul>
+</li>
+<li><p>Fix av_* API usage for deprecations</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/220">Pull request #220</a></p></li>
+</ul>
+</li>
+<li><p>Make KeyEvent rule-of-five compliant</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/224">Pull request #224</a></p></li>
+</ul>
+</li>
+<li><p>Fix segfault caused by destructionb order of Event and Connection</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/234">Pull request #234</a></p></li>
+</ul>
+</li>
+<li><p>Fix a typo in VideoEncoder_TEST</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/231">Pull request #231</a></p></li>
+</ul>
+</li>
+<li><p>Use direct evaluation for SKIP_av</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/250">Pull request #250</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-13-2-2021-05-11">Gazebo Common 3.13.2 (2021-05-11)</h2>
+<ol class="arabic simple">
+<li><p>Backport collada fixes (Backport #204)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/211">Pull request #211</a></p></li>
+</ul>
+</li>
+<li><p>Fix join paths again</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/215">Pull request #215</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-13-1-2021-05-03">Gazebo Common 3.13.1 (2021-05-03)</h2>
+<ol class="arabic simple">
+<li><p>Fix join paths to remove duplicate separators</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/209">Pull request #205</a></p></li>
+</ul>
+</li>
+<li><p>Fix loading collada files with multiple texcoord sets using the same offset.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/208">Pull request #208</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-13-0-2021-04-27">Gazebo Common 3.13.0 (2021-04-27)</h2>
+<ol class="arabic simple">
+<li><p>Add function to convert single channel image data to RGB image</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/205">Pull request #205</a></p></li>
+</ul>
+</li>
+<li><p>Avoid duplication of / in joinPaths (Windows)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/201">Pull request #201</a></p></li>
+</ul>
+</li>
+<li><p>Fix colladaLoader on Windows</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/200">Pull request #200</a></p></li>
+</ul>
+</li>
+<li><p>Backport #188: Fix crash when using BVH animations.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/199">Pull request #199</a></p></li>
+</ul>
+</li>
+<li><p>Improved Windows support</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/197">Pull request #197</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-12-0-2021-04-06">Gazebo Common 3.12.0 (2021-04-06)</h2>
+<ol class="arabic simple">
+<li><p>Remove use of _SOURCE and _BINARY dirs in tests.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/158">Pull request #158</a></p></li>
+</ul>
+</li>
+<li><p>Add bazel buildsystem support.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/123">Pull request #123</a></p></li>
+</ul>
+</li>
+<li><p>Use matching malloc/free for AudioDecoder.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/192">Pull request #192</a></p></li>
+</ul>
+</li>
+<li><p>Fixed tutorial link in the <a class="reference external" href="http://README.md">README.md</a>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/194">Pull request #194</a></p></li>
+</ul>
+</li>
+<li><p>Function to serialize compressed image to buffer</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/139">Pull request #139</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-11-1-2021-03-08">Gazebo Common 3.11.1 (2021-03-08)</h2>
+<ol class="arabic simple">
+<li><p>Relax expectation so encoder test passes on ARM</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/183">Pull request #183</a></p></li>
+</ul>
+</li>
+<li><p>Revert “Associate library materials effect with meshes (#151)”</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/182">Pull request #182</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-11-0-2021-03-05">Gazebo Common 3.11.0 (2021-03-05)</h2>
+<ol class="arabic simple">
+<li><p>Fix image red and blue swapping</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/162">Pull request #162</a></p></li>
+</ul>
+</li>
+<li><p>Remove issue &amp; PR templates</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/174">Pull request #174</a></p></li>
+</ul>
+</li>
+<li><p>Prevent console spamming when exporting a mesh that has multiple texture coordinates</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/171">Pull request #171</a></p></li>
+</ul>
+</li>
+<li><p>Associate library materials effect with meshes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/151">Pull request #151</a></p></li>
+<li><p>Reverted in 3.11.1</p></li>
+</ul>
+</li>
+<li><p>Added issue &amp; PR templates</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/166">Pull request #166</a></p></li>
+</ul>
+</li>
+<li><p>Added support for HW-accelerated video encoding.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/125">Pull request #125</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/169">Pull request #169</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/175">Pull request #175</a></p></li>
+</ul>
+</li>
+<li><p>Added FlagSet utility class</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/118">Pull request #118</a></p></li>
+</ul>
+</li>
+<li><p>Disable failing VideoEncoder and Audioecoder tests on Windows</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/149">Pull request #149</a></p></li>
+</ul>
+</li>
+<li><p>Added ellipsoid mesh</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/154">Pull request #154</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/159">Pull request #159</a></p></li>
+</ul>
+</li>
+<li><p>Added capsule mesh</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/155">Pull request #155</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-10-1-2021-01-20">Gazebo Common 3.10.1 (2021-01-20)</h2>
+<ol class="arabic simple">
+<li><p>Fix transparency tag in the Collada exporter.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/152">Pull Request 152</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-10-0-2021-01-05">Gazebo Common 3.10.0 (2021-01-05)</h2>
+<ol class="arabic simple">
+<li><p>Added render order to material class</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/142">Pull Request 142</a></p></li>
+</ul>
+</li>
+<li><p>Fix memory leak in <a class="reference external" href="http://Pbr.cc">Pbr.cc</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/147">Pull Request 147</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-9-0-2020-12-21">Gazebo Common 3.9.0 (2020-12-21)</h2>
+<ol class="arabic simple">
+<li><p>Support multiple texture coordinate sets</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/131">Pull Request 131</a></p></li>
+</ul>
+</li>
+<li><p>Add Lightmap to material</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/132">Pull Request 132</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-8-0-2020-12-08">Gazebo Common 3.8.0 (2020-12-08)</h2>
+<ol class="arabic simple">
+<li><p>Call gz::common::load() from Video constructor</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/111">Pull Request 111</a></p></li>
+</ul>
+</li>
+<li><p>Cleanup</p>
+<ul class="simple">
+<li><p>Drop unused forward declaration: <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/113">Pull Request 113</a></p></li>
+<li><p>Remove two known flaky tests from Windows CI: <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/119">Pull Request 119</a></p></li>
+<li><p>Make ignstrtok private to <a class="reference external" href="http://Util.cc">Util.cc</a>: <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/134">Pull Request 134</a></p></li>
+<li><p>Fix memory leaks <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/136">Pull Request 136</a></p></li>
+</ul>
+</li>
+<li><p>Windows</p>
+<ul class="simple">
+<li><p>Do not hardcode USE_EXTERNAL_TINYXML2 to OFF: <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/116">Pull Request 116</a></p></li>
+<li><p>Fix GZ_HOMEDIR on Windows: <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/127">Pull Request 127</a></p></li>
+<li><p>Improve Windows support: <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/128">Pull Request 128</a></p></li>
+<li><p>Fix Windows AV CI warnings and test failures: <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/135">Pull Request 135</a></p></li>
+</ul>
+</li>
+<li><p>Fix video encoder timing</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/105">Pull Request 105</a></p></li>
+</ul>
+</li>
+<li><p>Feature: Add transformation matrix to ColladaExport</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/100">Pull Request 100</a></p></li>
+<li><p>Fix: <a class="reference external" href="https://github.com/gazebosim/gz-common/pull/133">Pull Request 133</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-7-0-2020-10-21">Gazebo Common 3.7.0 (2020-10-21)</h2>
+<ol class="arabic simple">
+<li><p>Miscellaneous Cleanups</p>
+<ul class="simple">
+<li><p>Feature: Join function for combining strings with a delimiter</p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/107">Pull Request 107</a></p></li>
+</ul>
+</li>
+<li><p>Improve fork experience</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/103">Pull Request 103</a></p></li>
+</ul>
+</li>
+<li><p>Add Console example</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/106">Pull Request 106</a></p></li>
+</ul>
+</li>
+<li><p>Support fuel URLs for textures</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/102">Pull Request 102</a></p></li>
+</ul>
+</li>
+<li><p>Fix loading dae file with hierarchical node that does not have a name</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/101">Pull Request 101</a></p></li>
+</ul>
+</li>
+<li><p>Fix more Animation memory leaks</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/98">Pull Request 98</a></p></li>
+</ul>
+</li>
+<li><p>Fix env behavior to return true on empty vars</p>
+<ul class="simple">
+<li><p>Feature: Add setenv for setting environment variables</p></li>
+<li><p>Feature: Add unsetenv for clearing environment variables</p></li>
+<li><p>Feature: Add alternative env implementation that respects empty variables</p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/97">Pull Request 97</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-6-1-2020-09-16">Gazebo Common 3.6.1 (2020-09-16)</h2>
+<ol class="arabic simple">
+<li><p>Fix hierarchical submesh processing in the ColladaLoader.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/78">Pull Request 78</a></p></li>
+</ul>
+</li>
+<li><p>Tutorial updates</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/86">Pull Request 86</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/87">Pull Request 87</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/92">Pull Request 92</a></p></li>
+</ul>
+</li>
+<li><p>Fix the AudioDecoder class</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/81">Pull Request 81</a></p></li>
+</ul>
+</li>
+<li><p>Fix actions CI</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/83">Pull Request 83</a></p></li>
+</ul>
+</li>
+<li><p>Fix trajectory info memory leak</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/93">Pull Request 93</a></p></li>
+</ul>
+</li>
+<li><p>Remove URI warning on constructor</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/94">Pull Request 94</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-6-0-2020-06-09">Gazebo Common 3.6.0 (2020-06-09)</h2>
+<ol class="arabic simple">
+<li><p>Refactor Image::MaxColor to reduce computation time</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/66">Pull request 66</a></p></li>
+</ul>
+</li>
+<li><p>Update to gtest 1.10.0 with patch for gcc warnings</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/67">Pull request 67</a></p></li>
+</ul>
+</li>
+<li><p>Fix ColladaLoader loading <transparent> tag when <transparency> does not exist</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/68">Pull request 68</a></p></li>
+</ul>
+</li>
+<li><p>Remove unused included headers</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/71">Pull request 71</a></p></li>
+</ul>
+</li>
+<li><p>More file path APIs</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull/70">Pull request 70</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-5-0-2020-04-09">Gazebo Common 3.5.0 (2020-04-09)</h2>
+<ol class="arabic simple">
+<li><p>Add interpolate_x property to actor animations</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/232">BitBucket pull request 232</a></p></li>
+</ul>
+</li>
+<li><p>Update PBR metalness default value to 0.0</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/231">BitBucket pull request 231</a></p></li>
+</ul>
+</li>
+<li><p>Fix crash when loading OBJ meshes with invalid materials</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/230">BitBucket pull request 230</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-4-0-2020-02-20">Gazebo Common 3.4.0 (2020-02-20)</h2>
+<ol class="arabic simple">
+<li><p>Add PBR material class</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/227">BitBucket pull request 227</a></p></li>
+</ul>
+</li>
+<li><p>Custom paths for file URIs (env var + URI)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/210">BitBucket pull request 210</a></p></li>
+</ul>
+</li>
+<li><p>Add function to get NodeAnimation</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/223">BitBucket pull request 223</a></p></li>
+</ul>
+</li>
+<li><p>Handle unexpected COLLADA more gracefully</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/218">BitBucket pull request 218</a></p></li>
+</ul>
+</li>
+<li><p>Add support for alpha based texture transparency.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/221">BitBucket pull request 221</a></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tiny_obj_loader</span></code>: set better diffuse value when <code class="docutils literal notranslate"><span class="pre">map_kD</span></code> is present and <code class="docutils literal notranslate"><span class="pre">Kd</span></code> is not specified.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/216">BitBucket pull request 216</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/217">BitBucket pull request 217</a></p></li>
+</ul>
+</li>
+<li><p>ColladaLoader: load files with actors with multiple skeletons</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/215">BitBucket pull request 215</a></p></li>
+</ul>
+</li>
+<li><p>Compute volume of mesh shapes with <code class="docutils literal notranslate"><span class="pre">Mesh::Volume</span></code> and <code class="docutils literal notranslate"><span class="pre">SubMesh::Volume</span></code>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/214">BitBucket pull request 214</a></p></li>
+</ul>
+</li>
+<li><p>Port Skeleton fixes from gazebo.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/209">BitBucket pull request 209</a></p></li>
+</ul>
+</li>
+<li><p>Port gazebo9 fix for ColladaLoader with multiple geometries</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/208">BitBucket pull request 208</a></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SystemPaths::FindSharedLibrary</span></code>: return input if its is an absolute path to a file</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/206">BitBucket pull request 206</a></p></li>
+</ul>
+</li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">Image::ConvertPixelFormat</span></code> for <code class="docutils literal notranslate"><span class="pre">BAYER_BGGR8</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/211">BitBucket pull request 211</a></p></li>
+</ul>
+</li>
+<li><p>Support custom callbacks to find files on global interface</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/226">BitBucket pull request 226</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-3-0-2019-08-27">Gazebo Common 3.3.0 (2019-08-27)</h2>
+<ol class="arabic simple">
+<li><p>skip GTSMeshUtils test on Windows due to issue #50</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/205">BitBucket pull request 205</a></p></li>
+</ul>
+</li>
+<li><p>Add bvh animation support for skeleton and TrajectoryInfo</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/197">BitBucket pull request 197</a></p></li>
+</ul>
+</li>
+<li><p>ColladaLoader: fix wrong node weights caused by buffer overflow bug</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/201">BitBucket pull request 201</a></p></li>
+</ul>
+</li>
+<li><p>Filesystem copy directory and parentpath</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/200">BitBucket pull request 200</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-2-0-2019-08-07">Gazebo Common 3.2.0 (2019-08-07)</h2>
+<ol class="arabic simple">
+<li><p>Allow gzLogInit to use an absolute path. Added a timeToIso that converts a given time to an ISO string. Some console timestamps were using <code class="docutils literal notranslate"><span class="pre">GZ_SYSTEM_TIME_NS()</span></code> and others <code class="docutils literal notranslate"><span class="pre">gz::common::systemTimeISO()</span></code>. Switched all to use <code class="docutils literal notranslate"><span class="pre">gz::common::systemTimeISO()</span></code>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/203">BitBucket pull request 203</a></p></li>
+</ul>
+</li>
+<li><p>Port ColladaLoader fix: use default value of 1 for stride parameter when unset.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/196">BitBucket pull request 196</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-1-0-2019-05-17">Gazebo Common 3.1.0 (2019-05-17)</h2>
+<ol class="arabic simple">
+<li><p>Image::PixelFormatType: append <code class="docutils literal notranslate"><span class="pre">BAYER_BGGR8</span></code> instead of replacing <code class="docutils literal notranslate"><span class="pre">BAYER_RGGR8</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/192">BitBucket pull request 192</a></p></li>
+</ul>
+</li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">std::tolower</span></code> with locale in lowercase helper function</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/190">BitBucket pull request 190</a></p></li>
+</ul>
+</li>
+<li><p>Profiler: give hint on osx to find frameworks so it doesn’t find them inside Xcode</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/189">BitBucket pull request 189</a></p></li>
+</ul>
+</li>
+<li><p>Fix windows tests: SystemPathsFixture.FileSystemPaths and TimeTest.Sleep</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/188">BitBucket pull request 188</a></p></li>
+</ul>
+</li>
+<li><p>Filesystem functions to create unique paths</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/187">BitBucket pull request 187</a></p></li>
+</ul>
+</li>
+<li><p>Battery additions for LinearBatteryPlugin port to gz-sim</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/186">BitBucket pull request 186</a></p></li>
+</ul>
+</li>
+<li><p>Consolidate Console::log streams to reduce colored log size</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/185">BitBucket pull request 185</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/issues/47">Issue 47</a></p></li>
+</ul>
+</li>
+<li><p>Fix ColladaLoader to support mixamo models and fix skeleton animation loading</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/179">BitBucket pull request 179</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/gazebo-gh-pages/#!/osrf/gazebo/pull-requests/3071">BitBucket osrf/gazebo pull request 3071</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-3-0-0-2019-02-28">Gazebo Common 3.0.0 (2019-02-28)</h2>
+<ol class="arabic simple">
+<li><p>Use gz-cmake2 and support Ubuntu Bionic (18.04).</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/131">BitBucket pull request 131</a></p></li>
+</ul>
+</li>
+<li><p>WorkerPool: allow user to set minimum number of worker threads.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/151">BitBucket pull request 151</a></p></li>
+</ul>
+</li>
+<li><p>ColladaLoader fixes: setting multiple texcoord’s, check for line breaks when using <code class="docutils literal notranslate"><span class="pre">split</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/152">BitBucket pull request 152</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/157">BitBucket pull request 157</a></p></li>
+</ul>
+</li>
+<li><p>Event: replace <code class="docutils literal notranslate"><span class="pre">operator()</span></code> and <code class="docutils literal notranslate"><span class="pre">Signal()</span></code> explicit templates with variadic templates and perfect forwarding.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/156">BitBucket pull request 156</a></p></li>
+</ul>
+</li>
+<li><p>Event: use second template argument to disambiguate events with matching signatures.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/164">BitBucket pull request 164</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/166">BitBucket pull request 166</a></p></li>
+</ul>
+</li>
+<li><p>Add profiler using Remotery.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/162">BitBucket pull request 162</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/169">BitBucket pull request 169</a></p></li>
+</ul>
+</li>
+<li><p>Added hash64 function for converting <code class="docutils literal notranslate"><span class="pre">std::string</span></code> to <code class="docutils literal notranslate"><span class="pre">uint64_t</span></code> as <code class="docutils literal notranslate"><span class="pre">constexpr</span></code>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/170">BitBucket pull request 170</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/171">BitBucket pull request 171</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/172">BitBucket pull request 172</a></p></li>
+</ul>
+</li>
+<li><p>SystemPaths: search paths in <code class="docutils literal notranslate"><span class="pre">GZ_FILE_PATH</span></code> environment variable when finding files</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/175">BitBucket pull request 175</a></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Time::Sleep</span></code>: return amount of time actually slept</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/176">BitBucket pull request 175</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/issues/44">Issue 44</a></p></li>
+</ul>
+</li>
+<li><p>NodeTransform: use unique_ptr for private data, add copy constructor/assignment</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/181">BitBucket pull request 181</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-2-x">Gazebo Common 2.x</h2>
+<h2 class="rubric" id="gazebo-common-2-x-x-2018-xx-xx">Gazebo Common 2.x.x (2018-XX-XX)</h2>
+<h2 class="rubric" id="gazebo-common-2-0-0-2018-02-11">Gazebo Common 2.0.0 (2018-02-11)</h2>
+<ol class="arabic simple">
+<li><p>Use ignition-cmake1 and components for av, events, and graphics</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/102">BitBucket pull request 102</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/103">BitBucket pull request 103</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/105">BitBucket pull request 105</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/106">BitBucket pull request 106</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/107">BitBucket pull request 107</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/108">BitBucket pull request 108</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/109">BitBucket pull request 109</a></p></li>
+</ul>
+</li>
+<li><p>Expand plugin functionality with PluginPtr and specializations</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/59">BitBucket pull request 59</a></p></li>
+</ul>
+</li>
+<li><p>Added signal handler class</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/115">BitBucket pull request 115</a></p></li>
+</ul>
+</li>
+<li><p>Update tinyobjloader to version that supports triangulating meshes with concave polygons.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/160">BitBucket pull request 160</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-1-x-x-2018-xx-xx">Gazebo Common 1.x.x (2018-XX-XX)</h2>
+<h2 class="rubric" id="gazebo-common-1-x-x-20xx-xx-xx">Gazebo Common 1.X.X (20XX-XX-XX)</h2>
+<ol class="arabic simple">
+<li><p>Time::Sleep: use CLOCK_MONOTONIC on Linux</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/159">BitBucket pull request 159</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-1-1-1-2018-05-23">Gazebo Common 1.1.1 (2018-05-23)</h2>
+<ol class="arabic simple">
+<li><p>Documentation upload improvements</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/117">BitBucket pull request 117</a></p></li>
+</ul>
+</li>
+<li><p>Fix build on homebrew with ffmpeg4</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/119">BitBucket pull request 119</a></p></li>
+</ul>
+</li>
+<li><p>Remove symbolic link directory</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/124">BitBucket pull request 124</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-common-1-1-0-2018-04-16">Gazebo Common 1.1.0 (2018-04-16)</h2>
+<ol class="arabic simple">
+<li><p>Accept spaces on URI path</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/110">BitBucket pull request 110</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/111">BitBucket pull request 111</a></p></li>
+</ul>
+</li>
+<li><p>Fix gcc7 compiler warnings on artful</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/97">BitBucket pull request 97</a></p></li>
+</ul>
+</li>
+<li><p>Fix artful cppcheck</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/99">BitBucket pull request 99</a></p></li>
+</ul>
+</li>
+<li><p>Fix nanosecond to second conversion</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-common/pull-requests/100">BitBucket pull request 100</a></p></li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p> Brought to you by <a href="https://openrobotics.org">Open Robotics</a>. </p>
+<p> Except where otherwise noted, the gazebosim.org web pages are licensed under <a
+    href="https://creativecommons.org/licenses/by/3.0/us/">Creative Commons
+    Attribution 3.0</a>. </p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

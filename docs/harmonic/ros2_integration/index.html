@@ -1,0 +1,728 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Use ROS 2 to interact with Gazebo &#8212; Gazebo harmonic documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/gazebo.css?v=12e630a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=173ad40a"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ros2_integration';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://gazebosim.github.io/docs/docs/harmonic/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'harmonic';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="canonical" href="https://gazebosim.github.io/docs/docs/latestros2_integration/" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Spawn a Gazebo model from ROS 2" href="../ros2_spawn_model/" />
+    <link rel="prev" title="Launch Gazebo from ROS 2" href="../ros2_launch_gazebo/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+  
+
+
+
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/gazebo_horz_pos.svg" class="logo__image only-light" alt="Gazebo harmonic documentation - Home"/>
+    <script>document.write(`<img src="../_static/gazebo_horz_neg.svg" class="logo__image only-dark" alt="Gazebo harmonic documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+
+
+<div class="doc-header">
+  <div class="banner d-flex flex-column-reverse flex-sm-row">
+    <div>
+      <div class="d-none d-sm-block">
+        <span class="d-inline fs-2">Docs / Gazebo Harmonic</span>
+        
+          <span class="badge bg-primary fs-4 fw-light ms-2">LTS</span>
+        
+      </div>
+      <span>Supported Sep, 2023 to Sep, 2028</span>
+    </div><div class="gz-version-switcher">
+  <span class="fs-4 fw-light pe-2">Release:</span>
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div></div>
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted/">Get Started</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../install/">Install</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install_ubuntu/">Binary Ubuntu Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_osx/">Binary macOS Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_windows/">Binary Windows Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_ubuntu_src/">Ubuntu Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_osx_src/">macOS Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_windows_src/">Windows Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_from_ignition/">Migration from Ignition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../comparison/">Feature Comparison</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../tutorials/">Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../building_robot/">Building your own robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moving_robot/">Moving the robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdf_worlds/">SDF worlds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sensors/">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../actors/">Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gui/">Understanding the GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manipulating_models/">Manipulating Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_insert/">Model Insertion from Fuel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hotkeys/">Keyboard Shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spawn_urdf/">Spawn URDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_overview/">ROS 2 integration overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_launch_gazebo/">Launch Gazebo from ROS 2</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Use ROS 2 to interact with Gazebo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_spawn_model/">Use ROS 2 to spawn a Gazebo model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_interop/">ROS 2 interoperability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros_gz_project_template_guide/">ROS 2 integration template</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ros_installation/">ROS/Gazebo Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_gz_vendor_pkgs/">ROS 2 Gazebo Vendor Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../install_gz11_side_by_side/">Installing Gazebo11 side by side with new Gazebo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating_gazebo_classic_ros2_packages/">Migration from ROS 2 Gazebo Classic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap/">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-features/">Release Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/">Releases</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../development/">Development</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ci/">Continuous Integration</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../release/">Release process</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../releasing/versioning_pre_nightly/">Debian/Ubuntu versioning in nightly and prerelease binaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases-instructions/">Release Instructions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/">Sim Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../fuel/">Fuel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_content_deletion_policy/">Content Deletion Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_model/">Contributing New Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_world/">Contributing New World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_copyright/">Copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_data_policy/">Data and Privacy Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_fair_use/">What is Fair Use</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../library_reference_nav/">Library Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/cmake/3">cmake</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/common/5">common</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/fuel_tools/9">fuel_tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/gui/8">gui</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/launch/7">launch</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/math/7">math</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/msgs/10">msgs</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/physics/7">physics</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/plugin/2">plugin</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/rendering/8">rendering</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sensors/8">sensors</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sim/8">sim</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/tools/2">tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/transport/13">transport</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/utils/2">utils</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sdformat/14">sdformat</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../tutorials/" class="nav-link">Gazebo Tutorials</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Use ROS 2...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="use-ros-2-to-interact-with-gazebo">
+<h1>Use ROS 2 to interact with Gazebo<a class="headerlink" href="#use-ros-2-to-interact-with-gazebo" title="Link to this heading">#</a></h1>
+<p>In this tutorial we will learn how to use ROS 2 to communicate with Gazebo.
+This can help in many aspects; we can receive data (like joint states, TFs) or commands
+from ROS and apply it to Gazebo and vice versa. This can also help to enable RViz to visualize a robot model
+simulatenously simulated by a Gazebo world.</p>
+<section id="ros-gz-bridge">
+<h2>ros_gz_bridge<a class="headerlink" href="#ros-gz-bridge" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="https://github.com/gazebosim/ros_gz"><code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code></a> provides a network bridge which enables the exchange of messages between ROS 2 and <a class="reference external" href="https://github.com/gazebosim/gz-transport">Gazebo Transport</a>. Its support is limited to only certain message types. Please, check this <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md">README</a> to verify if your message type is supported by the bridge.</p>
+<p>Example uses of the bridge can be found in <a class="reference external" href="https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_sim_demos"><code class="docutils literal notranslate"><span class="pre">ros_gz_sim_demos</span></code></a>, including demo launch files with bridging of all major actuation and sensor types.</p>
+</section>
+<section id="launching-the-bridge-manually">
+<h2>Launching the bridge manually<a class="headerlink" href="#launching-the-bridge-manually" title="Link to this heading">#</a></h2>
+<p>We can initialize a bidirectional bridge so we can have ROS as the publisher and Gazebo as the subscriber or vice versa. The syntax is <code class="docutils literal notranslate"><span class="pre">/TOPIC&#64;ROS_MSG&#64;GZ_MSG</span></code>, such that <code class="docutils literal notranslate"><span class="pre">TOPIC</span></code> is the Gazebo internal topic, <code class="docutils literal notranslate"><span class="pre">ROS_MSG</span></code> is the ROS message type for this topic, and <code class="docutils literal notranslate"><span class="pre">GZ_MSG</span></code> is the Gazebo message type.</p>
+<p>For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ros2</span> <span class="n">run</span> <span class="n">ros_gz_bridge</span> <span class="n">parameter_bridge</span> <span class="o">/</span><span class="n">scan</span><span class="nd">@sensor_msgs</span><span class="o">/</span><span class="n">msg</span><span class="o">/</span><span class="n">LaserScan</span><span class="nd">@gz</span><span class="o">.</span><span class="n">msgs</span><span class="o">.</span><span class="n">LaserScan</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">run</span> <span class="pre">ros_gz_bridge</span> <span class="pre">parameter_bridge</span></code> command simply runs the <code class="docutils literal notranslate"><span class="pre">parameter_bridge</span></code> code from the <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> package. Then, we specify our topic <code class="docutils literal notranslate"><span class="pre">/TOPIC</span></code> over which the messages will be sent. The first <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> symbol delimits the topic name from the message types. Following the first <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> symbol is the ROS message type.</p>
+<p>The ROS message type is followed by an <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>, <code class="docutils literal notranslate"><span class="pre">[</span></code>, or <code class="docutils literal notranslate"><span class="pre">]</span></code> symbol where:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&#64;</span></code>  is a bidirectional bridge.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[</span></code>  is a bridge from Gazebo to ROS.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">]</span></code>  is a bridge from ROS to Gazebo.</p></li>
+</ul>
+<p>Have a look at these <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md#example-1a-gazebo-transport-talker-and-ros-2-listener">examples</a>
+explaining how to make communication connections from ROS to Gazebo and vice versa.</p>
+<p>It is also possible to use ROS Launch with the <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> and represent the topics in yaml format to be given to the bridge at launch time.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">ros_topic_name</span><span class="p">:</span> <span class="s2">&quot;scan&quot;</span>
+  <span class="n">gz_topic_name</span><span class="p">:</span> <span class="s2">&quot;/scan&quot;</span>
+  <span class="n">ros_type_name</span><span class="p">:</span> <span class="s2">&quot;sensor_msgs/msg/LaserScan&quot;</span>
+  <span class="n">gz_type_name</span><span class="p">:</span> <span class="s2">&quot;gz.msgs.LaserScan&quot;</span>
+  <span class="n">direction</span><span class="p">:</span> <span class="n">GZ_TO_ROS</span>  <span class="c1"># BIDIRECTIONAL or ROS_TO_GZ</span>
+</pre></div>
+</div>
+<p>The configuration file is a YAML file that contains the mapping between the ROS
+and Gazebo topics to be bridged. For each pair of topics to be bridged, the
+following parameters are accepted:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ros_topic_name</span></code>: The topic name on the ROS side.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gz_topic_name</span></code>: The corresponding topic name on the Gazebo side.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ros_type_name</span></code>: The type of this ROS topic.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gz_type_name</span></code>: The type of this Gazebo topic.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subscriber_queue</span></code>: The size of the ROS subscriber queue.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">publisher_queue</span></code>: The size of the ROS publisher queue.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lazy</span></code>: Whether there’s a lazy subscriber or not. If there’s no real
+subscribers the bridge won’t create the internal subscribers either. This should
+speedup performance.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">direction</span></code>: It’s possible to specify <code class="docutils literal notranslate"><span class="pre">GZ_TO_ROS</span></code>, <code class="docutils literal notranslate"><span class="pre">ROS_TO_GZ</span></code> and
+<code class="docutils literal notranslate"><span class="pre">BIDIRECTIONAL</span></code>.</p></li>
+</ul>
+<p>See <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/test/config/full.yaml">this example</a>
+for a valid configuration file.</p>
+</section>
+<section id="launching-the-bridge-using-the-launch-files-included-in-ros-gz-bridge-package">
+<h2>Launching the bridge using the launch files included in <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> package.<a class="headerlink" href="#launching-the-bridge-using-the-launch-files-included-in-ros-gz-bridge-package" title="Link to this heading">#</a></h2>
+<p>The package <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> contains a launch file named
+<code class="docutils literal notranslate"><span class="pre">ros_gz_bridge.launch.py</span></code>. You can use it to start a ROS 2 and Gazebo bridge.
+Here’s an example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>ros_gz_bridge<span class="w"> </span>ros_gz_bridge.launch.py<span class="w"> </span>name:<span class="o">=</span>ros_gz_bridge<span class="w"> </span>config_file:<span class="o">=</span>&lt;path_to_your_YAML_file&gt;
+</pre></div>
+</div>
+</section>
+<section id="launching-the-bridge-from-a-custom-launch-file">
+<h2>Launching the bridge from a custom launch file.<a class="headerlink" href="#launching-the-bridge-from-a-custom-launch-file" title="Link to this heading">#</a></h2>
+<p>It’s also possible to trigger the bridge from your custom launch file. For that
+purpose we have created the <code class="docutils literal notranslate"><span class="pre">&lt;ros_gz_bridge/&gt;</span></code> tag that can be used from you
+XML or YAML launch file. In this case, the arguments are passed as attributes
+within this tag. Here’s an example:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;launch&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;ros_gz_bridge&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;config_file&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;container_name&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;ros_gz_container&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;namespace&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;use_composition&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;True&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;use_respawn&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;False&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;log_level&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;info&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;ros_gz_bridge</span><span class="w"> </span>
+<span class="w">    </span><span class="na">name=</span><span class="s">&quot;$(var name)&quot;</span>
+<span class="w">    </span><span class="na">config_file=</span><span class="s">&quot;$(var config_file)&quot;</span>
+<span class="w">    </span><span class="na">container_name=</span><span class="s">&quot;$(var container_name)&quot;</span>
+<span class="w">    </span><span class="na">namespace=</span><span class="s">&quot;$(var namespace)&quot;</span>
+<span class="w">    </span><span class="na">use_composition=</span><span class="s">&quot;$(var use_composition)&quot;</span>
+<span class="w">    </span><span class="na">use_respawn=</span><span class="s">&quot;$(var use_respawn)&quot;</span>
+<span class="w">    </span><span class="na">log_level=</span><span class="s">&quot;$(var log_level)&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/ros_gz_bridge&gt;</span>
+<span class="nt">&lt;/launch&gt;</span>
+</pre></div>
+</div>
+<p>In this case the <code class="docutils literal notranslate"><span class="pre">&lt;ros_gz_bridge&gt;</span></code> parameters are read from the command line.
+That’s an option but not strictly necessary as you could decide to hardcode some
+of the values.</p>
+</section>
+<section id="publish-key-strokes-to-ros">
+<h2>Publish key strokes to ROS<a class="headerlink" href="#publish-key-strokes-to-ros" title="Link to this heading">#</a></h2>
+<p>Let’s send messages to ROS using the <code class="docutils literal notranslate"><span class="pre">Key</span> <span class="pre">Publisher</span></code> an Gazebo plugin.</p>
+<p><strong>Note:</strong> Make sure to have all workspaces you need (ROS, Gazebo and, <code class="docutils literal notranslate"><span class="pre">ros_gz</span></code>…) sourced.</p>
+<p>First we will start a bridge between ROS and Gazebo specifying the topic
+at which the <code class="docutils literal notranslate"><span class="pre">Key</span> <span class="pre">Publisher</span></code> plugin sends messages and also the type
+of the messages as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ros2</span> <span class="n">run</span> <span class="n">ros_gz_bridge</span> <span class="n">parameter_bridge</span> <span class="o">/</span><span class="n">keyboard</span><span class="o">/</span><span class="n">keypress</span><span class="nd">@std_msgs</span><span class="o">/</span><span class="n">msg</span><span class="o">/</span><span class="n">Int32</span><span class="nd">@gz</span><span class="o">.</span><span class="n">msgs</span><span class="o">.</span><span class="n">Int32</span>
+</pre></div>
+</div>
+<p>We started a bridge on <code class="docutils literal notranslate"><span class="pre">/keyboard/keypress</span></code> topic with message of type <code class="docutils literal notranslate"><span class="pre">Int32</span></code>.
+For ROS it is <code class="docutils literal notranslate"><span class="pre">std_msgs/msg/Int32</span></code> and for Gazebo it is <code class="docutils literal notranslate"><span class="pre">gz.msgs.Int32</span></code></p>
+<p>In another terminal launch an Gazebo Sim world, for example the <code class="docutils literal notranslate"><span class="pre">empty.sdf</span></code> world:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gz</span> <span class="n">sim</span> <span class="n">empty</span><span class="o">.</span><span class="n">sdf</span>
+</pre></div>
+</div>
+<p>Then add the <code class="docutils literal notranslate"><span class="pre">Key</span> <span class="pre">Publisher</span></code> plugin from the dropdown menu on the top right corner.</p>
+<p><img alt="empty_world_with_KeyPublisher" src="../_images/empty_world.png" /></p>
+<p>In another terminal start the ROS listener:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ros2</span> <span class="n">topic</span> <span class="n">echo</span> <span class="o">/</span><span class="n">keyboard</span><span class="o">/</span><span class="n">keypress</span>
+</pre></div>
+</div>
+<p>This command listens to the messages sent over the <code class="docutils literal notranslate"><span class="pre">/keyboard/keypress</span></code> topic.</p>
+<p>On the Gazebo window, press on the keyboard keys and you should
+find data on the listener terminal.</p>
+<p>Now it’s your turn! Try to send data from ROS to Gazebo. You can also try different data types and different directions of communication.</p>
+</section>
+<section id="video-walk-through">
+<h2>Video walk-through<a class="headerlink" href="#video-walk-through" title="Link to this heading">#</a></h2>
+<p>A video walk-through of this tutorial is available from our YouTube channel: <a class="reference external" href="https://youtu.be/IpZTNyTp9t8">Gazebo tutorials: ROS 2 Foxy integration</a>.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/IpZTNyTp9t8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</section>
+<section id="visualize-in-rviz">
+<h2>Visualize in RViz<a class="headerlink" href="#visualize-in-rviz" title="Link to this heading">#</a></h2>
+<p>Take a step further and try out demos from <a class="reference external" href="https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_sim_demos"><code class="docutils literal notranslate"><span class="pre">ros_gz_sim_demos</span></code></a>.</p>
+<p>For the <code class="docutils literal notranslate"><span class="pre">sdf_parser</span></code> demo, install <a class="reference external" href="https://github.com/gazebosim/ros_gz/tree/ros2"><code class="docutils literal notranslate"><span class="pre">ros_gz</span></code></a> and the parser plugin <code class="docutils literal notranslate"><span class="pre">sdformat_urdf</span></code> from source in a colcon workspace.
+Read more about <code class="docutils literal notranslate"><span class="pre">sdformat_urdf</span></code> <a class="reference external" href="https://github.com/ros/sdformat_urdf/blob/ros2/sdformat_urdf/README.md">here</a>.</p>
+<p>Run the demo launch file with the rviz launch argument set:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>ros_gz_sim_demos<span class="w"> </span>sdf_parser.launch.py<span class="w"> </span>rviz:<span class="o">=</span>True
+</pre></div>
+</div>
+<p>Start the simulation in Gazebo and wait a few seconds for TFs to be published.</p>
+<p>In another terminal, send either ROS or Gazebo commands for the vehicle to move in circles:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gz<span class="w"> </span>topic<span class="w"> </span>-t<span class="w"> </span><span class="s2">&quot;/model/vehicle/cmd_vel&quot;</span><span class="w"> </span>-m<span class="w"> </span>gz.msgs.Twist<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;linear: {x: 1.0}, angular: {z: -0.1}&quot;</span>
+ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/model/vehicle/cmd_vel<span class="w"> </span>geometry_msgs/msg/Twist<span class="w"> </span><span class="s2">&quot;{linear: {x: 5.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -0.1}}</span>
+</pre></div>
+</div>
+<p>And verify the vehicle matching its trajectory in Gazebo and RViz.</p>
+<p><img alt="gz_rviz" src="../_images/gz_rviz.gif" /></p>
+<p>For more details on implementation of this demo see <a class="reference external" href="ros2_interop">ROS 2 Interoperability</a>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ros-gz-bridge">ros_gz_bridge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-the-bridge-manually">Launching the bridge manually</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-the-bridge-using-the-launch-files-included-in-ros-gz-bridge-package">Launching the bridge using the launch files included in <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> package.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-the-bridge-from-a-custom-launch-file">Launching the bridge from a custom launch file.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publish-key-strokes-to-ros">Publish key strokes to ROS</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video-walk-through">Video walk-through</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-in-rviz">Visualize in RViz</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/gazebosim/docs/edit/master/harmonic/ros2_integration.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p> Brought to you by <a href="https://openrobotics.org">Open Robotics</a>. </p>
+<p> Except where otherwise noted, the gazebosim.org web pages are licensed under <a
+    href="https://creativecommons.org/licenses/by/3.0/us/">Creative Commons
+    Attribution 3.0</a>. </p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,717 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Getting Started with Gazebo? &#8212; Gazebo edifice documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/gazebo.css?v=12e630a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=25ada9f1"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'getstarted';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://gazebosim.github.io/docs/docs/edifice/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'edifice';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="canonical" href="https://gazebosim.github.io/docs/docs/latestgetstarted/" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Ignition Edifice" href="../install/" />
+    <link rel="prev" title="Index" href="../" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+  
+  <aside aria-label="Version warning" class="bd-header-announcement bd-header-version-warning" style="min-height: 3rem;">
+    <div class="bd-header-announcement__content">
+      <div class="sidebar-message">
+        
+          This is documentation for <strong>Gazebo Edifice</strong>, which has reached its EOL
+          (end-of-life) and is no longer officially supported.
+        
+        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version"
+        href="../../harmonic/getstarted">Switch to the latest stable version</a>
+      </div>
+    </div>
+  </aside>
+  
+
+
+
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/gazebo_horz_pos.svg" class="logo__image only-light" alt="Gazebo edifice documentation - Home"/>
+    <script>document.write(`<img src="../_static/gazebo_horz_neg.svg" class="logo__image only-dark" alt="Gazebo edifice documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+
+
+<div class="doc-header">
+  <div class="banner d-flex flex-column-reverse flex-sm-row">
+    <div>
+      <div class="d-none d-sm-block">
+        <span class="d-inline fs-2">Docs / Gazebo Edifice</span>
+        
+          <span class="badge bg-danger fs-4 fw-light ms-2">EOL</span>
+        
+      </div>
+      <span>Supported Mar, 2021 to Mar, 2022</span>
+    </div><div class="gz-version-switcher">
+  <span class="fs-4 fw-light pe-2">Release:</span>
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div></div>
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Get Started</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../install/">Install</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install_ubuntu/">Binary Ubuntu Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_osx/">Binary macOS Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_windows/">Binary Windows Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_ubuntu_src/">Ubuntu Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_osx_src/">macOS Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_windows_src/">Windows Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../comparison/">Feature Comparison</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/">Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ros_integration/">ROS Integration</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../ros2_integration/">ROS 2 Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spawn_urdf/">Spawn URDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gui/">Understanding the GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manipulating_models/">Manipulating Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_insert/">Model Insertion from Fuel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hotkeys/">Keyboard Shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building_robot/">Building your own robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moving_robot/">Moving the robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdf_worlds/">SDF worlds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sensors/">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../actors/">Actors</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ros_installation/">ROS/Gazebo Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_gz_vendor_pkgs/">ROS 2 Gazebo Vendor Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../install_gz11_side_by_side/">Installing Gazebo11 side by side with new Gazebo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating_gazebo_classic_ros2_packages/">Migration from ROS 2 Gazebo Classic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap/">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-features/">Release Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/">Releases</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../development/">Development</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ci/">Continuous Integration</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../release/">Release process</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../releasing/versioning_pre_nightly/">Debian/Ubuntu versioning in nightly and prerelease binaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases-instructions/">Release Instructions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/">Sim Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../fuel/">Fuel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_content_deletion_policy/">Content Deletion Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_model/">Contributing New Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_world/">Contributing New World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_copyright/">Copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_data_policy/">Data and Privacy Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_fair_use/">What is Fair Use</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../library_reference_nav/">Library Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/cmake/2">cmake</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/common/4">common</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/fuel_tools/6">fuel_tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/gui/5">gui</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/launch/4">launch</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/math/6">math</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/msgs/7">msgs</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/physics/4">physics</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/plugin/1">plugin</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/rendering/5">rendering</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sensors/5">sensors</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sim/5">sim</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/tools/1">tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/transport/10">transport</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/utils/1">utils</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sdformat/11">sdformat</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Getting...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="getting-started-with-gazebo">
+<h1>Getting Started with Gazebo?<a class="headerlink" href="#getting-started-with-gazebo" title="Link to this heading">#</a></h1>
+<p>Welcome to Gazebo!</p>
+<p>When you’re ready, follow the next few steps to get up and running with
+simulation using Gazebo.</p>
+<section id="step-1-install">
+<h2>Step 1: Install<a class="headerlink" href="#step-1-install" title="Link to this heading">#</a></h2>
+<div class="warning">
+  <strong>Note:</strong> If you are a <a href="https://ros.org">ROS</a> user, please first read our tutorial about
+  the <a href="docs/latest/ros_installation">ROS/Gazebo installation</a>.
+</div>
+<p>The recommended installation for new users is the use of binary
+packages available for the platform to use:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Platform</p></th>
+<th class="head"><p>Gazebo Versions</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Ubuntu 22.04 Jammy</p></td>
+<td><p><a class="external reference" href="/docs/harmonic/install_ubuntu">Gazebo Harmonic</a> (recommended), <a class="external reference" href="/docs/garden/install_ubuntu">Gazebo Garden</a> and <a class="external reference" href="/docs/fortress/install_ubuntu">Gazebo Fortress</a> (recommended if using ROS 2 Humble or Iron)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Ubuntu 20.04 Focal</p></td>
+<td><p><a class="external reference" href="/docs/garden/install_ubuntu">Gazebo Garden</a> (recommended), <a class="external reference" href="/docs/fortress/install_ubuntu">Gazebo Fortress</a> and <a class="external reference" href="/docs/citadel/install_ubuntu">Gazebo Citadel</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Ubuntu 18.04 Bionic</p></td>
+<td><p><a class="external reference" href="/docs/citadel/install_ubuntu">Gazebo Citadel</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Mac Ventura</p></td>
+<td><p><a class="external reference" href="/docs/harmonic/install_osx">Gazebo Harmonic</a> (recommended), <a class="external reference" href="/docs/garden/install_osx">Gazebo Garden</a>, <a class="external reference" href="/docs/fortress/install_osx">Gazebo Fortress</a> and <a class="external reference" href="/docs/citadel/install_osx">Gazebo Citadel</a></p></td>
+</tr>
+<tr class="row-even"><td><p>Mac Monterey</p></td>
+<td><p><a class="external reference" href="/docs/harmonic/install_osx">Gazebo Harmonic</a> (recommended), <a class="external reference" href="/docs/garden/install_osx">Gazebo Garden</a>, <a class="external reference" href="/docs/fortress/install_osx">Gazebo Fortress</a> and <a class="external reference" href="/docs/citadel/install_osx">Gazebo Citadel</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows</p></td>
+<td><p>Support via Conda-Forge is not fully functional, as there are known runtime issues <a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/168">see this issue for details</a>.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>If the desired platform is not listed above or if a particular feature in a
+given <a class="reference external" href="releases">Gazebo release</a> is needed,
+there is an installation package per release available with all the
+installation options:</p>
+<ul class="simple">
+<li><p><a class="external reference" href="/docs/harmonic/install">Gazebo Harmonic installation</a> options (EOL 2028 Sep)</p></li>
+<li><p><a class="external reference" href="/docs/garden/install">Gazebo Garden installation</a> options (EOL 2024 Sep)</p></li>
+<li><p><a class="external reference" href="/docs/fortress/install">Gazebo Fortress (LTS) installation</a> options (EOL 2026 Sep)</p></li>
+<li><p><a class="external reference" href="/docs/citadel/install">Gazebo Citadel (LTS) installation</a> options (EOL 2024 Dec)</p></li>
+</ul>
+</section>
+<section id="step-2-run">
+<h2>Step 2: Run<a class="headerlink" href="#step-2-run" title="Link to this heading">#</a></h2>
+<p>After installing Gazebo in Step 1, you can launch Gazebo Sim, a 3D robotics
+simulator, from a terminal.</p>
+<ul class="simple">
+<li><p>If you are on macOS, see specific instructions in the <a class="reference external" href="#macos">macOS section</a>.</p></li>
+</ul>
+<p>Launch Gazebo by running:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gz</span> <span class="n">sim</span> <span class="n">shapes</span><span class="o">.</span><span class="n">sdf</span>  <span class="c1"># Fortress and Citadel use &quot;ign gazebo&quot; instead of &quot;gz sim&quot;</span>
+</pre></div>
+</div>
+<p>This command will launch both the Sim server and Sim GUI with a world
+that contains three simple shapes.</p>
+<p>Add the <code class="docutils literal notranslate"><span class="pre">-v</span> <span class="pre">4</span></code> command line argument to generate error, warning,
+informational, and debugging messages on the console.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gz</span> <span class="n">sim</span> <span class="n">shapes</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">v</span> <span class="mi">4</span>  <span class="c1"># Fortress and Citadel use &quot;ign gazebo&quot; instead of &quot;gz sim&quot;</span>
+</pre></div>
+</div>
+<p>Gazebo Sim can also be run headless, i.e. without the GUI, by using the <code class="docutils literal notranslate"><span class="pre">-s</span></code> (server only) flag.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gz</span> <span class="n">sim</span> <span class="o">-</span><span class="n">s</span> <span class="n">shapes</span><span class="o">.</span><span class="n">sdf</span> <span class="o">-</span><span class="n">v</span> <span class="mi">4</span>  <span class="c1"># Fortress and Citadel use &quot;ign gazebo&quot; instead of &quot;gz sim&quot;</span>
+</pre></div>
+</div>
+<p>Similarly, the GUI can be run independently using the <code class="docutils literal notranslate"><span class="pre">-g</span></code> (gui only) flag.
+On start, the GUI will attempt to connect to a server instance.
+If a server is not available, then you will see just a blank screen until
+a server instances is started.</p>
+</section>
+<section id="step-3-create-your-own-world">
+<h2>Step 3: Create your own world<a class="headerlink" href="#step-3-create-your-own-world" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="http://sdformat.org/">SDF</a> is used to specify the contents of simulation.
+Take a look at the available <a class="reference external" href="http://sdformat.org/tutorials">SDF tutorials</a>
+to get started.</p>
+<p>Modifying an existing SDF world is also a good way to get started. Gazebo
+Sim ships with a number of <a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/main/examples/worlds">example SDF
+worlds</a>
+that you can freely copy and modify. These example SDF files are
+installed. Many of the SDF files also have instructions located at the
+top of the SDF file. The instructions typically contain information about how to
+run Sim with the SDF file in order to experience a particular feature.</p>
+<p>There are a wide variety of simulation resources at your disposal on
+<a class="reference external" href="https://app.gazebosim.org/fuel">https://app.gazebosim.org/fuel</a>.
+If you find a model you’d like to use, then click on the <code class="docutils literal notranslate"><span class="pre">&lt;&gt;</span></code> icon in the
+model description page, highlighted in the image below, to copy an SDF
+snippet into your clipboard. This snippet can be pasted directly into your
+custom SDF file.</p>
+<p><img alt="SDF model snippet" src="../_images/model_snippet.png" /></p>
+</section>
+<section id="step-4-explore-and-learn">
+<h2>Step 4: Explore and learn<a class="headerlink" href="#step-4-explore-and-learn" title="Link to this heading">#</a></h2>
+<p>This tutorial has covered the basics of getting started with Gazebo.
+Starting with Citadel, there are more <a class="external reference" href="/docs/citadel/tutorials">versioned tutorials</a>
+covering the basics of the GUI, creating worlds and robots, and more.</p>
+<p>Each <a class="reference external" href="/libs">Gazebo library</a> also has a set of tutorials and
+examples. Explore these resources, and don’t forget to ask questions and
+find solutions at <a class="reference external" href="http://answers.gazebosim.org">answers.gazebosim.org</a>.</p>
+</section>
+<section id="macos">
+<h2>macOS<a class="headerlink" href="#macos" title="Link to this heading">#</a></h2>
+<p>On macOS, you will need to run Gazebo using two terminals, one for the server
+and another for the GUI:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># launch server in one terminal</span>
+gz<span class="w"> </span>sim<span class="w"> </span>-v<span class="w"> </span><span class="m">4</span><span class="w"> </span>shapes.sdf<span class="w"> </span>-s<span class="w">  </span><span class="c1"># Fortress and Citadel use &quot;ign gazebo&quot; instead of &quot;gz sim&quot;</span>
+</pre></div>
+</div>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># launch gui in a separate terminal</span>
+gz<span class="w"> </span>sim<span class="w"> </span>-v<span class="w"> </span><span class="m">4</span><span class="w"> </span>-g<span class="w">  </span><span class="c1"># Fortress and Citadel use &quot;ign gazebo&quot; instead of &quot;gz sim&quot;</span>
+</pre></div>
+</div>
+<p>The GUI on macOS is currently known to be unstable. Basic interaction with
+the 3D scene such as camera view control and translation / rotation tools
+should be functional. However, some GUI plugins like the Component Inspector
+may be buggy and interaction with certain GUI elements may cause the GUI
+to crash. Please ticket an issue at <a class="github reference external" href="https://github.com/gazebosim/gz-sim/">gazebosim/gz-sim</a>
+if you run into GUI problems on macOS.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install">Step 1: Install</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-run">Step 2: Run</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-create-your-own-world">Step 3: Create your own world</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-explore-and-learn">Step 4: Explore and learn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macos">macOS</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/gazebosim/docs/edit/master/get_started.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p> Brought to you by <a href="https://openrobotics.org">Open Robotics</a>. </p>
+<p> Except where otherwise noted, the gazebosim.org web pages are licensed under <a
+    href="https://creativecommons.org/licenses/by/3.0/us/">Creative Commons
+    Attribution 3.0</a>. </p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

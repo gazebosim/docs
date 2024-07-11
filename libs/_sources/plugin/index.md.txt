@@ -1,0 +1,238 @@
+# plugin
+
+{.gz-libs-lists}
+- [{material-regular}`code;2em` Source Code](https://github.com/gazebosim/gz-plugin)
+- [{material-regular}`description;2em` API & Tutorials](https://gazebosim.org/api/plugin/2)
+
+::::{tab-set}
+
+:::{tab-item} Readme
+# Gazebo Plugin
+
+**Maintainer:** ahcorde [AT] gmail [DOT] com
+
+[![GitHub open issues](https://img.shields.io/github/issues-raw/gazebosim/gz-plugin.svg)](https://github.com/gazebosim/gz-plugin/issues)
+[![GitHub open pull requests](https://img.shields.io/github/issues-pr-raw/gazebosim/gz-plugin.svg)](https://github.com/gazebosim/gz-plugin/pulls)
+[![Discourse topics](https://img.shields.io/discourse/https/community.gazebosim.org/topics.svg)](https://community.gazebosim.org)
+[![Hex.pm](https://img.shields.io/hexpm/l/plug.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+
+Build | Status
+-- | --
+Test coverage | [![codecov](https://codecov.io/gh/gazebosim/gz-plugin/tree/gz-plugin2/graph/badge.svg)](https://codecov.io/gh/gazebosim/gz-plugin/tree/gz-plugin2)
+Ubuntu Jammy  | [![Build Status](https://build.osrfoundation.org/job/gz_plugin-ci-gz-plugin2-jammy-amd64/badge/icon)](https://build.osrfoundation.org/job/gz_plugin-ci-gz-plugin2-jammy-amd64/)
+Homebrew      | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_plugin-ci-gz-plugin2-homebrew-amd64)](https://build.osrfoundation.org/job/gz_plugin-ci-gz-plugin2-homebrew-amd64)
+Windows       | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_plugin-2-win)](https://build.osrfoundation.org/job/gz_plugin-2-win)
+
+
+Gazebo Plugin is a component in the [Gazebo](http://gazebosim.org) framework, a set
+of libraries designed to rapidly develop robot applications.
+It is used to register plugin libraries and load them dynamically at runtime.
+
+[http://gazebosim.org](http://gazebosim.org)
+
+## Features
+
+* Registration of **templated and non-templated** classes from any translation unit.
+* Querying of interfaces **by C++ type or name string**.
+* **Dynamically load** plugins at runtime according to the interfaces they provide.
+* **Reference counting** of plugin objects to unload libraries no longer in use.
+* **Command line tool** `gz plugin` to inspect plugins.
+
+## Installation
+
+See the [installation tutorial](https://gazebosim.org/api/plugin/2/installation.html).
+
+# Documentation
+
+Visit the [documentation page](https://gazebosim.org/api/plugin/2/index.html).
+
+:::
+
+:::{tab-item} Changelog
+## Gazebo Plugin 2.x
+
+### Gazebo Plugin 2.0.3 (2024-04-08)
+
+1. Use relative install path for gz tool data
+    * [Pull request #140](https://github.com/gazebosim/gz-plugin/pull/140)
+
+1. Remove @mxgrey as codeowner and assign maintainership to @ahcorde
+    * [Pull request #137](https://github.com/gazebosim/gz-plugin/pull/137)
+
+1. Update CI badges in README
+    * [Pull request #134](https://github.com/gazebosim/gz-plugin/pull/134)
+
+1. Infrastructure
+    * [Pull request #132](https://github.com/gazebosim/gz-plugin/pull/132)
+
+1. Enable and fix gz test on windows
+    * [Pull request #128](https://github.com/gazebosim/gz-plugin/pull/128)
+    * [Pull request #131](https://github.com/gazebosim/gz-plugin/pull/131)
+
+1. Do not install CMakeLists.txt in loader/register
+    * [Pull request #123](https://github.com/gazebosim/gz-plugin/pull/123)
+
+### Gazebo Plugin 2.0.2 (2023-09-26)
+
+1. Add explicit dependency on plugin library
+    * [Pull request #124](https://github.com/gazebosim/gz-plugin/pull/124)
+
+1. Documentation fixes
+    * [Pull request #122](https://github.com/gazebosim/gz-plugin/pull/122)
+    * [Pull request #112](https://github.com/gazebosim/gz-plugin/pull/112)
+
+1. Infrastructure
+    * [Pull request #121](https://github.com/gazebosim/gz-plugin/pull/121)
+    * [Pull request #120](https://github.com/gazebosim/gz-plugin/pull/120)
+    * [Pull request #115](https://github.com/gazebosim/gz-plugin/pull/115)
+
+1. Update parameter name in DemangleSymbol to match declaration
+    * [Pull request #117](https://github.com/gazebosim/gz-plugin/pull/117)
+
+1. Inline functions in plugin_unload.hh
+    * [Pull request #118](https://github.com/gazebosim/gz-plugin/pull/118)
+
+1. Rename COPYING to LICENSE
+    * [Pull request #114](https://github.com/gazebosim/gz-plugin/pull/114)
+
+1. Bazel build rules for garden
+    * [Pull request #113](https://github.com/gazebosim/gz-plugin/pull/113)
+
+
+### Gazebo Plugin 2.0.1
+
+1. Forward port 1.4.0.
+    * [Pull request #109](https://github.com/gazebosim/gz-plugin/pull/109)
+
+### Gazebo Plugin 2.0.0
+
+1. Add option to use `RTLD_NODELETE` when loading a library.
+    * [Pull request #102](https://github.com/gazebosim/gz-plugin/pull/102)
+
+1. Improve install instructions.
+    * [Pull request #106](https://github.com/gazebosim/gz-plugin/pull/106)
+
+1. Version bumps for Garden and deprecations.
+    * [Pull request #74](https://github.com/gazebosim/gz-plugin/pull/74)
+    * [Pull request #76](https://github.com/gazebosim/gz-plugin/pull/76)
+    * [Pull request #77](https://github.com/gazebosim/gz-plugin/pull/77)
+
+1. Ignition to Gazebo rename
+    * [Pull request #78](https://github.com/gazebosim/gz-plugin/pull/78)
+    * [Pull request #79](https://github.com/gazebosim/gz-plugin/pull/79)
+    * [Pull request #82](https://github.com/gazebosim/gz-plugin/pull/82)
+    * [Pull request #83](https://github.com/gazebosim/gz-plugin/pull/83)
+    * [Pull request #86](https://github.com/gazebosim/gz-plugin/pull/86)
+    * [Pull request #87](https://github.com/gazebosim/gz-plugin/pull/87)
+    * [Pull request #88](https://github.com/gazebosim/gz-plugin/pull/88)
+    * [Pull request #89](https://github.com/gazebosim/gz-plugin/pull/89)
+    * [Pull request #90](https://github.com/gazebosim/gz-plugin/pull/90)
+    * [Pull request #93](https://github.com/gazebosim/gz-plugin/pull/93)
+    * [Pull request #104](https://github.com/gazebosim/gz-plugin/pull/104)
+
+1. CLI tool updates.
+    * [Pull request #55](https://github.com/gazebosim/gz-plugin/pull/55)
+    * [Pull request #65](https://github.com/gazebosim/gz-plugin/pull/65)
+    * [Pull request #69](https://github.com/gazebosim/gz-plugin/pull/69)
+    * [Pull request #80](https://github.com/gazebosim/gz-plugin/pull/80)
+    * [Pull request #92](https://github.com/gazebosim/gz-plugin/pull/92)
+
+1. Update GoogleTest to latest version.
+    * [Pull request #91](https://github.com/gazebosim/gz-plugin/pull/91)
+
+1. Clean unused lambda capture warning.
+    * [Pull request #95](https://github.com/gazebosim/gz-plugin/pull/95)
+
+1. Support static plugins.
+    * [Pull request #97](https://github.com/gazebosim/gz-plugin/pull/97)
+
+## Gazebo Plugin 1.x
+
+### Gazebo Plugin 1.4.0 (2022-11-11)
+
+1. ign -> gz Migrate Ignition Headers : gz-plugin
+    * [Pull request #101](https://github.com/gazebosim/gz-plugin/pull/101)
+
+### Gazebo Plugin 1.3.0 (2022-08-15)
+
+1. Remove redundant namespace references
+    * [Pull request #100](https://github.com/gazebosim/gz-plugin/pull/100)
+
+1. Change `IGN_DESIGNATION` to `GZ_DESIGNATION`
+    * [Pull request #96](https://github.com/gazebosim/gz-plugin/pull/96)
+
+1. Ignition -> Gazebo
+    * [Pull request #94](https://github.com/gazebosim/gz-plugin/pull/94)
+
+1. Bash completion for flags
+    * [Pull request #81](https://github.com/gazebosim/gz-plugin/pull/81)
+
+1. Add LICENSE file
+    * [Pull request #72](https://github.com/gazebosim/gz-plugin/pull/72)
+
+1. Add Ubuntu Jammy CI
+    * [Pull request #68](https://github.com/gazebosim/gz-plugin/pull/68)
+
+1. Install ruby commands on Windows
+    * [Pull request #63](https://github.com/gazebosim/gz-plugin/pull/63)
+
+### Gazebo Plugin 1.2.1 (2021-09-24)
+
+1. Add Doxygen documentation checks to CI
+    * [Pull request #59](https://github.com/gazebosim/gz-plugin/pull/59)
+
+1. Infrastructure
+    * [Pull request #58](https://github.com/gazebosim/gz-plugin/pull/58)
+    * [Pull request #52](https://github.com/gazebosim/gz-plugin/pull/52)
+    * [Pull request #51](https://github.com/gazebosim/gz-plugin/pull/51)
+
+1. Find gz program instead of gz-tools
+    * [Pull request #57](https://github.com/gazebosim/gz-plugin/pull/57)
+
+1. Remove gz-tools from CMakeLists.txt. Not used
+    * [Pull request #56](https://github.com/gazebosim/gz-plugin/pull/56)
+
+### Gazebo Plugin 1.2.0 (2021-03-30)
+
+1. Infrastructure
+    * [Pull request #45](https://github.com/gazebosim/gz-plugin/pull/45)
+    * [Pull request #44](https://github.com/gazebosim/gz-plugin/pull/44)
+    * [Pull request #43](https://github.com/gazebosim/gz-plugin/pull/43)
+    * [Pull request #36](https://github.com/gazebosim/gz-plugin/pull/36)
+    * [Pull request #28](https://github.com/gazebosim/gz-plugin/pull/28)
+    * [Pull request #26](https://github.com/gazebosim/gz-plugin/pull/26)
+    * [Pull request #15](https://github.com/gazebosim/gz-plugin/pull/15)
+    * [Pull request #10](https://github.com/gazebosim/gz-plugin/pull/10)
+    * [Pull request #14](https://github.com/gazebosim/gz-plugin/pull/14)
+    * [Pull request #8](https://github.com/gazebosim/gz-plugin/pull/8)
+    * [Pull request #47](https://github.com/gazebosim/gz-plugin/pull/47)
+
+1. Include windows instructions in examples README.md and fix examples to compile them on Windows
+    * [Pull request #48](https://github.com/gazebosim/gz-plugin/pull/48)
+
+1. Fix downstream Windows builds
+    * [Pull request #38](https://github.com/gazebosim/gz-plugin/pull/38)
+
+1. Add `gz plugin --info` to print plugin info
+    * [Pull request #32](https://github.com/gazebosim/gz-plugin/pull/32)
+
+1. Add Windows installation
+    * [Pull request #34](https://github.com/gazebosim/gz-plugin/pull/34)
+
+1. Add plugin name accessor
+    * [Pull request #29](https://github.com/gazebosim/gz-plugin/pull/29)
+
+### Gazebo Plugin 1.1.0 (2019-11-21)
+
+1. Add SelectSpecializers to allow gz-physics to improve compilation time.
+    * [BitBucket pull request 32](https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-physics/pull-requests/32)
+
+### Gazebo Plugin 1.0.0 (2019-02-05)
+
+1. Initial release
+
+
+:::
+
+::::
+    

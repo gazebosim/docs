@@ -1,0 +1,1362 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Contributing to Gazebo &#8212; Gazebo citadel documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/gazebo.css?v=12e630a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=3db3e7f7"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'contributing';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://gazebosim.github.io/docs/docs/citadel/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'citadel';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="canonical" href="https://gazebosim.github.io/docs/docs/latestcontributing/" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Gazebo Continuous Integration" href="../ci/" />
+    <link rel="prev" title="Gazebo Development" href="../development/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+  
+  <aside aria-label="Version warning" class="bd-header-announcement bd-header-version-info" style="min-height: 3rem;">
+    <div class="bd-header-announcement__content">
+      <div class="sidebar-message">
+        
+          This is documentation for <strong> Gazebo Citadel</strong>,
+          an older but still supported version of Gazebo. 
+        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version"
+        href="../../harmonic/contributing">Switch to the latest stable version</a>
+      </div>
+    </div>
+  </aside>
+  
+
+
+
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/gazebo_horz_pos.svg" class="logo__image only-light" alt="Gazebo citadel documentation - Home"/>
+    <script>document.write(`<img src="../_static/gazebo_horz_neg.svg" class="logo__image only-dark" alt="Gazebo citadel documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+
+
+<div class="doc-header">
+  <div class="banner d-flex flex-column-reverse flex-sm-row">
+    <div>
+      <div class="d-none d-sm-block">
+        <span class="d-inline fs-2">Docs / Gazebo Citadel</span>
+        
+          <span class="badge bg-primary fs-4 fw-light ms-2">LTS</span>
+        
+      </div>
+      <span>Supported Dec, 2019 to Dec, 2024</span>
+    </div><div class="gz-version-switcher">
+  <span class="fs-4 fw-light pe-2">Release:</span>
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div></div>
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted/">Get Started</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../install/">Install</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install_ubuntu/">Binary Ubuntu Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_osx/">Binary macOS Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_windows/">Binary Windows Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_ubuntu_src/">Ubuntu Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_osx_src/">macOS Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_windows_src/">Windows Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ign_docker_env/">Dockerized Dev Env</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../comparison/">Feature Comparison</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/">Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ros_integration/">ROS Integration</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../ros2_integration/">ROS 2 Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spawn_urdf/">Spawn URDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gui/">Understanding the GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manipulating_models/">Manipulating Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_insert/">Model Insertion from Fuel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hotkeys/">Keyboard Shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building_robot/">Building your own robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moving_robot/">Moving the robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdf_worlds/">SDF worlds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sensors/">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../actors/">Actors</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ros_installation/">ROS/Gazebo Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_gz_vendor_pkgs/">ROS 2 Gazebo Vendor Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../install_gz11_side_by_side/">Installing Gazebo11 side by side with new Gazebo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating_gazebo_classic_ros2_packages/">Migration from ROS 2 Gazebo Classic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap/">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-features/">Release Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/">Releases</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../development/">Development</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ci/">Continuous Integration</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../release/">Release process</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../releasing/versioning_pre_nightly/">Debian/Ubuntu versioning in nightly and prerelease binaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases-instructions/">Release Instructions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/">Sim Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../fuel/">Fuel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_content_deletion_policy/">Content Deletion Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_model/">Contributing New Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_world/">Contributing New World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_copyright/">Copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_data_policy/">Data and Privacy Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_fair_use/">What is Fair Use</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../library_reference_nav/">Library Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/cmake/2">cmake</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/common/3">common</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/fuel_tools/4">fuel_tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/gui/3">gui</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/launch/2">launch</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/math/6">math</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/msgs/5">msgs</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/physics/2">physics</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/plugin/1">plugin</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/rendering/3">rendering</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sensors/3">sensors</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sim/3">sim</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/tools/1">tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/transport/8">transport</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sdformat/9">sdformat</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../development/" class="nav-link">Gazebo Development</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Contributing...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="contributing-to-gazebo">
+<h1>Contributing to Gazebo<a class="headerlink" href="#contributing-to-gazebo" title="Link to this heading">#</a></h1>
+<p>Thank you for your interest in contributing to Gazebo!</p>
+<p>The following is a set of guidelines for contributing to Gazebo
+and its components, which are hosted in the <a class="reference external" href="https://github.com/gazebosim">Gazebo
+Organization</a> on GitHub. These
+are mostly guidelines, not rules. Use your best judgment, and feel free to
+propose changes to this document in a pull request.</p>
+<section id="code-of-conduct">
+<h2>Code of Conduct<a class="headerlink" href="#code-of-conduct" title="Link to this heading">#</a></h2>
+<p>This project and everyone participating in it is governed by the <a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/main/CODE_OF_CONDUCT.md">Gazebo
+Code of Conduct</a>. By participating, you are expected to uphold this
+code. Please report unacceptable behavior at <a class="reference external" href="https://gazebosim.org/support">https://gazebosim.org/support</a>.</p>
+</section>
+<section id="project-design">
+<h2>Project Design<a class="headerlink" href="#project-design" title="Link to this heading">#</a></h2>
+<section id="repository-list">
+<h3>Repository List<a class="headerlink" href="#repository-list" title="Link to this heading">#</a></h3>
+<p>The following is a list of the major Gazebo repositories.
+A complete list can be found at
+<a class="github reference external" href="https://github.com/gazebosim/">gazebosim/</a>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake">gz-cmake</a>: CMake
+modules used to configure and build Gazebo libraries.</p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common">gz-common</a>: Set of
+general purpose components and utilities, such as 3D mesh processing, console
+logging, and signal handling.</p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools">gz-fuel-tools</a>: Interact
+with Gazebo Fuel servers.</p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim">gz-sim</a>:
+A high-fidelity 3D rigid-body dynamic simulator.</p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-gui">gz-gui</a>: QT-based
+library to configure and manage graphical applications.</p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-launch">gz-launch</a>: Launch
+executables and plugins.</p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-math">gz-math</a>: A math
+library targeted toward robotic applications.</p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs">gz-msgs</a>: Protobuf
+messages and utilities for simulation and robotics.</p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-physics">gz-physics</a>:
+Plugin based library for physics simulation.</p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-plugin">gz-plugin</a>: Library
+for registering, loading, and managing plugin libraries.</p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-rendering">gz-rendering</a>:
+Library that supports rendering through different engines, such as
+<a class="reference external" href="https://www.ogre3d.org/">OGRE</a> and <a class="reference external" href="https://developer.nvidia.com/optix">Optix</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sensors">gz-sensors</a>: A set
+of models that generate realistic sensor data.</p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-tools">gz-tools</a>: Provides
+the <code class="docutils literal notranslate"><span class="pre">gz</span></code> command line interface that can be configured and used by multiple
+libraries.</p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-transport">gz-transport</a>:
+High performance inter- and intra-process communication based on
+<a class="reference external" href="http://zeromq.org/">ZeroMQ</a> and <a class="reference external" href="https://developers.google.com/protocol-buffers/">Protobuf</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-utils">gz-utils</a>: General purpose
+classes and functions with minimal dependencies.</p></li>
+<li><p><a class="reference external" href="https://github.com/osrf/sdformat">sdformat</a>: World description format.</p></li>
+</ul>
+</section>
+<section id="gazebo-architecture">
+<h3>Gazebo Architecture<a class="headerlink" href="#gazebo-architecture" title="Link to this heading">#</a></h3>
+<p>Documents describing the architecture of Gazebo are listed here:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="/docs/all/architecture">Gazebo Sim Architecture</a></p></li>
+</ul>
+</section>
+</section>
+<section id="how-to-contribute">
+<h2>How to Contribute<a class="headerlink" href="#how-to-contribute" title="Link to this heading">#</a></h2>
+<section id="reporting-bugs">
+<h3>Reporting Bugs<a class="headerlink" href="#reporting-bugs" title="Link to this heading">#</a></h3>
+<p><strong>Before Submitting a Bug Report</strong></p>
+<ol class="arabic simple">
+<li><p>Check the <a class="reference external" href="http://answers.gazebosim.org">questions and answers forum</a>. Your issue may have already been resolved.</p></li>
+<li><p>Determine <a class="reference external" href="https://gazebosim.org/docs/all/contributing#repository-list">the repository</a> which should receive the problem.</p></li>
+<li><p>Search the repository’s issues to see if the same or similar problem has
+been opened. If it has and the issue is still open, then add a comment to
+the existing issue. Otherwise, create a new issue.</p></li>
+</ol>
+<p><strong>How to Submit a Good Bug Report</strong></p>
+<p>Create an issue on the repository that is related to your bug, explain the
+problem, and include additional details to help maintainers reproduce the
+problem. Refer to the <a class="reference external" href="http://sscce.org/">Short, Self Contained, Correct (Compilable), Example
+Guide</a> as well as the following tips:</p>
+<ul class="simple">
+<li><p><strong>Use a clear and descriptive title</strong> for the issue to identify the problem.</p></li>
+<li><p><strong>Describe the exact steps which reproduce the problem</strong> in as many details as possible. When listing steps, don’t just say what you did, but explain how you did it.</p></li>
+<li><p><strong>Provide specific examples to demonstrate the steps.</strong> Include links to files or projects, or copy/pasteable snippets, which you use in those examples.</p></li>
+<li><p><strong>Describe the behavior you observed after following the steps</strong> and point out what exactly is the problem with that behavior.</p></li>
+<li><p><strong>Explain which behavior you expected to see instead and why</strong>.</p></li>
+<li><p><strong>Include screenshots and animated GIFs</strong> which show you following the described steps and clearly demonstrate the problem. See <a class="reference external" href="https://gazebosim.org/docs/all/contributing#creating-gifs">Creating GIFs</a> for GIF creation utilities.</p></li>
+<li><p><strong>If the problem wasn’t triggered by a specific action</strong>, describe what you were doing before the problem happened and share more information using the guidelines below.</p></li>
+</ul>
+<p>Provide more context by answering these questions:</p>
+<ul class="simple">
+<li><p><strong>Did the problem start happening recently</strong> (e.g. after updating to a new version) or was this always a problem?</p></li>
+<li><p>If the problem started happening recently, <strong>can you reproduce the problem in an older version?</strong> What’s the most recent version in which the problem doesn’t happen?</p></li>
+<li><p><strong>Can you reliably reproduce the issue?</strong> If not, provide details about how often the problem happens and under which conditions it normally happens.</p></li>
+<li><p>If the problem is related to working with files, <strong>does the problem happen for all files and projects or only some?</strong> Does the problem happen only when working with local or remote files, with files of a specific type (e.g. only Collada or SDF), or with large files or files with very long lines? Is there anything else special about the files you are using?</p></li>
+</ul>
+<p>Include details about your configuration and environment:</p>
+<ul class="simple">
+<li><p><strong>Which version of Gazebo are you using?</strong>?</p></li>
+<li><p><strong>What’s the name and version of the OS you’re using</strong>?</p></li>
+<li><p><strong>Are you running Gazebo in a virtual machine?</strong> If so, which VM software are you using and which operating systems and versions are used for the host and the guest?</p></li>
+</ul>
+</section>
+<section id="suggesting-enhancements">
+<h3>Suggesting Enhancements<a class="headerlink" href="#suggesting-enhancements" title="Link to this heading">#</a></h3>
+<p>This section guides you through submitting an enhancement suggestion,
+including completely new features and minor improvements to existing
+functionality. Following these guidelines helps maintainers and the
+community understand your suggestion and find related suggestions.</p>
+<p>Before creating enhancement suggestions, please check <a class="reference external" href="https://gazebosim.org/docs/all/contributing#before-submitting-an-enhancement-suggestion">this
+list</a> as you
+might find out that you don’t need to create one. When you are creating an
+enhancement suggestion, please <a class="reference external" href="https://gazebosim.org/docs/all/contributing#how-do-i-submit-a-good-enhancement-suggestion-">include as many details as
+possible</a>.
+When filling in the issue form for an enhancement suggestion, include the
+steps that you imagine you would take if the feature you’re requesting
+existed.</p>
+<section id="before-submitting-an-enhancement-suggestion">
+<h4>Before Submitting An Enhancement Suggestion<a class="headerlink" href="#before-submitting-an-enhancement-suggestion" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Check if you’re using the latest software version</strong>. A more recent version may contain your desired feature.</p></li>
+<li><p><strong>Check if there’s already <a class="reference external" href="https://gazebosim.org/libs">a library</a> which provides that enhancement.</strong></p></li>
+<li><p><strong>Determine <a class="reference external" href="https://gazebosim.org/docs/all/contributing#repository-list">which repository the enhancement should be suggested in</a>.</strong></p></li>
+<li><p><strong>Perform a <a class="reference external" href="https://github.com/search?q=org%3Agazebosim&amp;amp;type=Issues">cursory search</a></strong> to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.</p></li>
+<li><p><strong>Ask on the <a class="reference external" href="https://community.gazebosim.org">community forum</a> about your
+feature.</strong> Someone else might already have started, and you might be able to
+help.</p></li>
+</ul>
+</section>
+<section id="how-do-i-submit-a-good-enhancement-suggestion">
+<h4>How Do I Submit A (Good) Enhancement Suggestion?<a class="headerlink" href="#how-do-i-submit-a-good-enhancement-suggestion" title="Link to this heading">#</a></h4>
+<p>Enhancement suggestions are tracked as <a class="reference external" href="https://help.github.com/en/github/managing-your-work-on-github/about-issues">GitHub
+issues</a>.
+After you’ve determined <a class="reference external" href="https://gazebosim.org/docs/all/contributing#repository-list">which repository</a>
+your enhancement suggestion is related to, create an issue on that
+repository and provide the following information:</p>
+<ul class="simple">
+<li><p><strong>Use a clear and descriptive title</strong> for the issue to identify the suggestion.</p></li>
+<li><p><strong>Provide a step-by-step description of the suggested enhancement</strong> in as many details as possible.</p></li>
+<li><p><strong>Provide specific examples to demonstrate the steps</strong>. Include copy/pasteable snippets which you use in those examples, as <a class="reference external" href="https://help.github.com/en/github/writing-on-github/creating-and-highlighting-code-blocks">Markdown code blocks</a>.</p></li>
+<li><p><strong>Describe the current behavior</strong> and <strong>explain which behavior you expected to see instead</strong> and why.</p></li>
+<li><p><strong>Include screenshots and animated GIFs</strong> which show you following the described steps and clearly demonstrate the problem. See <a class="reference external" href="https://gazebosim.org/docs/all/contributing#creating-gifs">Creating GIFs</a> for GIF creation utilities.</p></li>
+<li><p><strong>Explain why this enhancement would be useful</strong> to most users and isn’t something that can or should be implemented as a separate application.</p></li>
+<li><p><strong>Specify which version of Gazebo you’re using.</strong></p></li>
+<li><p><strong>Specify the name and version of the OS you’re using.</strong></p></li>
+</ul>
+</section>
+</section>
+<section id="contributing-code">
+<h3>Contributing Code<a class="headerlink" href="#contributing-code" title="Link to this heading">#</a></h3>
+<p>We follow a development process designed to reduce errors, encourage
+collaboration, and make high quality code. Review the following to
+get acquainted with this development process.</p>
+<ol class="arabic">
+<li><p><strong>Read the <a class="reference external" href="https://gazebosim.org/docs/all/contributing#reporting-bugs">Reporting Bugs</a> and <a class="reference external" href="https://gazebosim.org/docs/all/contributing#suggesting-enhancements">Suggesting Enhancements</a></strong> sections first.</p></li>
+<li><p><strong>Fork the Gazebo library</strong> you want to contribute to. This will create
+your own personal copy of the library. All of your development should
+take place in your fork.</p>
+<ul class="simple">
+<li><p>An important thing to do is create a remote pointing to the <a class="reference external" href="https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork">upstream remote repository</a>. This way, you can always check for modifications on the original repository and <strong>always</strong> keep your fork repository up to date.</p></li>
+</ul>
+</li>
+<li><p><strong>Choose a base branch.</strong></p>
+<ul class="simple">
+<li><p>If your changes will break API or ABI, then base your new branch off of <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p></li>
+<li><p>If you are making interdependent changes to multiple repositories without
+breaking API or ABI, it is also recommended to base your new branches of of <code class="docutils literal notranslate"><span class="pre">main</span></code>
+to simplify automated testing of the changes and the review process. Your
+changes may be backported to an existing release once all the changes
+have been merged.</p></li>
+<li><p>If your changes don’t break
+API/ABI and you would like them to be released to an existing release
+with major version <code class="docutils literal notranslate"><span class="pre">N</span></code>, then use branch <code class="docutils literal notranslate"><span class="pre">gz-&lt;library&gt;N</span></code> as the base.</p></li>
+</ul>
+</li>
+<li><p><strong>Work out of a branch</strong> Always work out of a new branch, one that is not
+a release / main branch. This is a good habit to get in, and will make
+your life easier.</p></li>
+<li><p><strong>Write your code.</strong> This is the fun part, but is good to remember:</p>
+<ul class="simple">
+<li><p>Always <a class="reference external" href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository#about-commit-signoffs">signoff on your commits</a> (See the bullet about Developer Certificate of Origin in the <a class="reference external" href="https://gazebosim.org/docs/all/contributing#process">Process</a> section below)</p></li>
+<li><p>Look at the existing code and try to maintain the existing style and pattern as much as possible</p></li>
+<li><p><strong>Always</strong> keep your branch updated with the original repository</p></li>
+</ul>
+</li>
+<li><p><strong>Write tests.</strong> In most cases, a pull request will only be accepted if
+it has tests. See the <a class="reference external" href="https://gazebosim.org/docs/all/contributing#writing-tests">Writing Tests</a>
+section below for more information.</p></li>
+<li><p><strong>Resolve compiler warnings.</strong> Code must have zero compile warnings, or at least make sure your pull request is not adding new warnings.</p></li>
+<li><p><strong>Follow the <a class="reference external" href="https://gazebosim.org/docs/all/contributing#style-guides">style guide</a>.</strong></p>
+<p>Static code checking analyzes your code for bugs, such as potential memory
+leaks, and style. Most Gazebo libraries use the <code class="docutils literal notranslate"><span class="pre">cppcheck</span></code> static code
+checker, and a modified version <code class="docutils literal notranslate"><span class="pre">cpplint</span></code>. Ubuntu
+users can install via:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> sudo apt-get install cppcheck
+</pre></div>
+</div>
+<p>To check your code, run the following script from the <code class="docutils literal notranslate"><span class="pre">build</span></code> folder of the project that you’re working on.
+If you’re working on <em>gz-math</em>, for instance, the path for the folder should be something similar to <code class="docutils literal notranslate"><span class="pre">~/citadel_ws/build/gz-math6</span></code>.
+The path example is assuming you followed <a class="reference external" href="/docs/citadel/install">our installation instructions</a> using colcon.</p>
+<p>Then, run the script inside this folder:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> make codecheck
+</pre></div>
+</div>
+<p>This may take a few minutes to run. Fix all errors and warnings until
+the output looks like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> Built target codecheck
+</pre></div>
+</div>
+<p>The tool does not catch all style errors. See the <a class="reference external" href="https://gazebosim.org/docs/all/contributing#style-guides">code style</a> section below for more information.</p>
+</li>
+<li><p><strong>(optional) Use clang-tidy for additional checks.</strong></p>
+<p>clang-tidy should return no errors when run against the code base.</p>
+<p>Ubuntu users can install via:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> sudo apt-get install clang-tidy-6.0 libclang-6.0-dev python-yaml
+</pre></div>
+</div>
+<p>clang-tidy can then be executed by running from the source dir:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> ./tools/clang_tidy.sh
+</pre></div>
+</div>
+<p>Address issues that are found.</p>
+<p>If you are feeling adventurous, you can experiment with adding additional checks to the <code class="docutils literal notranslate"><span class="pre">.clang-tidy</span></code> file by referencing the full list of options in the <a class="reference external" href="http://clang.llvm.org/extra/clang-tidy/checks/list.html">clang-tidy documentation</a></p>
+</li>
+<li><p><strong>Tests must pass.</strong> You can check by running <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code> in
+your build directory. Running tests may take a bit of time, be patient.</p></li>
+<li><p><strong>Write documentation.</strong> Document all your code. Every class, function, member variable must have doxygen comments. All code in source files must have documentation that describes the functionality. This will help reviewers and future developers.</p></li>
+<li><p><strong>Review your code.</strong> Before submitting your code through a pull request,
+take some time to review everything line-by-line. The review process will
+go much faster if you make sure everything is perfect before other people
+look at your code.  There is a bit of the human-condition involved here.
+Folks are less likely to spend time reviewing your code if it’s sloppy.</p></li>
+<li><p><strong>Make small pull requests</strong></p>
+<p>A large pull request is hard to review, and will take a long time. It is
+worth your time to split a large pull request into multiple smaller pull
+requests. For reference, here are a few examples:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/osrf/gazebo/pull/2789">Small, very nice</a></p></li>
+<li><p><a class="reference external" href="https://github.com/osrf/gazebo/pull/2784">Medium, still okay</a></p></li>
+<li><p><a class="reference external" href="https://github.com/osrf/gazebo/pull/2776">Too large</a></p></li>
+</ul>
+</li>
+<li><p><strong>Submit a pull request</strong> to the Gazebo library through GitHub when you’re ready.</p></li>
+<li><p><strong>Check Continuous integration</strong></p>
+<p>The moment you make a pull request, a few test jobs
+will be started. These jobs will build your branch on Linux, Mac and
+Windows, run all tests and check for warnings.</p>
+<p>Check the <a class="reference external" href="https://gazebosim.org/docs/all/ci">Continuous Integration guide</a>
+for information on how to interpret the results.</p>
+</li>
+<li><p><strong>Respond to reviewers.</strong> At least two other people have to approve your pull request before it can be merged. Please be responsive to any questions and comments.</p></li>
+<li><p><strong>Done, phew.</strong> Once you have met all the requirements, your code will be merged. Thanks for improving Gazebo!</p></li>
+</ol>
+</section>
+<section id="tracking-progress">
+<h3>Tracking Progress<a class="headerlink" href="#tracking-progress" title="Link to this heading">#</a></h3>
+<p>Gazebo development progress is tracked publicly using a GitHub project board.
+Using project boards ensures the community has visibility to what’s coming up,
+external contributors can understand where they can help, and the reasoning behind
+development decisions are visible to everyone.</p>
+<p>Contributors should look at the <a class="reference external" href="https://github.com/orgs/gazebosim/projects/3">“Core development” board</a>, though it’s possible we may have other boards in our organization at various times.</p>
+<section id="repositories">
+<h4>Repositories<a class="headerlink" href="#repositories" title="Link to this heading">#</a></h4>
+<p>The following repositories from <a class="reference external" href="https://github.com/gazebosim/">Gazebo</a> are tracked:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake">gz-cmake</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common">gz-common</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools">gz-fuel-tools</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim">gz-gazebo</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-gui">gz-gui</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-launch">gz-launch</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-math">gz-math</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs">gz-msgs</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-physics">gz-physics</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-plugin">gz-plugin</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-rendering">gz-rendering</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sensors">gz-sensors</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-tools">gz-tools</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-transport">gz-transport</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-utils">gz-utils</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/docs/">docs</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/design">design</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/ros_gz">ros_gz</a></p></li>
+</ul>
+<p>New issues and pull requests, and issue and pull request statuses, from across the tracked repositories are all automatically synced with the same board.</p>
+<p>Unfortunately, GitHub boards’ cross-org support is poor.
+The following repos can’t be handled automatically and have to be manually tracked on the board along with the ones listed above:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/osrf/sdformat">sdformat</a></p></li>
+<li><p><a class="reference external" href="https://github.com/osrf/gazebo">gazebo</a></p></li>
+<li><p><a class="reference external" href="https://github.com/osrf/homebrew-simulation">homebrew-simulation</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ros-simulation/gazebo_ros_pkgs/">gazebo_ros_pkgs</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebo-tooling/release-tools">release-tools</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebo-tooling/gazebodistro">gazebodistro</a></p></li>
+</ul>
+</section>
+<section id="board-columns">
+<h4>Board Columns<a class="headerlink" href="#board-columns" title="Link to this heading">#</a></h4>
+<p>The project board columns are defined below:</p>
+<ul class="simple">
+<li><p><strong>Inbox</strong>: New issues and pull requests</p></li>
+<li><p><strong>To do</strong>: Issues ready to be worked on.</p></li>
+<li><p><strong>In progress</strong>: Issues being worked on / pull requests being iterated on.</p></li>
+<li><p><strong>In review</strong>: Pull requests under review / issues requesting feedback.</p></li>
+<li><p><strong>Done</strong>: Closed issues / pull requests (cleared from time to time).</p></li>
+</ul>
+<p>If a ticket is not on the board, it means that the core team is not planning
+to work on it, but the community is welcome to do so.</p>
+</section>
+<section id="process">
+<h4>Process<a class="headerlink" href="#process" title="Link to this heading">#</a></h4>
+<p>All Gazebo team members actively:</p>
+<ul class="simple">
+<li><p><strong>Watch</strong> all Gazebo repositories to receive email notifications of new issues / pull requests</p></li>
+<li><p>Provide <strong>feedback</strong> to issues as soon as possible</p></li>
+<li><p><strong>Review</strong> pull requests as soon as possible</p>
+<ul>
+<li><p>Team members can review pull requests already under review or approved</p></li>
+<li><p>Team members can provide some feedback without doing a full review</p></li>
+</ul>
+</li>
+</ul>
+<p>During weekly simulation meetings, the team:</p>
+<ul class="simple">
+<li><p>Discusses the <strong>Done</strong> column and archives all tickets</p></li>
+<li><p>Discusses the <strong>In Review</strong> column and makes sure all pull requests have reviewers</p></li>
+<li><p>Discusses the <strong>In Progress</strong> column</p></li>
+<li><p>Quickly <strong>triages</strong> the inbox, if there’s anything left in it</p>
+<ul>
+<li><p>If we won’t work on an issue in the near future, <strong>remove</strong> it from the board.</p>
+<ul>
+<li><p>If we think the issue should be tackled, label it <strong><a class="reference external" href="https://github.com/search?q=org%3Agazebosim+label%3A%22help+wanted%22&amp;amp;state=open&amp;amp;type=Issues">help wanted</a></strong>.</p></li>
+</ul>
+</li>
+<li><p>If we’re going to work on an issue, move it to <strong>To Do</strong>, no assignment necessary initially.</p></li>
+<li><p>If we won’t review a pull request in the near future, <strong>close</strong> it.</p></li>
+</ul>
+</li>
+</ul>
+<p>When opening a pull-request:</p>
+<ul class="simple">
+<li><p><strong>Labels</strong> according to the targeted collection(s) (blueprint, citadel, etc) will be added automatically</p></li>
+<li><p>Add yourself as the <strong>assignee</strong></p>
+<ul>
+<li><p>Maintainers of each repo will be also automatically assigned</p></li>
+</ul>
+</li>
+<li><p>It will be automatically triaged to the “Core development” <strong>project board</strong></p></li>
+<li><p>Add <strong>reviewers</strong> as appropriate</p>
+<ul>
+<li><p>If reviewers won’t be able to review soon, they can remove themselves and also let the original author know</p></li>
+</ul>
+</li>
+</ul>
+<p>Pull requests can be merged when:</p>
+<ul class="simple">
+<li><p>They have at least 1 approval from a member of the core team</p></li>
+<li><p>There are no unresolved comments</p></li>
+<li><p>CI is passing</p></li>
+<li><p><a class="reference external" href="https://developercertificate.org/">Developer Certificate of Origin</a> (DCO) check is passing</p>
+<ul>
+<li><p>DCO is a declaration of ownership, basically saying that you created the contribution and that it is suitable to be covered under an open source license (not proprietary).</p></li>
+<li><p>All you have to do is end your commit message with <code class="docutils literal notranslate"><span class="pre">Signed-off-by:</span> <span class="pre">Your</span> <span class="pre">Full</span> <span class="pre">Name</span> <span class="pre">&lt;your.name&#64;email.com&gt;</span></code></p></li>
+<li><p>If your <code class="docutils literal notranslate"><span class="pre">user.name</span></code> and <code class="docutils literal notranslate"><span class="pre">user.email</span></code> configurations are set up in git, then you can simply run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-s</span></code> to have your signature automatically appended.</p></li>
+</ul>
+</li>
+</ul>
+<p>Merging strategy:</p>
+<ul class="simple">
+<li><p>For internal contributions, give the original author some time to hit the merge button themselves / check directly with them if it’s ok to merge.</p></li>
+<li><p>Default to “squash and merge”</p>
+<ul>
+<li><p>Review the pull request title and reword if necessary since this will be part of the commit message.</p></li>
+<li><p>Make sure the commit message concisely captures the core ideas of the pull request and contains all authors’ signatures.</p></li>
+</ul>
+</li>
+<li><p>“Rebase and merge” when moving files (do a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">mv</span></code> as a separate commit).</p></li>
+<li><p>“Create a merge commit” when porting changes forward. “Rebase and merge” when porting backwards.</p></li>
+<li><p>Refrain from force-pushing while the PR is under review (which includes rebasing and squashing).</p></li>
+</ul>
+<p>Porting changes across branches:</p>
+<ul>
+<li><p>Pull requests should target the lowest possible
+<a class="reference external" href="https://gazebosim.org/docs/all/releases">supported version</a> where the
+changes can be added in a backwards-compatible way (no API / ABI / behavior
+break in released branches).</p></li>
+<li><p>Periodically, a maintainer will <strong>forward-port</strong> changes to newer release
+branches all the way up to <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p></li>
+<li><p>See <a class="reference external" href="https://github.com/gazebosim/docs/blob/master/tools/branch_comparisons.md">this list</a> to check if a branch needs porting.</p></li>
+<li><p>The merge forward can be done with <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code> in order to keep the commit history
+and so it’s easier to compare branches. For example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  git checkout gz-&lt;library&gt;M
+  git pull
+  git checkout gz-&lt;library&gt;N
+  git pull
+  git checkout -b username/M_to_N_&lt;date&gt; # It&#39;s important to do this before `git merge`
+  git merge gz-&lt;library&gt;M
+  # Fix conflicts
+  git commit -sam&quot;Merge M into N&quot;
+  # Open pull request
+  # Do not squash or rebase, create a merge commit
+</pre></div>
+</div>
+</li>
+<li><p>In the rare event that a pull request needs to be backported (i.e. from a
+higher version to a lower version), use <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">cherry-pick</span></code> instead of <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">merge</span></code>,
+for example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  git checkout gz-&lt;library&gt;N
+  git pull
+  git checkout gz-&lt;library&gt;M
+  git pull
+  git checkout -b N_to_M_&lt;date&gt;
+  git cherry-pick &lt;commits from verrsion N&gt;
+  # Fix conflicts
+  git commit -sam&quot;Backport from N to M&quot;
+  # Open pull request
+  # Do not squash, rebase instead
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="writing-tests">
+<h2>Writing Tests<a class="headerlink" href="#writing-tests" title="Link to this heading">#</a></h2>
+<p>Most Gazebo libraries use <a class="reference external" href="http://code.google.com/p/googletest">GTest</a> for
+general testing and <a class="reference external" href="http://doc.qt.io/qt-5/qtest.html">QTest</a> for GUI tests.
+There are a few kinds of tests:</p>
+<ol class="arabic simple">
+<li><p><strong>Unit tests</strong>: all classes should have corresponding unit tests. These live
+in the same directory as the source code and are suffixed by <code class="docutils literal notranslate"><span class="pre">_TEST</span></code>.</p></li>
+<li><p><strong>Integration tests</strong>: tests which verify how many classes are working together go under the <code class="docutils literal notranslate"><span class="pre">tests/integration</span></code> directory.</p></li>
+<li><p><strong>Regression tests</strong>: tests which fix broken features go under <code class="docutils literal notranslate"><span class="pre">tests/regression</span></code> and are prefixed by the issue number on library’s issue tracker.</p></li>
+<li><p><strong>Performance tests</strong>: tests that are designed to check performance
+characteristics, such as CPU or memory usage, go under <code class="docutils literal notranslate"><span class="pre">tests/performance</span></code>.</p></li>
+</ol>
+<p>Before creating a new integration or performance test file, check the current
+test files. If one closely matches the topic of your new code, simply add a new
+test function to the file. Otherwise, create a new test file, and write your
+test.</p>
+<section id="test-coverage">
+<h3>Test Coverage<a class="headerlink" href="#test-coverage" title="Link to this heading">#</a></h3>
+<p>The goal is to achieve 100% line and branch coverage. However, this is not
+always possible due to complexity, analysis tools misreporting
+coverage, and time constraints. Try to write as complete of a test suite as
+possible, and use the coverage analysis tools as guide. If you have trouble
+writing a test please ask for help in your pull request.</p>
+<p>Gazebo CMake provides build target called <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">coverage</span></code> that produces a code
+coverage report. You’ll need to have <a class="reference external" href="http://ltp.sourceforge.net/coverage/lcov.php">lcov</a> and <a class="reference external" href="https://gcc.gnu.org/onlinedocs/gcc/Gcov.html">gcov</a> installed.</p>
+<ol class="arabic">
+<li><p>In your <code class="docutils literal notranslate"><span class="pre">build</span></code> folder, compile with <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=Coverage</span></code></p>
+<p>If using plain cmake:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> cd &lt;path to build directory&gt;
+ cmake -DCMAKE_BUILD_TYPE=Coverage ..
+ make
+</pre></div>
+</div>
+<p>If using a colcon workspace:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> cd &lt;path to colcon workspace&gt;
+ colcon build --cmake-args -DCMAKE_BUILD_TYPE=Coverage --merge-install
+</pre></div>
+</div>
+</li>
+<li><p>Run a single test, or all the tests</p>
+<p>If using plain cmake:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>./bin/UNIT_&lt;TestName&gt;_Test   # single test
+ make test                   # all tests
+</pre></div>
+</div>
+<p>If using a colcon workspace:</p>
+<ul class="simple">
+<li><p>Run single/specific test:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">colcon</span> <span class="n">test</span> <span class="o">--</span><span class="n">ctest</span><span class="o">-</span><span class="n">args</span> <span class="o">-</span><span class="n">R</span> <span class="o">&lt;</span><span class="n">part</span> <span class="n">of</span> <span class="n">test</span> <span class="n">name</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">merge</span><span class="o">-</span><span class="n">install</span>
+<span class="c1"># or</span>
+<span class="o">./</span><span class="n">build</span><span class="o">/&lt;</span><span class="n">package_name</span><span class="o">&gt;/</span><span class="nb">bin</span><span class="o">/</span><span class="n">UNIT_</span><span class="o">&lt;</span><span class="n">TestName</span><span class="o">&gt;</span><span class="n">_TEST</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Run all tests for a single package:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">colcon</span> <span class="n">test</span> <span class="o">--</span><span class="n">packages</span><span class="o">-</span><span class="n">select</span> <span class="o">&lt;</span><span class="n">package_name</span><span class="o">&gt;</span> <span class="o">--</span><span class="n">merge</span><span class="o">-</span><span class="n">install</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Run all tests for all packages in the workspace:</p></li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">colcon</span> <span class="n">test</span> <span class="o">--</span><span class="n">merge</span><span class="o">-</span><span class="n">install</span>
+</pre></div>
+</div>
+<p>When using <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">test</span></code>, all test results end up in the <code class="docutils literal notranslate"><span class="pre">log</span></code> directory.
+You can check <code class="docutils literal notranslate"><span class="pre">log/latest_test</span></code> to see the latest results.</p>
+</li>
+<li><p>Make the coverage report</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> make coverage
+</pre></div>
+</div>
+</li>
+<li><p>View the coverage report</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> firefox coverage/index.html
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="sanitizers">
+<h3>Sanitizers<a class="headerlink" href="#sanitizers" title="Link to this heading">#</a></h3>
+<p>Sanitizers capture very detailed information during runtime about code quality issues and print them to stderr.</p>
+<section id="install-dependencies">
+<h4>Install dependencies<a class="headerlink" href="#install-dependencies" title="Link to this heading">#</a></h4>
+<p>Install and enable Colcon mixin package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip3<span class="w"> </span>install<span class="w"> </span>colcon-mixin
+colcon<span class="w"> </span>mixin<span class="w"> </span>add<span class="w"> </span>default<span class="w"> </span>https://raw.githubusercontent.com/colcon/colcon-mixin-repository/master/index.yaml
+colcon<span class="w"> </span>mixin<span class="w"> </span>update<span class="w"> </span>default
+</pre></div>
+</div>
+<p>Install colcon-sanitizer-reports (Recommended):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/colcon/colcon-sanitizer-reports.git
+<span class="nb">cd</span><span class="w"> </span>colcon-sanitizer-reports
+sudo<span class="w"> </span>python3<span class="w"> </span>setup.py<span class="w"> </span>install
+</pre></div>
+</div>
+<p>You can find more details <a class="reference external" href="https://github.com/colcon/colcon-sanitizer-reports/blob/master/README.rst">here</a> about the instalation process.</p>
+</section>
+<section id="compiling-the-code-and-running-the-tests">
+<h4>Compiling the code and running the tests<a class="headerlink" href="#compiling-the-code-and-running-the-tests" title="Link to this heading">#</a></h4>
+<p>Create a Gazebo workspace for ASAN/TSAN related tasks. Refer to the <a class="reference external" href="https://gazebosim.org/docs/latest/install_ubuntu_src#getting-the-sources">offical documentation to get
+all the Gazebo sources</a>.</p>
+<p>First, compile all packages:</p>
+<ul class="simple">
+<li><p>ASan</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/workspace<span class="w">  </span><span class="c1"># you will need to be exactly in this directory</span>
+colcon<span class="w"> </span>build<span class="w"> </span>--build-base<span class="o">=</span>build-asan<span class="w"> </span>--install-base<span class="o">=</span>install-asan<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Debug<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--mixin<span class="w"> </span>asan-gcc
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>TSan</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Equivalent command for tsan:</span>
+<span class="c1"># You can either use different workspaces or the same one.</span>
+colcon<span class="w"> </span>build<span class="w"> </span>--build-base<span class="o">=</span>build-tsan<span class="w"> </span>--install-base<span class="o">=</span>install-tsan<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--cmake-args<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Debug<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--mixin<span class="w"> </span>tsan
+</pre></div>
+</div>
+<p><strong>IMPORTANT:</strong> Do not forget to pass <code class="docutils literal notranslate"><span class="pre">-DCMAKE_BUILD_TYPE=Debug</span></code> to
+ensure that debugging symbols are generated. This allows ASAN/TSAN to
+report files and line numbers in backtraces.</p>
+<p>Once the compilation is finished, colcon will report that all packages have been compiled
+but some had “stderr output”. This is fine.</p>
+<ul class="simple">
+<li><p>To run the tests for ASan:</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/workspace<span class="w">  </span><span class="c1"># you will need to be exactly in this directory</span>
+colcon<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--build-base<span class="o">=</span>build-asan<span class="w"> </span>--install-base<span class="o">=</span>install-asan<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--event-handlers<span class="w"> </span>sanitizer_report+
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>To run tests for TSan</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>~/workspace<span class="w">  </span><span class="c1"># you will need to be exactly in this directory</span>
+colcon<span class="w"> </span><span class="nb">test</span><span class="w"> </span>--build-base<span class="o">=</span>build-tsan<span class="w"> </span>--install-base<span class="o">=</span>install-tsan<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--event-handlers<span class="w"> </span>sanitizer_report+
+</pre></div>
+</div>
+<p>Omit the <code class="docutils literal notranslate"><span class="pre">--event-handlers</span></code> flag if you did not install colcon-sanitizer-reports.</p>
+<p>Some tests may fail, this is OK. Once done, you can look at the test logs or
+<code class="docutils literal notranslate"><span class="pre">sanitizer_report.csv</span></code>. Examples from tests logs:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/workspace<span class="w">  </span><span class="c1"># you will need to be exactly in this directory</span>
+<span class="nb">cd</span><span class="w"> </span>log/latest_test
+<span class="c1"># Displays three lines after the beginning of a ASAN reported issue.</span>
+grep<span class="w"> </span>-R<span class="w"> </span><span class="s1">&#39;==.*==ERROR: .*Sanitizer&#39;</span><span class="w"> </span>-A<span class="w"> </span><span class="m">3</span>
+</pre></div>
+</div>
+<p>Review <a class="reference external" href="https://github.com/colcon/colcon-sanitizer-reports/blob/master/README.rst#appendix---asantsan-issues-zoology">Appendix - ASAN/TSAN Issues Zoology</a>
+to review which kind of failures you can find in this kind of reports.</p>
+</section>
+</section>
+</section>
+<section id="style-guides">
+<h2>Style Guides<a class="headerlink" href="#style-guides" title="Link to this heading">#</a></h2>
+<p>You can check code for compliance by running the following command from
+a build folder:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>    make codecheck
+</pre></div>
+</div>
+<p>In general, we follow <a class="reference external" href="https://google.github.io/styleguide/cppguide.html">Google’s style guide</a> and rules set forth by <code class="docutils literal notranslate"><span class="pre">cppcheck</span></code>. However, we have added some extras listed below.</p>
+<ol class="arabic simple">
+<li><p><strong>This pointer</strong></p></li>
+</ol>
+<blockquote>
+<div><p>All class attributes and member functions must be accessed using the <code class="docutils literal notranslate"><span class="pre">this-&gt;</span></code> pointer. Here is an <a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L89">example</a>.</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>Underscore function parameters</strong></p></li>
+</ol>
+<blockquote>
+<div><p>All function parameters must start with an underscore. Here is an <a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L173-L174">example</a>.</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>Do not cuddle braces</strong></p></li>
+</ol>
+<blockquote>
+<div><p>All braces must be on their own line. Here is an <a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L245-L253">example</a>.</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>Multi-line code blocks</strong></p></li>
+</ol>
+<blockquote>
+<div><p>If a block of code spans multiple lines and is part of a flow control statement, such as an <code class="docutils literal notranslate"><span class="pre">if</span></code>, then it must be wrapped in braces. Here is an <a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/Server.cc#L295-L299">example</a>.</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>++ operator</strong></p></li>
+</ol>
+<blockquote>
+<div><p>This occurs mostly in <code class="docutils literal notranslate"><span class="pre">for</span></code> loops. Prefix the <code class="docutils literal notranslate"><span class="pre">++</span></code> operator, which is <a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/src/EntityComponentManager_TEST.cc#L108">slightly more efficient than postfix in some cases</a>.</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>PIMPL/Opaque pointer</strong></p></li>
+</ol>
+<blockquote>
+<div><p>If you are writing a new class, it must use a private data pointer. Here is an <a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/EntityComponentManager.hh#L682">example</a>, and you can read more <a class="reference external" href="https://en.wikipedia.org/wiki/Opaque_pointer">here</a>.</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>const functions</strong></p></li>
+</ol>
+<blockquote>
+<div><p>Any class function that does not change a member variable should be marked as <code class="docutils literal notranslate"><span class="pre">const</span></code>. Here is an <a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/EntityComponentManager.hh#L453">example</a>.</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>const parameters</strong></p></li>
+</ol>
+<blockquote>
+<div><p>All parameters that are not modified by a function should be marked as <code class="docutils literal notranslate"><span class="pre">const</span></code>, except for “Plain Old Data” (<code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, etc). This applies to parameters that are passed by reference, and pointer. Here is an <a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/Model.hh#L111-L112">example</a>.</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>Pointer and reference variables</strong></p></li>
+</ol>
+<blockquote>
+<div><p>Place the <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> next to the variable name, not next to the type. For example: <code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">&amp;variable</span></code> is good, but <code class="docutils literal notranslate"><span class="pre">int&amp;</span> <span class="pre">variable</span></code> is not. Here is an <a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/Model.hh#L96">example</a>.</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>Camel case</strong></p></li>
+</ol>
+<blockquote>
+<div><p>In general, everything should use camel case. Exceptions include SDF element names, and protobuf variable names. Here is an <a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/de5b025968c9cf0cfbfd8a852458482e87c70c6c/include/ignition/gazebo/SdfEntityCreator.hh#L64-L65">example</a>.</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>Member function names</strong></p></li>
+</ol>
+<blockquote>
+<div><p>Member functions, including static member functions, must start with a capital letter, and capitalize every word.</p>
+<p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">MyClass::MyFunction();</span></code> : Good</p>
+<p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">MyClass::myFunction();</span></code> : Bad</p>
+<p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">MyClass::my_function();</span></code> : Bad</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>Free function names</strong></p></li>
+</ol>
+<blockquote>
+<div><p>Free functions in namespace and global scope must start with a lowercase letter, and capitalize every word thereafter.
+<code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">myFunction();</span></code> : Good</p>
+<p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">MyFunction();</span></code> : Bad</p>
+<p><code class="docutils literal notranslate"><span class="pre">void</span> <span class="pre">my_function();</span></code> : Bad</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>Variable names</strong></p></li>
+</ol>
+<blockquote>
+<div><p>Variables must start with a lower case letter, and capitalize every word thereafter.</p>
+<p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">myVariable;</span></code> : Good</p>
+<p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">myvariable;</span></code> : Bad</p>
+<p><code class="docutils literal notranslate"><span class="pre">int</span> <span class="pre">my_variable;</span></code> : Bad</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>No inline comments</strong></p></li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal notranslate"><span class="pre">//</span></code> style comments may not be placed on the same line as code.</p>
+<p><code class="docutils literal notranslate"><span class="pre">speed</span> <span class="pre">*=</span> <span class="pre">0.44704;</span>&#160; <span class="pre">//</span> <span class="pre">miles</span> <span class="pre">per</span> <span class="pre">hour</span> <span class="pre">to</span> <span class="pre">meters</span> <span class="pre">per</span> <span class="pre">second</span></code> : Bad</p>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>Accessors must not start with <code class="docutils literal notranslate"><span class="pre">Get</span></code></strong></p></li>
+</ol>
+<blockquote>
+<div><p>Member functions granting read access to protected or private data must look like a noun.</p>
+<p><code class="docutils literal notranslate"><span class="pre">public:</span> <span class="pre">::ServerConfig</span> <span class="pre">ServerConfig()</span> <span class="pre">const;</span></code> : Allowed</p>
+<p><code class="docutils literal notranslate"><span class="pre">public:</span> <span class="pre">ServerConfig</span> <span class="pre">GetServerConfig()</span> <span class="pre">const;</span></code> : Not Allowed</p>
+<p><strong>Corner Cases</strong></p>
+<ul>
+<li><p>A class name may conflict with an accessor function. For example, <code class="docutils literal notranslate"><span class="pre">Model(int)</span></code> would conflict with a <code class="docutils literal notranslate"><span class="pre">Model</span></code> class. In these cases, try to follow the <code class="docutils literal notranslate"><span class="pre">Noun</span></code> - <code class="docutils literal notranslate"><span class="pre">By</span></code> pattern. For example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">ModelByName(const</span> <span class="pre">std::string</span> <span class="pre">&amp;_name)</span></code> : Allowed</p>
+<p><code class="docutils literal notranslate"><span class="pre">ModelById(const</span> <span class="pre">int</span> <span class="pre">_id)</span></code> : Allowed</p>
+</li>
+<li><p>However, if the function does not have a parameter, it may be difficult to use the <code class="docutils literal notranslate"><span class="pre">Noun</span></code> - <code class="docutils literal notranslate"><span class="pre">By</span></code> pattern. In this case, qualifying the name of the class with its namespace should avoid the conflict.
+For example, if there is class called <code class="docutils literal notranslate"><span class="pre">Entity</span></code> in the <code class="docutils literal notranslate"><span class="pre">gazebo</span></code> namespace and we want to create an accessor called <code class="docutils literal notranslate"><span class="pre">Entity()</span></code>, we can do the following:</p>
+<p><code class="docutils literal notranslate"><span class="pre">public:</span> <span class="pre">gazebo::Entity</span> <span class="pre">Entity()</span> <span class="pre">const;</span></code> : Allowed</p>
+</li>
+<li><p>A template function that returns a data type may use a stand-alone <code class="docutils literal notranslate"><span class="pre">Get</span></code>. For example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">public:</span> <span class="pre">template&lt;typename</span> <span class="pre">T&gt;</span> <span class="pre">T</span> <span class="pre">Get();</span></code> : Allowed</p>
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple">
+<li><p><strong>Mutators must start with <code class="docutils literal notranslate"><span class="pre">Set</span></code></strong></p></li>
+</ol>
+<blockquote>
+<div><p>Member functions granting write access to protected data must begin with <code class="docutils literal notranslate"><span class="pre">Set</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">public:</span> <span class="pre">void</span> <span class="pre">SetServerConfig(ServerConfig</span> <span class="pre">&amp;_config);</span></code> : Allowed</p>
+<p><code class="docutils literal notranslate"><span class="pre">public:</span> <span class="pre">void</span> <span class="pre">ServerConfig(::ServerConfig</span> <span class="pre">&amp;_config);</span></code> : Not Allowed</p>
+</div></blockquote>
+</section>
+<section id="appendix">
+<h2>Appendix<a class="headerlink" href="#appendix" title="Link to this heading">#</a></h2>
+<section id="releasing-information-for-members-of-development-team">
+<h3>Releasing information for members of development team<a class="headerlink" href="#releasing-information-for-members-of-development-team" title="Link to this heading">#</a></h3>
+<p><a class="reference external" href="/docs/all/release">Releasing documentation</a> is available for the development team
+members. Includes a general overview as well as detailed information about how to
+run a new release.</p>
+</section>
+<section id="creating-gifs">
+<h3>Creating GIFs<a class="headerlink" href="#creating-gifs" title="Link to this heading">#</a></h3>
+<p>You can use <a class="reference external" href="https://www.cockos.com/licecap/">LICEcap</a> to record GIFs on
+macOS and Windows, and <a class="reference external" href="https://github.com/colinkeenan/silentcast">Silent
+Cast</a> or
+<a class="reference external" href="https://github.com/GNOME/byzanz">Byzanz</a> or
+<a class="reference external" href="https://github.com/phw/peek">Peek</a> on Linux.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-of-conduct">Code of Conduct</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#project-design">Project Design</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#repository-list">Repository List</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gazebo-architecture">Gazebo Architecture</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-contribute">How to Contribute</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#reporting-bugs">Reporting Bugs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#suggesting-enhancements">Suggesting Enhancements</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#before-submitting-an-enhancement-suggestion">Before Submitting An Enhancement Suggestion</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#how-do-i-submit-a-good-enhancement-suggestion">How Do I Submit A (Good) Enhancement Suggestion?</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing-code">Contributing Code</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tracking-progress">Tracking Progress</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#repositories">Repositories</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#board-columns">Board Columns</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#process">Process</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#writing-tests">Writing Tests</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#test-coverage">Test Coverage</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sanitizers">Sanitizers</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dependencies">Install dependencies</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compiling-the-code-and-running-the-tests">Compiling the code and running the tests</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#style-guides">Style Guides</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#appendix">Appendix</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#releasing-information-for-members-of-development-team">Releasing information for members of development team</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#creating-gifs">Creating GIFs</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/gazebosim/docs/edit/master/contributing.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p> Brought to you by <a href="https://openrobotics.org">Open Robotics</a>. </p>
+<p> Except where otherwise noted, the gazebosim.org web pages are licensed under <a
+    href="https://creativecommons.org/licenses/by/3.0/us/">Creative Commons
+    Attribution 3.0</a>. </p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1442 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Gazebo Release Features &#8212; Gazebo harmonic documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/gazebo.css?v=12e630a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=173ad40a"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'release-features';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://gazebosim.github.io/docs/docs/harmonic/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'harmonic';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="canonical" href="https://gazebosim.github.io/docs/docs/latestrelease-features/" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Gazebo Releases" href="../releases/" />
+    <link rel="prev" title="Gazebo Roadmap" href="../roadmap/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+  
+
+
+
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/gazebo_horz_pos.svg" class="logo__image only-light" alt="Gazebo harmonic documentation - Home"/>
+    <script>document.write(`<img src="../_static/gazebo_horz_neg.svg" class="logo__image only-dark" alt="Gazebo harmonic documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+
+
+<div class="doc-header">
+  <div class="banner d-flex flex-column-reverse flex-sm-row">
+    <div>
+      <div class="d-none d-sm-block">
+        <span class="d-inline fs-2">Docs / Gazebo Harmonic</span>
+        
+          <span class="badge bg-primary fs-4 fw-light ms-2">LTS</span>
+        
+      </div>
+      <span>Supported Sep, 2023 to Sep, 2028</span>
+    </div><div class="gz-version-switcher">
+  <span class="fs-4 fw-light pe-2">Release:</span>
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div></div>
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted/">Get Started</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../install/">Install</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install_ubuntu/">Binary Ubuntu Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_osx/">Binary macOS Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_windows/">Binary Windows Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_ubuntu_src/">Ubuntu Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_osx_src/">macOS Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_windows_src/">Windows Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_from_ignition/">Migration from Ignition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../comparison/">Feature Comparison</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/">Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../building_robot/">Building your own robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moving_robot/">Moving the robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdf_worlds/">SDF worlds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sensors/">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../actors/">Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gui/">Understanding the GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manipulating_models/">Manipulating Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_insert/">Model Insertion from Fuel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hotkeys/">Keyboard Shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spawn_urdf/">Spawn URDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_overview/">ROS 2 integration overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_launch_gazebo/">Launch Gazebo from ROS 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_integration/">Use ROS 2 to interact with Gazebo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_spawn_model/">Use ROS 2 to spawn a Gazebo model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_interop/">ROS 2 interoperability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros_gz_project_template_guide/">ROS 2 integration template</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ros_installation/">ROS/Gazebo Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_gz_vendor_pkgs/">ROS 2 Gazebo Vendor Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../install_gz11_side_by_side/">Installing Gazebo11 side by side with new Gazebo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating_gazebo_classic_ros2_packages/">Migration from ROS 2 Gazebo Classic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap/">Roadmap</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Release Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/">Releases</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../development/">Development</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ci/">Continuous Integration</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../release/">Release process</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../releasing/versioning_pre_nightly/">Debian/Ubuntu versioning in nightly and prerelease binaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases-instructions/">Release Instructions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/">Sim Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../fuel/">Fuel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_content_deletion_policy/">Content Deletion Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_model/">Contributing New Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_world/">Contributing New World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_copyright/">Copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_data_policy/">Data and Privacy Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_fair_use/">What is Fair Use</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../library_reference_nav/">Library Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/cmake/3">cmake</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/common/5">common</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/fuel_tools/9">fuel_tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/gui/8">gui</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/launch/7">launch</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/math/7">math</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/msgs/10">msgs</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/physics/7">physics</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/plugin/2">plugin</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/rendering/8">rendering</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sensors/8">sensors</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sim/8">sim</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/tools/2">tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/transport/13">transport</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/utils/2">utils</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sdformat/14">sdformat</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Gazebo...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="gazebo-release-features">
+<h1>Gazebo Release Features<a class="headerlink" href="#gazebo-release-features" title="Link to this heading">#</a></h1>
+<p>Here you will find the set of features that are available in each release.</p>
+<p>Take a look at the <a class="reference external" href="/docs/all/roadmap">Roadmap</a> for information about upcoming
+features, some of which may land in released versions of Gazebo.</p>
+<section id="harmonic">
+<h2>Harmonic<a class="headerlink" href="#harmonic" title="Link to this heading">#</a></h2>
+<p>For a complete list of features included in the initial release of Harmonic, please see the <a class="reference external" href="https://github.com/gazebosim/gz-harmonic/blob/main/highlights.md">highlights</a> and <a class="reference external" href="https://github.com/gazebosim/gz-harmonic/blob/main/release_notes.md">release notes</a> documentation in the Gazebo Harmonic repository.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Library name</p></th>
+<th class="head text-center"><p>Version</p></th>
+<th class="head text-center"><p>Changelog</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>gz-cmake</p></td>
+<td class="text-center"><p>3.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/blob/gz-cmake3/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-common</p></td>
+<td class="text-center"><p>5.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-common/blob/gz-common5/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-fuel-tools</p></td>
+<td class="text-center"><p>9.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/blob/gz-fuel-tools9/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-gui</p></td>
+<td class="text-center"><p>8.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-gui/blob/gz-gui8/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-launch</p></td>
+<td class="text-center"><p>7.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-launch/blob/gz-launch7/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-math</p></td>
+<td class="text-center"><p>7.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-math/blob/gz-math7/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-msgs</p></td>
+<td class="text-center"><p>10.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/blob/gz-msgs10/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-physics</p></td>
+<td class="text-center"><p>7.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-physics/blob/gz-physics7/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-plugin</p></td>
+<td class="text-center"><p>2.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-plugin/blob/gz-plugin2/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-rendering</p></td>
+<td class="text-center"><p>8.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-rendering/blob/gz-rendering8/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-sensors</p></td>
+<td class="text-center"><p>8.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-sensors/blob/gz-sensors8/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-sim</p></td>
+<td class="text-center"><p>8.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/gz-sim8/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-tools</p></td>
+<td class="text-center"><p>2.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-tools/blob/gz-tools2/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-transport</p></td>
+<td class="text-center"><p>13.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-transport/blob/gz-transport13/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-utils</p></td>
+<td class="text-center"><p>2.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-utils/blob/gz-utils2/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>sdformat</p></td>
+<td class="text-center"><p>14.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/osrf/sdformat/blob/sdf14/Changelog.md">Changelog</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="garden">
+<h2>Garden<a class="headerlink" href="#garden" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/1156">Point cloud visualization.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sensors/issues/24">Wide angle camera (Ogre 1).</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/235">DEM heightmaps.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sensors/issues/107">Camera distortion.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/1357">Wind effects configurable on a location basis.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/1107">Simulation Reset API.</a></p></li>
+<li><p><a class="reference external" href="https://community.gazebosim.org/t/a-new-era-for-gazebo/1356">Renaming Ignition to Gazebo.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/issues/344">glTF and GLB mesh support.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-rendering/pull/553">Vulkan support (Ogre 2.3)</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/sdformat/pull/1050">Lunar terrain and coordinates.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-plugin/pull/97">Static plugins.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-mujoco/tree/main/sdformat_mjcf">Conversion between SDF and MJCF.</a></p></li>
+<li><p><a class="reference external" href="http://sdformat.org/tutorials?tut=python_bindings&amp;amp;cat=developers&amp;amp;">Python API for SDFormat.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/sdformat/pull/985">Material shininess.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-physics/issues/44">Improve Bullet support (new gz-physics plugin for Bullet’s Featherstone API).</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-physics/issues/50">Generic physics tests.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/1804">Custom rendering sensors.</a><a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/1616">Environmental lookup sensors.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/1775">Allow loading SDFormat model files from the command line (instead of world files only).</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/1704">Simple acoustic communication plugin.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sensors/pull/305">Airspeed sensor.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/1462">Hydrodynamic added mass.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/1907">Magnetometer value based on location.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-rendering/issues/730">Lens flare support for Ogre and Ogre2.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/1801">Allow specifying initial simulation time with a CLI argument</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/sdformat/issues/1115">Joints defined at the world level</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/306">Dynamic wrench application through the GUI (Mouse interaction with simulated models)</a></p></li>
+</ol>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Library name</p></th>
+<th class="head text-center"><p>Version</p></th>
+<th class="head text-center"><p>Changelog</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>gz-cmake</p></td>
+<td class="text-center"><p>3.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/blob/gz-cmake3/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-common</p></td>
+<td class="text-center"><p>5.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-common/blob/gz-common5/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-fuel-tools</p></td>
+<td class="text-center"><p>8.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/blob/gz-fuel-tools8/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-gui</p></td>
+<td class="text-center"><p>7.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-gui/blob/gz-gui7/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-launch</p></td>
+<td class="text-center"><p>6.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-launch/blob/gz-launch6/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-math</p></td>
+<td class="text-center"><p>7.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-math/blob/gz-math7/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-msgs</p></td>
+<td class="text-center"><p>9.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/blob/gz-msgs9/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-physics</p></td>
+<td class="text-center"><p>6.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-physics/blob/gz-physics6/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-plugin</p></td>
+<td class="text-center"><p>2.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-plugin/blob/gz-plugin2/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-rendering</p></td>
+<td class="text-center"><p>7.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-rendering/blob/gz-rendering7/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-sensors</p></td>
+<td class="text-center"><p>7.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-sensors/blob/gz-sensors7/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-sim</p></td>
+<td class="text-center"><p>7.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/gz-sim7/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-tools</p></td>
+<td class="text-center"><p>2.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-tools/blob/gz-tools2/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-transport</p></td>
+<td class="text-center"><p>12.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-transport/blob/gz-transport12/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-utils</p></td>
+<td class="text-center"><p>2.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-utils/blob/gz-utils2/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>sdformat</p></td>
+<td class="text-center"><p>13.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/osrf/sdformat/blob/sdf13/Changelog.md">Changelog</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="fortress">
+<h2>Fortress<a class="headerlink" href="#fortress" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-rendering/issues/223">Headless simulation using EGL.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/711">Refactor ECM::Each for performance.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-rendering/issues/223">Upgrade to Ogre 2.2.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/osrf/sdformat/issues/252">Improve <code class="docutils literal notranslate"><span class="pre">&lt;pose&gt;</span></code> tag on SDFormat.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-rendering/issues/187">Heightmaps on Ogre 2</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/981">Spherical coordinates</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/ign-gazebo6/examples/worlds/buoyancy_engine.sdf">Buoyancy engine</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/ros_gz/pull/187">Control lights from ROS 2</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/789">Python interface to Gazebo.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/657">Custom shaders.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/265">Visual plugins.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-rendering/pull/541">Rendering waves.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/1416">Generic comms system.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/1241">Wheel slip commands.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/sdformat/tree/sdf12/examples/usdConverter">USD importer / exporter.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/ros_ign/pull/211">Bridge Gazebo services to ROS 2 services.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-omni">Omniverse application</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/224">Pose and Twist with covariance.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-physics/pull/352">Kinematic loops for detachable joints.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/ros_gz/pull/238">ROS bridge configurable via YAML.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/ros_gz/pull/238">ROS bridge as a node component.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/ros_gz/pull/265">SDF support on ROS 2.</a></p></li>
+<li><p>Sensors</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://gazebosim.org/api/sensors/6.0/custom_sensors.html">Custom sensors.</a></p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/api/sensors/6.0/segmentationcamera_igngazebo.html">Segmentation camera.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sensors/issues/25">Joint force-torque sensor.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sensors/issues/23">GPS / NavSat sensor.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sensors/issues/185">Triggered cameras.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sensors/issues/135">Bounding box camera.</a></p></li>
+</ol>
+</li>
+<li><p>GUI features</p>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-gui/issues/137">Consolidate Scene3D with GzScene3D</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/816">Visualize wireframes</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/878">Visualize transparent</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/111">Visualize inertia</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/110">Visualize center of mass</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/106">Visualize joints</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/103">Orthographic view</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/191">System inspector.</a></p></li>
+</ol>
+</li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/818">Hydrodynamics for water surface vehicles.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/sdformat/pull/1037">Custom skybox from SDF.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebo-web/gzweb/pull/35">Gz3D: support heightmaps, skybox and particles.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz_pkg_create">Tools for creating new Gazebo projects</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/1908">Simplify determination of a sensor’s topic name for rendering sensors.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/325">APIs that ease migration from classic.</a></p></li>
+</ol>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Library name</p></th>
+<th class="head text-center"><p>Version</p></th>
+<th class="head text-center"><p>Changelog</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>gz-cmake</p></td>
+<td class="text-center"><p>2.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/blob/ign-cmake2/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-common</p></td>
+<td class="text-center"><p>4.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-common/blob/ign-common4/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-fuel-tools</p></td>
+<td class="text-center"><p>7.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/blob/ign-fuel-tools7/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-sim</p></td>
+<td class="text-center"><p>6.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/ign-gazebo6/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-gui</p></td>
+<td class="text-center"><p>6.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-gui/blob/ign-gui6/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-launch</p></td>
+<td class="text-center"><p>5.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-launch/blob/ign-launch5/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-math</p></td>
+<td class="text-center"><p>6.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-math/blob/ign-math6/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-msgs</p></td>
+<td class="text-center"><p>8.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/blob/ign-msgs8/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-physics</p></td>
+<td class="text-center"><p>5.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-physics/blob/ign-physics5/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-plugin</p></td>
+<td class="text-center"><p>1.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-plugin/blob/ign-plugin1/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-rendering</p></td>
+<td class="text-center"><p>6.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-rendering/blob/ign-rendering6/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-sensors</p></td>
+<td class="text-center"><p>6.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-sensors/blob/ign-sensors6/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-tools</p></td>
+<td class="text-center"><p>1.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-tools/blob/ign-tools1/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-transport</p></td>
+<td class="text-center"><p>11.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-transport/blob/ign-transport11/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-utils</p></td>
+<td class="text-center"><p>1.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-utils/blob/ign-utils1/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>sdformat</p></td>
+<td class="text-center"><p>12.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/osrf/sdformat/blob/sdf12/Changelog.md">Changelog</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="edifice-eol">
+<h2>Edifice (EOL)<a class="headerlink" href="#edifice-eol" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>New utility library with minimal dependencies: <a class="reference external" href="https://github.com/gazebosim/gz-utils/">Gazebo Utils</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-rendering/issues/98">Sky box support.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/471">Lightmap support.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/osrf/sdformat/issues/376">Capsule and ellipsoid geometries.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/osrf/sdformat/issues/278">SDF model composition.</a></p></li>
+<li><p><a class="reference external" href="http://sdformat.org/tutorials?tut=composition_proposal&amp;amp;cat=pose_semantics_docs&amp;amp;#1-5-minimal-libsdformat-interface-types-for-non-sdformat-models">SDFormat interface for non-SDF models.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-rendering/pull/188">Choose render order for overlapping polygons.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/193">Light visualization.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/119">Spawn lights from the GUI.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/579">Mecanum wheel controller.</a></p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/api/gazebo/5.0/classignition_1_1gazebo_1_1systems_1_1Hydrodynamics.html">Hydrodynamics.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/800">Ocean currents.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-tools/issues/7">Hook command line tool to binaries instead of libraries.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/237">Heightmap support using Ogre 1 and DART.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/1343">Turn lights on and off.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/638">Toggle light visualization.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/1331">Model photoshoot plugin.</a></p></li>
+</ol>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Library name</p></th>
+<th class="head text-center"><p>Version</p></th>
+<th class="head text-center"><p>Changelog</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>gz-cmake</p></td>
+<td class="text-center"><p>2.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/blob/ign-cmake2/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-common</p></td>
+<td class="text-center"><p>4.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-common/blob/ign-common4/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-fuel-tools</p></td>
+<td class="text-center"><p>6.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/blob/ign-fuel-tools6/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-sim</p></td>
+<td class="text-center"><p>5.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/ign-gazebo5/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-gui</p></td>
+<td class="text-center"><p>5.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-gui/blob/ign-gui5/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-launch</p></td>
+<td class="text-center"><p>4.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-launch/blob/ign-launch4/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-math</p></td>
+<td class="text-center"><p>6.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-math/blob/ign-math6/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-msgs</p></td>
+<td class="text-center"><p>7.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/blob/ign-msgs7/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-physics</p></td>
+<td class="text-center"><p>4.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-physics/blob/ign-physics4/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-plugin</p></td>
+<td class="text-center"><p>1.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-plugin/blob/ign-plugin1/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-rendering</p></td>
+<td class="text-center"><p>5.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-rendering/blob/ign-rendering5/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-sensors</p></td>
+<td class="text-center"><p>5.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-sensors/blob/ign-sensors5/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-tools</p></td>
+<td class="text-center"><p>1.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-tools/blob/ign-tools1/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-transport</p></td>
+<td class="text-center"><p>10.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-transport/blob/ign-transport10/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-utils</p></td>
+<td class="text-center"><p>1.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-utils/blob/ign-utils1/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>sdformat</p></td>
+<td class="text-center"><p>11.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/osrf/sdformat/blob/sdf11/Changelog.md">Changelog</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="dome-eol">
+<h2>Dome (EOL)<a class="headerlink" href="#dome-eol" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Particle effects on <a class="reference external" href="https://gazebosim.org/api/rendering/4.1/particles.html">Gazebo Rendering</a> and <a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/ign-gazebo4/examples/worlds/particle_emitter.sdf">Gazebo Sim</a>.</p></li>
+<li><p>Actor plugins.</p></li>
+<li><p>Efficient skeleton animations.</p></li>
+<li><p><a class="reference external" href="https://community.gazebosim.org/t/gsoc-2020-ignition-gazebo-optical-tactile-sensor-plugin/618">Optical tactile sensor plugin.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/239">Support entity names with spaces.</a></p></li>
+<li><p>Kinetic energy monitor plugin.</p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/api/sensors/4.1/thermalcameraigngazebo.html">Texture-based thermal signature</a> for objects, visible from thermal camera.</p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/docs/dome/web_visualization">Web visualization of running simulations</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-physics/issues/44">Bullet physics engine.</a></p></li>
+<li><p><a class="reference external" href="http://sdformat.org/tutorials?tut=param_passing_proposal">Parametrized SDF files.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/sdformat/issues/181">libSDFormat now uses gz-cmake</a></p></li>
+<li><p>GUI tools:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://community.gazebosim.org/t/gsoc-2020-plotting-tool-for-ignition/619">Plotting</a></p></li>
+<li><p><a class="reference external" href="https://community.gazebosim.org/t/gsoc-2020-sensor-data-visualization/638">Lidar visualization</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/536">Configure physics real time factor and step size.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/122">Configure lights from the GUI or transport.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/234">Contact visualization.</a></p></li>
+</ul>
+</li>
+</ol>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Library name</p></th>
+<th class="head text-center"><p>Version</p></th>
+<th class="head text-center"><p>Changelog</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>gz-cmake</p></td>
+<td class="text-center"><p>2.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/blob/ign-cmake2/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-common</p></td>
+<td class="text-center"><p>3.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-common/blob/ign-common3/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-fuel-tools</p></td>
+<td class="text-center"><p>5.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/blob/ign-fuel-tools5/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-sim</p></td>
+<td class="text-center"><p>4.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/ign-gazebo4/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-gui</p></td>
+<td class="text-center"><p>4.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-gui/blob/ign-gui4/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-launch</p></td>
+<td class="text-center"><p>3.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-launch/blob/ign-launch3/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-math</p></td>
+<td class="text-center"><p>6.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-math/blob/ign-math6/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-msgs</p></td>
+<td class="text-center"><p>6.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/blob/ign-msgs6/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-physics</p></td>
+<td class="text-center"><p>3.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-physics/blob/ign-physics3/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-plugin</p></td>
+<td class="text-center"><p>1.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-plugin/blob/ign-plugin1/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-rendering</p></td>
+<td class="text-center"><p>4.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-rendering/blob/ign-rendering4/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-sensors</p></td>
+<td class="text-center"><p>4.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-sensors/blob/ign-sensors4/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-tools</p></td>
+<td class="text-center"><p>1.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-tools/blob/ign-tools1/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-transport</p></td>
+<td class="text-center"><p>9.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-transport/blob/ign-transport9/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>sdformat</p></td>
+<td class="text-center"><p>10.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/osrf/sdformat/blob/sdf10/Changelog.md">Changelog</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="citadel-lts">
+<h2>Citadel (LTS)<a class="headerlink" href="#citadel-lts" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>Visual markers.</p></li>
+<li><p>Animated actors for Ogre 1 and Ogre 2.</p></li>
+<li><p>Thermal camera sensor.</p></li>
+<li><p>Emissive texture maps.</p></li>
+<li><p>SDFormat frame semantics.</p></li>
+<li><p>Upload and delete models to Fuel from command line.</p></li>
+<li><p>Buoyancy model.</p></li>
+<li><p><a class="reference external" href="https://community.gazebosim.org/t/announcing-new-physics-engine-tpe-trivial-physics-engine/629">Trivial Physics Engine</a></p></li>
+<li><p><a class="reference external" href="https://community.gazebosim.org/t/gsoc-2020-new-ignition-gazebo-demos/613">Tutorial series</a>.</p></li>
+<li><p><a class="reference external" href="https://community.gazebosim.org/t/gsod-2020-ignition-physics-tutorial-and-api-documentation/746">Improved Gazebo Physics documentation.</a></p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/api/rendering/3.2/renderingplugin.html">Custom rendering engines.</a></p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/api/gazebo/3.7/logicalaudiosensor.html">Logical audio sensor and source.</a></p></li>
+<li><p>Lockstepped video recording that can optionally use simulation time instead of real time.</p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/api/gazebo/3.7/migrationsdf.html">Easier migration of SDF files from Gazebo classic.</a></p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/docs/citadel/install_windows">Binary Windows install through conda-forge.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-physics/pull/139">Restitution coefficient (bouncing).</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/ign-gazebo3/examples/worlds/gpu_lidar_retro_values_sensor.sdf">Custom retroreflection for objects detected by lidar.</a></p></li>
+<li><p><a class="reference external" href="http://sdformat.org/tutorials">More SDFormat documentation</a>.</p></li>
+<li><p>Load PBR materials from OBJ.</p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/313">Model info CLI.</a></p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/api/gazebo/3.9/test_fixture.html">Test fixture to easily run simulation-based automated tests.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/939">Drag and drop meshes into the scene.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/869">Tracked vehicles</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-math/issues/210">Python interface for Gazebo Math.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz_ros2_control/">Integration with ros2_control.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazbosim/docs/issues/222">gz_ros2_control support for various models</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/docs/issues/186">Polyline extruded 2D geometries</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/1593">Apply forces and torques via transport or SDF</a></p></li>
+<li><p>New graphical interfaces:</p>
+<ul class="simple">
+<li><p>Widget listing all transport topics.</p></li>
+<li><p>Widget that publishes keys pressed on the keyboard.</p></li>
+<li><p>Collision visualization.</p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/api/gui/3.5/screenshot.html">Screenshot widget.</a></p></li>
+<li><p><a class="reference external" href="https://app.gazebosim.org/OpenRobotics/fuel/worlds/NAO%20joint%20control">Joint position controller.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-gui/issues/186">2D teleop widget.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/231">3D plot.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-gui/issues/44">Notification snackbar</a></p></li>
+</ul>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/1252">Quick start dialog.</a></p></li>
+</ol>
+</li>
+<li><p>APIs that make it easier to migrate from Gazebo classic:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://gazebosim.org/api/gazebo/3.5/migrationworldapi.html">World</a></p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/api/gazebo/3.5/migrationmodelapi.html">Model</a></p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/api/gazebo/3.5/migrationlinkapi.html">Link</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/sdformat/pull/1088">Expose camera calibration parameters.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/1936">Speed up Resource Spawner.</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-tools/issues/1">Bash completion</a></p></li>
+</ol>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Library name</p></th>
+<th class="head text-center"><p>Version</p></th>
+<th class="head text-center"><p>Changelog</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>gz-cmake</p></td>
+<td class="text-center"><p>2.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/blob/ign-cmake2/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-common</p></td>
+<td class="text-center"><p>3.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-common/blob/ign-common3/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-fuel-tools</p></td>
+<td class="text-center"><p>4.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/blob/ign-fuel-tools4/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-sim</p></td>
+<td class="text-center"><p>3.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/ign-gazebo3/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-gui</p></td>
+<td class="text-center"><p>3.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-gui/blob/ign-gui3/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-launch</p></td>
+<td class="text-center"><p>2.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-launch/blob/ign-launch2/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-math</p></td>
+<td class="text-center"><p>6.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-math/blob/ign-math6/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-msgs</p></td>
+<td class="text-center"><p>5.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/blob/ign-msgs5/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-physics</p></td>
+<td class="text-center"><p>2.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-physics/blob/ign-physics2/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-plugin</p></td>
+<td class="text-center"><p>1.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-plugin/blob/ign-plugin1/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-rendering</p></td>
+<td class="text-center"><p>3.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-rendering/blob/ign-rendering3/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-sensors</p></td>
+<td class="text-center"><p>3.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-sensors/blob/ign-sensors3/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-tools</p></td>
+<td class="text-center"><p>1.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-tools/blob/ign-tools1/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-transport</p></td>
+<td class="text-center"><p>8.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-transport/blob/ign-transport8/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>sdformat</p></td>
+<td class="text-center"><p>9.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/osrf/sdformat/blob/sdf9/Changelog.md">Changelog</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="blueprint-eol">
+<h2>Blueprint (EOL)<a class="headerlink" href="#blueprint-eol" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Physically_based_rendering">Physically based rendering (PBR)</a> materials.</p></li>
+<li><p>Air pressure, RGBD and stereo camera sensors.</p></li>
+<li><p>Global wind model.</p></li>
+<li><p>Joint state publisher.</p></li>
+<li><p>Support for UAVs.</p></li>
+<li><p>Integration of <code class="docutils literal notranslate"><span class="pre">ign</span></code> command line tool into Gazebo Sim.</p></li>
+<li><p>Logging and playback of simulation state.</p></li>
+<li><p>Command line tools to control log playback.</p></li>
+<li><p>Battery model based on vehicle motion and rechargeable batteries.</p></li>
+<li><p>Integration of <a class="reference external" href="https://github.com/google/benchmark">Google benchmark</a> for performance metrics and analysis.</p></li>
+<li><p>Tracked vehicle support.</p></li>
+<li><p>Breadcrumbs plugin.</p></li>
+<li><p>Position-based PID controller.</p></li>
+<li><p>Improved resource path handling.</p></li>
+<li><p>Loading custom physics engine plugins.</p></li>
+<li><p>Plugin that publishes a user specified message on an output topic in response to an input message.</p></li>
+<li><p>Noise for RGBD camera.</p></li>
+<li><p>Load worlds from Fuel.</p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/api/gazebo/3.3/gui_config.html">Customizable GUI layout</a>.</p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/api/gazebo/4.0/detachablejoints.html">Detachable joints</a></p></li>
+<li><p>GUI tools:</p>
+<ul class="simple">
+<li><p>GUI tools for model placement, and a new Scene Tree widget.</p></li>
+<li><p>Translate and rotate models.</p></li>
+<li><p>Entity tree.</p></li>
+<li><p>Video recorder.</p></li>
+<li><p>Move to models.</p></li>
+<li><p>Follow model.</p></li>
+<li><p>Delete model.</p></li>
+<li><p>Grid.</p></li>
+<li><p>Drag-and-drop models from Fuel to Gazebo Sim UI.</p></li>
+<li><p>Preset view angles.</p></li>
+<li><p>Hotkeys for transform modes and snapping.</p></li>
+<li><p>Entity selection.</p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/docs/dome/manipulating_models#align-tool">Align models</a>.</p></li>
+<li><p>Insert simple shapes.</p></li>
+<li><p>Insert models from online sources and local directories.</p></li>
+<li><p>Log playback scrubber.</p></li>
+<li><p>Save worlds.</p></li>
+<li><p>Tape measure.</p></li>
+</ul>
+</li>
+</ol>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Library name</p></th>
+<th class="head text-center"><p>Version</p></th>
+<th class="head text-center"><p>Changelog</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>gz-cmake</p></td>
+<td class="text-center"><p>2.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/blob/ign-cmake2/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-common</p></td>
+<td class="text-center"><p>3.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-common/blob/ign-common3/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-fuel-tools</p></td>
+<td class="text-center"><p>3.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/blob/ign-fuel-tools3/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-sim</p></td>
+<td class="text-center"><p>2.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/ign-gazebo2/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-gui</p></td>
+<td class="text-center"><p>2.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-gui/blob/ign-gui2/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-launch</p></td>
+<td class="text-center"><p>1.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-launch/blob/ign-launch1/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-math</p></td>
+<td class="text-center"><p>6.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-math/blob/ign-math6/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-msgs</p></td>
+<td class="text-center"><p>4.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/blob/ign-msgs4/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-physics</p></td>
+<td class="text-center"><p>1.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-physics/blob/ign-physics1/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-plugin</p></td>
+<td class="text-center"><p>1.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-plugin/blob/ign-plugin1/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-rendering</p></td>
+<td class="text-center"><p>2.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-rendering/blob/ign-rendering2/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-sensors</p></td>
+<td class="text-center"><p>2.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-sensors/blob/ign-sensors2/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-tools</p></td>
+<td class="text-center"><p>0.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-tools/blob/ign-tools0/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-transport</p></td>
+<td class="text-center"><p>7.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-transport/blob/ign-transport7/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>sdformat</p></td>
+<td class="text-center"><p>8.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/osrf/sdformat/blob/sdf8/Changelog.md">Changelog</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="acropolis-eol">
+<h2>Acropolis (EOL)<a class="headerlink" href="#acropolis-eol" title="Link to this heading">#</a></h2>
+<p>The first major release of Gazebo focused on the basics of simulation. The basics primarily encompassed integration of physics, sensors, graphical tools, and programmatic interfaces.</p>
+<ol class="arabic simple">
+<li><p>Support for <a class="reference external" href="https://dartsim.github.io/">DART</a> in <a class="reference external" href="/libs/physics">Gazebo Physics</a>.</p></li>
+<li><p>Ogre1.9 and Ogre2.1 support in <a class="reference external" href="/libs/rendering">Gazebo Rendering</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Entity_component_system">Entity Component System</a> based simulation engine in <a class="reference external" href="/libs/gazebo">Gazebo Sim</a>.</p></li>
+<li><p>A sensor suite that includes contact sensor, logical camera, monocular camera, depth camera, LIDAR, magnetometer, altimeter, and IMU is available through <a class="reference external" href="/libs/sensors">Gazebo Sensors</a> and <a class="reference external" href="/libs/gazebo">Gazebo Sim</a>.</p></li>
+<li><p><a class="reference external" href="/libs/launch">Launch system</a> capable of running and managing a set of plugins and executables.</p></li>
+<li><p>Cloud-hosted simulation assets provided by <a class="reference external" href="https://app.gazebosim.org">app.gazebosim.org</a>.</p></li>
+<li><p>Distributed simulation using lock-stepping.</p></li>
+<li><p>Dynamic loading/unloading of simulation models based on the location of performer, usually a robot.</p></li>
+<li><p>Simulation state logging.</p></li>
+<li><p>Plugin-based GUI system based on <a class="reference external" href="https://en.wikipedia.org/wiki/Qt_Quick">QtQuick</a> and <a class="reference external" href="https://material.io/design/">Material Design</a>. Available
+plugins include 3D scene viewer, image viewer, topic echo, topic
+publisher, world control, and world statistics.</p></li>
+</ol>
+<p>The Acropolis collection is composed by many different Gazebo libraries. The
+collection assures that all libraries all compatible and can be used together.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Library name</p></th>
+<th class="head text-center"><p>Version</p></th>
+<th class="head text-center"><p>Changelog</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>gz-cmake</p></td>
+<td class="text-center"><p>2.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/blob/ign-cmake2/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-common</p></td>
+<td class="text-center"><p>3.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-common/blob/ign-common3/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-fuel-tools</p></td>
+<td class="text-center"><p>3.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/blob/ign-fuel-tools3/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-sim</p></td>
+<td class="text-center"><p>1.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/ign-gazebo1/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-gui</p></td>
+<td class="text-center"><p>1.x</p></td>
+<td class="text-center"><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-launch</p></td>
+<td class="text-center"><p>0.x</p></td>
+<td class="text-center"><p>None</p></td>
+</tr>
+<tr class="row-even"><td><p>gz-math</p></td>
+<td class="text-center"><p>6.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-math/blob/ign-math6/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-msgs</p></td>
+<td class="text-center"><p>3.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/blob/ign-msgs3/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-physics</p></td>
+<td class="text-center"><p>1.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-physics/blob/ign-physics1/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-plugin</p></td>
+<td class="text-center"><p>1.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-plugin/blob/ign-plugin1/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-rendering</p></td>
+<td class="text-center"><p>1.x</p></td>
+<td class="text-center"><p>None</p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-sensors</p></td>
+<td class="text-center"><p>1.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-sensors/blob/ign-sensors1/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>gz-tools</p></td>
+<td class="text-center"><p>0.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-tools/blob/ign-tools0/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>gz-transport</p></td>
+<td class="text-center"><p>6.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/gazebosim/gz-transport/blob/ign-transport6/Changelog.md">Changelog</a></p></td>
+</tr>
+<tr class="row-even"><td><p>sdformat</p></td>
+<td class="text-center"><p>8.x</p></td>
+<td class="text-center"><p><a class="reference external" href="https://github.com/osrf/sdformat/blob/sdf8/Changelog.md">Changelog</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p>All the functionality for creating custom rendering sensors is in Garden, but the PR listed, which serves as an
+example, is only available in Harmonic.</p>
+</aside>
+</aside>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harmonic">Harmonic</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#garden">Garden</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fortress">Fortress</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edifice-eol">Edifice (EOL)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dome-eol">Dome (EOL)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citadel-lts">Citadel (LTS)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#blueprint-eol">Blueprint (EOL)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acropolis-eol">Acropolis (EOL)</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/gazebosim/docs/edit/master/release_features.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p> Brought to you by <a href="https://openrobotics.org">Open Robotics</a>. </p>
+<p> Except where otherwise noted, the gazebosim.org web pages are licensed under <a
+    href="https://creativecommons.org/licenses/by/3.0/us/">Creative Commons
+    Attribution 3.0</a>. </p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

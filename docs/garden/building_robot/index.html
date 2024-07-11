@@ -1,0 +1,1017 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Building your own robot &#8212; Gazebo garden documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/gazebo.css?v=12e630a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=78778182"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'building_robot';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://gazebosim.github.io/docs/docs/garden/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'garden';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="canonical" href="https://gazebosim.github.io/docs/docs/latestbuilding_robot/" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Moving the robot" href="../moving_robot/" />
+    <link rel="prev" title="Gazebo Tutorials" href="../tutorials/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+  
+  <aside aria-label="Version warning" class="bd-header-announcement bd-header-version-info" style="min-height: 3rem;">
+    <div class="bd-header-announcement__content">
+      <div class="sidebar-message">
+        
+          This is documentation for <strong> Gazebo Garden</strong>,
+          an older but still supported version of Gazebo. 
+        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version"
+        href="../../harmonic/building_robot">Switch to the latest stable version</a>
+      </div>
+    </div>
+  </aside>
+  
+
+
+
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/gazebo_horz_pos.svg" class="logo__image only-light" alt="Gazebo garden documentation - Home"/>
+    <script>document.write(`<img src="../_static/gazebo_horz_neg.svg" class="logo__image only-dark" alt="Gazebo garden documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+
+
+<div class="doc-header">
+  <div class="banner d-flex flex-column-reverse flex-sm-row">
+    <div>
+      <div class="d-none d-sm-block">
+        <span class="d-inline fs-2">Docs / Gazebo Garden</span>
+        
+      </div>
+      <span>Supported Sep, 2022 to Sep, 2024</span>
+    </div><div class="gz-version-switcher">
+  <span class="fs-4 fw-light pe-2">Release:</span>
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div></div>
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted/">Get Started</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../install/">Install</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install_ubuntu/">Binary Ubuntu Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_osx/">Binary macOS Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_windows/">Binary Windows Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_ubuntu_src/">Ubuntu Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_osx_src/">macOS Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_windows_src/">Windows Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_from_ignition/">Migration from Ignition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../comparison/">Feature Comparison</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../tutorials/">Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Building your own robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moving_robot/">Moving the robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdf_worlds/">SDF worlds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sensors/">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../actors/">Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gui/">Understanding the GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manipulating_models/">Manipulating Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_insert/">Model Insertion from Fuel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hotkeys/">Keyboard Shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spawn_urdf/">Spawn URDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_integration/">ROS 2 integration via bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_interop/">ROS 2 interoperability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros_gz_project_template_guide/">ROS 2 integration template</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ros_installation/">ROS/Gazebo Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_gz_vendor_pkgs/">ROS 2 Gazebo Vendor Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../install_gz11_side_by_side/">Installing Gazebo11 side by side with new Gazebo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating_gazebo_classic_ros2_packages/">Migration from ROS 2 Gazebo Classic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap/">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-features/">Release Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/">Releases</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../development/">Development</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ci/">Continuous Integration</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../release/">Release process</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../releasing/versioning_pre_nightly/">Debian/Ubuntu versioning in nightly and prerelease binaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases-instructions/">Release Instructions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/">Sim Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../fuel/">Fuel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_content_deletion_policy/">Content Deletion Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_model/">Contributing New Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_world/">Contributing New World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_copyright/">Copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_data_policy/">Data and Privacy Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_fair_use/">What is Fair Use</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../library_reference_nav/">Library Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/cmake/3">cmake</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/common/5">common</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/fuel_tools/8">fuel_tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/gui/7">gui</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/launch/6">launch</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/math/7">math</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/msgs/9">msgs</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/physics/6">physics</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/plugin/2">plugin</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/rendering/7">rendering</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sensors/7">sensors</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sim/7">sim</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/tools/2">tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/transport/12">transport</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/utils/2">utils</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sdformat/13">sdformat</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../tutorials/" class="nav-link">Gazebo Tutorials</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Building...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="building-your-own-robot">
+<h1>Building your own robot<a class="headerlink" href="#building-your-own-robot" title="Link to this heading">#</a></h1>
+<p>In this tutorial we will learn how to build our own robot in SDFormat. We will build a simple two wheeled robot.</p>
+<p>You can find the finished SDF file for the tutorial <a class="reference external" href="https://github.com/gazebosim/docs/blob/master/garden/tutorials/building_robot/building_robot.sdf">here</a>.</p>
+<section id="what-is-sdf">
+<h2>What is SDF<a class="headerlink" href="#what-is-sdf" title="Link to this heading">#</a></h2>
+<p><a class="reference external" href="http://sdformat.org/">SDFormat</a> (Simulation Description Format), sometimes abbreviated as SDF, is an XML format that describes objects and environments for robot simulators, visualization, and control.</p>
+</section>
+<section id="building-a-world">
+<h2>Building a world<a class="headerlink" href="#building-a-world" title="Link to this heading">#</a></h2>
+<p>We will start by building a simple world and then build our robot in it. Open a new file called <code class="docutils literal notranslate"><span class="pre">building_robot.sdf</span></code> and copy the following code to it.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
+<span class="nt">&lt;sdf</span><span class="w"> </span><span class="na">version=</span><span class="s">&quot;1.10&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;world</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;car_world&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;physics</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;1ms&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ignored&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;max_step_size&gt;</span>0.001<span class="nt">&lt;/max_step_size&gt;</span>
+<span class="w">            </span><span class="nt">&lt;real_time_factor&gt;</span>1.0<span class="nt">&lt;/real_time_factor&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/physics&gt;</span>
+<span class="w">        </span><span class="nt">&lt;plugin</span>
+<span class="w">            </span><span class="na">filename=</span><span class="s">&quot;gz-sim-physics-system&quot;</span>
+<span class="w">            </span><span class="na">name=</span><span class="s">&quot;gz::sim::systems::Physics&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/plugin&gt;</span>
+<span class="w">        </span><span class="nt">&lt;plugin</span>
+<span class="w">            </span><span class="na">filename=</span><span class="s">&quot;gz-sim-user-commands-system&quot;</span>
+<span class="w">            </span><span class="na">name=</span><span class="s">&quot;gz::sim::systems::UserCommands&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/plugin&gt;</span>
+<span class="w">        </span><span class="nt">&lt;plugin</span>
+<span class="w">            </span><span class="na">filename=</span><span class="s">&quot;gz-sim-scene-broadcaster-system&quot;</span>
+<span class="w">            </span><span class="na">name=</span><span class="s">&quot;gz::sim::systems::SceneBroadcaster&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/plugin&gt;</span>
+
+<span class="w">        </span><span class="nt">&lt;light</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;directional&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;sun&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;cast_shadows&gt;</span>true<span class="nt">&lt;/cast_shadows&gt;</span>
+<span class="w">            </span><span class="nt">&lt;pose&gt;</span>0<span class="w"> </span>0<span class="w"> </span>10<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
+<span class="w">            </span><span class="nt">&lt;diffuse&gt;</span>0.8<span class="w"> </span>0.8<span class="w"> </span>0.8<span class="w"> </span>1<span class="nt">&lt;/diffuse&gt;</span>
+<span class="w">            </span><span class="nt">&lt;specular&gt;</span>0.2<span class="w"> </span>0.2<span class="w"> </span>0.2<span class="w"> </span>1<span class="nt">&lt;/specular&gt;</span>
+<span class="w">            </span><span class="nt">&lt;attenuation&gt;</span>
+<span class="w">                </span><span class="nt">&lt;range&gt;</span>1000<span class="nt">&lt;/range&gt;</span>
+<span class="w">                </span><span class="nt">&lt;constant&gt;</span>0.9<span class="nt">&lt;/constant&gt;</span>
+<span class="w">                </span><span class="nt">&lt;linear&gt;</span>0.01<span class="nt">&lt;/linear&gt;</span>
+<span class="w">                </span><span class="nt">&lt;quadratic&gt;</span>0.001<span class="nt">&lt;/quadratic&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/attenuation&gt;</span>
+<span class="w">            </span><span class="nt">&lt;direction&gt;</span>-0.5<span class="w"> </span>0.1<span class="w"> </span>-0.9<span class="nt">&lt;/direction&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/light&gt;</span>
+
+<span class="w">        </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ground_plane&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;static&gt;</span>true<span class="nt">&lt;/static&gt;</span>
+<span class="w">            </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;link&quot;</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;collision</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;collision&quot;</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;geometry&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;plane&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;normal&gt;</span>0<span class="w"> </span>0<span class="w"> </span>1<span class="nt">&lt;/normal&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;/plane&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/collision&gt;</span>
+<span class="w">                </span><span class="nt">&lt;visual</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;visual&quot;</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;geometry&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;plane&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;normal&gt;</span>0<span class="w"> </span>0<span class="w"> </span>1<span class="nt">&lt;/normal&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;size&gt;</span>100<span class="w"> </span>100<span class="nt">&lt;/size&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;/plane&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="w">                </span><span class="nt">&lt;material&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;ambient&gt;</span>0.8<span class="w"> </span>0.8<span class="w"> </span>0.8<span class="w"> </span>1<span class="nt">&lt;/ambient&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;diffuse&gt;</span>0.8<span class="w"> </span>0.8<span class="w"> </span>0.8<span class="w"> </span>1<span class="nt">&lt;/diffuse&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;specular&gt;</span>0.8<span class="w"> </span>0.8<span class="w"> </span>0.8<span class="w"> </span>1<span class="nt">&lt;/specular&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/material&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/visual&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/link&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/model&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/world&gt;</span>
+<span class="nt">&lt;/sdf&gt;</span>
+</pre></div>
+</div>
+<p>Save the file, navigate to the directory where you saved the file and launch the simulator:</p>
+<p><code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">sim</span> <span class="pre">building_robot.sdf</span></code></p>
+<p><strong>Note</strong>: You can name your file any name and save it anywhere on your computer.</p>
+<p>You should see an empty world with just a ground plane and a sun light. Check <a class="reference external" href="sdf_worlds">World demo</a> to learn how to build your own world.</p>
+</section>
+<section id="building-a-model">
+<h2>Building a model<a class="headerlink" href="#building-a-model" title="Link to this heading">#</a></h2>
+<p>Under the <code class="docutils literal notranslate"><span class="pre">&lt;/model&gt;</span></code> tag we will add our robot model as follows:</p>
+<section id="defining-the-model">
+<h3>Defining the model<a class="headerlink" href="#defining-the-model" title="Link to this heading">#</a></h3>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;vehicle_blue&#39;</span><span class="w"> </span><span class="na">canonical_link=</span><span class="s">&#39;chassis&#39;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">&#39;world&#39;</span><span class="nt">&gt;</span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
+</pre></div>
+</div>
+<p>Here we define the name of our model <code class="docutils literal notranslate"><span class="pre">vehicle_blue</span></code>, which should be a unique name among its siblings (other tags or models on the same level).
+Each model may have one link designated as the <code class="docutils literal notranslate"><span class="pre">canonical_link</span></code>, the implicit frame of the model is attached to this link. If not defined, the first <code class="docutils literal notranslate"><span class="pre">&lt;link&gt;</span></code> will be chosen as the canonical link.
+The <code class="docutils literal notranslate"><span class="pre">&lt;pose&gt;</span></code> tag is used to define the position and orientation of our model and the <code class="docutils literal notranslate"><span class="pre">relative_to</span></code> attribute is used to define the pose of the model relative to any other frame.
+If <code class="docutils literal notranslate"><span class="pre">relative_to</span></code> is not defined, the model’s <code class="docutils literal notranslate"><span class="pre">&lt;pose&gt;</span></code> will be relative to the world.</p>
+<p>Let’s make our pose relative to the <code class="docutils literal notranslate"><span class="pre">world</span></code>. The values inside the pose tag are as follows: <code class="docutils literal notranslate"><span class="pre">&lt;pose&gt;X</span> <span class="pre">Y</span> <span class="pre">Z</span> <span class="pre">R</span> <span class="pre">P</span> <span class="pre">Y&lt;/pose&gt;</span></code>, where the <code class="docutils literal notranslate"><span class="pre">X</span> <span class="pre">Y</span> <span class="pre">Z</span></code> represent the position of the frame and <code class="docutils literal notranslate"><span class="pre">R</span> <span class="pre">P</span> <span class="pre">Y</span></code> represent the orientation in roll pitch yaw.
+We set them to zeros which makes the two frames (the model and the world) identical.</p>
+</section>
+</section>
+<section id="links-forming-our-robot">
+<h2>Links forming our robot<a class="headerlink" href="#links-forming-our-robot" title="Link to this heading">#</a></h2>
+<p>Every model is a group of <code class="docutils literal notranslate"><span class="pre">links</span></code> (can be just one link) connected together with <code class="docutils literal notranslate"><span class="pre">joints</span></code>.</p>
+<section id="chassis">
+<h3>Chassis<a class="headerlink" href="#chassis" title="Link to this heading">#</a></h3>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;chassis&#39;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">&#39;__model__&#39;</span><span class="nt">&gt;</span>0.5<span class="w"> </span>0<span class="w"> </span>0.4<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
+</pre></div>
+</div>
+<p>We define the first link, the <code class="docutils literal notranslate"><span class="pre">chassis</span></code> of our car and it’s pose relative to the <code class="docutils literal notranslate"><span class="pre">model</span></code>.</p>
+<section id="inertial-properties">
+<h4>Inertial properties<a class="headerlink" href="#inertial-properties" title="Link to this heading">#</a></h4>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&lt;inertial&gt;</span><span class="w"> </span><span class="cm">&lt;!--inertial properties of the link mass, inertia matrix--&gt;</span>
+<span class="w">        </span><span class="nt">&lt;mass&gt;</span>1.14395<span class="nt">&lt;/mass&gt;</span>
+<span class="w">        </span><span class="nt">&lt;inertia&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ixx&gt;</span>0.095329<span class="nt">&lt;/ixx&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ixy&gt;</span>0<span class="nt">&lt;/ixy&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ixz&gt;</span>0<span class="nt">&lt;/ixz&gt;</span>
+<span class="w">            </span><span class="nt">&lt;iyy&gt;</span>0.381317<span class="nt">&lt;/iyy&gt;</span>
+<span class="w">            </span><span class="nt">&lt;iyz&gt;</span>0<span class="nt">&lt;/iyz&gt;</span>
+<span class="w">            </span><span class="nt">&lt;izz&gt;</span>0.476646<span class="nt">&lt;/izz&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/inertia&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/inertial&gt;</span>
+</pre></div>
+</div>
+<p>Here we define the inertial properties of the chassis like the <code class="docutils literal notranslate"><span class="pre">&lt;mass&gt;</span></code> and the <code class="docutils literal notranslate"><span class="pre">&lt;inertia&gt;</span></code> matrix. The values of the inertia matrix for primitive shapes can be calculated using this <a class="reference external" href="https://amesweb.info/inertia/mass-moment-of-inertia-calculator.aspx">tool</a>.</p>
+</section>
+<section id="visual-and-collision">
+<h4>Visual and collision<a class="headerlink" href="#visual-and-collision" title="Link to this heading">#</a></h4>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&lt;visual</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;visual&#39;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;geometry&gt;</span>
+<span class="w">            </span><span class="nt">&lt;box&gt;</span>
+<span class="w">                </span><span class="nt">&lt;size&gt;</span>2.0<span class="w"> </span>1.0<span class="w"> </span>0.5<span class="nt">&lt;/size&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/box&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="w">        </span><span class="cm">&lt;!--let&#39;s add color to our link--&gt;</span>
+<span class="w">        </span><span class="nt">&lt;material&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ambient&gt;</span>0.0<span class="w"> </span>0.0<span class="w"> </span>1.0<span class="w"> </span>1<span class="nt">&lt;/ambient&gt;</span>
+<span class="w">            </span><span class="nt">&lt;diffuse&gt;</span>0.0<span class="w"> </span>0.0<span class="w"> </span>1.0<span class="w"> </span>1<span class="nt">&lt;/diffuse&gt;</span>
+<span class="w">            </span><span class="nt">&lt;specular&gt;</span>0.0<span class="w"> </span>0.0<span class="w"> </span>1.0<span class="w"> </span>1<span class="nt">&lt;/specular&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/material&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/visual&gt;</span>
+</pre></div>
+</div>
+<p>As the name suggests, the <code class="docutils literal notranslate"><span class="pre">&lt;visual&gt;</span></code> tag is responsible for how our link will look.
+We define the shape of our link inside the <code class="docutils literal notranslate"><span class="pre">&lt;geometry&gt;</span></code> tag as a <code class="docutils literal notranslate"><span class="pre">&lt;box&gt;</span></code> (cuboid) and then specify the three dimensions (in meters) of this box inside the <code class="docutils literal notranslate"><span class="pre">&lt;size&gt;</span></code> tag.
+Then, inside the <code class="docutils literal notranslate"><span class="pre">&lt;material&gt;</span></code> tag we define the material of our link.
+Here we defined the <code class="docutils literal notranslate"><span class="pre">&lt;ambient&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;diffuse&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;specular&gt;</span></code> colors in a set of four numbers red/green/blue/alpha each in range [0, 1].</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">&lt;collision</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;collision&#39;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;geometry&gt;</span>
+<span class="w">                </span><span class="nt">&lt;box&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;size&gt;</span>2.0<span class="w"> </span>1.0<span class="w"> </span>0.5<span class="nt">&lt;/size&gt;</span>
+<span class="w">                </span><span class="nt">&lt;/box&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/collision&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/link&gt;</span>
+<span class="nt">&lt;/model&gt;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;collision&gt;</span></code> tag defines the collision properties of the link, how our link will react with other objects and the effect of the physics engine on it.</p>
+<p><strong>Note</strong>: <code class="docutils literal notranslate"><span class="pre">&lt;collision&gt;</span></code> can be different from the visual properties, for example, simpler collision models are often used to reduce computation time.</p>
+<p>After copying all the parts above into the world file in order, run the world again:</p>
+<p><code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">sim</span> <span class="pre">building_robot.sdf</span></code></p>
+<p>Our model should look like this:</p>
+<p><img alt="car chassis" src="../_images/chassis.png" /></p>
+<p>In the top left toolbar, click the Translate icon, then select your model.
+You should see three axes like this:</p>
+<p><img alt="model_axis" src="../_images/model_axis.png" /></p>
+<p>These are the axes of our model where red is the x-axis, green is the y-axis and blue is the z-axis.</p>
+</section>
+</section>
+<section id="left-wheel">
+<h3>Left wheel<a class="headerlink" href="#left-wheel" title="Link to this heading">#</a></h3>
+<p>Let’s add wheels to our robot. The following code goes after the <code class="docutils literal notranslate"><span class="pre">&lt;/link&gt;</span></code> tag and before the <code class="docutils literal notranslate"><span class="pre">&lt;/model&gt;</span></code> tag. All the links and joints belonging to the same model should be defined before the <code class="docutils literal notranslate"><span class="pre">&lt;/model&gt;</span></code>.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;left_wheel&#39;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">&quot;chassis&quot;</span><span class="nt">&gt;</span>-0.5<span class="w"> </span>0.6<span class="w"> </span>0<span class="w"> </span>-1.5707<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
+<span class="w">    </span><span class="nt">&lt;inertial&gt;</span>
+<span class="w">        </span><span class="nt">&lt;mass&gt;</span>1<span class="nt">&lt;/mass&gt;</span>
+<span class="w">        </span><span class="nt">&lt;inertia&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ixx&gt;</span>0.043333<span class="nt">&lt;/ixx&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ixy&gt;</span>0<span class="nt">&lt;/ixy&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ixz&gt;</span>0<span class="nt">&lt;/ixz&gt;</span>
+<span class="w">            </span><span class="nt">&lt;iyy&gt;</span>0.043333<span class="nt">&lt;/iyy&gt;</span>
+<span class="w">            </span><span class="nt">&lt;iyz&gt;</span>0<span class="nt">&lt;/iyz&gt;</span>
+<span class="w">            </span><span class="nt">&lt;izz&gt;</span>0.08<span class="nt">&lt;/izz&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/inertia&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/inertial&gt;</span>
+</pre></div>
+</div>
+<p>We defined the name of our link <code class="docutils literal notranslate"><span class="pre">left_wheel</span></code> and then defined its <code class="docutils literal notranslate"><span class="pre">&lt;pose&gt;</span></code> <code class="docutils literal notranslate"><span class="pre">relative_to</span></code> the <code class="docutils literal notranslate"><span class="pre">chassis</span></code> link.
+The wheel needed to be placed on the left to the back of the <code class="docutils literal notranslate"><span class="pre">chassis</span></code> so that’s why we chose the values for <code class="docutils literal notranslate"><span class="pre">pose</span></code> as <code class="docutils literal notranslate"><span class="pre">-0.5</span> <span class="pre">0.6</span> <span class="pre">0</span></code>.
+Also, our wheel is a cylinder, but on its side.
+That’s why we defined the orientation value as <code class="docutils literal notranslate"><span class="pre">-1.5707</span> <span class="pre">0</span> <span class="pre">0</span></code> which is a <code class="docutils literal notranslate"><span class="pre">-90</span></code> degree rotation around the x-axis (the angles are in radians).
+Then we defined the <code class="docutils literal notranslate"><span class="pre">inertial</span></code> properties of the wheel, the <code class="docutils literal notranslate"><span class="pre">mass</span></code> and the <code class="docutils literal notranslate"><span class="pre">inertia</span></code> matrix.</p>
+<section id="visualization-and-collision">
+<h4>Visualization and Collision<a class="headerlink" href="#visualization-and-collision" title="Link to this heading">#</a></h4>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&lt;visual</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;visual&#39;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;geometry&gt;</span>
+<span class="w">            </span><span class="nt">&lt;cylinder&gt;</span>
+<span class="w">                </span><span class="nt">&lt;radius&gt;</span>0.4<span class="nt">&lt;/radius&gt;</span>
+<span class="w">                </span><span class="nt">&lt;length&gt;</span>0.2<span class="nt">&lt;/length&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/cylinder&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="w">        </span><span class="nt">&lt;material&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ambient&gt;</span>1.0<span class="w"> </span>0.0<span class="w"> </span>0.0<span class="w"> </span>1<span class="nt">&lt;/ambient&gt;</span>
+<span class="w">            </span><span class="nt">&lt;diffuse&gt;</span>1.0<span class="w"> </span>0.0<span class="w"> </span>0.0<span class="w"> </span>1<span class="nt">&lt;/diffuse&gt;</span>
+<span class="w">            </span><span class="nt">&lt;specular&gt;</span>1.0<span class="w"> </span>0.0<span class="w"> </span>0.0<span class="w"> </span>1<span class="nt">&lt;/specular&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/material&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/visual&gt;</span>
+<span class="w">    </span><span class="nt">&lt;collision</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;collision&#39;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;geometry&gt;</span>
+<span class="w">            </span><span class="nt">&lt;cylinder&gt;</span>
+<span class="w">                </span><span class="nt">&lt;radius&gt;</span>0.4<span class="nt">&lt;/radius&gt;</span>
+<span class="w">                </span><span class="nt">&lt;length&gt;</span>0.2<span class="nt">&lt;/length&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/cylinder&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/collision&gt;</span>
+<span class="nt">&lt;/link&gt;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;visual&gt;</span></code> and  the <code class="docutils literal notranslate"><span class="pre">&lt;collision&gt;</span></code> properties are similar to the previous link, except the shape of our link has the shape of <code class="docutils literal notranslate"><span class="pre">&lt;cylinder&gt;</span></code> that requires two attributes: the <code class="docutils literal notranslate"><span class="pre">&lt;radius&gt;</span></code> and the <code class="docutils literal notranslate"><span class="pre">&lt;length&gt;</span></code> of the cylinder.
+Save the file and run the world again, our model should look like this:</p>
+<p><img alt="this" src="../_images/car_left_wheel.png" /></p>
+</section>
+</section>
+<section id="right-wheel">
+<h3>Right wheel<a class="headerlink" href="#right-wheel" title="Link to this heading">#</a></h3>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!--The same as left wheel but with different position--&gt;</span>
+<span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;right_wheel&#39;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">&quot;chassis&quot;</span><span class="nt">&gt;</span>-0.5<span class="w"> </span>-0.6<span class="w"> </span>0<span class="w"> </span>-1.5707<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span><span class="w"> </span><span class="cm">&lt;!--angles are in radian--&gt;</span>
+<span class="w">    </span><span class="nt">&lt;inertial&gt;</span>
+<span class="w">        </span><span class="nt">&lt;mass&gt;</span>1<span class="nt">&lt;/mass&gt;</span>
+<span class="w">        </span><span class="nt">&lt;inertia&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ixx&gt;</span>0.043333<span class="nt">&lt;/ixx&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ixy&gt;</span>0<span class="nt">&lt;/ixy&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ixz&gt;</span>0<span class="nt">&lt;/ixz&gt;</span>
+<span class="w">            </span><span class="nt">&lt;iyy&gt;</span>0.043333<span class="nt">&lt;/iyy&gt;</span>
+<span class="w">            </span><span class="nt">&lt;iyz&gt;</span>0<span class="nt">&lt;/iyz&gt;</span>
+<span class="w">            </span><span class="nt">&lt;izz&gt;</span>0.08<span class="nt">&lt;/izz&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/inertia&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/inertial&gt;</span>
+<span class="w">    </span><span class="nt">&lt;visual</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;visual&#39;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;geometry&gt;</span>
+<span class="w">            </span><span class="nt">&lt;cylinder&gt;</span>
+<span class="w">                </span><span class="nt">&lt;radius&gt;</span>0.4<span class="nt">&lt;/radius&gt;</span>
+<span class="w">                </span><span class="nt">&lt;length&gt;</span>0.2<span class="nt">&lt;/length&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/cylinder&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="w">        </span><span class="nt">&lt;material&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ambient&gt;</span>1.0<span class="w"> </span>0.0<span class="w"> </span>0.0<span class="w"> </span>1<span class="nt">&lt;/ambient&gt;</span>
+<span class="w">            </span><span class="nt">&lt;diffuse&gt;</span>1.0<span class="w"> </span>0.0<span class="w"> </span>0.0<span class="w"> </span>1<span class="nt">&lt;/diffuse&gt;</span>
+<span class="w">            </span><span class="nt">&lt;specular&gt;</span>1.0<span class="w"> </span>0.0<span class="w"> </span>0.0<span class="w"> </span>1<span class="nt">&lt;/specular&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/material&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/visual&gt;</span>
+<span class="w">    </span><span class="nt">&lt;collision</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;collision&#39;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;geometry&gt;</span>
+<span class="w">            </span><span class="nt">&lt;cylinder&gt;</span>
+<span class="w">                </span><span class="nt">&lt;radius&gt;</span>0.4<span class="nt">&lt;/radius&gt;</span>
+<span class="w">                </span><span class="nt">&lt;length&gt;</span>0.2<span class="nt">&lt;/length&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/cylinder&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/collision&gt;</span>
+<span class="nt">&lt;/link&gt;</span>
+</pre></div>
+</div>
+<p>The right wheel is similar to the left wheel except for its position.</p>
+</section>
+<section id="defining-an-arbitrary-frame">
+<h3>Defining an arbitrary frame<a class="headerlink" href="#defining-an-arbitrary-frame" title="Link to this heading">#</a></h3>
+<p>As of SDF 1.7 (Fortress uses SDF 1.8), we can define arbitrary frames. It takes two attributes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code>: the name of the frame</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">attached_to</span></code>: the name of the frame or the link to which this frame is attached.</p></li>
+</ul>
+<p>Let’s add a frame for our caster wheel as follows:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;frame</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;caster_frame&quot;</span><span class="w"> </span><span class="na">attached_to=</span><span class="s">&#39;chassis&#39;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;pose&gt;</span>0.8<span class="w"> </span>0<span class="w"> </span>-0.2<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
+<span class="nt">&lt;/frame&gt;</span>
+</pre></div>
+</div>
+<p>We gave our frame name <code class="docutils literal notranslate"><span class="pre">caster_frame</span></code> and attached it to the <code class="docutils literal notranslate"><span class="pre">chassis</span></code> link, then the <code class="docutils literal notranslate"><span class="pre">&lt;pose&gt;</span></code> tag to define the position and orientation of the frame.
+We didn’t use the <code class="docutils literal notranslate"><span class="pre">relative_to</span></code> attribute so the pose is with respect to the frame named in the <code class="docutils literal notranslate"><span class="pre">attached_to</span></code> attribute, <code class="docutils literal notranslate"><span class="pre">chassis</span></code> in our case.</p>
+</section>
+<section id="caster-wheel">
+<h3>Caster wheel<a class="headerlink" href="#caster-wheel" title="Link to this heading">#</a></h3>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!--caster wheel--&gt;</span>
+<span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;caster&#39;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">&#39;caster_frame&#39;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;inertial&gt;</span>
+<span class="w">        </span><span class="nt">&lt;mass&gt;</span>1<span class="nt">&lt;/mass&gt;</span>
+<span class="w">        </span><span class="nt">&lt;inertia&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ixx&gt;</span>0.016<span class="nt">&lt;/ixx&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ixy&gt;</span>0<span class="nt">&lt;/ixy&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ixz&gt;</span>0<span class="nt">&lt;/ixz&gt;</span>
+<span class="w">            </span><span class="nt">&lt;iyy&gt;</span>0.016<span class="nt">&lt;/iyy&gt;</span>
+<span class="w">            </span><span class="nt">&lt;iyz&gt;</span>0<span class="nt">&lt;/iyz&gt;</span>
+<span class="w">            </span><span class="nt">&lt;izz&gt;</span>0.016<span class="nt">&lt;/izz&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/inertia&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/inertial&gt;</span>
+<span class="w">    </span><span class="nt">&lt;visual</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;visual&#39;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;geometry&gt;</span>
+<span class="w">            </span><span class="nt">&lt;sphere&gt;</span>
+<span class="w">                </span><span class="nt">&lt;radius&gt;</span>0.2<span class="nt">&lt;/radius&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/sphere&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="w">        </span><span class="nt">&lt;material&gt;</span>
+<span class="w">            </span><span class="nt">&lt;ambient&gt;</span>0.0<span class="w"> </span>1<span class="w"> </span>0.0<span class="w"> </span>1<span class="nt">&lt;/ambient&gt;</span>
+<span class="w">            </span><span class="nt">&lt;diffuse&gt;</span>0.0<span class="w"> </span>1<span class="w"> </span>0.0<span class="w"> </span>1<span class="nt">&lt;/diffuse&gt;</span>
+<span class="w">            </span><span class="nt">&lt;specular&gt;</span>0.0<span class="w"> </span>1<span class="w"> </span>0.0<span class="w"> </span>1<span class="nt">&lt;/specular&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/material&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/visual&gt;</span>
+<span class="w">    </span><span class="nt">&lt;collision</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;collision&#39;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;geometry&gt;</span>
+<span class="w">            </span><span class="nt">&lt;sphere&gt;</span>
+<span class="w">                </span><span class="nt">&lt;radius&gt;</span>0.2<span class="nt">&lt;/radius&gt;</span>
+<span class="w">            </span><span class="nt">&lt;/sphere&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/geometry&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/collision&gt;</span>
+<span class="nt">&lt;/link&gt;</span>
+</pre></div>
+</div>
+<p>Our last link is the <code class="docutils literal notranslate"><span class="pre">caster</span></code> and its pose is with respect to the frame <code class="docutils literal notranslate"><span class="pre">caster_frame</span></code> we defined above.
+As you could notice we closed the <code class="docutils literal notranslate"><span class="pre">pose</span></code> tag without defining the position or the orientation; in this case the pose of the link is the same as (identity) the frame in <code class="docutils literal notranslate"><span class="pre">relative_to</span></code>.</p>
+<p>In the <code class="docutils literal notranslate"><span class="pre">&lt;visual&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;collision&gt;</span></code> tags we defined a different shape <code class="docutils literal notranslate"><span class="pre">&lt;sphere&gt;</span></code> which requires the <code class="docutils literal notranslate"><span class="pre">&lt;radius&gt;</span></code> of the sphere.</p>
+</section>
+<section id="connecting-links-together-joints">
+<h3>Connecting links together (joints)<a class="headerlink" href="#connecting-links-together-joints" title="Link to this heading">#</a></h3>
+<p>We need to connect these links together; here comes the job of the <code class="docutils literal notranslate"><span class="pre">&lt;joint&gt;</span></code> tag.
+The joint tag connects two links together and defines how they will move with respect to each other.
+Inside the <code class="docutils literal notranslate"><span class="pre">&lt;joint&gt;</span></code> tag we need to define the two links to connect and their relations (way of movement).</p>
+<section id="left-wheel-joint">
+<h4>Left wheel joint<a class="headerlink" href="#left-wheel-joint" title="Link to this heading">#</a></h4>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;left_wheel_joint&#39;</span><span class="w"> </span><span class="na">type=</span><span class="s">&#39;revolute&#39;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">&#39;left_wheel&#39;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>Our first joint is the <code class="docutils literal notranslate"><span class="pre">left_wheel_joint</span></code>.
+It takes two attributes: the name <code class="docutils literal notranslate"><span class="pre">name='left_wheel_joint'</span></code> and the type <code class="docutils literal notranslate"><span class="pre">type='revolute'</span></code>.
+the <code class="docutils literal notranslate"><span class="pre">revolute</span></code> type gives 1 rotational degree of freedom with joint limits.
+The pose of the joint is the same as the child link frame, which is the <code class="docutils literal notranslate"><span class="pre">left_wheel</span></code> frame.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&lt;parent&gt;</span>chassis<span class="nt">&lt;/parent&gt;</span>
+<span class="w">    </span><span class="nt">&lt;child&gt;</span>left_wheel<span class="nt">&lt;/child&gt;</span>
+</pre></div>
+</div>
+<p>Every joint connects two links (bodies) together.
+Here we connect the <code class="docutils literal notranslate"><span class="pre">chassis</span></code> with the <code class="docutils literal notranslate"><span class="pre">left_wheel</span></code>.
+<code class="docutils literal notranslate"><span class="pre">chassis</span></code> is the parent link and <code class="docutils literal notranslate"><span class="pre">left_wheel</span></code> is the child link.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&lt;axis&gt;</span>
+<span class="w">        </span><span class="nt">&lt;xyz</span><span class="w"> </span><span class="na">expressed_in=</span><span class="s">&#39;__model__&#39;</span><span class="nt">&gt;</span>0<span class="w"> </span>1<span class="w"> </span>0<span class="nt">&lt;/xyz&gt;</span><span class="w"> </span><span class="cm">&lt;!--can be defined as any frame or even arbitrary frames--&gt;</span>
+<span class="w">        </span><span class="nt">&lt;limit&gt;</span>
+<span class="w">            </span><span class="nt">&lt;lower&gt;</span>-1.79769e+308<span class="nt">&lt;/lower&gt;</span><span class="w">    </span><span class="cm">&lt;!--negative infinity--&gt;</span>
+<span class="w">            </span><span class="nt">&lt;upper&gt;</span>1.79769e+308<span class="nt">&lt;/upper&gt;</span><span class="w">     </span><span class="cm">&lt;!--positive infinity--&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/limit&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/axis&gt;</span>
+<span class="nt">&lt;/joint&gt;</span>
+</pre></div>
+</div>
+<p>Here we define the axis of rotation.
+The axis of rotation can be any frame, not just the <code class="docutils literal notranslate"><span class="pre">parent</span></code> or the <code class="docutils literal notranslate"><span class="pre">child</span></code> link.
+We chose the y-axis with respect to the <code class="docutils literal notranslate"><span class="pre">model</span></code> frame so we put <code class="docutils literal notranslate"><span class="pre">1</span></code> in the y element and zeros in the others.
+For the revolute joint we need to define the <code class="docutils literal notranslate"><span class="pre">&lt;limits&gt;</span></code> of our rotation angle in the <code class="docutils literal notranslate"><span class="pre">&lt;lower&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;upper&gt;</span></code> tags.</p>
+<p><strong>Note</strong>: The angles are in radians.</p>
+</section>
+<section id="right-wheel-joint">
+<h4>Right wheel joint<a class="headerlink" href="#right-wheel-joint" title="Link to this heading">#</a></h4>
+<p>The <code class="docutils literal notranslate"><span class="pre">right_wheel_joint</span></code> is very similar except for the pose of the joint.
+This joint connects the <code class="docutils literal notranslate"><span class="pre">right_wheel</span></code> with the <code class="docutils literal notranslate"><span class="pre">chassis</span></code>.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;right_wheel_joint&#39;</span><span class="w"> </span><span class="na">type=</span><span class="s">&#39;revolute&#39;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">&#39;right_wheel&#39;</span><span class="nt">/&gt;</span>
+<span class="w">    </span><span class="nt">&lt;parent&gt;</span>chassis<span class="nt">&lt;/parent&gt;</span>
+<span class="w">    </span><span class="nt">&lt;child&gt;</span>right_wheel<span class="nt">&lt;/child&gt;</span>
+<span class="w">    </span><span class="nt">&lt;axis&gt;</span>
+<span class="w">        </span><span class="nt">&lt;xyz</span><span class="w"> </span><span class="na">expressed_in=</span><span class="s">&#39;__model__&#39;</span><span class="nt">&gt;</span>0<span class="w"> </span>1<span class="w"> </span>0<span class="nt">&lt;/xyz&gt;</span>
+<span class="w">        </span><span class="nt">&lt;limit&gt;</span>
+<span class="w">            </span><span class="nt">&lt;lower&gt;</span>-1.79769e+308<span class="nt">&lt;/lower&gt;</span><span class="w">    </span><span class="cm">&lt;!--negative infinity--&gt;</span>
+<span class="w">            </span><span class="nt">&lt;upper&gt;</span>1.79769e+308<span class="nt">&lt;/upper&gt;</span><span class="w">     </span><span class="cm">&lt;!--positive infinity--&gt;</span>
+<span class="w">        </span><span class="nt">&lt;/limit&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/axis&gt;</span>
+<span class="nt">&lt;/joint&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="caster-wheel-joint">
+<h4>Caster wheel joint<a class="headerlink" href="#caster-wheel-joint" title="Link to this heading">#</a></h4>
+<p>For the caster we need a different type of joint (connection).
+We used <code class="docutils literal notranslate"><span class="pre">type='ball'</span></code> which gives 3 rotational degrees of freedom.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;caster_wheel&#39;</span><span class="w"> </span><span class="na">type=</span><span class="s">&#39;ball&#39;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;parent&gt;</span>chassis<span class="nt">&lt;/parent&gt;</span>
+<span class="w">    </span><span class="nt">&lt;child&gt;</span>caster<span class="nt">&lt;/child&gt;</span>
+<span class="nt">&lt;/joint&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+<section id="conclusion">
+<h2>Conclusion<a class="headerlink" href="#conclusion" title="Link to this heading">#</a></h2>
+<p>Run the world:</p>
+<p><code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">sim</span> <span class="pre">building_robot.sdf</span></code></p>
+<p>It should look like this:</p>
+<p><img alt="two_wheeled_robot" src="../_images/two_wheeled_robot.png" /></p>
+<p>Hurray! We build our first robot. You can learn more details about SDFormat tags <a class="reference external" href="http://sdformat.org/spec">here</a>. In the next <a class="reference external" href="moving_robot">tutorial</a> we will learn how to move our robot around.</p>
+</section>
+<section id="video-walk-through">
+<h2>Video walk-through<a class="headerlink" href="#video-walk-through" title="Link to this heading">#</a></h2>
+<p>A video walk-through of this tutorial is available from our YouTube channel: <a class="reference external" href="https://youtu.be/Z-gjU0KAjiw">Gazebo tutorials: Building a robot</a>.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Z-gjU0KAjiw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-sdf">What is SDF</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-world">Building a world</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-a-model">Building a model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-the-model">Defining the model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#links-forming-our-robot">Links forming our robot</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#chassis">Chassis</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inertial-properties">Inertial properties</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visual-and-collision">Visual and collision</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#left-wheel">Left wheel</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#visualization-and-collision">Visualization and Collision</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#right-wheel">Right wheel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#defining-an-arbitrary-frame">Defining an arbitrary frame</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#caster-wheel">Caster wheel</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#connecting-links-together-joints">Connecting links together (joints)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#left-wheel-joint">Left wheel joint</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#right-wheel-joint">Right wheel joint</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#caster-wheel-joint">Caster wheel joint</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conclusion">Conclusion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video-walk-through">Video walk-through</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/gazebosim/docs/edit/master/garden/building_robot.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p> Brought to you by <a href="https://openrobotics.org">Open Robotics</a>. </p>
+<p> Except where otherwise noted, the gazebosim.org web pages are licensed under <a
+    href="https://creativecommons.org/licenses/by/3.0/us/">Creative Commons
+    Attribution 3.0</a>. </p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

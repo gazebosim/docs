@@ -1,0 +1,894 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Gazebo Release Instructions &#8212; Gazebo garden documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/gazebo.css?v=12e630a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=78778182"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'releases-instructions';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://gazebosim.github.io/docs/docs/garden/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'garden';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="canonical" href="https://gazebosim.github.io/docs/docs/latestreleases-instructions/" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Gazebo Sim Architecture" href="../architecture/" />
+    <link rel="prev" title="Debian/Ubuntu versioning in nightly and prerelease binaries" href="../releasing/versioning_pre_nightly/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+  
+  <aside aria-label="Version warning" class="bd-header-announcement bd-header-version-info" style="min-height: 3rem;">
+    <div class="bd-header-announcement__content">
+      <div class="sidebar-message">
+        
+          This is documentation for <strong> Gazebo Garden</strong>,
+          an older but still supported version of Gazebo. 
+        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version"
+        href="../../harmonic/releases-instructions">Switch to the latest stable version</a>
+      </div>
+    </div>
+  </aside>
+  
+
+
+
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/gazebo_horz_pos.svg" class="logo__image only-light" alt="Gazebo garden documentation - Home"/>
+    <script>document.write(`<img src="../_static/gazebo_horz_neg.svg" class="logo__image only-dark" alt="Gazebo garden documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+
+
+<div class="doc-header">
+  <div class="banner d-flex flex-column-reverse flex-sm-row">
+    <div>
+      <div class="d-none d-sm-block">
+        <span class="d-inline fs-2">Docs / Gazebo Garden</span>
+        
+      </div>
+      <span>Supported Sep, 2022 to Sep, 2024</span>
+    </div><div class="gz-version-switcher">
+  <span class="fs-4 fw-light pe-2">Release:</span>
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div></div>
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted/">Get Started</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../install/">Install</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install_ubuntu/">Binary Ubuntu Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_osx/">Binary macOS Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_windows/">Binary Windows Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_ubuntu_src/">Ubuntu Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_osx_src/">macOS Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_windows_src/">Windows Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_from_ignition/">Migration from Ignition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../comparison/">Feature Comparison</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/">Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../building_robot/">Building your own robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moving_robot/">Moving the robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdf_worlds/">SDF worlds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sensors/">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../actors/">Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gui/">Understanding the GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manipulating_models/">Manipulating Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_insert/">Model Insertion from Fuel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hotkeys/">Keyboard Shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spawn_urdf/">Spawn URDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_integration/">ROS 2 integration via bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_interop/">ROS 2 interoperability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros_gz_project_template_guide/">ROS 2 integration template</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ros_installation/">ROS/Gazebo Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_gz_vendor_pkgs/">ROS 2 Gazebo Vendor Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../install_gz11_side_by_side/">Installing Gazebo11 side by side with new Gazebo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating_gazebo_classic_ros2_packages/">Migration from ROS 2 Gazebo Classic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap/">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-features/">Release Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/">Releases</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../development/">Development</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../contributing/">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ci/">Continuous Integration</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../release/">Release process</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../releasing/versioning_pre_nightly/">Debian/Ubuntu versioning in nightly and prerelease binaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Release Instructions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/">Sim Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../fuel/">Fuel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_content_deletion_policy/">Content Deletion Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_model/">Contributing New Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_world/">Contributing New World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_copyright/">Copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_data_policy/">Data and Privacy Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_fair_use/">What is Fair Use</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../library_reference_nav/">Library Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/cmake/3">cmake</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/common/5">common</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/fuel_tools/8">fuel_tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/gui/7">gui</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/launch/6">launch</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/math/7">math</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/msgs/9">msgs</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/physics/6">physics</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/plugin/2">plugin</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/rendering/7">rendering</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sensors/7">sensors</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sim/7">sim</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/tools/2">tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/transport/12">transport</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/utils/2">utils</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sdformat/13">sdformat</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../development/" class="nav-link">Gazebo Development</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">Gazebo...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="gazebo-release-instructions">
+<h1>Gazebo Release Instructions<a class="headerlink" href="#gazebo-release-instructions" title="Link to this heading">#</a></h1>
+<section id="initial-setup">
+<h2>Initial setup<a class="headerlink" href="#initial-setup" title="Link to this heading">#</a></h2>
+<p>A small number of configurations and credentials need to be made on the
+developer’s system before triggering the release.  If a permanent operating
+system is used for releasing, these installation steps only need to be
+executed once.</p>
+<section id="software-and-configurations">
+<h3>1. Software and configurations<a class="headerlink" href="#software-and-configurations" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p>Triggering the releasing process is only supported on Linux at this moment.</p>
+</div></blockquote>
+<p>The tool designed to facilitate the process of releasing software for all
+platforms is called <a class="reference external" href="https://github.com/gazebo-tooling/release-tools/blob/master/release.py"><code class="docutils literal notranslate"><span class="pre">release.py</span></code></a>, and is hosted at <a class="github reference external" href="https://github.com/gazebo-tooling/release-tools">gazebo-tooling/release-tools</a>.
+Cloning the <code class="docutils literal notranslate"><span class="pre">release-tools</span></code> repository is required to perform a new release:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="o">~/</span>
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">gazebo</span><span class="o">-</span><span class="n">tooling</span><span class="o">/</span><span class="n">release</span><span class="o">-</span><span class="n">tools</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>Some Debian tools require the following variables to be set:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">DEBEMAIL</span><span class="o">=</span><span class="s2">&quot;&lt;username&gt;@openrobotics.org&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">DEBFULLNAME</span><span class="o">=</span><span class="s2">&quot;&lt;Your full name&gt;&quot;</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p><strong>Note:</strong> the two above exported variables can be added to <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> to have
+them configured automatically on every run.</p>
+</div></blockquote>
+</section>
+<section id="access-and-credentials">
+<h3>2. Access and Credentials<a class="headerlink" href="#access-and-credentials" title="Link to this heading">#</a></h3>
+<p>Before starting the release process, make sure to ask for write access to:</p>
+<ol class="arabic simple">
+<li><p>The Gz library intended to be released and</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gazebo-release</span></code> repository.</p></li>
+</ol>
+<p>There are some credentials needed to interact with the release
+process:</p>
+<ul class="simple">
+<li><p>Release token: magic sequence of characters needed while running <code class="docutils literal notranslate"><span class="pre">release.py</span></code>
+to interact with <code class="docutils literal notranslate"><span class="pre">build.osrfoundation.org</span></code>. This should be given to Gz developers that run releases by the Infra team.</p></li>
+</ul>
+</section>
+</section>
+<section id="for-each-release">
+<h2>For Each Release<a class="headerlink" href="#for-each-release" title="Link to this heading">#</a></h2>
+<section id="team-and-development-checks">
+<h3>1. Team and development checks<a class="headerlink" href="#team-and-development-checks" title="Link to this heading">#</a></h3>
+<p>When creating a new release, there are some guidelines to follow before starting
+the process:</p>
+<ul class="simple">
+<li><p>Ask the team if there are any concerns about making the release.</p></li>
+<li><p>Check if there are changes to previous library versions that need to be forward-ported.</p></li>
+<li><p>See if there are open PRs against the release branch (release branch is the
+one with the name <code class="docutils literal notranslate"><span class="pre">ign/gz-fooX</span></code> where foo is the name of the Gz library and
+X the major version of the version bump planned) that could go into the new
+release.</p></li>
+</ul>
+</section>
+<section id="update-code-version-and-changelogs">
+<h3>2. Update code version and changelogs<a class="headerlink" href="#update-code-version-and-changelogs" title="Link to this heading">#</a></h3>
+<p>The first step to get a new release ready is to update the current code (upstream)
+version (view the <a class="reference external" href="release#versioning">versioning</a> section for more information). This
+bump could be in the major number (non-compatible changes), minor number (new
+features), patch number (patches and bugfixes).</p>
+<p><strong>Bumping major number</strong> of the version implies some work to have the
+<a class="reference external" href="#metadata-for-releasing">metadata</a> updated correctly. There is a <a class="reference external" href="releasing/bump_major.md">dedicated
+document</a> that you should go through before continuing to work through the steps in this
+document.</p>
+<ol class="arabic">
+<li><p>To update the upstream version a local checkout of the Gz library is
+needed. A new branch is required to submit changes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># version X.Y.Z</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>bump_to_X_Y_Z
+</pre></div>
+</div>
+</li>
+<li><p>The current upstream version can be found in <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file
+following the CMake <code class="docutils literal notranslate"><span class="pre">project</span> <span class="pre">declaration</span></code>:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># Gz library named foo and version X.Y.Z</span>
+<span class="nb">project</span><span class="p">(</span><span class="s">gz-fooX</span><span class="w"> </span><span class="s">VERSION</span><span class="w"> </span><span class="s">X.Y.Z</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Stable releases can modify the X, Y or Z directly while prereleases will need to include the preX (X number starts with 1) suffix in the <code class="docutils literal notranslate"><span class="pre">gz_configure_project</span></code>:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="c"># first prerelease of a serie, number 1</span>
+<span class="nb">gz_configure_project</span><span class="p">(</span><span class="s">VERSION_SUFFIX</span><span class="w"> </span><span class="s">pre1</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Together with bumping the version number, <strong>updating the Changelog and Migration
+documents</strong> is required. For updating the <code class="docutils literal notranslate"><span class="pre">Changelog.md</span></code> file, the script
+<a class="reference external" href="https://github.com/gazebo-tooling/release-tools/blob/master/source-repo-scripts/source_changelog.bash">source_changelog.bash</a>
+can be useful:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span><span class="nb">source</span><span class="w"> </span>code&gt;
+bash<span class="w"> </span>&lt;path<span class="w"> </span>to<span class="w"> </span>release-tools&gt;/source-repo-scripts/source_changelog.bash<span class="w"> </span>&lt;previous<span class="w"> </span>tag&gt;
+<span class="c1"># e.g. bash ../release-tools/source-repo-scripts/source_changelog.bash 3.5.0</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>The <code class="docutils literal notranslate"><span class="pre">Migration.md</span></code> document needs to be updated if some breaking changes are in the Changelog.</p>
+<ol class="arabic simple" start="4">
+<li><p>Open a pull request for reviewing (<a class="reference external" href="https://github.com/gazebosim/gz-physics/pull/447">example PR</a>).
+When opening a PR look for the “Release” section in the template and follow the instructions there.</p></li>
+</ol>
+</section>
+<section id="update-packages-version">
+<h3>3. Update packages version<a class="headerlink" href="#update-packages-version" title="Link to this heading">#</a></h3>
+<p>Once the PR for bumping the code version is merged, the binary packages version
+needs to be updated for the Debian/Ubuntu packages. Brew metadata will be
+updated by the building server when creating the binary packages
+(known as <code class="docutils literal notranslate"><span class="pre">bottles</span></code>).</p>
+<p>The version in the packages (binary version) should be similar to the one updated
+in the code in the step above but usually has some other components that reflect the
+package metadata version (i.e: new code version 2.1.0, new version in Debian packages
+is usually 2.1.0-1).</p>
+<p>There should be a repository matching the name and major version of Gz
+library that you want to bump in the
+<a class="reference external" href="https://github.com/gazebo-release/">gz-release</a> GitHub organization.
+(see <a class="reference external" href="releasing/release_repositories.md">release repositories document</a> for more
+information about how they are used).</p>
+<ol class="arabic">
+<li><p>It is required to clone the corresponding release repository to update the
+binary version:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gz library named foo and major version X</span>
+git<span class="w"> </span>clone<span class="w"> </span>https://github.com/gazebo-release/gz-fooX-release
+</pre></div>
+</div>
+</li>
+<li><p>To bump the package versions that will appear in Debian/Ubuntu binary packages there is a helper script in <code class="docutils literal notranslate"><span class="pre">release-tools</span></code> (see <a class="reference external" href="#initial-setup">initial setup</a>). The script is called <code class="docutils literal notranslate"><span class="pre">changelog_spawn.sh</span></code> and require to be executed while the active directory is a <code class="docutils literal notranslate"><span class="pre">release</span> <span class="pre">repository</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gz library named foo and major version X</span>
+<span class="nb">cd</span><span class="w"> </span>gz-fooX-release
+~/release-tools/release-repo-scripts/changelog_spawn.sh<span class="w"> </span>X.Y.Z-R
+
+<span class="c1"># Example gz-cmake3 bumped from 3.0.0 to 3.0.1</span>
+<span class="nb">cd</span><span class="w"> </span>gz-cmake3-release
+~/release-tools/release-repo-scripts/changelog_spawn.sh<span class="w"> </span><span class="m">3</span>.0.1-1
+</pre></div>
+</div>
+</li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">changelog_spawn.sh</span></code> will display information about the Ubuntu/Debian versions being updated as well as a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">diff</span></code> before uploading information to the GitHub release repository.</p>
+</section>
+</section>
+<section id="triggering-the-release">
+<h2>Triggering the release<a class="headerlink" href="#triggering-the-release" title="Link to this heading">#</a></h2>
+<p>After updating the code and releasing metadata everything is ready to launch the
+build in the server. Now, the following needs to happen:</p>
+<ol class="arabic simple">
+<li><p>Tag the corresponding code in the repository and upload that tag to GitHub.</p></li>
+<li><p>Request <code class="docutils literal notranslate"><span class="pre">build.osrfoundation.org</span></code> server to start a chain of job by calling <code class="docutils literal notranslate"><span class="pre">gz-fooX-source</span></code>.</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gz-fooX-source</span></code> will generate the source tarball and call <code class="docutils literal notranslate"><span class="pre">repository_uploader_packages</span></code> to upload it to</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gz-fooX-source</span></code> will call <code class="docutils literal notranslate"><span class="pre">_releasepy</span></code> that will generate the builders jobs:</p>
+<ol class="arabic simple">
+<li><p>Debian/Ubuntu: use <code class="docutils literal notranslate"><span class="pre">ign/gz-fooX-debbuilder</span></code> job names</p></li>
+<li><p>Brew: entry job is <code class="docutils literal notranslate"><span class="pre">generic-release-homebrew_pull_request_updater</span></code></p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p>The <code class="docutils literal notranslate"><span class="pre">release.py</span></code> script  and Jenkins will perform all these actions. For more information of all the processes
+triggered by the <code class="docutils literal notranslate"><span class="pre">release.py</span></code> script please check <a class="reference external" href="release#using-the-gzdev-repository-command">the release process</a>.</p>
+<section id="executing-release-py">
+<h3>4. Executing <a class="reference external" href="http://release.py">release.py</a><a class="headerlink" href="#executing-release-py" title="Link to this heading">#</a></h3>
+<p>Make sure you are in the source code repository before running <code class="docutils literal notranslate"><span class="pre">release.py</span></code>.
+You should be on the branch to be released, after the pull request bumping
+the version has been merged (run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> to check the branch, and <code class="docutils literal notranslate"><span class="pre">git</span>&#160;&#160;&#160;&#160; <span class="pre">log</span></code> to check that the version bump pull request has been included).
+Running <code class="docutils literal notranslate"><span class="pre">release.py</span></code> from the source code repository will generate and
+upload some Git tags (“release tags”) to the source code repository.</p>
+<p>You will also need the token described in the <a class="reference external" href="#access-and-credentials">credentials
+section</a>.</p>
+<p><strong>dry-run simulation mode</strong></p>
+<p>The <code class="docutils literal notranslate"><span class="pre">release.py</span></code> tool supports a <code class="docutils literal notranslate"><span class="pre">--dry-run</span></code> flag that allows users to
+simulate releases (nothing is modified) in order to ensure that the correct
+arguments are being used to trigger a particular release.  Gz releasers
+should <strong>always</strong> call <code class="docutils literal notranslate"><span class="pre">release.py</span></code> with <code class="docutils literal notranslate"><span class="pre">--dry-run</span></code> first in order to
+ensure that proper commands are being used to trigger releases.</p>
+<p>The script needs to be run from the repository with the source code (i.e., the repository where the Gz library version bump pull request took place):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example of dry-run for gz-cmake3 bumped to 3.0.1</span>
+<span class="nb">cd</span><span class="w"> </span>gz-cmake3
+git<span class="w"> </span>checkout<span class="w"> </span>gz-cmake3
+~/release-tools/release.py<span class="w"> </span>gz-cmake3<span class="w"> </span><span class="m">3</span>.0.1<span class="w"> </span>dry-run-fake-token<span class="w"> </span>--dry-run
+</pre></div>
+</div>
+<p><strong><a class="reference external" href="http://release.py">release.py</a> for stable releases</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gz library named foo and major version X</span>
+<span class="nb">cd</span><span class="w"> </span>ign/gz-fooX
+git<span class="w"> </span>checkout<span class="w"> </span>ign/gz-fooX
+
+<span class="c1"># Example gz-cmake3 bumped to 3.0.1 with jenkins_token credential</span>
+<span class="nb">cd</span><span class="w"> </span>gz-cmake3
+git<span class="w"> </span>checkout<span class="w"> </span>gz-cmake3
+<span class="c1"># please replace &lt;jenkins_token&gt; with real release token (check crendentials section)</span>
+~/release-tools/release.py<span class="w"> </span>gz-cmake3<span class="w"> </span><span class="m">3</span>.0.1<span class="w"> </span>&lt;jenkins_token&gt;
+</pre></div>
+</div>
+<p><strong><a class="reference external" href="http://release.py">release.py</a> for prereleases or nightlies</strong></p>
+<p>When releasing prereleases or nightly releases, there are some special flags
+to be set. The <code class="docutils literal notranslate"><span class="pre">--upload-to-repo</span></code> argument is mandatory when running
+<code class="docutils literal notranslate"><span class="pre">release.py</span></code>, and should be set to <code class="docutils literal notranslate"><span class="pre">prerelease</span></code> or <code class="docutils literal notranslate"><span class="pre">nightly</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example gz-cmake3 bumped to prerelease 3.0.0~pre1 with jenkins_token credential</span>
+<span class="nb">cd</span><span class="w"> </span>gz-cmake3
+git<span class="w"> </span>checkout<span class="w"> </span>gz-cmake3
+<span class="c1"># please replace &lt;jenkins_token&gt; with real release token (check crendentials section)</span>
+~/release-tools/release.py<span class="w"> </span>gz-cmake3<span class="w"> </span><span class="m">3</span>.0.0~pre1<span class="w"> </span>&lt;jenkins_token&gt;<span class="w"> </span>--upload-to-repo<span class="w"> </span>prerelease
+</pre></div>
+</div>
+<p>Nightly invocation is generally coded in the server. The version will be
+taken from the last changelog entry and modified during building. No source
+code will be uploaded, but taken directly in the binary build from the
+branch pointed by <code class="docutils literal notranslate"><span class="pre">--nightly-src-branch</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example gz-cmake3 nightly from main branch with jenkins_token credential</span>
+<span class="c1"># please replace &lt;jenkins_token&gt; with real release token (check crendentials section)</span>
+~/release-tools/release.py<span class="w"> </span>gz-cmake3<span class="w"> </span><span class="m">3</span>.0.0~pre1<span class="w"> </span>&lt;jenkins_token&gt;<span class="w"> </span>--upload-to-repo<span class="w"> </span>nightly<span class="w"> </span>--nightly-src-branch<span class="w"> </span>main
+</pre></div>
+</div>
+<p><strong>Binary version schema for prereleases and nightlies</strong></p>
+<p>Prerelease and nightlies binary versions use particular naming schema to define right
+ordering for package managers. <a class="reference external" href="https://classic.gazebosim.org/tutorials?tut=install_unstable&amp;amp;cat=install#Versioninginnightlyandprerelease">This information about versioning</a> in Gazebo Classic applies to the [Gazebo] too.</p>
+<p><strong><a class="reference external" href="http://release.py">release.py</a> for revision bumps</strong></p>
+<p>Bumping the <a class="reference external" href="release#versioning">revision number for binary packages</a> is a special
+case of releasing since the original tarball with the source code will
+remain the same. Once the release repository is ready with the new release
+version, <code class="docutils literal notranslate"><span class="pre">release.py</span></code> needs the <code class="docutils literal notranslate"><span class="pre">--only-bump-revision-linux</span></code> flag.</p>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">--source-tarball-uri</span></code> parameter is needed with the original tarball
+of the software version. All the tarballs can be found at <a class="reference external" href="https://classic.gazebosim.org/distributions">https://classic.gazebosim.org/distributions</a>
+or the information should appear in the parameters of the Jenkins -debbuilder build that created
+the first version of the sofware.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example gz-cmake3 bumped from 3.0.1-1 to 3.0.1-2 with jenkins_token credential</span>
+<span class="c1"># please replace &lt;jenkins_token&gt; with real release token (check crendentials section)</span>
+~/release-tools/release.py<span class="w"> </span>gz-cmake3<span class="w"> </span><span class="m">3</span>.0.1<span class="w"> </span>&lt;jenkins_token&gt;<span class="w"> </span>--source-tarball-uri<span class="w"> </span>https://osrf-distributions.s3.amazonaws.com/gz-cmake/releases/gz-cmake-3.0.1.tar.bz2<span class="w"> </span>--only-bump-revision-linux<span class="w"> </span>-release-version<span class="w"> </span><span class="m">2</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="checking-the-building-process">
+<h2>Checking the Building Process<a class="headerlink" href="#checking-the-building-process" title="Link to this heading">#</a></h2>
+<p>For checking that the build process is ongoing as expected:</p>
+<ol class="arabic simple">
+<li><p>Checking the source generation and upload:</p>
+<ol class="arabic simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">gz-fooX-source</span></code> job (change fooX by the software name being released, i.e: math7) is triggered directly
+by <code class="docutils literal notranslate"><span class="pre">release.py</span></code> (script output will point to it) should have finished successfully.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">gz-fooX-source</span></code> job launches a one new build in the <code class="docutils literal notranslate"><span class="pre">repository_uploader_packages</span></code> job with the name of the software.</p>
+<ol class="arabic simple">
+<li><p>If there is a failure, contact with the Infra team.</p></li>
+</ol>
+</li>
+<li><p>There should be one new build in the <code class="docutils literal notranslate"><span class="pre">_releasepy</span></code> job with the name of the software.</p>
+<ol class="arabic simple">
+<li><p>If there is a failure, you can check the output if you can access to the job workspace in the Jenkins build,
+since it is disabled by default. Contact with the Infra team for help.</p></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>Checking package generation after the <code class="docutils literal notranslate"><span class="pre">_releasepy</span></code> build:</p>
+<ol class="arabic simple">
+<li><p>Several <code class="docutils literal notranslate"><span class="pre">-debbuilder</span></code> jobs should be in <a class="reference external" href="https://build.osrfoundation.org/">https://build.osrfoundation.org/</a>.
+For watching the jobs to see if any of them fail or are marked unstable,
+open the page for a specific debbuild, such as
+<a class="reference external" href="https://build.osrfoundation.org/job/gz-math7-debbuilder/">https://build.osrfoundation.org/job/gz-math7-debbuilder/</a>.</p>
+<ol class="arabic simple">
+<li><p>If there is a failure, check the list of supported
+architectures in the corresponding <a class="reference external" href="https://github.com/gazebo-tooling/release-tools/issues?q=label%3A%22Tier+Platform+Support%22+">Gazebo Platform Support issue</a></p></li>
+<li><p>To check if a debbuild has previously succeeded for a given architecture,
+check <a class="reference external" href="http://packages.osrfoundation.org">packages.osrfoundation.org</a> to see the most recent successful builds.
+(i.e most recent <a class="reference external" href="https://packages.osrfoundation.org/gazebo/ubuntu-stable/pool/main/i/ignition-gazebo6/">Ubuntu builds of ignition-gazebo6</a>
+or the <a class="reference external" href="https://packages.osrfoundation.org/gazebo/debian-stable/pool/main/i/ignition-gazebo6/">Debian builds of ignition-gazebo6</a>.</p></li>
+<li><p>If the failure is on a supported architecture, check the source repository for an existing report of this failure and if none
+exists, report the failure (see <a class="reference external" href="https://github.com/gazebosim/gz-math/issues/161">gazebosim/gz-math#161</a>
+for an example).</p></li>
+<li><p>If a build is unstable, check if it was unstable before this release and if it has already been reported.
+A common cause of unstable debbuilds is newly installed files that are not captured by the patterns in the <code class="docutils literal notranslate"><span class="pre">.install</span></code>
+files in the <code class="docutils literal notranslate"><span class="pre">-release</span></code> repository. This can be checked by searching for <code class="docutils literal notranslate"><span class="pre">dh_missing</span></code> in the console log of the
+unstable build and looking for a list of uninstalled files. Example pull requests that fix problems with <code class="docutils literal notranslate"><span class="pre">dh_missing</span></code>
+are <a class="reference external" href="https://github.com/gazebo-release/gz-transport11-release/pull/4">gazebo-release/gz-transport11-release#4</a>
+and <a class="reference external" href="https://github.com/gazebo-release/gz-tools-release/pull/4">gazebo-release/gz-tools-release#4</a>.</p></li>
+</ol>
+</li>
+<li><p>A pull request was opened to <a class="github reference external" href="https://github.com/osrf/homebrew-simulation">osrf/homebrew-simulation</a></p>
+<ol class="arabic simple">
+<li><p>This pull request may take a minute or two to open.</p></li>
+<li><p>Once it is open, make a comment containing the text “build bottle”.
+For further details, see the <a class="reference external" href="https://github.com/osrf/homebrew-simulation#to-build-bottles">README at osrf/homebrew-simulation</a>.</p></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#initial-setup">Initial setup</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#software-and-configurations">1. Software and configurations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#access-and-credentials">2. Access and Credentials</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#for-each-release">For Each Release</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#team-and-development-checks">1. Team and development checks</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update-code-version-and-changelogs">2. Update code version and changelogs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update-packages-version">3. Update packages version</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#triggering-the-release">Triggering the release</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#executing-release-py">4. Executing release.py</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#checking-the-building-process">Checking the Building Process</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/gazebosim/docs/edit/master/release_instructions.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p> Brought to you by <a href="https://openrobotics.org">Open Robotics</a>. </p>
+<p> Except where otherwise noted, the gazebosim.org web pages are licensed under <a
+    href="https://creativecommons.org/licenses/by/3.0/us/">Creative Commons
+    Attribution 3.0</a>. </p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

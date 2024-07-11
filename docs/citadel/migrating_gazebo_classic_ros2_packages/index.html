@@ -1,0 +1,1254 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Migrating ROS 2 packages that use Gazebo Classic &#8212; Gazebo citadel documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/gazebo.css?v=12e630a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=3db3e7f7"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'migrating_gazebo_classic_ros2_packages';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://gazebosim.github.io/docs/docs/citadel/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'citadel';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="canonical" href="https://gazebosim.github.io/docs/docs/latestmigrating_gazebo_classic_ros2_packages/" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Gazebo Roadmap" href="../roadmap/" />
+    <link rel="prev" title="Installing Gazebo11 side by side with new Gazebo" href="../install_gz11_side_by_side/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+  
+  <aside aria-label="Version warning" class="bd-header-announcement bd-header-version-info" style="min-height: 3rem;">
+    <div class="bd-header-announcement__content">
+      <div class="sidebar-message">
+        
+          This is documentation for <strong> Gazebo Citadel</strong>,
+          an older but still supported version of Gazebo. 
+        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version"
+        href="../../harmonic/migrating_gazebo_classic_ros2_packages">Switch to the latest stable version</a>
+      </div>
+    </div>
+  </aside>
+  
+
+
+
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/gazebo_horz_pos.svg" class="logo__image only-light" alt="Gazebo citadel documentation - Home"/>
+    <script>document.write(`<img src="../_static/gazebo_horz_neg.svg" class="logo__image only-dark" alt="Gazebo citadel documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+
+
+<div class="doc-header">
+  <div class="banner d-flex flex-column-reverse flex-sm-row">
+    <div>
+      <div class="d-none d-sm-block">
+        <span class="d-inline fs-2">Docs / Gazebo Citadel</span>
+        
+          <span class="badge bg-primary fs-4 fw-light ms-2">LTS</span>
+        
+      </div>
+      <span>Supported Dec, 2019 to Dec, 2024</span>
+    </div><div class="gz-version-switcher">
+  <span class="fs-4 fw-light pe-2">Release:</span>
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div></div>
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted/">Get Started</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../install/">Install</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install_ubuntu/">Binary Ubuntu Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_osx/">Binary macOS Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_windows/">Binary Windows Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_ubuntu_src/">Ubuntu Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_osx_src/">macOS Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_windows_src/">Windows Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ign_docker_env/">Dockerized Dev Env</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../comparison/">Feature Comparison</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/">Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ros_integration/">ROS Integration</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../ros2_integration/">ROS 2 Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spawn_urdf/">Spawn URDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gui/">Understanding the GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manipulating_models/">Manipulating Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_insert/">Model Insertion from Fuel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hotkeys/">Keyboard Shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building_robot/">Building your own robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moving_robot/">Moving the robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdf_worlds/">SDF worlds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sensors/">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../actors/">Actors</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ros_installation/">ROS/Gazebo Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_gz_vendor_pkgs/">ROS 2 Gazebo Vendor Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../install_gz11_side_by_side/">Installing Gazebo11 side by side with new Gazebo</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Migration from ROS 2 Gazebo Classic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap/">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-features/">Release Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/">Releases</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../development/">Development</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ci/">Continuous Integration</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../release/">Release process</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../releasing/versioning_pre_nightly/">Debian/Ubuntu versioning in nightly and prerelease binaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases-instructions/">Release Instructions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/">Sim Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../fuel/">Fuel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_content_deletion_policy/">Content Deletion Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_model/">Contributing New Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_world/">Contributing New World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_copyright/">Copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_data_policy/">Data and Privacy Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_fair_use/">What is Fair Use</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../library_reference_nav/">Library Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/cmake/2">cmake</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/common/3">common</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/fuel_tools/4">fuel_tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/gui/3">gui</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/launch/2">launch</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/math/6">math</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/msgs/5">msgs</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/physics/2">physics</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/plugin/1">plugin</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/rendering/3">rendering</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sensors/3">sensors</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sim/3">sim</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/tools/1">tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/transport/8">transport</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sdformat/9">sdformat</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Migrating...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="migrating-ros-2-packages-that-use-gazebo-classic">
+<h1>Migrating ROS 2 packages that use Gazebo Classic<a class="headerlink" href="#migrating-ros-2-packages-that-use-gazebo-classic" title="Link to this heading">#</a></h1>
+<p>The Gazebo simulator has its roots in the Gazebo Classic project, but it has a
+few significant differences that affect how a ROS 2 project uses the simulator.
+One difference is that ROS 2 projects now use the
+<a class="reference external" href="https://github.com/gazebosim/ros_gz">ros_gz</a> package instead of
+<a class="reference external" href="https://github.com/ros-simulation/gazebo_ros_pkgs">gazebo_ros_pkgs</a> as the
+source of launch files and other useful utilities. Another major difference is
+that while <a class="reference external" href="https://github.com/ros-simulation/gazebo_ros_pkgs">gazebo_ros_pkgs</a>
+provided a set of plugins that directly get loaded by Gazebo Classic and run as
+part of the simulation to provide an interface between ROS and Gazebo Classic,
+<a class="reference external" href="https://github.com/gazebosim/ros_gz">ros_gz</a> is primarily used as a bridge
+between ROS and gz-transport topics. Knowing these conceptual differences is
+important in making the transition.</p>
+<p><strong>Note:</strong> Since the name of the project has gone through two major changes, we
+highly recommend you read the <a class="reference external" href="https://gazebosim.org/about">history</a> of the
+project to have a better understanding of the terminology used in this tutorial
+and elsewhere. As a convention we refer to older versions of Gazebo, those with
+release numbers like Gazebo 9 and Gazebo 11 as “Gazebo Classic.” Newer versions
+of Gazebo, formerly called “Ignition”, with lettered releases names like
+Harmonic, are referred to as just “Gazebo” in this document. This tutorial will
+show how to migrate an existing ROS 2 package that uses the <code class="docutils literal notranslate"><span class="pre">gazebo_ros_pkgs</span></code>
+package to the new <code class="docutils literal notranslate"><span class="pre">ros_gz</span></code>. We will use the
+<a class="reference external" href="https://github.com/ROBOTIS-GIT/turtlebot3_simulations/">turtlebot3_simulations</a>
+package as an example. The complete, migrated version of
+<code class="docutils literal notranslate"><span class="pre">turtlebot3_simulations</span></code> covered in this tutorial, can be found in
+<a class="reference external" href="https://github.com/azeey/turtlebot3_simulations/tree/new_gazebo">this fork</a>.</p>
+<p>We’ll start by following the
+<a class="reference external" href="https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/">PC Setup</a>
+guide to install the necessary prerequisites for simulating Turtlebot3. This
+will install additional packages, such as
+<a class="reference external" href="https://github.com/ros-planning/navigation2">Nav2</a> and
+<a class="reference external" href="https://github.com/cartographer-project/cartographer">Cartographer</a>, which we
+will be using later on in this tutorial, so make sure to not skip this step.</p>
+<p>The next step is to clone the <code class="docutils literal notranslate"><span class="pre">turtlebot3_simulation</span></code> package. We’ll use the
+<code class="docutils literal notranslate"><span class="pre">humble-devel</span></code> branch, which at the time of writing had a SHA of <code class="docutils literal notranslate"><span class="pre">d16cdbe</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>/opt/ros/humble/setup.bash
+mkdir<span class="w"> </span>-p<span class="w"> </span>~/turtlebot3_ws/src
+<span class="nb">cd</span><span class="w"> </span>~/turtlebot3_ws/src
+git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>d16cdbe<span class="w"> </span>https://github.com/ROBOTIS-GIT/turtlebot3_simulations/
+</pre></div>
+</div>
+<p>Install dependencies using <code class="docutils literal notranslate"><span class="pre">rosdep</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>rosdep<span class="w"> </span>init<span class="w"> </span><span class="c1"># only needed if  using rosdep</span>
+rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>.<span class="w"> </span>-i<span class="w"> </span>-y
+</pre></div>
+</div>
+<p>Finally, build the project and check that the Gazebo classic simulation works.
+(See the
+<a class="reference external" href="https://emanual.robotis.com/docs/en/platform/turtlebot3/simulation/#gazebo-simulation">Gazebo Simulation guide</a>)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/turtlebot3_ws
+colcon<span class="w"> </span>build<span class="w"> </span>--symlink-install
+<span class="nb">source</span><span class="w"> </span>~/turtlebot3_ws/install/setup.bash
+
+<span class="nb">export</span><span class="w"> </span><span class="nv">TURTLEBOT3_MODEL</span><span class="o">=</span>waffle
+ros2<span class="w"> </span>launch<span class="w"> </span>turtlebot3_gazebo<span class="w"> </span>empty_world.launch.py
+</pre></div>
+</div>
+<p>Here’s a screenshot of Turtlebot3 running in Gazebo Classic obtained by
+launching <code class="docutils literal notranslate"><span class="pre">empty_world.launch.py</span></code>.</p>
+<p><img alt="Screenshot of turtlebot 3 running in Gazebo Classic" src="../_images/gazebo_classic_turtlebot3.png" /></p>
+<p>Once, we’re sure that the Gazebo classic simulation is running properly, we
+create a new branch in which we’ll make the changes to migrate to the new
+Gazebo.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>new_gazebo
+</pre></div>
+</div>
+<p>The changes we need to make are:</p>
+<ol class="arabic simple">
+<li><p>Modify <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> and <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> files replacing <code class="docutils literal notranslate"><span class="pre">gazebo</span></code>,
+<code class="docutils literal notranslate"><span class="pre">gazebo_ros_pkgs</span></code>, etc with packages from <code class="docutils literal notranslate"><span class="pre">ros_gz</span></code>.</p></li>
+<li><p>Edit launch files that start Gazebo (e.g. <code class="docutils literal notranslate"><span class="pre">empty_world.launch.py</span></code>)</p></li>
+<li><p>Update the world SDFormat file.</p></li>
+<li><p>Edit launch files that spawn models.</p></li>
+<li><p>Edit model SDFormat files.</p></li>
+<li><p>Bridge ROS topics.</p></li>
+</ol>
+<section id="update-package-dependencies">
+<h2>Update package dependencies<a class="headerlink" href="#update-package-dependencies" title="Link to this heading">#</a></h2>
+<p>The turtlebot 3 package depends on <code class="docutils literal notranslate"><span class="pre">gazebo_ros_pkgs</span></code>, which is the package that
+provides launch files, plugins, and other utilities for using Gazebo classic
+with ROS 2. The equivalent for the new Gazebo is <code class="docutils literal notranslate"><span class="pre">ros_gz</span></code>, but <code class="docutils literal notranslate"><span class="pre">ros_gz</span></code> is
+actually a meta-package that contains a few packages. It’s okay to replace
+<code class="docutils literal notranslate"><span class="pre">gazebo_ros_pkgs</span></code> with <code class="docutils literal notranslate"><span class="pre">ros_gz</span></code> here, but using just the subset of packages
+needed for your project will reduce the number of dependencies. For the
+<code class="docutils literal notranslate"><span class="pre">turtlebot3_simulation</span></code> package, we will only need <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ros_gz_image</span></code>, and <code class="docutils literal notranslate"><span class="pre">ros_gz_sim</span></code> for now. <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> and <code class="docutils literal notranslate"><span class="pre">ros_gz_image</span></code>
+provide topic bridges between Gazebo and ROS while <code class="docutils literal notranslate"><span class="pre">ros_gz_sim</span></code> provides launch
+files and other utilities that help with starting Gazebo and spawning models.</p>
+<p>After making the change, lines 17-21 of <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> will look like this:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>...
+<span class="w">  </span><span class="nt">&lt;depend&gt;</span>geometry_msgs<span class="nt">&lt;/depend&gt;</span>
+<span class="w">  </span><span class="nt">&lt;depend&gt;</span>nav_msgs<span class="nt">&lt;/depend&gt;</span>
+<span class="w">  </span><span class="nt">&lt;depend&gt;</span>rclcpp<span class="nt">&lt;/depend&gt;</span>
+<span class="w">  </span><span class="nt">&lt;depend&gt;</span>ros_gz_bridge<span class="nt">&lt;/depend&gt;</span>
+<span class="w">  </span><span class="nt">&lt;depend&gt;</span>ros_gz_image<span class="nt">&lt;/depend&gt;</span>
+<span class="w">  </span><span class="nt">&lt;depend&gt;</span>ros_gz_sim<span class="nt">&lt;/depend&gt;</span>
+<span class="w">  </span><span class="nt">&lt;depend&gt;</span>sensor_msgs<span class="nt">&lt;/depend&gt;</span>
+<span class="w">  </span><span class="nt">&lt;depend&gt;</span>tf2<span class="nt">&lt;/depend&gt;</span>
+...
+</pre></div>
+</div>
+<p>You can find the
+<a class="reference external" href="https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/package.xml">Gazebo Classic package XML file here</a>,
+and the
+<a class="reference external" href="https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/package.xml">updated Gazebo package XML file here</a>.</p>
+<p>After making the change, we’ll need to install the new dependencies. The
+following command will automatically install the necessary Gazebo version.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rosdep<span class="w"> </span>install<span class="w"> </span>--from-paths<span class="w"> </span>.<span class="w"> </span>-i<span class="w"> </span>-y
+</pre></div>
+</div>
+<p>This tutorial assumes you are using Gazebo Fortress as it is the version of
+Gazebo officially paired with ROS 2 Humble. While it is possible to use newer
+versions of Gazebo with ROS 2 Humble, it requires extra work and is not
+recommend for most users. See
+<a class="reference external" href="https://gazebosim.org/docs/latest/ros_installation">Installing Gazebo with ROS</a>
+to learn more. If you intend to switch back and forth between the new Gazebo and
+Gazebo Classic, it’s best to use Gazebo Fortress since the newer versions will
+automatically uninstall Gazebo Classic. With that being said, the concepts
+covered by the tutorial should work with newer versions of ROS 2 and Gazebo.</p>
+</section>
+<section id="launch-the-world">
+<h2>Launch the world<a class="headerlink" href="#launch-the-world" title="Link to this heading">#</a></h2>
+<p>We now need to edit <code class="docutils literal notranslate"><span class="pre">turtlebot3_gazebo/launch/empty_world.launch.py</span></code> and replace
+any use of <code class="docutils literal notranslate"><span class="pre">gazebo_ros_pkgs</span></code>. You can find the
+<a class="reference external" href="https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/launch/empty_world.launch.py">Gazebo Classic empty world launch file before editing here</a>,
+and the
+<a class="reference external" href="https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/launch/empty_world.launch.py">updated Gazebo empty world launch file here</a>.
+First replace the call to <code class="docutils literal notranslate"><span class="pre">get_package_share_directory</span></code> to find <code class="docutils literal notranslate"><span class="pre">ros_gz_sim</span></code>.
+The code will change from:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pkg_gazebo_ros</span> <span class="o">=</span> <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s1">&#39;gazebo_ros&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>to:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ros_gz_sim</span> <span class="o">=</span> <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s1">&#39;ros_gz_sim&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Next, change <code class="docutils literal notranslate"><span class="pre">gzserver_cmd</span></code> to use <code class="docutils literal notranslate"><span class="pre">ros_gz_sim</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gzserver_cmd</span> <span class="o">=</span> <span class="n">IncludeLaunchDescription</span><span class="p">(</span>
+    <span class="n">PythonLaunchDescriptionSource</span><span class="p">(</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ros_gz_sim</span><span class="p">,</span> <span class="s1">&#39;launch&#39;</span><span class="p">,</span> <span class="s1">&#39;gz_sim.launch.py&#39;</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="n">launch_arguments</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;gz_args&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;-r -s -v4 &#39;</span><span class="p">,</span> <span class="n">world</span><span class="p">],</span> <span class="s1">&#39;on_exit_shutdown&#39;</span><span class="p">:</span> <span class="s1">&#39;true&#39;</span><span class="p">}</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>This uses the <code class="docutils literal notranslate"><span class="pre">gz_sim.launch.py</span></code> launch file from the <code class="docutils literal notranslate"><span class="pre">ros_gz_sim</span></code> package. The
+launch file takes the <code class="docutils literal notranslate"><span class="pre">gz_args</span></code> argument which is a list of command line flags
+that will be passed to <code class="docutils literal notranslate"><span class="pre">ign</span> <span class="pre">gazebo</span></code> (<code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">sim</span></code> in Garden and later). <code class="docutils literal notranslate"><span class="pre">-s</span></code> causes
+only the Gazebo server to run without the GUI client and <code class="docutils literal notranslate"><span class="pre">-r</span></code> tells Gazebo to
+start running simulation immediately. Lastly, we are using the <code class="docutils literal notranslate"><span class="pre">-v4</span></code> flag which
+sets the verbosity level of Gazebo’s console output.</p>
+<p><strong>Note:</strong> The list assigned to <code class="docutils literal notranslate"><span class="pre">gz_args</span></code> is concatenated into a string with code
+equivalent to <code class="docutils literal notranslate"><span class="pre">''.join(gz_args)</span></code>, so it’s important to keep whitespace where
+necessary. Note the space after 4 in <code class="docutils literal notranslate"><span class="pre">'-v4</span> <span class="pre">'</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">world</span></code> argument will be substituted by <code class="docutils literal notranslate"><span class="pre">launch</span></code> before running Gazebo. In
+this launch file, <code class="docutils literal notranslate"><span class="pre">world</span></code> is a python variable, so it is possible to use python
+string formatting: <code class="docutils literal notranslate"><span class="pre">gz_args:</span> <span class="pre">f'-s</span> <span class="pre">-r</span> <span class="pre">-v4</span> <span class="pre">{world}'</span></code>. But if we wanted to use a
+<code class="docutils literal notranslate"><span class="pre">LaunchConfiguration</span></code> variable for <code class="docutils literal notranslate"><span class="pre">world</span></code>, we will need to use a list so that
+<code class="docutils literal notranslate"><span class="pre">launch</span></code> will make the substitution for us.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">on_exit_shutdown</span></code> argument ensures that if the Gazebo server exits for any
+reason, the rest of the nodes in the launch file are shutdown</p>
+<p>The GUI client is launched in a similar way, but we change <code class="docutils literal notranslate"><span class="pre">gz_args</span></code> to <code class="docutils literal notranslate"><span class="pre">-g</span></code> to
+run just the GUI client.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">gzclient_cmd</span> <span class="o">=</span> <span class="n">IncludeLaunchDescription</span><span class="p">(</span>
+    <span class="n">PythonLaunchDescriptionSource</span><span class="p">(</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ros_gz_sim</span><span class="p">,</span> <span class="s1">&#39;launch&#39;</span><span class="p">,</span> <span class="s1">&#39;gz_sim.launch.py&#39;</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="n">launch_arguments</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;gz_args&#39;</span><span class="p">:</span> <span class="s1">&#39;-g -v4 &#39;</span><span class="p">}</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="p">)</span>
+
+</pre></div>
+</div>
+<!-- This env variable section might not be needed if
+https://github.com/gazebosim/ros_gz/pull/492 gets merged -->
+<p>Finally, we need to set the environment variable <code class="docutils literal notranslate"><span class="pre">GZ_SIM_RESOURCE_PATH</span></code> so
+Gazebo can know where to find models. See the
+<a class="reference external" href="https://gazebosim.org/api/sim/8/resources.html">Finding resource</a> document to
+learn more about this environment variable. This was not needed for
+<code class="docutils literal notranslate"><span class="pre">gazebo_ros_pkgs</span></code> because it used the <code class="docutils literal notranslate"><span class="pre">&lt;export&gt;</span></code> tag in <code class="docutils literal notranslate"><span class="pre">package.xml</span></code> to
+populate a similar environment variable for Gazebo (<code class="docutils literal notranslate"><span class="pre">GAZEBO_MODEL_PATH</span></code>).</p>
+<p>First, import <code class="docutils literal notranslate"><span class="pre">AppendEnvironmentVariable</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">launch.actions</span> <span class="kn">import</span> <span class="n">AppendEnvironmentVariable</span>
+</pre></div>
+</div>
+<p>and create a <code class="docutils literal notranslate"><span class="pre">launch</span></code> action that appends the environment variable with the
+location of the <code class="docutils literal notranslate"><span class="pre">models</span></code> directory in <code class="docutils literal notranslate"><span class="pre">turtlebot3_gazebo</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">set_env_vars_resources</span> <span class="o">=</span> <span class="n">AppendEnvironmentVariable</span><span class="p">(</span>
+        <span class="s1">&#39;GZ_SIM_RESOURCE_PATH&#39;</span><span class="p">,</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_package_share_directory</span><span class="p">(</span><span class="s1">&#39;turtlebot3_gazebo&#39;</span><span class="p">),</span>
+                     <span class="s1">&#39;models&#39;</span><span class="p">))</span>
+
+</pre></div>
+</div>
+<p>We’ll then need to add the action to <code class="docutils literal notranslate"><span class="pre">ld</span></code>, the <code class="docutils literal notranslate"><span class="pre">LaunchDescription</span></code> variable
+returned by <code class="docutils literal notranslate"><span class="pre">generate_launch_description</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">ld</span><span class="o">.</span><span class="n">add_action</span><span class="p">(</span><span class="n">set_env_vars_resources</span><span class="p">)</span>
+</pre></div>
+</div>
+<!-- end env variable section -->
+<p>We are now ready to test the launch file. Comment out
+<code class="docutils literal notranslate"><span class="pre">ld.add_action(spawn_turtlebot_cmd)</span></code> and run:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>turtlebot3_gazebo<span class="w"> </span>empty_world.launch.py
+</pre></div>
+</div>
+<p><strong>More than likely, this will fail</strong> because Gazebo could not find models
+referenced in the world SDFormat file. The next step is to fix that.</p>
+<p><strong>Note:</strong> Due to a bug in the GUI client, there might be a lingering
+<code class="docutils literal notranslate"><span class="pre">ign</span> <span class="pre">gazebo</span> <span class="pre">-g</span></code> or <code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">sim</span> <span class="pre">-g</span></code> process after terminating the launch. You can
+kill it using <code class="docutils literal notranslate"><span class="pre">pkill</span> <span class="pre">-f</span> <span class="pre">-9</span> <span class="pre">'ign</span> <span class="pre">gazebo'</span></code></p>
+</section>
+<section id="edit-world-sdformat-file">
+<h2>Edit world SDFormat file<a class="headerlink" href="#edit-world-sdformat-file" title="Link to this heading">#</a></h2>
+<p>The file we will be editing is <code class="docutils literal notranslate"><span class="pre">turtlebot3_gazebo/worlds/empty_world.world</span></code>.
+This file references the models <code class="docutils literal notranslate"><span class="pre">sun</span></code> and <code class="docutils literal notranslate"><span class="pre">ground_plane</span></code>. In Gazebo Classic,
+these models were either shipped with the simulator or downloaded from the
+gazebo <a class="reference external" href="https://github.com/osrf/gazebo_models">model repository</a>. The new Gazebo
+does not ship these models, instead we can use models from Fuel or add the
+models directly to the world file.</p>
+<p>To use fuel models, replace the <code class="docutils literal notranslate"><span class="pre">include</span></code> tags for <code class="docutils literal notranslate"><span class="pre">sun</span></code> and <code class="docutils literal notranslate"><span class="pre">ground_place</span></code> with</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;include&gt;</span>
+<span class="w">  </span><span class="nt">&lt;uri&gt;</span>
+<span class="w">    </span>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Ground<span class="w"> </span>Plane
+<span class="w">  </span><span class="nt">&lt;/uri&gt;</span>
+<span class="nt">&lt;/include&gt;</span>
+
+<span class="nt">&lt;include&gt;</span>
+<span class="w">  </span><span class="nt">&lt;uri&gt;</span>
+<span class="w">    </span>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Sun
+<span class="w">  </span><span class="nt">&lt;/uri&gt;</span>
+<span class="nt">&lt;/include&gt;</span>
+</pre></div>
+</div>
+<p>For reference, you can find the
+<a class="reference external" href="https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/worlds/empty_world.world">Gazebo Classic empty world here</a>,
+and the
+<a class="reference external" href="https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/worlds/empty_world.world">updated new Gazebo empty world here</a>.
+Relaunching <code class="docutils literal notranslate"><span class="pre">empty_world.launch.py</span></code> should now start the simulator successfully.</p>
+</section>
+<section id="spawn-model">
+<h2>Spawn model<a class="headerlink" href="#spawn-model" title="Link to this heading">#</a></h2>
+<p>In this step, we will modify
+<code class="docutils literal notranslate"><span class="pre">turtlebot3_gazebo/launch/spawn_turtlebot3.launch.py</span></code>. Again, we need to change
+<code class="docutils literal notranslate"><span class="pre">gazebo_ros</span></code> to <code class="docutils literal notranslate"><span class="pre">ros_gz_sim</span></code>. We’ll also need to change <code class="docutils literal notranslate"><span class="pre">spawn_entity.py</span></code> to
+<code class="docutils literal notranslate"><span class="pre">create</span></code>, which is the node in <code class="docutils literal notranslate"><span class="pre">ros_gz_sim</span></code> that provides model spawning
+functionality. From the argument list, <code class="docutils literal notranslate"><span class="pre">-entity</span></code> needs to be replaced with
+<code class="docutils literal notranslate"><span class="pre">-name</span></code>. You can run <code class="docutils literal notranslate"><span class="pre">ros2</span> <span class="pre">run</span> <span class="pre">ros_gz_sim</span> <span class="pre">create</span> <span class="pre">--helpshort</span></code> to see more
+options.</p>
+<p>The resulting <code class="docutils literal notranslate"><span class="pre">Node</span></code> should look like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">start_gazebo_ros_spawner_cmd</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+    <span class="n">package</span><span class="o">=</span><span class="s1">&#39;ros_gz_sim&#39;</span><span class="p">,</span>
+    <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;create&#39;</span><span class="p">,</span>
+    <span class="n">arguments</span><span class="o">=</span><span class="p">[</span>
+        <span class="s1">&#39;-name&#39;</span><span class="p">,</span> <span class="n">TURTLEBOT3_MODEL</span><span class="p">,</span>
+        <span class="s1">&#39;-file&#39;</span><span class="p">,</span> <span class="n">urdf_path</span><span class="p">,</span>
+        <span class="s1">&#39;-x&#39;</span><span class="p">,</span> <span class="n">x_pose</span><span class="p">,</span>
+        <span class="s1">&#39;-y&#39;</span><span class="p">,</span> <span class="n">y_pose</span><span class="p">,</span>
+        <span class="s1">&#39;-z&#39;</span><span class="p">,</span> <span class="s1">&#39;0.01&#39;</span>
+    <span class="p">],</span>
+    <span class="n">output</span><span class="o">=</span><span class="s1">&#39;screen&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>If you uncomment <code class="docutils literal notranslate"><span class="pre">ld.add_action(spawn_turtlebot_cmd)</span></code> in <code class="docutils literal notranslate"><span class="pre">empty_world.launch.py</span></code>
+and run the launch file, you’ll notice errors related to unrecognized plugins.
+These are coming from the model SDFormat file, which we will modify next.</p>
+</section>
+<section id="modify-the-model">
+<h2>Modify the model<a class="headerlink" href="#modify-the-model" title="Link to this heading">#</a></h2>
+<p>We will be using the <code class="docutils literal notranslate"><span class="pre">waffle</span></code> robot for this tutorial, so we’ll edit the file
+<a class="reference external" href="https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf"><code class="docutils literal notranslate"><span class="pre">turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf</span></code></a>.
+The changes we need to make are mostly related to plugins and their parameters.
+You can reference the Waffle
+<a class="reference external" href="https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf">model SDF file before editing here</a>,
+and
+<a class="reference external" href="https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf">after editing here</a>.
+For each <code class="docutils literal notranslate"><span class="pre">&lt;plugin&gt;</span></code> in the original model, The following is a list of all the
+plugins in the original model. For each plugin, we will either remove the plugin
+if it’s no longer necessary, or use the equivalent plugin from the new Gazebo.
+You can use the Feature comparison page
+(<a class="reference external" href="https://gazebosim.org/docs/fortress/comparison">Fortress</a>,
+<a class="reference external" href="https://gazebosim.org/docs/harmonic/comparison">Harmonic</a>) to find out of a
+Gazebo Classic feature (e.g. a Sensor type) is available in Gazebo. If an
+equivalent plugin is used, we will update the SDF parameters of the plugin to
+match the parameters of the new plugin. See the list of systems
+(<a class="reference external" href="https://gazebosim.org/api/gazebo/6/namespaceignition_1_1gazebo_1_1systems.html">Fortress</a>,
+<a class="reference external" href="https://gazebosim.org/api/sim/8/namespacegz_1_1sim_1_1systems.html">Harmonic</a>)
+to find equivalent plugins and their parameters.</p>
+<section id="libgazebo-ros-imu-sensor-so">
+<h3>libgazebo_ros_imu_sensor.so<a class="headerlink" href="#libgazebo-ros-imu-sensor-so" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf#L89-L94">Plugin in the original model</a></p>
+</div></blockquote>
+<p>This plugin can be removed since there is a generic IMU plugin that handles all
+IMU sensors. We will add this to the world later. We will set the <code class="docutils literal notranslate"><span class="pre">&lt;topic&gt;</span></code> tag
+inside <code class="docutils literal notranslate"><span class="pre">&lt;sensor&gt;</span></code> to a short topic name to make it easier when creating a ROS
+bridge later. The entire <code class="docutils literal notranslate"><span class="pre">&lt;sensor&gt;</span></code> tag should now look like:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;imu_link&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;sensor</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;tb3_imu&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;imu&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;always_on&gt;</span>true<span class="nt">&lt;/always_on&gt;</span>
+<span class="w">    </span><span class="nt">&lt;update_rate&gt;</span>200<span class="nt">&lt;/update_rate&gt;</span>
+<span class="w">    </span><span class="nt">&lt;topic&gt;</span>imu<span class="nt">&lt;/topic&gt;</span>
+<span class="w">    </span><span class="nt">&lt;imu&gt;</span>
+<span class="w">      </span>...<span class="w"> </span><span class="cm">&lt;!-- all the content of &lt;imu&gt; --&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/imu&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/sensor&gt;</span>
+<span class="nt">&lt;/link&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="libgazebo-ros-ray-sensor-so">
+<h3>libgazebo_ros_ray_sensor.so<a class="headerlink" href="#libgazebo-ros-ray-sensor-so" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/ROBOTIS-GIT/turtlebot3_simulations//blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf#L157-L164">Plugin in the original model</a></p>
+</div></blockquote>
+<p>Similar to the IMU, we will use a generic plugin loaded into the world for
+handling all rendering sensors, which includes Lidar sensors. Currently the
+<code class="docutils literal notranslate"><span class="pre">ray</span></code> sensor type, which meant to use the physics engine for generator the
+sensor data, is not supported in the new Gazebo, we will need to update it to
+<code class="docutils literal notranslate"><span class="pre">gpu_lidar</span></code>. We’ll also need to change the <code class="docutils literal notranslate"><span class="pre">&lt;ray&gt;</span></code> tag inside <code class="docutils literal notranslate"><span class="pre">&lt;sensor&gt;</span></code> to
+<code class="docutils literal notranslate"><span class="pre">&lt;lidar&gt;</span></code>. The <code class="docutils literal notranslate"><span class="pre">frame_name</span></code> parameter of the plugin will be handled by setting
+the <code class="docutils literal notranslate"><span class="pre">gz_frame_id</span></code> parameter in <code class="docutils literal notranslate"><span class="pre">&lt;sensor&gt;</span></code>. Lastly, we’ll set the <code class="docutils literal notranslate"><span class="pre">&lt;topic&gt;</span></code>
+parameter similar to the IMU sensor. The final <code class="docutils literal notranslate"><span class="pre">&lt;sensor&gt;</span></code> tag for the Lidar
+should look like:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;sensor</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;hls_lfcd_lds&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;gpu_lidar&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;always_on&gt;</span>true<span class="nt">&lt;/always_on&gt;</span>
+<span class="w">  </span><span class="nt">&lt;visualize&gt;</span>true<span class="nt">&lt;/visualize&gt;</span>
+<span class="w">  </span><span class="nt">&lt;pose&gt;</span>-0.064<span class="w"> </span>0<span class="w"> </span>0.121<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
+<span class="w">  </span><span class="nt">&lt;update_rate&gt;</span>5<span class="nt">&lt;/update_rate&gt;</span>
+<span class="w">  </span><span class="nt">&lt;topic&gt;</span>scan<span class="nt">&lt;/topic&gt;</span>
+<span class="w">  </span><span class="nt">&lt;gz_frame_id&gt;</span>base_scan<span class="nt">&lt;/gz_frame_id&gt;</span>
+<span class="w">  </span><span class="nt">&lt;lidar&gt;</span>
+<span class="w">    </span>...<span class="w"> </span><span class="cm">&lt;!-- same content as &lt;ray&gt; in the original --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/lidar&gt;</span>
+<span class="nt">&lt;/sensor&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="libgazebo-ros-camera-so">
+<h3>libgazebo_ros_camera.so<a class="headerlink" href="#libgazebo-ros-camera-so" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/ROBOTIS-GIT/turtlebot3_simulations//blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf#L393-L402">Plugin in the original model</a></p>
+</div></blockquote>
+<p>The Camera sensor will also use a generic plugin that handles all rendering
+sensors loaded into the world. In the SDF file, we will set the <code class="docutils literal notranslate"><span class="pre">&lt;topic&gt;</span></code> and
+tag inside <code class="docutils literal notranslate"><span class="pre">&lt;sensor&gt;</span></code>, and the <code class="docutils literal notranslate"><span class="pre">&lt;camera_info_topic&gt;</span></code> inside <code class="docutils literal notranslate"><span class="pre">&lt;camera&gt;</span></code>, both of
+which will be used in the ROS bridge later. We will also set the <code class="docutils literal notranslate"><span class="pre">&lt;gz_frame_id&gt;</span></code>
+since the default frame id used by the generic plugin in the new Gazebo is
+different from the default used by <code class="docutils literal notranslate"><span class="pre">libgazebo_ros_camera</span></code> in Gazebo Classic. The
+final <code class="docutils literal notranslate"><span class="pre">&lt;sensor&gt;</span></code> tag should look like:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;sensor</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;camera&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;camera&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;always_on&gt;</span>true<span class="nt">&lt;/always_on&gt;</span>
+<span class="w">  </span><span class="nt">&lt;visualize&gt;</span>true<span class="nt">&lt;/visualize&gt;</span>
+<span class="w">  </span><span class="nt">&lt;update_rate&gt;</span>30<span class="nt">&lt;/update_rate&gt;</span>
+<span class="w">  </span><span class="nt">&lt;topic&gt;</span>camera/image_raw<span class="nt">&lt;/topic&gt;</span>
+<span class="w">  </span><span class="nt">&lt;gz_frame_id&gt;</span>camera_rgb_frame<span class="nt">&lt;/gz_frame_id&gt;</span>
+<span class="w">  </span><span class="nt">&lt;camera</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;intel_realsense_r200&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;camera_info_topic&gt;</span>camera/camera_info<span class="nt">&lt;/camera_info_topic&gt;</span>
+<span class="w">    </span>...<span class="w"> </span><span class="cm">&lt;!-- all the content of &lt;camera&gt; from the original --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/camera&gt;</span>
+<span class="nt">&lt;/sensor&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="libgazebo-ros-diff-drive-so">
+<h3>libgazebo_ros_diff_drive.so<a class="headerlink" href="#libgazebo-ros-diff-drive-so" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/ROBOTIS-GIT/turtlebot3_simulations//blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf#L476-L507">Plugin in the original model</a></p>
+</div></blockquote>
+<p>Since this is a model specific plugin, we will replace it with the <code class="docutils literal notranslate"><span class="pre">DiffDrive</span></code>
+plugin. We will match the parameters of <code class="docutils literal notranslate"><span class="pre">libgazebo_ros_diff_drive</span></code> as much as
+possible, but exact match may not be possible. For example, the original plugin
+has a <code class="docutils literal notranslate"><span class="pre">max_wheel_acceleration</span></code>, but <code class="docutils literal notranslate"><span class="pre">gz-sim-diff-drive-system</span></code> has
+<code class="docutils literal notranslate"><span class="pre">max_linear_acceleration</span></code> instead, which are not equivalent; the latter is a
+limit on the whole vehicle’s linear acceleration. We can approximate the value
+by multiplying the wheel acceleration limit by the radius of the wheel. Refer to
+the
+<a class="reference external" href="https://gazebosim.org/api/gazebo/6/classignition_1_1gazebo_1_1systems_1_1DiffDrive.html">DiffDrive class reference</a>
+for details on each parameter. Here’s the full <code class="docutils literal notranslate"><span class="pre">&lt;plugin&gt;</span></code> tag with comments
+describing the mapping from the original plugin.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;gz-sim-diff-drive-system&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;gz::sim::systems::DiffDrive&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="cm">&lt;!-- Remove &lt;ros&gt; tag. --&gt;</span>
+
+<span class="w">  </span><span class="cm">&lt;!-- wheels --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;left_joint&gt;</span>wheel_left_joint<span class="nt">&lt;/left_joint&gt;</span>
+<span class="w">  </span><span class="nt">&lt;right_joint&gt;</span>wheel_right_joint<span class="nt">&lt;/right_joint&gt;</span>
+
+<span class="w">  </span><span class="cm">&lt;!-- kinematics --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;wheel_separation&gt;</span>0.287<span class="nt">&lt;/wheel_separation&gt;</span>
+<span class="w">  </span><span class="nt">&lt;wheel_radius&gt;</span>0.033<span class="nt">&lt;/wheel_radius&gt;</span><span class="w"> </span><span class="cm">&lt;!-- computed from &lt;wheel_diameter&gt; in the original plugin--&gt;</span>
+
+<span class="w">  </span><span class="cm">&lt;!-- limits --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;max_linear_acceleration&gt;</span>0.033<span class="nt">&lt;/max_linear_acceleration&gt;</span><span class="w"> </span><span class="cm">&lt;!-- computed from &lt;max_linear_acceleration&gt; in the original plugin--&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;topic&gt;</span>cmd_vel<span class="nt">&lt;/topic&gt;</span><span class="w"> </span><span class="cm">&lt;!-- from &lt;commant_topic&gt; --&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;odom_topic&gt;</span>odom<span class="nt">&lt;/odom_topic&gt;</span><span class="w"> </span><span class="cm">&lt;!-- from &lt;odometry_topic&gt; --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;frame_id&gt;</span>odom<span class="nt">&lt;/frame_id&gt;</span><span class="w"> </span><span class="cm">&lt;!-- from &lt;odometry_frame&gt; --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;child_frame_id&gt;</span>base_footprint<span class="nt">&lt;/child_frame_id&gt;</span><span class="w"> </span><span class="cm">&lt;!-- from &lt;robot_base_frame&gt; --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;odom_publisher_frequency&gt;</span>30<span class="nt">&lt;/odom_publisher_frequency&gt;</span><span class="w"> </span><span class="cm">&lt;!-- from &lt;update_rate&gt;--&gt;</span>
+
+<span class="w">  </span><span class="nt">&lt;tf_topic&gt;</span>/tf<span class="nt">&lt;/tf_topic&gt;</span><span class="w"> </span><span class="cm">&lt;!-- Short topic name for tf output --&gt;</span>
+
+<span class="nt">&lt;/plugin&gt;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;wheel_torque&gt;</span></code> parameter can be realized by setting effort limits on each
+<code class="docutils literal notranslate"><span class="pre">&lt;joint&gt;</span></code>. For example:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;wheel_right_joint&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;revolute&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;parent&gt;</span>base_link<span class="nt">&lt;/parent&gt;</span>
+<span class="w">  </span><span class="nt">&lt;child&gt;</span>wheel_right_link<span class="nt">&lt;/child&gt;</span>
+<span class="w">  </span><span class="nt">&lt;pose&gt;</span>0.0<span class="w"> </span>-0.144<span class="w"> </span>0.023<span class="w"> </span>-1.57<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
+<span class="w">  </span><span class="nt">&lt;axis&gt;</span>
+<span class="w">    </span><span class="nt">&lt;xyz&gt;</span>0<span class="w"> </span>0<span class="w"> </span>1<span class="nt">&lt;/xyz&gt;</span>
+<span class="w">    </span><span class="nt">&lt;limit&gt;</span>
+<span class="w">      </span><span class="nt">&lt;effort&gt;</span>20<span class="nt">&lt;/effort&gt;</span><span class="w"> </span><span class="cm">&lt;!-- from &lt;wheel_torque&gt; in libgazebo_ros_diff_drive.so.--&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/limit&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/axis&gt;</span>
+<span class="nt">&lt;/joint&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="libgazebo-ros-joint-state-publisher-so">
+<h3>libgazebo_ros_joint_state_publisher.so<a class="headerlink" href="#libgazebo-ros-joint-state-publisher-so" title="Link to this heading">#</a></h3>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/ROBOTIS-GIT/turtlebot3_simulations//blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf#L509-L517">Plugin in the original model</a></p>
+</div></blockquote>
+<p>We will replace this plugin as well with
+<a class="reference external" href="https://gazebosim.org/api/gazebo/6/classignition_1_1gazebo_1_1systems_1_1JointStatePublisher.html"><code class="docutils literal notranslate"><span class="pre">JointStatePublisher</span></code></a>.
+The parameters are mostly similar, however, the <code class="docutils literal notranslate"><span class="pre">&lt;update_rate&gt;</span></code> parameter is not
+supported. Here’s the full <code class="docutils literal notranslate"><span class="pre">&lt;plugin&gt;</span></code> tag with comments describing the mapping
+from the original plugin.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;gz-sim-joint-state-publisher-system&quot;</span>
+<span class="w">  </span><span class="na">name=</span><span class="s">&quot;gz::sim::systems::JointStatePublisher&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;topic&gt;</span>joint_states<span class="nt">&lt;/topic&gt;</span><span class="w"> </span><span class="cm">&lt;!--from &lt;ros&gt;&lt;remapping&gt; --&gt;</span>
+<span class="w">  </span><span class="nt">&lt;joint_name&gt;</span>wheel_left_joint<span class="nt">&lt;/joint_name&gt;</span>
+<span class="w">  </span><span class="nt">&lt;joint_name&gt;</span>wheel_right_joint<span class="nt">&lt;/joint_name&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</pre></div>
+</div>
+</section>
+<section id="world-plugins">
+<h3>World plugins<a class="headerlink" href="#world-plugins" title="Link to this heading">#</a></h3>
+<p>As mentioned earlier, sensors are handled by generic world level plugins.</p>
+<div class="warning">
+  By default, if there are no world plugins specified, Gazebo adds the Physics,
+  SceneBroadcaster, and UserCommands plugins. However, if we specify any
+  plugins at all, Gazebo will assume we want to override the defaults, so will not
+  add any default plugins.
+</div>
+<p>Therefore, we have to add the additional plugins for IMU and Lidar sensors as
+well as the ones that would have been added by default. We will once again edit
+<code class="docutils literal notranslate"><span class="pre">turtlebot3_gazebo/worlds/empty_world.world</span></code> add the following right after
+<code class="docutils literal notranslate"><span class="pre">&lt;world</span> <span class="pre">name=&quot;default&quot;&gt;</span></code>.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin</span>
+<span class="w">  </span><span class="na">filename=</span><span class="s">&quot;gz-sim-physics-system&quot;</span>
+<span class="w">  </span><span class="na">name=</span><span class="s">&quot;gz::sim::systems::Physics&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+<span class="nt">&lt;plugin</span>
+<span class="w">  </span><span class="na">filename=</span><span class="s">&quot;gz-sim-user-commands-system&quot;</span>
+<span class="w">  </span><span class="na">name=</span><span class="s">&quot;gz::sim::systems::UserCommands&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+<span class="nt">&lt;plugin</span>
+<span class="w">  </span><span class="na">filename=</span><span class="s">&quot;gz-sim-scene-broadcaster-system&quot;</span>
+<span class="w">  </span><span class="na">name=</span><span class="s">&quot;gz::sim::systems::SceneBroadcaster&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+<span class="nt">&lt;plugin</span>
+<span class="w">  </span><span class="na">filename=</span><span class="s">&quot;gz-sim-sensors-system&quot;</span>
+<span class="w">  </span><span class="na">name=</span><span class="s">&quot;gz::sim::systems::Sensors&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;render_engine&gt;</span>ogre2<span class="nt">&lt;/render_engine&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+<span class="nt">&lt;plugin</span>
+<span class="w">  </span><span class="na">filename=</span><span class="s">&quot;gz-sim-imu-system&quot;</span>
+<span class="w">  </span><span class="na">name=</span><span class="s">&quot;gz::sim::systems::Imu&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="bridge-ros-topics">
+<h2>Bridge ROS topics<a class="headerlink" href="#bridge-ros-topics" title="Link to this heading">#</a></h2>
+<p>In Gazebo Classic, communication with ROS is enabled by plugins in
+<code class="docutils literal notranslate"><span class="pre">gazebo_ros_pkgs</span></code> that directly interface with the simulator. In contrast, in
+the new Gazebo, communication with ROS is mainly done through topic bridges
+provided by <code class="docutils literal notranslate"><span class="pre">ros_gz</span></code>. The bridge node is a generic node that bridges topics
+between <code class="docutils literal notranslate"><span class="pre">gz-transport</span></code> and ROS 2.</p>
+<p>To create the bridge, we’ll use a <code class="docutils literal notranslate"><span class="pre">yaml</span></code> file that contains the topic names and
+their mappings. We’ll add a new directory <code class="docutils literal notranslate"><span class="pre">params</span></code> in <code class="docutils literal notranslate"><span class="pre">turtlebot3_gazebo</span></code> and
+create <code class="docutils literal notranslate"><span class="pre">turtlebot3_waffle_bridge.yaml</span></code> with the following content:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="c1"># gz topic published by the simulator core</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ros_topic_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;clock&quot;</span>
+<span class="w">  </span><span class="nt">gz_topic_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;clock&quot;</span>
+<span class="w">  </span><span class="nt">ros_type_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;rosgraph_msgs/msg/Clock&quot;</span>
+<span class="w">  </span><span class="nt">gz_type_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gz.msgs.Clock&quot;</span>
+<span class="w">  </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GZ_TO_ROS</span>
+
+<span class="c1"># gz topic published by JointState plugin</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ros_topic_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;joint_states&quot;</span>
+<span class="w">  </span><span class="nt">gz_topic_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;joint_states&quot;</span>
+<span class="w">  </span><span class="nt">ros_type_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sensor_msgs/msg/JointState&quot;</span>
+<span class="w">  </span><span class="nt">gz_type_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gz.msgs.Model&quot;</span>
+<span class="w">  </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GZ_TO_ROS</span>
+
+<span class="c1"># gz topic published by DiffDrive plugin</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ros_topic_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;odom&quot;</span>
+<span class="w">  </span><span class="nt">gz_topic_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;odom&quot;</span>
+<span class="w">  </span><span class="nt">ros_type_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;nav_msgs/msg/Odometry&quot;</span>
+<span class="w">  </span><span class="nt">gz_type_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gz.msgs.Odometry&quot;</span>
+<span class="w">  </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GZ_TO_ROS</span>
+
+<span class="c1"># gz topic published by DiffDrive plugin</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ros_topic_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tf&quot;</span>
+<span class="w">  </span><span class="nt">gz_topic_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tf&quot;</span>
+<span class="w">  </span><span class="nt">ros_type_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;tf2_msgs/msg/TFMessage&quot;</span>
+<span class="w">  </span><span class="nt">gz_type_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gz.msgs.Pose_V&quot;</span>
+<span class="w">  </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GZ_TO_ROS</span>
+
+<span class="c1"># gz topic subscribed to by DiffDrive plugin</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ros_topic_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cmd_vel&quot;</span>
+<span class="w">  </span><span class="nt">gz_topic_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;cmd_vel&quot;</span>
+<span class="w">  </span><span class="nt">ros_type_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;geometry_msgs/msg/Twist&quot;</span>
+<span class="w">  </span><span class="nt">gz_type_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gz.msgs.Twist&quot;</span>
+<span class="w">  </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ROS_TO_GZ</span>
+
+<span class="c1"># gz topic published by IMU plugin</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ros_topic_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;imu&quot;</span>
+<span class="w">  </span><span class="nt">gz_topic_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;imu&quot;</span>
+<span class="w">  </span><span class="nt">ros_type_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sensor_msgs/msg/Imu&quot;</span>
+<span class="w">  </span><span class="nt">gz_type_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gz.msgs.IMU&quot;</span>
+<span class="w">  </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GZ_TO_ROS</span>
+
+<span class="c1"># gz topic published by Sensors plugin</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ros_topic_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;scan&quot;</span>
+<span class="w">  </span><span class="nt">gz_topic_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;scan&quot;</span>
+<span class="w">  </span><span class="nt">ros_type_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sensor_msgs/msg/LaserScan&quot;</span>
+<span class="w">  </span><span class="nt">gz_type_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gz.msgs.LaserScan&quot;</span>
+<span class="w">  </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GZ_TO_ROS</span>
+
+<span class="c1"># gz topic published by Sensors plugin (Camera)</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">ros_topic_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;camera/camera_info&quot;</span>
+<span class="w">  </span><span class="nt">gz_topic_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;camera/camera_info&quot;</span>
+<span class="w">  </span><span class="nt">ros_type_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;sensor_msgs/msg/CameraInfo&quot;</span>
+<span class="w">  </span><span class="nt">gz_type_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;gz.msgs.CameraInfo&quot;</span>
+<span class="w">  </span><span class="nt">direction</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">GZ_TO_ROS</span>
+</pre></div>
+</div>
+<p><a class="reference external" href="https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/params/turtlebot3_waffle_bridge.yaml">The completed yaml file can be found here.</a>
+Each entry in the yaml file has a ROS topic name, a Gazebo topic name, a ROS
+data/message type, and a direction which indicates which way messages flow. We
+will need to update the
+<a class="reference external" href="https://github.com/azeey/turtlebot3_simulations/blob/ccb2385fd478e79c898d290d80fa41f35b1bbb83/turtlebot3_gazebo/CMakeLists.txt#L72"><code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code></a>
+file to install the new <code class="docutils literal notranslate"><span class="pre">params</span></code> directory we created. The CMake <code class="docutils literal notranslate"><span class="pre">install</span></code>
+command should look like</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">install</span><span class="p">(</span><span class="s">DIRECTORY</span><span class="w"> </span><span class="s">launch</span><span class="w"> </span><span class="s">models</span><span class="w"> </span><span class="s">params</span><span class="w"> </span><span class="s">rviz</span><span class="w"> </span><span class="s">urdf</span><span class="w"> </span><span class="s">worlds</span>
+<span class="w">  </span><span class="s">DESTINATION</span><span class="w"> </span><span class="s">share/</span><span class="o">${</span><span class="nv">PROJECT_NAME</span><span class="o">}</span><span class="s">/</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, we will edit
+<a class="reference external" href="https://github.com/ROBOTIS-GIT/turtlebot3_simulations//blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/launch/spawn_turtlebot3.launch.py"><code class="docutils literal notranslate"><span class="pre">turtlebot3_gazebo/launch/spawn_turtlebot3.launch.py</span></code></a>,
+to create the bridge node:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">bridge_params</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+    <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s1">&#39;turtlebot3_gazebo&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;params&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;turtlebot3_waffle_bridge.yaml&#39;</span>
+<span class="p">)</span>
+
+<span class="n">start_gazebo_ros_bridge_cmd</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+    <span class="n">package</span><span class="o">=</span><span class="s1">&#39;ros_gz_bridge&#39;</span><span class="p">,</span>
+    <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;parameter_bridge&#39;</span><span class="p">,</span>
+    <span class="n">arguments</span><span class="o">=</span><span class="p">[</span>
+        <span class="s1">&#39;--ros-args&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;-p&#39;</span><span class="p">,</span>
+        <span class="sa">f</span><span class="s1">&#39;config_file:=</span><span class="si">{</span><span class="n">bridge_params</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="n">output</span><span class="o">=</span><span class="s1">&#39;screen&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>You might have noticed that in the bridge parameters, we did not include the
+<code class="docutils literal notranslate"><span class="pre">camera/image_raw</span></code> topic. While it is possible to bridge the image topic in a
+similar manner as all the other topics, we will make use of a specialized bridge
+node,
+<a class="reference external" href="https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_image"><code class="docutils literal notranslate"><span class="pre">ros_gz_image</span></code></a>,
+which provides a much more efficient bridge for image topics. We’ll add the
+following snippet to <code class="docutils literal notranslate"><span class="pre">turtlebot3_gazebo/launch/spawn_turtlebot3.launch.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">start_gazebo_ros_image_bridge_cmd</span> <span class="o">=</span> <span class="n">Node</span><span class="p">(</span>
+    <span class="n">package</span><span class="o">=</span><span class="s1">&#39;ros_gz_image&#39;</span><span class="p">,</span>
+    <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;image_bridge&#39;</span><span class="p">,</span>
+    <span class="n">arguments</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;/camera/image_raw&#39;</span><span class="p">],</span>
+    <span class="n">output</span><span class="o">=</span><span class="s1">&#39;screen&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, we will add all new the actions to the list of <code class="docutils literal notranslate"><span class="pre">LaunchDescription</span></code>s
+returned by the <code class="docutils literal notranslate"><span class="pre">generate_launch_description</span></code> function</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ...</span>
+
+<span class="c1"># Add the action to `ld` toward the end of the file</span>
+
+<span class="n">ld</span><span class="o">.</span><span class="n">add_action</span><span class="p">(</span><span class="n">start_gazebo_ros_bridge_cmd</span><span class="p">)</span>
+<span class="n">ld</span><span class="o">.</span><span class="n">add_action</span><span class="p">(</span><span class="n">start_gazebo_ros_image_bridge_cmd</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>You can find the
+<a class="reference external" href="https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/launch/spawn_turtlebot3.launch.py">Gazebo Classic <code class="docutils literal notranslate"><span class="pre">spawn_turtlebot3.launch.py</span></code> file here</a>,
+and the
+<a class="reference external" href="https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/launch/spawn_turtlebot3.launch.py">updated Gazebo <code class="docutils literal notranslate"><span class="pre">spawn_turtlebot3.launch.py</span></code> file here</a>.</p>
+<p>We are now ready to launch the empty world which spawns the waffle robot and
+sets up the bridge so that we can communicate with it from ROS 2.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">TURTLEBOT3_MODEL</span><span class="o">=</span>waffle
+ros2<span class="w"> </span>launch<span class="w"> </span>turtlebot3_gazebo<span class="w"> </span>empty_world.launch.py
+</pre></div>
+</div>
+<p>Here’s a screenshot of Turtlebot3 running in Gazebo obtained by launching
+<code class="docutils literal notranslate"><span class="pre">empty_world.launch.py</span></code>. The Lidar visualization is enabled by adding the
+“Visualize Lidar” GUI plugin (see
+<a class="reference external" href="https://gazebosim.org/docs/fortress/gui">tutorial</a> on how to add GUI plugins).</p>
+<p><img alt="Screenshot of turtlebot 3 running in Gazebo" src="../_images/gazebo_turtlebot3.png" /></p>
+<p>It is also now possible to do the
+<a class="reference external" href="https://emanual.robotis.com/docs/en/platform/turtlebot3/slam_simulation/">SLAM</a>
+and
+<a class="reference external" href="https://emanual.robotis.com/docs/en/platform/turtlebot3/nav_simulation/">Navigation</a>
+tutorials from the Turtlebot3 manual (make sure to select the Humble tab).
+However, it requires updating <code class="docutils literal notranslate"><span class="pre">turtlebot3_world.world</span></code> and
+<code class="docutils literal notranslate"><span class="pre">turtlebot3_world.launch.py</span></code> files according what we’ve discussed in this
+tutorial. For reference, those files have also been migrated in
+<a class="reference external" href="https://github.com/azeey/turtlebot3_simulations/tree/new_gazebo">this fork</a>.</p>
+</section>
+<section id="migrating-other-files-in-turtlebot3-gazebo">
+<h2>Migrating other files in turtlebot3_gazebo<a class="headerlink" href="#migrating-other-files-in-turtlebot3-gazebo" title="Link to this heading">#</a></h2>
+<p>This tutorial does not cover all aspects of migrating models and launch files
+from Gazebo classic. The following is a list of useful resources that cover
+other aspects, such as migrating Gazebo Classic plugins, materials and textures.</p>
+<ul class="simple">
+<li><p>Migration from Gazebo Classic: Plugins -
+<a class="reference external" href="https://gazebosim.org/api/gazebo/6/migrationplugins.html">Fortress</a> |
+<a class="reference external" href="https://gazebosim.org/api/sim/8/migrationplugins.html">Harmonic</a></p></li>
+<li><p>Migration from Gazebo classic: SDF -
+<a class="reference external" href="https://gazebosim.org/api/gazebo/6/migrationsdf.html">Fortress</a> |
+<a class="reference external" href="https://gazebosim.org/api/sim/8/migrationsdf.html">Harmonic</a></p></li>
+<li><p>Case study: migrating the ArduPilot ModelPlugin from Gazebo classic to
+Gazebo - <a class="reference external" href="https://gazebosim.org/api/gazebo/6/ardupilot.html">Fortress</a> |
+<a class="reference external" href="https://gazebosim.org/api/sim/8/ardupilot.html">Harmonic</a></p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/docs/latest/sdf_worlds">Basic description of SDF worlds</a></p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/docs/latest/comparison">Feature Comparison with Gazebo Classic</a></p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/docs/latest/ros2_integration">Documentation for ros_gz</a></p></li>
+<li><p>List of Systems (plugins):
+<a class="reference external" href="https://gazebosim.org/api/gazebo/6/namespaceignition_1_1gazebo_1_1systems.html">Fortress</a>
+|
+<a class="reference external" href="https://gazebosim.org/api/sim/8/namespacegz_1_1sim_1_1systems.html">Harmonic</a></p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#update-package-dependencies">Update package dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launch-the-world">Launch the world</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#edit-world-sdformat-file">Edit world SDFormat file</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spawn-model">Spawn model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-the-model">Modify the model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libgazebo-ros-imu-sensor-so">libgazebo_ros_imu_sensor.so</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libgazebo-ros-ray-sensor-so">libgazebo_ros_ray_sensor.so</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libgazebo-ros-camera-so">libgazebo_ros_camera.so</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libgazebo-ros-diff-drive-so">libgazebo_ros_diff_drive.so</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libgazebo-ros-joint-state-publisher-so">libgazebo_ros_joint_state_publisher.so</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#world-plugins">World plugins</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bridge-ros-topics">Bridge ROS topics</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#migrating-other-files-in-turtlebot3-gazebo">Migrating other files in turtlebot3_gazebo</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/gazebosim/docs/edit/master/migrating_gazebo_classic_ros2_packages.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p> Brought to you by <a href="https://openrobotics.org">Open Robotics</a>. </p>
+<p> Except where otherwise noted, the gazebosim.org web pages are licensed under <a
+    href="https://creativecommons.org/licenses/by/3.0/us/">Creative Commons
+    Attribution 3.0</a>. </p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

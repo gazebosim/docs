@@ -1,0 +1,1659 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>cmake &#8212; Gazebo  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/gazebo.css?v=12e630a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=187304be"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'cmake/index';</script>
+    <link rel="canonical" href="https://gazebosim.github.io/docs/libscmake/" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="common" href="../common/" />
+    <link rel="prev" title="Libraries" href="../" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+
+
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/gazebo_horz_pos.svg" class="logo__image only-light" alt="Gazebo  documentation - Home"/>
+    <script>document.write(`<img src="../_static/gazebo_horz_neg.svg" class="logo__image only-dark" alt="Gazebo  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+
+
+
+<div class="doc-heading">
+  <div class="banner">
+    <div class="d-sm-block">
+      <div class="h1">Development Libraries</div>
+      <span>Explore the complete set of development libraries offered by Gazebo.</span>
+    </div>
+  </div>
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Cmake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/">Common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuel_tools/">Fuel_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gui/">Gui</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../launch/">Launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../msgs/">Msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/">Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rendering/">Rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensors/">Sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sim/">Sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transport/">Transport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdformat/">Sdformat</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">cmake</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="cmake">
+<h1>cmake<a class="headerlink" href="#cmake" title="Link to this heading">#</a></h1>
+<ul class="gz-libs-lists simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake"><svg version="4.0.0.63c5cb3" width="2.0em" height="2.0em" class="sd-material-icon sd-material-icon-code" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg> Source Code</a></p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/api/cmake/3"><svg version="4.0.0.63c5cb3" width="2.0em" height="2.0em" class="sd-material-icon sd-material-icon-description" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0z" fill="none"></path><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"></path></svg> API &amp; Tutorials</a></p></li>
+</ul>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Readme</label><div class="sd-tab-content docutils">
+<h1 class="rubric" id="gazebo-cmake-cmake-modules-for-gazebo-projects">Gazebo CMake : CMake Modules for Gazebo Projects</h1>
+<p><strong>Maintainer:</strong> scpeters AT <a class="reference external" href="http://openrobotics.org">openrobotics.org</a></p>
+<p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/issues"><img alt="GitHub open issues" src="https://img.shields.io/github/issues-raw/gazebosim/gz-cmake.svg" /></a>
+<a class="reference external" href="https://github.com/gazebosim/gz-cmake/pulls"><img alt="GitHub open pull requests" src="https://img.shields.io/github/issues-pr-raw/gazebosim/gz-cmake.svg" /></a>
+<a class="reference external" href="https://community.gazebosim.org"><img alt="Discourse topics" src="https://img.shields.io/discourse/https/community.gazebosim.org/topics.svg" /></a>
+<a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0"><img alt="Hex.pm" src="https://img.shields.io/hexpm/l/plug.svg" /></a></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Build</p></th>
+<th class="head"><p>Status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Ubuntu Jammy</p></td>
+<td><p><a class="reference external" href="https://build.osrfoundation.org/job/gz_cmake-ci-gz-cmake3-jammy-amd64"><img alt="Build Status" src="https://build.osrfoundation.org/buildStatus/icon?job=gz_cmake-ci-gz-cmake3-jammy-amd64" /></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Homebrew</p></td>
+<td><p><a class="reference external" href="https://build.osrfoundation.org/job/gz_cmake-ci-gz-cmake3-homebrew-amd64"><img alt="Build Status" src="https://build.osrfoundation.org/buildStatus/icon?job=gz_cmake-ci-gz-cmake3-homebrew-amd64" /></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Windows</p></td>
+<td><p><a class="reference external" href="https://build.osrfoundation.org/job/gz_cmake-3-win"><img alt="Build Status" src="https://build.osrfoundation.org/buildStatus/icon?job=gz_cmake-3-win" /></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h1 class="rubric" id="table-of-contents">Table of Contents</h1>
+<p><a class="reference external" href="#features">Features</a></p>
+<p><a class="reference external" href="#install">Install</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="#binary-install">Binary Install</a></p></li>
+<li><p><a class="reference external" href="#source-install">Source Install</a></p>
+<ul>
+<li><p><a class="reference external" href="#prerequisites">Prerequisites</a></p></li>
+<li><p><a class="reference external" href="#building-from-source">Building from Source</a></p></li>
+</ul>
+</li>
+</ul>
+<p><a class="reference external" href="#usage">Usage</a></p>
+<p><a class="reference external" href="#documentation">Documentation</a></p>
+<p><a class="reference external" href="#testing">Testing</a></p>
+<p><a class="reference external" href="#folder-structure">Folder Structure</a></p>
+<p><a class="reference external" href="#code-of-conduct">Code of Conduct</a></p>
+<p><a class="reference external" href="#code-of-contributing">Contributing</a></p>
+<p><a class="reference external" href="#versioning">Versioning</a></p>
+<p><a class="reference external" href="#license">License</a></p>
+<h1 class="rubric" id="features">Features</h1>
+<p>gz-cmake provides a set of cmake modules that are used by the C+±based Gazebo projects. These modules help to control the quality and consistency of the Gazebo projects’ build systems.</p>
+<p>These modules are tailored to the Gazebo projects, so their use for non-Gazebo projects might be limited, but they may serve as a useful reference for setting up a modern cmake build system using good practices.</p>
+<h1 class="rubric" id="install">Install</h1>
+<p>We recommend following the <a class="reference external" href="#binary-install">Binary Install</a> instructions to get up and running as quickly and painlessly as possible.</p>
+<p>The <a class="reference external" href="#source-install">Source Install</a> instructions should be used if you need the very latest software improvements, you need to modify the code, or you plan to make a contribution.</p>
+<h2 class="rubric" id="binary-install">Binary Install</h2>
+<p>On Ubuntu systems, <code class="docutils literal notranslate"><span class="pre">apt-get</span></code> can be used to install <code class="docutils literal notranslate"><span class="pre">gz-cmake</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt install libgz-cmake&lt;#&gt;-dev
+</pre></div>
+</div>
+<p>Be sure to replace <code class="docutils literal notranslate"><span class="pre">&lt;#&gt;</span></code> with a number value, such as <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">2</span></code>, depending on which version you need.</p>
+<h2 class="rubric" id="source-install">Source Install</h2>
+<h3 class="rubric" id="prerequisites">Prerequisites</h3>
+<p>The only prerequisite of <code class="docutils literal notranslate"><span class="pre">gz-cmake</span></code> is <code class="docutils literal notranslate"><span class="pre">cmake</span></code>. Ubuntu users can install cmake with the package manager:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ sudo apt install cmake
+</pre></div>
+</div>
+<h3 class="rubric" id="building-from-source">Building from source</h3>
+<p>To build and install from source, you can clone the repo and use cmake to install the modules as though this is a regular cmake project:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ git clone https://github.com/gazebosim/gz-cmake
+$ cd gz-cmake
+$ mkdir build
+$ cd build
+$ cmake .. -DCMAKE_INSTALL_PREFIX=/path/to/install/dir
+$ make -j8
+$ make install
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">/path/to/install/dir</span></code> to whatever directory you want to install this package to.</p>
+<h1 class="rubric" id="usage">Usage</h1>
+<p>Documentation can be accessed at <a class="reference external" href="https://gazebosim.org/libs/cmake">https://gazebosim.org/libs/cmake</a>
+<a class="reference external" href="examples/">Examples</a> are available in this repository.
+<a class="reference external" href="tutorials/">Tutorials</a> are also available in this repository.</p>
+<h1 class="rubric" id="documentation">Documentation</h1>
+<p>Documentation for <code class="docutils literal notranslate"><span class="pre">gz-cmake</span></code> can be found within the source code, and also in the <a class="reference external" href="https://github.com/gazebosim/gz-cmake/blob/master/MIGRATION.md">MIGRATION.md guide</a>.</p>
+<h1 class="rubric" id="testing">Testing</h1>
+<p>A fuller suite of tests in the <code class="docutils literal notranslate"><span class="pre">examples</span></code> directory can be enabled by building with <code class="docutils literal notranslate"><span class="pre">BUILDSYSTEM_TESTING</span></code> enabled.
+Tests can be run by building the <code class="docutils literal notranslate"><span class="pre">test</span></code> target. From your build directory you can run:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ cmake .. -DBUILDSYSTEM_TESTING=1
+$ make test
+</pre></div>
+</div>
+<h1 class="rubric" id="folder-structure">Folder Structure</h1>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cmake</span></code>: cmake modules that get installed by this package</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">codecheck</span></code>: code linting and static analyzing utilities that get installed by this package</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">config</span></code>: template files for producing the config-files of <code class="docutils literal notranslate"><span class="pre">gz-cmake</span></code>; these are only used internally</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">doc</span></code>: template files to help Gazebo projects generate their own documentation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">examples</span></code>: fake projects that are used to test <code class="docutils literal notranslate"><span class="pre">gz-cmake</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">include</span></code>: C++ utility header files that get installed with <code class="docutils literal notranslate"><span class="pre">gz-cmake</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">test</span></code>: a directory of tests for the C++ utility component of <code class="docutils literal notranslate"><span class="pre">gz-cmake</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tools</span></code>: scripts for continuous integration testing</p></li>
+</ul>
+<h1 class="rubric" id="contributing">Contributing</h1>
+<p>Please see
+<a class="reference external" href="https://gazebosim.org/docs/all/contributing">CONTRIBUTING.md</a>.</p>
+<h1 class="rubric" id="code-of-conduct">Code of Conduct</h1>
+<p>Please see
+<a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/main/CODE_OF_CONDUCT.md">CODE_OF_CONDUCT.md</a>.</p>
+<h1 class="rubric" id="versioning">Versioning</h1>
+<p>This library uses <a class="reference external" href="https://semver.org/">Semantic Versioning</a>. Additionally, this library is part of the <a class="reference external" href="https://gazebosim.org">Gazebo project</a> which periodically releases a versioned set of compatible and complementary libraries. See the <a class="reference external" href="https://gazebosim.org">Gazebo website</a> for version and release information.</p>
+<h1 class="rubric" id="license">License</h1>
+<p>This library is licensed under <a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0</a>. See also the <a class="reference external" href="https://github.com/gazebosim/gz-cmake/blob/main/LICENSE">LICENSE</a> file.</p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Changelog</label><div class="sd-tab-content docutils">
+<h2 class="rubric" id="gazebo-cmake-3-x">Gazebo CMake 3.x</h2>
+<h3 class="rubric" id="gazebo-cmake-3-5-3-2024-05-02">Gazebo CMake 3.5.3 (2024-05-02)</h3>
+<ol class="arabic simple">
+<li><p>Fix installation of Ign*.cmake modules on newer versions of CMake</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/425">Pull request #425</a></p></li>
+</ul>
+</li>
+<li><p>Add package.xml</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/413">Pull request #413</a></p></li>
+</ul>
+</li>
+<li><p>Remove example_INSTALL_DIR from PREFIX_PATH on examples</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/421">Pull request #421</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-3-5-2-2024-04-05">Gazebo CMake 3.5.2 (2024-04-05)</h3>
+<ol class="arabic simple">
+<li><p>Use relative install paths for extra cmake files</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/422">Pull request #422</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-3-5-1-2024-03-29">Gazebo CMake 3.5.1 (2024-03-29)</h3>
+<ol class="arabic simple">
+<li><p>Fix how <code class="docutils literal notranslate"><span class="pre">ign</span></code> compatibility files are copied in windows</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/419">Pull request #419</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-3-5-0-2024-03-14">Gazebo CMake 3.5.0 (2024-03-14)</h3>
+<ol class="arabic simple">
+<li><p>Remove &#64;mxgrey as codeowner and assign maintainership to &#64;scpeters</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/414">Pull request #414</a></p></li>
+</ul>
+</li>
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">exec_program</span></code> with <code class="docutils literal notranslate"><span class="pre">execute_process</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/402">Pull request #402</a></p></li>
+</ul>
+</li>
+<li><p>cppcheck uses c++17</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/404">Pull request #404</a></p></li>
+</ul>
+</li>
+<li><p>Preserve executable permissions when installing scripts</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/407">Pull request #407</a></p></li>
+</ul>
+</li>
+<li><p>Use a consistent Python interpreter in all scripts</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/406">Pull request #406</a></p></li>
+</ul>
+</li>
+<li><p>Drop shebang from <code class="docutils literal notranslate"><span class="pre">upload_doc.sh</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/408">Pull request #408</a></p></li>
+</ul>
+</li>
+<li><p>Use a relative symlink for <code class="docutils literal notranslate"><span class="pre">Ign*</span></code> cmake modules</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/405">Pull request #405</a></p></li>
+</ul>
+</li>
+<li><p>Remove exec_program call</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/399">Pull request #399</a></p></li>
+</ul>
+</li>
+<li><p>Update CI badges in README</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/398">Pull request #398</a></p></li>
+</ul>
+</li>
+<li><p>Infrastructure</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/395">Pull request #395</a></p></li>
+</ul>
+</li>
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">EXTRA_ARGS</span></code> to be a <code class="docutils literal notranslate"><span class="pre">multiValueArgs</span></code> in <code class="docutils literal notranslate"><span class="pre">GzFindPackage</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/393">Pull request #393</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-3-4-1-2023-09-26">Gazebo CMake 3.4.1 (2023-09-26)</h3>
+<ol class="arabic simple">
+<li><p>Fixed finding Ogre2 on Windows+Conda</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/384">Pull request #384</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-3-4-0-2023-08-25">Gazebo CMake 3.4.0 (2023-08-25)</h3>
+<ol class="arabic simple">
+<li><p>Only link against DL in the case that it is needed</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/380">Pull request #380</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/382">Pull request #382</a></p></li>
+</ul>
+</li>
+<li><p>Disable building examples by default</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/377">Pull request #377</a></p></li>
+</ul>
+</li>
+<li><p>FindIgnOgre*: fix LIBRARY_DIRS and PLUGINDIR resolution when using pkgconfig</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/376">Pull request #376</a></p></li>
+</ul>
+</li>
+<li><p>Use CONFIG in gz_add_benchmark to avoid Windows collisions</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/341">Pull request #341</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-3-3-1-2023-08-03">Gazebo CMake 3.3.1 (2023-08-03)</h3>
+<ol class="arabic simple">
+<li><p>Fix pkg_config_entry when version number is not specified</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/374">Pull request #374</a></p></li>
+</ul>
+</li>
+<li><p>Infrastructure</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/372">Pull request #372</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/371">Pull request #371</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-3-3-0-2023-07-10">Gazebo CMake 3.3.0 (2023-07-10)</h3>
+<ol class="arabic simple">
+<li><p>GzConfigureProject: improve documentation</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/364">Pull request #364</a></p></li>
+</ul>
+</li>
+<li><p>Compute relative path for cmake extras</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/362">Pull request #362</a></p></li>
+</ul>
+</li>
+<li><p>GzConfigureProject: fix extras install</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/360">Pull request #360</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-3-2-2-2023-06-26">Gazebo CMake 3.2.2 (2023-06-26)</h3>
+<ol class="arabic simple">
+<li><p>Fix incorrect if comparison in build_examples</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/356">Pull request #356</a></p></li>
+</ul>
+</li>
+<li><p>Fix finding ogre 2.3 installed from source</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/342">Pull request #342</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-3-2-1-2023-05-30">Gazebo CMake 3.2.1 (2023-05-30)</h3>
+<ol class="arabic simple">
+<li><p>Check for empty variables before performing REPLACE</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/354">Pull request #354</a></p></li>
+</ul>
+</li>
+<li><p>GzSetCompilerFlags: Fix detection of clang-cl</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/353">Pull request #353</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-3-2-0-2023-05-19">Gazebo CMake 3.2.0 (2023-05-19)</h3>
+<ol class="arabic simple">
+<li><p>Add support for adding cmake extras to packages</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/345">Pull request #345</a></p></li>
+</ul>
+</li>
+<li><p>Build examples using native CMake</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/301">Pull request #301</a></p></li>
+</ul>
+</li>
+<li><p>Split gzutils into functional pieces</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/344">Pull request #344</a></p></li>
+</ul>
+</li>
+<li><p>Enable ign_ warnings to push the transition to gz_</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/346">Pull request #346</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-3-1-0-2023-04-21">Gazebo CMake 3.1.0 (2023-04-21)</h3>
+<ol class="arabic simple">
+<li><p>Add optional binary relocatability in downstream libraries</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/334">Pull request #334</a></p></li>
+<li><p>Thanks to Silvio Traversaro</p></li>
+</ul>
+</li>
+<li><p>Fix doxygen warnings.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-cmake/pull/333">Pull request #333</a></p></li>
+<li><p>Thanks to Benjamin Perseghetti</p></li>
+</ul>
+</li>
+<li><p>Use CONFIG in gz_add_benchmark to avoid Windows collisions</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-cmake/pull/340">Pull request #340</a></p></li>
+</ul>
+</li>
+<li><p>Unset cache variable in gz_pkg_check_modules_quiet</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-cmake/pull/337">Pull request #337</a></p></li>
+</ul>
+</li>
+<li><p>LICENSE: add Apache 2.0 license text</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-cmake/pull/338">Pull request #338</a></p></li>
+</ul>
+</li>
+<li><p>Disable protobuf warnings on protobuf target (#335)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-cmake/pull/335">Pull request #335) (#336</a> (#336)</p></li>
+</ul>
+</li>
+<li><p>Disable protobuf warnings on protobuf target</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-cmake/pull/335">Pull request #335</a></p></li>
+</ul>
+</li>
+<li><p>Fix FindAVDEVICE.cmake in case without pkg-config installed with ffmpeg &gt;= 5.1</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-cmake/pull/330">Pull request #330</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-3-0-1-2022-10-11">Gazebo CMake 3.0.1 (2022-10-11)</h3>
+<ol class="arabic simple">
+<li><p>FindIgnOGRE2: preserve PKG_CONFIG_PATH</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-cmake/pull/319">Pull request #319</a></p></li>
+</ul>
+</li>
+<li><p>FindSQLite3: Add SQLite::SQLite3 ALIAS</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/313">Pull request #313</a></p></li>
+</ul>
+</li>
+<li><p>FindUUID: Do not wrap LIBRARY_NAMES argument with quotes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/315">Pull request #315</a></p></li>
+</ul>
+</li>
+<li><p>Disable source tooltips</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/314">Pull request #314</a></p></li>
+</ul>
+</li>
+<li><p>Don’t assume <code class="docutils literal notranslate"><span class="pre">CMAKE_INSTALL_*DIR</span></code> variables are relative</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/305">Pull request #305</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-3-0-0-2022-09-23">Gazebo CMake 3.0.0 (2022-09-23)</h3>
+<ol class="arabic simple">
+<li><p>CMake macro to find the assimp library</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/278">Pull request #278</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/291">Pull request #291</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/292">Pull request #292</a></p></li>
+</ul>
+</li>
+<li><p>Changes for OGRE-2.3</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/283">Pull request #283</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/297">Pull request #297</a></p></li>
+</ul>
+</li>
+<li><p>Migrate ign -&gt; gz</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/308">Pull request #308</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/277">Pull request #277</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/274">Pull request #274</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/273">Pull request #273</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/271">Pull request #271</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/267">Pull request #267</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/266">Pull request #266</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/265">Pull request #265</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/263">Pull request #263</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/260">Pull request #260</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/258">Pull request #258</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/257">Pull request #257</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/256">Pull request #256</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/255">Pull request #255</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/254">Pull request #254</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/253">Pull request #253</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/252">Pull request #252</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/250">Pull request #250</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/249">Pull request #249</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/247">Pull request #247</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/246">Pull request #246</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/245">Pull request #245</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/244">Pull request #244</a></p></li>
+</ul>
+</li>
+<li><p>Removed hardcoded gtest include folder</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/268">Pull request #268</a></p></li>
+</ul>
+</li>
+<li><p>Deprecate utilities in favor of ign-utils</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/233">Pull request #233</a></p></li>
+</ul>
+</li>
+<li><p>Replace deprecated PythonInterp with Python3</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/213">Pull request #213</a></p></li>
+</ul>
+</li>
+<li><p>Disable long-running buildsystem tests by default</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/97">Pull request #97</a></p></li>
+</ul>
+</li>
+<li><p>Infrastructure</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/242">Pull request #242</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/209">Pull request #209</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/169">Pull request #169</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/90">Pull request #90</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/89">Pull request #89</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/87">Pull request #87</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/83">Pull request #83</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/77">Pull request #77</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/75">Pull request #75</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-cmake-2-x">Gazebo CMake 2.x</h2>
+<h3 class="rubric" id="gazebo-cmake-2-17-1-2023-08-31">Gazebo CMake 2.17.1 (2023-08-31)</h3>
+<ol class="arabic simple">
+<li><p>FindIgnOgre*: fix LIBRARY_DIRS and PLUGINDIR resolution when using pkgconfig</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/376">Pull request #376</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-17-0-2023-05-19">Gazebo CMake 2.17.0 (2023-05-19)</h3>
+<ol class="arabic simple">
+<li><p>Use CONFIG in gz_add_benchmark to avoid Windows collisions</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-cmake/pull/341">Pull request #341</a></p></li>
+</ul>
+</li>
+<li><p>LICENSE: add Apache 2.0 license text</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-cmake/pull/338">Pull request #338</a></p></li>
+</ul>
+</li>
+<li><p>Disable protobuf warnings on protobuf target (#335)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-cmake/pull/335">Pull request #335</a></p></li>
+</ul>
+</li>
+<li><p>Fix FindAVDEVICE.cmake in case without pkg-config installed with ffmpeg &gt;= 5.1</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-cmake/pull/330">Pull request #330</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-16-0-2022-10-08">Gazebo CMake 2.16.0 (2022-10-08)</h3>
+<ol class="arabic simple">
+<li><p>FindIgnOGRE2: preserve PKG_CONFIG_PATH</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-cmake/pull/319">Pull request #319</a></p></li>
+</ul>
+</li>
+<li><p>FindSQLite3: Add SQLite::SQLite3 ALIAS</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-cmake/pull/313">Pull request #313</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-cmake/pull/317">Pull request #317</a></p></li>
+</ul>
+</li>
+<li><p>FindUUID: Do not wrap LIBRARY_NAMES argument with quotes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-cmake/pull/315">Pull request #315</a></p></li>
+</ul>
+</li>
+<li><p>Don’t assume <code class="docutils literal notranslate"><span class="pre">CMAKE_INSTALL_*DIR</span></code> variables are relative</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-cmake/pull/305">Pull request #305</a></p></li>
+</ul>
+</li>
+<li><p>Remove check for s3cfg</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-cmake/pull/308">Pull request #308</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-15-0-2022-08-29">Gazebo CMake 2.15.0 (2022-08-29)</h3>
+<ol class="arabic simple">
+<li><p>ign -&gt; gz: add <code class="docutils literal notranslate"><span class="pre">gz/*</span></code> header files</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/303">Pull request #303</a></p></li>
+</ul>
+</li>
+<li><p>Backport <code class="docutils literal notranslate"><span class="pre">GZ_SANITIZER</span></code> variable</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/294">Pull request #294</a></p></li>
+</ul>
+</li>
+<li><p>Update doxygen file</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/276">Pull request #276</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-14-0-2022-07-25">Gazebo CMake 2.14.0 (2022-07-25)</h3>
+<ol class="arabic simple">
+<li><p>Add code coverage ignore file</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/279">Pull request #279</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-13-0-2022-07-22">Gazebo CMake 2.13.0 (2022-07-22)</h3>
+<ol class="arabic simple">
+<li><p>Backport <code class="docutils literal notranslate"><span class="pre">GZ_DESIGNATION</span></code> tick-tock</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/284">Pull request #284</a></p></li>
+</ul>
+</li>
+<li><p>Upload docs to an s3 bucket based only on the major version</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/281">Pull request #281</a></p></li>
+</ul>
+</li>
+<li><p>Exclude proto generated cpp in coverage test</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/272">Pull request #272</a></p></li>
+</ul>
+</li>
+<li><p>Add LTCG flag on Windows builds</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/251">Pull request #251</a></p></li>
+</ul>
+</li>
+<li><p>Update codeowners</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/261">Pull request #261</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/237">Pull request #237</a></p></li>
+</ul>
+</li>
+<li><p>Update documentation to <a class="reference external" href="http://gazebosim.org">gazebosim.org</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/248">Pull request #248</a></p></li>
+</ul>
+</li>
+<li><p>Improving CONFIG test</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/235">Pull request #235</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-12-1-2022-04-12">Gazebo CMake 2.12.1 (2022-04-12)</h3>
+<ol class="arabic simple">
+<li><p>Allow to recreate targets created by GzPkgConfig</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/231">Pull request #231</a></p></li>
+</ul>
+</li>
+<li><p>Adding tests for CONFIG argument</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/230">Pull request #230</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-12-0-2022-04-11">Gazebo CMake 2.12.0 (2022-04-11)</h3>
+<ol class="arabic simple">
+<li><p>Adding CONFIG option</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/211">Pull request #211</a></p></li>
+</ul>
+</li>
+<li><p>GzFindOGRE2: support for the ogre-next package on Ubuntu Jammy</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/224">Pull request #224</a></p></li>
+</ul>
+</li>
+<li><p>Fix check for missing components in OGRE2. Be more verbose with components</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/220">Pull request #220</a></p></li>
+</ul>
+</li>
+<li><p>FindGzOGRE2: exclude ogre versions different than 2.x</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/219">Pull request #219</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/221">Pull request #221</a></p></li>
+</ul>
+</li>
+<li><p>Specify sanitizers using GZ_SANITIZERS cmake variable</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/210">Pull request #210</a></p></li>
+</ul>
+</li>
+<li><p>Replace deprecated PythonInterp with Python3 (#213)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/213">Pull request #213</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/223">Pull request #223</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-11-0-2022-02-23">Gazebo CMake 2.11.0 (2022-02-23)</h3>
+<ol class="arabic simple">
+<li><p>Set source path to be used by common::testing</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/206">Pull request #206</a></p></li>
+</ul>
+</li>
+<li><p>Add examples using static libraries</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/202">Pull request #202</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-10-0-2021-12-21">Gazebo CMake 2.10.0 (2021-12-21)</h3>
+<ol class="arabic simple">
+<li><p>doxygen allow all .cc, .hh, and CMakeLists.txt, not just in examples/ dir</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/198">Pull request #198</a></p></li>
+</ul>
+</li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">LEGACY_PROJECT_PREFIX</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">gz_create_core_library</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/199">Pull request #199</a></p></li>
+</ul>
+</li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">HIDE_SYMBOLS_BY_DEFAULT</span></code> parameter to <code class="docutils literal notranslate"><span class="pre">gz_configure_build</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/196">Pull request #196</a></p></li>
+</ul>
+</li>
+<li><p>Add Ubuntu Jammy CI</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/194">Pull request #194</a></p></li>
+</ul>
+</li>
+<li><p>FindGzURDFDOM cmake module</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/193">Pull request #193</a></p></li>
+</ul>
+</li>
+<li><p>Do not modify <code class="docutils literal notranslate"><span class="pre">CMAKE_FIND_LIBRARY_PREFIXES</span></code> and <code class="docutils literal notranslate"><span class="pre">CMAKE_FIND_LIBRARY_SUFFIXES</span></code> on Windows</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/189">Pull request #189</a></p></li>
+</ul>
+</li>
+<li><p>Project option: <code class="docutils literal notranslate"><span class="pre">REPLACE_INCLUDE_PATH</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/190">Pull request #190</a></p></li>
+</ul>
+</li>
+<li><p>Project option: <code class="docutils literal notranslate"><span class="pre">NO_PROJECT_PREFIX</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/191">Pull request #191</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-9-0-2021-09-02">Gazebo CMake 2.9.0 (2021-09-02)</h3>
+<ol class="arabic simple">
+<li><p>Fix include directory flags for codecheck</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/186">Pull request #186</a></p></li>
+</ul>
+</li>
+<li><p>Fix problems on GzOGRE when version is not found</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/175">Pull request #175</a></p></li>
+</ul>
+</li>
+<li><p>Remove bitbucket-pipelines.yml</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/181">Pull request #181</a></p></li>
+</ul>
+</li>
+<li><p>Include IMAGE_PATH directories in gz_create_docs</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/183">Pull request #183</a></p></li>
+</ul>
+</li>
+<li><p>Special case for ogre2.2 on Windows</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/176">Pull request #176</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/177">Pull request #177</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/178">Pull request #178</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/180">Pull request #180</a></p></li>
+</ul>
+</li>
+<li><p>Fix building OGRE / OGRE2 from source in colcon workspace</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/174">Pull request #174</a></p></li>
+</ul>
+</li>
+<li><p>Remove codecov badge from README</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/172">Pull request #172</a></p></li>
+</ul>
+</li>
+<li><p>Port codecov to new configuration</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/170">Pull request #170</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-8-0-2021-04-30">Gazebo CMake 2.8.0 (2021-04-30)</h3>
+<ol class="arabic simple">
+<li><p>Fix hardcoded pkg-config library in examples</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/163">Pull request #163</a></p></li>
+</ul>
+</li>
+<li><p>User-friendly skip component warning</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/165">Pull request #165</a></p></li>
+</ul>
+</li>
+<li><p>Run gz-cmake’s copy of check_test_ran</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/168">Pull request #168</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-7-0-2021-03-30">Gazebo CMake 2.7.0 (2021-03-30)</h3>
+<ol class="arabic simple">
+<li><p>Support to find Ogre 2-2</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/157">Pull request #157</a></p></li>
+</ul>
+</li>
+<li><p>glib fix for Windows</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/154">Pull request #154</a></p></li>
+</ul>
+</li>
+<li><p>Fix cmake message types</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/159">Pull request #159</a></p></li>
+</ul>
+</li>
+<li><p>Support imported targets in FindGzOGRE.cmake</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/150">Pull request #150</a></p></li>
+</ul>
+</li>
+<li><p>Infrastructure</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/148">Pull request #148</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/149">Pull request #149</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/151">Pull request #151</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/152">Pull request #152</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/155">Pull request #155</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/153">Pull request #153</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/158">Pull request #158</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/160">Pull request #160</a></p></li>
+</ul>
+</li>
+<li><p>Set cmake CMP0079 policy</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/146">Pull request 146</a></p></li>
+</ul>
+</li>
+<li><p>Tutorial about building with cmake and colcon</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/145">Pull request 145</a></p></li>
+</ul>
+</li>
+<li><p>Add an option to disable docs when building</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/144">Pull request 144</a></p></li>
+</ul>
+</li>
+<li><p>Install hpp files as headers</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/143">Pull request 143</a></p></li>
+</ul>
+</li>
+<li><p>Suppress warning C5205 on Windows</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/141">Pull request 141</a></p></li>
+</ul>
+</li>
+<li><p>Windows installation instructions via conda-forge</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/139">Pull request 139</a></p></li>
+</ul>
+</li>
+<li><p>Ensure relocatable config files</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/129">Pull request 129</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-6-2-2020-12-29">Gazebo CMake 2.6.2 (2020-12-29)</h3>
+<ol class="arabic simple">
+<li><p>FindUUID: Always define UUID::UUID on Apple platforms</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/128">Pull request 128</a></p></li>
+</ul>
+</li>
+<li><p>Remove deprecated doxygen configurations</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/136">Pull request 136</a></p></li>
+</ul>
+</li>
+<li><p>Generate doxygen tutorials for gz-cmake</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/137">Pull request 137</a></p></li>
+</ul>
+</li>
+<li><p>Enable make codecheck for gz-cmake</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/138">Pull request 138</a></p></li>
+</ul>
+</li>
+<li><p>Generate valid visibility macros by replacing hyphens in component name</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/135">Pull request 135</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-6-1-2020-12-10">Gazebo CMake 2.6.1 (2020-12-10)</h3>
+<ol class="arabic simple">
+<li><p>Revert python to optional dependency</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/132">Pull request 132</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-6-0-2020-12-08">Gazebo CMake 2.6.0 (2020-12-08)</h3>
+<ol class="arabic simple">
+<li><p>Added build-essential and cmake to packages.apt</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/130">Pull request 130</a></p></li>
+</ul>
+</li>
+<li><p>Fix FindGzOgre on Windows when not using vcpkg</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/124">Pull request 124</a></p></li>
+</ul>
+</li>
+<li><p>FindGzOGRE2: prefer versioned component libraries</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/125">Pull request 125</a></p></li>
+</ul>
+</li>
+<li><p>Correct CMake logic and update cpplint to Python3</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/117">Pull request 117</a></p></li>
+</ul>
+</li>
+<li><p>Improve fork experience</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/118">Pull request 118</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-5-0-2020-09-05">Gazebo CMake 2.5.0 (2020-09-05)</h3>
+<ol class="arabic simple">
+<li><p>Add additional input directories to parse when generating documentation</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/111">Pull request 111</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-4-0-2020-08-20">Gazebo CMake 2.4.0 (2020-08-20)</h3>
+<ol class="arabic simple">
+<li><p>Added an option to include generated code in the gz_create_docs function</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/108">Pull request 108</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-3-0-2020-08-07">Gazebo CMake 2.3.0 (2020-08-07)</h3>
+<ol class="arabic simple">
+<li><p>New macros to help with filter google-test in some platforms</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/102">Pull request 102</a></p></li>
+</ul>
+</li>
+<li><p>Disable long-running buildsystem tests by default</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/97">Pull request 97</a></p></li>
+</ul>
+</li>
+<li><p>Fix use of FindYAML.cmake and FindJSONCPP without pkg-config</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/79">Pull request 79</a></p></li>
+</ul>
+</li>
+<li><p>Fix use of FindGzOGRE2 on Windows if OGRE2 is not found</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/94">Pull request 94</a></p></li>
+<li><p>Thanks to Silvio Traversaro</p></li>
+</ul>
+</li>
+<li><p>FindUUID: Export include path as expected by Gazebo Libraries #104</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/104">Pull request 104</a></p></li>
+<li><p>Thanks to Silvio Traversaro</p></li>
+</ul>
+</li>
+<li><p>Make the OGRE plugin path discovery portable</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/101">Pull request 101</a></p></li>
+<li><p>Thanks to Sean Yen</p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-2-0">Gazebo CMake 2.2.0</h3>
+<ol class="arabic simple">
+<li><p>Fix use of FindZIP without pkg-config.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/182">BitBucket pull request 182</a></p></li>
+</ul>
+</li>
+<li><p>Use mathjax to render equations.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/181">BitBucket pull request 181</a></p></li>
+</ul>
+</li>
+<li><p>Reduce example names to fix build on Windows</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/180">BitBucket pull request 180</a></p></li>
+</ul>
+</li>
+<li><p>Fix doxygen deprecation filter</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/160">BitBucket pull request 160</a></p></li>
+</ul>
+</li>
+<li><p>Change the diamond link icon to a material design link</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/159">BitBucket pull request 159</a></p></li>
+</ul>
+</li>
+<li><p>Disable long-running buildsystem tests by default.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/pull/97">Pull request 97</a></p></li>
+</ul>
+</li>
+<li><p>Set viewport for doxygen pages.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/167">BitBucket pull request 167</a></p></li>
+</ul>
+</li>
+<li><p>Use upstream <code class="docutils literal notranslate"><span class="pre">CURL::libcurl</span></code> imported target in FindGzCURL.cmake if available.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/175">BitBucket pull request 175</a></p></li>
+</ul>
+</li>
+<li><p>Avoid hardcoding /machine:x64 flag on 64-bit on MSVC.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/171">BitBucket pull request 171</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/168">BitBucket pull request 168</a></p></li>
+</ul>
+</li>
+<li><p>FindGzOGRE2: fix include paths for new directory structure.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/170">BitBucket pull request 170</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/157">BitBucket pull request 157</a></p></li>
+</ul>
+</li>
+<li><p>Support for custom vcpkg ogre2 windows port (backport of PR 155).</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/161">BitBucket pull request 161</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/155">BitBucket pull request 155</a></p></li>
+</ul>
+</li>
+<li><p>GzConfigureBuild: only <code class="docutils literal notranslate"><span class="pre">add_subdirectory(test)</span></code> if <code class="docutils literal notranslate"><span class="pre">BUILD_TESTING</span></code> is ON</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/169">BitBucket pull request 169</a></p></li>
+</ul>
+</li>
+<li><p>Add FindGzBullet cmake module.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/162">BitBucket pull request 162</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-1-1-2019-08-07">Gazebo CMake 2.1.1 (2019-08-07)</h3>
+<ol class="arabic simple">
+<li><p>Turn on doxygen warnings, add CI script to check for doxygen warnings.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/158">BitBucket pull request 158</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-1-0-2019-05-17">Gazebo CMake 2.1.0 (2019-05-17)</h3>
+<ol class="arabic simple">
+<li><p>Fixes for vcpkg ogre 1.11 version</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/152">BitBucket pull request 152</a></p></li>
+</ul>
+</li>
+<li><p>Add benchmark aggregation functionality</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/148">BitBucket pull request 148</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/149">BitBucket pull request 149</a></p></li>
+</ul>
+</li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">PRIVATE_FOR</span></code> to skip cmake dependencies in addition to pkg-config</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/147">BitBucket pull request 147</a></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upload_doc.sh</span></code>: actually use dry-run, and allow the user to pass in a ‘y’ or ‘n’</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/146">BitBucket pull request 146</a></p></li>
+</ul>
+</li>
+<li><p>Set favicon</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/145">BitBucket pull request 145</a></p></li>
+</ul>
+</li>
+<li><p>Fix tagfile generation by preventing the inclusion of tutorials</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/142">BitBucket pull request 142</a></p></li>
+</ul>
+</li>
+<li><p>Update datainstall dir</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/141">BitBucket pull request 141</a></p></li>
+</ul>
+</li>
+<li><p>Allow tests to build without automatic linking against project lib</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/140">BitBucket pull request 140</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-2-0-0-2019-01-31">Gazebo CMake 2.0.0 (2019-01-31)</h3>
+<ol class="arabic simple">
+<li><p>Require cmake 3.10.2, support <code class="docutils literal notranslate"><span class="pre">CXX_STANDARD</span></code> 17</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/68">BitBucket pull request 68</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/compare/ignition-cmake2_2.0.0...ign-cmake1">Full list of changes</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-cmake-1-x">Gazebo CMake 1.x</h2>
+<ol class="arabic simple">
+<li><p>Set viewport for doxygen pages.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/167">BitBucket pull request 167</a></p></li>
+</ul>
+</li>
+<li><p>Use upstream <code class="docutils literal notranslate"><span class="pre">CURL::libcurl</span></code> imported target in FindGzCURL.cmake if available.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/175">BitBucket pull request 175</a></p></li>
+</ul>
+</li>
+<li><p>Avoid hardcoding /machine:x64 flag on 64-bit on MSVC.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/171">BitBucket pull request 171</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/168">BitBucket pull request 168</a></p></li>
+</ul>
+</li>
+<li><p>GzConfigureBuild: only <code class="docutils literal notranslate"><span class="pre">add_subdirectory(test)</span></code> if <code class="docutils literal notranslate"><span class="pre">BUILD_TESTING</span></code> is ON</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/165">BitBucket pull request 165</a></p></li>
+</ul>
+</li>
+<li><p>Fix race condition in test for issue 48</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/136">BitBucket pull request 136</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/issues/48">Issue 48</a></p></li>
+</ul>
+</li>
+<li><p>Account for inter-component dependencies when importing targets</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/131">BitBucket pull request 131</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/issues/48">Issue 48</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-1-1-0">Gazebo CMake 1.1.0</h3>
+<ul class="simple">
+<li><p>Initial version bumped to 1.1.0 since there was a 1.1.0 prerelease</p></li>
+</ul>
+<h3 class="rubric" id="gazebo-cmake-1-0-0">Gazebo CMake 1.0.0</h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* [Full list of changes](https://github.com/gazebosim/gz-cmake/compare/ignition-cmake1_1.0.0...ign-cmake0)
+</pre></div>
+</div>
+<h2 class="rubric" id="gazebo-cmake-0-x">Gazebo CMake 0.x</h2>
+<ol class="arabic simple">
+<li><p>Set viewport for doxygen pages.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/167">BitBucket pull request 167</a></p></li>
+</ul>
+</li>
+<li><p>Use upstream <code class="docutils literal notranslate"><span class="pre">CURL::libcurl</span></code> imported target in FindGzCURL.cmake if available.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/175">BitBucket pull request 175</a></p></li>
+</ul>
+</li>
+<li><p>Avoid hardcoding /machine:x64 flag on 64-bit on MSVC.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/168">BitBucket pull request 168</a></p></li>
+</ul>
+</li>
+<li><p>GzConfigureBuild: only <code class="docutils literal notranslate"><span class="pre">add_subdirectory(test)</span></code> if <code class="docutils literal notranslate"><span class="pre">BUILD_TESTING</span></code> is ON</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/163">BitBucket pull request 163</a></p></li>
+</ul>
+</li>
+<li><p>GzConfigureProject.cmake: fix small typo PKCONFIG -&gt; PKGCONFIG</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/118">BitBucket pull request 118</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-0-6-1">Gazebo CMake 0.6.1</h3>
+<ol class="arabic simple">
+<li><p>Fix duplicated imported target error</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/110">BitBucket pull request 110</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/issues/47">Issue 47</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-0-6-0">Gazebo CMake 0.6.0</h3>
+<ol class="arabic simple">
+<li><p>Properly mark internal CMake cache variables as advanced</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/68">BitBucket pull request 68</a></p></li>
+</ul>
+</li>
+<li><p>Make line coverage by default, add separate coverage-branch target</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/66">BitBucket pull request 66</a></p></li>
+</ul>
+</li>
+<li><p>Refactor variable names in example test junit templates</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/57">BitBucket pull request 57</a></p></li>
+</ul>
+</li>
+<li><p>Suport for <code class="docutils literal notranslate"><span class="pre">CMAKE_BUILD_TYPE</span></code> None</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/54">BitBucket pull request 54</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-0-5-0">Gazebo CMake 0.5.0</h3>
+<ol class="arabic simple">
+<li><p>FindJSONCPP: fix target when pkg-config is successful</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/50">BitBucket pull request 50</a></p></li>
+</ul>
+</li>
+<li><p>Add branch coverage</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/46">BitBucket pull request 46</a></p></li>
+</ul>
+</li>
+<li><p>Add FindOptiX.cmake</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-cmake/pull-requests/34">BitBucket pull request 34</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-cmake-0-4-1">Gazebo CMake 0.4.1</h3>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* [Full list of changes](https://github.com/gazebosim/gz-cmake/compare/ignition-cmake_0.4.1...ignition-cmake_0.4.0)
+</pre></div>
+</div>
+<h3 class="rubric" id="gazebo-cmake-0-4-0">Gazebo CMake 0.4.0</h3>
+</div>
+</div>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p> Brought to you by <a href="https://openrobotics.org">Open Robotics</a>. </p>
+<p> Except where otherwise noted, the gazebosim.org web pages are licensed under <a
+    href="https://creativecommons.org/licenses/by/3.0/us/">Creative Commons
+    Attribution 3.0</a>. </p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

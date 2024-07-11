@@ -1,0 +1,857 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ROS 2 Gazebo Vendor Packages &#8212; Gazebo dome documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/gazebo.css?v=12e630a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=7531f9e3"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ros2_gz_vendor_pkgs';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.15.4';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://gazebosim.github.io/docs/docs/dome/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'dome';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        </script>
+    <link rel="canonical" href="https://gazebosim.github.io/docs/docs/latestros2_gz_vendor_pkgs/" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Installing Gazebo11 side by side with new Gazebo" href="../install_gz11_side_by_side/" />
+    <link rel="prev" title="Installing Gazebo with ROS" href="../ros_installation/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+  
+  <aside aria-label="Version warning" class="bd-header-announcement bd-header-version-warning" style="min-height: 3rem;">
+    <div class="bd-header-announcement__content">
+      <div class="sidebar-message">
+        
+          This is documentation for <strong>Gazebo Dome</strong>, which has reached its EOL
+          (end-of-life) and is no longer officially supported.
+        
+        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version"
+        href="../../harmonic/ros2_gz_vendor_pkgs">Switch to the latest stable version</a>
+      </div>
+    </div>
+  </aside>
+  
+
+
+
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/gazebo_horz_pos.svg" class="logo__image only-light" alt="Gazebo dome documentation - Home"/>
+    <script>document.write(`<img src="../_static/gazebo_horz_neg.svg" class="logo__image only-dark" alt="Gazebo dome documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+
+
+<div class="doc-header">
+  <div class="banner d-flex flex-column-reverse flex-sm-row">
+    <div>
+      <div class="d-none d-sm-block">
+        <span class="d-inline fs-2">Docs / Gazebo Dome</span>
+        
+          <span class="badge bg-danger fs-4 fw-light ms-2">EOL</span>
+        
+      </div>
+      <span>Supported Sep, 2020 to Dec, 2021</span>
+    </div><div class="gz-version-switcher">
+  <span class="fs-4 fw-light pe-2">Release:</span>
+<script>
+document.write(`
+  <div class="version-switcher__container dropdown">
+    <button id="pst-version-switcher-button"
+      type="button"
+      class="version-switcher__button btn btn-sm dropdown-toggle"
+      data-bs-toggle="dropdown"
+      aria-haspopup="listbox"
+      aria-controls="pst-version-switcher-list"
+      aria-label="Version switcher list"
+    >
+      Choose version  <!-- this text may get changed later by javascript -->
+      <span class="caret"></span>
+    </button>
+    <div id="pst-version-switcher-list"
+      class="version-switcher__menu dropdown-menu list-group-flush py-0"
+      role="listbox" aria-labelledby="pst-version-switcher-button">
+      <!-- dropdown will be populated by javascript on page load -->
+    </div>
+  </div>
+`);
+</script></div></div>
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted/">Get Started</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../install/">Install</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install_ubuntu/">Binary Ubuntu Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_osx/">Binary macOS Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_windows/">Binary Windows Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_ubuntu_src/">Ubuntu Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_osx_src/">macOS Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_windows_src/">Windows Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../comparison/">Feature Comparison</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/">Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ros_integration/">ROS Integration</a></li>
+
+
+
+<li class="toctree-l2"><a class="reference internal" href="../ros2_integration/">ROS 2 Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spawn_urdf/">Spawn URDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gui/">Understanding the GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manipulating_models/">Manipulating Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_insert/">Model Insertion from Fuel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hotkeys/">Keyboard Shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../building_robot/">Building your own robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moving_robot/">Moving the robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdf_worlds/">SDF worlds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sensors/">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../actors/">Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../web_visualization/">Web Visualization</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../ros_installation/">ROS/Gazebo Installation</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">ROS 2 Gazebo Vendor Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../install_gz11_side_by_side/">Installing Gazebo11 side by side with new Gazebo</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../migrating_gazebo_classic_ros2_packages/">Migration from ROS 2 Gazebo Classic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap/">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-features/">Release Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/">Releases</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../development/">Development</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ci/">Continuous Integration</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../release/">Release process</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../releasing/versioning_pre_nightly/">Debian/Ubuntu versioning in nightly and prerelease binaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases-instructions/">Release Instructions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/">Sim Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../fuel/">Fuel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_content_deletion_policy/">Content Deletion Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_model/">Contributing New Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_world/">Contributing New World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_copyright/">Copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_data_policy/">Data and Privacy Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_fair_use/">What is Fair Use</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../library_reference_nav/">Library Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/cmake/2">cmake</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/common/3">common</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/fuel_tools/5">fuel_tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/gui/4">gui</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/launch/3">launch</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/math/6">math</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/msgs/6">msgs</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/physics/3">physics</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/plugin/1">plugin</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/rendering/4">rendering</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sensors/4">sensors</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sim/4">sim</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/tools/1">tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/transport/9">transport</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sdformat/10">sdformat</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../ros_installation/" class="nav-link">Installing Gazebo with ROS</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">ROS 2...</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="ros-2-gazebo-vendor-packages">
+<h1>ROS 2 Gazebo Vendor Packages<a class="headerlink" href="#ros-2-gazebo-vendor-packages" title="Link to this heading">#</a></h1>
+<section id="history-of-gazebo-packaging-before-ros-2-jazzy">
+<h2>History of Gazebo packaging before ROS 2 Jazzy<a class="headerlink" href="#history-of-gazebo-packaging-before-ros-2-jazzy" title="Link to this heading">#</a></h2>
+<p>ROS 2 versions prior to Jazzy used Gazebo packages that were available in
+upstream Ubuntu. However, due to the package
+<a class="reference external" href="https://wiki.ubuntu.com/StableReleaseUpdates">update policy of Ubuntu</a>, the
+Gazebo packages on upstream Ubuntu did not receive any updates. Thus, upstream
+Ubuntu almost always had older versions of Gazebo than what was available from
+the Gazebo package repository (<a class="reference external" href="packages.osrfoundation.org">packages.osrfoundation.org</a>). To overcome this,
+more up-to-date Gazebo packages were copied to the ROS bootstrap repository
+(<a class="reference external" href="repos.ros.org">repos.ros.org</a>) which were then copied to the main ROS package repository
+(<a class="reference external" href="packages.ros.org">packages.ros.org</a>). However, the process was error prone and keeping package
+versions in sync between the Gazebo and ROS package repositories was difficult
+since this was a manual process.</p>
+</section>
+<section id="gazebo-vendor-packages">
+<h2>Gazebo vendor packages<a class="headerlink" href="#gazebo-vendor-packages" title="Link to this heading">#</a></h2>
+<p>As of ROS 2 Jazzy, Gazebo is available from the ROS package repository via
+vendor packages. A ROS vendor package is a ROS package that provides software
+that ROS needs on platforms where it might not be available, or where a
+different version than what is available is required <a class="footnote-reference brackets" href="#id2" id="id1" role="doc-noteref"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></a>.</p>
+<p>The Gazebo vendor packages provide all of the Gazebo libraries to a given ROS
+release. The packages are built in the ROS buildfarm and as part of their build
+process, fetch the sources of the underlying Gazebo library and build it. In
+addition, the vendor packages provide CMake shims that make it possible to use
+CMake targets without version numbers.</p>
+<p>Each release of ROS 2 is paired with a specific release of Gazebo. For ROS 2
+Jazzy, the vendor packages contain Gazebo libraries from the Harmonic release.
+For ROS 2 K-turtle (next release), the vendor packages will contain Gazebo
+Ionic. This default pairing is found in the
+<a class="reference external" href="https://gazebosim.org/docs/harmonic/ros_installation">ROS installation instructions</a></p>
+<p>The following is a table of all vendor packages and the underlying Gazebo
+library they vendor:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Vendor Package</p></th>
+<th class="head"><p>Gazebo Library</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/gazebo-release/gz_cmake_vendor">gz_cmake_vendor</a></p></td>
+<td><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake">gz-cmake</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/gazebo-release/gz_common_vendor">gz_common_vendor</a></p></td>
+<td><p><a class="reference external" href="https://github.com/gazebosim/gz-common">gz-common</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/gazebo-release/gz_fuel_tools_vendor">gz_fuel_tools_vendor</a></p></td>
+<td><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools">gz-fuel-tools</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/gazebo-release/gz_gui_vendor">gz_gui_vendor</a></p></td>
+<td><p><a class="reference external" href="https://github.com/gazebosim/gz-gui">gz-gui</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/gazebo-release/gz_launch_vendor.git">gz_launch_vendor</a></p></td>
+<td><p><a class="reference external" href="https://github.com/gazebosim/gz-launch">gz-launch</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/gazebo-release/gz_math_vendor.git">gz_math_vendor</a></p></td>
+<td><p><a class="reference external" href="https://github.com/gazebosim/gz-math">gz-math</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/gazebo-release/gz_msgs_vendor.git">gz_msgs_vendor</a></p></td>
+<td><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs">gz-msgs</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/gazebo-release/gz_physics_vendor.git">gz_physics_vendor</a></p></td>
+<td><p><a class="reference external" href="https://github.com/gazebosim/gz-physics">gz-physics</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/gazebo-release/gz_plugin_vendor.git">gz_plugin_vendor</a></p></td>
+<td><p><a class="reference external" href="https://github.com/gazebosim/gz-plugin">gz-plugin</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/gazebo-release/gz_rendering_vendor.git">gz_rendering_vendor</a></p></td>
+<td><p><a class="reference external" href="https://github.com/gazebosim/gz-rendering">gz-rendering</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/gazebo-release/gz_sensors_vendor.git">gz_sensors_vendor</a></p></td>
+<td><p><a class="reference external" href="https://github.com/gazebosim/gz-sensors">gz-sensors</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/gazebo-release/gz_sim_vendor.git">gz_sim_vendor</a></p></td>
+<td><p><a class="reference external" href="https://github.com/gazebosim/gz-sim">gz-sim</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/gazebo-release/gz_tools_vendor.git">gz_tools_vendor</a></p></td>
+<td><p><a class="reference external" href="https://github.com/gazebosim/gz-tools">gz-tools</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/gazebo-release/gz_transport_vendor.git">gz_transport_vendor</a></p></td>
+<td><p><a class="reference external" href="https://github.com/gazebosim/gz-transport">gz-transport</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/gazebo-release/gz_utils_vendor.git">gz_utils_vendor</a></p></td>
+<td><p><a class="reference external" href="https://github.com/gazebosim/gz-utils">gz-utils</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/gazebo-release/sdformat_vendor.git">sdformat_vendor</a></p></td>
+<td><p><a class="reference external" href="https://github.com/gazebosim/sdformat">sdformat</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In addition to Gazebo libraries, two dependencies of Gazebo are also vendored:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Vendor Package</p></th>
+<th class="head"><p>External Library</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="https://github.com/gazebo-release/gz_dartsim_vendor.git">gz_dartsim_vendor</a></p></td>
+<td><p><a class="reference external" href="https://github.com/dartsim/dart">dartsim</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="https://github.com/gazebo-release/gz_ogre_next_vendor.git">gz_ogre_next_vendor</a></p></td>
+<td><p><a class="reference external" href="https://github.com/OGRECave/ogre-next">ogre-next</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Note:</strong> These two vendor packages are only intended to be consumed by Gazebo.
+Use of this vendor package generally (outside of Gazebo) is not recommended as
+the underlying library version might change without notice.</p>
+</section>
+<section id="running-gazebo-from-vendor-packages">
+<h2>Running Gazebo from vendor packages<a class="headerlink" href="#running-gazebo-from-vendor-packages" title="Link to this heading">#</a></h2>
+<p>To be able to use the <code class="docutils literal notranslate"><span class="pre">gz</span></code> command to run the usual commands, be sure that at least
+<code class="docutils literal notranslate"><span class="pre">gz_tools_vendor</span></code> package is installed. To have the <code class="docutils literal notranslate"><span class="pre">gz</span></code> command in the PATH,
+source the <code class="docutils literal notranslate"><span class="pre">setup.bash</span></code> from <code class="docutils literal notranslate"><span class="pre">/opt/ros/${ROS_DISTRO}</span></code> as usual.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span># Example running gz sim on Jazzy
+export ROS_DISTRO=jazzy
+sudo apt-get install ros-${ROS_DISTRO}-gz-tools-vendor ros-${ROS_DISTRO}-gz-sim-vendor
+. /opt/ros/jazzy/setup.bash
+gz sim --help
+</pre></div>
+</div>
+</section>
+<section id="building-packages-using-gazebo-vendor-packages">
+<h2>Building packages using Gazebo vendor packages<a class="headerlink" href="#building-packages-using-gazebo-vendor-packages" title="Link to this heading">#</a></h2>
+<section id="declaring-dependencies-in-package-xml">
+<h3>Declaring dependencies in <code class="docutils literal notranslate"><span class="pre">package.xml</span></code><a class="headerlink" href="#declaring-dependencies-in-package-xml" title="Link to this heading">#</a></h3>
+<p>To use a Gazebo vendor package in your project, you’ll need to add the
+appropriate package in your <code class="docutils literal notranslate"><span class="pre">package.xml</span></code>. For example, if you use the Gazebo
+libraries <code class="docutils literal notranslate"><span class="pre">gz-cmake</span></code>, <code class="docutils literal notranslate"><span class="pre">gz-utils</span></code> and <code class="docutils literal notranslate"><span class="pre">gz-math</span></code>, the entries in <code class="docutils literal notranslate"><span class="pre">package.xml</span></code>
+will be the following</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">  </span>...
+<span class="w">  </span><span class="nt">&lt;depend&gt;</span>gz_cmake_vendor<span class="nt">&lt;/depend&gt;</span>
+<span class="w">  </span><span class="nt">&lt;depend&gt;</span>gz_utils_vendor<span class="nt">&lt;/depend&gt;</span>
+<span class="w">  </span><span class="nt">&lt;depend&gt;</span>gz_math_vendor<span class="nt">&lt;/depend&gt;</span>
+<span class="w">  </span>...
+</pre></div>
+</div>
+</section>
+<section id="cmakelists-txt-for-building-with-gazebo-vendor-packages">
+<h3>CMakeLists.txt for building with Gazebo vendor packages<a class="headerlink" href="#cmakelists-txt-for-building-with-gazebo-vendor-packages" title="Link to this heading">#</a></h3>
+<p>To use a Gazebo library provided by a vendor package, you’ll need to
+<code class="docutils literal notranslate"><span class="pre">find_package</span></code> the vendor package and the underlying Gazebo library. Calling
+<code class="docutils literal notranslate"><span class="pre">find_package</span></code> on the vendor package indicates that the project is “buying into”
+the CMake shims provided by the vendor package. These shims make it possible to
+<code class="docutils literal notranslate"><span class="pre">find_package</span></code> the underlying library and use its CMake targets without
+including the version number in the name. Thus, when upgrading to newer versions
+of Gazebo, the project <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> file would not need to be modified.</p>
+<p>Following the example above, The CMake entry for using <code class="docutils literal notranslate"><span class="pre">gz-cmake</span></code>, <code class="docutils literal notranslate"><span class="pre">gz-utils</span></code>
+and <code class="docutils literal notranslate"><span class="pre">gz-math</span></code> will be the following:</p>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">find_package</span><span class="p">(</span><span class="s">gz_cmake_vendor</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+<span class="nb">find_package</span><span class="p">(</span><span class="s">gz-cmake</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+<span class="nb">find_package</span><span class="p">(</span><span class="s">gz_utils_vendor</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+<span class="nb">find_package</span><span class="p">(</span><span class="s">gz-utils</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+<span class="nb">find_package</span><span class="p">(</span><span class="s">gz_math_vendor</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+<span class="nb">find_package</span><span class="p">(</span><span class="s">gz-math</span><span class="w"> </span><span class="s">REQUIRED</span><span class="p">)</span>
+
+<span class="nb">add_executable</span><span class="p">(</span><span class="s">test_gz_vendor</span><span class="w"> </span><span class="s">main.cc</span><span class="p">)</span>
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">test_gz_vendor</span><span class="w"> </span><span class="s">PUBLIC</span><span class="w"> </span><span class="s">gz-math::gz-math</span><span class="w"> </span><span class="s">gz-utils::gz-utils</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> The vendor packages use underscores (<code class="docutils literal notranslate"><span class="pre">_</span></code>) while the Gazebo library
+names use dashes (<code class="docutils literal notranslate"><span class="pre">-</span></code>).</p>
+</section>
+</section>
+<section id="expert-use-cases">
+<h2>Expert use cases<a class="headerlink" href="#expert-use-cases" title="Link to this heading">#</a></h2>
+<p>The documentation provided above should cover the users that require to install
+and run the Gazebo simulator together with ROS and developing code that requires
+of Gazebo and ROS.</p>
+<p>Below are listed more advanced topics for the expert users.</p>
+<section id="installing-non-default-gazebo-ros-2-pairings-with-vendor-packages">
+<h3>Installing Non-Default Gazebo/ROS 2 Pairings with vendor packages<a class="headerlink" href="#installing-non-default-gazebo-ros-2-pairings-with-vendor-packages" title="Link to this heading">#</a></h3>
+<p>If you want to use a new release of Gazebo that is not officially paired with
+the release of ROS you are using (e.g. Gazebo Ionic with ROS 2 Jazzy), you can
+follow the following steps:</p>
+<ol class="arabic simple">
+<li><p>Install the binaries from <a class="reference external" href="packages.osrfoundation.org">packages.osrfoundation.org</a>. Make sure to install
+the metapackage that includes all library components (e.g. gz-ionic,
+gz-harmonic, etc.)</p></li>
+<li><p>Clone the set of vendor packages included in
+<a class="reference external" href="https://gist.github.com/azeey/a94adb591475ea0e613313d3540ca451">gz_vendor.repos</a>
+in your workspace using <a class="reference external" href="https://github.com/dirk-thomas/vcstool">vcstool</a>.</p></li>
+<li><p>Checkout the desired branch. The branch names currently track ROS 2 releases.
+You’ll need to determine the branch based on the
+<a class="reference external" href="/docs/latest/ros_installation">default pairings</a></p></li>
+<li><p>Add any additional packages you need that also depend on Gazebo, such as
+<a class="reference external" href="https://github.com/gazebosim/ros_gz"><code class="docutils literal notranslate"><span class="pre">ros_gz</span></code></a> and
+<a class="reference external" href="https://github.com/ros-controls/gz_ros2_control/"><code class="docutils literal notranslate"><span class="pre">gz_ros2_control</span></code></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">GZ_RELAX_VERSION_MATCH=1</span></code>. By default, the vendor packages look for
+an exact version match of the vendored library to be available in the system.
+If the exact version is not found, the sources are fetched and built. This
+environment variable causes the vendor package to match just the major
+version number.</p></li>
+<li><p>Build the workspace</p></li>
+</ol>
+</section>
+<section id="gazebo-library-development-with-vendor-packages">
+<h3>Gazebo library development with vendor packages<a class="headerlink" href="#gazebo-library-development-with-vendor-packages" title="Link to this heading">#</a></h3>
+<p>Building the underlying packages from source might be needed when using a Gazebo
+release that is not officially paired with the ROS release you are using or when
+developing on a Gazebo library in conjunction with another ROS package that uses
+Gazebo directly. You can follow these steps to build the vendor packages from
+source:</p>
+<ol class="arabic simple">
+<li><p>Clone the desired release of the Gazebo libraries into a workspace. You can
+use a collection file from <a class="github reference external" href="https://github.com/gazebo-tooling/gazebodistro">gazebo-tooling/gazebodistro</a>
+(e.g.
+<a class="reference external" href="https://github.com/gazebo-tooling/gazebodistro/blob/master/collection-harmonic.yaml"><code class="docutils literal notranslate"><span class="pre">collection-harmonic.yaml</span></code></a>)
+with <a class="reference external" href="https://github.com/dirk-thomas/vcstool">vcstool</a>.</p></li>
+<li><p>Clone the set of vendor packages included in
+<a class="reference external" href="https://gist.github.com/azeey/a94adb591475ea0e613313d3540ca451">gz_vendor.repos</a>
+in the same workspace using
+<a class="reference external" href="https://github.com/dirk-thomas/vcstool">vcstool</a>.</p></li>
+<li><p>Checkout the desired branch. The branch names currently track ROS 2 releases.
+You’ll need to determine the branch based on the
+<a class="reference external" href="/docs/latest/ros_installation">official pairings</a></p></li>
+<li><p>Add any additional packages you need that also depend on Gazebo, such as
+<a class="reference external" href="https://github.com/gazebosim/ros_gz"><code class="docutils literal notranslate"><span class="pre">ros_gz</span></code></a> and
+<a class="reference external" href="https://github.com/ros-controls/gz_ros2_control/"><code class="docutils literal notranslate"><span class="pre">gz_ros2_control</span></code></a></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">GZ_BUILD_FROM_SOURCE=1</span></code>. By default, the vendor packages look for an
+exact version match of the vendored library to be available in the system. If
+the exact version is not found, the sources are fetched and built. Also, by
+default, the vendor packages do not depend directly on the Gazebo libraries
+you have in your workspace. Setting this environment variable causes the
+vendor package to match just the major version number and add dependencies on
+the Gazebo libraries being built from source so that the correct build order
+is followed.</p></li>
+<li><p>Build the workspace</p></li>
+</ol>
+</section>
+</section>
+<section id="known-limitations">
+<h2>Known Limitations<a class="headerlink" href="#known-limitations" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>The vendor packages are currently built with Python bindings disabled
+(<a class="reference external" href="https://github.com/gazebo-tooling/gz_vendor/issues/2">issue</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gz_dartsim_vendor</span></code> and <code class="docutils literal notranslate"><span class="pre">gz_ogre_next_vendor</span></code> currently always build from
+source
+(<a class="reference external" href="https://github.com/gazebo-release/gz_dartsim_vendor/issues/4">gz_dartsim_vendor issue</a>,
+<a class="reference external" href="https://github.com/gazebo-release/gz_ogre_next_vendor/issues/4">gz_ogre_next_vendor issue</a>)</p></li>
+<li><p>When building Gazebo libraries from source, it is not possible to build some
+packages from source and install some packages from binaries.</p></li>
+</ul>
+<hr class="footnotes docutils" />
+<aside class="footnote-list brackets">
+<aside class="footnote brackets" id="id2" role="doc-footnote">
+<span class="label"><span class="fn-bracket">[</span><a role="doc-backlink" href="#id1">1</a><span class="fn-bracket">]</span></span>
+<p><a class="reference external" href="https://robotics.stackexchange.com/a/93262/31574">https://robotics.stackexchange.com/a/93262/31574</a></p>
+</aside>
+</aside>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#history-of-gazebo-packaging-before-ros-2-jazzy">History of Gazebo packaging before ROS 2 Jazzy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gazebo-vendor-packages">Gazebo vendor packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-gazebo-from-vendor-packages">Running Gazebo from vendor packages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-packages-using-gazebo-vendor-packages">Building packages using Gazebo vendor packages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#declaring-dependencies-in-package-xml">Declaring dependencies in <code class="docutils literal notranslate"><span class="pre">package.xml</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cmakelists-txt-for-building-with-gazebo-vendor-packages">CMakeLists.txt for building with Gazebo vendor packages</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#expert-use-cases">Expert use cases</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-non-default-gazebo-ros-2-pairings-with-vendor-packages">Installing Non-Default Gazebo/ROS 2 Pairings with vendor packages</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gazebo-library-development-with-vendor-packages">Gazebo library development with vendor packages</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#known-limitations">Known Limitations</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/gazebosim/docs/edit/master/ros2_gz_vendor_pkgs.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p> Brought to you by <a href="https://openrobotics.org">Open Robotics</a>. </p>
+<p> Except where otherwise noted, the gazebosim.org web pages are licensed under <a
+    href="https://creativecommons.org/licenses/by/3.0/us/">Creative Commons
+    Attribution 3.0</a>. </p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

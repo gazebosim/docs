@@ -1,0 +1,1740 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>fuel_tools &#8212; Gazebo  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/gazebo.css?v=12e630a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=187304be"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'fuel_tools/index';</script>
+    <link rel="canonical" href="https://gazebosim.github.io/docs/libsfuel_tools/" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="gui" href="../gui/" />
+    <link rel="prev" title="common" href="../common/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+
+
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/gazebo_horz_pos.svg" class="logo__image only-light" alt="Gazebo  documentation - Home"/>
+    <script>document.write(`<img src="../_static/gazebo_horz_neg.svg" class="logo__image only-dark" alt="Gazebo  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+
+
+
+<div class="doc-heading">
+  <div class="banner">
+    <div class="d-sm-block">
+      <div class="h1">Development Libraries</div>
+      <span>Explore the complete set of development libraries offered by Gazebo.</span>
+    </div>
+  </div>
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../cmake/">Cmake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/">Common</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Fuel_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gui/">Gui</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../launch/">Launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/">Math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../msgs/">Msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/">Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rendering/">Rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensors/">Sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sim/">Sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transport/">Transport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdformat/">Sdformat</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">fuel_tools</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="fuel-tools">
+<h1>fuel_tools<a class="headerlink" href="#fuel-tools" title="Link to this heading">#</a></h1>
+<ul class="gz-libs-lists simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools"><svg version="4.0.0.63c5cb3" width="2.0em" height="2.0em" class="sd-material-icon sd-material-icon-code" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg> Source Code</a></p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/api/fuel_tools/9"><svg version="4.0.0.63c5cb3" width="2.0em" height="2.0em" class="sd-material-icon sd-material-icon-description" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0z" fill="none"></path><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"></path></svg> API &amp; Tutorials</a></p></li>
+</ul>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Readme</label><div class="sd-tab-content docutils">
+<h1 class="rubric" id="gazebo-fuel-tools-classes-and-tools-for-interacting-with-gazebo-fuel">Gazebo Fuel Tools: Classes and tools for interacting with Gazebo Fuel</h1>
+<p><strong>Maintainer:</strong> nate AT openrobotics DOT org</p>
+<p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/issues"><img alt="GitHub open issues" src="https://img.shields.io/github/issues-raw/gazebosim/gz-fuel-tools.svg" /></a>
+<a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pulls"><img alt="GitHub open pull requests" src="https://img.shields.io/github/issues-pr-raw/gazebosim/gz-fuel-tools.svg" /></a>
+<a class="reference external" href="https://community.gazebosim.org"><img alt="Discourse topics" src="https://img.shields.io/discourse/https/community.gazebosim.org/topics.svg" /></a>
+<a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0"><img alt="Hex.pm" src="https://img.shields.io/hexpm/l/plug.svg" /></a></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Build</p></th>
+<th class="head"><p>Status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Test coverage</p></td>
+<td><p><a class="reference external" href="https://codecov.io/gh/gazebosim/gz-fuel-tools/tree/gz-fuel-tools9"><img alt="codecov" src="https://codecov.io/gh/gazebosim/gz-fuel-tools/tree/gz-fuel-tools9/graph/badge.svg" /></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Ubuntu Jammy</p></td>
+<td><p><a class="reference external" href="https://build.osrfoundation.org/job/gz_fuel_tools-ci-gz-fuel-tools9-jammy-amd64"><img alt="Build Status" src="https://build.osrfoundation.org/buildStatus/icon?job=gz_fuel_tools-ci-gz-fuel-tools9-jammy-amd64" /></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Homebrew</p></td>
+<td><p><a class="reference external" href="https://build.osrfoundation.org/job/gz_fuel_tools-ci-gz-fuel-tools9-homebrew-amd64"><img alt="Build Status" src="https://build.osrfoundation.org/buildStatus/icon?job=gz_fuel_tools-ci-gz-fuel-tools9-homebrew-amd64" /></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows</p></td>
+<td><p><a class="reference external" href="https://build.osrfoundation.org/job/gz_fuel_tools-9-win/"><img alt="Build Status" src="https://build.osrfoundation.org/buildStatus/icon?job=gz_fuel_tools-9-win" /></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Gazebo Fuel Tools is composed by a client library and command line tools for
+interacting with Gazebo Fuel servers.</p>
+<p><a class="github reference external" href="http://github.com/gazebosim/gz-fuel-tools">gazebosim/gz-fuel-tools</a></p>
+<h1 class="rubric" id="building-and-installing">Building and installing</h1>
+<p>See the <a class="reference external" href="https://gazebosim.org/api/fuel_tools/9/install.html">installation tutorial</a>.</p>
+<p>Make sure <code class="docutils literal notranslate"><span class="pre">GZ_CONFIG_PATH</span></code> is set to the right install location so that <code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">fuel</span></code> will work.
+Default is <code class="docutils literal notranslate"><span class="pre">/usr/local/share/gz</span></code>.</p>
+<h2 class="rubric" id="examples">Examples</h2>
+<p>For a complete list of commands run <code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">fuel</span> <span class="pre">-h</span></code> on the command line.</p>
+<p><strong>List all models</strong></p>
+<p><strong>Download a model</strong></p>
+<p><strong>Private access tokens</strong>
+Private models and worlds can be downloaded using access tokens.
+Access tokens are generated on <code class="docutils literal notranslate"><span class="pre">app.gazebosim.org</span></code>. After logging in,
+go to <code class="docutils literal notranslate"><span class="pre">Settings-&gt;Access</span> <span class="pre">Tokens</span></code>.</p>
+<p>An access token can be used with CLI commands via the <code class="docutils literal notranslate"><span class="pre">--header</span></code> option:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gz<span class="w"> </span>fuel<span class="w"> </span>download<span class="w"> </span>-u<span class="w"> </span>https://fuel.gazebosim.org/1.0/openrobotics/models/ambulance<span class="w"> </span>--header<span class="w"> </span><span class="s1">&#39;Private-Token: &lt;access_token&gt;&#39;</span>
+</pre></div>
+</div>
+<p>Or, an access token can be stored in a <code class="docutils literal notranslate"><span class="pre">~/.gz/fuel/config.yaml</span></code> file. The token is then
+automatically used by the command line tool and API calls. Use the <code class="docutils literal notranslate"><span class="pre">configure</span></code> helper
+tool create your <code class="docutils literal notranslate"><span class="pre">~/.gz/fuel/config.yaml</span></code> file.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>gz<span class="w"> </span>fuel<span class="w"> </span>configure
+</pre></div>
+</div>
+<p><strong>C++ Get List models</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="c1">// Create a client (uses https://fuel.gazebosim.org by default)</span>
+<span class="w">  </span><span class="n">gz</span><span class="o">::</span><span class="n">fuel_tools</span><span class="o">::</span><span class="n">ClientConfig</span><span class="w"> </span><span class="n">conf</span><span class="p">;</span>
+<span class="w">  </span><span class="n">gz</span><span class="o">::</span><span class="n">fuel_tools</span><span class="o">::</span><span class="n">FuelClient</span><span class="w"> </span><span class="nf">client</span><span class="p">(</span><span class="n">conf</span><span class="p">);</span>
+<span class="w">  </span><span class="n">gz</span><span class="o">::</span><span class="n">fuel_tools</span><span class="o">::</span><span class="n">ModelIter</span><span class="w"> </span><span class="n">iter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">client</span><span class="p">.</span><span class="n">Models</span><span class="p">();</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">iter</span><span class="p">)</span>
+<span class="w">  </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Got model: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">iter</span><span class="o">-&gt;</span><span class="n">Identification</span><span class="p">().</span><span class="n">Name</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Upload a model</strong></p>
+<p>Create an account on
+<a class="reference external" href="https://app.gazebosim.org/">https://app.gazebosim.org/</a> and log
+in.</p>
+<p>Create a private token at
+<a class="reference external" href="https://app.gazebosim.org/settings#access_tokens">https://app.gazebosim.org/settings#access_tokens</a>. Store the generated token someplace safe.</p>
+<p>The private token can then used to upload a model:</p>
+<h2 class="rubric" id="dependencies">Dependencies</h2>
+<p>On ubuntu run</p>
+<h2 class="rubric" id="roadmap">Roadmap</h2>
+<ul class="simple">
+<li><p>Create the notion of “asset repository” or similar. An asset repository abstracts an entity that can store assets. It can be local or remote. This is the interface for “asset repository”:</p>
+<ul>
+<li><p>List(category).
+E.g.: localRepository.List(“models”)
+remote1Repository.List(“models”)</p></li>
+<li><p>Details(assetIdentifier).
+E.g.: Modeldentifier model;
+model.Owner(“the_owner”);
+<a class="reference external" href="http://model.Name">model.Name</a>(“the_name”);
+localRepository.Details(model)
+remote1Repository.Details(model)</p></li>
+<li><p>Create(assetIdentifier, path_to_the_asset).
+E.g.: Modeldentifier model;
+model.Owner(“the_owner”);
+<a class="reference external" href="http://model.Name">model.Name</a>(“the_name”);
+localRepository.Create(model, path_to_the_asset)
+remote1Repository.Create(model, path_to_the_asset)</p></li>
+<li><p>Delete(assetIdentifier).
+E.g.: Modeldentifier model;
+model.Owner(“the_owner”);
+<a class="reference external" href="http://model.Name">model.Name</a>(“the_name”);
+localRepository.Delete(model)
+remote1Repository.Delete(model)</p></li>
+<li><p>CopyTo(assetIdentifier, dst_repository).
+E.g.: Modeldentifier model;
+model.Owner(“the_owner”);
+<a class="reference external" href="http://model.Name">model.Name</a>(“the_name”);
+localRepository.CopyTo(model, remote1Repository)
+remote1Repository.CopyTo(model, localRepository)</p></li>
+<li><p>“LocalRepository” and “RemoteRepository” should implement this interface.
+(Most of the pieces are there, we just need to refactor the code a bit).</p></li>
+</ul>
+</li>
+<li><p>Think about how to detect when new versions of remote models have been uploaded.</p>
+<ul>
+<li><p>Idea of a hash.</p></li>
+</ul>
+</li>
+<li><p>Add Gazebo Fuel command line utilities for:</p>
+<ul>
+<li><p>detail</p></li>
+<li><p>create</p></li>
+<li><p>delete</p></li>
+<li><p>copyTo</p></li>
+</ul>
+</li>
+<li><p>How to test the client library:</p>
+<ul>
+<li><p>Directly against the real backend (staging?)</p></li>
+<li><p>Clone, and compile a local backend?</p></li>
+<li><p>Mocking the backend has the problem of not being in sync with the real backend and missing potential issues.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Changelog</label><div class="sd-tab-content docutils">
+<h2 class="rubric" id="gazebo-fuel-tools-9-x">Gazebo Fuel Tools 9.x</h2>
+<h3 class="rubric" id="gazebo-fuel-tools-9-0-3-2024-04-09">Gazebo Fuel Tools 9.0.3 (2024-04-09)</h3>
+<ol class="arabic simple">
+<li><p>Use relative install path for gz tool data</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/409">Pull request #409</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-9-0-2-2024-03-18">Gazebo Fuel Tools 9.0.2 (2024-03-18)</h3>
+<ol class="arabic simple">
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">LocalCache</span></code> so that models/worlds downloaded via <a class="reference external" href="http://fuel.ignitionrobotics.org">fuel.ignitionrobotics.org</a> can be found in the cache</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/406">Pull request #406</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-9-0-1-2024-03-14">Gazebo Fuel Tools 9.0.1 (2024-03-14)</h3>
+<ol class="arabic simple">
+<li><p>Tidy nested namespaces</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/396">Pull request #396</a></p></li>
+</ul>
+</li>
+<li><p>Update CI badges in README</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/393">Pull request #393</a></p></li>
+</ul>
+</li>
+<li><p>Create directories and more output on fail</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/392">Pull request #392</a></p></li>
+</ul>
+</li>
+<li><p>Disable tests that are known to fail on Windows</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/387">Pull request #387</a></p></li>
+</ul>
+</li>
+<li><p>Update github action workflows</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/388">Pull request #388</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/390">Pull request #390</a></p></li>
+</ul>
+</li>
+<li><p>Re-enabling Windows tests</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/376">Pull request #376</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-9-0-0-2023-09-29">Gazebo Fuel Tools 9.0.0 (2023-09-29)</h3>
+<ol class="arabic simple">
+<li><p>Added script to update assets to gz</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/377">Pull request #377</a></p></li>
+</ul>
+</li>
+<li><p>Documentation fixes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/371">Pull request #371</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/372">Pull request #372</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/375">Pull request #375</a></p></li>
+</ul>
+</li>
+<li><p>ign -&gt; gz</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/364">Pull request #364</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/375">Pull request #375</a></p></li>
+</ul>
+</li>
+<li><p>Remove GZ_FUEL_INITIAL_CONFIG_PATH macro</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/363">Pull request #363</a></p></li>
+</ul>
+</li>
+<li><p>Infrastructure</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/323">Pull request #323</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/374">Pull request #374</a></p></li>
+</ul>
+</li>
+<li><p>Update package dependencies for harmonic (gz-msgs10)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/326">Pull request #326</a></p></li>
+</ul>
+</li>
+<li><p>⬆️  Bump main to 9.0.0~pre1</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/283">Pull request #283</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-fuel-tools-8-x">Gazebo Fuel Tools 8.x</h2>
+<h3 class="rubric" id="gazebo-fuel-tools-8-1-0-2023-08-21">Gazebo Fuel Tools 8.1.0 (2023-08-21)</h3>
+<ol class="arabic simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">pull_request_target</span></code> for triage workflow</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/367">Pull request #367</a></p></li>
+</ul>
+</li>
+<li><p>Fix Github project automation for new project board</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/366">Pull request #366</a></p></li>
+</ul>
+</li>
+<li><p>Zip: use non-deprecated methods</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/360">Pull request #360</a></p></li>
+</ul>
+</li>
+<li><p>Deprecated non-relocatable macro</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/352">Pull request #352</a></p></li>
+</ul>
+</li>
+<li><p>Support for bazel in Garden</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/328">Pull request #328</a></p></li>
+</ul>
+</li>
+<li><p>Minor cleanup</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/357">Pull request #357</a></p></li>
+</ul>
+</li>
+<li><p>7.3.0 Release</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/359">Pull request #359</a></p></li>
+</ul>
+</li>
+<li><p>Add bash completion</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/329">Pull request #329</a></p></li>
+</ul>
+</li>
+<li><p>Reflect pagination of RESTful requests in iterator API</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/350">Pull request #350</a></p></li>
+</ul>
+</li>
+<li><p>Disable all LocalCache Tests for Windows</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/351">Pull request #351</a></p></li>
+</ul>
+</li>
+<li><p>Support link referral download</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/333">Pull request #333</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-8-0-2-2023-03-30">Gazebo Fuel Tools 8.0.2 (2023-03-30)</h3>
+<ol class="arabic simple">
+<li><p>Support link referral download</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/333">Pull request #333</a></p></li>
+</ul>
+</li>
+<li><p>Allow Curl redirect on HTTP requests.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/331">Pull request #331</a></p></li>
+</ul>
+</li>
+<li><p>CI and license updates.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/334">Pull request #334</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/335">Pull request #335</a></p></li>
+</ul>
+</li>
+<li><p>Change backpack model version 2-&gt;3.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/319">Pull request #319</a></p></li>
+</ul>
+</li>
+<li><p>Fix model downloads for <a class="reference external" href="http://ignitionrobotics.org">ignitionrobotics.org</a> URIs.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/318">Pull request #318</a></p></li>
+</ul>
+</li>
+<li><p>Fix build when <code class="docutils literal notranslate"><span class="pre">JSON_USE_EXCEPTION</span> <span class="pre">==</span> <span class="pre">0</span></code></p>
+<ul class="simple">
+<li><p>[Pull request #332](https: <a class="github reference external" href="//github.com/gazebosim/gz-fuel-tools/pull/332">gazebosim/gz-fuel-tools#332</a>)</p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-8-0-1">Gazebo Fuel Tools 8.0.1</h3>
+<ol class="arabic simple">
+<li><p>Forward ports.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/306">Pull request #306</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/310">Pull request #310</a></p></li>
+</ul>
+</li>
+<li><p>Remove <a class="reference external" href="http://fuel.ignitionrobotics.org">fuel.ignitionrobotics.org</a> from ClientConfig.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/293">Pull request #293</a></p></li>
+</ul>
+</li>
+<li><p>Clean up a few Windows warnings.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/308">Pull request #308</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-8-0-0">Gazebo Fuel Tools 8.0.0</h3>
+<ol class="arabic simple">
+<li><p>Update test infrastruture</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/245">Pull request #245</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/246">Pull request #246</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/269">Pull request #269</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/270">Pull request #270</a></p></li>
+</ul>
+</li>
+<li><p>Ignition to Gazebo rename.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/248">Pull request #248</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/251">Pull request #251</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/256">Pull request #256</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/259">Pull request #259</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/262">Pull request #262</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/264">Pull request #264</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/267">Pull request #267</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/268">Pull request #268</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/272">Pull request #272</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/275">Pull request #275</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/282">Pull request #282</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/287">Pull request #287</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/295">Pull request #295</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/296">Pull request #296</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/297">Pull request #297</a></p></li>
+</ul>
+</li>
+<li><p>Bumps in versions for Garden and removal of deprecations</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/224">Pull request #224</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/229">Pull request #229</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/239">Pull request #239</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/247">Pull request #247</a></p></li>
+</ul>
+</li>
+<li><p>Improve documentation</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/298">Pull request #298</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/299">Pull request #299</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/300">Pull request #300</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-fuel-tools-7-x">Gazebo Fuel Tools 7.x</h2>
+<h3 class="rubric" id="gazebo-fuel-tools-7-3-0-2023-06-13">Gazebo Fuel Tools 7.3.0 (2023-06-13)</h3>
+<ol class="arabic simple">
+<li><p>Forward merges</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/355">Pull request #355</a></p></li>
+</ul>
+</li>
+<li><p>Add bash completion</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/329">Pull request #329</a></p></li>
+</ul>
+</li>
+<li><p>Reflect pagination of RESTful requests in iterator API</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/350">Pull request #350</a></p></li>
+</ul>
+</li>
+<li><p>Support link referral download</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/333">Pull request #333</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-7-2-2-2023-03-29">Gazebo Fuel Tools 7.2.2 (2023-03-29)</h3>
+<ol class="arabic simple">
+<li><p>Support link referral download</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/333">Pull request #333</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-7-2-1-2023-03-22">Gazebo Fuel Tools 7.2.1 (2023-03-22)</h3>
+<ol class="arabic simple">
+<li><p>Allow Curl redirect on HTTP requests.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/331">Pull request #331</a></p></li>
+</ul>
+</li>
+<li><p>CI and license updates.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/334">Pull request #334</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/335">Pull request #335</a></p></li>
+</ul>
+</li>
+<li><p>Change backpack model version 2-&gt;3.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/319">Pull request #319</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-7-2-0-2021-11-17">Gazebo Fuel Tools 7.2.0 (2021-11-17)</h3>
+<ol class="arabic simple">
+<li><p>Forward port 4.7.0.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/306">Pull request #306</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-7-1-0-2021-08-16">Gazebo Fuel Tools 7.1.0 (2021-08-16)</h3>
+<ol class="arabic simple">
+<li><p>Ignition to Gazebo server rename effort</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/263">Pull request #263</a></p></li>
+</ul>
+</li>
+<li><p>Remove redundant namespace references</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/284">Pull request #284</a></p></li>
+</ul>
+</li>
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">IGN_DESIGNATION</span></code> to <code class="docutils literal notranslate"><span class="pre">GZ_DESIGNATION</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/278">Pull request #278</a></p></li>
+</ul>
+</li>
+<li><p>Ignition -&gt; Gazebo docs</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/276">Pull request #276</a></p></li>
+</ul>
+</li>
+<li><p>Remove unused files (<code class="docutils literal notranslate"><span class="pre">bitbucket-pipelines</span></code>, <code class="docutils literal notranslate"><span class="pre">docs</span></code>)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/273">Pull request #273</a></p></li>
+</ul>
+</li>
+<li><p>Disable failing windows tests</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/266">Pull request #266</a></p></li>
+</ul>
+</li>
+<li><p>Disable <a class="reference external" href="http://staging-fuel.ignitionrobotics.org">staging-fuel.ignitionrobotics.org</a> test</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/257">Pull request #257</a></p></li>
+</ul>
+</li>
+<li><p>Add missing header guard for <code class="docutils literal notranslate"><span class="pre">Interface.hh</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/249">Pull request #249</a></p></li>
+</ul>
+</li>
+<li><p>SDF from path helper</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/233">Pull request #233</a></p></li>
+</ul>
+</li>
+<li><p>Add Ubuntu Jammy CI</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/236">Pull request #236</a></p></li>
+</ul>
+</li>
+<li><p>Fix trailing slashes in failing tests</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/237">Pull request #237</a></p></li>
+</ul>
+</li>
+<li><p>Print error when unzipping fails to save a file</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/235">Pull request #235</a></p></li>
+</ul>
+</li>
+<li><p>More checks when manipulating file system in tests</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/227">Pull request #227</a></p></li>
+</ul>
+</li>
+<li><p>Move test cache to build folder</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/222">Pull request #222</a></p></li>
+</ul>
+</li>
+<li><p>Improve and fix <code class="docutils literal notranslate"><span class="pre">ResultType</span></code> tests</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/225">Pull request #225</a></p></li>
+</ul>
+</li>
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">cmdfuel</span></code> ruby script generation on Windows with MSVC</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/219">Pull request #219</a></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FuelClient.cc</span></code>: include <code class="docutils literal notranslate"><span class="pre">&lt;deque&gt;</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/213">Pull request #213</a></p></li>
+</ul>
+</li>
+<li><p>APIs for retrieving models in parallel</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/199">Pull request #199</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-7-0-0-2021-09-28">Gazebo Fuel Tools 7.0.0 (2021-09-28)</h3>
+<ol class="arabic simple">
+<li><p>Depend on gz-msgs8</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/182">Pull request #182</a></p></li>
+</ul>
+</li>
+<li><p>Infrastructure</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/184">Pull request #184</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/181">Pull request #181</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-fuel-tools-6-x">Gazebo Fuel Tools 6.x</h2>
+<h3 class="rubric" id="gazebo-fuel-tools-6-2-0-2022-03-25">Gazebo Fuel Tools 6.2.0 (2022-03-25)</h3>
+<ol class="arabic simple">
+<li><p>Fix trailing slashes in failing tests</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ignitionrobotics/ign-fuel-tools/pull/237">Pull request #237</a></p></li>
+</ul>
+</li>
+<li><p>Print error when unzipping fails to save a file</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ignitionrobotics/ign-fuel-tools/pull/235">Pull request #235</a></p></li>
+</ul>
+</li>
+<li><p>More checks when manipulating file system in tests</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ignitionrobotics/ign-fuel-tools/pull/227">Pull request #227</a></p></li>
+</ul>
+</li>
+<li><p>Move test cache to build folder</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ignitionrobotics/ign-fuel-tools/pull/222">Pull request #222</a></p></li>
+</ul>
+</li>
+<li><p>Improve and fix ResultType tests</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ignitionrobotics/ign-fuel-tools/pull/225">Pull request #225</a></p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FuelClient.cc</span></code>: <code class="docutils literal notranslate"><span class="pre">include</span> <span class="pre">&lt;deque&gt;</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ignitionrobotics/ign-fuel-tools/pull/213">Pull request #213</a></p></li>
+</ul>
+</li>
+<li><p>APIs for retrieving models in parallel</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ignitionrobotics/ign-fuel-tools/pull/199">Pull request #199</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-6-1-0-2021-10-15">Gazebo Fuel Tools 6.1.0 (2021-10-15)</h3>
+<ol class="arabic simple">
+<li><p>Detect gz instead of using cmake module to check for gz-tools</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/191">Pull request #191</a></p></li>
+</ul>
+</li>
+<li><p>Added fuel update command</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/185">Pull request #185</a></p></li>
+</ul>
+</li>
+<li><p>Fixed windows download</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/178">Pull request #178</a></p></li>
+</ul>
+</li>
+<li><p>Owner upload</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/179">Pull request #179</a></p></li>
+</ul>
+</li>
+<li><p>Infrastructure</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/187">Pull request #187</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/196">Pull request #196</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-6-0-0-2021-03-30">Gazebo Fuel Tools 6.0.0 (2021-03-30)</h3>
+<ol class="arabic simple">
+<li><p>Depend on gz-common4</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/163">Pull request #163</a></p></li>
+</ul>
+</li>
+<li><p>Depend on gz-msgs7</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/158">Pull request #158</a></p></li>
+</ul>
+</li>
+<li><p>Unset DELETE method on Windows</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/161">Pull request #161</a></p></li>
+</ul>
+</li>
+<li><p>Edifice deprecations</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/159">Pull request #159</a></p></li>
+</ul>
+</li>
+<li><p>Include windows instructions in examples <a class="reference external" href="http://README.md">README.md</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/176">Pull request #176</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-fuel-tools-5-x">Gazebo Fuel Tools 5.x</h2>
+<h3 class="rubric" id="gazebo-fuel-tools-5-2-0-2021-12-20">Gazebo Fuel Tools 5.2.0 (2021-12-20)</h3>
+<ol class="arabic simple">
+<li><p><a class="reference external" href="http://FuelClient.cc">FuelClient.cc</a>: include <code class="docutils literal notranslate"><span class="pre">&lt;deque&gt;</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/213">Pull request #213</a></p></li>
+</ul>
+</li>
+<li><p>APIs for retrieving models in parallel</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/199">Pull request #199</a></p></li>
+</ul>
+</li>
+<li><p>Detect <code class="docutils literal notranslate"><span class="pre">gz</span></code> instead of using cmake module to check for gz-tools</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/191">Pull request #191</a></p></li>
+</ul>
+</li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">fuel</span> <span class="pre">update</span></code> command</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/185">Pull request #185</a></p></li>
+</ul>
+</li>
+<li><p>Fixed Windows download and CI</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/178">Pull request #178</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/164">Pull request #164</a></p></li>
+</ul>
+</li>
+<li><p>Choose which owner to upload to</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/179">Pull request #179</a></p></li>
+</ul>
+</li>
+<li><p>Included private-token to <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/156">Pull request #156</a></p></li>
+</ul>
+</li>
+<li><p>Add Windows Installation instructions</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/162">Pull request #162</a></p></li>
+</ul>
+</li>
+<li><p>Use semantic version and prevent crash if version is missing</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/151">Pull request #151</a></p></li>
+</ul>
+</li>
+<li><p>Document <code class="docutils literal notranslate"><span class="pre">GZ_FUEL_CACHE_PATH</span></code> on command line</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/149">Pull request #149</a></p></li>
+</ul>
+</li>
+<li><p>Infrastructure</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/187">Pull request #187</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/170">Pull request #170</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/167">Pull request #167</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/165">Pull request #165</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-5-1-1-2020-12-18">Gazebo Fuel Tools 5.1.1 (2020-12-18)</h3>
+<ol class="arabic simple">
+<li><p>Fix light map URI in materials</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/146">Pull request 146</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-5-1-0-2020-12-09">Gazebo Fuel Tools 5.1.0 (2020-12-09)</h3>
+<ol class="arabic simple">
+<li><p>Includes all changes up to version 4.3.0.</p></li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-5-0-0-2020-09-28">Gazebo Fuel Tools 5.0.0 (2020-09-28)</h3>
+<ol class="arabic simple">
+<li><p>Added support for annotation parsing during model creation.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/95">Pull request 95</a></p></li>
+</ul>
+</li>
+<li><p>Removed repeated installation instructions.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/101">Pull request 101</a></p></li>
+</ul>
+</li>
+<li><p>Update codeowners.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/108">Pull request 108</a></p></li>
+</ul>
+</li>
+<li><p>Hide Private headers and LocalCache.hh</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/109">Pull request 109</a></p></li>
+</ul>
+</li>
+<li><p>Fixed test - Download world 2</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/110">Pull request 110</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-fuel-tools-4-x">Gazebo Fuel Tools 4.x</h2>
+<h3 class="rubric" id="gazebo-fuel-tools-4-8-3-2023-03-29">Gazebo Fuel Tools 4.8.3 (2023-03-29)</h3>
+<ol class="arabic simple">
+<li><p>Support link referral download</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/333">Pull request #333</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-4-9-1-2024-01-05">Gazebo Fuel Tools 4.9.1 (2024-01-05)</h3>
+<ol class="arabic simple">
+<li><p>Create directories and more output on fail</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/392">Pull request #392</a></p></li>
+</ul>
+</li>
+<li><p>Update github action workflows</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/388">Pull request #388</a></p></li>
+</ul>
+</li>
+<li><p>Zip: use non-deprecated methods</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/360">Pull request #360</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-4-9-0-2023-05-03">Gazebo Fuel Tools 4.9.0 (2023-05-03)</h3>
+<ol class="arabic simple">
+<li><p>Add bash completion</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/329">Pull request #329</a></p></li>
+</ul>
+</li>
+<li><p>Reflect pagination of RESTful requests in iterator API</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/350">Pull request #350</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="id1">Gazebo Fuel Tools 4.8.3 (2023-03-29)</h3>
+<ol class="arabic simple">
+<li><p>Support link referral download</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/333">Pull request #333</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-4-8-2-2023-03-21">Gazebo Fuel Tools 4.8.2 (2023-03-21)</h3>
+<ol class="arabic simple">
+<li><p>Allow Curl redirect HTTP requests.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/331">Pull request #331</a></p></li>
+</ul>
+</li>
+<li><p>CI and license updates.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/334">Pull request #334</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/335">Pull request #335</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-4-8-1-2023-02-07">Gazebo Fuel Tools 4.8.1 (2023-02-07)</h3>
+<ol class="arabic simple">
+<li><p>Fix model downloads for <a class="reference external" href="http://ignitionrobotics.org">ignitionrobotics.org</a> URIs.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/318">Pull request #318</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-4-8-0-2022-12-07">Gazebo Fuel Tools 4.8.0 (2022-12-07)</h3>
+<ol class="arabic simple">
+<li><p>Reduce asset download sizes.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/316">Pull request #316</a></p></li>
+</ul>
+</li>
+<li><p>Update tutorials to use Gazebo.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/303">Pull request #303</a></p></li>
+</ul>
+</li>
+<li><p>Change <a class="reference external" href="http://ignitionrobotics.org">ignitionrobotics.org</a> to <a class="reference external" href="http://gazebosim.org">gazebosim.org</a>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/304">Pull request #304</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-4-7-0-2022-11-17">Gazebo Fuel Tools 4.7.0 (2022-11-17)</h3>
+<ol class="arabic simple">
+<li><p>ign -&gt; gz Migrate Ignition Headers : gz-fuel-tools.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/285">Pull request #285</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-4-6-0-2022-08-15">Gazebo Fuel Tools 4.6.0 (2022-08-15)</h3>
+<p>. Ignition to Gazebo server rename
+* <a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/263">Pull request #263</a></p>
+<ol class="arabic simple">
+<li><p>Remove redundant namespace references</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/284">Pull request #284</a></p></li>
+</ul>
+</li>
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">IGN_DESIGNATION</span></code> to <code class="docutils literal notranslate"><span class="pre">GZ_DESIGNATION</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/278">Pull request #278</a></p></li>
+</ul>
+</li>
+<li><p>Ignition -&gt; Gazebo</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/276">Pull request #276</a></p></li>
+</ul>
+</li>
+<li><p>Remove unused files (bitbucket-pipelines, docs)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/273">Pull request #273</a></p></li>
+</ul>
+</li>
+<li><p>Disable <code class="docutils literal notranslate"><span class="pre">staging-fuel.gazebosim.org</span></code> test</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/257">Pull request #257</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-4-5-0-2022-06-01">Gazebo Fuel Tools 4.5.0 (2022-06-01)</h3>
+<ol class="arabic simple">
+<li><p>APIs for retrieving models in parallel</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/199">Pull request #199</a></p></li>
+</ul>
+</li>
+<li><p>Add missing header guard for Interface.hh</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/249">Pull request #249</a></p></li>
+</ul>
+</li>
+<li><p>Print error when unzipping fails to save a file</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/235">Pull request #235</a></p></li>
+</ul>
+</li>
+<li><p>More checks when manipulating file system in tests</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/227">Pull request #227</a></p></li>
+</ul>
+</li>
+<li><p>Move test cache to build folder</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/222">Pull request #222</a></p></li>
+</ul>
+</li>
+<li><p>Improve and fix <code class="docutils literal notranslate"><span class="pre">ResultType</span></code> tests</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/225">Pull request #225</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="http://FuelClient.cc">FuelClient.cc</a>: include <deque></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/213">Pull request #213</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-4-4-0-2021-06-17">Gazebo Fuel Tools 4.4.0 (2021-06-17)</h3>
+<ol class="arabic simple">
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">tools/code_check</span></code> and update codecov</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/187">Pull request #187</a></p></li>
+</ul>
+</li>
+<li><p>Fixed windows download</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/178">Pull request #178</a></p></li>
+</ul>
+</li>
+<li><p>Master branch updates</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/170">Pull request #170</a></p></li>
+</ul>
+</li>
+<li><p>Support private-token in <code class="docutils literal notranslate"><span class="pre">config.yaml</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/156">Pull request #156</a></p></li>
+</ul>
+</li>
+<li><p>Add Windows Installation</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/162">Pull request #162</a></p></li>
+</ul>
+</li>
+<li><p>Use semantic version and prevent crash if version is missing</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/151">Pull request #151</a></p></li>
+</ul>
+</li>
+<li><p>Document <code class="docutils literal notranslate"><span class="pre">GZ_FUEL_CACHE_PATH</span></code> on command line</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/149">Pull request #149</a></p></li>
+</ul>
+</li>
+<li><p>Support editing/patching model files</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/140">Pull request #140</a></p></li>
+</ul>
+</li>
+<li><p>Set keep alive on</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/141">Pull request #141</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-4-3-0-2020-12-01">Gazebo Fuel Tools 4.3.0 (2020-12-01)</h3>
+<ol class="arabic simple">
+<li><p>Improve fork experience.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/126">Pull request 126</a></p></li>
+</ul>
+</li>
+<li><p>Download dependencies.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/123">Pull request 123</a></p></li>
+</ul>
+</li>
+<li><p>Includes all changes up to version 3.5.0.</p></li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-4-2-1-2020-08-26">Gazebo Fuel Tools 4.2.1 (2020-08-26)</h3>
+<ol class="arabic simple">
+<li><p>Fix <code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">fuel</span> <span class="pre">download</span></code>, which was missing the <code class="docutils literal notranslate"><span class="pre">-j</span></code> option.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/116">Pull request 116</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-4-2-0-2020-08-26">Gazebo Fuel Tools 4.2.0 (2020-08-26)</h3>
+<ol class="arabic simple">
+<li><p>Set license information based on licenses available from a Fuel server
+and <code class="docutils literal notranslate"><span class="pre">legal</span></code> information in a <code class="docutils literal notranslate"><span class="pre">metadata.pbtxt</span></code> file.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/69">Pull request 69</a></p></li>
+</ul>
+</li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">edit</span></code> subcommand to the <code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">fuel</span></code>. The edit command currently
+supports editing a model’s privacy.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/67">Pull request 67</a></p></li>
+</ul>
+</li>
+<li><p>Alphabetical listing of subcommands.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/65">Pull request 65</a></p></li>
+</ul>
+</li>
+<li><p>All changes up to and including Gazebo Fuel Tools 3.3.0 are included.</p></li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-4-1-0-2020-02-27">Gazebo Fuel Tools 4.1.0 (2020-02-27)</h3>
+<ol class="arabic simple">
+<li><p>Resource deletion CLI.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/119">BitBucket pull request 119</a></p></li>
+</ul>
+</li>
+<li><p>Fetch files</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/123">BitBucket pull request 123</a></p></li>
+</ul>
+</li>
+<li><p>README and tutorial updates:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/113">BitBucket pull request 113</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/114">BitBucket pull request 114</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/115">BitBucket pull request 115</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-4-0-0-2019-12-10">Gazebo Fuel Tools 4.0.0 (2019-12-10)</h3>
+<ol class="arabic simple">
+<li><p>Model upload CLI, resource metadata CLI, depend on gz-msgs5.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/108">BitBucket pull request 108</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-fuel-tools-3-x">Gazebo Fuel Tools 3.x</h2>
+<h3 class="rubric" id="gazebo-fuel-tools-3-x-x-20xx-xx-xx">Gazebo Fuel Tools 3.x.x (20xx-xx-xx)</h3>
+<h3 class="rubric" id="gazebo-fuel-tools-3-5-0-2020-11-30">Gazebo Fuel Tools 3.5.0 (2020-11-30)</h3>
+<ol class="arabic simple">
+<li><p>Fix windows build.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/107">Pull request 107</a></p></li>
+</ul>
+</li>
+<li><p>Resolve updated codecheck issues.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/129">Pull request 129</a></p></li>
+</ul>
+</li>
+<li><p>Update Backpack model to fix tests.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/132">Pull request 132</a></p></li>
+</ul>
+</li>
+<li><p>Use lowercase resource and owner names when storing assets on disk.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/130">Pull request 130</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-3-4-0-2020-08-19">Gazebo Fuel Tools 3.4.0 (2020-08-19)</h3>
+<ol class="arabic simple">
+<li><p>Modernize github actions by updating to the new style.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/94">Pull request 94</a></p></li>
+</ul>
+</li>
+<li><p>Fix test worlds.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/100">Pull request 100</a></p></li>
+</ul>
+</li>
+<li><p>Add capability for downloading collections.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/98">Pull request 98</a></p></li>
+</ul>
+</li>
+<li><p>Fix windows build.t</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/013">Pull request 103</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-3-3-0-2020-07-29">Gazebo Fuel Tools 3.3.0 (2020-07-29)</h3>
+<ol class="arabic simple">
+<li><p>openrobotics to OpenRobotics</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/75">Pull request 75</a></p></li>
+</ul>
+</li>
+<li><p>Fix world tests</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/76">Pull request 76</a></p></li>
+</ul>
+</li>
+<li><p>Add missing dependency in Actions CI</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/86">Pull request 86</a></p></li>
+</ul>
+</li>
+<li><p>Backport file fetching</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/84">Pull request 84</a></p></li>
+</ul>
+</li>
+<li><p>Convert model:// to Fuel URLs instead of absolute paths</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/85">Pull request 85</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-3-2-2-2020-05-18">Gazebo Fuel Tools 3.2.2 (2020-05-18)</h3>
+<ol class="arabic simple">
+<li><p>Fix URL encodings in RestClient.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/pull/70">Pull request 70</a></p></li>
+</ul>
+</li>
+<li><p>Print message when downloading a resource.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/102">BitBucket pull request 102</a></p></li>
+</ul>
+</li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">${YAML_TARGET}</span></code> instead of <code class="docutils literal notranslate"><span class="pre">YAML::YAML</span></code> imported target.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/103">BitBucket pull request 103</a></p></li>
+</ul>
+</li>
+<li><p>Convert emissive map file path.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/105">BitBucket pull request 105</a></p></li>
+</ul>
+</li>
+<li><p>Fix windows build with <code class="docutils literal notranslate"><span class="pre">popen</span></code> and <code class="docutils literal notranslate"><span class="pre">pclose</span></code> macros.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/109">BitBucket pull request 109</a></p></li>
+</ul>
+</li>
+<li><p>Remove std::experimental for filesystem (support for VS2019).</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/120">BitBucket pull request 120</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-3-2-1-2019-08-12">Gazebo Fuel Tools 3.2.1 (2019-08-12)</h3>
+<ol class="arabic simple">
+<li><p>Support actors</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/101">BitBucket pull request 101</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-3-2-0-2019-06-14">Gazebo Fuel Tools 3.2.0 (2019-06-14)</h3>
+<ol class="arabic simple">
+<li><p>FuelClient::DownloadModel accepts HTTP headers, and the <code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">fuel</span> <span class="pre">download</span></code> command can accept a single HTTP header.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/100">BitBucket pull request 100</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-3-1-0-2019-05-xx">Gazebo Fuel Tools 3.1.0 (2019-05-xx)</h3>
+<ol class="arabic simple">
+<li><p>Fix PBR material URI</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/95">BitBucket pull request 95</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/96">BitBucket pull request 96</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-3-0-0-2018-02-28">Gazebo Fuel Tools 3.0.0 (2018-02-28)</h3>
+<ol class="arabic simple">
+<li><p>Integration with gz-sim. The following set of pull requests update
+fuel-tools to use gz-cmake2, sets <a class="reference external" href="http://api.ignitionfuel.org">api.ignitionfuel.org</a> as the default
+server, fixes codecheck errors, removes old deprecations, and parses
+model.config files using tinyxml2.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/82">BitBucket pull request 82</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/83">BitBucket pull request 83</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/84">BitBucket pull request 84</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/85">BitBucket pull request 85</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/87">BitBucket pull request 87</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/88">BitBucket pull request 88</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/89">BitBucket pull request 89</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-fuel-tools-1-x">Gazebo Fuel Tools 1.x</h2>
+<h3 class="rubric" id="gazebo-fuel-tools-1-x-x-20xx-xx-xx">Gazebo Fuel Tools 1.x.x (20xx-xx-xx)</h3>
+<ol class="arabic simple">
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">${YAML_TARGET}</span></code> instead of <code class="docutils literal notranslate"><span class="pre">YAML::YAML</span></code> imported target.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/103">BitBucket pull request 103</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-1-2-0-2018-05-30">Gazebo Fuel Tools 1.2.0 (2018-05-30)</h3>
+<ol class="arabic simple">
+<li><p>Get cached model resource file</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/63">BitBucket pull request 63</a></p></li>
+</ul>
+</li>
+<li><p>Add some AsString functions</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/54">BitBucket pull request 54</a></p></li>
+</ul>
+</li>
+<li><p>Change cache directory structure and use it</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/57">BitBucket pull request 57</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/71">BitBucket pull request 71</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/73">BitBucket pull request 73</a></p></li>
+</ul>
+</li>
+<li><p>Client return only relevant cached models</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/62">BitBucket pull request 62</a></p></li>
+</ul>
+</li>
+<li><p>Model version support</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/65">BitBucket pull request 65</a></p></li>
+</ul>
+</li>
+<li><p>Remove server API version from model unique name</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/47">BitBucket pull request 47</a></p></li>
+</ul>
+</li>
+<li><p>Client handle unique names and get server info from config</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/55">BitBucket pull request 55</a></p></li>
+</ul>
+</li>
+<li><p>Changed model list to use headers for paging instead of iterating until
+a 404 is hit. Also added a mechanism to set the user agent</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/46">BitBucket pull request 46</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/61">BitBucket pull request 61</a></p></li>
+</ul>
+</li>
+<li><p>FuelClient: Don’t use ServerConfig if there’s ModelId</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/56">BitBucket pull request 56</a></p></li>
+</ul>
+</li>
+<li><p>List models from command line</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/43">BitBucket pull request 43</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/48">BitBucket pull request 48</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/44">BitBucket pull request 44</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/45">BitBucket pull request 45</a></p></li>
+</ul>
+</li>
+<li><p>Get cached model resource file</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/63">BitBucket pull request 63</a></p></li>
+</ul>
+</li>
+<li><p>Added const constructors for ModelIter and Model</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/42">BitBucket pull request 42</a></p></li>
+</ul>
+</li>
+<li><p>Use common::URI for server URL</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/59">BitBucket pull request 59</a></p></li>
+</ul>
+</li>
+<li><p>Remove server local name</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/58">BitBucket pull request 58</a></p></li>
+</ul>
+</li>
+<li><p>Encode url path before downloading models</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/41">BitBucket pull request 41</a></p></li>
+</ul>
+</li>
+<li><p>Download model from command line</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/68">BitBucket pull request 68</a></p></li>
+</ul>
+</li>
+<li><p>Backport code style changes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/69">BitBucket pull request 69</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-fuel-tools/pull-requests/67">BitBucket pull request 67</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-fuel-tools-1-0-0-2018-01-25">Gazebo Fuel Tools 1.0.0 (2018-01-25)</h3>
+</div>
+</div>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p> Brought to you by <a href="https://openrobotics.org">Open Robotics</a>. </p>
+<p> Except where otherwise noted, the gazebosim.org web pages are licensed under <a
+    href="https://creativecommons.org/licenses/by/3.0/us/">Creative Commons
+    Attribution 3.0</a>. </p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

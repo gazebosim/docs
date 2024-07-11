@@ -1,0 +1,2070 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>msgs &#8212; Gazebo  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/gazebo.css?v=12e630a0" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/documentation_options.js?v=187304be"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'msgs/index';</script>
+    <link rel="canonical" href="https://gazebosim.github.io/docs/libsmsgs/" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="physics" href="../physics/" />
+    <link rel="prev" title="math" href="../math/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+
+
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/gazebo_horz_pos.svg" class="logo__image only-light" alt="Gazebo  documentation - Home"/>
+    <script>document.write(`<img src="../_static/gazebo_horz_neg.svg" class="logo__image only-dark" alt="Gazebo  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+        <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+</div>
+
+
+
+
+<div class="doc-heading">
+  <div class="banner">
+    <div class="d-sm-block">
+      <div class="h1">Development Libraries</div>
+      <span>Explore the complete set of development libraries offered by Gazebo.</span>
+    </div>
+  </div>
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.github.io/docs/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+          <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../cmake/">Cmake</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../common/">Common</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fuel_tools/">Fuel_tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gui/">Gui</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../launch/">Launch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../math/">Math</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Msgs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plugin/">Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../rendering/">Rendering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sensors/">Sensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sim/">Sim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../transport/">Transport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/">Utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sdformat/">Sdformat</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">msgs</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="msgs">
+<h1>msgs<a class="headerlink" href="#msgs" title="Link to this heading">#</a></h1>
+<ul class="gz-libs-lists simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs"><svg version="4.0.0.63c5cb3" width="2.0em" height="2.0em" class="sd-material-icon sd-material-icon-code" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0V0z" fill="none"></path><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"></path></svg> Source Code</a></p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/api/msgs/10"><svg version="4.0.0.63c5cb3" width="2.0em" height="2.0em" class="sd-material-icon sd-material-icon-description" viewBox="0 0 24 24" aria-hidden="true"><path d="M0 0h24v24H0z" fill="none"></path><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"></path></svg> API &amp; Tutorials</a></p></li>
+</ul>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+Readme</label><div class="sd-tab-content docutils">
+<h1 class="rubric" id="gazebo-messages-protobuf-messages-and-functions-for-robot-applications">Gazebo Messages: Protobuf messages and functions for robot applications</h1>
+<p><strong>Maintainer:</strong> caguero AT openrobotics DOT org</p>
+<p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/issues"><img alt="GitHub open issues" src="https://img.shields.io/github/issues-raw/gazebosim/gz-msgs.svg" /></a>
+<a class="reference external" href="https://github.com/gazebosim/gz-msgs/pulls"><img alt="GitHub open pull requests" src="https://img.shields.io/github/issues-pr-raw/gazebosim/gz-msgs.svg" /></a>
+<a class="reference external" href="https://community.gazebosim.org"><img alt="Discourse topics" src="https://img.shields.io/discourse/https/community.gazebosim.org/topics.svg" /></a>
+<a class="reference external" href="https://www.apache.org/licenses/LICENSE-2.0"><img alt="Hex.pm" src="https://img.shields.io/hexpm/l/plug.svg" /></a></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Build</p></th>
+<th class="head"><p>Status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Test coverage</p></td>
+<td><p><a class="reference external" href="https://codecov.io/gh/gazebosim/gz-msgs/tree/gz-msgs10"><img alt="codecov" src="https://codecov.io/gh/gazebosim/gz-msgs/tree/gz-msgs10/graph/badge.svg" /></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Ubuntu Jammy</p></td>
+<td><p><a class="reference external" href="https://build.osrfoundation.org/job/gz_msgs-ci-gz-msgs10-jammy-amd64"><img alt="Build Status" src="https://build.osrfoundation.org/buildStatus/icon?job=gz_msgs-ci-gz-msgs10-jammy-amd64" /></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Homebrew</p></td>
+<td><p><a class="reference external" href="https://build.osrfoundation.org/job/gz_msgs-ci-gz-msgs10-homebrew-amd64"><img alt="Build Status" src="https://build.osrfoundation.org/buildStatus/icon?job=gz_msgs-ci-gz-msgs10-homebrew-amd64" /></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>Windows</p></td>
+<td><p><a class="reference external" href="https://build.osrfoundation.org/job/gz_msgs-10-win"><img alt="Build Status" src="https://build.osrfoundation.org/buildStatus/icon?job=gz_msgs-10-win" /></a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Gazebo Messages is a component in the <a class="reference external" href="http://gazebosim.org">Gazebo</a>
+framework, a set of libraries designed to rapidly develop robot applications.</p>
+<h2 class="rubric" id="installation">Installation</h2>
+<p>See the <a class="reference external" href="https://gazebosim.org/api/msgs/10/install.html">installation tutorial</a>.</p>
+<h2 class="rubric" id="known-issue-of-command-line-tools">Known issue of command line tools</h2>
+<p>In the event that the installation is a mix of Debian and from source, command
+line tools from <code class="docutils literal notranslate"><span class="pre">gz-tools</span></code> may not work correctly.</p>
+<p>A workaround for a single package is to define the environment variable
+<code class="docutils literal notranslate"><span class="pre">GZ_CONFIG_PATH</span></code> to point to the location of the Gazebo library installation,
+where the YAML file for the package is found, such as</p>
+<p>However, that environment variable only takes a single path, which means if the
+installations from source are in different locations, only one can be specified.</p>
+<p>Another workaround for working with multiple Gazebo libraries on the command
+line is using symbolic links to each library’s YAML file.</p>
+<p>This issue is tracked <a class="reference external" href="https://github.com/gazebosim/gz-tools/issues/8">here</a>.</p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+Changelog</label><div class="sd-tab-content docutils">
+<h2 class="rubric" id="gazebo-msgs-10-x">Gazebo Msgs 10.x</h2>
+<h3 class="rubric" id="gazebo-msgs-10-3-0-2024-06-18">Gazebo Msgs 10.3.0 (2024-06-18)</h3>
+<ol class="arabic simple">
+<li><p>Backport: Adding cone primitives.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/442">Pull request #442</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-10-2-0-2024-05-17">Gazebo Msgs 10.2.0 (2024-05-17)</h3>
+<ol class="arabic simple">
+<li><p>CameraTrack message for advanced tracking and following.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/440">Pull request #440</a></p></li>
+</ul>
+</li>
+<li><p>Update minimum version of gz-cmake3</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/439">Pull request #439</a></p></li>
+</ul>
+</li>
+<li><p>bazel: lint</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/438">Pull request #438</a></p></li>
+</ul>
+</li>
+<li><p>Add package.xml</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/432">Pull request #432</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-10-1-2-2024-04-08">Gazebo Msgs 10.1.2 (2024-04-08)</h3>
+<ol class="arabic simple">
+<li><p>Use relative install paths for gz tool data and extra cmake files</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/436">Pull request #436</a></p></li>
+</ul>
+</li>
+<li><p>Bazel updates for Harmonic</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/397">Pull request #397</a></p></li>
+</ul>
+</li>
+<li><p>Fix MSVC “possible loss of data” warning</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/434">Pull request #434</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-10-1-1-2024-03-14">Gazebo Msgs 10.1.1 (2024-03-14)</h3>
+<ol class="arabic simple">
+<li><p>Allow topic and service to construct messages from description files</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/428">Pull request #428</a></p></li>
+</ul>
+</li>
+<li><p>Conditionally use cmake_path on cmake &lt; 3.20</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/424">Pull request #424</a></p></li>
+</ul>
+</li>
+<li><p>Remove duplicate find_package(Python3) call</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/420">Pull request #420</a></p></li>
+</ul>
+</li>
+<li><p>Bazel: Fix py_binary location</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/406">Pull request #406</a></p></li>
+</ul>
+</li>
+<li><p>Fix compiler warning in <code class="docutils literal notranslate"><span class="pre">generator.cc</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/403">Pull request #403</a></p></li>
+</ul>
+</li>
+<li><p>Set GZ_TOOLS_VER to 2 for consistency with rest of Garden and Harmonic libraries</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/391">Pull request #391</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-10-1-0-2024-01-22">Gazebo Msgs 10.1.0 (2024-01-22)</h3>
+<ol class="arabic simple">
+<li><p>Add proto message for MaterialColor.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/414">Pull request #414</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/415">Pull request #415</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/416">Pull request #416</a></p></li>
+</ul>
+</li>
+<li><p>Update CI badges in README</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/412">Pull request #412</a></p></li>
+</ul>
+</li>
+<li><p>Ensure that tests pass fine with GZ_RELOCATABLE_INSTALL option enabled</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/394">Pull request #394</a></p></li>
+</ul>
+</li>
+<li><p>Added missing parts to the <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> code.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/400">Pull request #400</a></p></li>
+</ul>
+</li>
+<li><p>Miscellaneous cleanups of protobuf generator plugin</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/405">Pull request #405</a></p></li>
+</ul>
+</li>
+<li><p>Fix memory leak in generator plugin code</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/404">Pull request #404</a></p></li>
+</ul>
+</li>
+<li><p>Enables cmd commands on Windows</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/402">Pull request #402</a></p></li>
+</ul>
+</li>
+<li><p>Miscellaneous housekeeping</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/398">Pull request #398</a></p></li>
+</ul>
+</li>
+<li><p>Fix cross-compilation support for gz-msg10</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/392">Pull request #392</a></p></li>
+</ul>
+</li>
+<li><p>Do not redefine GZ_PYTHON_INSTALL_PATH if it is already defined</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/393">Pull request #393</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-10-0-0-2023-09-29">Gazebo Msgs 10.0.0 (2023-09-29)</h3>
+<ol class="arabic simple">
+<li><p>Add missing <code class="docutils literal notranslate"><span class="pre">&lt;functional&gt;</span></code> header</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/382">Pull request #382</a></p></li>
+</ul>
+</li>
+<li><p>Documentation fixes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/381">Pull request #381</a></p></li>
+</ul>
+</li>
+<li><p>Generate messages in downstream builds</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/339">Pull request #339</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/356">Pull request #356</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/359">Pull request #359</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/361">Pull request #361</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/368">Pull request #368</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/374">Pull request #374</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/377">Pull request #377</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/379">Pull request #379</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/386">Pull request #386</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/384">Pull request #384</a></p></li>
+</ul>
+</li>
+<li><p>Add python message generation</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/362">Pull request #362</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/364">Pull request #364</a></p></li>
+</ul>
+</li>
+<li><p>Added AirSpeedSensor msgs to Sensor msg</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/365">Pull request #365</a></p></li>
+</ul>
+</li>
+<li><p>Add covariance fields to imu message</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/333">Pull request #333</a></p></li>
+</ul>
+</li>
+<li><p>Remove ignition</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/367">Pull request #367</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/335">Pull request #335</a></p></li>
+</ul>
+</li>
+<li><p>Infrastructure</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/370">Pull request #370</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/369">Pull request #369</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/363">Pull request #363</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/331">Pull request #331</a></p></li>
+</ul>
+</li>
+<li><p>Added cubemap_uri to sky</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/306">Pull request #306</a></p></li>
+</ul>
+</li>
+<li><p>Add id and visibility flags field to projector msg</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/345">Pull request #345</a></p></li>
+</ul>
+</li>
+<li><p>Add new discovery types</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/322">Pull request #322</a></p></li>
+</ul>
+</li>
+<li><p>⬆️  Bump main to 10.0.0~pre1</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/292">Pull request #292</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-msgs-9-x">Gazebo Msgs 9.x</h2>
+<h3 class="rubric" id="gazebo-msgs-9-5-0-2023-08-25">Gazebo Msgs 9.5.0 (2023-08-25)</h3>
+<ol class="arabic simple">
+<li><p>Remove deprecated flag output_to_genfiles</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/347">Pull request #347</a></p></li>
+</ul>
+</li>
+<li><p>GzProtobuf: Do not require version 3</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/346">Pull request #346</a></p></li>
+</ul>
+</li>
+<li><p>Fix typos</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/344">Pull request #344</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/314">Pull request #314</a></p></li>
+</ul>
+</li>
+<li><p>Few clangtidy fixes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/343">Pull request #343</a></p></li>
+</ul>
+</li>
+<li><p>Remove unused load in gz_msgs_generate</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/342">Pull request #342</a></p></li>
+</ul>
+</li>
+<li><p>Remove unused ignstrtok variable</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/340">Pull request #340</a></p></li>
+</ul>
+</li>
+<li><p>Adds a message that allows loading environments via a topic</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/320">Pull request #320</a></p></li>
+</ul>
+</li>
+<li><p>Rename COPYING to LICENSE</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/330">Pull request #330</a></p></li>
+</ul>
+</li>
+<li><p>Infrastructure</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/370">Pull request #370</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/369">Pull request #369</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/331">Pull request #331</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-9-4-0-2023-03-10">Gazebo Msgs 9.4.0 (2023-03-10)</h3>
+<ol class="arabic simple">
+<li><p>Support for bazel in garden</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-msgs/pull/325">Pull request #325</a></p></li>
+</ul>
+</li>
+<li><p>Add entity wrench map</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/ign-msgs/pull/328">Pull request #328</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-9-3-0-2023-02-08">Gazebo Msgs 9.3.0 (2023-02-08)</h3>
+<ol class="arabic simple">
+<li><p>Added airspeed sensor</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/321">Pull request #321</a></p></li>
+</ul>
+</li>
+<li><p>Fix cross-compilation workflow</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/319">Pull request #319</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-9-2-0-2022-11-23">Gazebo Msgs 9.2.0 (2022-11-23)</h3>
+<ol class="arabic simple">
+<li><p>Add DVL specific messages</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/317">Pull request #317</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-9-1-0-2022-11-17">Gazebo Msgs 9.1.0 (2022-11-17)</h3>
+<ol class="arabic simple">
+<li><p>Forward port of msgs 8.7.0.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/313">Pull request #313</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-9-0-0-2022-09-22">Gazebo Msgs 9.0.0 (2022-09-22)</h3>
+<ol class="arabic simple">
+<li><p>Move generated message to details folder</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/304">Pull request #304</a></p></li>
+</ul>
+</li>
+<li><p>gz_TEST: one more ign -&gt; gz</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/301">Pull request #301</a></p></li>
+</ul>
+</li>
+<li><p>Remove incorrect redirection header</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/303">Pull request #303</a></p></li>
+</ul>
+</li>
+<li><p>Migrate config and log directories</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/291">Pull request #291</a></p></li>
+</ul>
+</li>
+<li><p>Adding additional fields to the camera sensor message</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/201">Pull request #201</a></p></li>
+</ul>
+</li>
+<li><p>Add fluid added mass to inertial</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/271">Pull request #271</a></p></li>
+</ul>
+</li>
+<li><p>Safer move/rename for Windows</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/285">Pull request #285</a></p></li>
+</ul>
+</li>
+<li><p>Added stepping bool to world statistics</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/199">Pull request #199</a></p></li>
+</ul>
+</li>
+<li><p>[ign to gz] Factory::New accept ignition with warning</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/281">Pull request #281</a></p></li>
+</ul>
+</li>
+<li><p>Allow moon and custom surfaces in spherical coords msg</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/279">Pull request #279</a></p></li>
+</ul>
+</li>
+<li><p>Change message generation workflow</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/256">Pull request #256</a></p></li>
+</ul>
+</li>
+<li><p>ign -&gt; gz Provisional Finale: Source Migration : gz-msgs</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/272">Pull request #272</a></p></li>
+</ul>
+</li>
+<li><p>Migrate bazel file</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/270">Pull request #270</a></p></li>
+</ul>
+</li>
+<li><p>Update GoogleTest to latest version</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/257">Pull request #257</a></p></li>
+</ul>
+</li>
+<li><p>ign -&gt; gz Partial Docs Migration and Project Name Followups : gz-msgs</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/267">Pull request #267</a></p></li>
+</ul>
+</li>
+<li><p>Migrate IGNITION- CMake variables</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/266">Pull request #266</a></p></li>
+</ul>
+</li>
+<li><p>Rename CMake project to gz</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/250">Pull request #250</a></p></li>
+</ul>
+</li>
+<li><p>ign -&gt; gz CLI Migration : gz-msgs</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/262">Pull request #262</a></p></li>
+</ul>
+</li>
+<li><p>ign -&gt; gz Upstream Macro Migration : gz-msgs</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/260">Pull request #260</a></p></li>
+</ul>
+</li>
+<li><p>[ign -&gt; gz] CMake functions</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/263">Pull request #263</a></p></li>
+</ul>
+</li>
+<li><p>ign -&gt; gz Environment Variable Migration</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/259">Pull request #259</a></p></li>
+</ul>
+</li>
+<li><p>[garden] Added shininess to material message</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/251">Pull request #251</a></p></li>
+</ul>
+</li>
+<li><p>ign -&gt; gz: namespaces and CMake var</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/252">Pull request #252</a></p></li>
+</ul>
+</li>
+<li><p>ign -&gt; gz migration</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/249">Pull request #249</a></p></li>
+</ul>
+</li>
+<li><p>Added visualize_visual to light.proto</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/248">Pull request #248</a></p></li>
+</ul>
+</li>
+<li><p>Bumps in garden : ign-msgs9</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/246">Pull request #246</a></p></li>
+</ul>
+</li>
+<li><p>Remove SuppressWarning from msgs.hh to fix warnings</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/245">Pull request #245</a></p></li>
+</ul>
+</li>
+<li><p>Use SuppressWarning from ign-utils</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/243">Pull request #243</a></p></li>
+</ul>
+</li>
+<li><p>Remove Bionic from future releases (Garden+)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/229">Pull request #229</a></p></li>
+</ul>
+</li>
+<li><p>Change is_light_on to is_light_off</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/228">Pull request #228</a></p></li>
+</ul>
+</li>
+<li><p>Added field to light.proto to define if a light is on or off</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/223">Pull request #223</a></p></li>
+</ul>
+</li>
+<li><p>Added continuous joint type</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/215">Pull request #215</a></p></li>
+</ul>
+</li>
+<li><p>Bumps in garden : depend on ign-math7</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/208">Pull request #208</a></p></li>
+</ul>
+</li>
+<li><p>Configurable marker point color</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/202">Pull request #202</a></p></li>
+</ul>
+</li>
+<li><p>Bumps in garden : ci_matching_branch/bump_garden_ign-msgs9</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/203">Pull request #203</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-msgs-8-x">Gazebo Msgs 8.x</h2>
+<h3 class="rubric" id="gazebo-msgs-8-7-0-2022-09-27">Gazebo Msgs 8.7.0 (2022-09-27)</h3>
+<ol class="arabic simple">
+<li><p>ign -&gt; gz Redirect Gz Headers</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/300">Pull request #300</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/307">Pull request #307</a></p></li>
+</ul>
+</li>
+<li><p>Add parameter component message definitions</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/241">Pull request #241</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/298">Pull request #298</a></p></li>
+</ul>
+</li>
+<li><p>Remove redunant namespace references</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/293">Pull request #293</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-8-6-0-2022-08-02">Gazebo Msgs 8.6.0 (2022-08-02)</h3>
+<ol class="arabic simple">
+<li><p>Increase <code class="docutils literal notranslate"><span class="pre">Utility</span></code> test coverage</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/283">Pull request #283</a></p></li>
+</ul>
+</li>
+<li><p>Change <code class="docutils literal notranslate"><span class="pre">IGN_DESIGNATION</span></code> to <code class="docutils literal notranslate"><span class="pre">GZ_DESIGNATION</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/282">Pull request #282</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/284">Pull request #284</a></p></li>
+</ul>
+</li>
+<li><p>Add entity wrench message</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/274">Pull request #274</a></p></li>
+</ul>
+</li>
+<li><p>Ignition -&gt; Gazebo</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/273">Pull request #273</a></p></li>
+</ul>
+</li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">ACTOR</span></code> and <code class="docutils literal notranslate"><span class="pre">WORLD</span></code> types to entity</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/275">Pull request #275</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-8-5-0-2022-06-23">Gazebo Msgs 8.5.0 (2022-06-23)</h3>
+<ol class="arabic simple">
+<li><p>Add entity plugin v proto file</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/261">Pull request #261</a></p></li>
+</ul>
+</li>
+<li><p>Bash completion for flags</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/254">Pull request #254</a></p></li>
+</ul>
+</li>
+<li><p>Remove dead files</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/255">Pull request #255</a></p></li>
+</ul>
+</li>
+<li><p>Fix typo REGRESION/REGRESSION</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/247">Pull request #247</a></p></li>
+</ul>
+</li>
+<li><p>Generator: Add missing std namespace to string arguments</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/242">Pull request #242</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-8-4-0-2022-04-06">Gazebo Msgs 8.4.0 (2022-04-06)</h3>
+<ol class="arabic simple">
+<li><p>Add Dataframe msg</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/238">Pull request #238</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-8-3-0-2022-03-24">Gazebo Msgs 8.3.0 (2022-03-24)</h3>
+<ol class="arabic simple">
+<li><p>Focal CI: static checkers and doxygen linters</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/230">Pull request #230</a></p></li>
+</ul>
+</li>
+<li><p>Pose, twist and odometry with covariance msgs</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/224">Pull request #224</a></p></li>
+</ul>
+</li>
+<li><p>Add wheel slip message definition</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/205">Pull request #205</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/227">Pull request #227</a></p></li>
+</ul>
+</li>
+<li><p>Add Ubuntu Jammy CI</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/225">Pull request #225</a></p></li>
+</ul>
+</li>
+<li><p>Add PointCloudPacked iterators</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/210">Pull request #210</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/218">Pull request #218</a></p></li>
+</ul>
+</li>
+<li><p>Document pose + spherical coordinates combination on spawn</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/212">Pull request #212</a></p></li>
+</ul>
+</li>
+<li><p>Utility_TEST: adjust expectations for 32-bit arch (#120)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/120">Pull request #120) (#196</a> (#196)</p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-8-2-0-2021-12-14">Gazebo Msgs 8.2.0 (2021-12-14)</h3>
+<ol class="arabic simple">
+<li><p>Add NavSat messages</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/206">Pull request #206</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-8-1-0-2021-11-02">Gazebo Msgs 8.1.0 (2021-11-02)</h3>
+<ol class="arabic simple">
+<li><p>Added WorldControlState message.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/190">Pull request #190</a></p></li>
+</ul>
+</li>
+<li><p>Fixed trivial typo in command line help message.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/191">Pull request #191</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-8-0-0-2021-09-27">Gazebo Msgs 8.0.0 (2021-09-27)</h3>
+<ol class="arabic simple">
+<li><p>scene.proto: add shadow_caster_material_name</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/179">Pull request #179</a></p></li>
+</ul>
+</li>
+<li><p>🌐 Spherical coordinates conversion and commands</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/177">Pull request #177</a></p></li>
+</ul>
+</li>
+<li><p>Add BoundingBox Msg</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/165">Pull request #165</a></p></li>
+</ul>
+</li>
+<li><p>Add particle scatter ratio field to particle emitter</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/162">Pull request #162</a></p></li>
+</ul>
+</li>
+<li><p>Add particle emitters to link.proto and add topic to particle_emitter.proto</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/153">Pull request #153</a></p></li>
+</ul>
+</li>
+<li><p>Infrastructure</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/159">Pull request #159</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/155">Pull request #155</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/151">Pull request #151</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-msgs-7-x">Gazebo Msgs 7.x</h2>
+<h3 class="rubric" id="gazebo-msgs-7-3-0-2022-03-17">Gazebo Msgs 7.3.0 (2022-03-17)</h3>
+<ol class="arabic simple">
+<li><p>Backport NavSat message for bridge compatibility</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/231">Pull request #231</a></p></li>
+</ul>
+</li>
+<li><p>Focal CI: static checkers and doxygen linters</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/230">Pull request #230</a></p></li>
+</ul>
+</li>
+<li><p>Add wheel slip message definition</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/205">Pull request #205</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/227">Pull request #227</a></p></li>
+</ul>
+</li>
+<li><p>Add PointCloudPacked iterators</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/210">Pull request #210</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/218">Pull request #218</a></p></li>
+</ul>
+</li>
+<li><p>Utility_TEST: adjust expectations for 32-bit arch (#120)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/120">Pull request #120) (#196</a> (#196)</p></li>
+</ul>
+</li>
+<li><p>Fix trivial typo in command line help message</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/191">Pull request #191</a></p></li>
+</ul>
+</li>
+<li><p>Support colcon in windows CI</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/189">Pull request #189</a></p></li>
+</ul>
+</li>
+<li><p>🥳 Update gz-tools issue on README</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/184">Pull request #184</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-7-2-0-2021-09-10">Gazebo Msgs 7.2.0 (2021-09-10)</h3>
+<ol class="arabic simple">
+<li><p>Adds PerformanceSensorMetrics proto message.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/172">Pull request #172</a></p></li>
+</ul>
+</li>
+<li><p>Detect gz instead of using cmake module to check for gz-tools</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/166">Pull request #166</a></p></li>
+</ul>
+</li>
+<li><p>Bazel build support</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/95">Pull request #95</a></p></li>
+</ul>
+</li>
+<li><p>Remove tools/code_check and update codecov</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/164">Pull request #164</a></p></li>
+</ul>
+</li>
+<li><p>Fixed the width spelling in a comment</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/161">Pull request #161</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-7-1-0-2021-04-30">Gazebo Msgs 7.1.0 (2021-04-30)</h3>
+<ol class="arabic simple">
+<li><p>Added particle_emitter vector message</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/149">Pull request #149</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-7-0-0-2021-03-30">Gazebo Msgs 7.0.0 (2021-03-30)</h3>
+<ol class="arabic simple">
+<li><p>Master branch updates</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/141">Pull request #141</a></p></li>
+</ul>
+</li>
+<li><p>Added light intensity to light.proto</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/131">Pull request #131</a></p></li>
+</ul>
+</li>
+<li><p>Add double sided field to material</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/130">Pull request #130</a></p></li>
+</ul>
+</li>
+<li><p>Added capsule and ellipsoid geom msgs</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/128">Pull request #128</a></p></li>
+</ul>
+</li>
+<li><p>Add lightmap texcoord set</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/124">Pull request #124</a></p></li>
+</ul>
+</li>
+<li><p>README updates for Edifice</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/125">Pull request #125</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/148">Pull request #148</a></p></li>
+</ul>
+</li>
+<li><p>Added render order to material msgs</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/118">Pull request #118</a></p></li>
+</ul>
+</li>
+<li><p>Added run_to_sim_time to world_control message.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/108">Pull request #108</a></p></li>
+</ul>
+</li>
+<li><p>Add a is_periodic_change field to SerializedStateMap</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/119">Pull request #119</a></p></li>
+</ul>
+</li>
+<li><p>Remove deprecations, and a now invalid todo</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/112">Pull request #112</a></p></li>
+</ul>
+</li>
+<li><p>Added light map to material.proto</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/111">Pull request #111</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-msgs-6-x">Gazebo Msgs 6.x</h2>
+<h3 class="rubric" id="gazebo-msgs-6-6-0-2021-08-30">Gazebo Msgs 6.6.0 (2021-08-30)</h3>
+<ol class="arabic simple">
+<li><p>Adds PerformanceSensorMetrics proto message.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/172">Pull request #172</a></p></li>
+</ul>
+</li>
+<li><p>Detect gz instead of using cmake module to check for gz-tools</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/166">Pull request #166</a></p></li>
+</ul>
+</li>
+<li><p>Bazel build support for gz-msgs6</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/95">Pull request #95</a></p></li>
+</ul>
+</li>
+<li><p>Remove tools/code_check and update codecov</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/164">Pull request #164</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-6-5-0-2021-04-06">Gazebo Msgs 6.5.0 (2021-04-06)</h3>
+<ol class="arabic simple">
+<li><p>Added particle_emitter vector message</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/149">Pull request 149</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-6-4-0-2021-03-01">Gazebo Msgs 6.4.0 (2021-03-01)</h3>
+<ol class="arabic simple">
+<li><p>Support ‘has’ functionality in particle Emitter.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/137">Pull request 137</a></p></li>
+</ul>
+</li>
+<li><p>Add gz version of nav_msgs/OccupancyGrid.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/138">Pull request 138</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-6-3-0-2021-02-17">Gazebo Msgs 6.3.0 (2021-02-17)</h3>
+<ol class="arabic simple">
+<li><p>Particle emitter message.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/127">Pull request 127</a></p></li>
+</ul>
+</li>
+<li><p>Add std:: to strings in <a class="reference external" href="http://Generator.cc/hh">Generator.cc/hh</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/129">Pull request 129</a></p></li>
+</ul>
+</li>
+<li><p>Add windows installation; move installation in README to tutorial</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/126">Pull request 126</a></p></li>
+</ul>
+</li>
+<li><p>Includes changes found in version 5.6.0.</p></li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-6-2-0-2020-12-22">Gazebo Msgs 6.2.0 (2020-12-22)</h3>
+<ol class="arabic simple">
+<li><p>Make ignstrtok private to <a class="reference external" href="http://Utility.cc">Utility.cc</a></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/107">Pull request 107</a></p></li>
+</ul>
+</li>
+<li><p>Added JointTrajectory message</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/106">Pull request 106</a></p></li>
+</ul>
+</li>
+<li><p>Added Statistics message</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/110">Pull request 110</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-6-1-0-2020-12-01">Gazebo Msgs 6.1.0 (2020-12-01)</h3>
+<ol class="arabic simple">
+<li><p>Includes changes found in version 5.4.0.</p></li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-6-0-0-2020-09-28">Gazebo Msgs 6.0.0 (2020-09-28)</h3>
+<ol class="arabic simple">
+<li><p>Convert functions between duration and gz::time.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/85">Pull request 85</a></p></li>
+</ul>
+</li>
+<li><p>Added utility functions to convert between msg::time and std::chrono time_point.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/81">Pull request 81</a></p></li>
+</ul>
+</li>
+<li><p>Update codeowners.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/80">Pull request 80</a></p></li>
+</ul>
+</li>
+<li><p>Included autogenerated code to the gz_create_docs function.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/76">Pull request 76</a></p></li>
+</ul>
+</li>
+<li><p>Feature/add visual arrow and axis.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/62">Pull request 62</a></p></li>
+</ul>
+</li>
+<li><p>Add Cone Geometry Type to marker.proto.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/61">Pull request 61</a></p></li>
+</ul>
+</li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">/bigobj</span></code> in MSVC to support protobuf 3.12 library.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/57">Pull request 57</a></p></li>
+</ul>
+</li>
+<li><p>Workflow updates.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/51">Pull request 51</a></p></li>
+</ul>
+</li>
+<li><p>Add Cone Geometry Message.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/47">Pull request 47</a></p></li>
+</ul>
+</li>
+<li><p>Add .gitignore.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/44">Pull request 44</a></p></li>
+</ul>
+</li>
+<li><p>Update BitBucket links.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/41">Pull request 41</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-msgs-5-x">Gazebo Msgs 5.x</h2>
+<h3 class="rubric" id="gazebo-msgs-5-11-0-2022-10-10">Gazebo Msgs 5.11.0 (2022-10-10)</h3>
+<ol class="arabic simple">
+<li><p>Ignition to Gazebo renaming.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/282">Pull request #282</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/293">Pull request #293</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/300">Pull request #300</a></p></li>
+</ul>
+</li>
+<li><p>Remove mistaken VERSION.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/284">Pull request #284</a></p></li>
+</ul>
+</li>
+<li><p>Increase utility coverage.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/283">Pull request #283</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-5-10-0-2022-07-18">Gazebo Msgs 5.10.0 (2022-07-18)</h3>
+<ol class="arabic simple">
+<li><p>Add entity wrench message</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/274">Pull request #274</a></p></li>
+</ul>
+</li>
+<li><p>Ignition -&gt; Gazebo</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/273">Pull request #273</a></p></li>
+</ul>
+</li>
+<li><p>Add ACTOR and WORLD types to entity</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/275">Pull request #275</a></p></li>
+</ul>
+</li>
+<li><p>Bash completion for flags</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/254">Pull request #254</a></p></li>
+</ul>
+</li>
+<li><p>Remove dead files</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/255">Pull request #255</a></p></li>
+</ul>
+</li>
+<li><p>Fix typo REGRESION/REGRESSION</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/247">Pull request #247</a></p></li>
+</ul>
+</li>
+<li><p>Generator: Add missing std namespace to string arguments</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/242">Pull request #242</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-5-9-0-2022-03-16">Gazebo Msgs 5.9.0 (2022-03-16)</h3>
+<ol class="arabic simple">
+<li><p>Backport NavSat message for ROS bridge compatibility</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/231">Pull request #231</a></p></li>
+</ul>
+</li>
+<li><p>Focal CI: static checkers and doxygen linters</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/230">Pull request #230</a></p></li>
+</ul>
+</li>
+<li><p>Add PointCloudPacked iterators</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/210">Pull request #210</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/218">Pull request #218</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-5-8-1-2021-10-29">Gazebo Msgs 5.8.1 (2021-10-29)</h3>
+<ol class="arabic simple">
+<li><p>Utility_TEST: adjust expectations for 32-bit arch (Backport of #120)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/120">Pull request #120</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/196">Pull request #196</a></p></li>
+</ul>
+</li>
+<li><p>Fix trivial typo in command line help message</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/191">Pull request #191</a></p></li>
+</ul>
+</li>
+<li><p>🥳 Update gz-tools issue on README</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/184">Pull request #184</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-5-8-0-2021-08-06">Gazebo Msgs 5.8.0 (2021-08-06)</h3>
+<ol class="arabic simple">
+<li><p>Adds PerformanceSensorMetrics proto message.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/172">Pull request #172</a></p></li>
+</ul>
+</li>
+<li><p>Detect gz instead of using cmake module to check for gz-tools</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/166">Pull request #166</a></p></li>
+</ul>
+</li>
+<li><p>Remove tools/code_check and update codecov</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/164">Pull request #164</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-5-7-0-2021-03-17">Gazebo Msgs 5.7.0 (2021-03-17)</h3>
+<ol class="arabic simple">
+<li><p>Add gz version of nav_msgs/OccupancyGrid (backport #138)</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/143">Pull request 143</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/138">Pull request 143</a></p></li>
+</ul>
+</li>
+<li><p>Master branch updates</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/141">Pull request 141</a></p></li>
+</ul>
+</li>
+<li><p>Add windows installation; move installation in README to tutorial</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/126">Pull request 126</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-5-6-0-2020-12-28">Gazebo Msgs 5.6.0 (2020-12-28)</h3>
+<ol class="arabic simple">
+<li><p>Add JointTrajectory message.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/106">Pull request 106</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/117">Pull request 117</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-5-5-0-2020-12-21">Gazebo Msgs 5.5.0 (2020-12-21)</h3>
+<ol class="arabic simple">
+<li><p>Add statistics message.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/110">Pull request 110</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-5-4-0-2020-11-12">Gazebo Msgs 5.4.0 (2020-11-12)</h3>
+<ol class="arabic simple">
+<li><p>Add CMake options to support cross-compilation.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/60">Pull request 60</a></p></li>
+</ul>
+</li>
+<li><p>Add Focal CI.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/73">Pull request 73</a></p></li>
+</ul>
+</li>
+<li><p>Include autogenerated code for the gz_create_docs function.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/76">Pull request 76</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/78">Pull request 78</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/79">Pull request 79</a></p></li>
+</ul>
+</li>
+<li><p>Use modern CMake targets when including gz-math.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/82">Pull request 82</a></p></li>
+</ul>
+</li>
+<li><p>Bump versions in readme.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/88">Pull request 88</a></p></li>
+</ul>
+</li>
+<li><p>Bump readme math version.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/90">Pull request 90</a></p></li>
+</ul>
+</li>
+<li><p>Improve fork experience.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/94">Pull request 94</a></p></li>
+</ul>
+</li>
+<li><p>Add dependency conversion for model.config’s.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/91">Pull request 91</a></p></li>
+</ul>
+</li>
+<li><p>Resolved updated codecheck issues.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/96">Pull request 96</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-5-3-0-2020-05-20">Gazebo Msgs 5.3.0 (2020-05-20)</h3>
+<ol class="arabic simple">
+<li><p>Use modern CMake targets when including gz-math.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/82">Pull request 82</a></p></li>
+</ul>
+</li>
+<li><p>Included autogenerated code to the gz_create_docs function.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/78">Pull request 78</a></p></li>
+</ul>
+</li>
+<li><p>Support multiple messages in a proto file.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/70">Pull request 70</a></p></li>
+</ul>
+</li>
+<li><p>Add CMake options to support cross-compilation.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/60">Pull request 60</a></p></li>
+</ul>
+</li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">EntityFactory_V</span></code> message.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/58">Pull request 58</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-5-2-0-2020-05-14">Gazebo Msgs 5.2.0 (2020-05-14)</h3>
+<ol class="arabic simple">
+<li><p>Handle empty xml elements</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/172">BitBucket pull request 172</a></p></li>
+</ul>
+</li>
+<li><p>Ignore deprecation warnings on generated code</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/170">BitBucket pull request 170</a></p></li>
+</ul>
+</li>
+<li><p>Add SdfGeneratorConfig message containing configuration options for generating SDFormat from currently loaded worlds</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/174">BitBucket pull request 174</a></p></li>
+</ul>
+</li>
+<li><p>BitBucket to GitHub migration</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/39">Pull request</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/40">Pull request</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/43">Pull request</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-5-1-0">Gazebo Msgs 5.1.0</h3>
+<ol class="arabic simple">
+<li><p>Add ConvertPixelFormatType functions to Utility.hh</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/169">BitBucket pull request 169</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-5-0-0-2019-12-09">Gazebo Msgs 5.0.0 (2019-12-09)</h3>
+<ol class="arabic simple">
+<li><p>Add support for sdformat frame semantics</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/160">BitBucket pull request 160</a></p></li>
+</ul>
+</li>
+<li><p>Add emissive_map field to material.proto</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/155">BitBucket pull request 155</a></p></li>
+</ul>
+</li>
+<li><p>Add discovery message</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/159">BitBucket pull request 159</a></p></li>
+</ul>
+</li>
+<li><p>Deprecate all double fields in joint_cmd and pid, replace with Double</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/162">BitBucket pull request 162</a></p></li>
+</ul>
+</li>
+<li><p>Factory relative to</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/163">BitBucket pull request 163</a></p></li>
+</ul>
+</li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">fuel_metadata.proto</span></code>, <code class="docutils literal notranslate"><span class="pre">version.proto</span></code>, <code class="docutils literal notranslate"><span class="pre">version_range.proto</span></code>, and <code class="docutils literal notranslate"><span class="pre">versioned_name.proto</span></code> message files. Added conversion functions to/from the model.config/metadata.pbtxt formats.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/157">BitBucket pull request 157</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-msgs-4-x">Gazebo Msgs 4.x</h2>
+<h3 class="rubric" id="gazebo-msgs-4-9-0-2020-05-20">Gazebo Msgs 4.9.0 (2020-05-20)</h3>
+<ol class="arabic simple">
+<li><p>Included autogenerated code to the gz_create_docs function.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/79">Pull request 79</a></p></li>
+</ul>
+</li>
+<li><p>Add Focal CI.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/73">Pull request 73</a></p></li>
+</ul>
+</li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">EntityFactory_V</span></code> message.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/pull/58">Pull request 58</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-4-8-0-2020-04-09">Gazebo Msgs 4.8.0 (2020-04-09)</h3>
+<ol class="arabic simple">
+<li><p>Add SdfGeneratorConfig message containing configuration options for generating SDFormat from currently loaded worlds</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/174">BitBucket pull request 174</a></p></li>
+</ul>
+</li>
+<li><p>Fix linking order of Protocol Buffers static libraries on GCC</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/151">BitBucket pull request 151</a></p></li>
+</ul>
+</li>
+<li><p>Ignore deprecation warnings on generated code</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/170">BitBucket pull request 170</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-4-7-0-2019-08-22">Gazebo Msgs 4.7.0 (2019-08-22)</h3>
+<ol class="arabic simple">
+<li><p>Add video record message</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/149">BitBucket pull request 149</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-4-6-0-2019-08-16">Gazebo Msgs 4.6.0 (2019-08-16)</h3>
+<ol class="arabic simple">
+<li><p>Add Actor message</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/147">BitBucket pull request 147</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-4-5-0-2019-07-19">Gazebo Msgs 4.5.0 (2019-07-19)</h3>
+<ol class="arabic simple">
+<li><p>Add battery state message</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/145">BitBucket pull request 145</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-4-4-0-2019-07-16">Gazebo Msgs 4.4.0 (2019-07-16)</h3>
+<ol class="arabic simple">
+<li><p>Added SerializedEntityMap, SerializedStateMap, and SerializedStepMap
+messages which match SerializedEntity, SerializedState, and SerializedStep messages except that the former uses <code class="docutils literal notranslate"><span class="pre">map</span></code> data structures.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull-requests/143">BitBucket pull request 143</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-4-2-0">Gazebo Msgs 4.2.0</h3>
+<ol class="arabic simple">
+<li><p>Added odometry message</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull-requests/137">BitBucket pull request 137</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-4-1-0">Gazebo Msgs 4.1.0</h3>
+<ol class="arabic simple">
+<li><p>Added camera info message</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull-requests/136">BitBucket pull request 136</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-4-0-0-2019-05-20">Gazebo Msgs 4.0.0 (2019-05-20)</h3>
+<ol class="arabic simple">
+<li><p>Add world stats to packet message.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull-requests/125">BitBucket pull request 125</a></p></li>
+</ul>
+</li>
+<li><p>Deprecating <code class="docutils literal notranslate"><span class="pre">raysensor.proto</span></code>, and replacing with <code class="docutils literal notranslate"><span class="pre">lidar_sensor.proto</span></code>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull-requests/124">BitBucket pull request 124</a></p></li>
+</ul>
+</li>
+<li><p>Added orientation reference frame information to <code class="docutils literal notranslate"><span class="pre">imu_sensor.proto</span></code>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull-requests/121">BitBucket pull request 121</a></p></li>
+</ul>
+</li>
+<li><p>New actuators <code class="docutils literal notranslate"><span class="pre">actuators.proto</span></code> message.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/123">BitBucket pull request 123</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/129">BitBucket pull request 129</a></p></li>
+</ul>
+</li>
+<li><p>Added Physically Based Rendering (PBR) message to <code class="docutils literal notranslate"><span class="pre">material.proto</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/120">BitBucket pull request 120</a></p></li>
+</ul>
+</li>
+<li><p>Corrected <code class="docutils literal notranslate"><span class="pre">BAYER_RGGR8</span></code> to <code class="docutils literal notranslate"><span class="pre">BAYER_BGGR8</span></code> in <code class="docutils literal notranslate"><span class="pre">PixelFormatType</span></code> located in
+<code class="docutils literal notranslate"><span class="pre">proto/gz/msgs/image.proto</span></code>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/pull-requests/118">BitBucket pull request 118</a></p></li>
+</ul>
+</li>
+<li><p>Adding <code class="docutils literal notranslate"><span class="pre">dynamic_bias_stddev</span></code> and <code class="docutils literal notranslate"><span class="pre">dynamic_bias_correlation_time</span></code> sensor noise parameters.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/117">BitBucket pull request 117</a></p></li>
+</ul>
+</li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">fluid_pressure.proto</span></code> and <code class="docutils literal notranslate"><span class="pre">air_pressure_sensor.proto</span></code>.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/116">BitBucket pull request 116</a></p></li>
+</ul>
+</li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">step_size</span></code> to <code class="docutils literal notranslate"><span class="pre">WorldStatistics</span></code> and <code class="docutils literal notranslate"><span class="pre">SerializedStep</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/122">BitBucket pull request 122</a></p></li>
+</ul>
+</li>
+<li><p>Added an <code class="docutils literal notranslate"><span class="pre">altimeter_sensor.proto</span></code> message that encapsulates information
+about an altimeter sensor.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/114">BitBucket pull request 114</a></p></li>
+</ul>
+</li>
+<li><p>Added a <code class="docutils literal notranslate"><span class="pre">magnetometer_sensor.proto</span></code> message that encapsulates information
+about  a magnetometer sensor.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/113">BitBucket pull request 113</a></p></li>
+</ul>
+</li>
+<li><p>image: <code class="docutils literal notranslate"><span class="pre">pixel_format</span></code> field is deprecated, use <code class="docutils literal notranslate"><span class="pre">pixel_format_type</span></code> with enum <code class="docutils literal notranslate"><span class="pre">PixelFormatType</span></code> instead.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/106">BitBucket pull request 106</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/95">BitBucket pull request 95</a></p></li>
+</ul>
+</li>
+<li><p>Updated <code class="docutils literal notranslate"><span class="pre">model.proto</span></code> with more documentation. Position, velocity, force,
+and acceleration information for joint have been moved to the <code class="docutils literal notranslate"><span class="pre">axis.proto</span></code>
+message, see the Migration guide. The <code class="docutils literal notranslate"><span class="pre">gz.hh</span></code> header file is no longer
+installed.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/104">BitBucket pull request 104</a></p></li>
+</ul>
+</li>
+<li><p>Change serialized field from string to bytes.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/102">BitBucket pull request 102</a></p></li>
+</ul>
+</li>
+<li><p>Install ruby files into versioned folder</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/109">BitBucket pull request 109</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/issues/24">Issue 24</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/issues/27">Issue 27</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-msgs-3-x">Gazebo Msgs 3.x</h2>
+<h3 class="rubric" id="gazebo-msgs-3-x-x">Gazebo Msgs 3.x.x</h3>
+<ol class="arabic simple">
+<li><p>Install ruby files into versioned folder</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/111">BitBucket pull request 111</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/issues/24">Issue 24</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/issues/27">Issue 27</a></p></li>
+</ul>
+</li>
+<li><p>Fix linking order of Protocol Buffers static libraries on GCC</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/151">BitBucket pull request 151</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-3-2-0">Gazebo Msgs 3.2.0</h3>
+<ol class="arabic simple">
+<li><p>Added Pose_V, Time, and Clock fields to packet.proto</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/108">BitBucket pull request 108</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-3-1-0">Gazebo Msgs 3.1.0</h3>
+<ol class="arabic simple">
+<li><p>Added serialized messages: SerializedState, SerializedEntity, SerializedComponent</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/99">BitBucket pull request 99</a></p></li>
+</ul>
+</li>
+<li><p>image.proto: add <code class="docutils literal notranslate"><span class="pre">PixelFormatType</span></code> enum, copied from <code class="docutils literal notranslate"><span class="pre">gz::common::Image::PixelFormatType</span></code></p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/97">BitBucket pull request 97</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-3-0-0">Gazebo Msgs 3.0.0</h3>
+<ol class="arabic simple">
+<li><p>axis_aligned_box: new message and conversion functions</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/91">BitBucket pull request 91</a></p></li>
+</ul>
+</li>
+<li><p>contacts: use Entity instead of string to specify entities in contact</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/90">BitBucket pull request 90</a></p></li>
+</ul>
+</li>
+<li><p>entity: new message to uniquely identify an entity</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/87">BitBucket pull request 87</a></p></li>
+</ul>
+</li>
+<li><p>entity_factory: refactor message, remove edit_name field</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/86">BitBucket pull request 86</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/issues/25">Issue 25</a></p></li>
+</ul>
+</li>
+<li><p>Add twist message</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/83">BitBucket pull request 83</a></p></li>
+</ul>
+</li>
+<li><p>Update light msgs fields</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/78">BitBucket pull request 78</a></p></li>
+</ul>
+</li>
+<li><p>Combine docs</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/75">BitBucket pull request 75</a></p></li>
+</ul>
+</li>
+<li><p>configure.bat: don’t need to list recursive dependencies</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/74">BitBucket pull request 74</a></p></li>
+</ul>
+</li>
+<li><p>Update gtest</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/73">BitBucket pull request 73</a></p></li>
+</ul>
+</li>
+<li><p>Upgrade to protobuf3</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/69">BitBucket pull request 69</a></p></li>
+</ul>
+</li>
+<li><p>Fix ruby message generation.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/47">BitBucket pull request 47</a></p></li>
+</ul>
+</li>
+</ol>
+<h2 class="rubric" id="gazebo-msgs-2-x">Gazebo Msgs 2.x</h2>
+<h3 class="rubric" id="gazebo-msgs-2-x-x">Gazebo Msgs 2.x.x</h3>
+<ol class="arabic simple">
+<li><p>Fix linking order of Protocol Buffers static libraries on GCC</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/151">BitBucket pull request 151</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-2-1-0">Gazebo Msgs 2.1.0</h3>
+<ol class="arabic simple">
+<li><p>Upgrade to gz-math6</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/138">BitBucket pull request 138</a></p></li>
+</ul>
+</li>
+</ol>
+<h3 class="rubric" id="gazebo-msgs-2-0-0">Gazebo Msgs 2.0.0</h3>
+<ol class="arabic simple">
+<li><p>sonar: add geometry field</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/82">BitBucket pull request 82</a></p></li>
+</ul>
+</li>
+<li><p>log_control, log_status: add record_resources bool to match osrf/gazebo PR 3008</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/76">BitBucket pull request 76</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/gazebo-gh-pages/#!/osrf/gazebo/pull-requests/3008">osrf/gazebo Pull request 3008</a></p></li>
+</ul>
+</li>
+<li><p>Added inline versioned namespace. Generator.hh is no longer installed</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/59">BitBucket pull request 59</a></p></li>
+</ul>
+</li>
+<li><p>Upgrade to gz-cmake1</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/55">BitBucket pull request 55</a></p></li>
+</ul>
+</li>
+<li><p>Extend Factory class</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/61">BitBucket pull request 61</a></p></li>
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/66">BitBucket pull request 66</a></p></li>
+</ul>
+</li>
+<li><p>Add real_time_factor field to WorldStatistics</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages/#!/ignitionrobotics/ign-msgs/pull-requests/67">BitBucket pull request 67</a></p></li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p> Brought to you by <a href="https://openrobotics.org">Open Robotics</a>. </p>
+<p> Except where otherwise noted, the gazebosim.org web pages are licensed under <a
+    href="https://creativecommons.org/licenses/by/3.0/us/">Creative Commons
+    Attribution 3.0</a>. </p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
