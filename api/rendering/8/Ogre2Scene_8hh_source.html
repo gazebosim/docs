@@ -1,0 +1,530 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Rendering">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Rendering: Ogre2Scene.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Rendering</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        8.2.0
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 GzCreateDocs.cmake -->
+      <nav class="gz-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.9.1 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_68720addb28ee8f762a8d1f55de1ba53.html">gz-rendering</a></li><li class="navelem"><a class="el" href="dir_87eafc3028a4c212104c693d411a4fe0.html">ogre2</a></li><li class="navelem"><a class="el" href="dir_23993da918218268cf4f4abe9c093c0e.html">include</a></li><li class="navelem"><a class="el" href="dir_b150b96b4767a2d74224c52880dedd3a.html">gz</a></li><li class="navelem"><a class="el" href="dir_747a66b2f263ff39005cac7a8913ca76.html">rendering</a></li><li class="navelem"><a class="el" href="dir_1e800f0f20b6132e2b30092dcf688a41.html">ogre2</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Ogre2Scene.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="Ogre2Scene_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (C) 2018 Open Source Robotics Foundation</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef GZ_RENDERING_OGRE2_OGRE2SCENE_HH_</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define GZ_RENDERING_OGRE2_OGRE2SCENE_HH_</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Storage_8hh.html">gz/rendering/Storage.hh</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="BaseScene_8hh.html">gz/rendering/base/BaseScene.hh</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Ogre2RenderTypes_8hh.html">gz/rendering/ogre2/Ogre2RenderTypes.hh</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;gz/rendering/ogre2/Export.hh&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">// This disables warning messages for OGRE</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#ifndef _MSC_VER</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">  #pragma GCC system_header</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">  #pragma warning(push, 0)</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;Compositor/OgreCompositorShadowNode.h&gt;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#ifdef _MSC_VER</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">  #pragma warning(pop)</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceOgre.html">Ogre</a></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">class </span>Root;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">class </span>SceneManager;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacegz.html">gz</a></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">namespace </span>rendering</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">inline</span> <span class="keyword">namespace </span>GZ_RENDERING_VERSION_NAMESPACE {</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">// forward declaration</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keyword">class </span>Ogre2ScenePrivate;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html">   57</a></span>&#160;<span class="comment"></span>    <span class="keyword">class </span>GZ_RENDERING_OGRE2_VISIBLE <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html" title="Ogre2.x implementation of the scene class.">Ogre2Scene</a> :</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="keyword">public</span> <a class="code" href="classgz_1_1rendering_1_1BaseScene.html">BaseScene</a></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    {</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a62d69efb3da771e2a474fdec5131ee0f">   63</a></span>&#160;      <span class="keyword">protected</span>: <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a62d69efb3da771e2a474fdec5131ee0f" title="Constructor.">Ogre2Scene</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id, <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a6443962a88f09d95bed7d2622d95ecca">   66</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a6443962a88f09d95bed7d2622d95ecca" title="Destructor.">~Ogre2Scene</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#ab523ba5e9bf8b30a19f0cfcd13836404">   69</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#ab523ba5e9bf8b30a19f0cfcd13836404">Fini</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#acd64d083ec92cdd41f557ab02ce4b0ce">   72</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code" href="classgz_1_1rendering_1_1RenderEngine.html" title="An abstract interface to a concrete render-engine. A RenderEngine is responsible for initializing a r...">RenderEngine</a> *<a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#acd64d083ec92cdd41f557ab02ce4b0ce">Engine</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a0841bc975ebf3b8bacd4a9c052b877b0">   75</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">VisualPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a0841bc975ebf3b8bacd4a9c052b877b0">RootVisual</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a14a713bee0a2df956114ba2a65f95bcf">   78</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a14a713bee0a2df956114ba2a65f95bcf">SetTime</a>(</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        <span class="keyword">const</span> std::chrono::steady_clock::duration &amp;_time) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a20bd7e5293ab52884232a737f2a643de">   82</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Color.html">math::Color</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a20bd7e5293ab52884232a737f2a643de">AmbientLight</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a11b4e5e40d12b3dc06cea9a9bc7f1d72">   85</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a11b4e5e40d12b3dc06cea9a9bc7f1d72">SetAmbientLight</a>(<span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Color.html">math::Color</a> &amp;_color) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a641713322d02bf73ac80085a883e191b">   88</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a641713322d02bf73ac80085a883e191b">SetBackgroundColor</a>(<span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Color.html">math::Color</a> &amp;_color) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a5328dbcc9da499b4c61a412746672f39">   91</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a5328dbcc9da499b4c61a412746672f39">PreRender</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#ac494eb7631894ce722be7d7d639c96ad">   94</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#ac494eb7631894ce722be7d7d639c96ad">Clear</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#aa20f2399ad9e8174bf106d35758d93b3">   97</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#aa20f2399ad9e8174bf106d35758d93b3">Destroy</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a33fc3e915105c5e30da5e25dab22d015">  100</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a33fc3e915105c5e30da5e25dab22d015">SetSkyEnabled</a>(<span class="keywordtype">bool</span> _enabled) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#abc1fce34c9aff68e8d67d683be468a35">  103</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#abc1fce34c9aff68e8d67d683be468a35">SkyEnabled</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#acb3167bada6b04bf055909e9cb831af7">  106</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#acb3167bada6b04bf055909e9cb831af7">SetActiveGlobalIllumination</a>(</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;            <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GlobalIlluminationBasePtr</a> _gi) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#abb12d7ad2546d009f26e20b9627d7e90">  112</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#abb12d7ad2546d009f26e20b9627d7e90">SetLightsGiDirty</a>();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a85738bcfce90ffd966892210e24327be">  115</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a85738bcfce90ffd966892210e24327be">SetCameraPassCountPerGpuFlush</a>(</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;            uint8_t _numPass) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#aa0446c04e93350ceb3d4d0188706ba5a">  119</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> uint8_t <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#aa0446c04e93350ceb3d4d0188706ba5a">CameraPassCountPerGpuFlush</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a3d6d316e9db51159c8cb59fec2835e68">  122</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a3d6d316e9db51159c8cb59fec2835e68">LegacyAutoGpuFlush</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#abbf7ee75dd931e7aa2f61462495ee445">  126</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> Ogre::SceneManager *<a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#abbf7ee75dd931e7aa2f61462495ee445" title="Get a pointer to the ogre scene manager.">OgreSceneManager</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a6e5e77e1b8398bffc2d36a2ab1338b05">  129</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a6e5e77e1b8398bffc2d36a2ab1338b05">PostRender</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> StartForcedRender();</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> EndForcedRender();</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> StartRendering(Ogre::Camera *_camera);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> FlushGpuCommandsAndStartNewFrame(uint8_t _numPasses,</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;                                                    <span class="keywordtype">bool</span> _startNewFrame);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">void</span> FlushGpuCommandsOnly();</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">void</span> EndFrame();</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> SetShadowsDirty(<span class="keywordtype">bool</span> _dirty);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> ShadowsDirty() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a06808e64df7fab5ed70d98b385c41baa">  209</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a06808e64df7fab5ed70d98b385c41baa">LoadImpl</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a43b3fee12b7dbcd87619f71aec1671d1">  212</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a43b3fee12b7dbcd87619f71aec1671d1">InitImpl</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00215"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a626eec006a6aa1e00eec3a2809715fdd">  215</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">COMVisualPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a626eec006a6aa1e00eec3a2809715fdd" title="Implementation for creating CoM visual.">CreateCOMVisualImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a2272b9448b2999b976eda7b58034110b">  219</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">InertiaVisualPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a2272b9448b2999b976eda7b58034110b" title="Implementation for creating Inertia visual.">CreateInertiaVisualImpl</a>(</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;                     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id, <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00223"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a3842190694818c5c8863e7def4e6f7de">  223</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">JointVisualPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a3842190694818c5c8863e7def4e6f7de" title="Implementation for creating Joint visual.">CreateJointVisualImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a6f5c50e8c5219885fa68c4639b41ac24">  227</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">LightVisualPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a6f5c50e8c5219885fa68c4639b41ac24" title="Implementation for creating Light visual.">CreateLightVisualImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a214574f6bd7ddf10b1666b29261a4c7f">  231</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">DirectionalLightPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a214574f6bd7ddf10b1666b29261a4c7f">CreateDirectionalLightImpl</a>(</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id, <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a519a69debf3fc81e806fac6b99838d18">  235</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">PointLightPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a519a69debf3fc81e806fac6b99838d18">CreatePointLightImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a75ac11387f23614474ea599fe4e91299">  239</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">SpotLightPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a75ac11387f23614474ea599fe4e91299">CreateSpotLightImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00243"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#ab3ad6dafcd9fe11e526f7b2ccb0a1283">  243</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">CameraPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#ab3ad6dafcd9fe11e526f7b2ccb0a1283">CreateCameraImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00247"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a8455840620618e9c095f491c5cf426fd">  247</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">DepthCameraPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a8455840620618e9c095f491c5cf426fd">CreateDepthCameraImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a908868905e6993d34a048c40b935915f">  251</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">ThermalCameraPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a908868905e6993d34a048c40b935915f" title="Implementation for creating a thermal camera.">CreateThermalCameraImpl</a>(</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;                     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id, <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a6488a6204c70786206926042a0077479">  255</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">WideAngleCameraPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a6488a6204c70786206926042a0077479" title="Implementation for creating a wide angle camera.">CreateWideAngleCameraImpl</a>(</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id, <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a2399a468e05ce9448b4f583e43addc64">  259</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">BoundingBoxCameraPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a2399a468e05ce9448b4f583e43addc64" title="Implementation for creating a BoundingBox camera.">CreateBoundingBoxCameraImpl</a>(</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;                     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id, <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#abff83689be06af957afb62a8027d6ac2">  263</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">SegmentationCameraPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#abff83689be06af957afb62a8027d6ac2" title="Implementation for creating a segmentation camera.">CreateSegmentationCameraImpl</a>(</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id, <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a3313131825113065714907ae4b89d696">  267</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GpuRaysPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a3313131825113065714907ae4b89d696" title="Implementation for creating GpuRays sensor.">CreateGpuRaysImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; </div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a67e2ade307e8a4e3f26aacc78633225e">  271</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">VisualPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a67e2ade307e8a4e3f26aacc78633225e">CreateVisualImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a44a65904bed0450674fab7e2fbe6170c">  275</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">ArrowVisualPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a44a65904bed0450674fab7e2fbe6170c">CreateArrowVisualImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a3b769e097a7541cb996ec2cf341680e5">  279</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">AxisVisualPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a3b769e097a7541cb996ec2cf341680e5">CreateAxisVisualImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a9ed927572dce6f86f9cf1c05704485f6">  283</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GizmoVisualPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a9ed927572dce6f86f9cf1c05704485f6" title="Implementation for creating a GizmoVisual.">CreateGizmoVisualImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a34ca20194ab85a24026e247e65788d3e">  287</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a34ca20194ab85a24026e247e65788d3e">CreateBoxImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; </div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#adab86e755b6cc8b78575d175bab85c07">  291</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#adab86e755b6cc8b78575d175bab85c07">CreateConeImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#acdf7f3e0563cc7db68f4bc0663c8fda0">  295</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#acdf7f3e0563cc7db68f4bc0663c8fda0">CreateCylinderImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; </div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a58b2034eda34851c55417bd347ac26b3">  299</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a58b2034eda34851c55417bd347ac26b3">CreatePlaneImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160; </div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00303"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#afc72ced118de830bab9aff0194335d89">  303</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#afc72ced118de830bab9aff0194335d89">CreateSphereImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
+<div class="line"><a name="l00310"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#ab9d70ae83a7d053f555f7e432f759d3e">  310</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MeshPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#ab9d70ae83a7d053f555f7e432f759d3e" title="Create a mesh object based on its name.">CreateMeshImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name, <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_meshName);</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00314"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a3ab3eaf016288f68a37b807ba7f9dff6">  314</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MeshPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a3ab3eaf016288f68a37b807ba7f9dff6">CreateMeshImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name, <span class="keyword">const</span> <a class="code" href="structgz_1_1rendering_1_1MeshDescriptor.html" title="Describes how a Mesh should be loaded.">MeshDescriptor</a> &amp;_desc)</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                     <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00319"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a0805eb6dd66b130161638c43ef9e8c60">  319</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">CapsulePtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a0805eb6dd66b130161638c43ef9e8c60" title="Implementation for creating a capsule geometry object.">CreateCapsuleImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
+<div class="line"><a name="l00322"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a4ec92d95c0fa236bf10f4794c2d4aab7">  322</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">HeightmapPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a4ec92d95c0fa236bf10f4794c2d4aab7" title="Implementation for creating a heightmap geometry.">CreateHeightmapImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;                   <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name, <span class="keyword">const</span> <a class="code" href="classgz_1_1rendering_1_1HeightmapDescriptor.html" title="Describes how a Heightmap should be loaded.">HeightmapDescriptor</a> &amp;_desc)</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;                   <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a4a100e16e9ba134684700564cf716e83">  327</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GridPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a4a100e16e9ba134684700564cf716e83" title="Implementation for creating a grid geometry object.">CreateGridImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a6d2654b95b135ad8c2e83b815d43e6ab">  331</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MarkerPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a6d2654b95b135ad8c2e83b815d43e6ab" title="Implementation for creating a marker geometry object.">CreateMarkerImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#af2c5eb0938370e0bf4b4e714431f5963">  335</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">LidarVisualPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#af2c5eb0938370e0bf4b4e714431f5963" title="Implementation for creating a lidar visual.">CreateLidarVisualImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160; </div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00339"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a1acec3ebf5442ed2d8f25b5868930108">  339</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">WireBoxPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a1acec3ebf5442ed2d8f25b5868930108" title="Implementation for creating a wire box geometry.">CreateWireBoxImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160; </div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00343"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#af9503cf016354ffb4969884255c6e0b1">  343</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">TextPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#af9503cf016354ffb4969884255c6e0b1" title="Implementation for creating a text&#39;s geometry object.">CreateTextImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; </div>
+<div class="line"><a name="l00346"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a01bf5a06e1a390e772239251b946789e">  346</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a01bf5a06e1a390e772239251b946789e">CreateMaterialImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;                     <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
+<div class="line"><a name="l00349"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a8b82484a99d0c8523af4e3178fbe85d7">  349</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">RenderTexturePtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a8b82484a99d0c8523af4e3178fbe85d7">CreateRenderTextureImpl</a>(</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;                     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id, <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00353"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a094cdd385960c841f84f28d6a34efb89">  353</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">RenderWindowPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a094cdd385960c841f84f28d6a34efb89" title="Render engine specific implementation for creating a render window.">CreateRenderWindowImpl</a>(</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;                     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id, <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160; </div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00357"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a6613cc22350aa18e2336c36cec66a967">  357</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">RayQueryPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a6613cc22350aa18e2336c36cec66a967">CreateRayQueryImpl</a>(</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;                     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id, <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160; </div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00361"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a315f369d67c383361d79040b7f13a75d">  361</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">ParticleEmitterPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a315f369d67c383361d79040b7f13a75d" title="Implementation for creating a ParticleEmitter.">CreateParticleEmitterImpl</a>(</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;                     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id, <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160; </div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00365"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a441aa623467204bf55f5e233d8ff110f">  365</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">ProjectorPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a441aa623467204bf55f5e233d8ff110f" title="Implementation for creating a Projector.">CreateProjectorImpl</a>(</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id, <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; </div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GlobalIlluminationVctPtr</a></div>
+<div class="line"><a name="l00370"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a9af90317a1573b1cd76bd9cfba90c073">  370</a></span>&#160;          <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a9af90317a1573b1cd76bd9cfba90c073" title="Implementation for creating a GlobalIlluminationVct.">CreateGlobalIlluminationVctImpl</a>(</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;                    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id, <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160; </div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GlobalIlluminationCiVctPtr</a></div>
+<div class="line"><a name="l00375"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#ac813a653b457ae0756a1b95d724e4fdb">  375</a></span>&#160;          <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#ac813a653b457ae0756a1b95d724e4fdb" title="Implementation for creating a GlobalIlluminationCiVct.">CreateGlobalIlluminationCiVctImpl</a>(</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;                    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id, <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160; </div>
+<div class="line"><a name="l00382"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#accf2a51b25793c4ce1c745d7c4358ce8">  382</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#accf2a51b25793c4ce1c745d7c4358ce8" title="Helper function to initialize an ogre2 object.">InitObject</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">Ogre2ObjectPtr</a> _object,</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;                     <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id, <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name);</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160; </div>
+<div class="line"><a name="l00389"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a9dfbb8a5fa3132cbfa102fed7d872bc5">  389</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a9dfbb8a5fa3132cbfa102fed7d872bc5">UpdateAllHeightmaps</a>(Ogre::Camera *_camera);</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160; </div>
+<div class="line"><a name="l00393"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#aa5455c67cb785895917349b2c5c70e62">  393</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;std::weak_ptr&lt;Ogre2Heightmap&gt;</a>&gt; &amp;<a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#aa5455c67cb785895917349b2c5c70e62">Heightmaps</a>()</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;          <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160; </div>
+<div class="line"><a name="l00398"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a3c7519a70ced292678e8ebdf12ef6726">  398</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a3c7519a70ced292678e8ebdf12ef6726" title="Create a compositor shadow node with the same number of shadow textures as the number of shadow casti...">UpdateShadowNode</a>();</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160; </div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;      <span class="keyword">private</span>: <span class="keywordtype">void</span> CreateShadowNodeWithSettings(</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;          Ogre::CompositorManager2 *_compositorManager,</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;          <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_shadowNodeName,</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;          <span class="keyword">const</span> Ogre::ShadowNodeHelper::ShadowParamVec &amp;_shadowParams);</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160; </div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00419"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a9d9c50ad2dd23e45f63d5e4d5af7b6f8">  419</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">LightStorePtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a9d9c50ad2dd23e45f63d5e4d5af7b6f8">Lights</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160; </div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00422"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a66c472e461227554fd31bacec0e97b9a">  422</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">SensorStorePtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a66c472e461227554fd31bacec0e97b9a">Sensors</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160; </div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00425"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#acc6e486420d4ef21fde4769bc680e52c">  425</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">VisualStorePtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#acc6e486420d4ef21fde4769bc680e52c">Visuals</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160; </div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00428"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a1757bf75ff01b004eb0cb98f64af7e90">  428</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialMapPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a1757bf75ff01b004eb0cb98f64af7e90">Materials</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160; </div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00431"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a15f4848fbf619b74a3b14a06f74871f2">  431</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a15f4848fbf619b74a3b14a06f74871f2">CreateObjectId</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160; </div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;      <span class="keyword">private</span>: <span class="keywordtype">void</span> CreateContext();</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160; </div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;      <span class="keyword">private</span>: <span class="keywordtype">void</span> CreateRootVisual();</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160; </div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;      <span class="keyword">private</span>: <span class="keywordtype">void</span> CreateMeshFactory();</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160; </div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;      <span class="keyword">private</span>: <span class="keywordtype">void</span> CreateStores();</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160; </div>
+<div class="line"><a name="l00447"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a85d226701f29078df0f715fa0d26eebf">  447</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a85d226701f29078df0f715fa0d26eebf" title="Remove internal material cache for a specific material.">ClearMaterialsCache</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name);</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160; </div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;      <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">Ogre2ScenePtr</a> SharedThis();</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160; </div>
+<div class="line"><a name="l00453"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a9b3495cae05af1aac42233172c0d5f81">  453</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">Ogre2VisualPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a9b3495cae05af1aac42233172c0d5f81" title="Root visual in the scene.">rootVisual</a>;</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160; </div>
+<div class="line"><a name="l00456"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#aadb70efe857b912d638c47c52f5e4b32">  456</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">Ogre2MeshFactoryPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#aadb70efe857b912d638c47c52f5e4b32" title="Mesh factory for generating ogre meshes.">meshFactory</a>;</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160; </div>
+<div class="line"><a name="l00459"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#af007695862df90a1ee4131b736106a44">  459</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">Ogre2SensorStorePtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#af007695862df90a1ee4131b736106a44" title="A list of ogre sensors, e.g. cameras.">sensors</a>;</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160; </div>
+<div class="line"><a name="l00462"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a5836b5b33df67d7580da5688a5751d9a">  462</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">Ogre2VisualStorePtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a5836b5b33df67d7580da5688a5751d9a" title="A list of ogre visuals.">visuals</a>;</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160; </div>
+<div class="line"><a name="l00465"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a9164a4085c5a3b861dde9b85b1ced200">  465</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">Ogre2LightStorePtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a9164a4085c5a3b861dde9b85b1ced200" title="A list of ogre lights.">lights</a>;</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160; </div>
+<div class="line"><a name="l00468"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a8111c36e88406bc6c9af34768239a066">  468</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">Ogre2MaterialMapPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a8111c36e88406bc6c9af34768239a066" title="A list of ogre materials.">materials</a>;</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160; </div>
+<div class="line"><a name="l00471"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a9033183fef932d94a43fbc46dc547df8">  471</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;std::weak_ptr&lt;Ogre2Heightmap&gt;</a>&gt; <a class="code" href="classgz_1_1rendering_1_1Ogre2Scene.html#a9033183fef932d94a43fbc46dc547df8" title="A list of ogre heightmaps.">heightmaps</a>;</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160; </div>
+<div class="line"><a name="l00474"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#ac6cc660f32f57e05f657c5eb29a866ff">  474</a></span>&#160;      <span class="keyword">protected</span>: Ogre::SceneManager *ogreSceneManager = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160; </div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;      <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;Ogre2ScenePrivate&gt;</a> dataPtr;</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160; </div>
+<div class="line"><a name="l00480"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#a6be218d02183475f30e13f78f619f0c2">  480</a></span>&#160;      <span class="keyword">private</span>: <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html" title="Ogre2 render engine class. A singleton class that manages the underlying ogre2 render engine,...">Ogre2RenderEngine</a>;</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160; </div>
+<div class="line"><a name="l00482"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2Scene.html#aee6817bd2142614088ad48098f807e2d">  482</a></span>&#160;      <span class="keyword">private</span>: <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classgz_1_1rendering_1_1Ogre2SceneExt.html" title="Ogre2 implementation of the scene extension API.">Ogre2SceneExt</a>;</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;    };</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160; </div>
+<div class="line"><a name="l00486"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2SceneExt.html">  486</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classgz_1_1rendering_1_1Ogre2SceneExt.html" title="Ogre2 implementation of the scene extension API.">Ogre2SceneExt</a> : <span class="keyword">public</span> <a class="code" href="classgz_1_1rendering_1_1SceneExt.html" title="Scene Extension class. Provides API extension to the Scene class without breaking ABI.">SceneExt</a></div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;    {</div>
+<div class="line"><a name="l00490"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2SceneExt.html#ae31204290376789a3d3c705162d1c88d">  490</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classgz_1_1rendering_1_1Ogre2SceneExt.html#ae31204290376789a3d3c705162d1c88d" title="Constructor.">Ogre2SceneExt</a>(<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a> *_scene);</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160; </div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00493"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2SceneExt.html#a66748a7d36bc046bb10dcdda4a0a6749">  493</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">ObjectPtr</a> <a class="code" href="classgz_1_1rendering_1_1Ogre2SceneExt.html#a66748a7d36bc046bb10dcdda4a0a6749" title="Generic create function.">CreateExt</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_type,</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;          <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name = <span class="stringliteral">&quot;&quot;</span>) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    };</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;    }</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;  }</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;}</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+      </div>
+    </main>
+  </div>
+</body>

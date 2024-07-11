@@ -1,0 +1,464 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Sim">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Sim: EntityComponentManager.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Sim</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        8.5.0
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 GzCreateDocs.cmake -->
+      <nav class="gz-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.9.1 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_09f003aaf4d0306a12140441e1ef5514.html">gz-sim</a></li><li class="navelem"><a class="el" href="dir_dfebe31d2dc1d7ab196508ef9381b162.html">include</a></li><li class="navelem"><a class="el" href="dir_36c5f9ac31df45b4231b7c70b274d23f.html">gz</a></li><li class="navelem"><a class="el" href="dir_36b40f44b4ca4cbca692d429686f260d.html">sim</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">EntityComponentManager.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="EntityComponentManager_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno"><a class="line" href="namespacegz_1_1sim.html#a03de5976a015be94fb37211f54f9b305">    1</a></span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (C) 2018 Open Source Robotics Foundation</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef GZ_SIM_ENTITYCOMPONENTMANAGER_HH_</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define GZ_SIM_ENTITYCOMPONENTMANAGER_HH_</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;gz/msgs/serialized.pb.h&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;gz/msgs/serialized_map.pb.h&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;optional&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;typeinfo&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;unordered_set&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &lt;gz/common/Console.hh&gt;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#include &lt;gz/math/graph/Graph.hh&gt;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Entity_8hh.html">gz/sim/Entity.hh</a>&quot;</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#include &quot;gz/sim/Export.hh&quot;</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="include_2gz_2sim_2Types_8hh.html">gz/sim/Types.hh</a>&quot;</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Component_8hh.html">gz/sim/components/Component.hh</a>&quot;</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="preprocessor">#include &quot;gz/sim/detail/View.hh&quot;</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacegz.html" title="This library is part of the Gazebo project.">gz</a></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">namespace </span>sim</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="comment">// Inline bracket to help doxygen filtering.</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keyword">inline</span> <span class="keyword">namespace </span>GZ_SIM_VERSION_NAMESPACE {</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="comment">// Forward declarations.</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">class </span>GZ_SIM_HIDDEN <a class="code" href="namespacegz_1_1sim.html#a03de5976a015be94fb37211f54f9b305">EntityComponentManagerPrivate</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">class </span>EntityComponentManagerDiff;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="namespacegz_1_1sim.html#a0942f69979f48cc25ec25ef91dce814f">   58</a></span>&#160;    <span class="keyword">using</span> <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1graph_1_1Graph.html">EntityGraph</a> = <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1graph_1_1Graph.html">math::graph::DirectedGraph&lt;Entity, bool&gt;</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html">   67</a></span>&#160;    <span class="keyword">class </span>GZ_SIM_VISIBLE <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html" title="The EntityComponentManager constructs, deletes, and returns components and entities....">EntityComponentManager</a></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    {</div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a04a598336398d804f77635a0bbde28ee">   70</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a04a598336398d804f77635a0bbde28ee" title="Constructor.">EntityComponentManager</a>();</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#ae7f4d0bcf3173d568dedc1d0c852cc65">   73</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#ae7f4d0bcf3173d568dedc1d0c852cc65" title="Destructor.">~EntityComponentManager</a>();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#add5a50bb5dea520f481e1f2c4edb1c7e">   81</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#add5a50bb5dea520f481e1f2c4edb1c7e" title="Copies the contents of _from into this object.">CopyFrom</a>(<span class="keyword">const</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html" title="The EntityComponentManager constructs, deletes, and returns components and entities....">EntityComponentManager</a> &amp;_fromEcm);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#ac6900700833b645619f720607e80df9e">   85</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#ac6900700833b645619f720607e80df9e" title="Creates a new Entity.">CreateEntity</a>();</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a7d0748493ec2b3c25a049e702e791f97">  119</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a7d0748493ec2b3c25a049e702e791f97" title="Clone an entity and its components. If the entity has any child entities, they will also be cloned....">Clone</a>(<a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity, <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _parent,</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;                  <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name, <span class="keywordtype">bool</span> _allowRename);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a4a34d566628f47ade9145d22a5c4947e">  124</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">size_t</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a4a34d566628f47ade9145d22a5c4947e" title="Get the number of entities on the server.">EntityCount</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a09b6650a35dcfad315ced8cfc90429a3">  137</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a09b6650a35dcfad315ced8cfc90429a3" title="Request an entity deletion. This will insert the request into a queue. The queue is processed toward ...">RequestRemoveEntity</a>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity,</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;          <span class="keywordtype">bool</span> _recursive = <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#ab2038db3fc414935074741f0a48b648b">  155</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#ab2038db3fc414935074741f0a48b648b" title="Prevent an entity and optionally its children from being removed.">PinEntity</a>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity, <span class="keywordtype">bool</span> _recursive = <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#ab33f978a8d2fff3cb3fa8dc6c3a0bb18">  163</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#ab33f978a8d2fff3cb3fa8dc6c3a0bb18" title="Allow an entity, and optionally its children, previously marked as pinned to be removed.">UnpinEntity</a>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity, <span class="keywordtype">bool</span> _recursive = <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a8c852e52c49724fb71eadf32a0084a9c">  167</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a8c852e52c49724fb71eadf32a0084a9c" title="Allow all previously pinned entities to be removed.">UnpinAllEntities</a>();</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a5b02fd8d848b48388d1d8b51f7ad721f">  172</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a5b02fd8d848b48388d1d8b51f7ad721f" title="Request to remove all entities. This will insert the request into a queue. The queue is processed tow...">RequestRemoveEntities</a>();</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a0f1b1438fb57a11e5122fa536a10f031">  177</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a0f1b1438fb57a11e5122fa536a10f031" title="Get whether an Entity exists.">HasEntity</a>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a66857d225cebd7482dab36144bb2f3cb">  185</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a66857d225cebd7482dab36144bb2f3cb" title="Get the first parent of the given entity.">ParentEntity</a>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#abaf43436bc3e47fc5544b80bd8c4c4b6">  197</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#abaf43436bc3e47fc5544b80bd8c4c4b6" title="Set the parent of an entity.">SetParentEntity</a>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _child, <span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _parent);</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a0b1af2e05f485d5c03ad68ba0efaeaa9">  202</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a0b1af2e05f485d5c03ad68ba0efaeaa9" title="Get whether a component type has ever been created.">HasComponentType</a>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#abab4b072dfb7fefac5d9a58df567162e" title="A unique identifier for a component type. A component type must be derived from components::BaseCompo...">ComponentTypeId</a> _typeId) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#aa0873d697c428473208cf78d771f0512">  209</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#aa0873d697c428473208cf78d771f0512" title="Check whether an entity has a specific component type.">EntityHasComponentType</a>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity,</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;                  <span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#abab4b072dfb7fefac5d9a58df567162e" title="A unique identifier for a component type. A component type must be derived from components::BaseCompo...">ComponentTypeId</a> &amp;_typeId) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a34412605b9d0e369e3db64fdd2136592">  216</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a34412605b9d0e369e3db64fdd2136592" title="Get whether an entity has all the given component types.">EntityMatches</a>(<a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity,</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/set.html">std::set&lt;ComponentTypeId&gt;</a> &amp;_types) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00224"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a9affd38fecd00cdf6b6884d46fa6a4e0">  224</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a9affd38fecd00cdf6b6884d46fa6a4e0" title="Remove a component from an entity based on a type id.">RemoveComponent</a>(</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;                  <span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity, <span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#abab4b072dfb7fefac5d9a58df567162e" title="A unique identifier for a component type. A component type must be derived from components::BaseCompo...">ComponentTypeId</a> &amp;_typeId);</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ComponentTypeT&gt;</div>
+<div class="line"><a name="l00233"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a9cb60b40b5778b14ad707da543daaecf">  233</a></span>&#160;              <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a9cb60b40b5778b14ad707da543daaecf" title="Remove a component from an entity based on a type.">RemoveComponent</a>(<a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity);</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
+<div class="line"><a name="l00237"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#aa44375162c6240103919dcd29ce2d374">  237</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#aa44375162c6240103919dcd29ce2d374" title="Rebuild all the views. This could be an expensive operation.">RebuildViews</a>();</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ComponentTypeT&gt;</div>
+<div class="line"><a name="l00248"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a78a70d1c4edf5d608c07b9fe7b027b22">  248</a></span>&#160;              ComponentTypeT *<a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a78a70d1c4edf5d608c07b9fe7b027b22" title="Create a component of a particular type. This will copy the _data parameter.">CreateComponent</a>(</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;                  <span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity,</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;                  <span class="keyword">const</span> ComponentTypeT &amp;_data);</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ComponentTypeT&gt;</div>
+<div class="line"><a name="l00258"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a1aa4a86f40ba5fe84ad9e1624e5ec17c">  258</a></span>&#160;              <span class="keyword">const</span> ComponentTypeT *<a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a1aa4a86f40ba5fe84ad9e1624e5ec17c" title="Get a component assigned to an entity based on a component type.">Component</a>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ComponentTypeT&gt;</div>
+<div class="line"><a name="l00266"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a2277422a460c2b7aba2345d503c1243f">  266</a></span>&#160;              ComponentTypeT *<a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a2277422a460c2b7aba2345d503c1243f" title="Get a mutable component assigned to an entity based on a component type.">Component</a>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ComponentTypeT&gt;</div>
+<div class="line"><a name="l00277"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a93b22e0c0cc51848dbeb32146b0280ce">  277</a></span>&#160;              ComponentTypeT *<a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a93b22e0c0cc51848dbeb32146b0280ce" title="Get a mutable component assigned to an entity based on a component type. If the component doesn&#39;t exi...">ComponentDefault</a>(<a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity,</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;              <span class="keyword">const</span> <span class="keyword">typename</span> ComponentTypeT::Type &amp;_default =</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;                  <span class="keyword">typename</span> ComponentTypeT::Type());</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ComponentTypeT&gt;</div>
+<div class="line"><a name="l00290"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a242933a2559d42514a080768910e919f">  290</a></span>&#160;              std::optional&lt;typename ComponentTypeT::Type&gt; <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a242933a2559d42514a080768910e919f" title="Get the data from a component.">ComponentData</a>(</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;              <span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; </div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ComponentTypeT&gt;</div>
+<div class="line"><a name="l00304"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#ada2c5008634545bbb5d9cb3a14a3aecf">  304</a></span>&#160;              <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#ada2c5008634545bbb5d9cb3a14a3aecf" title="Set the data from a component.">SetComponentData</a>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity,</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;              <span class="keyword">const</span> <span class="keyword">typename</span> ComponentTypeT::Type &amp;_data);</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
+<div class="line"><a name="l00310"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#addfd6726e563cee3b47edcbf87e45aa4">  310</a></span>&#160;      <span class="keyword">public</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/unordered_set.html">std::unordered_set&lt;ComponentTypeId&gt;</a> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#addfd6726e563cee3b47edcbf87e45aa4" title="Get the type IDs of all components attached to an entity.">ComponentTypes</a>(</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;          <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ...ComponentTypeTs&gt;</div>
+<div class="line"><a name="l00325"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a0086e69bf9b5deedf60068d5ab2473a9">  325</a></span>&#160;              <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a0086e69bf9b5deedf60068d5ab2473a9" title="Get an entity which matches the value of all the given components. For example, the following will re...">EntityByComponents</a>(</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;                   <span class="keyword">const</span> ComponentTypeTs &amp;..._desiredComponents) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ...ComponentTypeTs&gt;</div>
+<div class="line"><a name="l00341"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a8d7c671da89e6653cbd2a1d28093c400">  341</a></span>&#160;              <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;Entity&gt;</a> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a8d7c671da89e6653cbd2a1d28093c400" title="Get all entities which match the value of all the given components. For example, the following will r...">EntitiesByComponents</a>(</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;                   <span class="keyword">const</span> ComponentTypeTs &amp;..._desiredComponents) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ...ComponentTypeTs&gt;</div>
+<div class="line"><a name="l00360"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a6d3cc1a13259adb16e330f6e8df42c66">  360</a></span>&#160;              <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;Entity&gt;</a> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a6d3cc1a13259adb16e330f6e8df42c66" title="Get all entities which match the value of all the given components and are immediate children of a gi...">ChildrenByComponents</a>(<a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _parent,</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;                   <span class="keyword">const</span> ComponentTypeTs &amp;..._desiredComponents) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160; </div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;      <span class="keyword">private</span>: <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;               <span class="keyword">struct </span>identity;  <span class="comment">// NOLINT</span></div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;      <span class="keyword">private</span>: <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> CloneImpl(<a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity, <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _parent,</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;                  <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name, <span class="keywordtype">bool</span> _allowRename);</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160; </div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ...ComponentTypeTs&gt;</div>
+<div class="line"><a name="l00395"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a00d9d217c8596edd988d06d98a65e633">  395</a></span>&#160;              <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a00d9d217c8596edd988d06d98a65e633" title="A version of Each() that doesn&#39;t use a cache. The cached version, Each(), is preferred....">EachNoCache</a>(<span class="keyword">typename</span> identity&lt;<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a>&lt;</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;                  <span class="keywordtype">bool</span>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> &amp;_entity,</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;                       <span class="keyword">const</span> ComponentTypeTs *...)&gt;&gt;::type _f) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160; </div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ...ComponentTypeTs&gt;</div>
+<div class="line"><a name="l00412"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a5fccbcfe28304b4e207d7e52ee6ea182">  412</a></span>&#160;              <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a5fccbcfe28304b4e207d7e52ee6ea182" title="A version of Each() that doesn&#39;t use a cache. The cached version, Each(), is preferred....">EachNoCache</a>(<span class="keyword">typename</span> identity&lt;<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a>&lt;</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;                  <span class="keywordtype">bool</span>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> &amp;_entity,</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;                       ComponentTypeTs *...)&gt;&gt;::type _f);</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160; </div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ...ComponentTypeTs&gt;</div>
+<div class="line"><a name="l00429"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a0bc0d2353e6ac9bf9fc4a1c8f374fd01">  429</a></span>&#160;              <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a0bc0d2353e6ac9bf9fc4a1c8f374fd01" title="Get all entities which contain given component types, as well as the components. Note that an entity ...">Each</a>(<span class="keyword">typename</span> identity&lt;<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a>&lt;</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;                  <span class="keywordtype">bool</span>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> &amp;_entity,</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                       <span class="keyword">const</span> ComponentTypeTs *...)&gt;&gt;::type _f) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160; </div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ...ComponentTypeTs&gt;</div>
+<div class="line"><a name="l00446"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#af38519f2f8d48a4b5c27829e1334eed1">  446</a></span>&#160;              <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#af38519f2f8d48a4b5c27829e1334eed1" title="Get all entities which contain given component types, as well as the mutable components....">Each</a>(<span class="keyword">typename</span> identity&lt;<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a>&lt;</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;                  <span class="keywordtype">bool</span>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> &amp;_entity,</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;                       ComponentTypeTs *...)&gt;&gt;::type _f);</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160; </div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span> &lt;<span class="keyword">class </span>Function, <span class="keyword">class</span>... ComponentTypeTs&gt;</div>
+<div class="line"><a name="l00455"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a90537d1e3cc92b8b3a99e1f369441e52">  455</a></span>&#160;      <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a90537d1e3cc92b8b3a99e1f369441e52" title="Call a function for each parameter in a pack.">ForEach</a>(Function _f, <span class="keyword">const</span> ComponentTypeTs &amp;... _components);</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160; </div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... ComponentTypeTs&gt;</div>
+<div class="line"><a name="l00472"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#ac62fdbcb3169b98a7779537620a2e151">  472</a></span>&#160;              <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#ac62fdbcb3169b98a7779537620a2e151" title="Get all newly created entities which contain given component types, as well as the components....">EachNew</a>(<span class="keyword">typename</span> identity&lt;<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a>&lt;</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;                           <span class="keywordtype">bool</span>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> &amp;_entity,</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;                                ComponentTypeTs *...)&gt;&gt;::type _f);</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160; </div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... ComponentTypeTs&gt;</div>
+<div class="line"><a name="l00489"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a133a835a8e28be55edde45f3be626534">  489</a></span>&#160;              <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a133a835a8e28be55edde45f3be626534" title="Get all newly created entities which contain given component types, as well as the components....">EachNew</a>(<span class="keyword">typename</span> identity&lt;<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a>&lt;</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;                           <span class="keywordtype">bool</span>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> &amp;_entity,</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;                                <span class="keyword">const</span> ComponentTypeTs *...)&gt;&gt;::type _f) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160; </div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ...ComponentTypeTs&gt;</div>
+<div class="line"><a name="l00504"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#aed3e863830b09a0f2251ae48072588f5">  504</a></span>&#160;              <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#aed3e863830b09a0f2251ae48072588f5" title="Get all entities which contain given component types and are about to be removed, as well as the comp...">EachRemoved</a>(<span class="keyword">typename</span> identity&lt;<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a>&lt;</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;                  <span class="keywordtype">bool</span>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> &amp;_entity,</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;                       <span class="keyword">const</span> ComponentTypeTs *...)&gt;&gt;::type _f) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160; </div>
+<div class="line"><a name="l00511"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a623519149e4b7ab35c4e1e4dc3fe5c3a">  511</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1graph_1_1Graph.html">EntityGraph</a> &amp;<a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a623519149e4b7ab35c4e1e4dc3fe5c3a" title="Get a graph with all the entities. Entities are vertices and edges point from parent to children.">Entities</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160; </div>
+<div class="line"><a name="l00518"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#ae296303f0b231a280aba27022ae40492">  518</a></span>&#160;      <span class="keyword">public</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/unordered_set.html">std::unordered_set&lt;Entity&gt;</a> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#ae296303f0b231a280aba27022ae40492" title="Get all entities which are descendants of a given entity, including the entity itself.">Descendants</a>(<a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160; </div>
+<div class="line"><a name="l00528"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a8dbc9cf1c9eb4af335aebc178b6cb6f7">  528</a></span>&#160;      <span class="keyword">public</span>: msgs::SerializedState <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a8dbc9cf1c9eb4af335aebc178b6cb6f7" title="Get a message with the serialized state of the given entities and components.">State</a>(</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;          <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/unordered_set.html">std::unordered_set&lt;Entity&gt;</a> &amp;_entities = {},</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;          <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/unordered_set.html">std::unordered_set&lt;ComponentTypeId&gt;</a> &amp;_types = {}) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160; </div>
+<div class="line"><a name="l00544"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a7b4d4e3c44ffc8d2b429bafb0a256070">  544</a></span>&#160;      <span class="keyword">public</span>: msgs::SerializedState <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a7b4d4e3c44ffc8d2b429bafb0a256070" title="Get a message with the serialized state of all entities and components that are changing in the curre...">ChangedState</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160; </div>
+<div class="line"><a name="l00548"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a935d95e6f8eab23389a62d30050f0a0a">  548</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a935d95e6f8eab23389a62d30050f0a0a" title="Get whether there are new entities.">HasNewEntities</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160; </div>
+<div class="line"><a name="l00552"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a2e4aecf35b0ea8661ef18f6e675547cd">  552</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a2e4aecf35b0ea8661ef18f6e675547cd" title="Get whether there are any entities marked to be removed.">HasEntitiesMarkedForRemoval</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160; </div>
+<div class="line"><a name="l00557"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#abf642a116d7e3afdb1d4e62849f68ab8">  557</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#abf642a116d7e3afdb1d4e62849f68ab8" title="Get whether there are one-time component changes. These changes do not happen frequently and should b...">HasOneTimeComponentChanges</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160; </div>
+<div class="line"><a name="l00562"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a897e2992c04baccc696f7149be4e284e">  562</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a897e2992c04baccc696f7149be4e284e" title="Get whether there are periodic component changes. These changes may happen frequently and are process...">HasPeriodicComponentChanges</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160; </div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;      <span class="keyword">public</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/unordered_set.html">std::unordered_set&lt;ComponentTypeId&gt;</a></div>
+<div class="line"><a name="l00568"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a6cff5bc99ab8f695d2ac5394134dec6b">  568</a></span>&#160;          <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a6cff5bc99ab8f695d2ac5394134dec6b" title="Get the components types that are marked as periodic changes.">ComponentTypesWithPeriodicChanges</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160; </div>
+<div class="line"><a name="l00578"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#aac98e7675bec891e467382775207f665">  578</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#aac98e7675bec891e467382775207f665" title="Get a cache of components with periodic changes.">UpdatePeriodicChangeCache</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/container/unordered_map.html">std::unordered_map</a>&lt;<a class="code" href="namespacegz_1_1sim.html#abab4b072dfb7fefac5d9a58df567162e" title="A unique identifier for a component type. A component type must be derived from components::BaseCompo...">ComponentTypeId</a>,</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/unordered_set.html">std::unordered_set&lt;Entity&gt;</a>&gt;&amp;) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160; </div>
+<div class="line"><a name="l00589"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a573b9551891a135bce602344e73a2a36">  589</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a573b9551891a135bce602344e73a2a36" title="Set the absolute state of the ECM from a serialized message. Entities / components that are in the ne...">SetState</a>(<span class="keyword">const</span> msgs::SerializedState &amp;_stateMsg);</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160; </div>
+<div class="line"><a name="l00602"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#aa2ac8ff529f6c2937938404a7bcc6729">  602</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#aa2ac8ff529f6c2937938404a7bcc6729" title="Get a message with the serialized state of the given entities and components.">State</a>(</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;                  msgs::SerializedStateMap &amp;_state,</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;                  <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/unordered_set.html">std::unordered_set&lt;Entity&gt;</a> &amp;_entities = {},</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;                  <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/unordered_set.html">std::unordered_set&lt;ComponentTypeId&gt;</a> &amp;_types = {},</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;                  <span class="keywordtype">bool</span> _full = <span class="keyword">false</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160; </div>
+<div class="line"><a name="l00616"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#aa102925980d050c9f4ea426dfb7dfa7d">  616</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#aa102925980d050c9f4ea426dfb7dfa7d" title="Populate a message with relevant changes to the state given a periodic change cache.">PeriodicStateFromCache</a>(</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;                  msgs::SerializedStateMap &amp;_state,</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;                  <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/unordered_map.html">std::unordered_map</a>&lt;<a class="code" href="namespacegz_1_1sim.html#abab4b072dfb7fefac5d9a58df567162e" title="A unique identifier for a component type. A component type must be derived from components::BaseCompo...">ComponentTypeId</a>,</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;                        <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/unordered_set.html">std::unordered_set&lt;Entity&gt;</a>&gt; &amp;_cache) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160; </div>
+<div class="line"><a name="l00634"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a3be1caa481a36428b3d5fc7564aec51e">  634</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a3be1caa481a36428b3d5fc7564aec51e" title="Get a message with the serialized state of all entities and components that are changing in the curre...">ChangedState</a>(msgs::SerializedStateMap &amp;_state) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160; </div>
+<div class="line"><a name="l00644"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a6f8814e7490aff65fa97b87beb25bff9">  644</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a6f8814e7490aff65fa97b87beb25bff9" title="Set the absolute state of the ECM from a serialized message. Entities / components that are in the ne...">SetState</a>(<span class="keyword">const</span> msgs::SerializedStateMap &amp;_stateMsg);</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160; </div>
+<div class="line"><a name="l00650"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a0f9fb828ad3327905b7a63d62ece41dc">  650</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a0f9fb828ad3327905b7a63d62ece41dc" title="Set the changed state of a component.">SetChanged</a>(</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;          <span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity, <span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#abab4b072dfb7fefac5d9a58df567162e" title="A unique identifier for a component type. A component type must be derived from components::BaseCompo...">ComponentTypeId</a> _type,</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;          <a class="code" href="namespacegz_1_1sim.html#af8cb05dbaab6a7d39b05bf4366d4a782" title="Possible states for a component.">sim::ComponentState</a> _c = <a class="code" href="namespacegz_1_1sim.html#af8cb05dbaab6a7d39b05bf4366d4a782a788dd38d4b17d40c57353d5a7a2e081c" title="Component value has suffered a one-time change. This indicates to systems that this change must be pr...">ComponentState::OneTimeChange</a>);</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160; </div>
+<div class="line"><a name="l00658"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a1edcea6bdeca217dc087209b896368be">  658</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="namespacegz_1_1sim.html#af8cb05dbaab6a7d39b05bf4366d4a782" title="Possible states for a component.">sim::ComponentState</a> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a1edcea6bdeca217dc087209b896368be" title="Get a component&#39;s state.">ComponentState</a>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity,</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;          <span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#abab4b072dfb7fefac5d9a58df567162e" title="A unique identifier for a component type. A component type must be derived from components::BaseCompo...">ComponentTypeId</a> _typeId) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160; </div>
+<div class="line"><a name="l00665"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a1fe7ef96866a8d666af13944fcaf0dfc">  665</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a1fe7ef96866a8d666af13944fcaf0dfc" title="All future entities will have an id that starts at _offset. This can be used to avoid entity id colli...">SetEntityCreateOffset</a>(uint64_t _offset);</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160; </div>
+<div class="line"><a name="l00672"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#ac49e362ab68e472d9dc65d8eb7c79123">  672</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#ac49e362ab68e472d9dc65d8eb7c79123" title="Given a diff, apply it to this ECM. Note that for removed entities, this would mark them for removal ...">ResetTo</a>(<span class="keyword">const</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html" title="The EntityComponentManager constructs, deletes, and returns components and entities....">EntityComponentManager</a> &amp;_other);</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160; </div>
+<div class="line"><a name="l00676"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a1785c0d201b2f62452ad6210664f5364">  676</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a1785c0d201b2f62452ad6210664f5364" title="Return true if there are components marked for removal.">HasRemovedComponents</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160; </div>
+<div class="line"><a name="l00681"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a867c61fd057eb843c1148b4a784b05c1">  681</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a867c61fd057eb843c1148b4a784b05c1" title="Clear the list of newly added entities so that a call to EachAdded after this will have no entities t...">ClearNewlyCreatedEntities</a>();</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160; </div>
+<div class="line"><a name="l00685"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a64430d9798184c28ca389f69d31ac624">  685</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a64430d9798184c28ca389f69d31ac624" title="Clear the list of removed components so that a call to RemoveComponent doesn&#39;t make the list grow ind...">ClearRemovedComponents</a>();</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160; </div>
+<div class="line"><a name="l00690"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a04ca781fb60cc7e626028af125269c46">  690</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a04ca781fb60cc7e626028af125269c46" title="Process all entity remove requests. This will remove entities and their components....">ProcessRemoveEntityRequests</a>();</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160; </div>
+<div class="line"><a name="l00693"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a46f812c07983a72d84430c96b7750da9">  693</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a46f812c07983a72d84430c96b7750da9" title="Mark all components as not changed.">SetAllComponentsUnchanged</a>();</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160; </div>
+<div class="line"><a name="l00703"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#ac4ff9d43459daa58e976f68bb0a21b1d">  703</a></span>&#160;      <span class="keyword">protected</span>: EntityComponentManagerDiff <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#ac4ff9d43459daa58e976f68bb0a21b1d">ComputeEntityDiff</a>(</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;                     <span class="keyword">const</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html" title="The EntityComponentManager constructs, deletes, and returns components and entities....">EntityComponentManager</a> &amp;_other) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160; </div>
+<div class="line"><a name="l00711"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a088cb32a7b8cad294688a2eb66186e86">  711</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html#a088cb32a7b8cad294688a2eb66186e86" title="Given an entity diff, apply it to this ECM. Note that for removed entities, this would mark them for ...">ApplyEntityDiff</a>(<span class="keyword">const</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html" title="The EntityComponentManager constructs, deletes, and returns components and entities....">EntityComponentManager</a> &amp;_other,</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;                                      <span class="keyword">const</span> EntityComponentManagerDiff &amp;_diff);</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160; </div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;      <span class="keyword">private</span>: <span class="keywordtype">bool</span> IsNewEntity(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160; </div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;      <span class="keyword">private</span>: <span class="keywordtype">bool</span> IsMarkedForRemoval(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160; </div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;      <span class="keyword">private</span>: <span class="keywordtype">bool</span> CreateComponentImplementation(</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;                   <span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity,</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160;                   <span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#abab4b072dfb7fefac5d9a58df567162e" title="A unique identifier for a component type. A component type must be derived from components::BaseCompo...">ComponentTypeId</a> _componentTypeId,</div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;                   <span class="keyword">const</span> <a class="code" href="classgz_1_1sim_1_1components_1_1BaseComponent.html" title="Base class for all components.">components::BaseComponent</a> *_data);</div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160; </div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;      <span class="keyword">private</span>: <span class="keyword">const</span> <a class="code" href="classgz_1_1sim_1_1components_1_1BaseComponent.html" title="Base class for all components.">components::BaseComponent</a> *ComponentImplementation(</div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;                   <span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity,</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;                   <span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#abab4b072dfb7fefac5d9a58df567162e" title="A unique identifier for a component type. A component type must be derived from components::BaseCompo...">ComponentTypeId</a> _type) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160; </div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;      <span class="keyword">private</span>: <a class="code" href="classgz_1_1sim_1_1components_1_1BaseComponent.html" title="Base class for all components.">components::BaseComponent</a> *ComponentImplementation(</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;                   <span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity,</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;                   <span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#abab4b072dfb7fefac5d9a58df567162e" title="A unique identifier for a component type. A component type must be derived from components::BaseCompo...">ComponentTypeId</a> _type);</div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160; </div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;      <span class="keyword">private</span>: <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ...ComponentTypeTs&gt;</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;          detail::View *FindView() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160; </div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;      <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/pair.html">std::pair&lt;detail::BaseView *, std::mutex *&gt;</a> FindView(</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;                   <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;ComponentTypeId&gt;</a> &amp;_types) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160; </div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;      <span class="keyword">private</span>: detail::BaseView *AddView(</div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;                   <span class="keyword">const</span> detail::ComponentTypeKey &amp;_types,</div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;                   <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;detail::BaseView&gt;</a> _view) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160; </div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;      <span class="keyword">private</span>: <span class="keywordtype">void</span> AddEntityToMessage(msgs::SerializedState &amp;_msg,</div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;          <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity,</div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;          <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/unordered_set.html">std::unordered_set&lt;ComponentTypeId&gt;</a> &amp;_types = {}) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160; </div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;      <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;EntityComponentManagerPrivate&gt;</a> dataPtr;</div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160; </div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;      <span class="keyword">private</span>: <span class="keywordtype">void</span> AddEntityToMessage(msgs::SerializedStateMap &amp;_msg,</div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;          <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> _entity,</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;          <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/unordered_set.html">std::unordered_set&lt;ComponentTypeId&gt;</a> &amp;_types = {},</div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;          <span class="keywordtype">bool</span> _full = <span class="keyword">false</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160; </div>
+<div class="line"><a name="l00817"></a><span class="lineno">  817</span>&#160;      <span class="keyword">private</span>: <span class="keywordtype">void</span> LockAddingEntitiesToViews(<span class="keywordtype">bool</span> _lock);</div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160; </div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;      <span class="keyword">private</span>: <span class="keywordtype">bool</span> LockAddingEntitiesToViews() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160; </div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;      <span class="comment">// Make runners friends so that they can manage entity creation and</span></div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;      <span class="comment">// removal. This should be safe since runners are internal</span></div>
+<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160;      <span class="comment">// to Gazebo.</span></div>
+<div class="line"><a name="l00828"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#aeffd12b795dadbc579279c795bb6b832">  828</a></span>&#160;      <span class="keyword">friend</span> <span class="keyword">class </span>GuiRunner;</div>
+<div class="line"><a name="l00829"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#aa0fb1be7d545986ad8cc8506587ba2fb">  829</a></span>&#160;      <span class="keyword">friend</span> <span class="keyword">class </span>SimulationRunner;</div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160; </div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;      <span class="comment">// Make network managers friends so they have control over component</span></div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160;      <span class="comment">// states. Like the runners, the managers are internal.</span></div>
+<div class="line"><a name="l00833"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a9cade2a6e155c48ae8846a77074861a8">  833</a></span>&#160;      <span class="keyword">friend</span> <span class="keyword">class </span>NetworkManagerPrimary;</div>
+<div class="line"><a name="l00834"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1EntityComponentManager.html#a62764fd45bfeb16a245c11356db085e0">  834</a></span>&#160;      <span class="keyword">friend</span> <span class="keyword">class </span>NetworkManagerSecondary;</div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;    };</div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;    }</div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;  }</div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;}</div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160; </div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160;<span class="preprocessor">#include &quot;gz/sim/detail/EntityComponentManager.hh&quot;</span></div>
+<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160; </div>
+<div class="line"><a name="l00842"></a><span class="lineno">  842</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+      </div>
+    </main>
+  </div>
+</body>

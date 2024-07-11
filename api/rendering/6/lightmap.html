@@ -1,0 +1,227 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Rendering">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Rendering: Creating and using light maps</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Rendering</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        6.6.3
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 IgnCreateDocs.cmake -->
+      <nav class="ign-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.8.17 -->
+</div><!-- top -->
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Creating and using light maps </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>This example shows how to bake light maps in Blender and apply the light map texture in Ignition.</p>
+<h2><a class="anchor" id="autotoc_md21"></a>
+Light maps</h2>
+<p>What is baked lighting?</p>
+<ul>
+<li>Baked lighting is pre-calculated/rendered lighting information from realtime lighting. These bakes are often called light maps.</li>
+</ul>
+<p>Why are light maps useful?</p>
+<ul>
+<li>Light maps allow you to add global illumination, shadows, and ambient lighting at a relatively low computational cost.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md22"></a>
+Baking Light maps in Blender</h2>
+<p>In Blender you can bake light map information fast and efficiently with its built in renderers. For this workflow we will be using cycles renderer.</p>
+<h3><a class="anchor" id="autotoc_md23"></a>
+Step 1: Create or import model for your scene</h3>
+<p>To import a model go to <code>file</code> &gt; <code>import</code> &gt; (choose file type of model)</p>
+<div class="image">
+<img src="lightmap_import.png" alt=""/>
+</div>
+<h3><a class="anchor" id="autotoc_md24"></a>
+Step 2: UV Mapping</h3>
+<p>The next step is to create UV unwraps for your model. In Blender usually the first UVmap for any mesh created is for PBR textures and the second UV channel is for light map information. This secondary UV set is different from the UVs used to map things like color maps or normal maps because each polygon surface is receiving different lighting from all other polygons so each UV coordinate also needs to be unique.</p>
+<p>For a fast automatic light map unwrap hit F3 and then search for “Lightmap pack”. Make sure to the “margin” is set to 1 for max distance between faces (reduces shadow bleeding during bake)</p>
+<div class="image">
+<img src="lightmap_unwrap.png" alt=""/>
+</div>
+<h3><a class="anchor" id="autotoc_md25"></a>
+Step 3: Creating texture for model</h3>
+<p>With the model selected in “Object Mode” select the “Texture Paint” tab at the top of the tool bar and create a “new texture” for the model (make sure the Alpha is checked off).</p>
+<p>This new texture should be applied to the Light Map specific UV island that was created in step 2</p>
+<p>If the texture is black use the color picker and select the UV island and it should turn white (easier to see the baked shadows).</p>
+<div class="image">
+<img src="lightmap_new_texture.png" alt=""/>
+</div>
+<h3><a class="anchor" id="autotoc_md26"></a>
+Step 4: Material setup / Baking</h3>
+<p>In order to have the texture show the baked lighting we must assign it to a new material. With your model selected open the Shader tab and select <code>Add</code> &gt; <code>Image</code> &gt; <code>Image texture</code>. This will create a new image texture node.</p><ul>
+<li>Add an image texture</li>
+<li>Connect the color from the image node to the base color of the material color (principled BSDF)</li>
+</ul>
+<p>After this step add another image texture in the shader editor</p><ul>
+<li>Give this one a new name (ex: MeshLightBake)</li>
+</ul>
+<div class="image">
+<img src="lightmap_material_shader.png" alt=""/>
+</div>
+<div class="image">
+<img src="lightmap_bake.jpg" alt=""/>
+</div>
+<p>Now that the material node is set up, open the render properties and make sure that the cycles renderer active in the render engines drop down. Scroll down to where it says bake, and then with the second image node selected (MeshLightBake) hit bake. Blender should now start baking the light map for the model.</p>
+<h3><a class="anchor" id="autotoc_md27"></a>
+Step 5: Show Baked Lighting</h3>
+<p>After the bake is finished you should have a separate light map of your model.</p><ul>
+<li>To see it applied real time in your scene, go back to the hypershade / materials editor. Click on the Image texture that has the baked light map information and connect it to the base color.</li>
+</ul>
+<div class="image">
+<img src="lightmap_material_connection.jpg" alt=""/>
+</div>
+<p>Model with baked in lighting (Blender Viewport Shading turned on):</p>
+<div class="image">
+<img src="lightmap_rendered.png" alt=""/>
+</div>
+<h3><a class="anchor" id="autotoc_md28"></a>
+Step 6: Test/Export</h3>
+<p>Light maps are great for working with bigger scenes. With baked-in lighting, complex meshes can show realistic lighting without using heavy computation (the <a href="https://app.ignitionrobotics.org/OpenRobotics/fuel/models/Depot">Depot</a> model below is a good example of complex scene with a baked light map).</p>
+<p>To export light map image go to <code>UV editor</code> &gt; <code>Image</code> &gt; <code>Save as</code></p>
+<div class="image">
+<img src="lightmap_depot_saved.jpg" alt=""/>
+</div>
+<p>Light map baking applied to a more complex scene:</p>
+<div class="image">
+<img src="lightmap_depot_render.png" alt=""/>
+</div>
+<h2><a class="anchor" id="autotoc_md29"></a>
+Using the light map in Ignition</h2>
+<p>When baking we have the option to either bake in all the lighting, both indirect and direct, or just the indirect lighting, also known as global illumination or bounced lighting, and use real time lights in Ignition for the direct lighting and shadows. With the latter method we get sharper lighting and shadow detail as well as more accurate lighting on our dynamic objects however performance will be impacted by having more real time lights. Even with all the lighting baked it’s still a good idea to have one real time light such as a large point light or directional light works particularly well in order to enhance the effects of the physically based materials.</p>
+<p>Lightmaps can be applied to a mesh in Ignition the same way as other texture maps. Create an <code><a class="el" href="classignition_1_1rendering_1_1Material.html" title="Represents a surface material of a Geometry.">ignition::rendering::Material</a></code> and specify a light map texture by calling <a href="https://ignitionrobotics.org/api/rendering/5.0/classignition_1_1rendering_1_1Material.html#addc6eb6206e0a17ab82aeaea543e8c71">SetLightMap</a>. Recall that when creating the light map UV texture in Step 2, we typically use a secondary UV set for light maps. Make sure to specify the index of the light map UV set as the second argument to this function.</p>
+<p>There are existing example models on Ignition Fuel that use light maps. The <a href="https://app.ignitionrobotics.org/OpenRobotics/fuel/models/Depot">Depot</a> model mentioned earlier is one such example, and another one is the <a href="https://app.ignitionrobotics.org/OpenRobotics/fuel/models/Indoor%20light map">Indoor Lightmap</a> model. To see the Indoor Lightmap model with <a href="https://ignitionrobotics.org/docs/all/getstarted">Ignition Gazebo</a>, you can run the following command (requires Ignition Edifice or above):</p>
+<div class="fragment"><div class="line">ign gazebo -v lightmap.sdf</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+      </div>
+    </main>
+  </div>
+</body>

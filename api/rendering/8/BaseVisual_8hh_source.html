@@ -1,0 +1,688 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Rendering">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Rendering: BaseVisual.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Rendering</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        8.2.0
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 GzCreateDocs.cmake -->
+      <nav class="gz-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.9.1 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_68720addb28ee8f762a8d1f55de1ba53.html">gz-rendering</a></li><li class="navelem"><a class="el" href="dir_ccc1703edcd2aae520499aaef06b68cb.html">include</a></li><li class="navelem"><a class="el" href="dir_42a5c6856abc46d6a330192debb6d004.html">gz</a></li><li class="navelem"><a class="el" href="dir_5269ccce336193d47739569941971412.html">rendering</a></li><li class="navelem"><a class="el" href="dir_bf8d1403b850d669fe2a43383d7c7814.html">base</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">BaseVisual.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="BaseVisual_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (C) 2015 Open Source Robotics Foundation</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef GZ_RENDERING_BASE_BASEVISUAL_HH_</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define GZ_RENDERING_BASE_BASEVISUAL_HH_</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;gz/math/AxisAlignedBox.hh&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Visual_8hh.html">gz/rendering/Visual.hh</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="Storage_8hh.html">gz/rendering/Storage.hh</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="RenderEngine_8hh.html">gz/rendering/RenderEngine.hh</a>&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="BaseStorage_8hh.html">gz/rendering/base/BaseStorage.hh</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacegz.html">gz</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keyword">namespace </span>rendering</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">inline</span> <span class="keyword">namespace </span>GZ_RENDERING_VERSION_NAMESPACE {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html">   37</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classgz_1_1rendering_1_1BaseVisual.html">BaseVisual</a> :</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> <a class="code" href="classgz_1_1rendering_1_1Visual.html" title="Represents a visual node in a scene graph. A Visual is the only node that can have Geometry and other...">Visual</a>,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> T</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#aeb944d28fce7ff566b55a3fd21925647">   41</a></span>&#160;      <span class="keyword">protected</span>: <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#aeb944d28fce7ff566b55a3fd21925647">BaseVisual</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a7726c6f075425d51820db9f55c653ff7">   43</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a7726c6f075425d51820db9f55c653ff7">~BaseVisual</a>();</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#aa4d9e429254439169909d797dd23a2dd">   45</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Pose3.html">math::Pose3d</a> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#aa4d9e429254439169909d797dd23a2dd" title="Get the local pose.">LocalPose</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a27a14e5b71a7e598af795d9de607bbc2">   47</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a27a14e5b71a7e598af795d9de607bbc2" title="Set the local pose.">SetLocalPose</a>(<span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Pose3.html">math::Pose3d</a> &amp;_pose) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#ab5c45d7eb256f46bcbe537567d4bd87b">   49</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#ab5c45d7eb256f46bcbe537567d4bd87b" title="Get the number of geometries attached to this visual.">GeometryCount</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a001ae9abc3bd0bae9d4c679c8de00c5e">   51</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a001ae9abc3bd0bae9d4c679c8de00c5e" title="Determine if given geometry is attached to this visual.">HasGeometry</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">ConstGeometryPtr</a> _geometry) <span class="keyword">const</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">                      override</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a329b88a06bc78b024373af88ddfbe0a4">   54</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a329b88a06bc78b024373af88ddfbe0a4" title="Get geometry at given index. If no geometry exists at given index, NULL will be returned.">GeometryByIndex</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _index) <span class="keyword">const</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">                      override</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#aa5e910f61cc97fa724a6509ea840166e">   57</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#aa5e910f61cc97fa724a6509ea840166e" title="Add the given geometry to this visual. If the given node is already attached, no work will be done.">AddGeometry</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> _geometry) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#af03ccf9b6aca255a53c7b0521b123d4f">   59</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#af03ccf9b6aca255a53c7b0521b123d4f" title="Remove the given geometry from this visual. If the given node is not a child of this visual,...">RemoveGeometry</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> _geometry)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                      <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a46153902ac603cbc9d91257a8b3b4b15">   62</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a46153902ac603cbc9d91257a8b3b4b15" title="Remove the geometry at the given index from this visual. If the specified node is not attached this v...">RemoveGeometryByIndex</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _index)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;                      <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a015c57fff9338d3923a83445353b193d">   65</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a015c57fff9338d3923a83445353b193d" title="Remove all attached geometries from this visual.">RemoveGeometries</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a8fa6cc908e8753da060b76f09dd2f4d6">   67</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a8fa6cc908e8753da060b76f09dd2f4d6" title="Set the material for all attached visuals and geometries. The specified material will be retrieved fr...">SetMaterial</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                  <span class="keywordtype">bool</span> _unique = <span class="keyword">true</span>) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#ae94b60291dde1c96e8dd261713454e0e">   70</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#ae94b60291dde1c96e8dd261713454e0e" title="Set the material for all attached visuals and geometries.">SetMaterial</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> _material,</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                  <span class="keywordtype">bool</span> _unique = <span class="keyword">true</span>) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a5fa1ace170b2faa145592439c67ac046">   73</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a5fa1ace170b2faa145592439c67ac046" title="Set the material for all attached visuals only.">SetChildMaterial</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> _material,</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                  <span class="keywordtype">bool</span> _unique = <span class="keyword">true</span>) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#ac6764d74ef149fc608212a6d566b0d21">   76</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#ac6764d74ef149fc608212a6d566b0d21" title="Set the material for all attached geometries only.">SetGeometryMaterial</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> _material,</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                  <span class="keywordtype">bool</span> _unique = <span class="keyword">true</span>) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a1180627285223d3dcd760b581250176d">   80</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a1180627285223d3dcd760b581250176d" title="Get the material assigned to attached visuals and geometries.">Material</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a6ce173b2f5301c0096281d335ebaa5fa">   83</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a6ce173b2f5301c0096281d335ebaa5fa" title="Enable or disable wireframe.">SetWireframe</a>(<span class="keywordtype">bool</span> _show) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#ae34c7115f3938e9618b58d87332520f6">   86</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#ae34c7115f3938e9618b58d87332520f6" title="Get whether wireframe is enabled for this visual.">Wireframe</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a90331d9ccfce5321f48b33c2327368df">   89</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a90331d9ccfce5321f48b33c2327368df" title="Specify if this visual is visible.">SetVisible</a>(<span class="keywordtype">bool</span> _visible) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a4a759587977b71c43c69a618c89220a5">   92</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a4a759587977b71c43c69a618c89220a5" title="Get whether the visual is static.">Static</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a519a35bbe7cf598fd49d24a7c0f619bb">   95</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a519a35bbe7cf598fd49d24a7c0f619bb" title="Tells Render Engine this Visual will be static (i.e. won&#39;t move, rotate or scale) You can still move,...">SetStatic</a>(<span class="keywordtype">bool</span> _static) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#af5b5e7112f6579cdc16e0099829348f8">   98</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#af5b5e7112f6579cdc16e0099829348f8" title="Set visibility flags.">SetVisibilityFlags</a>(uint32_t _flags) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a9e8643302b68c8c9198c3b08f67703d6">  101</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> uint32_t <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a9e8643302b68c8c9198c3b08f67703d6" title="Get visibility flags.">VisibilityFlags</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a6055215a6a576b3ab504b9dcc2ea8f28">  104</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a6055215a6a576b3ab504b9dcc2ea8f28" title="Add visibility flags.">AddVisibilityFlags</a>(uint32_t _flags) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a388c49478c808464015ea6bb29a19c36">  107</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a388c49478c808464015ea6bb29a19c36" title="Remove visibility flags.">RemoveVisibilityFlags</a>(uint32_t _flags) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a2a062fe0fd3c5f4d771563834e4be9c6">  110</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a2a062fe0fd3c5f4d771563834e4be9c6" title="Prepare this object and any of its children for rendering. This should be called for each object in a...">PreRender</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a9138802bd505003fa7224b0dc0413fb4">  113</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a9138802bd505003fa7224b0dc0413fb4" title="Destroy any resources associated with this object. Invoking any other functions after destroying an o...">Destroy</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#aa6b59af70cb199532f4deccb61d2a908">  116</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1AxisAlignedBox.html">gz::math::AxisAlignedBox</a> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#aa6b59af70cb199532f4deccb61d2a908" title="Get the bounding box in world frame coordinates.">BoundingBox</a>()</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;              <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#ad3dc9f098c07cfd5a5975f9e0646db5a">  120</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1AxisAlignedBox.html">gz::math::AxisAlignedBox</a> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#ad3dc9f098c07cfd5a5975f9e0646db5a" title="Get the local bounding box of the visual.">LocalBoundingBox</a>()</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;              <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a76bb319d0cd0dc12433d5a9f1cdddb9c">  124</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">VisualPtr</a> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a76bb319d0cd0dc12433d5a9f1cdddb9c" title="Clone the visual (and its children) with a new name.">Clone</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name,</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                  <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">NodePtr</a> _newParent) <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#affcd5f37d28b244b94bf5dfaf2062496">  127</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#affcd5f37d28b244b94bf5dfaf2062496">PreRenderChildren</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#ae9dfa0ee2ede1c46e2a4408250297351">  129</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#ae9dfa0ee2ede1c46e2a4408250297351">PreRenderGeometries</a>();</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a2899996713df8eb06aea90df7d712b63">  131</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryStorePtr</a> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a2899996713df8eb06aea90df7d712b63">Geometries</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#afe34fc999f3f5be97fcaf10925c41764">  133</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#afe34fc999f3f5be97fcaf10925c41764">AttachGeometry</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> _geometry) = 0;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#aa84f5f4e615dd308a72423889bfa24bb">  135</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#aa84f5f4e615dd308a72423889bfa24bb">DetachGeometry</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> _geometry) = 0;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#af60ac894d1b064011b6b92289c985adc">  138</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#af60ac894d1b064011b6b92289c985adc" title="Pointer to material assigned to this visual.">material</a>;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#ab6d3d0fedbbb45c37494de236e69cdd6">  141</a></span>&#160;      <span class="keyword">protected</span>: uint32_t visibilityFlags = <a class="code" href="RenderTypes_8hh.html#a5aee71932950638822a088369b64e6a9" title="Render everything visibility mask.">GZ_VISIBILITY_ALL</a>;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a8312ed05c4015572cf7e30b34efc5f06">  144</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1AxisAlignedBox.html">gz::math::AxisAlignedBox</a> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a8312ed05c4015572cf7e30b34efc5f06" title="The bounding box of the visual.">boundingBox</a>;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#ac8b496246e368aadf73694ce0d5b8a06">  147</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">bool</span> wireframe = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    };</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#aeb944d28fce7ff566b55a3fd21925647">  152</a></span>&#160;    <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#aeb944d28fce7ff566b55a3fd21925647">BaseVisual&lt;T&gt;::BaseVisual</a>()</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    {</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    }</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a7726c6f075425d51820db9f55c653ff7">  158</a></span>&#160;    <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a7726c6f075425d51820db9f55c653ff7">BaseVisual&lt;T&gt;::~BaseVisual</a>()</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    {</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    }</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#aa4d9e429254439169909d797dd23a2dd">  164</a></span>&#160;    <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Pose3.html">math::Pose3d</a> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#aa4d9e429254439169909d797dd23a2dd" title="Get the local pose.">BaseVisual&lt;T&gt;::LocalPose</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Pose3.html">math::Pose3d</a> rawPose = this-&gt;RawLocalPose();</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;      <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Vector3.html">math::Vector3d</a> scale = this-&gt;LocalScale();</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;      rawPose.<a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Pose3.html#a421679346c9da0b6271f43fc76308d49">Pos</a>() += rawPose.<a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Pose3.html#a08a46aadf6b4011d64cce9020fdb68b7">Rot</a>() * (scale * this-&gt;origin);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;      <span class="keywordflow">return</span> rawPose;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;    }</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a27a14e5b71a7e598af795d9de607bbc2">  174</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a27a14e5b71a7e598af795d9de607bbc2" title="Set the local pose.">BaseVisual&lt;T&gt;::SetLocalPose</a>(<span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Pose3.html">math::Pose3d</a> &amp;_pose)</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    {</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;      <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Pose3.html">math::Pose3d</a> rawPose = _pose;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;      <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Vector3.html">math::Vector3d</a> scale = this-&gt;LocalScale();</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;      rawPose.<a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Pose3.html#a421679346c9da0b6271f43fc76308d49">Pos</a>() -= rawPose.<a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Pose3.html#a08a46aadf6b4011d64cce9020fdb68b7">Rot</a>() * (scale * this-&gt;origin);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;      <span class="keywordflow">if</span> (!rawPose.<a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Pose3.html#a33b7dcc502aae627fbc56bcfecf33af1">IsFinite</a>())</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;      {</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <a class="codeRef" href="https://gazebosim.org/api/common/5/gz_2common_2Console_8hh.html#acf18c83e7419e002351f1eeceb6c2cf4">gzerr</a> &lt;&lt; <span class="stringliteral">&quot;Unable to set pose of a node: &quot;</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;               &lt;&lt; <span class="stringliteral">&quot;non-finite (nan, inf) values detected.&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;      }</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      this-&gt;SetRawLocalPose(rawPose);</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    }</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#ab5c45d7eb256f46bcbe537567d4bd87b">  192</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#ab5c45d7eb256f46bcbe537567d4bd87b" title="Get the number of geometries attached to this visual.">BaseVisual&lt;T&gt;::GeometryCount</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;      <span class="keywordflow">return</span> this-&gt;Geometries()-&gt;Size();</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    }</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a001ae9abc3bd0bae9d4c679c8de00c5e">  199</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a001ae9abc3bd0bae9d4c679c8de00c5e" title="Determine if given geometry is attached to this visual.">BaseVisual&lt;T&gt;::HasGeometry</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">ConstGeometryPtr</a> _geometry)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      <span class="keywordflow">return</span> this-&gt;Geometries()-&gt;Contains(_geometry);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    }</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a329b88a06bc78b024373af88ddfbe0a4">  206</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a329b88a06bc78b024373af88ddfbe0a4" title="Get geometry at given index. If no geometry exists at given index, NULL will be returned.">BaseVisual&lt;T&gt;::GeometryByIndex</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _index)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;      <span class="keywordflow">return</span> this-&gt;Geometries()-&gt;GetByIndex(_index);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    }</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00213"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#aa5e910f61cc97fa724a6509ea840166e">  213</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#aa5e910f61cc97fa724a6509ea840166e" title="Add the given geometry to this visual. If the given node is already attached, no work will be done.">BaseVisual&lt;T&gt;::AddGeometry</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> _geometry)</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    {</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;      <span class="keywordflow">if</span> (this-&gt;AttachGeometry(_geometry))</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;      {</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;        this-&gt;Geometries()-&gt;Add(_geometry);</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      }</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    }</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00223"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#af03ccf9b6aca255a53c7b0521b123d4f">  223</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#af03ccf9b6aca255a53c7b0521b123d4f" title="Remove the given geometry from this visual. If the given node is not a child of this visual,...">BaseVisual&lt;T&gt;::RemoveGeometry</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> _geometry)</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    {</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;      <span class="keywordflow">if</span> (this-&gt;DetachGeometry(_geometry))</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;      {</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;        this-&gt;Geometries()-&gt;Remove(_geometry);</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;      }</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;      <span class="keywordflow">return</span> _geometry;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    }</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00234"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a46153902ac603cbc9d91257a8b3b4b15">  234</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a46153902ac603cbc9d91257a8b3b4b15" title="Remove the geometry at the given index from this visual. If the specified node is not attached this v...">BaseVisual&lt;T&gt;::RemoveGeometryByIndex</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _index)</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    {</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;      <span class="keywordflow">return</span> this-&gt;RemoveGeometry(this-&gt;GeometryByIndex(_index));</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    }</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00241"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a015c57fff9338d3923a83445353b193d">  241</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a015c57fff9338d3923a83445353b193d" title="Remove all attached geometries from this visual.">BaseVisual&lt;T&gt;::RemoveGeometries</a>()</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    {</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = this-&gt;GeometryCount(); i &gt; 0; --i)</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;      {</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        this-&gt;RemoveGeometryByIndex(i-1);</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;      }</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    }</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00251"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a8fa6cc908e8753da060b76f09dd2f4d6">  251</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a8fa6cc908e8753da060b76f09dd2f4d6" title="Set the material for all attached visuals and geometries. The specified material will be retrieved fr...">BaseVisual&lt;T&gt;::SetMaterial</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name, <span class="keywordtype">bool</span> _unique)</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    {</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> mat = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a2832fb86f24ded5d2291acfcbd2e513f" title="Get material registered under the given name. If no material is registered under the given name,...">Material</a>(_name);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;      <span class="keywordflow">if</span> (mat) this-&gt;SetMaterial(mat, _unique);</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    }</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00259"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#ae94b60291dde1c96e8dd261713454e0e">  259</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a8fa6cc908e8753da060b76f09dd2f4d6" title="Set the material for all attached visuals and geometries. The specified material will be retrieved fr...">BaseVisual&lt;T&gt;::SetMaterial</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> _material, <span class="keywordtype">bool</span> _unique)</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    {</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;      _material = (_unique) ? _material-&gt;Clone() : _material;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;      this-&gt;SetChildMaterial(_material, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;      this-&gt;SetGeometryMaterial(_material, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;      this-&gt;material = _material;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    }</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00269"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a5fa1ace170b2faa145592439c67ac046">  269</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a5fa1ace170b2faa145592439c67ac046" title="Set the material for all attached visuals only.">BaseVisual&lt;T&gt;::SetChildMaterial</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> _material, <span class="keywordtype">bool</span> _unique)</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    {</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> count = this-&gt;ChildCount();</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      _material = (_unique &amp;&amp; count &gt; 0) ? _material-&gt;Clone() : _material;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;      <span class="keyword">auto</span> children_ =</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;          std::dynamic_pointer_cast&lt;BaseStore&lt;gz::rendering::Node, T&gt;&gt;(</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;          this-&gt;Children());</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      <span class="keywordflow">if</span> (!children_)</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;      {</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;        <a class="codeRef" href="https://gazebosim.org/api/common/5/gz_2common_2Console_8hh.html#acf18c83e7419e002351f1eeceb6c2cf4">gzerr</a> &lt;&lt; <span class="stringliteral">&quot;Cast failed in BaseVisual::SetChildMaterial&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      }</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = children_-&gt;Begin(); it != children_-&gt;End(); ++it)</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;      {</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">VisualPtr</a> visual = std::dynamic_pointer_cast&lt;Visual&gt;(*it);</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <span class="keywordflow">if</span> (visual) visual-&gt;SetMaterial(_material, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      }</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    }</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; </div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00291"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#ac6764d74ef149fc608212a6d566b0d21">  291</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#ac6764d74ef149fc608212a6d566b0d21" title="Set the material for all attached geometries only.">BaseVisual&lt;T&gt;::SetGeometryMaterial</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> _material, <span class="keywordtype">bool</span> _unique)</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    {</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> count = this-&gt;GeometryCount();</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;      _material = (_unique &amp;&amp; count &gt; 0) ? _material-&gt;Clone() : _material;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; count; ++i)</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;      {</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> geometry = this-&gt;GeometryByIndex(i);</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;        geometry-&gt;SetMaterial(_material, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;      }</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    }</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00305"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a1180627285223d3dcd760b581250176d">  305</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a1180627285223d3dcd760b581250176d" title="Get the material assigned to attached visuals and geometries.">BaseVisual&lt;T&gt;::Material</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;      <span class="keywordflow">return</span> this-&gt;material;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    }</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; </div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00312"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a2a062fe0fd3c5f4d771563834e4be9c6">  312</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a2a062fe0fd3c5f4d771563834e4be9c6" title="Prepare this object and any of its children for rendering. This should be called for each object in a...">BaseVisual&lt;T&gt;::PreRender</a>()</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    {</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;      T::PreRender();</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;      this-&gt;PreRenderChildren();</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;      this-&gt;PreRenderGeometries();</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    }</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00321"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a9138802bd505003fa7224b0dc0413fb4">  321</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a9138802bd505003fa7224b0dc0413fb4" title="Destroy any resources associated with this object. Invoking any other functions after destroying an o...">BaseVisual&lt;T&gt;::Destroy</a>()</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    {</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;      this-&gt;Geometries()-&gt;DestroyAll();</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;      this-&gt;Children()-&gt;RemoveAll();</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;      this-&gt;material.reset();</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;      T::Destroy();</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    }</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00331"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#affcd5f37d28b244b94bf5dfaf2062496">  331</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#affcd5f37d28b244b94bf5dfaf2062496">BaseVisual&lt;T&gt;::PreRenderChildren</a>()</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    {</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;      <span class="keyword">auto</span> children_ =</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;          std::dynamic_pointer_cast&lt;BaseStore&lt;gz::rendering::Node, T&gt;&gt;(</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;          this-&gt;Children());</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;      <span class="keywordflow">if</span> (!children_)</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;      {</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        <a class="codeRef" href="https://gazebosim.org/api/common/5/gz_2common_2Console_8hh.html#acf18c83e7419e002351f1eeceb6c2cf4">gzerr</a> &lt;&lt; <span class="stringliteral">&quot;Cast failed in BaseVisual::PreRenderChildren&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;      }</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = children_-&gt;Begin(); it != children_-&gt;End(); ++it)</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;      {</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        (*it)-&gt;PreRender();</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;      }</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    }</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00349"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#ae9dfa0ee2ede1c46e2a4408250297351">  349</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#ae9dfa0ee2ede1c46e2a4408250297351">BaseVisual&lt;T&gt;::PreRenderGeometries</a>()</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    {</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> count = this-&gt;GeometryCount();</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; count; ++i)</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;      {</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> geometry = this-&gt;GeometryByIndex(i);</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        geometry-&gt;PreRender();</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;      }</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    }</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160; </div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00362"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#ae34c7115f3938e9618b58d87332520f6">  362</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#ae34c7115f3938e9618b58d87332520f6" title="Get whether wireframe is enabled for this visual.">BaseVisual&lt;T&gt;::Wireframe</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;      <span class="keywordflow">return</span> this-&gt;wireframe;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    }</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00369"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a6ce173b2f5301c0096281d335ebaa5fa">  369</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a6ce173b2f5301c0096281d335ebaa5fa" title="Enable or disable wireframe.">BaseVisual&lt;T&gt;::SetWireframe</a>(<span class="keywordtype">bool</span> _show)</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    {</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;      <a class="codeRef" href="https://gazebosim.org/api/common/5/gz_2common_2Console_8hh.html#acf18c83e7419e002351f1eeceb6c2cf4">gzerr</a> &lt;&lt; <span class="stringliteral">&quot;SetWireframe(&quot;</span> &lt;&lt; _show &lt;&lt; <span class="stringliteral">&quot;) not supported for &quot;</span></div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;             &lt;&lt; <span class="stringliteral">&quot;render engine: &quot;</span> &lt;&lt; this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a38922be9a07a57794b9ce5d223aafb60" title="Get the creating render-engine of the scene.">Engine</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1RenderEngine.html#a70ee001ce76c53aebb215a9f51653ab3" title="Get name of the render-engine.">Name</a>()</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;             &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    }</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160; </div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00378"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a90331d9ccfce5321f48b33c2327368df">  378</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a90331d9ccfce5321f48b33c2327368df" title="Specify if this visual is visible.">BaseVisual&lt;T&gt;::SetVisible</a>(<span class="keywordtype">bool</span> _visible)</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    {</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;      <a class="codeRef" href="https://gazebosim.org/api/common/5/gz_2common_2Console_8hh.html#acf18c83e7419e002351f1eeceb6c2cf4">gzerr</a> &lt;&lt; <span class="stringliteral">&quot;SetVisible(&quot;</span> &lt;&lt; _visible &lt;&lt; <span class="stringliteral">&quot;) not supported for &quot;</span></div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;             &lt;&lt; <span class="stringliteral">&quot;render engine: &quot;</span> &lt;&lt; this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a38922be9a07a57794b9ce5d223aafb60" title="Get the creating render-engine of the scene.">Engine</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1RenderEngine.html#a70ee001ce76c53aebb215a9f51653ab3" title="Get name of the render-engine.">Name</a>()</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;             &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    }</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160; </div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00387"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a4a759587977b71c43c69a618c89220a5">  387</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a4a759587977b71c43c69a618c89220a5" title="Get whether the visual is static.">BaseVisual&lt;T&gt;::Static</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    }</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; </div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00394"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a519a35bbe7cf598fd49d24a7c0f619bb">  394</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a519a35bbe7cf598fd49d24a7c0f619bb" title="Tells Render Engine this Visual will be static (i.e. won&#39;t move, rotate or scale) You can still move,...">BaseVisual&lt;T&gt;::SetStatic</a>(<span class="keywordtype">bool</span> _static)</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    {</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;      <a class="codeRef" href="https://gazebosim.org/api/common/5/gz_2common_2Console_8hh.html#acf18c83e7419e002351f1eeceb6c2cf4">gzerr</a> &lt;&lt; <span class="stringliteral">&quot;SetStatic(&quot;</span> &lt;&lt; _static &lt;&lt; <span class="stringliteral">&quot;) not supported for &quot;</span></div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;render engine: &quot;</span> &lt;&lt; this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a38922be9a07a57794b9ce5d223aafb60" title="Get the creating render-engine of the scene.">Engine</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1RenderEngine.html#a70ee001ce76c53aebb215a9f51653ab3" title="Get name of the render-engine.">Name</a>()</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;            &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    }</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160; </div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00403"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#ad3dc9f098c07cfd5a5975f9e0646db5a">  403</a></span>&#160;    <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1AxisAlignedBox.html">gz::math::AxisAlignedBox</a> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#ad3dc9f098c07cfd5a5975f9e0646db5a" title="Get the local bounding box of the visual.">BaseVisual&lt;T&gt;::LocalBoundingBox</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;      <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1AxisAlignedBox.html">gz::math::AxisAlignedBox</a> box;</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160; </div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;      <span class="comment">// Recursively loop through child visuals</span></div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;      <span class="keyword">auto</span> childNodes =</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;          std::dynamic_pointer_cast&lt;BaseStore&lt;gz::rendering::Node, T&gt;&gt;(</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;          this-&gt;Children());</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;      <span class="keywordflow">if</span> (!childNodes)</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;      {</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        <a class="codeRef" href="https://gazebosim.org/api/common/5/gz_2common_2Console_8hh.html#acf18c83e7419e002351f1eeceb6c2cf4">gzerr</a> &lt;&lt; <span class="stringliteral">&quot;Cast failed in BaseVisual::LocalBoundingBox&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;        <span class="keywordflow">return</span> box;</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;      }</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = childNodes-&gt;Begin(); it != childNodes-&gt;End(); ++it)</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;      {</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">VisualPtr</a> visual = std::dynamic_pointer_cast&lt;Visual&gt;(*it);</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        <span class="keywordflow">if</span> (visual)</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        {</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;          <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1AxisAlignedBox.html">gz::math::AxisAlignedBox</a> aabb = visual-&gt;LocalBoundingBox();</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;          <span class="keywordflow">if</span> (aabb.<a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1AxisAlignedBox.html#ad97f3216a2b5088bba4eecda30c66323">Min</a>().<a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Vector3.html#a33b7dcc502aae627fbc56bcfecf33af1">IsFinite</a>() &amp;&amp; aabb.<a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1AxisAlignedBox.html#a540190f02fd4904260d4cde671007a36">Max</a>().<a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Vector3.html#a33b7dcc502aae627fbc56bcfecf33af1">IsFinite</a>())</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;            box.<a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1AxisAlignedBox.html#a4a5bd80cebd617759db1ecbf951882fe">Merge</a>(aabb);</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;        }</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;      }</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;      <span class="keywordflow">return</span> box;</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;    }</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160; </div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00431"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#aa6b59af70cb199532f4deccb61d2a908">  431</a></span>&#160;    <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1AxisAlignedBox.html">gz::math::AxisAlignedBox</a> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#aa6b59af70cb199532f4deccb61d2a908" title="Get the bounding box in world frame coordinates.">BaseVisual&lt;T&gt;::BoundingBox</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;      <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1AxisAlignedBox.html">gz::math::AxisAlignedBox</a> box;</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160; </div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;      <span class="comment">// Recursively loop through child visuals</span></div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;      <span class="keyword">auto</span> childNodes =</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;          std::dynamic_pointer_cast&lt;BaseStore&lt;gz::rendering::Node, T&gt;&gt;(</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;          this-&gt;Children());</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;      <span class="keywordflow">if</span> (!childNodes)</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;      {</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;        <a class="codeRef" href="https://gazebosim.org/api/common/5/gz_2common_2Console_8hh.html#acf18c83e7419e002351f1eeceb6c2cf4">gzerr</a> &lt;&lt; <span class="stringliteral">&quot;Cast failed in BaseVisual::BoundingBox&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;        <span class="keywordflow">return</span> box;</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;      }</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = childNodes-&gt;Begin(); it != childNodes-&gt;End(); ++it)</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;      {</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">VisualPtr</a> visual = std::dynamic_pointer_cast&lt;Visual&gt;(*it);</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;        <span class="keywordflow">if</span> (visual)</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;          box.<a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1AxisAlignedBox.html#a4a5bd80cebd617759db1ecbf951882fe">Merge</a>(visual-&gt;BoundingBox());</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;      }</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;      <span class="keywordflow">return</span> box;</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;    }</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160; </div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00455"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a6055215a6a576b3ab504b9dcc2ea8f28">  455</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a6055215a6a576b3ab504b9dcc2ea8f28" title="Add visibility flags.">BaseVisual&lt;T&gt;::AddVisibilityFlags</a>(uint32_t _flags)</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    {</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;      this-&gt;SetVisibilityFlags(this-&gt;VisibilityFlags() | _flags);</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    }</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160; </div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00462"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a388c49478c808464015ea6bb29a19c36">  462</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a388c49478c808464015ea6bb29a19c36" title="Remove visibility flags.">BaseVisual&lt;T&gt;::RemoveVisibilityFlags</a>(uint32_t _flags)</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;    {</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;      this-&gt;SetVisibilityFlags(this-&gt;VisibilityFlags() &amp; ~(_flags));</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;    }</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160; </div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00469"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#af5b5e7112f6579cdc16e0099829348f8">  469</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#af5b5e7112f6579cdc16e0099829348f8" title="Set visibility flags.">BaseVisual&lt;T&gt;::SetVisibilityFlags</a>(uint32_t _flags)</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    {</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;      this-&gt;visibilityFlags = _flags;</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160; </div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;      <span class="comment">// recursively set child visuals&#39; visibility flags</span></div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;      <span class="keyword">auto</span> childNodes =</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;          std::dynamic_pointer_cast&lt;BaseStore&lt;gz::rendering::Node, T&gt;&gt;(</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;          this-&gt;Children());</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;      <span class="keywordflow">if</span> (!childNodes)</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;      {</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;        <a class="codeRef" href="https://gazebosim.org/api/common/5/gz_2common_2Console_8hh.html#acf18c83e7419e002351f1eeceb6c2cf4">gzerr</a> &lt;&lt; <span class="stringliteral">&quot;Cast failed in BaseVisual::SetVisibiltyFlags&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;      }</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = childNodes-&gt;Begin(); it != childNodes-&gt;End(); ++it)</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;      {</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">VisualPtr</a> visual = std::dynamic_pointer_cast&lt;Visual&gt;(*it);</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;        <span class="keywordflow">if</span> (visual)</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;          visual-&gt;SetVisibilityFlags(_flags);</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;      }</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;    }</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160; </div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00492"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a9e8643302b68c8c9198c3b08f67703d6">  492</a></span>&#160;    uint32_t <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a9e8643302b68c8c9198c3b08f67703d6" title="Get visibility flags.">BaseVisual&lt;T&gt;::VisibilityFlags</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;      <span class="keywordflow">return</span> this-&gt;visibilityFlags;</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;    }</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160; </div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00499"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseVisual.html#a76bb319d0cd0dc12433d5a9f1cdddb9c">  499</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">VisualPtr</a> <a class="code" href="classgz_1_1rendering_1_1BaseVisual.html#a76bb319d0cd0dc12433d5a9f1cdddb9c" title="Clone the visual (and its children) with a new name.">BaseVisual&lt;T&gt;::Clone</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name,</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">NodePtr</a> _newParent)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">ScenePtr</a> scene_ = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>();</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;      <span class="keywordflow">if</span> (<span class="keyword">nullptr</span> == scene_)</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;      {</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;        <a class="codeRef" href="https://gazebosim.org/api/common/5/gz_2common_2Console_8hh.html#acf18c83e7419e002351f1eeceb6c2cf4">gzerr</a> &lt;&lt; <span class="stringliteral">&quot;Cloning a visual failed because the visual to be cloned is &quot;</span></div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;          &lt;&lt; <span class="stringliteral">&quot;not attached to a scene.\n&quot;</span>;</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;      }</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">VisualPtr</a> result;</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;      <span class="keywordflow">if</span> (_name.<a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string/empty.html">empty</a>())</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;        result = scene_-&gt;CreateVisual();</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;        result = scene_-&gt;CreateVisual(_name);</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160; </div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;      <span class="keywordflow">if</span> (<span class="keyword">nullptr</span> != _newParent)</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;      {</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;        <span class="keyword">auto</span> parentScene = _newParent-&gt;Scene();</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;        <span class="keywordflow">if</span> (<span class="keyword">nullptr</span> != parentScene &amp;&amp; parentScene-&gt;Id() != scene_-&gt;Id())</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;        {</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;          <a class="codeRef" href="https://gazebosim.org/api/common/5/gz_2common_2Console_8hh.html#acf18c83e7419e002351f1eeceb6c2cf4">gzerr</a> &lt;&lt; <span class="stringliteral">&quot;Cloning a visual failed because the desired parent of the &quot;</span></div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;            &lt;&lt; <span class="stringliteral">&quot;cloned visual belongs to a different scene.\n&quot;</span>;</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;          scene_-&gt;DestroyVisual(result);</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;          <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;        }</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;        _newParent-&gt;AddChild(result);</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;      }</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160; </div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;      result-&gt;SetOrigin(this-&gt;Origin());</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;      result-&gt;SetInheritScale(this-&gt;InheritScale());</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;      result-&gt;SetLocalScale(this-&gt;LocalScale());</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;      result-&gt;SetLocalPose(this-&gt;LocalPose());</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;      result-&gt;SetVisibilityFlags(this-&gt;VisibilityFlags());</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;      result-&gt;SetWireframe(this-&gt;Wireframe());</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160; </div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;      <span class="comment">// if the visual that was cloned has child visuals, clone those as well</span></div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;      <span class="keyword">auto</span> children_ =</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;          std::dynamic_pointer_cast&lt;BaseStore&lt;gz::rendering::Node, T&gt;&gt;(</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;          this-&gt;Children());</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;      <span class="keywordflow">if</span> (!children_)</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;      {</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;        <a class="codeRef" href="https://gazebosim.org/api/common/5/gz_2common_2Console_8hh.html#acf18c83e7419e002351f1eeceb6c2cf4">gzerr</a> &lt;&lt; <span class="stringliteral">&quot;Cast failed in BaseVisual::Clone\n&quot;</span>;</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;        scene_-&gt;DestroyVisual(result);</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;      }</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = children_-&gt;Begin(); it != children_-&gt;End(); ++it)</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;      {</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">VisualPtr</a> visual = std::dynamic_pointer_cast&lt;Visual&gt;(*it);</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;        <span class="comment">// recursively delete all cloned visuals if the child cannot be</span></div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;        <span class="comment">// retrieved, or if cloning the child visual failed</span></div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;        <span class="keywordflow">if</span> (!visual || !visual-&gt;Clone(<span class="stringliteral">&quot;&quot;</span>, result))</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;        {</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;          <a class="codeRef" href="https://gazebosim.org/api/common/5/gz_2common_2Console_8hh.html#acf18c83e7419e002351f1eeceb6c2cf4">gzerr</a> &lt;&lt; <span class="stringliteral">&quot;Cloning a child visual failed.\n&quot;</span>;</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;          scene_-&gt;DestroyVisual(result, <span class="keyword">true</span>);</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;          <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;        }</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;      }</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160; </div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; this-&gt;GeometryCount(); ++i)</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;        result-&gt;AddGeometry(this-&gt;GeometryByIndex(i)-&gt;Clone());</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160; </div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classgz_1_1rendering_1_1Material.html" title="Represents a surface material of a Geometry.">Material</a>())</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;        result-&gt;SetMaterial(this-&gt;Material());</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160; </div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;[key, val] : this-&gt;userData)</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;        result-&gt;SetUserData(key, val);</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160; </div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;      <span class="comment">// set static property after the geometry is added</span></div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;      result-&gt;SetStatic(this-&gt;Static());</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;      <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;    }</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;    }</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;  }</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;}</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+      </div>
+    </main>
+  </div>
+</body>

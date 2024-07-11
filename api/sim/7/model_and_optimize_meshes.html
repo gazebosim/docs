@@ -1,0 +1,270 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Sim">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Sim: Model and optimize meshes in Blender for simulations</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Sim</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        7.7.0
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 GzCreateDocs.cmake -->
+      <nav class="gz-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.8.17 -->
+</div><!-- top -->
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Model and optimize meshes in Blender for simulations </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>3D shapes created for simulation serve the purpose of bringing realism to a scene. It also helps identify everything in the scene easier. If for example all of the objects in a scene were simple shapes like cubes and circles, it can be difficult to distinguish objects in the simulation.</p>
+<h2><a class="anchor" id="autotoc_md270"></a>
+Collision shapes vs Visual shapes</h2>
+<p>Simple shapes like cubes and spheres, better known as “primitives”, are often used as collision geometry. Collision shapes use simplified geometry compared to visual mesh because they serve different purposes in simulations.</p>
+<p>Collision models are important because they interact with the physics environment. They require less computation if they use primitive shapes.</p>
+<p>Visual shapes are detailed meshes. These shapes are made with the goal of bringing realism to a simulated scene. These shapes are often more detailed and usually have textures attached to them. These shapes are what camera sensors perceive, and also what is visualised when viewing simulations.</p>
+<h2><a class="anchor" id="autotoc_md271"></a>
+Creating Models</h2>
+<p>Blender has many tools to create simple/complex models. A great way to create complex objects is to start with something simple. In the example below, we see a complex model created from a simple primitive. Although this is a great strategy for modeling, going from a simple mesh to a complex one usually requires a lot of tools to be used.</p>
+<div class="image">
+<img src="1_wheels.jpg" alt="" width="600px"/>
+</div>
+<p>Because we used the example of the wheel above, I will be using that shape to go over my modeling workflow. I will also explain some of the tools and modifiers that I use. A basic understanding of the movement keys should be known prior to starting this tutorial: <a href="https://www.youtube.com/watch?v=K6Sm7DAPTGE&amp;ab_channel=TutsByKaiTutsByKai">Recommended beginner guide</a></p>
+<h3><a class="anchor" id="autotoc_md272"></a>
+Create/add simple mesh</h3>
+<p>For this model, cylinder mesh is used as a starting point. --&gt; <code>(Add&gt;Mesh&gt;Cylinder)</code></p>
+<div class="image">
+<img src="2_cylinder.jpg" alt="" width="600px"/>
+</div>
+<p>Having reference images of what you are planning to model can be a great help too, and is always recommended.</p>
+<p>The move, rotate, and scale operations are used throughout most 3d modeling processes. These three actions are commonly known as the transform gizmos.</p>
+<div class="image">
+<img src="3_transform_gizmos.png" alt="" width="600px"/>
+<div class="caption">
+Transform gizmos hotkeys: `G`: Grab (move), `R`: Rotate, `S`: Scale</div></div>
+<p>Oftentimes, problems after importing models into a program occur because of simple mistakes related to these gizmos. These problems are fairly common but aren’t hard to fix. Changing one of those attributes accordingly and exporting it out with the updates fixes most issues.</p>
+<ul>
+<li><b>Move Gizmo</b>: allows you to change the location of an object along the x,y,z axis <code>(Hotkey G)</code>.</li>
+</ul>
+<div class="image">
+<img src="4_move.png" alt="" width="600px"/>
+</div>
+<ul>
+<li>Rotate Gizmo: allows you to rotate object orientation along the x,y,z axis <code>(Hotkey R)</code>. This was used to rotate the cylinder upright for the wheel.</li>
+</ul>
+<div class="image">
+<img src="5_rotate.jpg" alt="" width="600px"/>
+</div>
+<ul>
+<li>Scale Gizmo: allows you to scale an obj. Objects can also be scaled along a single axis if desired <code>(Hotkey S)</code>.</li>
+</ul>
+<div class="image">
+<img src="7_scale.jpg" alt="" width="600px"/>
+</div>
+<ul>
+<li>Bevel: allow you to create curved/chamfered edges <code>(Hotkey Ctrl B)</code>. This was used to create the curved sides of the wheel.</li>
+</ul>
+<div class="image">
+<img src="8_bevel.jpg" alt="" width="600px"/>
+</div>
+<ul>
+<li>Extrude: adds additional geometry along a selected face/edges <code>(Hotkey E)</code>. The extrude tool can be used to push out a face or to push in one. Both examples are given here.</li>
+</ul>
+<div class="image">
+<img src="9_extrude.png" alt="" width="600px"/>
+</div>
+<p>This was used to create the indents of the wheel.</p>
+<p><code>(Mesh &gt; Extrude &gt; Extrude Region)</code></p>
+<ul>
+<li>Loop cut: allows you to split a face with a new looped edge <code>(Hotkey Ctrl R)</code>. This then allows for more detailed manipulation of faces to take place.</li>
+</ul>
+<p>With a combination of the extrude tool, you can make small ridges to your shape.</p>
+<div class="image">
+<img src="10_loop_cut.jpg" alt="" width="600px"/>
+</div>
+<ul>
+<li>Duplicate: allows you to make identical copies of a selected object.</li>
+</ul>
+<div class="image">
+<img src="11_duplicate.jpg" alt="" width="600px"/>
+</div>
+<ul>
+<li>Other Modifiers: Some other commands that were used during a modeling process are: lattice functions, booleans, smooth, and decimate.</li>
+</ul>
+<div class="image">
+<img src="12_other_modifiers.png" alt="" width="600px"/>
+</div>
+<h4><a class="anchor" id="autotoc_md273"></a>
+More polygons – less performance</h4>
+<p>Shapes are made out of polygons. The higher the polygons on a shape, the more detailed it is. A shape with too many polygons can overcomplicate mesh editing or can make simulations run very slowly. This is why it is important to optimize a shape so that it keeps most of its details but without making the poly count too high.</p>
+<div class="image">
+<img src="13_polygons.jpg" alt="" width="600px"/>
+<div class="caption">
+Left: Low Poly | Right: High Poly</div></div>
+<p>If you find that your model is too dense to work with, the “decimate” command can be used to lower the polycount of said mesh while still keeping its general shape.</p>
+<p>Creating a complex model requires a good understanding of many tools in a 3d modeling program. They all serve their specific purposes and are extremely powerful. They have to be used on top of each other in different ways to get to an end result. The more you add/edit your shape, the better it will look in the long run.</p>
+<h2><a class="anchor" id="autotoc_md274"></a>
+Exporting models</h2>
+<p>When you export a model for Gazebo, the <code>.dae</code> (COLLADA) file type is recommended for visual geometry. If you experience issues while importing materials from a COLLADA mesh to Gazebo, you can try the <code>.obj</code> (Wavefront) exporter instead. STL meshes can be used for the collision geometry, as these do not contain information about the material.</p>
+<p>To export: select your shape and then <code>File&gt;Export&gt;Collada(Default)(.dae)</code></p>
+<div class="image">
+<img src="14_export_model.png" alt="" width="600px"/>
+</div>
+<p>After you hit export in whatever file format you decide to go with, the “Blender File View” will appear. This is where you choose the location of your file. You can also choose how you want to export your model.</p>
+<p>Double checking the “Global Orientation” can save time and here you can quickly change the “Up Axis” to Z up. This is the standard orientation in Gazebo.</p>
+<p>Equally, make sure that the If the shape is meant to stand on the ground, place the origin on the base, and make the model face X (Forward Axis)</p>
+<div class="image">
+<img src="15_axis.png" alt="" width="200px"/>
+</div>
+<h2><a class="anchor" id="autotoc_md275"></a>
+Troubleshooting</h2>
+<p>There are a few things to take into account when creating a 3d shape for use in simulations. Making sure your scale and orientation are set to Gazebo standards can save you a lot of time.</p>
+<ul>
+<li>Check Scale/Location: If an imported shape is brought into Gazebo with the wrong units, it might be too big/small for the scene. Make sure that your modeling units are 1:1 with what is in Gazebo (Gazebo uses meters).</li>
+</ul>
+<div class="image">
+<img src="16_check_scale.png" alt="" width="600px"/>
+</div>
+<p>To change the units in Blender to match Gazebo, go to “Scene Properties”. Change the “unit Systems” to Metric and change the “Length” to Meters.</p>
+<p>To change the grid size, go to “Show Overlays” and change the “Scale” amount.</p>
+<ul>
+<li><b>Check Pivot Point/Shape Origins:</b>: When exporting a shape it is usually best practice to make sure that your model is in the middle of your grid <code>(0,0,0)</code>, unless said model is part of a bigger scene.</li>
+</ul>
+<div class="image">
+<img src="17_check_pivot_point_a.jpg" alt="" width="600px"/>
+</div>
+<p>The Pivot Point of a shape is the point from which the shape moves, rotates, and scales.</p>
+<p>Not only do you need to make sure that your shape is in the right location prior to export, but you also need to make sure that the pivot points are in the right positions as well.</p>
+<div class="image">
+<img src="18_check_pivot_point_b.jpg" alt="" width="600px"/>
+</div>
+<p>Complex shapes often have a child/parent relationship. This is when a smaller part of a shape is attached to a larger piece, but they have different pivot points.</p>
+<p>For example: The wheel used for this tutorial would be a child shape. It would be “parented” to the body of a car. The pivot point of the wheel is in its center axis as shown, but the general pivots of the whole shape would be attached based on the parent shape, around the joint origin. When you export to <code>Gazebo</code> make sure that the whole shape is selected and that the main body is on the origin <code>(0,0,0)</code>, and X axis facing forward. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+      </div>
+    </main>
+  </div>
+</body>

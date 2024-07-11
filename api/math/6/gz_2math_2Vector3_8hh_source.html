@@ -1,0 +1,803 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Math">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Math: Vector3.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Math</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        6.15.1
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 IgnCreateDocs.cmake -->
+      <nav class="ign-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.8.17 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_5f70b597a8f3cb7e191c654fdc4ac806.html">gz-math</a></li><li class="navelem"><a class="el" href="dir_078c05cd486cbf4f25c108ac6a855843.html">include</a></li><li class="navelem"><a class="el" href="dir_cb23e0bbad0208f30fc2b464607664c0.html">gz</a></li><li class="navelem"><a class="el" href="dir_0f196ca5b9fd4ac373b7623d3ec837c2.html">math</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">gz/math/Vector3.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="gz_2math_2Vector3_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (C) 2014 Open Source Robotics Foundation</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef GZ_MATH_VECTOR3_HH_</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define GZ_MATH_VECTOR3_HH_</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;limits&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="gz_2math_2Helpers_8hh.html">gz/math/Helpers.hh</a>&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;gz/math/config.hh&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition.html">ignition</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keyword">namespace </span>math</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// Inline bracket to help doxygen filtering.</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">inline</span> <span class="keyword">namespace </span>IGNITION_MATH_VERSION_NAMESPACE {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment"></span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html">   41</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a73dd191dcb98cd0d64490c4af9587dd8">   44</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#a73dd191dcb98cd0d64490c4af9587dd8">Zero</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#ad1b860564a0a85fb9a4c0d3889378610">   47</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#ad1b860564a0a85fb9a4c0d3889378610">One</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#ad93a8321b7fecda33c9ccd607a9eea73">   50</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#ad93a8321b7fecda33c9ccd607a9eea73">UnitX</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a836653337cf905af0e0e2e8551b6d4d8">   53</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#a836653337cf905af0e0e2e8551b6d4d8">UnitY</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#aa74a0e830a60ce703b01c4214462e664">   56</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#aa74a0e830a60ce703b01c4214462e664">UnitZ</a>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#abf6d15503275585e37e522742efc0277">   59</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#abf6d15503275585e37e522742efc0277">NaN</a>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#ac40804b7686a1152bcba217dfe5dde6f">   62</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html#ac40804b7686a1152bcba217dfe5dde6f">Vector3</a>()</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;        this-&gt;data[0] = 0;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;        this-&gt;data[1] = 0;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        this-&gt;data[2] = 0;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#ae8e6f1fb58de2b824ab524e8b17b1230">   73</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html#ae8e6f1fb58de2b824ab524e8b17b1230">Vector3</a>(<span class="keyword">const</span> T &amp;_x, <span class="keyword">const</span> T &amp;_y, <span class="keyword">const</span> T &amp;_z)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        this-&gt;data[0] = _x;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;        this-&gt;data[1] = _y;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        this-&gt;data[2] = _z;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a22b7e03f3b7f018d0e2816d87009e030">   82</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html#a22b7e03f3b7f018d0e2816d87009e030">Vector3</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_v)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        this-&gt;data[0] = _v[0];</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;        this-&gt;data[1] = _v[1];</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        this-&gt;data[2] = _v[2];</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a3b0e8c15d5c8d747a2a25e82d2a5767d">   90</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code" href="classignition_1_1math_1_1Vector3.html#a3b0e8c15d5c8d747a2a25e82d2a5767d">~Vector3</a>() {}</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a801add6cc3b420e8435fcb949fe35e1c">   94</a></span>&#160;      <span class="keyword">public</span>: T <a class="code" href="classignition_1_1math_1_1Vector3.html#a801add6cc3b420e8435fcb949fe35e1c">Sum</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;        <span class="keywordflow">return</span> this-&gt;data[0] + this-&gt;data[1] + this-&gt;data[2];</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a0818eaf72dcbb2567b9eca7d17367b64">  102</a></span>&#160;      <span class="keyword">public</span>: T <a class="code" href="classignition_1_1math_1_1Vector3.html#a0818eaf72dcbb2567b9eca7d17367b64">Distance</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_pt)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(sqrt(</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                    (this-&gt;data[0]-_pt[0])*(this-&gt;data[0]-_pt[0]) +</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                    (this-&gt;data[1]-_pt[1])*(this-&gt;data[1]-_pt[1]) +</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;                    (this-&gt;data[2]-_pt[2])*(this-&gt;data[2]-_pt[2])));</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#ae9c00800c1d6658291725751d6a02df3">  115</a></span>&#160;      <span class="keyword">public</span>: T <a class="code" href="classignition_1_1math_1_1Vector3.html#ae9c00800c1d6658291725751d6a02df3">Distance</a>(T _x, T _y, T _z)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        <span class="keywordflow">return</span> this-&gt;Distance(<a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a>(_x, _y, _z));</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#acba1450bd6d761438f1011040665db53">  122</a></span>&#160;      <span class="keyword">public</span>: T <a class="code" href="classignition_1_1math_1_1Vector3.html#acba1450bd6d761438f1011040665db53">Length</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(sqrt(this-&gt;SquaredLength()));</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a9623de8878774ae8aad0dda9346fb05f">  129</a></span>&#160;      <span class="keyword">public</span>: T <a class="code" href="classignition_1_1math_1_1Vector3.html#a9623de8878774ae8aad0dda9346fb05f">SquaredLength</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;        <span class="keywordflow">return</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;          this-&gt;data[0] * this-&gt;data[0] +</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;          this-&gt;data[1] * this-&gt;data[1] +</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;          this-&gt;data[2] * this-&gt;data[2];</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a0262c5cea6ab9b6e87b2bd579fb95af5">  139</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#a0262c5cea6ab9b6e87b2bd579fb95af5">Normalize</a>()</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      {</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        T d = this-&gt;Length();</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <span class="keywordflow">if</span> (!equal&lt;T&gt;(d, <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(0.0)))</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        {</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;          this-&gt;data[0] /= d;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;          this-&gt;data[1] /= d;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;          this-&gt;data[2] /= d;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        }</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;      }</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a4bfa2c419d8c07cc107dcd544b9a163a">  155</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#a4bfa2c419d8c07cc107dcd544b9a163a">Normalized</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;        <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> result = *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        result.<a class="code" href="classignition_1_1math_1_1Vector3.html#a0262c5cea6ab9b6e87b2bd579fb95af5">Normalize</a>();</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;      }</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#adda289f08205bc1e35cfd0ca35ecfc87">  164</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#adda289f08205bc1e35cfd0ca35ecfc87">Round</a>()</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;      {</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;        this-&gt;data[0] = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/numeric/math/nearbyint.html">std::nearbyint</a>(this-&gt;data[0]));</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        this-&gt;data[1] = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/numeric/math/nearbyint.html">std::nearbyint</a>(this-&gt;data[1]));</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        this-&gt;data[2] = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/numeric/math/nearbyint.html">std::nearbyint</a>(this-&gt;data[2]));</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;      }</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a5796302c32ccf2e3b6c66fb08d9189f3">  174</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#a5796302c32ccf2e3b6c66fb08d9189f3">Rounded</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> result = *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;        result.<a class="code" href="classignition_1_1math_1_1Vector3.html#adda289f08205bc1e35cfd0ca35ecfc87">Round</a>();</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;        <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;      }</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a6bb782c1093a118a3f40e4c869fdf986">  185</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classignition_1_1math_1_1Vector3.html#a6bb782c1093a118a3f40e4c869fdf986">Set</a>(T _x = 0, T _y = 0, T _z = 0)</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;      {</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        this-&gt;data[0] = _x;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        this-&gt;data[1] = _y;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        this-&gt;data[2] = _z;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;      }</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a304424f098727d9eacc755637addfd05">  195</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#a304424f098727d9eacc755637addfd05">Cross</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_v)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a>(this-&gt;data[1] * _v[2] - this-&gt;data[2] * _v[1],</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;                       this-&gt;data[2] * _v[0] - this-&gt;data[0] * _v[2],</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;                       this-&gt;data[0] * _v[1] - this-&gt;data[1] * _v[0]);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      }</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a3f578d15ea05ca11924e0fc82d7c0822">  205</a></span>&#160;      <span class="keyword">public</span>: T <a class="code" href="classignition_1_1math_1_1Vector3.html#a3f578d15ea05ca11924e0fc82d7c0822">Dot</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_v)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        <span class="keywordflow">return</span> this-&gt;data[0] * _v[0] +</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;               this-&gt;data[1] * _v[1] +</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;               this-&gt;data[2] * _v[2];</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;      }</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
+<div class="line"><a name="l00220"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#ac0184a8f611c837a9bb7067717a0c2aa">  220</a></span>&#160;      <span class="keyword">public</span>: T <a class="code" href="classignition_1_1math_1_1Vector3.html#ac0184a8f611c837a9bb7067717a0c2aa">AbsDot</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_v)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        <span class="keywordflow">return</span> std::abs(this-&gt;data[0] * _v[0]) +</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;               std::abs(this-&gt;data[1] * _v[1]) +</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;               std::abs(this-&gt;data[2] * _v[2]);</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;      }</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00229"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#acb7337253c6a7a7f7cdd63fba169cdb3">  229</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#acb7337253c6a7a7f7cdd63fba169cdb3">Abs</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a>(std::abs(this-&gt;data[0]),</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;                       std::abs(this-&gt;data[1]),</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;                       std::abs(this-&gt;data[2]));</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;      }</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
+<div class="line"><a name="l00238"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a6d053de0e6be29a9b838ac5e7d1f5b54">  238</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#a6d053de0e6be29a9b838ac5e7d1f5b54">Perpendicular</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        <span class="keyword">static</span> <span class="keyword">const</span> T sqrZero = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1e-06 * 1e-06);</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> perp = this-&gt;Cross(<a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a>(1, 0, 0));</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;        <span class="comment">// Check the length of the vector</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        <span class="keywordflow">if</span> (perp.<a class="code" href="classignition_1_1math_1_1Vector3.html#a9623de8878774ae8aad0dda9346fb05f">SquaredLength</a>() &lt; sqrZero)</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        {</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;          perp = this-&gt;Cross(<a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a>(0, 1, 0));</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        }</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;        <span class="keywordflow">return</span> perp;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;      }</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
+<div class="line"><a name="l00258"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a0b7b9b88230fa13999afd4eb0db76860">  258</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">static</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#a0b7b9b88230fa13999afd4eb0db76860">Normal</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_v1,</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                  <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_v2, <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_v3)</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;      {</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> a = _v2 - _v1;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> b = _v3 - _v1;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;        <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> n = a.<a class="code" href="classignition_1_1math_1_1Vector3.html#a304424f098727d9eacc755637addfd05">Cross</a>(b);</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="keywordflow">return</span> n.<a class="code" href="classignition_1_1math_1_1Vector3.html#a0262c5cea6ab9b6e87b2bd579fb95af5">Normalize</a>();</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;      }</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
+<div class="line"><a name="l00271"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#ab4b8217014d10d5abdf8d2b19854dc52">  271</a></span>&#160;      <span class="keyword">public</span>: T <a class="code" href="classignition_1_1math_1_1Vector3.html#ab4b8217014d10d5abdf8d2b19854dc52">DistToLine</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_pt1, <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> &amp;_pt2)</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      {</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        T d = ((*this) - _pt1).Cross((*<span class="keyword">this</span>) - _pt2).Length();</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        d = d / (_pt2 - _pt1).Length();</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        <span class="keywordflow">return</span> d;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;      }</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
+<div class="line"><a name="l00281"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a692cb8b2c1bf22edffdbb64226a7ca2b">  281</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classignition_1_1math_1_1Vector3.html#a692cb8b2c1bf22edffdbb64226a7ca2b">Max</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_v)</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      {</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="keywordflow">if</span> (_v[0] &gt; this-&gt;data[0])</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;          this-&gt;data[0] = _v[0];</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <span class="keywordflow">if</span> (_v[1] &gt; this-&gt;data[1])</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;          this-&gt;data[1] = _v[1];</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        <span class="keywordflow">if</span> (_v[2] &gt; this-&gt;data[2])</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;          this-&gt;data[2] = _v[2];</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      }</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
+<div class="line"><a name="l00294"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a56995505b1ed3836a340bd30c8f6b857">  294</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classignition_1_1math_1_1Vector3.html#a56995505b1ed3836a340bd30c8f6b857">Min</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_v)</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;      {</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;        <span class="keywordflow">if</span> (_v[0] &lt; this-&gt;data[0])</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;          this-&gt;data[0] = _v[0];</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        <span class="keywordflow">if</span> (_v[1] &lt; this-&gt;data[1])</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;          this-&gt;data[1] = _v[1];</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="keywordflow">if</span> (_v[2] &lt; this-&gt;data[2])</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;          this-&gt;data[2] = _v[2];</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      }</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
+<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a9896adc3be02ba6f90e78b5892265661">  306</a></span>&#160;      <span class="keyword">public</span>: T <a class="code" href="classignition_1_1math_1_1Vector3.html#a9896adc3be02ba6f90e78b5892265661">Max</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;        <span class="keywordflow">return</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/algorithm/max.html">std::max</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/algorithm/max.html">std::max</a>(this-&gt;data[0], this-&gt;data[1]), this-&gt;data[2]);</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      }</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
+<div class="line"><a name="l00313"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a35b79a4cc2bbe41e5a480d5810c8cb49">  313</a></span>&#160;      <span class="keyword">public</span>: T <a class="code" href="classignition_1_1math_1_1Vector3.html#a35b79a4cc2bbe41e5a480d5810c8cb49">Min</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;        <span class="keywordflow">return</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/algorithm/min.html">std::min</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/algorithm/min.html">std::min</a>(this-&gt;data[0], this-&gt;data[1]), this-&gt;data[2]);</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;      }</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
+<div class="line"><a name="l00321"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a67230cf7c55cb5b66d4fe069631e2351">  321</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> &amp;<a class="code" href="classignition_1_1math_1_1Vector3.html#a67230cf7c55cb5b66d4fe069631e2351">operator=</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_v)</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      {</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        this-&gt;data[0] = _v[0];</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        this-&gt;data[1] = _v[1];</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;        this-&gt;data[2] = _v[2];</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;      }</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
+<div class="line"><a name="l00333"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#aaab25cc4fceb3d4e78115d9aeeab6842">  333</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> &amp;<a class="code" href="classignition_1_1math_1_1Vector3.html#aaab25cc4fceb3d4e78115d9aeeab6842">operator=</a>(T _v)</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;      {</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;        this-&gt;data[0] = _v;</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        this-&gt;data[1] = _v;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;        this-&gt;data[2] = _v;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;      }</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160; </div>
+<div class="line"><a name="l00345"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a052daf3b52a4c37ee66460efac2fb0aa">  345</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#a052daf3b52a4c37ee66460efac2fb0aa">operator+</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_v)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a>(this-&gt;data[0] + _v[0],</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;                       this-&gt;data[1] + _v[1],</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;                       this-&gt;data[2] + _v[2]);</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;      }</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
+<div class="line"><a name="l00355"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a1aaf1bf0c3981b3aaa4a96ca8ad3cc7e">  355</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> &amp;<a class="code" href="classignition_1_1math_1_1Vector3.html#a1aaf1bf0c3981b3aaa4a96ca8ad3cc7e">operator+=</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_v)</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;      {</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        this-&gt;data[0] += _v[0];</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        this-&gt;data[1] += _v[1];</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        this-&gt;data[2] += _v[2];</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;      }</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160; </div>
+<div class="line"><a name="l00367"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a9936c78b4bea0f75b596f8b94def39bd">  367</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">inline</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#a9936c78b4bea0f75b596f8b94def39bd">operator+</a>(<span class="keyword">const</span> T _s)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a>(this-&gt;data[0] + _s,</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;                          this-&gt;data[1] + _s,</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;                          this-&gt;data[2] + _s);</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;      }</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
+<div class="line"><a name="l00378"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#aa0bc77e8e8d16d1a49d1c746075f7150">  378</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">friend</span> <span class="keyword">inline</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#aa0bc77e8e8d16d1a49d1c746075f7150">operator+</a>(<span class="keyword">const</span> T _s,</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;                                                 <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_v)</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;      {</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;        <span class="keywordflow">return</span> {_v.<a class="code" href="classignition_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8">X</a>() + _s, _v.<a class="code" href="classignition_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6">Y</a>() + _s, _v.<a class="code" href="classignition_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48">Z</a>() + _s};</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;      }</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160; </div>
+<div class="line"><a name="l00387"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a14e611b9bd94741bfa539d365322d42d">  387</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;<a class="code" href="classignition_1_1math_1_1Vector3.html#a14e611b9bd94741bfa539d365322d42d">operator+=</a>(<span class="keyword">const</span> T _s)</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;      {</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        this-&gt;data[0] += _s;</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        this-&gt;data[1] += _s;</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        this-&gt;data[2] += _s;</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160; </div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;      }</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160; </div>
+<div class="line"><a name="l00398"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#ab16a1dd9ff144c3cbff03ffb81daa24e">  398</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">inline</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#ab16a1dd9ff144c3cbff03ffb81daa24e">operator-</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a>(-this-&gt;data[0], -this-&gt;data[1], -this-&gt;data[2]);</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;      }</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160; </div>
+<div class="line"><a name="l00406"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a504e8eeab09d3e89f97f637a5ce233c3">  406</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">inline</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#a504e8eeab09d3e89f97f637a5ce233c3">operator-</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_pt)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a>(this-&gt;data[0] - _pt[0],</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;                       this-&gt;data[1] - _pt[1],</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;                       this-&gt;data[2] - _pt[2]);</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;      }</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160; </div>
+<div class="line"><a name="l00416"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a6a573ad4d64bef556f5368b564c658d7">  416</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;<a class="code" href="classignition_1_1math_1_1Vector3.html#a6a573ad4d64bef556f5368b564c658d7">operator-=</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_pt)</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;      {</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;        this-&gt;data[0] -= _pt[0];</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;        this-&gt;data[1] -= _pt[1];</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;        this-&gt;data[2] -= _pt[2];</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160; </div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;      }</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160; </div>
+<div class="line"><a name="l00428"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a057006e6c0df90127e792b2175b248cb">  428</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">inline</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#a057006e6c0df90127e792b2175b248cb">operator-</a>(<span class="keyword">const</span> T _s)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a>(this-&gt;data[0] - _s,</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;                          this-&gt;data[1] - _s,</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;                          this-&gt;data[2] - _s);</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;      }</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160; </div>
+<div class="line"><a name="l00439"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a771a0a89792f7f43cc4467bfb537ea3e">  439</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">friend</span> <span class="keyword">inline</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#a771a0a89792f7f43cc4467bfb537ea3e">operator-</a>(<span class="keyword">const</span> T _s,</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;                                                 <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_v)</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;      {</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;        <span class="keywordflow">return</span> {_s - _v.<a class="code" href="classignition_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8">X</a>(), _s - _v.<a class="code" href="classignition_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6">Y</a>(), _s - _v.<a class="code" href="classignition_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48">Z</a>()};</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;      }</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160; </div>
+<div class="line"><a name="l00448"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a86f88e78163e390b69a1bd215d7cb038">  448</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;<a class="code" href="classignition_1_1math_1_1Vector3.html#a86f88e78163e390b69a1bd215d7cb038">operator-=</a>(<span class="keyword">const</span> T _s)</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;      {</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;        this-&gt;data[0] -= _s;</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;        this-&gt;data[1] -= _s;</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;        this-&gt;data[2] -= _s;</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160; </div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;      }</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160; </div>
+<div class="line"><a name="l00461"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#abb5714f8d9fceabebf8ea794a7f4e1cc">  461</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#abb5714f8d9fceabebf8ea794a7f4e1cc">operator/</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_pt)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a>(this-&gt;data[0] / _pt[0],</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;                       this-&gt;data[1] / _pt[1],</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;                       this-&gt;data[2] / _pt[2]);</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;      }</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160; </div>
+<div class="line"><a name="l00472"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a42eadd6fbfe6d7617c7483f79bf7a37a">  472</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;<a class="code" href="classignition_1_1math_1_1Vector3.html#a42eadd6fbfe6d7617c7483f79bf7a37a">operator/=</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_pt)</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;      {</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;        this-&gt;data[0] /= _pt[0];</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;        this-&gt;data[1] /= _pt[1];</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;        this-&gt;data[2] /= _pt[2];</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160; </div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;      }</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160; </div>
+<div class="line"><a name="l00485"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a7aeeda901a62be5f07d0a4c5b6ac18df">  485</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#a7aeeda901a62be5f07d0a4c5b6ac18df">operator/</a>(T _v)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a>(this-&gt;data[0] / _v,</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;                       this-&gt;data[1] / _v,</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;                       this-&gt;data[2] / _v);</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;      }</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160; </div>
+<div class="line"><a name="l00496"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a39d5b7c87d97799786a3c3e77996cf8d">  496</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;<a class="code" href="classignition_1_1math_1_1Vector3.html#a39d5b7c87d97799786a3c3e77996cf8d">operator/=</a>(T _v)</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;      {</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;        this-&gt;data[0] /= _v;</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;        this-&gt;data[1] /= _v;</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;        this-&gt;data[2] /= _v;</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160; </div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;      }</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160; </div>
+<div class="line"><a name="l00509"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a99d682a0117cabc7de648084eaf31a3d">  509</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#a99d682a0117cabc7de648084eaf31a3d">operator*</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_p)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a>(this-&gt;data[0] * _p[0],</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;                       this-&gt;data[1] * _p[1],</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;                       this-&gt;data[2] * _p[2]);</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;      }</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160; </div>
+<div class="line"><a name="l00520"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a1b85357eb4f79c0908757752984a034d">  520</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;<a class="code" href="classignition_1_1math_1_1Vector3.html#a1b85357eb4f79c0908757752984a034d">operator*=</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_v)</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;      {</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        this-&gt;data[0] *= _v[0];</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;        this-&gt;data[1] *= _v[1];</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;        this-&gt;data[2] *= _v[2];</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160; </div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;      }</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160; </div>
+<div class="line"><a name="l00532"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#abe9933ef20d52c5fc26b418dda564fa9">  532</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">inline</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#abe9933ef20d52c5fc26b418dda564fa9">operator*</a>(T _s)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a>(this-&gt;data[0] * _s,</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;                          this-&gt;data[1] * _s,</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;                          this-&gt;data[2] * _s);</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;      }</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160; </div>
+<div class="line"><a name="l00543"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#aee664c94917fb23c32d8879be01fd71d">  543</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">friend</span> <span class="keyword">inline</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> <a class="code" href="classignition_1_1math_1_1Vector3.html#aee664c94917fb23c32d8879be01fd71d">operator*</a>(T _s, <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_v)</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;      {</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;        <span class="keywordflow">return</span> {_v.<a class="code" href="classignition_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8">X</a>() * _s, _v.<a class="code" href="classignition_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6">Y</a>() * _s, _v.<a class="code" href="classignition_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48">Z</a>() * _s};</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;      }</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160; </div>
+<div class="line"><a name="l00551"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#ad73f2bce956c3dc2a322981f47435b31">  551</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;<a class="code" href="classignition_1_1math_1_1Vector3.html#ad73f2bce956c3dc2a322981f47435b31">operator*=</a>(T _v)</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;      {</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;        this-&gt;data[0] *= _v;</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;        this-&gt;data[1] *= _v;</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;        this-&gt;data[2] *= _v;</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160; </div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;      }</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160; </div>
+<div class="line"><a name="l00565"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#aff382d06e414af712d6cd65938b32250">  565</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classignition_1_1math_1_1Vector3.html#aff382d06e414af712d6cd65938b32250">Equal</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3</a> &amp;_v, <span class="keyword">const</span> T &amp;_tol)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;        <span class="keywordflow">return</span> equal&lt;T&gt;(this-&gt;data[0], _v[0], _tol)</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;            &amp;&amp; equal&lt;T&gt;(this-&gt;data[1], _v[1], _tol)</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;            &amp;&amp; equal&lt;T&gt;(this-&gt;data[2], _v[2], _tol);</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;      }</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160; </div>
+<div class="line"><a name="l00576"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a72788f809686700f03399b89a06ffe94">  576</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classignition_1_1math_1_1Vector3.html#a72788f809686700f03399b89a06ffe94">operator==</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_v)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;        <span class="keywordflow">return</span> this-&gt;Equal(_v, <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1e-3));</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;      }</div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160; </div>
+<div class="line"><a name="l00585"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a1db1f9a93a8a7e7f997d4954830ed734">  585</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classignition_1_1math_1_1Vector3.html#a1db1f9a93a8a7e7f997d4954830ed734">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_v)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;        <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == _v);</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;      }</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160; </div>
+<div class="line"><a name="l00592"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a33b7dcc502aae627fbc56bcfecf33af1">  592</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classignition_1_1math_1_1Vector3.html#a33b7dcc502aae627fbc56bcfecf33af1">IsFinite</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;        <span class="comment">// std::isfinite works with floating point values,</span></div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;        <span class="comment">// need to explicit cast to avoid ambiguity in vc++.</span></div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;        <span class="keywordflow">return</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/numeric/math/isfinite.html">std::isfinite</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(this-&gt;data[0])) &amp;&amp;</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;               <a class="codeRef" href="http://en.cppreference.com/w/cpp/numeric/math/isfinite.html">std::isfinite</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(this-&gt;data[1])) &amp;&amp;</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;               <a class="codeRef" href="http://en.cppreference.com/w/cpp/numeric/math/isfinite.html">std::isfinite</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(this-&gt;data[2]));</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;      }</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160; </div>
+<div class="line"><a name="l00602"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#abf887ed78b744f226099205075e157a0">  602</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classignition_1_1math_1_1Vector3.html#abf887ed78b744f226099205075e157a0">Correct</a>()</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;      {</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;        <span class="comment">// std::isfinite works with floating point values,</span></div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;        <span class="comment">// need to explicit cast to avoid ambiguity in vc++.</span></div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;        <span class="keywordflow">if</span> (!<a class="codeRef" href="http://en.cppreference.com/w/cpp/numeric/math/isfinite.html">std::isfinite</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(this-&gt;data[0])))</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;          this-&gt;data[0] = 0;</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;        <span class="keywordflow">if</span> (!<a class="codeRef" href="http://en.cppreference.com/w/cpp/numeric/math/isfinite.html">std::isfinite</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(this-&gt;data[1])))</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;          this-&gt;data[1] = 0;</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;        <span class="keywordflow">if</span> (!<a class="codeRef" href="http://en.cppreference.com/w/cpp/numeric/math/isfinite.html">std::isfinite</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(this-&gt;data[2])))</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;          this-&gt;data[2] = 0;</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;      }</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160; </div>
+<div class="line"><a name="l00618"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a806d08211ff4cfbd5eefde4e72575bbe">  618</a></span>&#160;      <span class="keyword">public</span>: T &amp;<a class="code" href="classignition_1_1math_1_1Vector3.html#a806d08211ff4cfbd5eefde4e72575bbe">operator[]</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/size_t.html">std::size_t</a> _index)</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;      {</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;        <span class="keywordflow">return</span> this-&gt;data[<a class="code" href="namespaceignition_1_1math.html#a8a8c9d2bdc3f41ea0e71639b59b22a48">clamp</a>(_index, <a class="code" href="namespaceignition_1_1math.html#a2c8670aee7f9e80a8f6a17eca0ae39c9">IGN_ZERO_SIZE_T</a>, <a class="code" href="namespaceignition_1_1math.html#a07ae44b98ea98edaaea5fa4faf5396aa">IGN_TWO_SIZE_T</a>)];</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;      }</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160; </div>
+<div class="line"><a name="l00627"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a6ef59a43ff2857b1e068f11e0f2dbd06">  627</a></span>&#160;      <span class="keyword">public</span>: T <a class="code" href="classignition_1_1math_1_1Vector3.html#a6ef59a43ff2857b1e068f11e0f2dbd06">operator[]</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/size_t.html">std::size_t</a> _index)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;        <span class="keywordflow">return</span> this-&gt;data[<a class="code" href="namespaceignition_1_1math.html#a8a8c9d2bdc3f41ea0e71639b59b22a48">clamp</a>(_index, <a class="code" href="namespaceignition_1_1math.html#a2c8670aee7f9e80a8f6a17eca0ae39c9">IGN_ZERO_SIZE_T</a>, <a class="code" href="namespaceignition_1_1math.html#a07ae44b98ea98edaaea5fa4faf5396aa">IGN_TWO_SIZE_T</a>)];</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;      }</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160; </div>
+<div class="line"><a name="l00634"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#aeae08385b749c5d457a69c879617423c">  634</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classignition_1_1math_1_1Vector3.html#aeae08385b749c5d457a69c879617423c">Round</a>(<span class="keywordtype">int</span> _precision)</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;      {</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;        this-&gt;data[0] = <a class="code" href="namespaceignition_1_1math.html#a9120cfc95826e547064660248db2fd63">precision</a>(this-&gt;data[0], _precision);</div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;        this-&gt;data[1] = <a class="code" href="namespaceignition_1_1math.html#a9120cfc95826e547064660248db2fd63">precision</a>(this-&gt;data[1], _precision);</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;        this-&gt;data[2] = <a class="code" href="namespaceignition_1_1math.html#a9120cfc95826e547064660248db2fd63">precision</a>(this-&gt;data[2], _precision);</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;      }</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160; </div>
+<div class="line"><a name="l00645"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a46a38319b253f9df1c2bfd4adfea7f31">  645</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classignition_1_1math_1_1Vector3.html#a46a38319b253f9df1c2bfd4adfea7f31">Equal</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_v)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;        <span class="keywordflow">return</span> equal&lt;T&gt;(this-&gt;data[0], _v[0]) &amp;&amp;</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;               equal&lt;T&gt;(this-&gt;data[1], _v[1]) &amp;&amp;</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;               equal&lt;T&gt;(this-&gt;data[2], _v[2]);</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;      }</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160; </div>
+<div class="line"><a name="l00654"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8">  654</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">inline</span> T <a class="code" href="classignition_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8">X</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;        <span class="keywordflow">return</span> this-&gt;data[0];</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;      }</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160; </div>
+<div class="line"><a name="l00661"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6">  661</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">inline</span> T <a class="code" href="classignition_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6">Y</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;        <span class="keywordflow">return</span> this-&gt;data[1];</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;      }</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160; </div>
+<div class="line"><a name="l00668"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48">  668</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">inline</span> T <a class="code" href="classignition_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48">Z</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;        <span class="keywordflow">return</span> this-&gt;data[2];</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;      }</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160; </div>
+<div class="line"><a name="l00675"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a70375d75f6b7431908e664f8ac4eec56">  675</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">inline</span> T &amp;<a class="code" href="classignition_1_1math_1_1Vector3.html#a70375d75f6b7431908e664f8ac4eec56">X</a>()</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;      {</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;        <span class="keywordflow">return</span> this-&gt;data[0];</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;      }</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160; </div>
+<div class="line"><a name="l00682"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#aa7dc59e8deaae3ffa99fad2cee8afd5e">  682</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">inline</span> T &amp;<a class="code" href="classignition_1_1math_1_1Vector3.html#aa7dc59e8deaae3ffa99fad2cee8afd5e">Y</a>()</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;      {</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;        <span class="keywordflow">return</span> this-&gt;data[1];</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;      }</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160; </div>
+<div class="line"><a name="l00689"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a4827294d98fb83dc978d36d0b5d41251">  689</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">inline</span> T &amp;<a class="code" href="classignition_1_1math_1_1Vector3.html#a4827294d98fb83dc978d36d0b5d41251">Z</a>()</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;      {</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;        <span class="keywordflow">return</span> this-&gt;data[2];</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;      }</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160; </div>
+<div class="line"><a name="l00696"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a075311aa4d0fa30e5f6174edecc9a5c4">  696</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classignition_1_1math_1_1Vector3.html#a075311aa4d0fa30e5f6174edecc9a5c4">X</a>(<span class="keyword">const</span> T &amp;_v)</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;      {</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;        this-&gt;data[0] = _v;</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;      }</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160; </div>
+<div class="line"><a name="l00703"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a115cf5dc8c0decb0b2f3b5af0ab8c7ae">  703</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classignition_1_1math_1_1Vector3.html#a115cf5dc8c0decb0b2f3b5af0ab8c7ae">Y</a>(<span class="keyword">const</span> T &amp;_v)</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;      {</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;        this-&gt;data[1] = _v;</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;      }</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160; </div>
+<div class="line"><a name="l00710"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a199e8e84dfe46d16fce25b34f9ddf365">  710</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classignition_1_1math_1_1Vector3.html#a199e8e84dfe46d16fce25b34f9ddf365">Z</a>(<span class="keyword">const</span> T &amp;_v)</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;      {</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;        this-&gt;data[2] = _v;</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;      }</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160; </div>
+<div class="line"><a name="l00719"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#aa3b7cdcd9f5d938d561b6b2298fb3a4c">  719</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classignition_1_1math_1_1Vector3.html#aa3b7cdcd9f5d938d561b6b2298fb3a4c">operator&lt;</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;T&gt;</a> &amp;_pt)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;        <span class="keywordflow">return</span> this-&gt;data[0] &lt; _pt[0] || this-&gt;data[1] &lt; _pt[1] ||</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;               this-&gt;data[2] &lt; _pt[2];</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;      }</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160; </div>
+<div class="line"><a name="l00729"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#a8b075f6be089801fe7e843635d3debef">  729</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">friend</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a> &amp;<a class="code" href="classignition_1_1math_1_1Vector3.html#a8b075f6be089801fe7e843635d3debef">operator&lt;&lt;</a>(</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;                  <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a> &amp;_out, <span class="keyword">const</span> gz::math::Vector3&lt;T&gt; &amp;_pt)</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;      {</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;        _out &lt;&lt; <a class="code" href="namespaceignition_1_1math.html#a9120cfc95826e547064660248db2fd63">precision</a>(_pt[0], 6) &lt;&lt; <span class="stringliteral">&quot; &quot;</span> &lt;&lt; <a class="code" href="namespaceignition_1_1math.html#a9120cfc95826e547064660248db2fd63">precision</a>(_pt[1], 6) &lt;&lt; <span class="stringliteral">&quot; &quot;</span></div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;          &lt;&lt; <a class="code" href="namespaceignition_1_1math.html#a9120cfc95826e547064660248db2fd63">precision</a>(_pt[2], 6);</div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;        <span class="keywordflow">return</span> _out;</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;      }</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160; </div>
+<div class="line"><a name="l00741"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Vector3.html#ad21bcfc5fa23c9896e7e86a524670508">  741</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">friend</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_istream.html">std::istream</a> &amp;<a class="code" href="classignition_1_1math_1_1Vector3.html#ad21bcfc5fa23c9896e7e86a524670508">operator&gt;&gt;</a>(</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160;                  <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_istream.html">std::istream</a> &amp;_in, gz::math::Vector3&lt;T&gt; &amp;_pt)</div>
+<div class="line"><a name="l00743"></a><span class="lineno">  743</span>&#160;      {</div>
+<div class="line"><a name="l00744"></a><span class="lineno">  744</span>&#160;        <span class="comment">// Skip white spaces</span></div>
+<div class="line"><a name="l00745"></a><span class="lineno">  745</span>&#160;        _in.<a class="codeRef" href="http://en.cppreference.com/w/cpp/io/ios_base/setf.html">setf</a>(std::ios_base::skipws);</div>
+<div class="line"><a name="l00746"></a><span class="lineno">  746</span>&#160;        T x, y, z;</div>
+<div class="line"><a name="l00747"></a><span class="lineno">  747</span>&#160;        _in &gt;&gt; x &gt;&gt; y &gt;&gt; z;</div>
+<div class="line"><a name="l00748"></a><span class="lineno">  748</span>&#160;        <span class="keywordflow">if</span> (!_in.<a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ios/fail.html">fail</a>())</div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;        {</div>
+<div class="line"><a name="l00750"></a><span class="lineno">  750</span>&#160;          _pt.Set(x, y, z);</div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;        }</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;        <span class="keywordflow">return</span> _in;</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;      }</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160; </div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;      <span class="keyword">private</span>: T data[3];</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160;    };</div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160; </div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">const</span> Vector3&lt;T&gt; <a class="code" href="classignition_1_1math_1_1Vector3.html#a73dd191dcb98cd0d64490c4af9587dd8">Vector3&lt;T&gt;::Zero</a>(0, 0, 0);</div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">const</span> Vector3&lt;T&gt; <a class="code" href="classignition_1_1math_1_1Vector3.html#ad1b860564a0a85fb9a4c0d3889378610">Vector3&lt;T&gt;::One</a>(1, 1, 1);</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">const</span> Vector3&lt;T&gt; <a class="code" href="classignition_1_1math_1_1Vector3.html#ad93a8321b7fecda33c9ccd607a9eea73">Vector3&lt;T&gt;::UnitX</a>(1, 0, 0);</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">const</span> Vector3&lt;T&gt; <a class="code" href="classignition_1_1math_1_1Vector3.html#a836653337cf905af0e0e2e8551b6d4d8">Vector3&lt;T&gt;::UnitY</a>(0, 1, 0);</div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">const</span> Vector3&lt;T&gt; <a class="code" href="classignition_1_1math_1_1Vector3.html#aa74a0e830a60ce703b01c4214462e664">Vector3&lt;T&gt;::UnitZ</a>(0, 0, 1);</div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">const</span> Vector3&lt;T&gt; <a class="code" href="classignition_1_1math_1_1Vector3.html#abf6d15503275585e37e522742efc0277">Vector3&lt;T&gt;::NaN</a>(</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/numeric_limits.html">std::numeric_limits&lt;T&gt;::quiet_NaN</a>(),</div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/numeric_limits.html">std::numeric_limits&lt;T&gt;::quiet_NaN</a>(),</div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/numeric_limits.html">std::numeric_limits&lt;T&gt;::quiet_NaN</a>());</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160; </div>
+<div class="line"><a name="l00769"></a><span class="lineno"><a class="line" href="namespaceignition_1_1math.html#a6951accbbf6263a1ac8019bf718ae31c">  769</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;int&gt;</a> <a class="code" href="namespaceignition_1_1math.html#a6951accbbf6263a1ac8019bf718ae31c">Vector3i</a>;</div>
+<div class="line"><a name="l00770"></a><span class="lineno"><a class="line" href="namespaceignition_1_1math.html#a1f05093f5ee1a9ecdd54476792e4c206">  770</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;double&gt;</a> <a class="code" href="namespaceignition_1_1math.html#a1f05093f5ee1a9ecdd54476792e4c206">Vector3d</a>;</div>
+<div class="line"><a name="l00771"></a><span class="lineno"><a class="line" href="namespaceignition_1_1math.html#af345ad77ba5e240c7ab72b4b2077e754">  771</a></span>&#160;    <span class="keyword">typedef</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3&lt;float&gt;</a> <a class="code" href="namespaceignition_1_1math.html#af345ad77ba5e240c7ab72b4b2077e754">Vector3f</a>;</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;    }</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;  }</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;}</div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a0b7b9b88230fa13999afd4eb0db76860"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a0b7b9b88230fa13999afd4eb0db76860">ignition::math::Vector3::Normal</a></div><div class="ttdeci">static Vector3 Normal(const Vector3&lt; T &gt; &amp;_v1, const Vector3&lt; T &gt; &amp;_v2, const Vector3&lt; T &gt; &amp;_v3)</div><div class="ttdoc">Get a normal vector to a triangle.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:258</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a771a0a89792f7f43cc4467bfb537ea3e"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a771a0a89792f7f43cc4467bfb537ea3e">ignition::math::Vector3::operator-</a></div><div class="ttdeci">friend Vector3&lt; T &gt; operator-(const T _s, const Vector3&lt; T &gt; &amp;_v)</div><div class="ttdoc">Subtraction operators.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:439</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_ad73f2bce956c3dc2a322981f47435b31"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#ad73f2bce956c3dc2a322981f47435b31">ignition::math::Vector3::operator*=</a></div><div class="ttdeci">const Vector3&lt; T &gt; &amp; operator*=(T _v)</div><div class="ttdoc">Multiplication operator.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:551</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_abb5714f8d9fceabebf8ea794a7f4e1cc"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#abb5714f8d9fceabebf8ea794a7f4e1cc">ignition::math::Vector3::operator/</a></div><div class="ttdeci">const Vector3&lt; T &gt; operator/(const Vector3&lt; T &gt; &amp;_pt) const</div><div class="ttdoc">Division operator.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:461</div></div>
+<div class="ttc" id="anamespaceignition_html"><div class="ttname"><a href="namespaceignition.html">ignition</a></div><div class="ttdef"><b>Definition:</b> gz/math/AdditivelySeparableScalarField3.hh:27</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a22b7e03f3b7f018d0e2816d87009e030"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a22b7e03f3b7f018d0e2816d87009e030">ignition::math::Vector3::Vector3</a></div><div class="ttdeci">Vector3(const Vector3&lt; T &gt; &amp;_v)</div><div class="ttdoc">Copy constructor.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:82</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a6d053de0e6be29a9b838ac5e7d1f5b54"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a6d053de0e6be29a9b838ac5e7d1f5b54">ignition::math::Vector3::Perpendicular</a></div><div class="ttdeci">Vector3 Perpendicular() const</div><div class="ttdoc">Return a vector that is perpendicular to this one.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:238</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a115cf5dc8c0decb0b2f3b5af0ab8c7ae"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a115cf5dc8c0decb0b2f3b5af0ab8c7ae">ignition::math::Vector3::Y</a></div><div class="ttdeci">void Y(const T &amp;_v)</div><div class="ttdoc">Set the y value.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:703</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_acba1450bd6d761438f1011040665db53"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#acba1450bd6d761438f1011040665db53">ignition::math::Vector3::Length</a></div><div class="ttdeci">T Length() const</div><div class="ttdoc">Returns the length (magnitude) of the vector.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:122</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a72788f809686700f03399b89a06ffe94"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a72788f809686700f03399b89a06ffe94">ignition::math::Vector3::operator==</a></div><div class="ttdeci">bool operator==(const Vector3&lt; T &gt; &amp;_v) const</div><div class="ttdoc">Equal to operator.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:576</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_ac0184a8f611c837a9bb7067717a0c2aa"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#ac0184a8f611c837a9bb7067717a0c2aa">ignition::math::Vector3::AbsDot</a></div><div class="ttdeci">T AbsDot(const Vector3&lt; T &gt; &amp;_v) const</div><div class="ttdoc">Return the absolute dot product of this vector and another vector. This is similar to the Dot functio...</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:220</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a70375d75f6b7431908e664f8ac4eec56"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a70375d75f6b7431908e664f8ac4eec56">ignition::math::Vector3::X</a></div><div class="ttdeci">T &amp; X()</div><div class="ttdoc">Get a mutable reference to the x value.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:675</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a9623de8878774ae8aad0dda9346fb05f"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a9623de8878774ae8aad0dda9346fb05f">ignition::math::Vector3::SquaredLength</a></div><div class="ttdeci">T SquaredLength() const</div><div class="ttdoc">Return the square of the length (magnitude) of the vector.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:129</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a46a38319b253f9df1c2bfd4adfea7f31"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a46a38319b253f9df1c2bfd4adfea7f31">ignition::math::Vector3::Equal</a></div><div class="ttdeci">bool Equal(const Vector3&lt; T &gt; &amp;_v) const</div><div class="ttdoc">Equality test.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:645</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_ad1b860564a0a85fb9a4c0d3889378610"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#ad1b860564a0a85fb9a4c0d3889378610">ignition::math::Vector3::One</a></div><div class="ttdeci">static const Vector3 One</div><div class="ttdoc">math::Vector3(1, 1, 1)</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:47</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_aa7dc59e8deaae3ffa99fad2cee8afd5e"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#aa7dc59e8deaae3ffa99fad2cee8afd5e">ignition::math::Vector3::Y</a></div><div class="ttdeci">T &amp; Y()</div><div class="ttdoc">Get a mutable reference to the y value.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:682</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_ae6b656e82256821b0ef79462ca0079b8"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8">ignition::math::Vector3::X</a></div><div class="ttdeci">T X() const</div><div class="ttdoc">Get the x value.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:654</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_aa0bc77e8e8d16d1a49d1c746075f7150"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#aa0bc77e8e8d16d1a49d1c746075f7150">ignition::math::Vector3::operator+</a></div><div class="ttdeci">friend Vector3&lt; T &gt; operator+(const T _s, const Vector3&lt; T &gt; &amp;_v)</div><div class="ttdoc">Addition operators.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:378</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a4827294d98fb83dc978d36d0b5d41251"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a4827294d98fb83dc978d36d0b5d41251">ignition::math::Vector3::Z</a></div><div class="ttdeci">T &amp; Z()</div><div class="ttdoc">Get a mutable reference to the z value.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:689</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a9936c78b4bea0f75b596f8b94def39bd"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a9936c78b4bea0f75b596f8b94def39bd">ignition::math::Vector3::operator+</a></div><div class="ttdeci">Vector3&lt; T &gt; operator+(const T _s) const</div><div class="ttdoc">Addition operators.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:367</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a33b7dcc502aae627fbc56bcfecf33af1"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a33b7dcc502aae627fbc56bcfecf33af1">ignition::math::Vector3::IsFinite</a></div><div class="ttdeci">bool IsFinite() const</div><div class="ttdoc">See if a point is finite (e.g., not nan)</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:592</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_aaab25cc4fceb3d4e78115d9aeeab6842"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#aaab25cc4fceb3d4e78115d9aeeab6842">ignition::math::Vector3::operator=</a></div><div class="ttdeci">Vector3 &amp; operator=(T _v)</div><div class="ttdoc">Assignment operator.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:333</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_aa3b7cdcd9f5d938d561b6b2298fb3a4c"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#aa3b7cdcd9f5d938d561b6b2298fb3a4c">ignition::math::Vector3::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const Vector3&lt; T &gt; &amp;_pt) const</div><div class="ttdoc">Less than operator.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:719</div></div>
+<div class="ttc" id="anamespaceignition_1_1math_html_a6951accbbf6263a1ac8019bf718ae31c"><div class="ttname"><a href="namespaceignition_1_1math.html#a6951accbbf6263a1ac8019bf718ae31c">ignition::math::Vector3i</a></div><div class="ttdeci">Vector3&lt; int &gt; Vector3i</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:769</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a075311aa4d0fa30e5f6174edecc9a5c4"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a075311aa4d0fa30e5f6174edecc9a5c4">ignition::math::Vector3::X</a></div><div class="ttdeci">void X(const T &amp;_v)</div><div class="ttdoc">Set the x value.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:696</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a6a573ad4d64bef556f5368b564c658d7"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a6a573ad4d64bef556f5368b564c658d7">ignition::math::Vector3::operator-=</a></div><div class="ttdeci">const Vector3&lt; T &gt; &amp; operator-=(const Vector3&lt; T &gt; &amp;_pt)</div><div class="ttdoc">Subtraction assignment operators.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:416</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_adda289f08205bc1e35cfd0ca35ecfc87"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#adda289f08205bc1e35cfd0ca35ecfc87">ignition::math::Vector3::Round</a></div><div class="ttdeci">Vector3 Round()</div><div class="ttdoc">Round to near whole number, return the result.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:164</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a56995505b1ed3836a340bd30c8f6b857"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a56995505b1ed3836a340bd30c8f6b857">ignition::math::Vector3::Min</a></div><div class="ttdeci">void Min(const Vector3&lt; T &gt; &amp;_v)</div><div class="ttdoc">Set this vector's components to the minimum of itself and the passed in vector.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:294</div></div>
+<div class="ttc" id="agz_2math_2Helpers_8hh_html"><div class="ttname"><a href="gz_2math_2Helpers_8hh.html">Helpers.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a42eadd6fbfe6d7617c7483f79bf7a37a"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a42eadd6fbfe6d7617c7483f79bf7a37a">ignition::math::Vector3::operator/=</a></div><div class="ttdeci">const Vector3&lt; T &gt; &amp; operator/=(const Vector3&lt; T &gt; &amp;_pt)</div><div class="ttdoc">Division assignment operator.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:472</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a73dd191dcb98cd0d64490c4af9587dd8"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a73dd191dcb98cd0d64490c4af9587dd8">ignition::math::Vector3::Zero</a></div><div class="ttdeci">static const Vector3 Zero</div><div class="ttdoc">math::Vector3(0, 0, 0)</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:44</div></div>
+<div class="ttc" id="aisfinite_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/numeric/math/isfinite.html">std::isfinite</a></div><div class="ttdeci">T isfinite(T... args)</div></div>
+<div class="ttc" id="anamespaceignition_1_1math_html_a9120cfc95826e547064660248db2fd63"><div class="ttname"><a href="namespaceignition_1_1math.html#a9120cfc95826e547064660248db2fd63">ignition::math::precision</a></div><div class="ttdeci">T precision(const T &amp;_a, const unsigned int &amp;_precision)</div><div class="ttdoc">get value at a specified precision</div><div class="ttdef"><b>Definition:</b> gz/math/Helpers.hh:590</div></div>
+<div class="ttc" id="anamespaceignition_1_1math_html_a07ae44b98ea98edaaea5fa4faf5396aa"><div class="ttname"><a href="namespaceignition_1_1math.html#a07ae44b98ea98edaaea5fa4faf5396aa">ignition::math::IGN_TWO_SIZE_T</a></div><div class="ttdeci">static const size_t IGN_TWO_SIZE_T</div><div class="ttdoc">size_t type with a value of 2</div><div class="ttdef"><b>Definition:</b> gz/math/Helpers.hh:233</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a253c4659f98e0cffd70ae20bbada9c48"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48">ignition::math::Vector3::Z</a></div><div class="ttdeci">T Z() const</div><div class="ttdoc">Get the z value.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:668</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a67230cf7c55cb5b66d4fe069631e2351"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a67230cf7c55cb5b66d4fe069631e2351">ignition::math::Vector3::operator=</a></div><div class="ttdeci">Vector3 &amp; operator=(const Vector3&lt; T &gt; &amp;_v)</div><div class="ttdoc">Assignment operator.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:321</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_ad21bcfc5fa23c9896e7e86a524670508"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#ad21bcfc5fa23c9896e7e86a524670508">ignition::math::Vector3::operator&gt;&gt;</a></div><div class="ttdeci">friend std::istream &amp; operator&gt;&gt;(std::istream &amp;_in, Vector3&lt; T &gt; &amp;_pt)</div><div class="ttdoc">Stream extraction operator.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:741</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a836653337cf905af0e0e2e8551b6d4d8"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a836653337cf905af0e0e2e8551b6d4d8">ignition::math::Vector3::UnitY</a></div><div class="ttdeci">static const Vector3 UnitY</div><div class="ttdoc">math::Vector3(0, 1, 0)</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:53</div></div>
+<div class="ttc" id="abasic_ostream_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a></div><div class="ttdoc">STL class.</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a3b0e8c15d5c8d747a2a25e82d2a5767d"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a3b0e8c15d5c8d747a2a25e82d2a5767d">ignition::math::Vector3::~Vector3</a></div><div class="ttdeci">virtual ~Vector3()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:90</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a4bfa2c419d8c07cc107dcd544b9a163a"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a4bfa2c419d8c07cc107dcd544b9a163a">ignition::math::Vector3::Normalized</a></div><div class="ttdeci">Vector3 Normalized() const</div><div class="ttdoc">Return a normalized vector.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:155</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a052daf3b52a4c37ee66460efac2fb0aa"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a052daf3b52a4c37ee66460efac2fb0aa">ignition::math::Vector3::operator+</a></div><div class="ttdeci">Vector3 operator+(const Vector3&lt; T &gt; &amp;_v) const</div><div class="ttdoc">Addition operator.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:345</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a9896adc3be02ba6f90e78b5892265661"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a9896adc3be02ba6f90e78b5892265661">ignition::math::Vector3::Max</a></div><div class="ttdeci">T Max() const</div><div class="ttdoc">Get the maximum value in the vector.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:306</div></div>
+<div class="ttc" id="anamespaceignition_1_1math_html_a8a8c9d2bdc3f41ea0e71639b59b22a48"><div class="ttname"><a href="namespaceignition_1_1math.html#a8a8c9d2bdc3f41ea0e71639b59b22a48">ignition::math::clamp</a></div><div class="ttdeci">T clamp(T _v, T _min, T _max)</div><div class="ttdoc">Simple clamping function.</div><div class="ttdef"><b>Definition:</b> gz/math/Helpers.hh:406</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a057006e6c0df90127e792b2175b248cb"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a057006e6c0df90127e792b2175b248cb">ignition::math::Vector3::operator-</a></div><div class="ttdeci">Vector3&lt; T &gt; operator-(const T _s) const</div><div class="ttdoc">Subtraction operators.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:428</div></div>
+<div class="ttc" id="asetf_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/ios_base/setf.html">std::istream::setf</a></div><div class="ttdeci">T setf(T... args)</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html">ignition::math::Vector3</a></div><div class="ttdoc">The Vector3 class represents the generic vector containing 3 elements. Since it's commonly used to ke...</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:41</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a99d682a0117cabc7de648084eaf31a3d"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a99d682a0117cabc7de648084eaf31a3d">ignition::math::Vector3::operator*</a></div><div class="ttdeci">Vector3&lt; T &gt; operator*(const Vector3&lt; T &gt; &amp;_p) const</div><div class="ttdoc">Multiplication operator.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:509</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a1db1f9a93a8a7e7f997d4954830ed734"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a1db1f9a93a8a7e7f997d4954830ed734">ignition::math::Vector3::operator!=</a></div><div class="ttdeci">bool operator!=(const Vector3&lt; T &gt; &amp;_v) const</div><div class="ttdoc">Not equal to operator.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:585</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a6ef59a43ff2857b1e068f11e0f2dbd06"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a6ef59a43ff2857b1e068f11e0f2dbd06">ignition::math::Vector3::operator[]</a></div><div class="ttdeci">T operator[](const std::size_t _index) const</div><div class="ttdoc">Const-qualified array subscript operator.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:627</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a35b79a4cc2bbe41e5a480d5810c8cb49"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a35b79a4cc2bbe41e5a480d5810c8cb49">ignition::math::Vector3::Min</a></div><div class="ttdeci">T Min() const</div><div class="ttdoc">Get the minimum value in the vector.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:313</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a504e8eeab09d3e89f97f637a5ce233c3"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a504e8eeab09d3e89f97f637a5ce233c3">ignition::math::Vector3::operator-</a></div><div class="ttdeci">Vector3&lt; T &gt; operator-(const Vector3&lt; T &gt; &amp;_pt) const</div><div class="ttdoc">Subtraction operators.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:406</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a1b85357eb4f79c0908757752984a034d"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a1b85357eb4f79c0908757752984a034d">ignition::math::Vector3::operator*=</a></div><div class="ttdeci">const Vector3&lt; T &gt; &amp; operator*=(const Vector3&lt; T &gt; &amp;_v)</div><div class="ttdoc">Multiplication assignment operators.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:520</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a6bb782c1093a118a3f40e4c869fdf986"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a6bb782c1093a118a3f40e4c869fdf986">ignition::math::Vector3::Set</a></div><div class="ttdeci">void Set(T _x=0, T _y=0, T _z=0)</div><div class="ttdoc">Set the contents of the vector.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:185</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a8b075f6be089801fe7e843635d3debef"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a8b075f6be089801fe7e843635d3debef">ignition::math::Vector3::operator&lt;&lt;</a></div><div class="ttdeci">friend std::ostream &amp; operator&lt;&lt;(std::ostream &amp;_out, const Vector3&lt; T &gt; &amp;_pt)</div><div class="ttdoc">Stream insertion operator.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:729</div></div>
+<div class="ttc" id="amin_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/algorithm/min.html">std::min</a></div><div class="ttdeci">T min(T... args)</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_ae9c00800c1d6658291725751d6a02df3"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#ae9c00800c1d6658291725751d6a02df3">ignition::math::Vector3::Distance</a></div><div class="ttdeci">T Distance(T _x, T _y, T _z) const</div><div class="ttdoc">Calc distance to the given point.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:115</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_aff382d06e414af712d6cd65938b32250"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#aff382d06e414af712d6cd65938b32250">ignition::math::Vector3::Equal</a></div><div class="ttdeci">bool Equal(const Vector3 &amp;_v, const T &amp;_tol) const</div><div class="ttdoc">Equality test with tolerance.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:565</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_aeae08385b749c5d457a69c879617423c"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#aeae08385b749c5d457a69c879617423c">ignition::math::Vector3::Round</a></div><div class="ttdeci">void Round(int _precision)</div><div class="ttdoc">Round all values to _precision decimal places.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:634</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_ac40804b7686a1152bcba217dfe5dde6f"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#ac40804b7686a1152bcba217dfe5dde6f">ignition::math::Vector3::Vector3</a></div><div class="ttdeci">Vector3()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:62</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a14e611b9bd94741bfa539d365322d42d"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a14e611b9bd94741bfa539d365322d42d">ignition::math::Vector3::operator+=</a></div><div class="ttdeci">const Vector3&lt; T &gt; &amp; operator+=(const T _s)</div><div class="ttdoc">Addition assignment operator.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:387</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_ab16a1dd9ff144c3cbff03ffb81daa24e"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#ab16a1dd9ff144c3cbff03ffb81daa24e">ignition::math::Vector3::operator-</a></div><div class="ttdeci">Vector3 operator-() const</div><div class="ttdoc">Negation operator.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:398</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_aee664c94917fb23c32d8879be01fd71d"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#aee664c94917fb23c32d8879be01fd71d">ignition::math::Vector3::operator*</a></div><div class="ttdeci">friend Vector3&lt; T &gt; operator*(T _s, const Vector3&lt; T &gt; &amp;_v)</div><div class="ttdoc">Multiplication operators.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:543</div></div>
+<div class="ttc" id="afail_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/basic_ios/fail.html">std::istream::fail</a></div><div class="ttdeci">T fail(T... args)</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a0262c5cea6ab9b6e87b2bd579fb95af5"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a0262c5cea6ab9b6e87b2bd579fb95af5">ignition::math::Vector3::Normalize</a></div><div class="ttdeci">Vector3 Normalize()</div><div class="ttdoc">Normalize the vector length.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:139</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_abe9933ef20d52c5fc26b418dda564fa9"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#abe9933ef20d52c5fc26b418dda564fa9">ignition::math::Vector3::operator*</a></div><div class="ttdeci">Vector3&lt; T &gt; operator*(T _s) const</div><div class="ttdoc">Multiplication operators.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:532</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_ad93a8321b7fecda33c9ccd607a9eea73"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#ad93a8321b7fecda33c9ccd607a9eea73">ignition::math::Vector3::UnitX</a></div><div class="ttdeci">static const Vector3 UnitX</div><div class="ttdoc">math::Vector3(1, 0, 0)</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:50</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a692cb8b2c1bf22edffdbb64226a7ca2b"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a692cb8b2c1bf22edffdbb64226a7ca2b">ignition::math::Vector3::Max</a></div><div class="ttdeci">void Max(const Vector3&lt; T &gt; &amp;_v)</div><div class="ttdoc">Set this vector's components to the maximum of itself and the passed in vector.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:281</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a86f88e78163e390b69a1bd215d7cb038"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a86f88e78163e390b69a1bd215d7cb038">ignition::math::Vector3::operator-=</a></div><div class="ttdeci">const Vector3&lt; T &gt; &amp; operator-=(const T _s)</div><div class="ttdoc">Subtraction assignment operator.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:448</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_abf6d15503275585e37e522742efc0277"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#abf6d15503275585e37e522742efc0277">ignition::math::Vector3::NaN</a></div><div class="ttdeci">static const Vector3 NaN</div><div class="ttdoc">math::Vector3(NaN, NaN, NaN)</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:59</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a801add6cc3b420e8435fcb949fe35e1c"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a801add6cc3b420e8435fcb949fe35e1c">ignition::math::Vector3::Sum</a></div><div class="ttdeci">T Sum() const</div><div class="ttdoc">Return the sum of the values.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:94</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_aa74a0e830a60ce703b01c4214462e664"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#aa74a0e830a60ce703b01c4214462e664">ignition::math::Vector3::UnitZ</a></div><div class="ttdeci">static const Vector3 UnitZ</div><div class="ttdoc">math::Vector3(0, 0, 1)</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:56</div></div>
+<div class="ttc" id="anamespaceignition_1_1math_html_a2c8670aee7f9e80a8f6a17eca0ae39c9"><div class="ttname"><a href="namespaceignition_1_1math.html#a2c8670aee7f9e80a8f6a17eca0ae39c9">ignition::math::IGN_ZERO_SIZE_T</a></div><div class="ttdeci">static const size_t IGN_ZERO_SIZE_T</div><div class="ttdoc">size_t type with a value of 0</div><div class="ttdef"><b>Definition:</b> gz/math/Helpers.hh:227</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a39d5b7c87d97799786a3c3e77996cf8d"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a39d5b7c87d97799786a3c3e77996cf8d">ignition::math::Vector3::operator/=</a></div><div class="ttdeci">const Vector3&lt; T &gt; &amp; operator/=(T _v)</div><div class="ttdoc">Division assignment operator.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:496</div></div>
+<div class="ttc" id="anearbyint_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/numeric/math/nearbyint.html">std::nearbyint</a></div><div class="ttdeci">T nearbyint(T... args)</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a1aaf1bf0c3981b3aaa4a96ca8ad3cc7e"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a1aaf1bf0c3981b3aaa4a96ca8ad3cc7e">ignition::math::Vector3::operator+=</a></div><div class="ttdeci">const Vector3 &amp; operator+=(const Vector3&lt; T &gt; &amp;_v)</div><div class="ttdoc">Addition assignment operator.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:355</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a3f578d15ea05ca11924e0fc82d7c0822"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a3f578d15ea05ca11924e0fc82d7c0822">ignition::math::Vector3::Dot</a></div><div class="ttdeci">T Dot(const Vector3&lt; T &gt; &amp;_v) const</div><div class="ttdoc">Return the dot product of this vector and another vector.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:205</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_ab4b8217014d10d5abdf8d2b19854dc52"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#ab4b8217014d10d5abdf8d2b19854dc52">ignition::math::Vector3::DistToLine</a></div><div class="ttdeci">T DistToLine(const Vector3&lt; T &gt; &amp;_pt1, const Vector3 &amp;_pt2)</div><div class="ttdoc">Get distance to an infinite line defined by 2 points.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:271</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_abf887ed78b744f226099205075e157a0"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#abf887ed78b744f226099205075e157a0">ignition::math::Vector3::Correct</a></div><div class="ttdeci">void Correct()</div><div class="ttdoc">Corrects any nan values.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:602</div></div>
+<div class="ttc" id="asize_t_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/types/size_t.html">std::size_t</a></div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a7aeeda901a62be5f07d0a4c5b6ac18df"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a7aeeda901a62be5f07d0a4c5b6ac18df">ignition::math::Vector3::operator/</a></div><div class="ttdeci">const Vector3&lt; T &gt; operator/(T _v) const</div><div class="ttdoc">Division operator.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:485</div></div>
+<div class="ttc" id="anamespaceignition_1_1math_html_af345ad77ba5e240c7ab72b4b2077e754"><div class="ttname"><a href="namespaceignition_1_1math.html#af345ad77ba5e240c7ab72b4b2077e754">ignition::math::Vector3f</a></div><div class="ttdeci">Vector3&lt; float &gt; Vector3f</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:771</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a806d08211ff4cfbd5eefde4e72575bbe"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a806d08211ff4cfbd5eefde4e72575bbe">ignition::math::Vector3::operator[]</a></div><div class="ttdeci">T &amp; operator[](const std::size_t _index)</div><div class="ttdoc">Array subscript operator.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:618</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a199e8e84dfe46d16fce25b34f9ddf365"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a199e8e84dfe46d16fce25b34f9ddf365">ignition::math::Vector3::Z</a></div><div class="ttdeci">void Z(const T &amp;_v)</div><div class="ttdoc">Set the z value.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:710</div></div>
+<div class="ttc" id="amax_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/algorithm/max.html">std::max</a></div><div class="ttdeci">T max(T... args)</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a0818eaf72dcbb2567b9eca7d17367b64"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a0818eaf72dcbb2567b9eca7d17367b64">ignition::math::Vector3::Distance</a></div><div class="ttdeci">T Distance(const Vector3&lt; T &gt; &amp;_pt) const</div><div class="ttdoc">Calc distance to the given point.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:102</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_acb7337253c6a7a7f7cdd63fba169cdb3"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#acb7337253c6a7a7f7cdd63fba169cdb3">ignition::math::Vector3::Abs</a></div><div class="ttdeci">Vector3 Abs() const</div><div class="ttdoc">Get the absolute value of the vector.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:229</div></div>
+<div class="ttc" id="abasic_istream_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/basic_istream.html">std::istream</a></div><div class="ttdoc">STL class.</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_aecdad7e976b3ed74a1828eac4d958db6"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6">ignition::math::Vector3::Y</a></div><div class="ttdeci">T Y() const</div><div class="ttdoc">Get the y value.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:661</div></div>
+<div class="ttc" id="anumeric_limits_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/types/numeric_limits.html">std::numeric_limits</a></div></div>
+<div class="ttc" id="anamespaceignition_1_1math_html_a1f05093f5ee1a9ecdd54476792e4c206"><div class="ttname"><a href="namespaceignition_1_1math.html#a1f05093f5ee1a9ecdd54476792e4c206">ignition::math::Vector3d</a></div><div class="ttdeci">Vector3&lt; double &gt; Vector3d</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:770</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_ae8e6f1fb58de2b824ab524e8b17b1230"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#ae8e6f1fb58de2b824ab524e8b17b1230">ignition::math::Vector3::Vector3</a></div><div class="ttdeci">Vector3(const T &amp;_x, const T &amp;_y, const T &amp;_z)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:73</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a304424f098727d9eacc755637addfd05"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a304424f098727d9eacc755637addfd05">ignition::math::Vector3::Cross</a></div><div class="ttdeci">Vector3 Cross(const Vector3&lt; T &gt; &amp;_v) const</div><div class="ttdoc">Return the cross product of this vector with another vector.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:195</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_a5796302c32ccf2e3b6c66fb08d9189f3"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html#a5796302c32ccf2e3b6c66fb08d9189f3">ignition::math::Vector3::Rounded</a></div><div class="ttdeci">Vector3 Rounded() const</div><div class="ttdoc">Get a rounded version of this vector.</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:174</div></div>
+      </div>
+    </main>
+  </div>
+</body>

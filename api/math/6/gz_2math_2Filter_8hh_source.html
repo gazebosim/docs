@@ -1,0 +1,388 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Math">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Math: Filter.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Math</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        6.15.1
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 IgnCreateDocs.cmake -->
+      <nav class="ign-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.8.17 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_5f70b597a8f3cb7e191c654fdc4ac806.html">gz-math</a></li><li class="navelem"><a class="el" href="dir_078c05cd486cbf4f25c108ac6a855843.html">include</a></li><li class="navelem"><a class="el" href="dir_cb23e0bbad0208f30fc2b464607664c0.html">gz</a></li><li class="navelem"><a class="el" href="dir_0f196ca5b9fd4ac373b7623d3ec837c2.html">math</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">gz/math/Filter.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="gz_2math_2Filter_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (C) 2014 Open Source Robotics Foundation</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef GZ_MATH_FILTER_HH_</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define GZ_MATH_FILTER_HH_</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="gz_2math_2Helpers_8hh.html">gz/math/Helpers.hh</a>&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="gz_2math_2Vector3_8hh.html">gz/math/Vector3.hh</a>&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="gz_2math_2Quaternion_8hh.html">gz/math/Quaternion.hh</a>&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;gz/math/config.hh&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition.html">ignition</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keyword">namespace </span>math</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// Inline bracket to help doxygen filtering.</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">inline</span> <span class="keyword">namespace </span>IGNITION_MATH_VERSION_NAMESPACE {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment"></span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Filter.html">   35</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classignition_1_1math_1_1Filter.html">Filter</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    {</div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Filter.html#a87635451d7f77a7c50bae1262f9c3bf9">   38</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code" href="classignition_1_1math_1_1Filter.html#a87635451d7f77a7c50bae1262f9c3bf9">~Filter</a>() {}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Filter.html#a5a6b5af0e0b4278084f8e5ef4e2f4f31">   42</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classignition_1_1math_1_1Filter.html#a5a6b5af0e0b4278084f8e5ef4e2f4f31">Set</a>(<span class="keyword">const</span> T &amp;_val)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;        y0 = _val;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> Fc(<span class="keywordtype">double</span> _fc, <span class="keywordtype">double</span> _fs) = 0;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Filter.html#a4ed52331011471e9cd8537f5681ff00b">   54</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keyword">const</span> T &amp;<a class="code" href="classignition_1_1math_1_1Filter.html#a4ed52331011471e9cd8537f5681ff00b">Value</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keywordflow">return</span> y0;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Filter.html#a8c46b09412b05975f6eee5cc9c1bf3ef">   60</a></span>&#160;      <span class="keyword">protected</span>: T y0{};</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    };</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1OnePole.html">   67</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classignition_1_1math_1_1OnePole.html">OnePole</a> : <span class="keyword">public</span> <a class="code" href="classignition_1_1math_1_1Filter.html">Filter</a>&lt;T&gt;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1OnePole.html">OnePole</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1OnePole.html#a09797ac367e64ea28ee9e0220ff93651">   75</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1OnePole.html#a09797ac367e64ea28ee9e0220ff93651">OnePole</a>(<span class="keywordtype">double</span> _fc, <span class="keywordtype">double</span> _fs)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;        this-&gt;Fc(_fc, _fs);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      <span class="comment">// Documentation Inherited.</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1OnePole.html#aff21517656547c5be945be488be6b9c0">   81</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classignition_1_1math_1_1OnePole.html#aff21517656547c5be945be488be6b9c0">Fc</a>(<span class="keywordtype">double</span> _fc, <span class="keywordtype">double</span> _fs)<span class="keyword"> override</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        b1 = exp(-2.0 * <a class="code" href="gz_2math_2Helpers_8hh.html#aec645d4ec6ae87ad507922af67c1d26d">IGN_PI</a> * _fc / _fs);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        a0 = 1.0 - b1;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1OnePole.html#aa28f1f59b398d4b7349846cba261c92e">   90</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">const</span> T&amp; <a class="code" href="classignition_1_1math_1_1OnePole.html#aa28f1f59b398d4b7349846cba261c92e">Process</a>(<span class="keyword">const</span> T &amp;_x)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        this-&gt;y0 = a0 * _x + b1 * this-&gt;y0;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        <span class="keywordflow">return</span> this-&gt;y0;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1OnePole.html#ad95dcba445836b4ba94129111a4b888c">   97</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> a0 = 0;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1OnePole.html#a84e4813f421c80250583ae23e3f4f100">  100</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> b1 = 0;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    };</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1OnePoleQuaternion.html">  105</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classignition_1_1math_1_1OnePoleQuaternion.html">OnePoleQuaternion</a> : <span class="keyword">public</span> <a class="code" href="classignition_1_1math_1_1OnePole.html">OnePole</a>&lt;math::Quaterniond&gt;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    {</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1OnePoleQuaternion.html#a8d88d5ba78fe115d6482a4f3e660278a">  108</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1OnePoleQuaternion.html#a8d88d5ba78fe115d6482a4f3e660278a">OnePoleQuaternion</a>()</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      {</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;        this-&gt;Set(<a class="code" href="classignition_1_1math_1_1Quaternion.html">math::Quaterniond</a>(1, 0, 0, 0));</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1OnePoleQuaternion.html#af06b56d7efa3552dd5ca6083efd766c5">  116</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1OnePoleQuaternion.html#af06b56d7efa3552dd5ca6083efd766c5">OnePoleQuaternion</a>(<span class="keywordtype">double</span> _fc, <span class="keywordtype">double</span> _fs)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;        : <a class="code" href="classignition_1_1math_1_1OnePole.html">OnePole</a>&lt;math::<a class="code" href="classignition_1_1math_1_1Quaternion.html">Quaterniond</a>&gt;(_fc, _fs)</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      {</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;        this-&gt;Set(<a class="code" href="classignition_1_1math_1_1Quaternion.html">math::Quaterniond</a>(1, 0, 0, 0));</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1OnePoleQuaternion.html#ae135f1ede7ac4c1de47b9f832ea7cd40">  125</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Quaternion.html">math::Quaterniond</a>&amp; <a class="code" href="classignition_1_1math_1_1OnePoleQuaternion.html#ae135f1ede7ac4c1de47b9f832ea7cd40">Process</a>(</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;                  <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Quaternion.html">math::Quaterniond</a> &amp;_x)</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;        y0 = <a class="code" href="classignition_1_1math_1_1Quaternion.html#a61f8ed8ce0e2090ff95cbcb034c2f117">math::Quaterniond::Slerp</a>(a0, y0, _x);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;        <span class="keywordflow">return</span> y0;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      }</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    };</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1OnePoleVector3.html">  135</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classignition_1_1math_1_1OnePoleVector3.html">OnePoleVector3</a> : <span class="keyword">public</span> <a class="code" href="classignition_1_1math_1_1OnePole.html">OnePole</a>&lt;math::Vector3d&gt;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    {</div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1OnePoleVector3.html#a2e7bcdbf4ac75ed389d2c3a792461308">  138</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1OnePoleVector3.html#a2e7bcdbf4ac75ed389d2c3a792461308">OnePoleVector3</a>()</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      {</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        this-&gt;Set(<a class="code" href="classignition_1_1math_1_1Vector3.html">math::Vector3d</a>(0, 0, 0));</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;      }</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1OnePoleVector3.html#ad1ca8a669650485a9cbc82eb4255b6cf">  146</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1OnePoleVector3.html#ad1ca8a669650485a9cbc82eb4255b6cf">OnePoleVector3</a>(<span class="keywordtype">double</span> _fc, <span class="keywordtype">double</span> _fs)</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        : <a class="code" href="classignition_1_1math_1_1OnePole.html">OnePole</a>&lt;math::<a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3d</a>&gt;(_fc, _fs)</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      {</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;        this-&gt;Set(<a class="code" href="classignition_1_1math_1_1Vector3.html">math::Vector3d</a>(0, 0, 0));</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;      }</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    };</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1BiQuad.html">  157</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classignition_1_1math_1_1BiQuad.html">BiQuad</a> : <span class="keyword">public</span> <a class="code" href="classignition_1_1math_1_1Filter.html">Filter</a>&lt;T&gt;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    {</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1BiQuad.html">BiQuad</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1BiQuad.html#af48038fcd331d3293b1919732d858f76">  165</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1BiQuad.html#af48038fcd331d3293b1919732d858f76">BiQuad</a>(<span class="keywordtype">double</span> _fc, <span class="keywordtype">double</span> _fs)</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      {</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;        this-&gt;Fc(_fc, _fs);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;      }</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;      <span class="comment">// Documentation Inherited.</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1BiQuad.html#a761bf151cb4efdb0fc724df72d87fe53">  171</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classignition_1_1math_1_1BiQuad.html#a761bf151cb4efdb0fc724df72d87fe53">Fc</a>(<span class="keywordtype">double</span> _fc, <span class="keywordtype">double</span> _fs)<span class="keyword"> override</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        this-&gt;Fc(_fc, _fs, 0.5);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;      }</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1BiQuad.html#a1396779926a5fc5aeeafceab606e8e10">  180</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classignition_1_1math_1_1BiQuad.html#a1396779926a5fc5aeeafceab606e8e10">Fc</a>(<span class="keywordtype">double</span> _fc, <span class="keywordtype">double</span> _fs, <span class="keywordtype">double</span> _q)</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;      {</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        <span class="keywordtype">double</span> k = tan(<a class="code" href="gz_2math_2Helpers_8hh.html#aec645d4ec6ae87ad507922af67c1d26d">IGN_PI</a> * _fc / _fs);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keywordtype">double</span> kQuadDenom = k * k + k / _q + 1.0;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        this-&gt;a0 = k * k/ kQuadDenom;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        this-&gt;a1 = 2 * this-&gt;a0;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        this-&gt;a2 = this-&gt;a0;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;        this-&gt;b0 = 1.0;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        this-&gt;b1 = 2 * (k * k - 1.0) / kQuadDenom;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        this-&gt;b2 = (k * k - k / _q + 1.0) / kQuadDenom;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;      }</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1BiQuad.html#aa446819ccc4425ab796e2542259af115">  194</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classignition_1_1math_1_1BiQuad.html#aa446819ccc4425ab796e2542259af115">Set</a>(<span class="keyword">const</span> T &amp;_val)<span class="keyword"> override</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="keyword">      </span>{</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;        this-&gt;y0 = this-&gt;y1 = this-&gt;y2 = this-&gt;x1 = this-&gt;x2 = _val;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;      }</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1BiQuad.html#a09367ba545658a6b27c342825e5aab5b">  202</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keyword">const</span> T&amp; <a class="code" href="classignition_1_1math_1_1BiQuad.html#a09367ba545658a6b27c342825e5aab5b">Process</a>(<span class="keyword">const</span> T &amp;_x)</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;      {</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;        this-&gt;y0 = this-&gt;a0 * _x +</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                   this-&gt;a1 * this-&gt;x1 +</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;                   this-&gt;a2 * this-&gt;x2 -</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;                   this-&gt;b1 * this-&gt;y1 -</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;                   this-&gt;b2 * this-&gt;y2;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;        this-&gt;x2 = this-&gt;x1;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;        this-&gt;x1 = _x;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        this-&gt;y2 = this-&gt;y1;</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        this-&gt;y1 = this-&gt;y0;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;        <span class="keywordflow">return</span> this-&gt;y0;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;      }</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
+<div class="line"><a name="l00218"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1BiQuad.html#ad95dcba445836b4ba94129111a4b888c">  218</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> a0 = 0,</div>
+<div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1BiQuad.html#a5d015a3751aec61f2442b957cb6f517a">  219</a></span>&#160;                        a1 = 0,</div>
+<div class="line"><a name="l00220"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1BiQuad.html#ac55c2d269ed76bd9bdb7fb25f3533a4e">  220</a></span>&#160;                        a2 = 0,</div>
+<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1BiQuad.html#a798947bd96f7e2615d107b383cc4b9c6">  221</a></span>&#160;                        b0 = 0,</div>
+<div class="line"><a name="l00222"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1BiQuad.html#a84e4813f421c80250583ae23e3f4f100">  222</a></span>&#160;                        b1 = 0,</div>
+<div class="line"><a name="l00223"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1BiQuad.html#a35d10c1e721e67a3616511e45aa89f34">  223</a></span>&#160;                        b2 = 0;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
+<div class="line"><a name="l00226"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1BiQuad.html#ab047d20aae61dfea7045970f520c0dac">  226</a></span>&#160;      <span class="keyword">protected</span>: T x1{}, x2{}, y1{}, y2{};</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    };</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
+<div class="line"><a name="l00231"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1BiQuadVector3.html">  231</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classignition_1_1math_1_1BiQuadVector3.html">BiQuadVector3</a> : <span class="keyword">public</span> <a class="code" href="classignition_1_1math_1_1BiQuad.html">BiQuad</a>&lt;math::Vector3d&gt;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    {</div>
+<div class="line"><a name="l00234"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1BiQuadVector3.html#a8cd22968e36248354dabaf547d81fec1">  234</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1BiQuadVector3.html#a8cd22968e36248354dabaf547d81fec1">BiQuadVector3</a>()</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;      {</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;        this-&gt;Set(<a class="code" href="classignition_1_1math_1_1Vector3.html">math::Vector3d</a>(0, 0, 0));</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;      }</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
+<div class="line"><a name="l00242"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1BiQuadVector3.html#a8d183ad4351da4494a3916e9eda9e8f3">  242</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1BiQuadVector3.html#a8d183ad4351da4494a3916e9eda9e8f3">BiQuadVector3</a>(<span class="keywordtype">double</span> _fc, <span class="keywordtype">double</span> _fs)</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;        : <a class="code" href="classignition_1_1math_1_1BiQuad.html">BiQuad</a>&lt;math::<a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3d</a>&gt;(_fc, _fs)</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;      {</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        this-&gt;Set(<a class="code" href="classignition_1_1math_1_1Vector3.html">math::Vector3d</a>(0, 0, 0));</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;      }</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    };</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    }</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  }</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;}</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="agz_2math_2Quaternion_8hh_html"><div class="ttname"><a href="gz_2math_2Quaternion_8hh.html">Quaternion.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1OnePoleVector3_html_ad1ca8a669650485a9cbc82eb4255b6cf"><div class="ttname"><a href="classignition_1_1math_1_1OnePoleVector3.html#ad1ca8a669650485a9cbc82eb4255b6cf">ignition::math::OnePoleVector3::OnePoleVector3</a></div><div class="ttdeci">OnePoleVector3(double _fc, double _fs)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:146</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1BiQuadVector3_html_a8cd22968e36248354dabaf547d81fec1"><div class="ttname"><a href="classignition_1_1math_1_1BiQuadVector3.html#a8cd22968e36248354dabaf547d81fec1">ignition::math::BiQuadVector3::BiQuadVector3</a></div><div class="ttdeci">BiQuadVector3()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:234</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1OnePoleQuaternion_html_af06b56d7efa3552dd5ca6083efd766c5"><div class="ttname"><a href="classignition_1_1math_1_1OnePoleQuaternion.html#af06b56d7efa3552dd5ca6083efd766c5">ignition::math::OnePoleQuaternion::OnePoleQuaternion</a></div><div class="ttdeci">OnePoleQuaternion(double _fc, double _fs)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:116</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Filter_html_a87635451d7f77a7c50bae1262f9c3bf9"><div class="ttname"><a href="classignition_1_1math_1_1Filter.html#a87635451d7f77a7c50bae1262f9c3bf9">ignition::math::Filter::~Filter</a></div><div class="ttdeci">virtual ~Filter()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:38</div></div>
+<div class="ttc" id="anamespaceignition_html"><div class="ttname"><a href="namespaceignition.html">ignition</a></div><div class="ttdef"><b>Definition:</b> gz/math/AdditivelySeparableScalarField3.hh:27</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Filter_html_a8c46b09412b05975f6eee5cc9c1bf3ef"><div class="ttname"><a href="classignition_1_1math_1_1Filter.html#a8c46b09412b05975f6eee5cc9c1bf3ef">ignition::math::Filter::y0</a></div><div class="ttdeci">T y0</div><div class="ttdoc">Output.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:60</div></div>
+<div class="ttc" id="agz_2math_2Helpers_8hh_html_aec645d4ec6ae87ad507922af67c1d26d"><div class="ttname"><a href="gz_2math_2Helpers_8hh.html#aec645d4ec6ae87ad507922af67c1d26d">IGN_PI</a></div><div class="ttdeci">#define IGN_PI</div><div class="ttdoc">Define IGN_PI, IGN_PI_2, and IGN_PI_4. This was put here for Windows support.</div><div class="ttdef"><b>Definition:</b> gz/math/Helpers.hh:184</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1BiQuad_html_afaf03ab4fbc9c2ba5b88be7d158734a4"><div class="ttname"><a href="classignition_1_1math_1_1BiQuad.html#afaf03ab4fbc9c2ba5b88be7d158734a4">ignition::math::BiQuad::y1</a></div><div class="ttdeci">T y1</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:226</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1OnePole_html"><div class="ttname"><a href="classignition_1_1math_1_1OnePole.html">ignition::math::OnePole</a></div><div class="ttdoc">A one-pole DSP filter.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:67</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1OnePole_html_ad95dcba445836b4ba94129111a4b888c"><div class="ttname"><a href="classignition_1_1math_1_1OnePole.html#ad95dcba445836b4ba94129111a4b888c">ignition::math::OnePole::a0</a></div><div class="ttdeci">double a0</div><div class="ttdoc">Input gain control.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:97</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1BiQuad_html_ac55c2d269ed76bd9bdb7fb25f3533a4e"><div class="ttname"><a href="classignition_1_1math_1_1BiQuad.html#ac55c2d269ed76bd9bdb7fb25f3533a4e">ignition::math::BiQuad::a2</a></div><div class="ttdeci">double a2</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:220</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1BiQuad_html_a09367ba545658a6b27c342825e5aab5b"><div class="ttname"><a href="classignition_1_1math_1_1BiQuad.html#a09367ba545658a6b27c342825e5aab5b">ignition::math::BiQuad::Process</a></div><div class="ttdeci">virtual const T &amp; Process(const T &amp;_x)</div><div class="ttdoc">Update the filter's output.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:202</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1BiQuadVector3_html_a8d183ad4351da4494a3916e9eda9e8f3"><div class="ttname"><a href="classignition_1_1math_1_1BiQuadVector3.html#a8d183ad4351da4494a3916e9eda9e8f3">ignition::math::BiQuadVector3::BiQuadVector3</a></div><div class="ttdeci">BiQuadVector3(double _fc, double _fs)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:242</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Quaternion_html"><div class="ttname"><a href="classignition_1_1math_1_1Quaternion.html">ignition::math::Quaternion</a></div><div class="ttdoc">A quaternion class.</div><div class="ttdef"><b>Definition:</b> gz/math/Matrix3.hh:35</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1BiQuad_html_adfb28a6440d23a1f77d5d00d8b085bc6"><div class="ttname"><a href="classignition_1_1math_1_1BiQuad.html#adfb28a6440d23a1f77d5d00d8b085bc6">ignition::math::BiQuad::x2</a></div><div class="ttdeci">T x2</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:226</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1BiQuad_html_a17c028bda2fc1469aef54e62a0ef40d8"><div class="ttname"><a href="classignition_1_1math_1_1BiQuad.html#a17c028bda2fc1469aef54e62a0ef40d8">ignition::math::BiQuad::BiQuad</a></div><div class="ttdeci">BiQuad()=default</div><div class="ttdoc">Constructor.</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1OnePoleQuaternion_html"><div class="ttname"><a href="classignition_1_1math_1_1OnePoleQuaternion.html">ignition::math::OnePoleQuaternion</a></div><div class="ttdoc">One-pole quaternion filter.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:105</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Quaternion_html_a61f8ed8ce0e2090ff95cbcb034c2f117"><div class="ttname"><a href="classignition_1_1math_1_1Quaternion.html#a61f8ed8ce0e2090ff95cbcb034c2f117">ignition::math::Quaternion::Slerp</a></div><div class="ttdeci">static Quaternion&lt; T &gt; Slerp(T _fT, const Quaternion&lt; T &gt; &amp;_rkP, const Quaternion&lt; T &gt; &amp;_rkQ, bool _shortestPath=false)</div><div class="ttdoc">Spherical linear interpolation between 2 quaternions, given the ends and an interpolation parameter b...</div><div class="ttdef"><b>Definition:</b> gz/math/Quaternion.hh:885</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1OnePole_html_a09797ac367e64ea28ee9e0220ff93651"><div class="ttname"><a href="classignition_1_1math_1_1OnePole.html#a09797ac367e64ea28ee9e0220ff93651">ignition::math::OnePole::OnePole</a></div><div class="ttdeci">OnePole(double _fc, double _fs)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:75</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Filter_html_a4ed52331011471e9cd8537f5681ff00b"><div class="ttname"><a href="classignition_1_1math_1_1Filter.html#a4ed52331011471e9cd8537f5681ff00b">ignition::math::Filter::Value</a></div><div class="ttdeci">virtual const T &amp; Value() const</div><div class="ttdoc">Get the output of the filter.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:54</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1OnePole_html_a84e4813f421c80250583ae23e3f4f100"><div class="ttname"><a href="classignition_1_1math_1_1OnePole.html#a84e4813f421c80250583ae23e3f4f100">ignition::math::OnePole::b1</a></div><div class="ttdeci">double b1</div><div class="ttdoc">Gain of the feedback.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:100</div></div>
+<div class="ttc" id="agz_2math_2Helpers_8hh_html"><div class="ttname"><a href="gz_2math_2Helpers_8hh.html">Helpers.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1OnePole_html_aa28f1f59b398d4b7349846cba261c92e"><div class="ttname"><a href="classignition_1_1math_1_1OnePole.html#aa28f1f59b398d4b7349846cba261c92e">ignition::math::OnePole::Process</a></div><div class="ttdeci">const T &amp; Process(const T &amp;_x)</div><div class="ttdoc">Update the filter's output.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:90</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1OnePoleQuaternion_html_a8d88d5ba78fe115d6482a4f3e660278a"><div class="ttname"><a href="classignition_1_1math_1_1OnePoleQuaternion.html#a8d88d5ba78fe115d6482a4f3e660278a">ignition::math::OnePoleQuaternion::OnePoleQuaternion</a></div><div class="ttdeci">OnePoleQuaternion()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:108</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1BiQuad_html_ab047d20aae61dfea7045970f520c0dac"><div class="ttname"><a href="classignition_1_1math_1_1BiQuad.html#ab047d20aae61dfea7045970f520c0dac">ignition::math::BiQuad::y2</a></div><div class="ttdeci">T y2</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:226</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1BiQuad_html_a5d015a3751aec61f2442b957cb6f517a"><div class="ttname"><a href="classignition_1_1math_1_1BiQuad.html#a5d015a3751aec61f2442b957cb6f517a">ignition::math::BiQuad::a1</a></div><div class="ttdeci">double a1</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:219</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1BiQuad_html"><div class="ttname"><a href="classignition_1_1math_1_1BiQuad.html">ignition::math::BiQuad</a></div><div class="ttdoc">Bi-quad filter base class.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:157</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Filter_html_ae063c5b83ef406d474a14cdcd1c33a70"><div class="ttname"><a href="classignition_1_1math_1_1Filter.html#ae063c5b83ef406d474a14cdcd1c33a70">ignition::math::Filter::Fc</a></div><div class="ttdeci">virtual void Fc(double _fc, double _fs)=0</div><div class="ttdoc">Set the cutoff frequency and sample rate.</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1BiQuad_html_a1396779926a5fc5aeeafceab606e8e10"><div class="ttname"><a href="classignition_1_1math_1_1BiQuad.html#a1396779926a5fc5aeeafceab606e8e10">ignition::math::BiQuad::Fc</a></div><div class="ttdeci">void Fc(double _fc, double _fs, double _q)</div><div class="ttdoc">Set the cutoff frequency, sample rate and Q coefficient.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:180</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1BiQuad_html_a35d10c1e721e67a3616511e45aa89f34"><div class="ttname"><a href="classignition_1_1math_1_1BiQuad.html#a35d10c1e721e67a3616511e45aa89f34">ignition::math::BiQuad::b2</a></div><div class="ttdeci">double b2</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:223</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Filter_html"><div class="ttname"><a href="classignition_1_1math_1_1Filter.html">ignition::math::Filter</a></div><div class="ttdoc">Filter base class.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:35</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1OnePoleVector3_html_a2e7bcdbf4ac75ed389d2c3a792461308"><div class="ttname"><a href="classignition_1_1math_1_1OnePoleVector3.html#a2e7bcdbf4ac75ed389d2c3a792461308">ignition::math::OnePoleVector3::OnePoleVector3</a></div><div class="ttdeci">OnePoleVector3()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:138</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1BiQuad_html_a3794245fb8386eef4c1346fac6f31b8a"><div class="ttname"><a href="classignition_1_1math_1_1BiQuad.html#a3794245fb8386eef4c1346fac6f31b8a">ignition::math::BiQuad::x1</a></div><div class="ttdeci">T x1</div><div class="ttdoc">Gain of the feedback coefficients.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:226</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html">ignition::math::Vector3</a></div><div class="ttdoc">The Vector3 class represents the generic vector containing 3 elements. Since it's commonly used to ke...</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:41</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1OnePoleQuaternion_html_ae135f1ede7ac4c1de47b9f832ea7cd40"><div class="ttname"><a href="classignition_1_1math_1_1OnePoleQuaternion.html#ae135f1ede7ac4c1de47b9f832ea7cd40">ignition::math::OnePoleQuaternion::Process</a></div><div class="ttdeci">const math::Quaterniond &amp; Process(const math::Quaterniond &amp;_x)</div><div class="ttdoc">Update the filter's output.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:125</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1BiQuad_html_a798947bd96f7e2615d107b383cc4b9c6"><div class="ttname"><a href="classignition_1_1math_1_1BiQuad.html#a798947bd96f7e2615d107b383cc4b9c6">ignition::math::BiQuad::b0</a></div><div class="ttdeci">double b0</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:221</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1BiQuad_html_af48038fcd331d3293b1919732d858f76"><div class="ttname"><a href="classignition_1_1math_1_1BiQuad.html#af48038fcd331d3293b1919732d858f76">ignition::math::BiQuad::BiQuad</a></div><div class="ttdeci">BiQuad(double _fc, double _fs)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:165</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1BiQuad_html_a761bf151cb4efdb0fc724df72d87fe53"><div class="ttname"><a href="classignition_1_1math_1_1BiQuad.html#a761bf151cb4efdb0fc724df72d87fe53">ignition::math::BiQuad::Fc</a></div><div class="ttdeci">void Fc(double _fc, double _fs) override</div><div class="ttdoc">Set the cutoff frequency and sample rate.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:171</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1BiQuadVector3_html"><div class="ttname"><a href="classignition_1_1math_1_1BiQuadVector3.html">ignition::math::BiQuadVector3</a></div><div class="ttdoc">BiQuad vector3 filter.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:231</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1BiQuad_html_a84e4813f421c80250583ae23e3f4f100"><div class="ttname"><a href="classignition_1_1math_1_1BiQuad.html#a84e4813f421c80250583ae23e3f4f100">ignition::math::BiQuad::b1</a></div><div class="ttdeci">double b1</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:222</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1BiQuad_html_aa446819ccc4425ab796e2542259af115"><div class="ttname"><a href="classignition_1_1math_1_1BiQuad.html#aa446819ccc4425ab796e2542259af115">ignition::math::BiQuad::Set</a></div><div class="ttdeci">virtual void Set(const T &amp;_val) override</div><div class="ttdoc">Set the current filter's output.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:194</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Filter_html_a5a6b5af0e0b4278084f8e5ef4e2f4f31"><div class="ttname"><a href="classignition_1_1math_1_1Filter.html#a5a6b5af0e0b4278084f8e5ef4e2f4f31">ignition::math::Filter::Set</a></div><div class="ttdeci">virtual void Set(const T &amp;_val)</div><div class="ttdoc">Set the output of the filter.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:42</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1OnePoleVector3_html"><div class="ttname"><a href="classignition_1_1math_1_1OnePoleVector3.html">ignition::math::OnePoleVector3</a></div><div class="ttdoc">One-pole vector3 filter.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:135</div></div>
+<div class="ttc" id="agz_2math_2Vector3_8hh_html"><div class="ttname"><a href="gz_2math_2Vector3_8hh.html">Vector3.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1OnePole_html_aa1064666371a62156da5dd55d51aa896"><div class="ttname"><a href="classignition_1_1math_1_1OnePole.html#aa1064666371a62156da5dd55d51aa896">ignition::math::OnePole::OnePole</a></div><div class="ttdeci">OnePole()=default</div><div class="ttdoc">Constructor.</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1OnePole_html_aff21517656547c5be945be488be6b9c0"><div class="ttname"><a href="classignition_1_1math_1_1OnePole.html#aff21517656547c5be945be488be6b9c0">ignition::math::OnePole::Fc</a></div><div class="ttdeci">virtual void Fc(double _fc, double _fs) override</div><div class="ttdoc">Set the cutoff frequency and sample rate.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:81</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1BiQuad_html_ad95dcba445836b4ba94129111a4b888c"><div class="ttname"><a href="classignition_1_1math_1_1BiQuad.html#ad95dcba445836b4ba94129111a4b888c">ignition::math::BiQuad::a0</a></div><div class="ttdeci">double a0</div><div class="ttdoc">Input gain control coefficients.</div><div class="ttdef"><b>Definition:</b> gz/math/Filter.hh:218</div></div>
+      </div>
+    </main>
+  </div>
+</body>

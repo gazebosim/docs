@@ -1,0 +1,414 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Physics">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Physics: ForwardStep.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Physics</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        5.3.2
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 IgnCreateDocs.cmake -->
+      <nav class="ign-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.8.17 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_c2fdb672e35b72d7728a525f16daf764.html">gz-physics</a></li><li class="navelem"><a class="el" href="dir_c46c1cc21071f3dba746785834e1adf5.html">include</a></li><li class="navelem"><a class="el" href="dir_f1fc66476c54eaef224601674bbb36b0.html">gz</a></li><li class="navelem"><a class="el" href="dir_defcd58beec89ede0ebea901c594f8bf.html">physics</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">gz/physics/ForwardStep.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="gz_2physics_2ForwardStep_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (C) 2017 Open Source Robotics Foundation</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#ifndef GZ_PHYSICS_FORWARDSTEP_HH_</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define GZ_PHYSICS_FORWARDSTEP_HH_</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;gz/math.hh&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="gz_2physics_2SpecifyData_8hh.html">gz/physics/SpecifyData.hh</a>&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="gz_2physics_2FeatureList_8hh.html">gz/physics/FeatureList.hh</a>&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition.html">ignition</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keyword">namespace </span>physics</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// ---------------- Output Data Structures -----------------</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">// In the long-term, these data structures should be defined in some kind of</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="comment">// meta-file, and our build system should generate these definitions during</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// compilation. These are being defined here in this header until we know</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// more about how the ECS will work.</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1WorldPose.html">   39</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1WorldPose.html">WorldPose</a></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1WorldPose.html#a0fa0526f60dd0d221e37f32ccc43ff3a">   41</a></span>&#160;      <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html">ignition::math::Pose3d</a> <a class="code" href="structignition_1_1physics_1_1WorldPose.html#a0fa0526f60dd0d221e37f32ccc43ff3a">pose</a>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1WorldPose.html#a5eb983a1828f291de2902b3de5ff7958">   43</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/size_t.html">std::size_t</a> <a class="code" href="structignition_1_1physics_1_1WorldPose.html#a5eb983a1828f291de2902b3de5ff7958">body</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    };</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1WorldPoses.html">   46</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1WorldPoses.html">WorldPoses</a></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1WorldPoses.html#af5f538942da07f134afe3bbab18e9d14">   48</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;WorldPose&gt;</a> <a class="code" href="structignition_1_1physics_1_1WorldPoses.html#af5f538942da07f134afe3bbab18e9d14">entries</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1WorldPoses.html#ad25fd12f25e079ce4a3ab65645a92ae7">   49</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> <a class="code" href="structignition_1_1physics_1_1WorldPoses.html#ad25fd12f25e079ce4a3ab65645a92ae7">annotation</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    };</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ChangedWorldPoses.html">   55</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1ChangedWorldPoses.html">ChangedWorldPoses</a></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    {</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ChangedWorldPoses.html#af5f538942da07f134afe3bbab18e9d14">   57</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;WorldPose&gt;</a> <a class="code" href="structignition_1_1physics_1_1ChangedWorldPoses.html#af5f538942da07f134afe3bbab18e9d14">entries</a>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ChangedWorldPoses.html#ad25fd12f25e079ce4a3ab65645a92ae7">   58</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> <a class="code" href="structignition_1_1physics_1_1ChangedWorldPoses.html#ad25fd12f25e079ce4a3ab65645a92ae7">annotation</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    };</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1Point.html">   61</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1Point.html">Point</a></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
+<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1Point.html#afdd7363006823656c7858b12127f9eeb">   63</a></span>&#160;      <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Vector3.html">ignition::math::Vector3d</a> <a class="code" href="structignition_1_1physics_1_1Point.html#afdd7363006823656c7858b12127f9eeb">point</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1Point.html#ace7cdb20ce077a5298e3282d9b004310">   65</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/size_t.html">std::size_t</a> <a class="code" href="structignition_1_1physics_1_1Point.html#ace7cdb20ce077a5298e3282d9b004310">relativeTo</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1Point.html#a96fa6ecf184671b89afa0d70b80189a8">   66</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/size_t.html">std::size_t</a> <a class="code" href="structignition_1_1physics_1_1Point.html#a96fa6ecf184671b89afa0d70b80189a8">inCoordinatesOf</a>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    };</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1FreeVector.html">   69</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1FreeVector.html">FreeVector</a></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    {</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1FreeVector.html#a87d400f40e8722519a591828ed63e9c6">   71</a></span>&#160;      <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Vector3.html">ignition::math::Vector3d</a> <a class="code" href="structignition_1_1physics_1_1FreeVector.html#a87d400f40e8722519a591828ed63e9c6">vec</a>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1FreeVector.html#a96fa6ecf184671b89afa0d70b80189a8">   73</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/size_t.html">std::size_t</a> <a class="code" href="structignition_1_1physics_1_1FreeVector.html#a96fa6ecf184671b89afa0d70b80189a8">inCoordinatesOf</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    };</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1JointPositions.html">   76</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1JointPositions.html">JointPositions</a></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    {</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1JointPositions.html#adfcdfb5d64985f5805025d7717946ac2">   78</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;std::size_t&gt;</a> <a class="code" href="structignition_1_1physics_1_1JointPositions.html#adfcdfb5d64985f5805025d7717946ac2">dofs</a>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1JointPositions.html#a649cc300c964845ccc272fd2229b6ed4">   79</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;double&gt;</a> <a class="code" href="structignition_1_1physics_1_1JointPositions.html#a649cc300c964845ccc272fd2229b6ed4">positions</a>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1JointPositions.html#ad25fd12f25e079ce4a3ab65645a92ae7">   80</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> <a class="code" href="structignition_1_1physics_1_1JointPositions.html#ad25fd12f25e079ce4a3ab65645a92ae7">annotation</a>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    };</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1Contacts.html">   83</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1Contacts.html">Contacts</a></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    {</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1Contacts.html#a78ee83ec80ef9ddc4bbddae046524550">   85</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;Point&gt;</a> <a class="code" href="structignition_1_1physics_1_1Contacts.html#a78ee83ec80ef9ddc4bbddae046524550">entries</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1Contacts.html#ad25fd12f25e079ce4a3ab65645a92ae7">   86</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> <a class="code" href="structignition_1_1physics_1_1Contacts.html#ad25fd12f25e079ce4a3ab65645a92ae7">annotation</a>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    };</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">// ---------------- Input Data Structures -----------------</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="comment">// Same note as for Output Data Structures. Eventually, these should be</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="comment">// defined in some kind of meta files.</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1TimeStep.html">   93</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1TimeStep.html">TimeStep</a></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    {</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1TimeStep.html#a03e28be41881b703c836edbfe9b51b17">   95</a></span>&#160;      <span class="keywordtype">double</span> <a class="code" href="structignition_1_1physics_1_1TimeStep.html#a03e28be41881b703c836edbfe9b51b17">dt</a>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    };</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ForceTorque.html">   98</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1ForceTorque.html">ForceTorque</a></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    {</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ForceTorque.html#a5eb983a1828f291de2902b3de5ff7958">  100</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/size_t.html">std::size_t</a> <a class="code" href="structignition_1_1physics_1_1ForceTorque.html#a5eb983a1828f291de2902b3de5ff7958">body</a>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ForceTorque.html#ac7c7e0cd54092c1460c14f5f3f4c5d40">  101</a></span>&#160;      <a class="code" href="structignition_1_1physics_1_1Point.html">Point</a> <a class="code" href="structignition_1_1physics_1_1ForceTorque.html#ac7c7e0cd54092c1460c14f5f3f4c5d40">location</a>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ForceTorque.html#a6115a17c528859b01a49514c4153ab38">  103</a></span>&#160;      <a class="code" href="structignition_1_1physics_1_1FreeVector.html">FreeVector</a> <a class="code" href="structignition_1_1physics_1_1ForceTorque.html#a6115a17c528859b01a49514c4153ab38">force</a>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ForceTorque.html#a09486f2f1a654a796f2c52f652c45f52">  104</a></span>&#160;      <a class="code" href="structignition_1_1physics_1_1FreeVector.html">FreeVector</a> <a class="code" href="structignition_1_1physics_1_1ForceTorque.html#a09486f2f1a654a796f2c52f652c45f52">torque</a>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ForceTorque.html#ad25fd12f25e079ce4a3ab65645a92ae7">  106</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> <a class="code" href="structignition_1_1physics_1_1ForceTorque.html#ad25fd12f25e079ce4a3ab65645a92ae7">annotation</a>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    };</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1GeneralizedParameters.html">  109</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1GeneralizedParameters.html">GeneralizedParameters</a></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    {</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1GeneralizedParameters.html#adfcdfb5d64985f5805025d7717946ac2">  111</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;std::size_t&gt;</a> <a class="code" href="structignition_1_1physics_1_1GeneralizedParameters.html#adfcdfb5d64985f5805025d7717946ac2">dofs</a>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1GeneralizedParameters.html#aed7012f304dbd824a017cad1b8b6f370">  112</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;double&gt;</a> <a class="code" href="structignition_1_1physics_1_1GeneralizedParameters.html#aed7012f304dbd824a017cad1b8b6f370">forces</a>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1GeneralizedParameters.html#ad25fd12f25e079ce4a3ab65645a92ae7">  113</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> <a class="code" href="structignition_1_1physics_1_1GeneralizedParameters.html#ad25fd12f25e079ce4a3ab65645a92ae7">annotation</a>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    };</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1PIDValues.html">  116</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1PIDValues.html">PIDValues</a></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    {</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1PIDValues.html#a8019aa9167c19c810aefa4cd5c0b0ab5">  118</a></span>&#160;      <span class="keywordtype">double</span> <a class="code" href="structignition_1_1physics_1_1PIDValues.html#a8019aa9167c19c810aefa4cd5c0b0ab5">P</a>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1PIDValues.html#a07eb382f5743a852ab6f175e5db993f9">  119</a></span>&#160;      <span class="keywordtype">double</span> <a class="code" href="structignition_1_1physics_1_1PIDValues.html#a07eb382f5743a852ab6f175e5db993f9">I</a>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1PIDValues.html#ad8657a5ec76e12f3066fb4b4eb75ace9">  120</a></span>&#160;      <span class="keywordtype">double</span> <a class="code" href="structignition_1_1physics_1_1PIDValues.html#ad8657a5ec76e12f3066fb4b4eb75ace9">D</a>;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    };</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ApplyExternalForceTorques.html">  123</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1ApplyExternalForceTorques.html">ApplyExternalForceTorques</a></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    {</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ApplyExternalForceTorques.html#a364412d68f3fb3228f0ad728e44f455c">  125</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;ForceTorque&gt;</a> <a class="code" href="structignition_1_1physics_1_1ApplyExternalForceTorques.html#a364412d68f3fb3228f0ad728e44f455c">entries</a>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ApplyExternalForceTorques.html#ad25fd12f25e079ce4a3ab65645a92ae7">  126</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> <a class="code" href="structignition_1_1physics_1_1ApplyExternalForceTorques.html#ad25fd12f25e079ce4a3ab65645a92ae7">annotation</a>;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    };</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ApplyGeneralizedForces.html">  129</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1ApplyGeneralizedForces.html">ApplyGeneralizedForces</a></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    {</div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ApplyGeneralizedForces.html#ab0b60fc0e1a502a98b1840769a86772b">  131</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;GeneralizedParameters&gt;</a> <a class="code" href="structignition_1_1physics_1_1ApplyGeneralizedForces.html#ab0b60fc0e1a502a98b1840769a86772b">forces</a>;</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ApplyGeneralizedForces.html#ad25fd12f25e079ce4a3ab65645a92ae7">  132</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> <a class="code" href="structignition_1_1physics_1_1ApplyGeneralizedForces.html#ad25fd12f25e079ce4a3ab65645a92ae7">annotation</a>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    };</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1VelocityControlCommands.html">  135</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1VelocityControlCommands.html">VelocityControlCommands</a></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    {</div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1VelocityControlCommands.html#aeb6a13cd37b311d7c34d6ee052b971fe">  137</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;GeneralizedParameters&gt;</a> <a class="code" href="structignition_1_1physics_1_1VelocityControlCommands.html#aeb6a13cd37b311d7c34d6ee052b971fe">commands</a>;</div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1VelocityControlCommands.html#ad25fd12f25e079ce4a3ab65645a92ae7">  138</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> <a class="code" href="structignition_1_1physics_1_1VelocityControlCommands.html#ad25fd12f25e079ce4a3ab65645a92ae7">annotation</a>;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    };</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ServoControlCommands.html">  141</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1ServoControlCommands.html">ServoControlCommands</a></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    {</div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ServoControlCommands.html#aeb6a13cd37b311d7c34d6ee052b971fe">  143</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;GeneralizedParameters&gt;</a> <a class="code" href="structignition_1_1physics_1_1ServoControlCommands.html#aeb6a13cd37b311d7c34d6ee052b971fe">commands</a>;</div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ServoControlCommands.html#ad9882499db496d9b773ef0f60e9ce713">  144</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;PIDValues&gt;</a> <a class="code" href="structignition_1_1physics_1_1ServoControlCommands.html#ad9882499db496d9b773ef0f60e9ce713">gains</a>;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ServoControlCommands.html#ad25fd12f25e079ce4a3ab65645a92ae7">  146</a></span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> <a class="code" href="structignition_1_1physics_1_1ServoControlCommands.html#ad25fd12f25e079ce4a3ab65645a92ae7">annotation</a>;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    };</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="classignition_1_1physics_1_1ForwardStep.html">  152</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classignition_1_1physics_1_1ForwardStep.html">ForwardStep</a> : <span class="keyword">public</span> <span class="keyword">virtual</span> <a class="code" href="classignition_1_1physics_1_1Feature.html">Feature</a></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    {</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      <span class="keyword">public</span>: <span class="keyword">using</span> <a class="code" href="classignition_1_1physics_1_1ForwardStep.html#ad3728ac60f9a37ea4d4648079f8a3b92">Input</a> = ExpectData&lt;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;              <a class="code" href="structignition_1_1physics_1_1ApplyExternalForceTorques.html">ApplyExternalForceTorques</a>,</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;              <a class="code" href="structignition_1_1physics_1_1ApplyGeneralizedForces.html">ApplyGeneralizedForces</a>,</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;              <a class="code" href="structignition_1_1physics_1_1VelocityControlCommands.html">VelocityControlCommands</a>,</div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="classignition_1_1physics_1_1ForwardStep.html#ad3728ac60f9a37ea4d4648079f8a3b92">  158</a></span>&#160;              <a class="code" href="structignition_1_1physics_1_1ServoControlCommands.html">ServoControlCommands</a>&gt;;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;      <span class="keyword">public</span>: <span class="keyword">using</span> <a class="code" href="classignition_1_1physics_1_1SpecifyData.html">Output</a> = <a class="code" href="classignition_1_1physics_1_1SpecifyData.html">SpecifyData</a>&lt;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;          RequireData&lt;WorldPoses&gt;,</div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="classignition_1_1physics_1_1ForwardStep.html#abedfe1d313852fd517ae6e8e1590ced7">  162</a></span>&#160;          ExpectData&lt;ChangedWorldPoses, Contacts, JointPositions&gt; &gt;;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="classignition_1_1physics_1_1ForwardStep.html#a07fc25a5afb94bf619a2c6922ff06e81">  164</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">using</span> <a class="code" href="classignition_1_1physics_1_1CompositeData.html">State</a> = <a class="code" href="classignition_1_1physics_1_1CompositeData.html">CompositeData</a>;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span> &lt;<span class="keyword">typename</span> PolicyT, <span class="keyword">typename</span> FeaturesT&gt;</div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="classignition_1_1physics_1_1ForwardStep_1_1World.html">  167</a></span>&#160;      <span class="keyword">class </span><a class="code" href="classignition_1_1physics_1_1ForwardStep_1_1World.html">World</a> : <span class="keyword">public</span> <span class="keyword">virtual</span> <a class="code" href="classignition_1_1physics_1_1Feature_1_1World.html">Feature::World</a>&lt;PolicyT, FeaturesT&gt;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;      {</div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="classignition_1_1physics_1_1ForwardStep_1_1World.html#a01fb61495d2eeda972a16814cc899cd0">  169</a></span>&#160;        <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classignition_1_1physics_1_1ForwardStep_1_1World.html#a01fb61495d2eeda972a16814cc899cd0">Step</a>(<a class="code" href="classignition_1_1physics_1_1SpecifyData.html">Output</a> &amp;_h, <a class="code" href="classignition_1_1physics_1_1CompositeData.html">State</a> &amp;_x, <span class="keyword">const</span> <a class="code" href="classignition_1_1physics_1_1ForwardStep.html#ad3728ac60f9a37ea4d4648079f8a3b92">Input</a> &amp;_u)</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;        {</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;          this-&gt;<span class="keyword">template</span> Interface&lt;ForwardStep&gt;()-&gt;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;              WorldForwardStep(this-&gt;<a class="code" href="classignition_1_1physics_1_1Entity.html#a24794d1d2ae15cbfb2107668b4636c7a">identity</a>, _h, _x, _u);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        }</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;      };</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span> &lt;<span class="keyword">typename</span> PolicyT&gt;</div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="classignition_1_1physics_1_1ForwardStep_1_1Implementation.html">  177</a></span>&#160;      <span class="keyword">class </span><a class="code" href="classignition_1_1physics_1_1ForwardStep_1_1Implementation.html">Implementation</a> : <span class="keyword">public</span> <span class="keyword">virtual</span> <a class="code" href="classignition_1_1physics_1_1Feature_1_1Implementation.html">Feature::Implementation&lt;PolicyT&gt;</a></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;      {</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> WorldForwardStep(</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;            <span class="keyword">const</span> Identity &amp;_worldID,</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;            <a class="code" href="classignition_1_1physics_1_1SpecifyData.html">Output</a> &amp;_h,</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;            <a class="code" href="classignition_1_1physics_1_1CompositeData.html">State</a> &amp;_x,</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            <span class="keyword">const</span> <a class="code" href="classignition_1_1physics_1_1ForwardStep.html#ad3728ac60f9a37ea4d4648079f8a3b92">Input</a> &amp;_u) = 0;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;      };</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    };</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="comment">// ---------------- SetState Interface -----------------</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="comment">// class SetState</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="comment">// {</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="comment">//   public: using State = CompositeData;</span></div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="comment">//   public: virtual void SetStateTo(const State &amp;x) = 0;</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="comment">//   public: virtual ~SetState() = default;</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="comment">// };</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  }</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;}</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="astructignition_1_1physics_1_1PIDValues_html_ad8657a5ec76e12f3066fb4b4eb75ace9"><div class="ttname"><a href="structignition_1_1physics_1_1PIDValues.html#ad8657a5ec76e12f3066fb4b4eb75ace9">ignition::physics::PIDValues::D</a></div><div class="ttdeci">double D</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:120</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1TimeStep_html"><div class="ttname"><a href="structignition_1_1physics_1_1TimeStep.html">ignition::physics::TimeStep</a></div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:93</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1ForceTorque_html_a09486f2f1a654a796f2c52f652c45f52"><div class="ttname"><a href="structignition_1_1physics_1_1ForceTorque.html#a09486f2f1a654a796f2c52f652c45f52">ignition::physics::ForceTorque::torque</a></div><div class="ttdeci">FreeVector torque</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:104</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1ServoControlCommands_html_aeb6a13cd37b311d7c34d6ee052b971fe"><div class="ttname"><a href="structignition_1_1physics_1_1ServoControlCommands.html#aeb6a13cd37b311d7c34d6ee052b971fe">ignition::physics::ServoControlCommands::commands</a></div><div class="ttdeci">std::vector&lt; GeneralizedParameters &gt; commands</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:143</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1GeneralizedParameters_html_adfcdfb5d64985f5805025d7717946ac2"><div class="ttname"><a href="structignition_1_1physics_1_1GeneralizedParameters.html#adfcdfb5d64985f5805025d7717946ac2">ignition::physics::GeneralizedParameters::dofs</a></div><div class="ttdeci">std::vector&lt; std::size_t &gt; dofs</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:111</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Pose3_html"><div class="ttname"><a href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html">ignition::math::Pose3</a></div></div>
+<div class="ttc" id="anamespaceignition_html"><div class="ttname"><a href="namespaceignition.html">ignition</a></div></div>
+<div class="ttc" id="abasic_string_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a></div><div class="ttdoc">STL class.</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1Point_html_ace7cdb20ce077a5298e3282d9b004310"><div class="ttname"><a href="structignition_1_1physics_1_1Point.html#ace7cdb20ce077a5298e3282d9b004310">ignition::physics::Point::relativeTo</a></div><div class="ttdeci">std::size_t relativeTo</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:65</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1FreeVector_html_a96fa6ecf184671b89afa0d70b80189a8"><div class="ttname"><a href="structignition_1_1physics_1_1FreeVector.html#a96fa6ecf184671b89afa0d70b80189a8">ignition::physics::FreeVector::inCoordinatesOf</a></div><div class="ttdeci">std::size_t inCoordinatesOf</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:73</div></div>
+<div class="ttc" id="avector_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a></div><div class="ttdoc">STL class.</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1Contacts_html_a78ee83ec80ef9ddc4bbddae046524550"><div class="ttname"><a href="structignition_1_1physics_1_1Contacts.html#a78ee83ec80ef9ddc4bbddae046524550">ignition::physics::Contacts::entries</a></div><div class="ttdeci">std::vector&lt; Point &gt; entries</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:85</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1ApplyGeneralizedForces_html"><div class="ttname"><a href="structignition_1_1physics_1_1ApplyGeneralizedForces.html">ignition::physics::ApplyGeneralizedForces</a></div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:129</div></div>
+<div class="ttc" id="aclassignition_1_1physics_1_1SpecifyData_html"><div class="ttname"><a href="classignition_1_1physics_1_1SpecifyData.html">ignition::physics::SpecifyData</a></div><div class="ttdoc">The SpecifyData class allows you to form combinations of data specifications. In other words,...</div><div class="ttdef"><b>Definition:</b> gz/physics/SpecifyData.hh:265</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1ForceTorque_html_ac7c7e0cd54092c1460c14f5f3f4c5d40"><div class="ttname"><a href="structignition_1_1physics_1_1ForceTorque.html#ac7c7e0cd54092c1460c14f5f3f4c5d40">ignition::physics::ForceTorque::location</a></div><div class="ttdeci">Point location</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:101</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1WorldPoses_html_ad25fd12f25e079ce4a3ab65645a92ae7"><div class="ttname"><a href="structignition_1_1physics_1_1WorldPoses.html#ad25fd12f25e079ce4a3ab65645a92ae7">ignition::physics::WorldPoses::annotation</a></div><div class="ttdeci">std::string annotation</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:49</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1FreeVector_html_a87d400f40e8722519a591828ed63e9c6"><div class="ttname"><a href="structignition_1_1physics_1_1FreeVector.html#a87d400f40e8722519a591828ed63e9c6">ignition::physics::FreeVector::vec</a></div><div class="ttdeci">ignition::math::Vector3d vec</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:71</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1JointPositions_html_a649cc300c964845ccc272fd2229b6ed4"><div class="ttname"><a href="structignition_1_1physics_1_1JointPositions.html#a649cc300c964845ccc272fd2229b6ed4">ignition::physics::JointPositions::positions</a></div><div class="ttdeci">std::vector&lt; double &gt; positions</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:79</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1ApplyGeneralizedForces_html_ab0b60fc0e1a502a98b1840769a86772b"><div class="ttname"><a href="structignition_1_1physics_1_1ApplyGeneralizedForces.html#ab0b60fc0e1a502a98b1840769a86772b">ignition::physics::ApplyGeneralizedForces::forces</a></div><div class="ttdeci">std::vector&lt; GeneralizedParameters &gt; forces</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:131</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1Point_html_a96fa6ecf184671b89afa0d70b80189a8"><div class="ttname"><a href="structignition_1_1physics_1_1Point.html#a96fa6ecf184671b89afa0d70b80189a8">ignition::physics::Point::inCoordinatesOf</a></div><div class="ttdeci">std::size_t inCoordinatesOf</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:66</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1WorldPose_html"><div class="ttname"><a href="structignition_1_1physics_1_1WorldPose.html">ignition::physics::WorldPose</a></div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:39</div></div>
+<div class="ttc" id="aclassignition_1_1physics_1_1ForwardStep_1_1World_html_a01fb61495d2eeda972a16814cc899cd0"><div class="ttname"><a href="classignition_1_1physics_1_1ForwardStep_1_1World.html#a01fb61495d2eeda972a16814cc899cd0">ignition::physics::ForwardStep::World::Step</a></div><div class="ttdeci">void Step(Output &amp;_h, State &amp;_x, const Input &amp;_u)</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:169</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1GeneralizedParameters_html_ad25fd12f25e079ce4a3ab65645a92ae7"><div class="ttname"><a href="structignition_1_1physics_1_1GeneralizedParameters.html#ad25fd12f25e079ce4a3ab65645a92ae7">ignition::physics::GeneralizedParameters::annotation</a></div><div class="ttdeci">std::string annotation</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:113</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1Point_html_afdd7363006823656c7858b12127f9eeb"><div class="ttname"><a href="structignition_1_1physics_1_1Point.html#afdd7363006823656c7858b12127f9eeb">ignition::physics::Point::point</a></div><div class="ttdeci">ignition::math::Vector3d point</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:63</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1ForceTorque_html"><div class="ttname"><a href="structignition_1_1physics_1_1ForceTorque.html">ignition::physics::ForceTorque</a></div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:98</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1JointPositions_html_ad25fd12f25e079ce4a3ab65645a92ae7"><div class="ttname"><a href="structignition_1_1physics_1_1JointPositions.html#ad25fd12f25e079ce4a3ab65645a92ae7">ignition::physics::JointPositions::annotation</a></div><div class="ttdeci">std::string annotation</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:80</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1Contacts_html"><div class="ttname"><a href="structignition_1_1physics_1_1Contacts.html">ignition::physics::Contacts</a></div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:83</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1FreeVector_html"><div class="ttname"><a href="structignition_1_1physics_1_1FreeVector.html">ignition::physics::FreeVector</a></div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:69</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1GeneralizedParameters_html"><div class="ttname"><a href="structignition_1_1physics_1_1GeneralizedParameters.html">ignition::physics::GeneralizedParameters</a></div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:109</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1WorldPose_html_a0fa0526f60dd0d221e37f32ccc43ff3a"><div class="ttname"><a href="structignition_1_1physics_1_1WorldPose.html#a0fa0526f60dd0d221e37f32ccc43ff3a">ignition::physics::WorldPose::pose</a></div><div class="ttdeci">ignition::math::Pose3d pose</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:41</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1PIDValues_html_a8019aa9167c19c810aefa4cd5c0b0ab5"><div class="ttname"><a href="structignition_1_1physics_1_1PIDValues.html#a8019aa9167c19c810aefa4cd5c0b0ab5">ignition::physics::PIDValues::P</a></div><div class="ttdeci">double P</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:118</div></div>
+<div class="ttc" id="aclassignition_1_1physics_1_1ForwardStep_html"><div class="ttname"><a href="classignition_1_1physics_1_1ForwardStep.html">ignition::physics::ForwardStep</a></div><div class="ttdoc">ForwardStep is a feature that allows a simulation of a world to take one step forward in time.</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:152</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1VelocityControlCommands_html_aeb6a13cd37b311d7c34d6ee052b971fe"><div class="ttname"><a href="structignition_1_1physics_1_1VelocityControlCommands.html#aeb6a13cd37b311d7c34d6ee052b971fe">ignition::physics::VelocityControlCommands::commands</a></div><div class="ttdeci">std::vector&lt; GeneralizedParameters &gt; commands</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:137</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1ForceTorque_html_ad25fd12f25e079ce4a3ab65645a92ae7"><div class="ttname"><a href="structignition_1_1physics_1_1ForceTorque.html#ad25fd12f25e079ce4a3ab65645a92ae7">ignition::physics::ForceTorque::annotation</a></div><div class="ttdeci">std::string annotation</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:106</div></div>
+<div class="ttc" id="aclassignition_1_1physics_1_1Feature_1_1Implementation_html"><div class="ttname"><a href="classignition_1_1physics_1_1Feature_1_1Implementation.html">ignition::physics::Feature::Implementation&lt; PolicyT &gt;</a></div></div>
+<div class="ttc" id="aclassignition_1_1physics_1_1Feature_html"><div class="ttname"><a href="classignition_1_1physics_1_1Feature.html">ignition::physics::Feature</a></div><div class="ttdoc">This class defines the concept of a Feature. It should be inherited by classes that define some plugi...</div><div class="ttdef"><b>Definition:</b> gz/physics/Feature.hh:35</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1ChangedWorldPoses_html_af5f538942da07f134afe3bbab18e9d14"><div class="ttname"><a href="structignition_1_1physics_1_1ChangedWorldPoses.html#af5f538942da07f134afe3bbab18e9d14">ignition::physics::ChangedWorldPoses::entries</a></div><div class="ttdeci">std::vector&lt; WorldPose &gt; entries</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:57</div></div>
+<div class="ttc" id="aclassignition_1_1physics_1_1ForwardStep_1_1World_html"><div class="ttname"><a href="classignition_1_1physics_1_1ForwardStep_1_1World.html">ignition::physics::ForwardStep::World</a></div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:167</div></div>
+<div class="ttc" id="aclassignition_1_1physics_1_1Entity_html_a24794d1d2ae15cbfb2107668b4636c7a"><div class="ttname"><a href="classignition_1_1physics_1_1Entity.html#a24794d1d2ae15cbfb2107668b4636c7a">ignition::physics::Entity::identity</a></div><div class="ttdeci">Identity identity</div><div class="ttdoc">This field contains information to identify the entity.</div><div class="ttdef"><b>Definition:</b> gz/physics/Entity.hh:292</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1PIDValues_html_a07eb382f5743a852ab6f175e5db993f9"><div class="ttname"><a href="structignition_1_1physics_1_1PIDValues.html#a07eb382f5743a852ab6f175e5db993f9">ignition::physics::PIDValues::I</a></div><div class="ttdeci">double I</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:119</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html"><div class="ttname"><a href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Vector3.html">ignition::math::Vector3</a></div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1ApplyExternalForceTorques_html_a364412d68f3fb3228f0ad728e44f455c"><div class="ttname"><a href="structignition_1_1physics_1_1ApplyExternalForceTorques.html#a364412d68f3fb3228f0ad728e44f455c">ignition::physics::ApplyExternalForceTorques::entries</a></div><div class="ttdeci">std::vector&lt; ForceTorque &gt; entries</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:125</div></div>
+<div class="ttc" id="aclassignition_1_1physics_1_1ForwardStep_html_ad3728ac60f9a37ea4d4648079f8a3b92"><div class="ttname"><a href="classignition_1_1physics_1_1ForwardStep.html#ad3728ac60f9a37ea4d4648079f8a3b92">ignition::physics::ForwardStep::Input</a></div><div class="ttdeci">ExpectData&lt; ApplyExternalForceTorques, ApplyGeneralizedForces, VelocityControlCommands, ServoControlCommands &gt; Input</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:158</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1ApplyExternalForceTorques_html_ad25fd12f25e079ce4a3ab65645a92ae7"><div class="ttname"><a href="structignition_1_1physics_1_1ApplyExternalForceTorques.html#ad25fd12f25e079ce4a3ab65645a92ae7">ignition::physics::ApplyExternalForceTorques::annotation</a></div><div class="ttdeci">std::string annotation</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:126</div></div>
+<div class="ttc" id="aclassignition_1_1physics_1_1CompositeData_html"><div class="ttname"><a href="classignition_1_1physics_1_1CompositeData.html">ignition::physics::CompositeData</a></div><div class="ttdoc">The CompositeData class allows arbitrary data structures to be composed together, copied,...</div><div class="ttdef"><b>Definition:</b> gz/physics/CompositeData.hh:43</div></div>
+<div class="ttc" id="aclassignition_1_1physics_1_1ForwardStep_1_1Implementation_html"><div class="ttname"><a href="classignition_1_1physics_1_1ForwardStep_1_1Implementation.html">ignition::physics::ForwardStep::Implementation</a></div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:177</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1JointPositions_html_adfcdfb5d64985f5805025d7717946ac2"><div class="ttname"><a href="structignition_1_1physics_1_1JointPositions.html#adfcdfb5d64985f5805025d7717946ac2">ignition::physics::JointPositions::dofs</a></div><div class="ttdeci">std::vector&lt; std::size_t &gt; dofs</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:78</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1TimeStep_html_a03e28be41881b703c836edbfe9b51b17"><div class="ttname"><a href="structignition_1_1physics_1_1TimeStep.html#a03e28be41881b703c836edbfe9b51b17">ignition::physics::TimeStep::dt</a></div><div class="ttdeci">double dt</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:95</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1ForceTorque_html_a5eb983a1828f291de2902b3de5ff7958"><div class="ttname"><a href="structignition_1_1physics_1_1ForceTorque.html#a5eb983a1828f291de2902b3de5ff7958">ignition::physics::ForceTorque::body</a></div><div class="ttdeci">std::size_t body</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:100</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1VelocityControlCommands_html"><div class="ttname"><a href="structignition_1_1physics_1_1VelocityControlCommands.html">ignition::physics::VelocityControlCommands</a></div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:135</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1ApplyExternalForceTorques_html"><div class="ttname"><a href="structignition_1_1physics_1_1ApplyExternalForceTorques.html">ignition::physics::ApplyExternalForceTorques</a></div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:123</div></div>
+<div class="ttc" id="aclassignition_1_1physics_1_1Feature_1_1World_html"><div class="ttname"><a href="classignition_1_1physics_1_1Feature_1_1World.html">ignition::physics::Feature::World</a></div><div class="ttdoc">Placeholder class in case a Feature does not define its own World API.</div><div class="ttdef"><b>Definition:</b> gz/physics/Feature.hh:49</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1ServoControlCommands_html_ad25fd12f25e079ce4a3ab65645a92ae7"><div class="ttname"><a href="structignition_1_1physics_1_1ServoControlCommands.html#ad25fd12f25e079ce4a3ab65645a92ae7">ignition::physics::ServoControlCommands::annotation</a></div><div class="ttdeci">std::string annotation</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:146</div></div>
+<div class="ttc" id="agz_2physics_2SpecifyData_8hh_html"><div class="ttname"><a href="gz_2physics_2SpecifyData_8hh.html">SpecifyData.hh</a></div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1PIDValues_html"><div class="ttname"><a href="structignition_1_1physics_1_1PIDValues.html">ignition::physics::PIDValues</a></div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:116</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1ChangedWorldPoses_html_ad25fd12f25e079ce4a3ab65645a92ae7"><div class="ttname"><a href="structignition_1_1physics_1_1ChangedWorldPoses.html#ad25fd12f25e079ce4a3ab65645a92ae7">ignition::physics::ChangedWorldPoses::annotation</a></div><div class="ttdeci">std::string annotation</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:58</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1WorldPoses_html_af5f538942da07f134afe3bbab18e9d14"><div class="ttname"><a href="structignition_1_1physics_1_1WorldPoses.html#af5f538942da07f134afe3bbab18e9d14">ignition::physics::WorldPoses::entries</a></div><div class="ttdeci">std::vector&lt; WorldPose &gt; entries</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:48</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1Contacts_html_ad25fd12f25e079ce4a3ab65645a92ae7"><div class="ttname"><a href="structignition_1_1physics_1_1Contacts.html#ad25fd12f25e079ce4a3ab65645a92ae7">ignition::physics::Contacts::annotation</a></div><div class="ttdeci">std::string annotation</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:86</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1WorldPoses_html"><div class="ttname"><a href="structignition_1_1physics_1_1WorldPoses.html">ignition::physics::WorldPoses</a></div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:46</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1ApplyGeneralizedForces_html_ad25fd12f25e079ce4a3ab65645a92ae7"><div class="ttname"><a href="structignition_1_1physics_1_1ApplyGeneralizedForces.html#ad25fd12f25e079ce4a3ab65645a92ae7">ignition::physics::ApplyGeneralizedForces::annotation</a></div><div class="ttdeci">std::string annotation</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:132</div></div>
+<div class="ttc" id="asize_t_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/types/size_t.html">std::size_t</a></div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1VelocityControlCommands_html_ad25fd12f25e079ce4a3ab65645a92ae7"><div class="ttname"><a href="structignition_1_1physics_1_1VelocityControlCommands.html#ad25fd12f25e079ce4a3ab65645a92ae7">ignition::physics::VelocityControlCommands::annotation</a></div><div class="ttdeci">std::string annotation</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:138</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1ServoControlCommands_html"><div class="ttname"><a href="structignition_1_1physics_1_1ServoControlCommands.html">ignition::physics::ServoControlCommands</a></div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:141</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1JointPositions_html"><div class="ttname"><a href="structignition_1_1physics_1_1JointPositions.html">ignition::physics::JointPositions</a></div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:76</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1GeneralizedParameters_html_aed7012f304dbd824a017cad1b8b6f370"><div class="ttname"><a href="structignition_1_1physics_1_1GeneralizedParameters.html#aed7012f304dbd824a017cad1b8b6f370">ignition::physics::GeneralizedParameters::forces</a></div><div class="ttdeci">std::vector&lt; double &gt; forces</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:112</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1Point_html"><div class="ttname"><a href="structignition_1_1physics_1_1Point.html">ignition::physics::Point</a></div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:61</div></div>
+<div class="ttc" id="agz_2physics_2FeatureList_8hh_html"><div class="ttname"><a href="gz_2physics_2FeatureList_8hh.html">FeatureList.hh</a></div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1ForceTorque_html_a6115a17c528859b01a49514c4153ab38"><div class="ttname"><a href="structignition_1_1physics_1_1ForceTorque.html#a6115a17c528859b01a49514c4153ab38">ignition::physics::ForceTorque::force</a></div><div class="ttdeci">FreeVector force</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:103</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1ChangedWorldPoses_html"><div class="ttname"><a href="structignition_1_1physics_1_1ChangedWorldPoses.html">ignition::physics::ChangedWorldPoses</a></div><div class="ttdoc">ChangedWorldPoses has the same definition as WorldPoses. This type provides a way to keep track of wh...</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:55</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1WorldPose_html_a5eb983a1828f291de2902b3de5ff7958"><div class="ttname"><a href="structignition_1_1physics_1_1WorldPose.html#a5eb983a1828f291de2902b3de5ff7958">ignition::physics::WorldPose::body</a></div><div class="ttdeci">std::size_t body</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:43</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1ServoControlCommands_html_ad9882499db496d9b773ef0f60e9ce713"><div class="ttname"><a href="structignition_1_1physics_1_1ServoControlCommands.html#ad9882499db496d9b773ef0f60e9ce713">ignition::physics::ServoControlCommands::gains</a></div><div class="ttdeci">std::vector&lt; PIDValues &gt; gains</div><div class="ttdef"><b>Definition:</b> gz/physics/ForwardStep.hh:144</div></div>
+      </div>
+    </main>
+  </div>
+</body>

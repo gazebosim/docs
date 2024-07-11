@@ -1,0 +1,317 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Rendering">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Rendering: BaseGaussianNoisePass.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Rendering</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        6.6.3
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 IgnCreateDocs.cmake -->
+      <nav class="ign-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.8.17 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_68720addb28ee8f762a8d1f55de1ba53.html">gz-rendering</a></li><li class="navelem"><a class="el" href="dir_ccc1703edcd2aae520499aaef06b68cb.html">include</a></li><li class="navelem"><a class="el" href="dir_42a5c6856abc46d6a330192debb6d004.html">gz</a></li><li class="navelem"><a class="el" href="dir_5269ccce336193d47739569941971412.html">rendering</a></li><li class="navelem"><a class="el" href="dir_bf8d1403b850d669fe2a43383d7c7814.html">base</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">gz/rendering/base/BaseGaussianNoisePass.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="gz_2rendering_2base_2BaseGaussianNoisePass_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (C) 2019 Open Source Robotics Foundation</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef GZ_RENDERING_BASE_BASEGAUSSIANNOISEPASS_HH_</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define GZ_RENDERING_BASE_BASEGAUSSIANNOISEPASS_HH_</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;gz/math/Rand.hh&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2GaussianNoisePass_8hh.html">gz/rendering/GaussianNoisePass.hh</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition.html">ignition</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keyword">namespace </span>rendering</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">inline</span> <span class="keyword">namespace </span>IGNITION_RENDERING_VERSION_NAMESPACE {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">/* \class BaseGaussianNoisePass BaseGaussianNoisePass.hh \</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">     * ignition/rendering/base/BaseGaussianNoisePass.hh</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html">   36</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html">BaseGaussianNoisePass</a> :</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> <a class="code" href="classignition_1_1rendering_1_1GaussianNoisePass.html">GaussianNoisePass</a>,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> T</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="keyword">protected</span>: <a class="code" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html">BaseGaussianNoisePass</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> ~<a class="code" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html">BaseGaussianNoisePass</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">double</span> Mean() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">double</span> StdDev() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">double</span> Bias() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> SetMean(<span class="keywordtype">double</span> _mean);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> SetStdDev(<span class="keywordtype">double</span> _stdDev);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> SetBiasMean(<span class="keywordtype">double</span> _biasMean);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> SetBiasStdDev(<span class="keywordtype">double</span> _biasStdDev);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="comment">// Sample the bias from bias mean and bias standard deviation</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">void</span> SampleBias();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#abb40a2ee28b839fb572e161c68141faf">   71</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/namespaceignition_1_1math.html#ab95d309168c85568cbce917a226b2f3c">mean</a> = 0.0;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#af1cf94b9a35b1c179613bebe3d5cdbc7">   74</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> stdDev = 0.0;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#aa6231a5027112a1cf56c610e6d7d91c5">   77</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> bias = 0.0;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a7639d8e633407dfbadaa4bdb54dfb502">   81</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> biasMean = 0;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a40fba794ae080a976b9cd2a4531366a7">   85</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> biasStdDev = 0;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    };</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="comment">// BaseGaussianNoisePass</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment"></span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a705aa38a1727658a1d167cf1a818c03b">   92</a></span>&#160;    <a class="code" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a705aa38a1727658a1d167cf1a818c03b">BaseGaussianNoisePass&lt;T&gt;::BaseGaussianNoisePass</a>()</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a626ba0691d6491f924fce80ea59d6da6">   98</a></span>&#160;    <a class="code" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a626ba0691d6491f924fce80ea59d6da6">BaseGaussianNoisePass&lt;T&gt;::~BaseGaussianNoisePass</a>()</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#ab201fbc06e6c2aaaa75cf1be856b4e02">  104</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#ab201fbc06e6c2aaaa75cf1be856b4e02">BaseGaussianNoisePass&lt;T&gt;::Mean</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="keywordflow">return</span> this-&gt;<a class="codeRef" href="https://gazebosim.org/api/math/6/namespaceignition_1_1math.html#ab95d309168c85568cbce917a226b2f3c">mean</a>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a47b18f747dc7f14bf447e199422569d7">  111</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a47b18f747dc7f14bf447e199422569d7">BaseGaussianNoisePass&lt;T&gt;::StdDev</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      <span class="keywordflow">return</span> this-&gt;stdDev;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#aeb87ebafb9a8dc94428307316f46b33d">  118</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#aeb87ebafb9a8dc94428307316f46b33d">BaseGaussianNoisePass&lt;T&gt;::Bias</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      <span class="keywordflow">return</span> this-&gt;bias;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a1f94be17c9e0c6c1ed56d4c0d1a47d90">  125</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a1f94be17c9e0c6c1ed56d4c0d1a47d90">BaseGaussianNoisePass&lt;T&gt;::SetMean</a>(<span class="keywordtype">double</span> _mean)</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      this-&gt;<a class="codeRef" href="https://gazebosim.org/api/math/6/namespaceignition_1_1math.html#ab95d309168c85568cbce917a226b2f3c">mean</a> = _mean;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#aad7af9d9607dd3300a24dc8c94092895">  132</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#aad7af9d9607dd3300a24dc8c94092895">BaseGaussianNoisePass&lt;T&gt;::SetStdDev</a>(<span class="keywordtype">double</span> _stdDev)</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    {</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;      this-&gt;stdDev = _stdDev;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a4ef7a108d9d7c18f4aa2ee1eee1c04d1">  139</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a4ef7a108d9d7c18f4aa2ee1eee1c04d1">BaseGaussianNoisePass&lt;T&gt;::SetBiasMean</a>(<span class="keywordtype">double</span> _biasMean)</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    {</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;      this-&gt;biasMean = _biasMean;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;      this-&gt;SampleBias();</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    }</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#ad86c9f0bdcb9406e4e2cfa4d4912255f">  147</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#ad86c9f0bdcb9406e4e2cfa4d4912255f">BaseGaussianNoisePass&lt;T&gt;::SetBiasStdDev</a>(<span class="keywordtype">double</span> _biasStdDev)</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    {</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      this-&gt;biasStdDev = _biasStdDev;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;      this-&gt;SampleBias();</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    }</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a7a7e66c0dde1c474111a7f48b003b989">  155</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a7a7e66c0dde1c474111a7f48b003b989">BaseGaussianNoisePass&lt;T&gt;::SampleBias</a>()</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    {</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      this-&gt;bias =</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;          gz::math::Rand::DblNormal(this-&gt;biasMean, this-&gt;biasStdDev);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="comment">// With equal probability, we pick a negative bias (by convention,</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;      <span class="comment">// rateBiasMean should be positive, though it would work fine if</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;      <span class="comment">// negative).</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;      <span class="keywordflow">if</span> (gz::math::Rand::DblUniform() &lt; 0.5)</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;        this-&gt;bias = -this-&gt;bias;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    }</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    }</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  }</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;}</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGaussianNoisePass_html_a47b18f747dc7f14bf447e199422569d7"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a47b18f747dc7f14bf447e199422569d7">ignition::rendering::BaseGaussianNoisePass::StdDev</a></div><div class="ttdeci">double StdDev() const</div><div class="ttdoc">Accessor for stddev.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGaussianNoisePass.hh:111</div></div>
+<div class="ttc" id="anamespaceignition_html"><div class="ttname"><a href="namespaceignition.html">ignition</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGaussianNoisePass_html_a40fba794ae080a976b9cd2a4531366a7"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a40fba794ae080a976b9cd2a4531366a7">ignition::rendering::BaseGaussianNoisePass::biasStdDev</a></div><div class="ttdeci">double biasStdDev</div><div class="ttdoc">The standard deviation of the Gaussian distribution from which bias values are drawn.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGaussianNoisePass.hh:85</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGaussianNoisePass_html_ab201fbc06e6c2aaaa75cf1be856b4e02"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#ab201fbc06e6c2aaaa75cf1be856b4e02">ignition::rendering::BaseGaussianNoisePass::Mean</a></div><div class="ttdeci">double Mean() const</div><div class="ttdoc">Accessor for mean.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGaussianNoisePass.hh:104</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGaussianNoisePass_html_aad7af9d9607dd3300a24dc8c94092895"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#aad7af9d9607dd3300a24dc8c94092895">ignition::rendering::BaseGaussianNoisePass::SetStdDev</a></div><div class="ttdeci">void SetStdDev(double _stdDev)</div><div class="ttdoc">Set stddev.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGaussianNoisePass.hh:132</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1GaussianNoisePass_html"><div class="ttname"><a href="classignition_1_1rendering_1_1GaussianNoisePass.html">ignition::rendering::GaussianNoisePass</a></div><div class="ttdoc">A render pass that applies Gaussian noise to the render target.</div><div class="ttdef"><b>Definition:</b> gz/rendering/GaussianNoisePass.hh:35</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGaussianNoisePass_html_aa6231a5027112a1cf56c610e6d7d91c5"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#aa6231a5027112a1cf56c610e6d7d91c5">ignition::rendering::BaseGaussianNoisePass::bias</a></div><div class="ttdeci">double bias</div><div class="ttdoc">Gaussian noise bias.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGaussianNoisePass.hh:77</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGaussianNoisePass_html_a7a7e66c0dde1c474111a7f48b003b989"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a7a7e66c0dde1c474111a7f48b003b989">ignition::rendering::BaseGaussianNoisePass::SampleBias</a></div><div class="ttdeci">void SampleBias()</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGaussianNoisePass.hh:155</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGaussianNoisePass_html_a705aa38a1727658a1d167cf1a818c03b"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a705aa38a1727658a1d167cf1a818c03b">ignition::rendering::BaseGaussianNoisePass::BaseGaussianNoisePass</a></div><div class="ttdeci">BaseGaussianNoisePass()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGaussianNoisePass.hh:92</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGaussianNoisePass_html_af1cf94b9a35b1c179613bebe3d5cdbc7"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#af1cf94b9a35b1c179613bebe3d5cdbc7">ignition::rendering::BaseGaussianNoisePass::stdDev</a></div><div class="ttdeci">double stdDev</div><div class="ttdoc">Standard deviation of Gaussian noise.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGaussianNoisePass.hh:74</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGaussianNoisePass_html_a626ba0691d6491f924fce80ea59d6da6"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a626ba0691d6491f924fce80ea59d6da6">ignition::rendering::BaseGaussianNoisePass::~BaseGaussianNoisePass</a></div><div class="ttdeci">virtual ~BaseGaussianNoisePass()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGaussianNoisePass.hh:98</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGaussianNoisePass_html"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html">ignition::rendering::BaseGaussianNoisePass</a></div><div class="ttdoc">Base Gaussian noise render pass.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGaussianNoisePass.hh:36</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGaussianNoisePass_html_ad86c9f0bdcb9406e4e2cfa4d4912255f"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#ad86c9f0bdcb9406e4e2cfa4d4912255f">ignition::rendering::BaseGaussianNoisePass::SetBiasStdDev</a></div><div class="ttdeci">void SetBiasStdDev(double _biasStdDev)</div><div class="ttdoc">Set the standard deviation of the bias value. Bias is computed based on the bias mean and bias standa...</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGaussianNoisePass.hh:147</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGaussianNoisePass_html_a7639d8e633407dfbadaa4bdb54dfb502"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a7639d8e633407dfbadaa4bdb54dfb502">ignition::rendering::BaseGaussianNoisePass::biasMean</a></div><div class="ttdeci">double biasMean</div><div class="ttdoc">The mean of the Gaussian distribution from which bias values are drawn.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGaussianNoisePass.hh:81</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGaussianNoisePass_html_abb40a2ee28b839fb572e161c68141faf"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#abb40a2ee28b839fb572e161c68141faf">ignition::rendering::BaseGaussianNoisePass::mean</a></div><div class="ttdeci">double mean</div><div class="ttdoc">Gaussian noise mean.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGaussianNoisePass.hh:71</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGaussianNoisePass_html_aeb87ebafb9a8dc94428307316f46b33d"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#aeb87ebafb9a8dc94428307316f46b33d">ignition::rendering::BaseGaussianNoisePass::Bias</a></div><div class="ttdeci">double Bias() const</div><div class="ttdoc">Accessor for bias.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGaussianNoisePass.hh:118</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGaussianNoisePass_html_a1f94be17c9e0c6c1ed56d4c0d1a47d90"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a1f94be17c9e0c6c1ed56d4c0d1a47d90">ignition::rendering::BaseGaussianNoisePass::SetMean</a></div><div class="ttdeci">void SetMean(double _mean)</div><div class="ttdoc">Set mean.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGaussianNoisePass.hh:125</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGaussianNoisePass_html_a4ef7a108d9d7c18f4aa2ee1eee1c04d1"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGaussianNoisePass.html#a4ef7a108d9d7c18f4aa2ee1eee1c04d1">ignition::rendering::BaseGaussianNoisePass::SetBiasMean</a></div><div class="ttdeci">void SetBiasMean(double _biasMean)</div><div class="ttdoc">Set the mean of the bias value. Bias is computed based on the bias mean and bias standard deviation.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGaussianNoisePass.hh:139</div></div>
+<div class="ttc" id="anamespaceignition_1_1math_html_ab95d309168c85568cbce917a226b2f3c"><div class="ttname"><a href="https://gazebosim.org/api/math/6/namespaceignition_1_1math.html#ab95d309168c85568cbce917a226b2f3c">mean</a></div><div class="ttdeci">T mean(const std::vector&lt; T &gt; &amp;_values)</div></div>
+<div class="ttc" id="agz_2rendering_2GaussianNoisePass_8hh_html"><div class="ttname"><a href="gz_2rendering_2GaussianNoisePass_8hh.html">GaussianNoisePass.hh</a></div></div>
+      </div>
+    </main>
+  </div>
+</body>

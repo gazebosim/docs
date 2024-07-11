@@ -1,0 +1,839 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Rendering">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Rendering: BaseGizmoVisual.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Rendering</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        7.4.2
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 GzCreateDocs.cmake -->
+      <nav class="gz-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.8.17 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_68720addb28ee8f762a8d1f55de1ba53.html">gz-rendering</a></li><li class="navelem"><a class="el" href="dir_ccc1703edcd2aae520499aaef06b68cb.html">include</a></li><li class="navelem"><a class="el" href="dir_42a5c6856abc46d6a330192debb6d004.html">gz</a></li><li class="navelem"><a class="el" href="dir_5269ccce336193d47739569941971412.html">rendering</a></li><li class="navelem"><a class="el" href="dir_bf8d1403b850d669fe2a43383d7c7814.html">base</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">gz/rendering/base/BaseGizmoVisual.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="gz_2rendering_2base_2BaseGizmoVisual_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (C) 2019 Open Source Robotics Foundation</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#ifndef GZ_RENDERING_BASE_BASEGIZMOVISUAL_HH_</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define GZ_RENDERING_BASE_BASEGIZMOVISUAL_HH_</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;gz/common/MeshManager.hh&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;gz/utils/SuppressWarning.hh&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2base_2BaseScene_8hh.html">gz/rendering/base/BaseScene.hh</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2base_2BaseNode_8hh.html">gz/rendering/base/BaseNode.hh</a>&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2ArrowVisual_8hh.html">gz/rendering/ArrowVisual.hh</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2Camera_8hh.html">gz/rendering/Camera.hh</a>&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2GizmoVisual_8hh.html">gz/rendering/GizmoVisual.hh</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacegz.html">gz</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">namespace </span>rendering</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">inline</span> <span class="keyword">namespace </span>GZ_RENDERING_VERSION_NAMESPACE {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">/* \class BaseGizmoVisual BaseGizmoVisuall.hh \</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">     * gz/rendering/base/BaseGizmoVisual.hh</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html">   43</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html" title="A base implementation of the GizmoVisual class.">BaseGizmoVisual</a> :</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> <a class="code" href="classgz_1_1rendering_1_1GizmoVisual.html" title="A gizmo that contains rotate, translate, and scale visuals.">GizmoVisual</a>,</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> T</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="keyword">protected</span>: <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html" title="A base implementation of the GizmoVisual class.">BaseGizmoVisual</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> ~<a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html" title="A base implementation of the GizmoVisual class.">BaseGizmoVisual</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> Init() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> PreRender() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetTransformMode(<a class="code" href="namespacegz_1_1rendering.html#aaa6c4a8b099a272e3e4cc2d85b43fd86" title="Unique identifiers for transformation modes.">TransformMode</a> _mode) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code" href="namespacegz_1_1rendering.html#aaa6c4a8b099a272e3e4cc2d85b43fd86" title="Unique identifiers for transformation modes.">TransformMode</a> Mode() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetActiveAxis(<span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Vector3.html">math::Vector3d</a> &amp;_axis) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Vector3.html">math::Vector3d</a> ActiveAxis() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38" title="Unique identifiers for transformation axes.">TransformAxis</a> AxisById(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id) <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> ChildByAxis(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _axis) <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> Reset();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">void</span> CreateMaterials();</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">void</span> CreateTranslationVisual();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">void</span> CreateRotationVisual();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">void</span> CreateScaleVisual();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a081de022a11c8fa3a4836758a2914258">   93</a></span>&#160;      <span class="keyword">protected</span>: <a class="code" href="namespacegz_1_1rendering.html#aaa6c4a8b099a272e3e4cc2d85b43fd86" title="Unique identifiers for transformation modes.">TransformMode</a> mode = <a class="code" href="namespacegz_1_1rendering.html#aaa6c4a8b099a272e3e4cc2d85b43fd86ac0e7e7a2a029957a1a1daeb87f3f241f" title="Inactive state.">TransformMode::TM_NONE</a>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      GZ_UTILS_WARN_IGNORE__DLL_INTERFACE_MISSING</div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a2aece524845c1760d1e72ebf6fc1baf1">   97</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/map.html" title="STL class.">std::map&lt;unsigned int, VisualPtr&gt;</a> <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a2aece524845c1760d1e72ebf6fc1baf1" title="A map of gizmo axis and their visuals.">visuals</a>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ad1f2b38cfebec03b76b929423b57ce1a">  100</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/map.html" title="STL class.">std::map&lt;unsigned int, VisualPtr&gt;</a> <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ad1f2b38cfebec03b76b929423b57ce1a" title="A map of gizmo axis and their handle visuals.">handles</a>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a0d0a00d7298eae2b17d64eefbe83a836">  103</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a0d0a00d7298eae2b17d64eefbe83a836" title="Currently active visual.">activeVis</a>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ad8ac5d8112a01c9e34fa2aa7c30a2121">  106</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">bool</span> modeDirty = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#aea310683ab60bd3d10ef1a6e5e9933b3">  109</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Vector3.html">math::Vector3d</a> axis = <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Vector3.html#a48f391e608de802d28e241ff44ab9197">math::Vector3d::Zero</a>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#acda186db4035b8a4c02de7d1129e993c">  112</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/map.html" title="STL class.">std::map&lt;unsigned int, MaterialPtr&gt;</a> <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#acda186db4035b8a4c02de7d1129e993c" title="A map of axis enums to materials.">materials</a>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      GZ_UTILS_WARN_RESUME__DLL_INTERFACE_MISSING</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ad3d57e8de0e0e1fb2eec3ea7fba37435">  116</a></span>&#160;      <span class="keyword">protected</span>: <span class="keyword">enum</span> <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ad3d57e8de0e0e1fb2eec3ea7fba37435" title="Material used by axes.">AxisMaterial</a></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                 {</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ad3d57e8de0e0e1fb2eec3ea7fba37435a75593c3384803983b766a9e1411628c4">  119</a></span>&#160;                   <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ad3d57e8de0e0e1fb2eec3ea7fba37435a75593c3384803983b766a9e1411628c4" title="X axis.">AM_X</a>,</div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ad3d57e8de0e0e1fb2eec3ea7fba37435a4c21a3eaa7ef4ea576d4868fe09b99bd">  121</a></span>&#160;                   <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ad3d57e8de0e0e1fb2eec3ea7fba37435a4c21a3eaa7ef4ea576d4868fe09b99bd" title="Y axis.">AM_Y</a>,</div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ad3d57e8de0e0e1fb2eec3ea7fba37435aa7d33a5ab7ebd80b0a8e429d27e5a37d">  123</a></span>&#160;                   <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ad3d57e8de0e0e1fb2eec3ea7fba37435aa7d33a5ab7ebd80b0a8e429d27e5a37d" title="Z axis.">AM_Z</a>,</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ad3d57e8de0e0e1fb2eec3ea7fba37435ac4751b3807483f89a10b9b56ac29ffd1">  125</a></span>&#160;                   <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ad3d57e8de0e0e1fb2eec3ea7fba37435ac4751b3807483f89a10b9b56ac29ffd1" title="Active axis.">AM_ACTIVE</a>,</div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ad3d57e8de0e0e1fb2eec3ea7fba37435a7640fe3c1d6b47c38671204dc7f9ad94">  127</a></span>&#160;                   <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ad3d57e8de0e0e1fb2eec3ea7fba37435a7640fe3c1d6b47c38671204dc7f9ad94" title="Origin.">AM_O</a>,</div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ad3d57e8de0e0e1fb2eec3ea7fba37435a4dc9b9367880e4350633ca2976048ad2">  129</a></span>&#160;                   AM_HANDLE</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                 };</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#abf706e76c317348ceec1bd7700151a7d">  133</a></span>&#160;      <span class="keyword">private</span>: <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classgz_1_1rendering_1_1BaseScene.html">BaseScene</a>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    };</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a3cd0a09f50a9e9328da403fdcbee98d7">  138</a></span>&#160;    <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a3cd0a09f50a9e9328da403fdcbee98d7" title="Constructor.">BaseGizmoVisual&lt;T&gt;::BaseGizmoVisual</a>()</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    {</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    }</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a00113558eb7102da90788ade6fe3e456">  144</a></span>&#160;    <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a00113558eb7102da90788ade6fe3e456" title="Destructor.">BaseGizmoVisual&lt;T&gt;::~BaseGizmoVisual</a>()</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    {</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    }</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a47de93e849d14c3eda08d78613506608">  150</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a47de93e849d14c3eda08d78613506608">BaseGizmoVisual&lt;T&gt;::Init</a>()</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    {</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      T::Init();</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      this-&gt;CreateMaterials();</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;      this-&gt;CreateTranslationVisual();</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      this-&gt;CreateRotationVisual();</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      this-&gt;CreateScaleVisual();</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> v : this-&gt;visuals)</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        v.second-&gt;SetVisible(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    }</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a372de693ad40b3f42839c8ec6ac845f4">  165</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a372de693ad40b3f42839c8ec6ac845f4" title="Reset the gizmo visual state.">BaseGizmoVisual&lt;T&gt;::Reset</a>()</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    {</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;      this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a2c831419577262b5f9421afd02e346f1" title="Translation in x.">TransformAxis::TA_TRANSLATION_X</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;          this-&gt;materials[AM_X], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;      this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a159106326a44e327b3aca3a7da91b4b3" title="Translation in y.">TransformAxis::TA_TRANSLATION_Y</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;          this-&gt;materials[AM_Y], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;      this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a269f1cd14360bc15455ca629da4568e1" title="Translation in z.">TransformAxis::TA_TRANSLATION_Z</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;          this-&gt;materials[AM_Z], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;      this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ae6dc0139261875a909ab17ac0271f7d2" title="Rotation in x.">TransformAxis::TA_ROTATION_X</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;          this-&gt;materials[AM_X], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;      this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ad668d1ebaee7d8f4bb5c53c839e61620" title="Rotation in y.">TransformAxis::TA_ROTATION_Y</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;          this-&gt;materials[AM_Y], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;      this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a8243a6ace5530ba36554ad90a9ef81cb" title="Rotation in z.">TransformAxis::TA_ROTATION_Z</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;          this-&gt;materials[AM_Z], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;      this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ae7ed164f9c53e75e929d500ec0ad7772" title="Scale in x.">TransformAxis::TA_SCALE_X</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;          this-&gt;materials[AM_X], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;      this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38aab427442d6474b00be5f5278df81592c" title="Scale in y.">TransformAxis::TA_SCALE_Y</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;          this-&gt;materials[AM_Y], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;      this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a7c3dfd20ace5609ae123d436e41d0d62" title="Scale in z.">TransformAxis::TA_SCALE_Z</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;          this-&gt;materials[AM_Z], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;      this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a2c831419577262b5f9421afd02e346f1" title="Translation in x.">TransformAxis::TA_TRANSLATION_X</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;          this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a159106326a44e327b3aca3a7da91b4b3" title="Translation in y.">TransformAxis::TA_TRANSLATION_Y</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;          this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;      this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a269f1cd14360bc15455ca629da4568e1" title="Translation in z.">TransformAxis::TA_TRANSLATION_Z</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;          this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;      this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ae6dc0139261875a909ab17ac0271f7d2" title="Rotation in x.">TransformAxis::TA_ROTATION_X</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;          this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;      this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ad668d1ebaee7d8f4bb5c53c839e61620" title="Rotation in y.">TransformAxis::TA_ROTATION_Y</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;          this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;      this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a8243a6ace5530ba36554ad90a9ef81cb" title="Rotation in z.">TransformAxis::TA_ROTATION_Z</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;          this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ae7ed164f9c53e75e929d500ec0ad7772" title="Scale in x.">TransformAxis::TA_SCALE_X</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;          this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;      this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38aab427442d6474b00be5f5278df81592c" title="Scale in y.">TransformAxis::TA_SCALE_Y</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;          this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;      this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a7c3dfd20ace5609ae123d436e41d0d62" title="Scale in z.">TransformAxis::TA_SCALE_Z</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;          this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> v : this-&gt;visuals)</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;        v.second-&gt;SetVisible(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    }</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00213"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a2a062fe0fd3c5f4d771563834e4be9c6">  213</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a2a062fe0fd3c5f4d771563834e4be9c6" title="Prepare this object and any of its children for rendering. This should be called for each object in a...">BaseGizmoVisual&lt;T&gt;::PreRender</a>()</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    {</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;      <span class="keywordflow">if</span> (!this-&gt;modeDirty)</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      this-&gt;Reset();</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;      <span class="keywordflow">if</span> (this-&gt;mode == <a class="code" href="namespacegz_1_1rendering.html#aaa6c4a8b099a272e3e4cc2d85b43fd86ac0e7e7a2a029957a1a1daeb87f3f241f" title="Inactive state.">TransformMode::TM_NONE</a>)</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;      {</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;        this-&gt;modeDirty = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      }</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;      <span class="keywordflow">if</span> (this-&gt;mode &amp; <a class="code" href="namespacegz_1_1rendering.html#aaa6c4a8b099a272e3e4cc2d85b43fd86a7862f461ff3639f5a3e4d2e6502dfd36" title="Translation mode.">TransformMode::TM_TRANSLATION</a>)</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;      {</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a2c831419577262b5f9421afd02e346f1" title="Translation in x.">TransformAxis::TA_TRANSLATION_X</a>]-&gt;SetVisible(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a159106326a44e327b3aca3a7da91b4b3" title="Translation in y.">TransformAxis::TA_TRANSLATION_Y</a>]-&gt;SetVisible(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a269f1cd14360bc15455ca629da4568e1" title="Translation in z.">TransformAxis::TA_TRANSLATION_Z</a>]-&gt;SetVisible(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;        this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a269f1cd14360bc15455ca629da4568e1" title="Translation in z.">TransformAxis::TA_TRANSLATION_Z</a> &lt;&lt; 1]-&gt;SetVisible(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="keywordflow">if</span> (this-&gt;axis.X() &gt; 0)</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        {</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;          this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a2c831419577262b5f9421afd02e346f1" title="Translation in x.">TransformAxis::TA_TRANSLATION_X</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;              this-&gt;materials[AM_ACTIVE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;          this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a2c831419577262b5f9421afd02e346f1" title="Translation in x.">TransformAxis::TA_TRANSLATION_X</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;              this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;        }</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <span class="keywordflow">if</span> (this-&gt;axis.Y() &gt; 0)</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;        {</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;          this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a159106326a44e327b3aca3a7da91b4b3" title="Translation in y.">TransformAxis::TA_TRANSLATION_Y</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;              this-&gt;materials[AM_ACTIVE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;          this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a159106326a44e327b3aca3a7da91b4b3" title="Translation in y.">TransformAxis::TA_TRANSLATION_Y</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;              this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;        }</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <span class="keywordflow">if</span> (this-&gt;axis.Z() &gt; 0)</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        {</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;          this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a269f1cd14360bc15455ca629da4568e1" title="Translation in z.">TransformAxis::TA_TRANSLATION_Z</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;              this-&gt;materials[AM_ACTIVE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;          this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a269f1cd14360bc15455ca629da4568e1" title="Translation in z.">TransformAxis::TA_TRANSLATION_Z</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;              this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        }</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      }</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (this-&gt;mode &amp; <a class="code" href="namespacegz_1_1rendering.html#aaa6c4a8b099a272e3e4cc2d85b43fd86ac1848d6163343f161c7243f65320232c" title="Rotation mode.">TransformMode::TM_ROTATION</a>)</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;      {</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;        this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ae6dc0139261875a909ab17ac0271f7d2" title="Rotation in x.">TransformAxis::TA_ROTATION_X</a>]-&gt;SetVisible(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ad668d1ebaee7d8f4bb5c53c839e61620" title="Rotation in y.">TransformAxis::TA_ROTATION_Y</a>]-&gt;SetVisible(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a8243a6ace5530ba36554ad90a9ef81cb" title="Rotation in z.">TransformAxis::TA_ROTATION_Z</a>]-&gt;SetVisible(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;        this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a8243a6ace5530ba36554ad90a9ef81cb" title="Rotation in z.">TransformAxis::TA_ROTATION_Z</a> &lt;&lt; 1]-&gt;SetVisible(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        <span class="keywordflow">if</span> (this-&gt;axis.X() &gt; 0)</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        {</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;          this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ae6dc0139261875a909ab17ac0271f7d2" title="Rotation in x.">TransformAxis::TA_ROTATION_X</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;              this-&gt;materials[AM_ACTIVE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;          this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ae6dc0139261875a909ab17ac0271f7d2" title="Rotation in x.">TransformAxis::TA_ROTATION_X</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;              this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        }</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        <span class="keywordflow">if</span> (this-&gt;axis.Y() &gt; 0)</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        {</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;          this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ad668d1ebaee7d8f4bb5c53c839e61620" title="Rotation in y.">TransformAxis::TA_ROTATION_Y</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;              this-&gt;materials[AM_ACTIVE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;          this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ad668d1ebaee7d8f4bb5c53c839e61620" title="Rotation in y.">TransformAxis::TA_ROTATION_Y</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;              this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;        }</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        <span class="keywordflow">if</span> (this-&gt;axis.Z() &gt; 0)</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        {</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;          this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a8243a6ace5530ba36554ad90a9ef81cb" title="Rotation in z.">TransformAxis::TA_ROTATION_Z</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;              this-&gt;materials[AM_ACTIVE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;          this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a8243a6ace5530ba36554ad90a9ef81cb" title="Rotation in z.">TransformAxis::TA_ROTATION_Z</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;              this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;        }</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      }</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (this-&gt;mode &amp; <a class="code" href="namespacegz_1_1rendering.html#aaa6c4a8b099a272e3e4cc2d85b43fd86a4d03006b42f2374a347bf61599649351" title="Scale mode.">TransformMode::TM_SCALE</a>)</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;      {</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ae7ed164f9c53e75e929d500ec0ad7772" title="Scale in x.">TransformAxis::TA_SCALE_X</a>]-&gt;SetVisible(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38aab427442d6474b00be5f5278df81592c" title="Scale in y.">TransformAxis::TA_SCALE_Y</a>]-&gt;SetVisible(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a7c3dfd20ace5609ae123d436e41d0d62" title="Scale in z.">TransformAxis::TA_SCALE_Z</a>]-&gt;SetVisible(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;        <span class="keywordflow">if</span> (this-&gt;axis.X() &gt; 0)</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;        {</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;          this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ae7ed164f9c53e75e929d500ec0ad7772" title="Scale in x.">TransformAxis::TA_SCALE_X</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;              this-&gt;materials[AM_ACTIVE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;          this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ae7ed164f9c53e75e929d500ec0ad7772" title="Scale in x.">TransformAxis::TA_SCALE_X</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;              this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        }</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="keywordflow">if</span> (this-&gt;axis.Y() &gt; 0)</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;        {</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;          this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38aab427442d6474b00be5f5278df81592c" title="Scale in y.">TransformAxis::TA_SCALE_Y</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;              this-&gt;materials[AM_ACTIVE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;          this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38aab427442d6474b00be5f5278df81592c" title="Scale in y.">TransformAxis::TA_SCALE_Y</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;              this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        }</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        <span class="keywordflow">if</span> (this-&gt;axis.Z() &gt; 0)</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        {</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;          this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a7c3dfd20ace5609ae123d436e41d0d62" title="Scale in z.">TransformAxis::TA_SCALE_Z</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;              this-&gt;materials[AM_ACTIVE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;          this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a7c3dfd20ace5609ae123d436e41d0d62" title="Scale in z.">TransformAxis::TA_SCALE_Z</a>]-&gt;SetMaterial(</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;              this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;        }</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;      }</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; </div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;      this-&gt;modeDirty = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    }</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00315"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#aa975984e167ad045e615404c63803b7b">  315</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#aa975984e167ad045e615404c63803b7b" title="Set the transform mode of the gizmo. This controls the visual appearance of the gizmo....">BaseGizmoVisual&lt;T&gt;::SetTransformMode</a>(<a class="code" href="namespacegz_1_1rendering.html#aaa6c4a8b099a272e3e4cc2d85b43fd86" title="Unique identifiers for transformation modes.">TransformMode</a> _mode)</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    {</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;      <span class="keywordflow">if</span> (this-&gt;mode == _mode)</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160; </div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      this-&gt;mode = _mode;</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;      <span class="comment">// clear active axis when mode changes</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      this-&gt;axis = <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Vector3.html#a48f391e608de802d28e241ff44ab9197">math::Vector3d::Zero</a>;</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;      this-&gt;modeDirty = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    }</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00328"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#aa1517c541ae49dea3301f8a8fce75873">  328</a></span>&#160;    <a class="code" href="namespacegz_1_1rendering.html#aaa6c4a8b099a272e3e4cc2d85b43fd86" title="Unique identifiers for transformation modes.">TransformMode</a> <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#aa1517c541ae49dea3301f8a8fce75873" title="Get the current transform mode.">BaseGizmoVisual&lt;T&gt;::Mode</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      <span class="keywordflow">return</span> this-&gt;mode;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    }</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160; </div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00335"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a9ead125c005d74669a5935f0e53d816c">  335</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a9ead125c005d74669a5935f0e53d816c" title="Set the active axis in the gizmo visual.">BaseGizmoVisual&lt;T&gt;::SetActiveAxis</a>(<span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Vector3.html">math::Vector3d</a> &amp;_axis)</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    {</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;      <span class="keywordflow">if</span> (this-&gt;axis == _axis)</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;      this-&gt;axis = _axis;</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;      this-&gt;modeDirty = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    }</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00346"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ae681d61d17b87434db296af9b32fede6">  346</a></span>&#160;    <a class="codeRef" href="https://gazebosim.org/api/math/7/classgz_1_1math_1_1Vector3.html">math::Vector3d</a> <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ae681d61d17b87434db296af9b32fede6" title="Get the current active axis.">BaseGizmoVisual&lt;T&gt;::ActiveAxis</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      <span class="keywordflow">return</span> this-&gt;axis;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    }</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00353"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ad3d7c965d5e06f6ea340f6b45d8f060a">  353</a></span>&#160;    <a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38" title="Unique identifiers for transformation axes.">TransformAxis</a> <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ad3d7c965d5e06f6ea340f6b45d8f060a" title="Get the Transform axis associated with the given id.">BaseGizmoVisual&lt;T&gt;::AxisById</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> v : this-&gt;visuals)</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;      {</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        <span class="comment">// each axis visual has a child handle so also check children for</span></div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        <span class="comment">// matching id</span></div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;        <span class="keywordflow">if</span> (v.second-&gt;Id() == _id || v.second-&gt;ChildById(_id))</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;          <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38" title="Unique identifiers for transformation axes.">TransformAxis</a><span class="keyword">&gt;</span>(v.first);</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;      }</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ad37c73492d600fbb64489c06038bce29" title="No axis.">TransformAxis::TA_NONE</a>;</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    }</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160; </div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160; </div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00368"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a1dc43a293d212b139df76ca7ea873c67">  368</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a1dc43a293d212b139df76ca7ea873c67" title="Create materials used by the gizmo visual.">BaseGizmoVisual&lt;T&gt;::CreateMaterials</a>()</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    {</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">MaterialPtr</a> xMat = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a2832fb86f24ded5d2291acfcbd2e513f" title="Get material registered under the given name. If no material is registered under the given name,...">Material</a>(<span class="stringliteral">&quot;Default/TransRed&quot;</span>)-&gt;Clone();</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">MaterialPtr</a> yMat = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a2832fb86f24ded5d2291acfcbd2e513f" title="Get material registered under the given name. If no material is registered under the given name,...">Material</a>(<span class="stringliteral">&quot;Default/TransGreen&quot;</span>)-&gt;Clone();</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">MaterialPtr</a> zMat = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a2832fb86f24ded5d2291acfcbd2e513f" title="Get material registered under the given name. If no material is registered under the given name,...">Material</a>(<span class="stringliteral">&quot;Default/TransBlue&quot;</span>)-&gt;Clone();</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">MaterialPtr</a> activeMat =</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;          this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a2832fb86f24ded5d2291acfcbd2e513f" title="Get material registered under the given name. If no material is registered under the given name,...">Material</a>(<span class="stringliteral">&quot;Default/TransYellow&quot;</span>)-&gt;Clone();</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160; </div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;      <span class="comment">// disable depth checking and writing, make them overlays</span></div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;      xMat-&gt;SetDepthWriteEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;      xMat-&gt;SetDepthCheckEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;      yMat-&gt;SetDepthWriteEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;      yMat-&gt;SetDepthCheckEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;      zMat-&gt;SetDepthWriteEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;      zMat-&gt;SetDepthCheckEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;      activeMat-&gt;SetDepthWriteEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;      activeMat-&gt;SetDepthCheckEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160; </div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">MaterialPtr</a> oMat = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a2832fb86f24ded5d2291acfcbd2e513f" title="Get material registered under the given name. If no material is registered under the given name,...">Material</a>(<span class="stringliteral">&quot;GizmoGray&quot;</span>);</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;      <span class="keywordflow">if</span> (!oMat)</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;      {</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;        oMat = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a1d8b1be5bf2a1798add3c860ba50c44d" title="Create new material with the given name. Created material will have default properties.">CreateMaterial</a>(<span class="stringliteral">&quot;GizmoGray&quot;</span>);</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;        oMat-&gt;SetAmbient(0.5, 0.5, 0.5);</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;        oMat-&gt;SetDiffuse(0.5, 0.5, 0.5);</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        oMat-&gt;SetEmissive(0.5, 0.5, 0.5);</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;        oMat-&gt;SetTransparency(0.5);</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;        oMat-&gt;SetCastShadows(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;        oMat-&gt;SetReceiveShadows(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;        oMat-&gt;SetLightingEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;        oMat-&gt;SetDepthWriteEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;        oMat-&gt;SetDepthCheckEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;      }</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160; </div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">MaterialPtr</a> handleMat = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a2832fb86f24ded5d2291acfcbd2e513f" title="Get material registered under the given name. If no material is registered under the given name,...">Material</a>(<span class="stringliteral">&quot;GizmoHandle&quot;</span>);</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;      <span class="keywordflow">if</span> (!handleMat)</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;      {</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;        handleMat = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a1d8b1be5bf2a1798add3c860ba50c44d" title="Create new material with the given name. Created material will have default properties.">CreateMaterial</a>(<span class="stringliteral">&quot;GizmoHandle&quot;</span>);</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;        handleMat-&gt;SetAmbient(0.0, 0.0, 0.0);</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;        handleMat-&gt;SetDiffuse(0.0, 0.0, 0.0);</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;        handleMat-&gt;SetEmissive(0.0, 0.0, 0.0);</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;        handleMat-&gt;SetTransparency(1.0);</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;        handleMat-&gt;SetCastShadows(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;        handleMat-&gt;SetReceiveShadows(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;        handleMat-&gt;SetLightingEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;        handleMat-&gt;SetDepthWriteEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;        handleMat-&gt;SetDepthCheckEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;      }</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160; </div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;      this-&gt;materials[AM_X] = xMat;</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;      this-&gt;materials[AM_Y] = yMat;</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;      this-&gt;materials[AM_Z] = zMat;</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;      this-&gt;materials[AM_ACTIVE] = activeMat;</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;      this-&gt;materials[AM_O] = oMat;</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;      this-&gt;materials[AM_HANDLE] = handleMat;</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    }</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00425"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ab1279c696bed29fcb54da90a28ae4355">  425</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ab1279c696bed29fcb54da90a28ae4355" title="Create gizmo visual for translation.">BaseGizmoVisual&lt;T&gt;::CreateTranslationVisual</a>()</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    {</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> transVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160; </div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;      <span class="comment">// trans x</span></div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> transXVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> transShaftXVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;      transShaftXVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateCylinder());</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;      transShaftXVis-&gt;SetOrigin(0, 0, 0.5);</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;      transShaftXVis-&gt;SetLocalPosition(0, 0, 0.5);</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;      transShaftXVis-&gt;SetLocalScale(0.02, 0.02, 0.45);</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;      transXVis-&gt;AddChild(transShaftXVis);</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160; </div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> transHeadXVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;      transHeadXVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateCone());</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;      transHeadXVis-&gt;SetOrigin(0, 0, -0.5);</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;      transHeadXVis-&gt;SetLocalPosition(0, 0, 0.5);</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;      transHeadXVis-&gt;SetLocalScale(0.07, 0.07, 0.2);</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;      transXVis-&gt;AddChild(transHeadXVis);</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160; </div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;      transXVis-&gt;SetMaterial(this-&gt;materials[AM_X], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;      transXVis-&gt;SetLocalRotation(0, <a class="codeRef" href="https://gazebosim.org/api/math/7/gz_2math_2Helpers_8hh.html#a0ac174a9cc1f9be9b33f931461bea361">GZ_PI</a> * 0.5, 0);</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;      transVis-&gt;AddChild(transXVis);</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160; </div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;      <span class="comment">// trans y</span></div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> transYVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> transShaftYVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;      transShaftYVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateCylinder());</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;      transShaftYVis-&gt;SetOrigin(0, 0, 0.5);</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;      transShaftYVis-&gt;SetLocalPosition(0, 0, 0.5);</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;      transShaftYVis-&gt;SetLocalScale(0.02, 0.02, 0.45);</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;      transYVis-&gt;AddChild(transShaftYVis);</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160; </div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> transHeadYVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;      transHeadYVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateCone());</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;      transHeadYVis-&gt;SetOrigin(0, 0, -0.5);</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;      transHeadYVis-&gt;SetLocalPosition(0, 0, 0.5);</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;      transHeadYVis-&gt;SetLocalScale(0.07, 0.07, 0.2);</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;      transYVis-&gt;AddChild(transHeadYVis);</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160; </div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;      transYVis-&gt;SetMaterial(this-&gt;materials[AM_Y], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;      transYVis-&gt;SetLocalRotation(-<a class="codeRef" href="https://gazebosim.org/api/math/7/gz_2math_2Helpers_8hh.html#a0ac174a9cc1f9be9b33f931461bea361">GZ_PI</a> * 0.5, 0, 0);</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;      transVis-&gt;AddChild(transYVis);</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160; </div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;      <span class="comment">// trans z</span></div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> transZVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> transShaftZVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;      transShaftZVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateCylinder());</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;      transShaftZVis-&gt;SetOrigin(0, 0, 0.5);</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;      transShaftZVis-&gt;SetLocalPosition(0, 0, 0.5);</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;      transShaftZVis-&gt;SetLocalScale(0.02, 0.02, 0.45);</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;      transZVis-&gt;AddChild(transShaftZVis);</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160; </div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> transHeadZVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;      transHeadZVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateCone());</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;      transHeadZVis-&gt;SetOrigin(0, 0, -0.5);</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;      transHeadZVis-&gt;SetLocalPosition(0, 0, 0.5);</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;      transHeadZVis-&gt;SetLocalScale(0.07, 0.07, 0.2);</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;      transZVis-&gt;AddChild(transHeadZVis);</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160; </div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;      transZVis-&gt;SetMaterial(this-&gt;materials[AM_Z], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;      transVis-&gt;AddChild(transZVis);</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160; </div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;      <span class="comment">// trans origin</span></div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> transOrigin = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;      transOrigin-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateSphere());</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;      transOrigin-&gt;SetLocalScale(0.05, 0.05, 0.05);</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;      transOrigin-&gt;SetMaterial(this-&gt;materials[AM_O], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;      transVis-&gt;AddChild(transOrigin);</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160; </div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;      this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a2c831419577262b5f9421afd02e346f1" title="Translation in x.">TransformAxis::TA_TRANSLATION_X</a>] = transXVis;</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;      this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a159106326a44e327b3aca3a7da91b4b3" title="Translation in y.">TransformAxis::TA_TRANSLATION_Y</a>] = transYVis;</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;      this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a269f1cd14360bc15455ca629da4568e1" title="Translation in z.">TransformAxis::TA_TRANSLATION_Z</a>] = transZVis;</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;      <span class="comment">// Store the translation origin visual in this-&gt;visuals using a key</span></div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;      <span class="comment">// that&#39;s not already occupied by the TransformAxis enum</span></div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;      this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a269f1cd14360bc15455ca629da4568e1" title="Translation in z.">TransformAxis::TA_TRANSLATION_Z</a> &lt;&lt; 1] = transOrigin;</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160; </div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;      <span class="comment">// translation handles</span></div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> transHandleXVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;      transHandleXVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateCylinder());</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;      transHandleXVis-&gt;SetLocalPosition(0, 0, 0.35);</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;      transHandleXVis-&gt;SetLocalScale(0.11, 0.11, 0.7);</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;      transHandleXVis-&gt;SetMaterial(this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;      transXVis-&gt;AddChild(transHandleXVis);</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160; </div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> transHandleYVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;      transHandleYVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateCylinder());</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;      transHandleYVis-&gt;SetLocalPosition(0, 0, 0.35);</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;      transHandleYVis-&gt;SetLocalScale(0.11, 0.11, 0.7);</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;      transHandleYVis-&gt;SetMaterial(this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;      transYVis-&gt;AddChild(transHandleYVis);</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160; </div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> transHandleZVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;      transHandleZVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateCylinder());</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;      transHandleZVis-&gt;SetLocalPosition(0, 0, 0.35);</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;      transHandleZVis-&gt;SetLocalScale(0.11, 0.11, 0.7);</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;      transHandleZVis-&gt;SetMaterial(this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;      transZVis-&gt;AddChild(transHandleZVis);</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160; </div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;      this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a2c831419577262b5f9421afd02e346f1" title="Translation in x.">TransformAxis::TA_TRANSLATION_X</a>] = transHandleXVis;</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;      this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a159106326a44e327b3aca3a7da91b4b3" title="Translation in y.">TransformAxis::TA_TRANSLATION_Y</a>] = transHandleYVis;</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;      this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a269f1cd14360bc15455ca629da4568e1" title="Translation in z.">TransformAxis::TA_TRANSLATION_Z</a>] = transHandleZVis;</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160; </div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;      this-&gt;AddChild(transVis);</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;    }</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160; </div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00533"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a11aeddd84221bab9709add5da7c8fc2c">  533</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a11aeddd84221bab9709add5da7c8fc2c" title="Create gizmo visual for rotation.">BaseGizmoVisual&lt;T&gt;::CreateRotationVisual</a>()</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;    {</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;      <a class="codeRef" href="https://gazebosim.org/api/common/5/classgz_1_1common_1_1MeshManager.html">common::MeshManager</a> *meshMgr = <a class="codeRef" href="https://gazebosim.org/api/common/5/classgz_1_1common_1_1MeshManager.html#a934f97ff2e53ea462a7a493291f6f761">common::MeshManager::Instance</a>();</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html" title="STL class.">std::string</a> rotMeshName = <span class="stringliteral">&quot;gizmo_rotate&quot;</span>;</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;      <span class="keywordflow">if</span> (!meshMgr-&gt;<a class="codeRef" href="https://gazebosim.org/api/common/5/classgz_1_1common_1_1MeshManager.html#aa5c966fe1a1c9af82c81907d8711f82d">HasMesh</a>(rotMeshName))</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;        meshMgr-&gt;<a class="codeRef" href="https://gazebosim.org/api/common/5/classgz_1_1common_1_1MeshManager.html#ab799fb861e4fa161b9e92adba00b9597">CreateTube</a>(rotMeshName, 1.0f, 1.02f, 0.02f, 1, 64, <a class="codeRef" href="https://gazebosim.org/api/math/7/gz_2math_2Helpers_8hh.html#a0ac174a9cc1f9be9b33f931461bea361">GZ_PI</a>);</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160; </div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html" title="STL class.">std::string</a> rotFullMeshName = <span class="stringliteral">&quot;gizmo_rotate_full&quot;</span>;</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;      <span class="keywordflow">if</span> (!meshMgr-&gt;<a class="codeRef" href="https://gazebosim.org/api/common/5/classgz_1_1common_1_1MeshManager.html#aa5c966fe1a1c9af82c81907d8711f82d">HasMesh</a>(rotFullMeshName))</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;      {</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;        meshMgr-&gt;<a class="codeRef" href="https://gazebosim.org/api/common/5/classgz_1_1common_1_1MeshManager.html#ab799fb861e4fa161b9e92adba00b9597">CreateTube</a>(rotFullMeshName, 1.0f, 1.02f, 0.02f, 1, 64,</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;            2 * <a class="codeRef" href="https://gazebosim.org/api/math/7/gz_2math_2Helpers_8hh.html#a0ac174a9cc1f9be9b33f931461bea361">GZ_PI</a>);</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;      }</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160; </div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html" title="STL class.">std::string</a> rotHandleMeshName = <span class="stringliteral">&quot;gizmo_rotate_handle&quot;</span>;</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;      <span class="keywordflow">if</span> (!meshMgr-&gt;<a class="codeRef" href="https://gazebosim.org/api/common/5/classgz_1_1common_1_1MeshManager.html#aa5c966fe1a1c9af82c81907d8711f82d">HasMesh</a>(rotHandleMeshName))</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;      {</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;        meshMgr-&gt;<a class="codeRef" href="https://gazebosim.org/api/common/5/classgz_1_1common_1_1MeshManager.html#ab799fb861e4fa161b9e92adba00b9597">CreateTube</a>(rotHandleMeshName, 0.95f, 1.07f, 0.1f, 1, 64,</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;            <a class="codeRef" href="https://gazebosim.org/api/math/7/gz_2math_2Helpers_8hh.html#a0ac174a9cc1f9be9b33f931461bea361">GZ_PI</a>);</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;      }</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160; </div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> rotVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160; </div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;      <span class="comment">// rotation x</span></div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> rotXVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;      rotXVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateMesh(rotMeshName));</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;      rotXVis-&gt;SetLocalRotation(0, <a class="codeRef" href="https://gazebosim.org/api/math/7/gz_2math_2Helpers_8hh.html#a0ac174a9cc1f9be9b33f931461bea361">GZ_PI</a> * 0.5, 0);</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;      rotXVis-&gt;SetLocalScale(0.5, 0.5, 0.5);</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;      rotXVis-&gt;SetMaterial(this-&gt;materials[AM_X], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;      rotVis-&gt;AddChild(rotXVis);</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160; </div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;      <span class="comment">// rotation y</span></div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> rotYVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;      rotYVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateMesh(rotMeshName));</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;      rotYVis-&gt;SetLocalRotation(<a class="codeRef" href="https://gazebosim.org/api/math/7/gz_2math_2Helpers_8hh.html#a0ac174a9cc1f9be9b33f931461bea361">GZ_PI</a> * 0.5, 0, 0);</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;      rotYVis-&gt;SetLocalScale(0.5, 0.5, 0.5);</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;      rotYVis-&gt;SetMaterial(this-&gt;materials[AM_Y], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;      rotVis-&gt;AddChild(rotYVis);</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160; </div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;      <span class="comment">// rotation z</span></div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> rotZVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;      rotZVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateMesh(rotMeshName));</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;      rotZVis-&gt;SetLocalScale(0.5, 0.5, 0.5);</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;      rotZVis-&gt;SetMaterial(this-&gt;materials[AM_Z], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;      rotVis-&gt;AddChild(rotZVis);</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160; </div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;      <span class="comment">// rotation origin</span></div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> rotFullVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;      rotFullVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateMesh(rotFullMeshName));</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;      rotFullVis-&gt;SetLocalScale(0.5, 0.5, 0.5);</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;      rotFullVis-&gt;SetMaterial(this-&gt;materials[AM_O], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;      rotVis-&gt;AddChild(rotFullVis);</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160; </div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;      this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ae6dc0139261875a909ab17ac0271f7d2" title="Rotation in x.">TransformAxis::TA_ROTATION_X</a>] = rotXVis;</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;      this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ad668d1ebaee7d8f4bb5c53c839e61620" title="Rotation in y.">TransformAxis::TA_ROTATION_Y</a>] = rotYVis;</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;      this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a8243a6ace5530ba36554ad90a9ef81cb" title="Rotation in z.">TransformAxis::TA_ROTATION_Z</a>] = rotZVis;</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;      <span class="comment">// Store the full rotation visual in this-&gt;visuals using a key</span></div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;      <span class="comment">// that&#39;s not already occupied by the TransformAxis enum</span></div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;      this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a8243a6ace5530ba36554ad90a9ef81cb" title="Rotation in z.">TransformAxis::TA_ROTATION_Z</a> &lt;&lt; 1] = rotFullVis;</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160; </div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;      <span class="comment">// rotation handles</span></div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> rotHandleXVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;      rotHandleXVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateMesh(rotHandleMeshName));</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;      rotHandleXVis-&gt;SetMaterial(this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;      rotXVis-&gt;AddChild(rotHandleXVis);</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160; </div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> rotHandleYVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;      rotHandleYVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateMesh(rotHandleMeshName));</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;      rotHandleYVis-&gt;SetMaterial(this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;      rotYVis-&gt;AddChild(rotHandleYVis);</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160; </div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> rotHandleZVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;      rotHandleZVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateMesh(rotHandleMeshName));</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;      rotHandleZVis-&gt;SetMaterial(this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;      rotZVis-&gt;AddChild(rotHandleZVis);</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160; </div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;      this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ae6dc0139261875a909ab17ac0271f7d2" title="Rotation in x.">TransformAxis::TA_ROTATION_X</a>] = rotHandleXVis;</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;      this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ad668d1ebaee7d8f4bb5c53c839e61620" title="Rotation in y.">TransformAxis::TA_ROTATION_Y</a>] = rotHandleYVis;</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;      this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a8243a6ace5530ba36554ad90a9ef81cb" title="Rotation in z.">TransformAxis::TA_ROTATION_Z</a>] = rotHandleZVis;</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160; </div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160;      this-&gt;AddChild(rotVis);</div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;    }</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160; </div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00618"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a0c784930764a25118ae293515d11d6df">  618</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#a0c784930764a25118ae293515d11d6df" title="Create gizmo visual for scale.">BaseGizmoVisual&lt;T&gt;::CreateScaleVisual</a>()</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;    {</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> scaleVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160; </div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;      <span class="comment">// scale x</span></div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> scaleXVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> scaleShaftXVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;      scaleShaftXVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateCylinder());</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;      scaleShaftXVis-&gt;SetOrigin(0, 0, 0.5);</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;      scaleShaftXVis-&gt;SetLocalPosition(0, 0, 0.5);</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;      scaleShaftXVis-&gt;SetLocalScale(0.02, 0.02, 0.5);</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;      scaleXVis-&gt;AddChild(scaleShaftXVis);</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160; </div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> scaleHeadXVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;      scaleHeadXVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateBox());</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;      scaleHeadXVis-&gt;SetOrigin(0, 0, -0.5);</div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;      scaleHeadXVis-&gt;SetLocalPosition(0, 0, 0.5);</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;      scaleHeadXVis-&gt;SetLocalScale(0.07, 0.07, 0.07);</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;      scaleXVis-&gt;AddChild(scaleHeadXVis);</div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160; </div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;      scaleXVis-&gt;SetMaterial(this-&gt;materials[AM_X], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;      scaleXVis-&gt;SetLocalRotation(0, <a class="codeRef" href="https://gazebosim.org/api/math/7/gz_2math_2Helpers_8hh.html#a0ac174a9cc1f9be9b33f931461bea361">GZ_PI</a> * 0.5, 0);</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;      scaleVis-&gt;AddChild(scaleXVis);</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160; </div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;      <span class="comment">// scale y</span></div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> scaleYVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> scaleShaftYVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;      scaleShaftYVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateCylinder());</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;      scaleShaftYVis-&gt;SetOrigin(0, 0, 0.5);</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;      scaleShaftYVis-&gt;SetLocalPosition(0, 0, 0.5);</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;      scaleShaftYVis-&gt;SetLocalScale(0.02, 0.02, 0.5);</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;      scaleYVis-&gt;AddChild(scaleShaftYVis);</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160; </div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> scaleHeadYVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;      scaleHeadYVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateBox());</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;      scaleHeadYVis-&gt;SetOrigin(0, 0, -0.5);</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;      scaleHeadYVis-&gt;SetLocalPosition(0, 0, 0.5);</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;      scaleHeadYVis-&gt;SetLocalScale(0.07, 0.07, 0.07);</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;      scaleYVis-&gt;AddChild(scaleHeadYVis);</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160; </div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;      scaleYVis-&gt;SetMaterial(this-&gt;materials[AM_Y], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;      scaleYVis-&gt;SetLocalRotation(-<a class="codeRef" href="https://gazebosim.org/api/math/7/gz_2math_2Helpers_8hh.html#a0ac174a9cc1f9be9b33f931461bea361">GZ_PI</a> * 0.5, 0, 0);</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;      scaleVis-&gt;AddChild(scaleYVis);</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160; </div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;      <span class="comment">// scale z</span></div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> scaleZVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> scaleShaftZVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;      scaleShaftZVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateCylinder());</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;      scaleShaftZVis-&gt;SetOrigin(0, 0, 0.5);</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;      scaleShaftZVis-&gt;SetLocalPosition(0, 0, 0.5);</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;      scaleShaftZVis-&gt;SetLocalScale(0.02, 0.02, 0.5);</div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;      scaleZVis-&gt;AddChild(scaleShaftZVis);</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160; </div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> scaleHeadZVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;      scaleHeadZVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateBox());</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;      scaleHeadZVis-&gt;SetOrigin(0, 0, -0.5);</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;      scaleHeadZVis-&gt;SetLocalPosition(0, 0, 0.5);</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;      scaleHeadZVis-&gt;SetLocalScale(0.07, 0.07, 0.07);</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;      scaleZVis-&gt;AddChild(scaleHeadZVis);</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160; </div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;      scaleZVis-&gt;SetMaterial(this-&gt;materials[AM_Z], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;      scaleVis-&gt;AddChild(scaleZVis);</div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160; </div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160;      this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ae7ed164f9c53e75e929d500ec0ad7772" title="Scale in x.">TransformAxis::TA_SCALE_X</a>] = scaleXVis;</div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;      this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38aab427442d6474b00be5f5278df81592c" title="Scale in y.">TransformAxis::TA_SCALE_Y</a>] = scaleYVis;</div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;      this-&gt;visuals[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a7c3dfd20ace5609ae123d436e41d0d62" title="Scale in z.">TransformAxis::TA_SCALE_Z</a>] = scaleZVis;</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160; </div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;      <span class="comment">// scale handles</span></div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> scaleHandleXVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;      scaleHandleXVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateCylinder());</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;      scaleHandleXVis-&gt;SetLocalPosition(0, 0, 0.285);</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;      scaleHandleXVis-&gt;SetLocalScale(0.11, 0.11, 0.57);</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;      scaleHandleXVis-&gt;SetMaterial(this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;      scaleXVis-&gt;AddChild(scaleHandleXVis);</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160; </div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> scaleHandleYVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;      scaleHandleYVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateCylinder());</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;      scaleHandleYVis-&gt;SetLocalPosition(0, 0, 0.285);</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;      scaleHandleYVis-&gt;SetLocalScale(0.11, 0.11, 0.57);</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;      scaleHandleYVis-&gt;SetMaterial(this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;      scaleYVis-&gt;AddChild(scaleHandleYVis);</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160; </div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> scaleHandleZVis = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#af53298573a740bfaa5c4f214dfab5885" title="Create new visual. A unique ID and name will automatically be assigned to the visual.">CreateVisual</a>();</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;      scaleHandleZVis-&gt;AddGeometry(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;CreateCylinder());</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;      scaleHandleZVis-&gt;SetLocalPosition(0, 0, 0.285);</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;      scaleHandleZVis-&gt;SetLocalScale(0.11, 0.11, 0.57);</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;      scaleHandleZVis-&gt;SetMaterial(this-&gt;materials[AM_HANDLE], <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;      scaleZVis-&gt;AddChild(scaleHandleZVis);</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160; </div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;      this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38ae7ed164f9c53e75e929d500ec0ad7772" title="Scale in x.">TransformAxis::TA_SCALE_X</a>] = scaleHandleXVis;</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;      this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38aab427442d6474b00be5f5278df81592c" title="Scale in y.">TransformAxis::TA_SCALE_Y</a>] = scaleHandleYVis;</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;      this-&gt;handles[<a class="code" href="namespacegz_1_1rendering.html#a4029a64acc996e302a21aeb04fe78f38a7c3dfd20ace5609ae123d436e41d0d62" title="Scale in z.">TransformAxis::TA_SCALE_Z</a>] = scaleHandleZVis;</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160; </div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;      this-&gt;AddChild(scaleVis);</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;    }</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160; </div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00716"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ab4e297d0b6cd3d16039bb832588063cc">  716</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">VisualPtr</a> <a class="code" href="classgz_1_1rendering_1_1BaseGizmoVisual.html#ab4e297d0b6cd3d16039bb832588063cc" title="Get the child visual by axis.">BaseGizmoVisual&lt;T&gt;::ChildByAxis</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _axis)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;      <span class="keyword">auto</span> it = this-&gt;visuals.find(_axis);</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;      <span class="keywordflow">if</span> (it != this-&gt;visuals.end())</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;        <span class="keywordflow">return</span> it-&gt;second;</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160; </div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="namespacegz_1_1rendering.html#ade5c89d5a76252eccf0d1036e1d1f462" title="Shared pointer to Visual.">VisualPtr</a>();</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;    }</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;    }</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;  }</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;}</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+      </div>
+    </main>
+  </div>
+</body>

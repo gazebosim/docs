@@ -1,0 +1,194 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Sim">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Sim: Converting a Point Cloud to a 3D Model</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Sim</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        8.5.0
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 GzCreateDocs.cmake -->
+      <nav class="gz-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.9.1 -->
+</div><!-- top -->
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Converting a Point Cloud to a 3D Model </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>In this tutorial, you will learn how to convert a point cloud to a 3D model using the open source software CloudCompare. This skill will allow you to turn raw point cloud data into mesh files you can then use in your Gazebo simulations.</p>
+<h2><a class="anchor" id="autotoc_md326"></a>
+Prerequisites</h2>
+<p>First, you’ll need to have a point cloud already imported. You can download the tunnel point cloud used in this tutorial by clicking <a href="https://ignition-tutorials.s3-us-west-1.amazonaws.com/ign-gazebo/point_cloud_to_mesh/TutorialExample.zip">this direct download link</a>. The file is around 100MB; unzip it after downloading.</p>
+<p>Next, you’ll need to download CloudCompare. This is the software we will be using to convert our point cloud to a mesh. CloudCompare is free and open source. You can download it <a href="http://www.danielgm.net/cc/release/">here</a>.</p>
+<h2><a class="anchor" id="autotoc_md327"></a>
+Converting with CloudCompare</h2>
+<p>After installing, open CloudCompare and import your point cloud file by going to <code>File</code> &gt; <code>Open</code>. Depending on the number of points in your point cloud, this could take several minutes. Once loaded, you should see the following tunnel section:</p>
+<p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/cloudcompare2.png" alt="Opening the point cloud" class="inline"/></p>
+<p>Many 3D scans will be composed of millions, sometimes hundreds of millions of points. Converting a scan to a 3D model with that many points would be very difficult due to the number of polygons that would be created and the long processing time necessary to compute the normals.</p>
+<p>To solve this, you would need to reduce the number of points to something that will be easier for the software to convert and give us a 3D model with a polygon count that will be able to be loaded into other software.</p>
+<p>Our sample is a relatively small 7.9 million points, which is manageable. We'll still walk through reducing points, however, to make the process quicker.</p>
+<h3><a class="anchor" id="autotoc_md328"></a>
+Reduce Points</h3>
+<p>To reduce the number of points in your cloud, click on the tunnel so a yellow cube outline appears around it, then go to <code>Edit</code> &gt; <code>Subsample</code>.</p>
+<p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/min_space.png" alt="Min. space between points" class="inline"/></p>
+<p>The number you will need to enter in the <code>min. space between points</code> field will vary depending on your point cloud. A value of .01 was sufficient to bring our point cloud to an easy-to-manage 1 million points. Point count is visible in the <code>Properties</code> window on the lower left side of the screen.</p>
+<p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/properties.png" alt="Point count of subsample" class="inline"/></p>
+<p>How many points you reduce down to will largely depend on how long you are willing to wait for the point cloud to be converted into a mesh. The more points you start with, the longer it will take to compute the normals and create the mesh.</p>
+<p>After the operation is complete you’ll have two clouds in your scene: the original point cloud and your subsampled point cloud. Most operations in CloudCompare will create new point clouds and keep the original, so make sure that you have the new point cloud selected before running an operation.</p>
+<p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/secondcloud.png" alt="Selecting the new point cloud" class="inline"/></p>
+<h3><a class="anchor" id="autotoc_md329"></a>
+Create a Polygonal Mesh</h3>
+<p>Now we have a point cloud with nearly 1 million points instead of 7 million. However, right now our point cloud is just a bunch of points in space. In order to create a polygonal mesh from this point cloud we will need to compute the normals. A normal is essentially the direction a polygon is facing. To do this, go to <code>Edit</code> &gt; <code>Normals</code> &gt; <code>Compute</code>. You'll see this dialog box:</p>
+<p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/compute_normals.png" alt="Choose Triangulation surface model" class="inline"/></p>
+<p>You’ll see various options in the dialog box that appears. The main thing you’ll want to consider is what <code>Local surface model</code> to use. <code>Plane</code> is good with noise but not very good with sharp edges. <code>Triangulation</code> is the opposite: it is good with sharp edges but not noise. <code>Quadric</code> is good for smooth, curvy surfaces. In our case, we want to keep some of the jaggedness of the rocky surfaces in our tunnel so we’re going to go with the <code>Triangulation</code> surface model.</p>
+<p>Now we get to actually convert our point cloud to a mesh. To do this go to <code>Plugins</code> &gt; <code>PoissonRecon</code>. You'll see this dialog box:</p>
+<p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/outputdensity.png" alt="Octree depth and output density selection" class="inline"/></p>
+<p>The value you enter in the <code>Octree depth</code> field will determine the polygon count of the created model. You may have to run the surface reconstruction a couple times with varying values before you land on a polygon count that is suitable for your needs. The “right” polygon count will be determined by how the object will be used in a scene. Environments will likely be over a million polygons while individual objects should be a few thousand.</p>
+<p>We’ll also want to make sure we check the box for <code>output density as SF</code>. This will create a scalar field for us which will be useful in the next step.</p>
+<p>After reconstruction, you can see polygon count (<code>Faces</code>) in the mesh's <code>Properties</code> window.</p>
+<h3><a class="anchor" id="autotoc_md330"></a>
+Trim Excess Polygons</h3>
+<p>Our mesh has now been created. A value of 11 has given us 1.7 million faces. We have a problem however. Our tunnel has turned into a blob shape. This is because the mesh that CloudCompare creates will always be water tight even if it has to add polygons where there are no points. We just want our tunnels, though, so we need to remove those unnecessary polygons.</p>
+<p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/blob2.png" alt="The blob shape" class="inline"/></p>
+<p>This is where our scalar field comes in. In the mesh's <code>Properties</code> window go to <code>SF display params</code> and take the left handle in the graph and drag it to the right until it hits the area where the bulk of the scalar field starts.</p>
+<p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/sf_display.png" alt="Adjusting scalar filed params" class="inline"/></p>
+<p>This will display only the polygons that were created from the point cloud and hide the polygons used to make the model watertight. The polygons are only hidden however. We still need to actually remove them.</p>
+<p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/hidden_polygons2.png" alt="Display original polygons" class="inline"/></p>
+<p>To remove the hidden polygons go to <code>Edit</code> &gt; <code>Scalar fields</code> &gt; <code>Filter By Value</code>.</p>
+<p>A dialog box will appear with the <code>Range</code> values automatically entered based on what we entered in our <code>SF display params</code>. Hitting export will simply export the mesh within that range. Instead, we'll hit <code>Split</code> to create two meshes. One with the polygons inside our specified range and one containing polygons outside that range.</p>
+<p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/split.png" alt="Splitting the mesh" class="inline"/></p>
+<h3><a class="anchor" id="autotoc_md331"></a>
+The Completed Model</h3>
+<p>By hitting <code>Split</code> we can view the model before exporting by simply going to <code>File</code> &gt; <code>Save</code>. Remember to have the correct mesh selected (<code>&lt;mesh_name&gt;.part</code>) since choosing <code>Split</code> will give you two new meshes, plus you will still have your original, complete mesh. Your file format will depend on the software you want to use but <code>.obj</code> is a widely supported format that should work in most 3D applications.</p>
+<p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/complete2.png" alt="The completed mesh" class="inline"/></p>
+<p>You can find more information on CloudCompare and a more in depth look at the tools we used in this tutorial on <a href="https://www.cloudcompare.org/">the CloudCompare website</a> and the <a href="https://www.cloudcompare.org/doc/wiki/index.php?title=Main_Page">CloudCompare wiki</a>. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+      </div>
+    </main>
+  </div>
+</body>

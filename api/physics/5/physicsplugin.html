@@ -1,0 +1,331 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Physics">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Physics: Understanding the Physics Plugin</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Physics</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        5.3.2
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 IgnCreateDocs.cmake -->
+      <nav class="ign-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.8.17 -->
+</div><!-- top -->
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Understanding the Physics Plugin </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>This is an introduction to different physics engines and how they are integrated into the Ignition Physics library.</p>
+<h2><a class="anchor" id="autotoc_md22"></a>
+Ignition Physics</h2>
+<p>The <a class="el" href="namespaceignition_1_1physics.html">Ignition Physics</a> library integrates external physics engines into the Ignition Simulation eco-system. It allows users to select from multiple supported physics engines based on their simulation needs. Its plugin interface loads physics engines with requested features at runtime. It is also possible to integrate your own selected physics engine by writing a compatible plugin interface.</p>
+<p>To get a more in-depth understanding of how the physics plugin works in Ignition, we will start with some high level concepts and definitions.</p>
+<h3><a class="anchor" id="autotoc_md23"></a>
+High Level Concept</h3>
+<p>Conceptually, the physics plugin can be viewed from two sides of its interface: user vs. implementation.</p>
+<p>Each physics engine provides access to different features implemented by the Ignition Physics engine. The interface is made possible through the <a class="elRef" href="https://gazebosim.org/api/plugin/1/namespaceignition_1_1plugin.html">Ignition Plugin</a> library, which instantiates <a class="el" href="classignition_1_1physics_1_1Feature.html">Features</a> in <a class="el" href="structignition_1_1physics_1_1FeatureList.html">FeatureLists</a> and supplies pointers to the selected engine. This "user side interface" makes the Ignition Physics library "callable" from other Ignition libraries.</p>
+<p>The implementation side interface handles specific implementations of each <code>Feature</code>. Depending on what external physics engine we are using (DART, TPE etc.), the interface might be different. This interface is more internal facing, i.e. used mostly inside the Ignition Physics library.</p>
+<p>The implementation of the physics plugin revolves around four key elements.</p>
+<ol type="1">
+<li><p class="startli"><a class="el" href="classignition_1_1physics_1_1Entity.html">Entity</a></p>
+<p class="startli">This is the base class of all "proxy objects". The "proxy objects" are essentially interfaces into the actual objects which exist inside of the various physics engine implementations. The proxy objects contain the minimal amount of data (e.g. a unique identifier, a reference-counter for the implementation object, and a reference to the implementation interface that it needs) necessary to interface with the object inside of the implementation that it refers to.</p>
+</li>
+<li><p class="startli"><a class="el" href="structignition_1_1physics_1_1FeaturePolicy.html">FeaturePolicy</a></p>
+<p class="startli">FeaturePolicy is a "policy class" used to provide metadata to features about what kind of simulation engine they are going to be used in. Many physics simulations software libraries model 3-dimensional systems, though some (like Box2d) only consider 2-dimensional systems. A FeaturePolicy is used to customize Ignition Physics' APIs by the number of dimensions (2 or 3) and also the floating point scalar type (float or double). Dartsim and TPE reference implementations both use FeaturePolicy3d (3 dimensions, double).</p>
+</li>
+<li><p class="startli"><a class="el" href="classignition_1_1physics_1_1Feature.html">Feature</a></p>
+<p class="startli">This class defines the concept of a <code>Feature</code>, examples like <code>GetWorldFromEngine</code>, <a class="el" href="classignition_1_1physics_1_1GetEngineInfo.html">GetEngineInfo</a> etc. There is a pre-defined list of features in Ignition Physics. They are implemented by using external physics engines' APIs to fulfill simulation needs requested by Ignition.</p>
+</li>
+<li><p class="startli"><a class="el" href="structignition_1_1physics_1_1FeatureList.html">FeatureList</a></p>
+<p class="startli">This is the class that aggregates a list of features. FeatureLists can be constructed in hierarchies, e.g. a <code>FeatureList</code> can be passed into another <code>FeatureList</code>, and the set of all features in the new list will be the sum.</p>
+</li>
+</ol>
+<h3><a class="anchor" id="autotoc_md24"></a>
+FeatureList Definitions</h3>
+<p>This list of <code>FeatureLists</code> is specific to the implementation of <code>Dartsim</code> and <code>TPE-plugin</code>. Users do not need to organize their own plugin implementations this way.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Name </th><th class="markdownTableHeadNone">Definition  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Base </td><td class="markdownTableBodyNone">contains data structures and functions that define and use "proxy objects"  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">CustomFeatures </td><td class="markdownTableBodyNone">retrieves <code>World</code> entity from physics engine  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">EntityManagementFeatures </td><td class="markdownTableBodyNone">provides features to get, remove and construct entities  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">FreeGroupFeatures </td><td class="markdownTableBodyNone">finds free group entities and sets world pose, linear and angular velocities  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">JointFeatures </td><td class="markdownTableBodyNone">defines types of joints used and sets joint properties  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">KinematicsFeatures </td><td class="markdownTableBodyNone">computes frame relative to world  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">LinkFeatures </td><td class="markdownTableBodyNone">applies external force and torque to link  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">SDFFeatures </td><td class="markdownTableBodyNone">constructs entities from SDF file  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">ShapeFeatures </td><td class="markdownTableBodyNone">retrieves <code>Shape</code> related properties like <code>BoundingBox</code>, <code>ShapeSize</code> etc.  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">SimulationFeatures </td><td class="markdownTableBodyNone">updates <code>World</code> and everything within by defined stepsize  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">WorldFeatures </td><td class="markdownTableBodyNone">sets options like solver and collision detector  </td></tr>
+</table>
+<h3><a class="anchor" id="autotoc_md25"></a>
+Dart vs. TPE</h3>
+<p>Dart (<a href="https://dartsim.github.io/">Dynamic Animation and Robotics Toolkit</a>) is an open source library that provides data structures and algorithms for kinematic and dynamic applications in robotics and computer animation. It is the default physics engine used in Ignition Simulation. The source code for Dartsim plugin can be found in <a href="https://github.com/ignitionrobotics/ign-physics/tree/ign-physics5">Ignition Physics repository</a> under <code>dartsim</code> directory.</p>
+<p>TPE (<a href="https://github.com/ignitionrobotics/ign-physics/tree/ign-physics5/tpe">Trivial Physics Engine</a>) is an open source library created by Open Robotics that enables fast, inexpensive kinematics simulation for entities at large scale. It supports higher-order fleet dynamics without real physics (eg. gravity, force, constraint etc.) and multi-machine synchronization. Ignition support for TPE targets <a href="https://ignitionrobotics.org/docs/citadel">Citadel</a> and onward releases. The source code for TPE plugin can be found in <a href="https://github.com/ignitionrobotics/ign-physics/tree/ign-physics5">Ignition Physics repository</a> under the <code>tpe/plugin</code> directory.</p>
+<p>The following is a list of features supported by each physics engine to help users select one that fits their needs.</p>
+<h4><a class="anchor" id="autotoc_md26"></a>
+Entity Comparison</h4>
+<p>The following is a table of <code>Entity</code> names used in Ignition Physics plugin interface, Dart and TPE. Entities are arranged in top-down hierarchical order.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Physics Plugin </th><th class="markdownTableHeadCenter">Dart </th><th class="markdownTableHeadCenter">TPE  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Engine </td><td class="markdownTableBodyCenter">Engine </td><td class="markdownTableBodyCenter">Engine  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">World </td><td class="markdownTableBodyCenter">World </td><td class="markdownTableBodyCenter">World  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Frame </td><td class="markdownTableBodyCenter">Frame </td><td class="markdownTableBodyCenter">N/A  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Model </td><td class="markdownTableBodyCenter">Skeleton </td><td class="markdownTableBodyCenter">Model  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Joint </td><td class="markdownTableBodyCenter">Joint </td><td class="markdownTableBodyCenter">N/A  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Link </td><td class="markdownTableBodyCenter">BodyNode </td><td class="markdownTableBodyCenter">Link  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">Shape </td><td class="markdownTableBodyCenter">Shape </td><td class="markdownTableBodyCenter">Collision  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">Box/Sphere/Cylinder etc. </td><td class="markdownTableBodyCenter">Box/Sphere/Cylinder etc. </td><td class="markdownTableBodyCenter">Box/Sphere/Cylinder/Mesh etc.  </td></tr>
+</table>
+<h4><a class="anchor" id="autotoc_md27"></a>
+Feature Comparison</h4>
+<p>The following is a table of implemented <code>Features</code> of Dartsim and TPE-Plugin.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadCenter">Features </th><th class="markdownTableHeadCenter">Dartsim </th><th class="markdownTableHeadCenter">TPE-Plugin  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">GetEntities </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓ (no joint in TPE)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">RemoveEntities </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">ConstructEmptyWorldFeature </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">ConstructEmptyModelFeature </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">ConstructEmptyLinkFeature </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">CollisionFilterMaskFeature </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">FindFreeGroupFeature </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">SetFreeGroupWorldPose </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">SetFreeGroupWorldVelocity </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">GetBasicJointState </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">SetBasicJointState </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">GetBasicJointProperties </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">SetJointTransformFromParentFeature </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">SetJointTransformToChildFeature </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">DetachJointFeature </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">SetFreeJointRelativeTransformFeature </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">AttachFixedJointFeature </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">SetRevoluteJointProperties </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">GetRevoluteJointProperties </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">AttachRevoluteJointFeature </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">SetPrismaticJointProperties </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">GetPrismaticJointProperties </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">AttachPrismaticJointFeature </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">SetJointVelocityCommandFeature </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">LinkFrameSemantics </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">ShapeFrameSemantics </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">FreeGroupFrameSemantics </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">AddLinkExternalForceTorque </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">sdf::ConstructSdfWorld </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">sdf::ConstructSdfModel </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">sdf::ConstructSdfLink </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">sdf::ConstructSdfJoint </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">sdf::ConstructSdfCollision </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">sdf::ConstructSdfVisual </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">GetShapeKinematicProperties </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">SetShapeKinematicProperties </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">GetShapeBoundingBox </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">GetBoxShapeProperties </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">AttachBoxShapeFeature </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">GetCylinderShapeProperties </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">AttachCylinderShapeFeature </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">GetSphereShapeProperties </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">AttachSphereShapeFeature </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">mesh::GetMeshShapeProperties </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">mesh::AttachMeshShapeFeature </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyCenter">ForwardStep </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✓  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyCenter">GetContactsFromLastStepFeature </td><td class="markdownTableBodyCenter">✓ </td><td class="markdownTableBodyCenter">✕  </td></tr>
+</table>
+<p>| CollisionDetector | ✓ | | Solver | ✓ | | heightmap::GetHeightmapShapeProperties | ✓ | | | heightmap::AttachHeightmapShapeFeature | ✓ | | </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+      </div>
+    </main>
+  </div>
+</body>

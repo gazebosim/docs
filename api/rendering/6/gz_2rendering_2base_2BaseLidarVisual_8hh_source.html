@@ -1,0 +1,702 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Rendering">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Rendering: BaseLidarVisual.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Rendering</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        6.6.3
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 IgnCreateDocs.cmake -->
+      <nav class="ign-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.8.17 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_68720addb28ee8f762a8d1f55de1ba53.html">gz-rendering</a></li><li class="navelem"><a class="el" href="dir_ccc1703edcd2aae520499aaef06b68cb.html">include</a></li><li class="navelem"><a class="el" href="dir_42a5c6856abc46d6a330192debb6d004.html">gz</a></li><li class="navelem"><a class="el" href="dir_5269ccce336193d47739569941971412.html">rendering</a></li><li class="navelem"><a class="el" href="dir_bf8d1403b850d669fe2a43383d7c7814.html">base</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">gz/rendering/base/BaseLidarVisual.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="gz_2rendering_2base_2BaseLidarVisual_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (C) 2020 Open Source Robotics Foundation</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef IGNITION_RENDERING_BASELIDARVISUAL_HH_</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define IGNITION_RENDERING_BASELIDARVISUAL_HH_</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ignition_2rendering_2LidarVisual_8hh.html">ignition/rendering/LidarVisual.hh</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ignition_2rendering_2base_2BaseObject_8hh.html">ignition/rendering/base/BaseObject.hh</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ignition_2rendering_2base_2BaseRenderTypes_8hh.html">ignition/rendering/base/BaseRenderTypes.hh</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ignition_2rendering_2Scene_8hh.html">ignition/rendering/Scene.hh</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition.html">ignition</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keyword">namespace </span>rendering</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">inline</span> <span class="keyword">namespace </span>IGNITION_RENDERING_VERSION_NAMESPACE {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html">   34</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html">BaseLidarVisual</a> :</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> <a class="code" href="classignition_1_1rendering_1_1LidarVisual.html">LidarVisual</a>,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> T</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <span class="keyword">protected</span>: <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html">BaseLidarVisual</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> ~<a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html">BaseLidarVisual</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> PreRender() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> Destroy() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> ClearPoints() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetPoints(</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;              <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;double&gt;</a> &amp;_points) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetPoints(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;double&gt;</a> &amp;_points,</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;                            <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;ignition::math::Color&gt;</a> &amp;_colors)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                            <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> Update() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> Init() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetMinVerticalAngle(</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                  <span class="keywordtype">double</span> _minVerticalAngle) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> MinVerticalAngle() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetMaxVerticalAngle(</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                  <span class="keywordtype">double</span> _maxVerticalAngle) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> MaxVerticalAngle() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetMinHorizontalAngle(</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                  <span class="keywordtype">double</span> _minHorizontalAngle) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> MinHorizontalAngle() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetMaxHorizontalAngle(</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                  <span class="keywordtype">double</span> _maxHorizontalAngle) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> MaxHorizontalAngle() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetVerticalRayCount(</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _verticalRayCount) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> VerticalRayCount() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetHorizontalRayCount(</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _horizontalRayCount) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> HorizontalRayCount() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetMinRange(<span class="keywordtype">double</span> _minRange) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> MinRange() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetMaxRange(<span class="keywordtype">double</span> _maxRange) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> MaxRange() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetOffset(</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                  <span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html">ignition::math::Pose3d</a> _offset) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html">ignition::math::Pose3d</a>  Offset() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> PointCount() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;double&gt;</a> Points() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetType(<span class="keyword">const</span> <a class="code" href="namespaceignition_1_1rendering.html#a91e3cc18f4703a656f644ec8072f7727">LidarVisualType</a> _type) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code" href="namespaceignition_1_1rendering.html#a91e3cc18f4703a656f644ec8072f7727">LidarVisualType</a> Type() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetSize(<span class="keywordtype">double</span> _size) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> Size() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> CreateMaterials();</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetDisplayNonHitting(<span class="keywordtype">bool</span> _display) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> DisplayNonHitting() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a0c7a1dde235f664b59d3c3fe76200c5e">  157</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> minVerticalAngle = 0;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#ac522ade796503b1e67c7989b30ee933f">  160</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> maxVerticalAngle = 0;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a1e29ad22b4271ea9f072957c354604d4">  163</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> verticalCount = 1u;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#abfd17182cd101e754f1efa739c72e990">  166</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> verticalAngleStep = 0;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a2a670c1a09636557e91300bcd86bdc6f">  169</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> minHorizontalAngle = 0;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a4509742fd7db27a28c6fb3ca22d823cb">  172</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> maxHorizontalAngle = 0;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#ab68f31e121a06cf17846c3be316172db">  175</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> horizontalCount = 1u;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a83a536f7574cc88a5eb0716521ffdf3d">  178</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> horizontalAngleStep = 0;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a5b9e869b4d89247cc3222507a2e9caa2">  181</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> minRange = 0;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#ae67f0a1fe15c5c2c2935561e90808d4f">  184</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> maxRange = 0;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a8469f8341ce5c9ae359d94364ab9181a">  187</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">bool</span> displayNonHitting = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a4921a7cfd54875e5992f8ecf737c189c">  190</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html">ignition::math::Pose3d</a> offset = <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html#ab7ae57eb80e170a0c50c9601ae6c4655">ignition::math::Pose3d::Zero</a>;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#ae836dd330ac4ce992c60a5c3b5e21148">  193</a></span>&#160;      <span class="keyword">protected</span>: <a class="code" href="namespaceignition_1_1rendering.html#a91e3cc18f4703a656f644ec8072f7727">LidarVisualType</a> lidarVisualType =</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                      <a class="code" href="namespaceignition_1_1rendering.html#a91e3cc18f4703a656f644ec8072f7727a01956ffc245d5de357affe6d5378e036">LidarVisualType::LVT_TRIANGLE_STRIPS</a>;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#aba3c5d750d5dbd6e86c11ecaca62885e">  197</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> size = 1.0;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    };</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="comment">// BaseLidarVisual</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="comment"></span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a795e28f99c60134383cf298e396d2e73">  204</a></span>&#160;    <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a795e28f99c60134383cf298e396d2e73">BaseLidarVisual&lt;T&gt;::BaseLidarVisual</a>()</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    {</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    }</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00210"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a40e3c677debea1c17e873c3730aa735a">  210</a></span>&#160;    <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a40e3c677debea1c17e873c3730aa735a">BaseLidarVisual&lt;T&gt;::~BaseLidarVisual</a>()</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    {</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    }</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a2a062fe0fd3c5f4d771563834e4be9c6">  216</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a2a062fe0fd3c5f4d771563834e4be9c6">BaseLidarVisual&lt;T&gt;::PreRender</a>()</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    {</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      T::PreRender();</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    }</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00223"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a9138802bd505003fa7224b0dc0413fb4">  223</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a9138802bd505003fa7224b0dc0413fb4">BaseLidarVisual&lt;T&gt;::Destroy</a>()</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    {</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;      T::Destroy();</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    }</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00230"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a75dcfaf0d84ecfd1e001aaf27fd2984b">  230</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a75dcfaf0d84ecfd1e001aaf27fd2984b">BaseLidarVisual&lt;T&gt;::ClearPoints</a>()</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    {</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;        <span class="comment">// no op</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    }</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00237"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a91e51378b892db0c49eb075c3f2cff20">  237</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a91e51378b892db0c49eb075c3f2cff20">BaseLidarVisual&lt;T&gt;::PointCount</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;        <span class="keywordflow">return</span> 0u;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    }</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00244"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a021c190e7468b3222b2fc2f496622a5c">  244</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;double&gt;</a> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a021c190e7468b3222b2fc2f496622a5c">BaseLidarVisual&lt;T&gt;::Points</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;double&gt;</a> d;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        <span class="keywordflow">return</span> d;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    }</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#aafdddf2ff6454efa496f5a32b737dd10">  252</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#aafdddf2ff6454efa496f5a32b737dd10">BaseLidarVisual&lt;T&gt;::Update</a>()</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    {</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;      <span class="comment">// no op</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    }</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00259"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#afd1e1edf65240cb68a052ce0bd09eb4a">  259</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#afd1e1edf65240cb68a052ce0bd09eb4a">BaseLidarVisual&lt;T&gt;::SetPoints</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;double&gt;</a> &amp;)</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    {</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;      <span class="comment">// no op</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    }</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00266"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a80384d5fd0522aa38e925bdbe98d8895">  266</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#afd1e1edf65240cb68a052ce0bd09eb4a">BaseLidarVisual&lt;T&gt;::SetPoints</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;double&gt;</a> &amp;,</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                                <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;ignition::math::Color&gt;</a> &amp;)</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    {</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      <span class="comment">// no op</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    }</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00274"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a47de93e849d14c3eda08d78613506608">  274</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a47de93e849d14c3eda08d78613506608">BaseLidarVisual&lt;T&gt;::Init</a>()</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    {</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;      T::Init();</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      this-&gt;CreateMaterials();</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    }</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; </div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00282"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a03eb5fb0a3696586b9c3f84c048fc8a1">  282</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a03eb5fb0a3696586b9c3f84c048fc8a1">BaseLidarVisual&lt;T&gt;::SetMinVerticalAngle</a>(</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;          <span class="keywordtype">double</span> _minVerticalAngle)</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    {</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;      this-&gt;minVerticalAngle = _minVerticalAngle;</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    }</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00290"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#aa7059aeb8a24b5fdd492633e6afcbc93">  290</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#aa7059aeb8a24b5fdd492633e6afcbc93">BaseLidarVisual&lt;T&gt;::MinVerticalAngle</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      <span class="keywordflow">return</span> this-&gt;minVerticalAngle;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    }</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; </div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00297"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a8d12c93696b85f42d463e52c916629cc">  297</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a8d12c93696b85f42d463e52c916629cc">BaseLidarVisual&lt;T&gt;::SetMaxVerticalAngle</a>(</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;                  <span class="keywordtype">double</span> _maxVerticalAngle)</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    {</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;      this-&gt;maxVerticalAngle = _maxVerticalAngle;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    }</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00305"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a13f66d0241275e103a6edb58945a1ce1">  305</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a13f66d0241275e103a6edb58945a1ce1">BaseLidarVisual&lt;T&gt;::MaxVerticalAngle</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;      <span class="keywordflow">return</span> this-&gt;maxVerticalAngle;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    }</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; </div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00312"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a3fae1324f7e4fad0524f5ee94a1045c4">  312</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a3fae1324f7e4fad0524f5ee94a1045c4">BaseLidarVisual&lt;T&gt;::SetVerticalRayCount</a>(</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;          <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _verticalRayCount)</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    {</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;      <span class="keywordflow">if</span> (_verticalRayCount == 0)</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;      {</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;        <a class="codeRef" href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#a27f74932032badfe1255e584f1e8a791">ignwarn</a> &lt;&lt; <span class="stringliteral">&quot;Cannot have zero vertical rays. Setting value to 1.&quot;</span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;               &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        this-&gt;verticalCount = 1;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      }</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      {</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        this-&gt;verticalCount = _verticalRayCount;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;      }</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    }</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00329"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a53bb1f3029b7a544934fafb307797109">  329</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a53bb1f3029b7a544934fafb307797109">BaseLidarVisual&lt;T&gt;::VerticalRayCount</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;      <span class="keywordflow">return</span> this-&gt;verticalCount;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    }</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00336"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a4fb6cd111c73848fcf99a9a279e18179">  336</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a4fb6cd111c73848fcf99a9a279e18179">BaseLidarVisual&lt;T&gt;::SetMinHorizontalAngle</a>(</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;          <span class="keywordtype">double</span> _minHorizontalAngle)</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    {</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;      this-&gt;minHorizontalAngle = _minHorizontalAngle;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    }</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160; </div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00344"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#aee9ba3405fb8d30eccb54329cbd51fcb">  344</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#aee9ba3405fb8d30eccb54329cbd51fcb">BaseLidarVisual&lt;T&gt;::MinHorizontalAngle</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;      <span class="keywordflow">return</span> this-&gt;minHorizontalAngle;</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    }</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00351"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a34b80edd4727df806f426bf32145fc57">  351</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a34b80edd4727df806f426bf32145fc57">BaseLidarVisual&lt;T&gt;::SetMaxHorizontalAngle</a>(</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;          <span class="keywordtype">double</span> _maxHorizontalAngle)</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    {</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;      this-&gt;maxHorizontalAngle = _maxHorizontalAngle;</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;    }</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160; </div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00359"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a1c2bf4674b9a9c664584f4f1347ca1dd">  359</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a1c2bf4674b9a9c664584f4f1347ca1dd">BaseLidarVisual&lt;T&gt;::MaxHorizontalAngle</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;      <span class="keywordflow">return</span> this-&gt;maxHorizontalAngle;</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    }</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160; </div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00366"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#ad65a9bab2a01de12e52c78fd6a6ff2e0">  366</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#ad65a9bab2a01de12e52c78fd6a6ff2e0">BaseLidarVisual&lt;T&gt;::SetHorizontalRayCount</a>(</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;          <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _horizontalRayCount)</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    {</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;      <span class="keywordflow">if</span> (_horizontalRayCount == 0)</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;      {</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;        <a class="codeRef" href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#a27f74932032badfe1255e584f1e8a791">ignwarn</a> &lt;&lt; <span class="stringliteral">&quot;Cannot have zero horizontal rays. Setting value to 1.&quot;</span></div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;               &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;        this-&gt;horizontalCount = 1u;</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;      }</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;      {</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;        this-&gt;horizontalCount = _horizontalRayCount;</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;      }</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    }</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; </div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00383"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a6f7e6e698fd45bd2f8f7482effe12ec6">  383</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a6f7e6e698fd45bd2f8f7482effe12ec6">BaseLidarVisual&lt;T&gt;::HorizontalRayCount</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;      <span class="keywordflow">return</span> this-&gt;horizontalCount;</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    }</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160; </div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00390"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a05ecdc3d72dd3600a332799abbaa6596">  390</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a05ecdc3d72dd3600a332799abbaa6596">BaseLidarVisual&lt;T&gt;::SetMinRange</a>(<span class="keywordtype">double</span> _minRange)</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    {</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;      this-&gt;minRange = _minRange;</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    }</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00397"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a1bf79d4e06167ccd686bb438fe23efcc">  397</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a1bf79d4e06167ccd686bb438fe23efcc">BaseLidarVisual&lt;T&gt;::MinRange</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;      <span class="keywordflow">return</span> this-&gt;minRange;</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    }</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; </div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00404"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a82328f77f59829737c18712d6d609902">  404</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a82328f77f59829737c18712d6d609902">BaseLidarVisual&lt;T&gt;::SetMaxRange</a>(<span class="keywordtype">double</span> _maxRange)</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    {</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;      this-&gt;maxRange = _maxRange;</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;    }</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00411"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a3e42d8b3a2d3c555d238f1369c231b3a">  411</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a3e42d8b3a2d3c555d238f1369c231b3a">BaseLidarVisual&lt;T&gt;::MaxRange</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;      <span class="keywordflow">return</span> this-&gt;maxRange;</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    }</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160; </div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00418"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a172218552d0860a63129e2830ccbceab">  418</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a172218552d0860a63129e2830ccbceab">BaseLidarVisual&lt;T&gt;::SetOffset</a>(<span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html">ignition::math::Pose3d</a> _offset)</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    {</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;      this-&gt;offset = _offset;</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    }</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160; </div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00425"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a79b95340b35b8728a6e80dfbe58244ed">  425</a></span>&#160;    <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html">ignition::math::Pose3d</a> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a79b95340b35b8728a6e80dfbe58244ed">BaseLidarVisual&lt;T&gt;::Offset</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;      <span class="keywordflow">return</span> this-&gt;offset;</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    }</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160; </div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00432"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#acdf0691e6214ead072935f9827b5ca6d">  432</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#acdf0691e6214ead072935f9827b5ca6d">BaseLidarVisual&lt;T&gt;::SetType</a>(<span class="keyword">const</span> <a class="code" href="namespaceignition_1_1rendering.html#a91e3cc18f4703a656f644ec8072f7727">LidarVisualType</a> _type)</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    {</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;      this-&gt;lidarVisualType = _type;</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    }</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160; </div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00439"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a8c9a20d92dec922a7771820d8c24936d">  439</a></span>&#160;    <a class="code" href="namespaceignition_1_1rendering.html#a91e3cc18f4703a656f644ec8072f7727">LidarVisualType</a> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a8c9a20d92dec922a7771820d8c24936d">BaseLidarVisual&lt;T&gt;::Type</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;      <span class="keywordflow">return</span> this-&gt;lidarVisualType;</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;    }</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160; </div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00446"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a1168858abd1d5c020cb20724ae61cc40">  446</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a1168858abd1d5c020cb20724ae61cc40">BaseLidarVisual&lt;T&gt;::SetSize</a>(<span class="keywordtype">double</span> _size)</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;    {</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;      this-&gt;size = _size;</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    }</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160; </div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00453"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#aec7a83f31a438eb15554eb7ef438e793">  453</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#aec7a83f31a438eb15554eb7ef438e793">BaseLidarVisual&lt;T&gt;::Size</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;      <span class="keywordflow">return</span> this-&gt;size;</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    }</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160; </div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00460"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a2d1bfd6f6bf237138dc4dd49cff60855">  460</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a2d1bfd6f6bf237138dc4dd49cff60855">BaseLidarVisual&lt;T&gt;::SetDisplayNonHitting</a>(<span class="keywordtype">bool</span> _display)</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;    {</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;      this-&gt;displayNonHitting = _display;</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;    }</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160; </div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00467"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#abca361af3d3b714db3e6b73e122fc579">  467</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#abca361af3d3b714db3e6b73e122fc579">BaseLidarVisual&lt;T&gt;::DisplayNonHitting</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;      <span class="keywordflow">return</span> this-&gt;displayNonHitting;</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    }</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160; </div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00474"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a1dc43a293d212b139df76ca7ea873c67">  474</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseLidarVisual.html#a1dc43a293d212b139df76ca7ea873c67">BaseLidarVisual&lt;T&gt;::CreateMaterials</a>()</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;    {</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> mtl;</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160; </div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;      <span class="keywordflow">if</span> (!this-&gt;<a class="code" href="classignition_1_1rendering_1_1Scene.html">Scene</a>()-&gt;MaterialRegistered(<span class="stringliteral">&quot;Lidar/BlueStrips&quot;</span>))</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;      {</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;        mtl = this-&gt;<a class="code" href="classignition_1_1rendering_1_1Scene.html">Scene</a>()-&gt;<a class="code" href="classignition_1_1rendering_1_1Scene.html#a1d8b1be5bf2a1798add3c860ba50c44d">CreateMaterial</a>(<span class="stringliteral">&quot;Lidar/BlueStrips&quot;</span>);</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;        mtl-&gt;SetAmbient(0.0, 0.0, 1.0);</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;        mtl-&gt;SetDiffuse(0.0, 0.0, 1.0);</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;        mtl-&gt;SetEmissive(0.0, 0.0, 1.0);</div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;        mtl-&gt;SetTransparency(0.4);</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160;        mtl-&gt;SetCastShadows(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;        mtl-&gt;SetReceiveShadows(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;        mtl-&gt;SetLightingEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;        mtl-&gt;SetMetalness(0.0f);</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;        mtl-&gt;SetReflectivity(0.0);</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;      }</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160; </div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;      <span class="keywordflow">if</span> (!this-&gt;<a class="code" href="classignition_1_1rendering_1_1Scene.html">Scene</a>()-&gt;MaterialRegistered(<span class="stringliteral">&quot;Lidar/LightBlueStrips&quot;</span>))</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;      {</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;        mtl = this-&gt;<a class="code" href="classignition_1_1rendering_1_1Scene.html">Scene</a>()-&gt;<a class="code" href="classignition_1_1rendering_1_1Scene.html#a1d8b1be5bf2a1798add3c860ba50c44d">CreateMaterial</a>(<span class="stringliteral">&quot;Lidar/LightBlueStrips&quot;</span>);</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;        mtl-&gt;SetAmbient(0.0, 0.0, 1.0);</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;        mtl-&gt;SetDiffuse(0.0, 0.0, 1.0);</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;        mtl-&gt;SetEmissive(0.0, 0.0, 1.0);</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;        mtl-&gt;SetTransparency(0.8);</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;        mtl-&gt;SetCastShadows(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;        mtl-&gt;SetReceiveShadows(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;        mtl-&gt;SetLightingEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;        mtl-&gt;SetMetalness(0.0f);</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;        mtl-&gt;SetReflectivity(0.0);</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;      }</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160; </div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;      <span class="keywordflow">if</span> (!this-&gt;<a class="code" href="classignition_1_1rendering_1_1Scene.html">Scene</a>()-&gt;MaterialRegistered(<span class="stringliteral">&quot;Lidar/TransBlack&quot;</span>))</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;      {</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;        mtl = this-&gt;<a class="code" href="classignition_1_1rendering_1_1Scene.html">Scene</a>()-&gt;<a class="code" href="classignition_1_1rendering_1_1Scene.html#a1d8b1be5bf2a1798add3c860ba50c44d">CreateMaterial</a>(<span class="stringliteral">&quot;Lidar/TransBlack&quot;</span>);</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;        mtl-&gt;SetAmbient(0.0, 0.0, 0.0);</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;        mtl-&gt;SetDiffuse(0.0, 0.0, 0.0);</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;        mtl-&gt;SetEmissive(0.0, 0.0, 0.0);</div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;        mtl-&gt;SetTransparency(0.4);</div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;        mtl-&gt;SetCastShadows(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;        mtl-&gt;SetReceiveShadows(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;        mtl-&gt;SetLightingEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;        mtl-&gt;SetMetalness(0.5f);</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;        mtl-&gt;SetReflectivity(0.2);</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;      }</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160; </div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;      <span class="keywordflow">if</span> (!this-&gt;<a class="code" href="classignition_1_1rendering_1_1Scene.html">Scene</a>()-&gt;MaterialRegistered(<span class="stringliteral">&quot;Lidar/BlueRay&quot;</span>))</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;      {</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;        mtl = this-&gt;<a class="code" href="classignition_1_1rendering_1_1Scene.html">Scene</a>()-&gt;<a class="code" href="classignition_1_1rendering_1_1Scene.html#a1d8b1be5bf2a1798add3c860ba50c44d">CreateMaterial</a>(<span class="stringliteral">&quot;Lidar/BlueRay&quot;</span>);</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;        mtl-&gt;SetAmbient(0.0, 0.0, 1.0);</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;        mtl-&gt;SetDiffuse(0.0, 0.0, 1.0);</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;        mtl-&gt;SetEmissive(0.0, 0.0, 1.0);</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;        mtl-&gt;SetSpecular(0.0, 0.0, 1.0);</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;        mtl-&gt;SetTransparency(0.0);</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;        mtl-&gt;SetCastShadows(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;        mtl-&gt;SetReceiveShadows(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;        mtl-&gt;SetLightingEnabled(<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;        mtl-&gt;SetMetalness(0.1f);</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;        mtl-&gt;SetReflectivity(0.2);</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;      }</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;      <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    }</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;    }</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;  }</div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;}</div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassignition_1_1rendering_1_1Scene_html_a1d8b1be5bf2a1798add3c860ba50c44d"><div class="ttname"><a href="classignition_1_1rendering_1_1Scene.html#a1d8b1be5bf2a1798add3c860ba50c44d">ignition::rendering::Scene::CreateMaterial</a></div><div class="ttdeci">virtual MaterialPtr CreateMaterial(const std::string &amp;_name=&quot;&quot;)=0</div><div class="ttdoc">Create new material with the given name. Created material will have default properties.</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_aec7a83f31a438eb15554eb7ef438e793"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#aec7a83f31a438eb15554eb7ef438e793">ignition::rendering::BaseLidarVisual::Size</a></div><div class="ttdeci">virtual double Size() const override</div><div class="ttdoc">Get size of the lidar visualization.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:453</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a53bb1f3029b7a544934fafb307797109"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a53bb1f3029b7a544934fafb307797109">ignition::rendering::BaseLidarVisual::VerticalRayCount</a></div><div class="ttdeci">virtual unsigned int VerticalRayCount() const override</div><div class="ttdoc">Get number of vertical rays.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:329</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1LidarVisual_html"><div class="ttname"><a href="classignition_1_1rendering_1_1LidarVisual.html">ignition::rendering::LidarVisual</a></div><div class="ttdoc">A LidarVisual geometry class. The visual appearance is based on the type specified.</div><div class="ttdef"><b>Definition:</b> gz/rendering/LidarVisual.hh:55</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Pose3_html"><div class="ttname"><a href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html">ignition::math::Pose3</a></div></div>
+<div class="ttc" id="anamespaceignition_html"><div class="ttname"><a href="namespaceignition.html">ignition</a></div></div>
+<div class="ttc" id="ashared_ptr_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr</a></div><div class="ttdoc">STL class.</div></div>
+<div class="ttc" id="anamespaceignition_1_1rendering_html_a91e3cc18f4703a656f644ec8072f7727a01956ffc245d5de357affe6d5378e036"><div class="ttname"><a href="namespaceignition_1_1rendering.html#a91e3cc18f4703a656f644ec8072f7727a01956ffc245d5de357affe6d5378e036">ignition::rendering::LVT_TRIANGLE_STRIPS</a></div><div class="ttdeci">@ LVT_TRIANGLE_STRIPS</div><div class="ttdoc">Triangle strips visual.</div><div class="ttdef"><b>Definition:</b> gz/rendering/LidarVisual.hh:49</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a2a062fe0fd3c5f4d771563834e4be9c6"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a2a062fe0fd3c5f4d771563834e4be9c6">ignition::rendering::BaseLidarVisual::PreRender</a></div><div class="ttdeci">virtual void PreRender() override</div><div class="ttdoc">Prepare this object and any of its children for rendering. This should be called for each object in a...</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:216</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a795e28f99c60134383cf298e396d2e73"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a795e28f99c60134383cf298e396d2e73">ignition::rendering::BaseLidarVisual::BaseLidarVisual</a></div><div class="ttdeci">BaseLidarVisual()</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:204</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_aa7059aeb8a24b5fdd492633e6afcbc93"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#aa7059aeb8a24b5fdd492633e6afcbc93">ignition::rendering::BaseLidarVisual::MinVerticalAngle</a></div><div class="ttdeci">virtual double MinVerticalAngle() const override</div><div class="ttdoc">Get minimum vertical angle.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:290</div></div>
+<div class="ttc" id="avector_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt; double &gt;</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a91e51378b892db0c49eb075c3f2cff20"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a91e51378b892db0c49eb075c3f2cff20">ignition::rendering::BaseLidarVisual::PointCount</a></div><div class="ttdeci">virtual unsigned int PointCount() const override</div><div class="ttdoc">Get number of points in laser data.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:237</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a79b95340b35b8728a6e80dfbe58244ed"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a79b95340b35b8728a6e80dfbe58244ed">ignition::rendering::BaseLidarVisual::Offset</a></div><div class="ttdeci">virtual ignition::math::Pose3d Offset() const override</div><div class="ttdoc">Get offset of visual.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:425</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a172218552d0860a63129e2830ccbceab"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a172218552d0860a63129e2830ccbceab">ignition::rendering::BaseLidarVisual::SetOffset</a></div><div class="ttdeci">virtual void SetOffset(const ignition::math::Pose3d _offset) override</div><div class="ttdoc">Set offset of visual.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:418</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a6f7e6e698fd45bd2f8f7482effe12ec6"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a6f7e6e698fd45bd2f8f7482effe12ec6">ignition::rendering::BaseLidarVisual::HorizontalRayCount</a></div><div class="ttdeci">virtual unsigned int HorizontalRayCount() const override</div><div class="ttdoc">Get number of horizontal rays.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:383</div></div>
+<div class="ttc" id="aignition_2rendering_2LidarVisual_8hh_html"><div class="ttname"><a href="ignition_2rendering_2LidarVisual_8hh.html">LidarVisual.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a1bf79d4e06167ccd686bb438fe23efcc"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a1bf79d4e06167ccd686bb438fe23efcc">ignition::rendering::BaseLidarVisual::MinRange</a></div><div class="ttdeci">virtual double MinRange() const override</div><div class="ttdoc">Get minimum range of lidar rays.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:397</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_ad65a9bab2a01de12e52c78fd6a6ff2e0"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#ad65a9bab2a01de12e52c78fd6a6ff2e0">ignition::rendering::BaseLidarVisual::SetHorizontalRayCount</a></div><div class="ttdeci">virtual void SetHorizontalRayCount(unsigned int _horizontalRayCount) override</div><div class="ttdoc">Set number of horizontal rays.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:366</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_abfd17182cd101e754f1efa739c72e990"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#abfd17182cd101e754f1efa739c72e990">ignition::rendering::BaseLidarVisual::verticalAngleStep</a></div><div class="ttdeci">double verticalAngleStep</div><div class="ttdoc">Angle between two vertical rays.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:166</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a1168858abd1d5c020cb20724ae61cc40"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a1168858abd1d5c020cb20724ae61cc40">ignition::rendering::BaseLidarVisual::SetSize</a></div><div class="ttdeci">virtual void SetSize(double _size) override</div><div class="ttdoc">Set size of the lidar visualization, e.g. size of rasterized lidar points in pixels.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:446</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a13f66d0241275e103a6edb58945a1ce1"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a13f66d0241275e103a6edb58945a1ce1">ignition::rendering::BaseLidarVisual::MaxVerticalAngle</a></div><div class="ttdeci">virtual double MaxVerticalAngle() const override</div><div class="ttdoc">Get minimum vertical angle.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:305</div></div>
+<div class="ttc" id="aignition_2rendering_2base_2BaseRenderTypes_8hh_html"><div class="ttname"><a href="ignition_2rendering_2base_2BaseRenderTypes_8hh.html">BaseRenderTypes.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html">ignition::rendering::BaseLidarVisual</a></div><div class="ttdoc">Base implementation of a Lidar Visual.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:34</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a1dc43a293d212b139df76ca7ea873c67"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a1dc43a293d212b139df76ca7ea873c67">ignition::rendering::BaseLidarVisual::CreateMaterials</a></div><div class="ttdeci">virtual void CreateMaterials()</div><div class="ttdoc">Create predefined materials for lidar visual.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:474</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1Scene_html"><div class="ttname"><a href="classignition_1_1rendering_1_1Scene.html">ignition::rendering::Scene</a></div><div class="ttdoc">Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....</div><div class="ttdef"><b>Definition:</b> gz/rendering/Scene.hh:49</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a8c9a20d92dec922a7771820d8c24936d"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a8c9a20d92dec922a7771820d8c24936d">ignition::rendering::BaseLidarVisual::Type</a></div><div class="ttdeci">virtual LidarVisualType Type() const override</div><div class="ttdoc">Get the type for lidar visual.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:439</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_aafdddf2ff6454efa496f5a32b737dd10"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#aafdddf2ff6454efa496f5a32b737dd10">ignition::rendering::BaseLidarVisual::Update</a></div><div class="ttdeci">virtual void Update() override</div><div class="ttdoc">Update the Visual.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:252</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a9138802bd505003fa7224b0dc0413fb4"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a9138802bd505003fa7224b0dc0413fb4">ignition::rendering::BaseLidarVisual::Destroy</a></div><div class="ttdeci">virtual void Destroy() override</div><div class="ttdoc">Destroy any resources associated with this object. Invoking any other functions after destroying an o...</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:223</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_aba3c5d750d5dbd6e86c11ecaca62885e"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#aba3c5d750d5dbd6e86c11ecaca62885e">ignition::rendering::BaseLidarVisual::size</a></div><div class="ttdeci">double size</div><div class="ttdoc">Size of lidar visualisation.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:197</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_aee9ba3405fb8d30eccb54329cbd51fcb"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#aee9ba3405fb8d30eccb54329cbd51fcb">ignition::rendering::BaseLidarVisual::MinHorizontalAngle</a></div><div class="ttdeci">virtual double MinHorizontalAngle() const override</div><div class="ttdoc">Get minimum horizontal angle.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:344</div></div>
+<div class="ttc" id="anamespaceignition_1_1rendering_html_a91e3cc18f4703a656f644ec8072f7727"><div class="ttname"><a href="namespaceignition_1_1rendering.html#a91e3cc18f4703a656f644ec8072f7727">ignition::rendering::LidarVisualType</a></div><div class="ttdeci">LidarVisualType</div><div class="ttdoc">Enum for LidarVisual types.</div><div class="ttdef"><b>Definition:</b> gz/rendering/LidarVisual.hh:37</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a75dcfaf0d84ecfd1e001aaf27fd2984b"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a75dcfaf0d84ecfd1e001aaf27fd2984b">ignition::rendering::BaseLidarVisual::ClearPoints</a></div><div class="ttdeci">virtual void ClearPoints() override</div><div class="ttdoc">Clear the points of the lidar visual.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:230</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_afd1e1edf65240cb68a052ce0bd09eb4a"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#afd1e1edf65240cb68a052ce0bd09eb4a">ignition::rendering::BaseLidarVisual::SetPoints</a></div><div class="ttdeci">virtual void SetPoints(const std::vector&lt; double &gt; &amp;_points) override</div><div class="ttdoc">Set lidar points to be visualised.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:259</div></div>
+<div class="ttc" id="aignition_2rendering_2base_2BaseObject_8hh_html"><div class="ttname"><a href="ignition_2rendering_2base_2BaseObject_8hh.html">BaseObject.hh</a></div></div>
+<div class="ttc" id="aignition_2rendering_2Scene_8hh_html"><div class="ttname"><a href="ignition_2rendering_2Scene_8hh.html">Scene.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_ae836dd330ac4ce992c60a5c3b5e21148"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#ae836dd330ac4ce992c60a5c3b5e21148">ignition::rendering::BaseLidarVisual::lidarVisualType</a></div><div class="ttdeci">LidarVisualType lidarVisualType</div><div class="ttdoc">Type of lidar visualisation.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:193</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a021c190e7468b3222b2fc2f496622a5c"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a021c190e7468b3222b2fc2f496622a5c">ignition::rendering::BaseLidarVisual::Points</a></div><div class="ttdeci">virtual std::vector&lt; double &gt; Points() const override</div><div class="ttdoc">Get the points in laser data.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:244</div></div>
+<div class="ttc" id="agz_2common_2Console_8hh_html_a27f74932032badfe1255e584f1e8a791"><div class="ttname"><a href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#a27f74932032badfe1255e584f1e8a791">ignwarn</a></div><div class="ttdeci">#define ignwarn</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_ab68f31e121a06cf17846c3be316172db"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#ab68f31e121a06cf17846c3be316172db">ignition::rendering::BaseLidarVisual::horizontalCount</a></div><div class="ttdeci">unsigned int horizontalCount</div><div class="ttdoc">Horizontal laser count.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:175</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a4fb6cd111c73848fcf99a9a279e18179"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a4fb6cd111c73848fcf99a9a279e18179">ignition::rendering::BaseLidarVisual::SetMinHorizontalAngle</a></div><div class="ttdeci">virtual void SetMinHorizontalAngle(double _minHorizontalAngle) override</div><div class="ttdoc">Set minimum horizontal angle.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:336</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a82328f77f59829737c18712d6d609902"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a82328f77f59829737c18712d6d609902">ignition::rendering::BaseLidarVisual::SetMaxRange</a></div><div class="ttdeci">virtual void SetMaxRange(double _maxRange) override</div><div class="ttdoc">Set maximum range of lidar rays.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:404</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a40e3c677debea1c17e873c3730aa735a"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a40e3c677debea1c17e873c3730aa735a">ignition::rendering::BaseLidarVisual::~BaseLidarVisual</a></div><div class="ttdeci">virtual ~BaseLidarVisual()</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:210</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a47de93e849d14c3eda08d78613506608"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a47de93e849d14c3eda08d78613506608">ignition::rendering::BaseLidarVisual::Init</a></div><div class="ttdeci">virtual void Init() override</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:274</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a1e29ad22b4271ea9f072957c354604d4"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a1e29ad22b4271ea9f072957c354604d4">ignition::rendering::BaseLidarVisual::verticalCount</a></div><div class="ttdeci">unsigned int verticalCount</div><div class="ttdoc">Vertical laser count.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:163</div></div>
+<div class="ttc" id="aendl_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a></div><div class="ttdeci">T endl(T... args)</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a34b80edd4727df806f426bf32145fc57"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a34b80edd4727df806f426bf32145fc57">ignition::rendering::BaseLidarVisual::SetMaxHorizontalAngle</a></div><div class="ttdeci">virtual void SetMaxHorizontalAngle(double _maxHorizontalAngle) override</div><div class="ttdoc">Set maximum horizontal angle.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:351</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a0c7a1dde235f664b59d3c3fe76200c5e"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a0c7a1dde235f664b59d3c3fe76200c5e">ignition::rendering::BaseLidarVisual::minVerticalAngle</a></div><div class="ttdeci">double minVerticalAngle</div><div class="ttdoc">Vertical minimal angle.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:157</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_ac522ade796503b1e67c7989b30ee933f"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#ac522ade796503b1e67c7989b30ee933f">ignition::rendering::BaseLidarVisual::maxVerticalAngle</a></div><div class="ttdeci">double maxVerticalAngle</div><div class="ttdoc">Vertical maximum angle.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:160</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a05ecdc3d72dd3600a332799abbaa6596"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a05ecdc3d72dd3600a332799abbaa6596">ignition::rendering::BaseLidarVisual::SetMinRange</a></div><div class="ttdeci">virtual void SetMinRange(double _minRange) override</div><div class="ttdoc">Set minimum range of lidar rays.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:390</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a03eb5fb0a3696586b9c3f84c048fc8a1"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a03eb5fb0a3696586b9c3f84c048fc8a1">ignition::rendering::BaseLidarVisual::SetMinVerticalAngle</a></div><div class="ttdeci">virtual void SetMinVerticalAngle(double _minVerticalAngle) override</div><div class="ttdoc">Set minimum vertical angle.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:282</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a2d1bfd6f6bf237138dc4dd49cff60855"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a2d1bfd6f6bf237138dc4dd49cff60855">ignition::rendering::BaseLidarVisual::SetDisplayNonHitting</a></div><div class="ttdeci">virtual void SetDisplayNonHitting(bool _display) override</div><div class="ttdoc">Set if non-hitting rays will be displayed (this does not work for TRIANGLE_STRIPS visual)</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:460</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a1c2bf4674b9a9c664584f4f1347ca1dd"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a1c2bf4674b9a9c664584f4f1347ca1dd">ignition::rendering::BaseLidarVisual::MaxHorizontalAngle</a></div><div class="ttdeci">virtual double MaxHorizontalAngle() const override</div><div class="ttdoc">Get maximum horizontal angle.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:359</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_ae67f0a1fe15c5c2c2935561e90808d4f"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#ae67f0a1fe15c5c2c2935561e90808d4f">ignition::rendering::BaseLidarVisual::maxRange</a></div><div class="ttdeci">double maxRange</div><div class="ttdoc">Maximum Range.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:184</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a8d12c93696b85f42d463e52c916629cc"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a8d12c93696b85f42d463e52c916629cc">ignition::rendering::BaseLidarVisual::SetMaxVerticalAngle</a></div><div class="ttdeci">virtual void SetMaxVerticalAngle(double _maxVerticalAngle) override</div><div class="ttdoc">Set maximum vertical angle.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:297</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a83a536f7574cc88a5eb0716521ffdf3d"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a83a536f7574cc88a5eb0716521ffdf3d">ignition::rendering::BaseLidarVisual::horizontalAngleStep</a></div><div class="ttdeci">double horizontalAngleStep</div><div class="ttdoc">Angle between two horizontal rays.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:178</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a3e42d8b3a2d3c555d238f1369c231b3a"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a3e42d8b3a2d3c555d238f1369c231b3a">ignition::rendering::BaseLidarVisual::MaxRange</a></div><div class="ttdeci">virtual double MaxRange() const override</div><div class="ttdoc">Get maximum range of lidar rays.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:411</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a4509742fd7db27a28c6fb3ca22d823cb"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a4509742fd7db27a28c6fb3ca22d823cb">ignition::rendering::BaseLidarVisual::maxHorizontalAngle</a></div><div class="ttdeci">double maxHorizontalAngle</div><div class="ttdoc">Horizontal maximum angle.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:172</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a5b9e869b4d89247cc3222507a2e9caa2"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a5b9e869b4d89247cc3222507a2e9caa2">ignition::rendering::BaseLidarVisual::minRange</a></div><div class="ttdeci">double minRange</div><div class="ttdoc">Minimum Range.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:181</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a3fae1324f7e4fad0524f5ee94a1045c4"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a3fae1324f7e4fad0524f5ee94a1045c4">ignition::rendering::BaseLidarVisual::SetVerticalRayCount</a></div><div class="ttdeci">virtual void SetVerticalRayCount(unsigned int _verticalRayCount) override</div><div class="ttdoc">Set number of vertical rays.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:312</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a8469f8341ce5c9ae359d94364ab9181a"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a8469f8341ce5c9ae359d94364ab9181a">ignition::rendering::BaseLidarVisual::displayNonHitting</a></div><div class="ttdeci">bool displayNonHitting</div><div class="ttdoc">Option to display non-hitting rays.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:187</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Pose3_html_ab7ae57eb80e170a0c50c9601ae6c4655"><div class="ttname"><a href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html#ab7ae57eb80e170a0c50c9601ae6c4655">ignition::math::Pose3::Zero</a></div><div class="ttdeci">static const Pose3&lt; T &gt; Zero</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a4921a7cfd54875e5992f8ecf737c189c"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a4921a7cfd54875e5992f8ecf737c189c">ignition::rendering::BaseLidarVisual::offset</a></div><div class="ttdeci">ignition::math::Pose3d offset</div><div class="ttdoc">Offset of visual.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:190</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_abca361af3d3b714db3e6b73e122fc579"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#abca361af3d3b714db3e6b73e122fc579">ignition::rendering::BaseLidarVisual::DisplayNonHitting</a></div><div class="ttdeci">virtual bool DisplayNonHitting() const override</div><div class="ttdoc">Get if non-hitting rays will be displayed.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:467</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_a2a670c1a09636557e91300bcd86bdc6f"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#a2a670c1a09636557e91300bcd86bdc6f">ignition::rendering::BaseLidarVisual::minHorizontalAngle</a></div><div class="ttdeci">double minHorizontalAngle</div><div class="ttdoc">Horizontal minimal angle.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:169</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseLidarVisual_html_acdf0691e6214ead072935f9827b5ca6d"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseLidarVisual.html#acdf0691e6214ead072935f9827b5ca6d">ignition::rendering::BaseLidarVisual::SetType</a></div><div class="ttdeci">virtual void SetType(const LidarVisualType _type) override</div><div class="ttdoc">Set type for lidar visual.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseLidarVisual.hh:432</div></div>
+      </div>
+    </main>
+  </div>
+</body>

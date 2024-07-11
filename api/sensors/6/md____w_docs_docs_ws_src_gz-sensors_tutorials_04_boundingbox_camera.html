@@ -1,0 +1,638 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Sensors">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Sensors: Bounding Box Camera in Gazebo Sim</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Sensors</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        6.8.0
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 IgnCreateDocs.cmake -->
+      <nav class="ign-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.8.17 -->
+</div><!-- top -->
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Bounding Box Camera in Gazebo Sim </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>In this tutorial, we will discuss how to use a bounding box camera sensor in Gazebo Sim.</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Requirements</h1>
+<p>Since this tutorial will show how to use a bounding box camera sensor in Gazebo Sim, you'll need to have Gazebo Sim installed. We recommend installing all Gazebo libraries, using version Fortress or newer (the bounding box camera is not available in Gazebo versions prior to Fortress). If you need to install Gazebo, pick the version you'd like to use and then follow the installation instructions.</p>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Setting up the bounding box camera</h1>
+<p>Here's an example of how to attach a bounding box camera sensor to a model in a SDF file:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">model</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;boundingbox_camera&quot;</span>&gt;</div>
+<div class="line">     &lt;<span class="keywordtype">pose</span>&gt;4 0 1.0 0 0.0 3.14&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">     &lt;<span class="keywordtype">link</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;link&quot;</span>&gt;</div>
+<div class="line">       &lt;<span class="keywordtype">pose</span>&gt;0.05 0.05 0.05 0 0 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">       &lt;<span class="keywordtype">inertial</span>&gt;</div>
+<div class="line">         &lt;<span class="keywordtype">mass</span>&gt;0.1&lt;/<span class="keywordtype">mass</span>&gt;</div>
+<div class="line">         &lt;<span class="keywordtype">inertia</span>&gt;</div>
+<div class="line">           &lt;<span class="keywordtype">ixx</span>&gt;0.000166667&lt;/<span class="keywordtype">ixx</span>&gt;</div>
+<div class="line">           &lt;<span class="keywordtype">iyy</span>&gt;0.000166667&lt;/<span class="keywordtype">iyy</span>&gt;</div>
+<div class="line">           &lt;<span class="keywordtype">izz</span>&gt;0.000166667&lt;/<span class="keywordtype">izz</span>&gt;</div>
+<div class="line">         &lt;/<span class="keywordtype">inertia</span>&gt;</div>
+<div class="line">       &lt;/<span class="keywordtype">inertial</span>&gt;</div>
+<div class="line">       &lt;<span class="keywordtype">collision</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;collision&quot;</span>&gt;</div>
+<div class="line">         &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">           &lt;<span class="keywordtype">box</span>&gt;</div>
+<div class="line">             &lt;<span class="keywordtype">size</span>&gt;0.1 0.1 0.1&lt;/<span class="keywordtype">size</span>&gt;</div>
+<div class="line">           &lt;/<span class="keywordtype">box</span>&gt;</div>
+<div class="line">         &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">       &lt;/<span class="keywordtype">collision</span>&gt;</div>
+<div class="line">       &lt;<span class="keywordtype">visual</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;visual&quot;</span>&gt;</div>
+<div class="line">         &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">           &lt;<span class="keywordtype">box</span>&gt;</div>
+<div class="line">             &lt;<span class="keywordtype">size</span>&gt;0.1 0.1 0.1&lt;/<span class="keywordtype">size</span>&gt;</div>
+<div class="line">           &lt;/<span class="keywordtype">box</span>&gt;</div>
+<div class="line">         &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">       &lt;/<span class="keywordtype">visual</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">       &lt;<span class="keywordtype">sensor</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;boundingbox_camera&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;boundingbox_camera&quot;</span>&gt;</div>
+<div class="line">         &lt;<span class="keywordtype">topic</span>&gt;<span class="keyword">boxes</span>&lt;/<span class="keywordtype">topic</span>&gt;</div>
+<div class="line">         &lt;<span class="keywordtype">camera</span>&gt;</div>
+<div class="line">           &lt;<span class="keywordtype">box_type</span>&gt;2<span class="keyword">d</span>&lt;/<span class="keywordtype">box_type</span>&gt;</div>
+<div class="line">           &lt;<span class="keywordtype">horizontal_fov</span>&gt;1.047&lt;/<span class="keywordtype">horizontal_fov</span>&gt;</div>
+<div class="line">           &lt;<span class="keywordtype">image</span>&gt;</div>
+<div class="line">             &lt;<span class="keywordtype">width</span>&gt;800&lt;/<span class="keywordtype">width</span>&gt;</div>
+<div class="line">             &lt;<span class="keywordtype">height</span>&gt;600&lt;/<span class="keywordtype">height</span>&gt;</div>
+<div class="line">           &lt;/<span class="keywordtype">image</span>&gt;</div>
+<div class="line">           &lt;<span class="keywordtype">clip</span>&gt;</div>
+<div class="line">             &lt;<span class="keywordtype">near</span>&gt;0.1&lt;/<span class="keywordtype">near</span>&gt;</div>
+<div class="line">             &lt;<span class="keywordtype">far</span>&gt;10&lt;/<span class="keywordtype">far</span>&gt;</div>
+<div class="line">           &lt;/<span class="keywordtype">clip</span>&gt;</div>
+<div class="line">         &lt;/<span class="keywordtype">camera</span>&gt;</div>
+<div class="line">         &lt;<span class="keywordtype">always_on</span>&gt;1&lt;/<span class="keywordtype">always_on</span>&gt;</div>
+<div class="line">         &lt;<span class="keywordtype">update_rate</span>&gt;30&lt;/<span class="keywordtype">update_rate</span>&gt;</div>
+<div class="line">         &lt;<span class="keywordtype">visualize</span>&gt;<span class="keyword">true</span>&lt;/<span class="keywordtype">visualize</span>&gt;</div>
+<div class="line">       &lt;/<span class="keywordtype">sensor</span>&gt;</div>
+<div class="line">     &lt;/<span class="keywordtype">link</span>&gt;</div>
+<div class="line">   &lt;/<span class="keywordtype">model</span>&gt;</div>
+</div><!-- fragment --><p>Let’s take a closer look at the portion of the code above that focuses on the bounding box camera sensor:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">sensor</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;boundingbox_camera&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;boundingbox_camera&quot;</span>&gt;</div>
+<div class="line">         &lt;<span class="keywordtype">topic</span>&gt;<span class="keyword">boxes</span>&lt;/<span class="keywordtype">topic</span>&gt;</div>
+<div class="line">         &lt;<span class="keywordtype">camera</span>&gt;</div>
+<div class="line">           &lt;<span class="keywordtype">box_type</span>&gt;2<span class="keyword">d</span>&lt;/<span class="keywordtype">box_type</span>&gt;</div>
+<div class="line">           &lt;<span class="keywordtype">horizontal_fov</span>&gt;1.047&lt;/<span class="keywordtype">horizontal_fov</span>&gt;</div>
+<div class="line">           &lt;<span class="keywordtype">image</span>&gt;</div>
+<div class="line">             &lt;<span class="keywordtype">width</span>&gt;800&lt;/<span class="keywordtype">width</span>&gt;</div>
+<div class="line">             &lt;<span class="keywordtype">height</span>&gt;600&lt;/<span class="keywordtype">height</span>&gt;</div>
+<div class="line">           &lt;/<span class="keywordtype">image</span>&gt;</div>
+<div class="line">           &lt;<span class="keywordtype">clip</span>&gt;</div>
+<div class="line">             &lt;<span class="keywordtype">near</span>&gt;0.1&lt;/<span class="keywordtype">near</span>&gt;</div>
+<div class="line">             &lt;<span class="keywordtype">far</span>&gt;10&lt;/<span class="keywordtype">far</span>&gt;</div>
+<div class="line">           &lt;/<span class="keywordtype">clip</span>&gt;</div>
+<div class="line">         &lt;/<span class="keywordtype">camera</span>&gt;</div>
+<div class="line">         &lt;<span class="keywordtype">always_on</span>&gt;1&lt;/<span class="keywordtype">always_on</span>&gt;</div>
+<div class="line">         &lt;<span class="keywordtype">update_rate</span>&gt;30&lt;/<span class="keywordtype">update_rate</span>&gt;</div>
+<div class="line">         &lt;<span class="keywordtype">visualize</span>&gt;<span class="keyword">true</span>&lt;/<span class="keywordtype">visualize</span>&gt;</div>
+<div class="line">       &lt;/<span class="keywordtype">sensor</span>&gt;</div>
+</div><!-- fragment --><p>As we can see, we define a sensor with the following SDF elements:</p><ul>
+<li><code>&lt;box_type&gt;</code>: The type of bounding boxes, boxes can be 2d or 3d, and 2d boxes can be visible 2d boxes or full 2d boxes<ul>
+<li>Visible 2d box: 2D axis aligned box that shows the visible part of the occluded object</li>
+<li>Full 2d box: 2D axis aligned box that shows the full box of occluded objects</li>
+<li>3D box: Oriented 3D box defined by the center position / orientation / size The default value is Visible 2d box. The <code>&lt;box_type&gt;</code> values can be</li>
+<li>For visible 2d boxes: <code>2d</code>, <code>visible_2d</code>, “<code>visible_box_2d</code></li>
+<li>For full 2d boxes: <code>full_2d</code>, “<code>visible_box_2d</code></li>
+<li>For 3d boxes: <code>3d</code></li>
+</ul>
+</li>
+<li><code>&lt;camera&gt;</code>: The camera, which has the following child elements:<ul>
+<li><code>&lt;horizontal_fov&gt;</code>: The horizontal field of view, in radians.</li>
+<li><code>&lt;image&gt;</code>: The image size, in pixels.</li>
+<li><code>&lt;clip&gt;</code>: The near and far clip planes. Objects are only rendered if they're within these planes.</li>
+</ul>
+</li>
+<li><code>&lt;always_on&gt;</code>: Whether the sensor will always be updated (indicated by 1) or not (indicated by 0). This is currently unused by Gazebo Sim.</li>
+<li><code>&lt;update_rate&gt;</code>: The sensor's update rate, in Hz.</li>
+<li><code>&lt;visualize&gt;</code>: Whether the sensor should be visualized in the GUI (indicated by true) or not (indicated by false). This is currently unused by Gazebo Sim.</li>
+<li><code>&lt;topic&gt;</code>: The name of the topic where sensor data is published.</li>
+</ul>
+<p><br  />
+</p>
+<h1><a class="anchor" id="autotoc_md5"></a>
+Assigning a label to a model</h1>
+<p>Only models with labels (annotated classes) will be visible by the bounding box camera sensor, and unlabeled models will be considered as a background</p>
+<p>To assign a label to a model we use the label plugin in the SDF file</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">model</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;box&quot;</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">pose</span>&gt;0 -1 0.5 0 0 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">link</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;box_link&quot;</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">inertial</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">inertia</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ixx</span>&gt;1&lt;/<span class="keywordtype">ixx</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ixy</span>&gt;0&lt;/<span class="keywordtype">ixy</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ixz</span>&gt;0&lt;/<span class="keywordtype">ixz</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">iyy</span>&gt;1&lt;/<span class="keywordtype">iyy</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">iyz</span>&gt;0&lt;/<span class="keywordtype">iyz</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">izz</span>&gt;1&lt;/<span class="keywordtype">izz</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">inertia</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">mass</span>&gt;1.0&lt;/<span class="keywordtype">mass</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">inertial</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">collision</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;box_collision&quot;</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">box</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">size</span>&gt;1 1 1&lt;/<span class="keywordtype">size</span>&gt;</div>
+<div class="line">            &lt;/<span class="keywordtype">box</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">collision</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">        &lt;<span class="keywordtype">visual</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;box_visual&quot;</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">box</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">size</span>&gt;1 1 1&lt;/<span class="keywordtype">size</span>&gt;</div>
+<div class="line">            &lt;/<span class="keywordtype">box</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">material</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ambient</span>&gt;0 0 0.5 1&lt;/<span class="keywordtype">ambient</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">diffuse</span>&gt;0 0 1 1&lt;/<span class="keywordtype">diffuse</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">specular</span>&gt;0 0 0.3 1&lt;/<span class="keywordtype">specular</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">material</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">plugin</span> <span class="keyword">filename</span>=<span class="stringliteral">&quot;ignition-gazebo-label-system&quot;</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;ignition::gazebo::systems::Label&quot;</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">label</span>&gt;10&lt;/<span class="keywordtype">label</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">plugin</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">visual</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">link</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">model</span>&gt;</div>
+</div><!-- fragment --><p>Lets zoom in the label plugin</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">plugin</span> <span class="keyword">filename</span>=<span class="stringliteral">&quot;ignition-gazebo-label-system&quot;</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;ignition::gazebo::systems::Label&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">label</span>&gt;10&lt;/<span class="keywordtype">label</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
+</div><!-- fragment --><p>We assign the label of the model by adding that plugin to the <code>&lt;visual&gt;</code> tag of the model or the <code>&lt;model&gt;</code> tag(will be shown below), And we add the <code>&lt;label&gt;</code> tag to assign the label class to the model.</p>
+<p>The code above is an example for adding the label plugin as a child for the <code>&lt;visual&gt;</code> tag.</p>
+<p>Example for adding the label plugin as a child for the <code>&lt;model&gt;</code> tag</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">model</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;sphere&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">static</span>&gt;<span class="keyword">true</span>&lt;/<span class="keywordtype">static</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">pose</span>&gt;-1 -2 0.5 0 0 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">link</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;sphere_link&quot;</span>&gt;</div>
+<div class="line">  ...</div>
+<div class="line">  &lt;/<span class="keywordtype">link</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">plugin</span> <span class="keyword">filename</span>=<span class="stringliteral">&quot;ignition-gazebo-label-system&quot;</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;ignition::gazebo::systems::Label&quot;</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">label</span>&gt;20&lt;/<span class="keywordtype">label</span>&gt;</div>
+<div class="line">  &lt;/<span class="keywordtype">plugin</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">model</span>&gt;</div>
+</div><!-- fragment --><p>Or by including a model from ignition fuel, you can add the label plugin as a child for the  tag</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">include</span>&gt;</div>
+<div class="line">   &lt;<span class="keywordtype">pose</span>&gt;-1 0 3 0.0 0.0 1.57&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">   &lt;<span class="keywordtype">uri</span>&gt;</div>
+<div class="line">   <span class="keyword">https:</span>//<span class="keyword">fuel.ignitionrobotics.org</span>/1.0/<span class="keyword">OpenRobotics</span>/<span class="keyword">models</span>/<span class="keyword">Construction</span> <span class="keyword">Cone</span></div>
+<div class="line">   &lt;/<span class="keywordtype">uri</span>&gt;</div>
+<div class="line">   &lt;<span class="keywordtype">plugin</span> <span class="keyword">filename</span>=<span class="stringliteral">&quot;ignition-gazebo-label-system&quot;</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;ignition::gazebo::systems::Label&quot;</span>&gt;</div>
+<div class="line">     &lt;<span class="keywordtype">label</span>&gt;30&lt;/<span class="keywordtype">label</span>&gt;</div>
+<div class="line">   &lt;/<span class="keywordtype">plugin</span>&gt;</div>
+<div class="line"> &lt;/<span class="keywordtype">include</span>&gt;</div>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
+Running an example:</h1>
+<p>Now that we've discussed how a bounding box camera and models with labels can be specified, let's start with an example world that uses the bounding box camera. Run the following command: </p><div class="fragment"><div class="line">ign gazebo boundingbox_camera.sdf</div>
+</div><!-- fragment --><p>You should see something similar to this:</p>
+<p><img src="files/boundingbox_camera/boundingbox_camera_visible.png" alt="visible_boxes" class="inline"/></p>
+<p>Note that the mode was visible 2d, so that the occluded sphere has a bounding box on just the visible part of it, that is the way of the annotation in famous datasets such as COCO &amp; PASCAL VOC datasets.</p>
+<p>Change the <code>&lt;box_type&gt;</code> to <code>full_2d</code> to see the full bounding boxes mode which shows the full box of the occluded objects, and this mode is implemented in datasets such as <code>KITTI</code> and <code>nuscenes</code>, and it is benefit in the case that you need a the model to guess the hidden parts of the objects!.</p>
+<p>You will see output like this:</p>
+<p><img src="files/boundingbox_camera/boundingbox_camera_full.png" alt="full_boxes" class="inline"/></p>
+<p>To visualize the output from different SDF file, you can include the model of the sensor in any SDF file then run it via ign gazebo and open the <code>Image Display</code> plugin and select the topic you specified in the <code>&lt;topic&gt;</code> tag.</p>
+<p>Taking a look at the <a href="https://github.com/ignitionrobotics/ign-gazebo/blob/ign-gazebo5/examples/worlds/boundingbox_camera.sdf">SDF</a> file for this example.</p>
+<h1><a class="anchor" id="autotoc_md7"></a>
+Object Detection Dataset Generation</h1>
+<p>To save the output of the sensor as an object detection dataset samples we add the <code>&lt;save&gt;</code> tag to the <code>&lt;camera&gt;</code> tag, And we specify the path to save the dataset in.</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">sensor</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;boundingbox_camera&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;boundingbox&quot;</span>&gt;</div>
+<div class="line">  ...</div>
+<div class="line">  &lt;<span class="keywordtype">camera</span>&gt;</div>
+<div class="line">    ...</div>
+<div class="line">    &lt;<span class="keywordtype">save</span> <span class="keyword">enabled</span>=<span class="stringliteral">&quot;true&quot;</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">path</span>&gt;<span class="keyword">DATSET_PATH</span>&lt;/<span class="keywordtype">path</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">save</span>&gt;</div>
+<div class="line">  &lt;/<span class="keywordtype">camera</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">sensor</span>&gt;</div>
+</div><!-- fragment --><p>Set up the path of the dataset and run: </p><div class="fragment"><div class="line">ign gazebo boundingbox_camera.sdf</div>
+</div><!-- fragment --><p>you will find that the dataset is saved in the given path</p>
+<h3><a class="anchor" id="autotoc_md8"></a>
+Dataset Demo</h3>
+<p><img src="files/boundingbox_camera/object_detection_dataset.gif" alt="dataset_generation" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md9"></a>
+Visualize the dataset in Python</h1>
+<p>To visualize the dataset after the generation, put that code in a <code>.py</code> file then run: </p><div class="fragment"><div class="line">python3 file_name.py --path DATASET_PATH</div>
+</div><!-- fragment --><p>the <code>DATASET_PATH</code> is the save path where the dataset is saved(the one you specified in the <code>&lt;save&gt;</code> tag)</p>
+<div class="fragment"><div class="line">import cv2</div>
+<div class="line">import numpy as np</div>
+<div class="line">import os</div>
+<div class="line">import argparse</div>
+<div class="line"> </div>
+<div class="line"># Arg Parser to set the dataset path</div>
+<div class="line">parser = argparse.ArgumentParser()</div>
+<div class="line">parser.add_argument(&#39;--path&#39;, type=str, required=True, help=&#39;Segmentation Dataset Path&#39;)</div>
+<div class="line">args = parser.parse_args()</div>
+<div class="line"> </div>
+<div class="line"># dataset path</div>
+<div class="line">path = args.path</div>
+<div class="line"> </div>
+<div class="line"># paths of images folders</div>
+<div class="line">imageDir = os.path.join(path, &quot;images&quot;)</div>
+<div class="line">boxesDir = os.path.join(path, &quot;boxes&quot;)</div>
+<div class="line"> </div>
+<div class="line">imagesPaths = sorted(os.listdir(imageDir))</div>
+<div class="line">boxesPaths = sorted(os.listdir(boxesDir))</div>
+<div class="line"> </div>
+<div class="line">imagesPaths = [os.path.join(imageDir, path) for path in imagesPaths]</div>
+<div class="line">boxesPaths = [os.path.join(boxesDir, path) for path in boxesPaths]</div>
+<div class="line"> </div>
+<div class="line">for imagePath, boxesPath in zip(imagesPaths, boxesPaths):</div>
+<div class="line">    boxesFile = open(boxesPath)</div>
+<div class="line">    boxesLines = boxesFile.readlines()</div>
+<div class="line"> </div>
+<div class="line">    image = cv2.imread(imagePath)</div>
+<div class="line">    width, height = image.shape[1], image.shape[0]</div>
+<div class="line"> </div>
+<div class="line">    del boxesLines[0]</div>
+<div class="line">    for box in boxesLines:</div>
+<div class="line">        box = box.split(&#39;,&#39;)</div>
+<div class="line">        label = float(box[0])</div>
+<div class="line">        x     = float(box[1])</div>
+<div class="line">        y     = float(box[2])</div>
+<div class="line">        w     = float(box[3])</div>
+<div class="line">        h     = float(box[4])</div>
+<div class="line"> </div>
+<div class="line">        cv2.rectangle(image, (int(x-w/2), int(y-h/2)), (int(x+w/2), int(y+h/2)), (0,255,0), 3)</div>
+<div class="line"> </div>
+<div class="line">    print(&quot;&quot;)</div>
+<div class="line">    cv2.imshow(&quot;image&quot;, image)</div>
+<div class="line">    if cv2.waitKey(0) == 27:</div>
+<div class="line">        cv2.destroyAllWindows()</div>
+<div class="line">        break</div>
+</div><!-- fragment --><p>You will see output like this</p>
+<p><img src="files/boundingbox_camera/visualize_2d.png" alt="visualize_2d" class="inline"/></p>
+<p>Try to change the <code>&lt;box_type&gt;</code> to <code>3d</code> then generate the dataset again, then visualize it using the following code</p>
+<div class="fragment"><div class="line">import cv2</div>
+<div class="line">import numpy as np</div>
+<div class="line">import os</div>
+<div class="line">import argparse</div>
+<div class="line"> </div>
+<div class="line">def draw_box_3d(image, corners, color=(0, 0, 255)):</div>
+<div class="line">    &#39;&#39;&#39; Draw 3d bounding box in image</div>
+<div class="line">        corners: (8,2) array of vertices for the 3d box in following order:</div>
+<div class="line">            1 -------- 0</div>
+<div class="line">           /|         /|</div>
+<div class="line">          2 -------- 3 .</div>
+<div class="line">          | |        | |</div>
+<div class="line">          . 5 -------- 4</div>
+<div class="line">          |/         |/</div>
+<div class="line">          6 -------- 7</div>
+<div class="line">    &#39;&#39;&#39;</div>
+<div class="line"> </div>
+<div class="line">    face_idx = [[0, 1, 5, 4],</div>
+<div class="line">                [1, 2, 6, 5],</div>
+<div class="line">                [2, 3, 7, 6],</div>
+<div class="line">                [3, 0, 4, 7]]</div>
+<div class="line">    for ind_f in range(3, -1, -1):</div>
+<div class="line">        f = face_idx[ind_f]</div>
+<div class="line">        for j in range(4):</div>
+<div class="line">            cv2.line(image, (corners[f[j], 0], corners[f[j], 1]),</div>
+<div class="line">                     (corners[f[(j + 1) % 4], 0], corners[f[(j + 1) % 4], 1]), color, 2, lineType=cv2.LINE_AA)</div>
+<div class="line">        if ind_f == 0:</div>
+<div class="line">            cv2.line(image, (corners[f[0], 0], corners[f[0], 1]),</div>
+<div class="line">                     (corners[f[2], 0], corners[f[2], 1]), color, 1, lineType=cv2.LINE_AA)</div>
+<div class="line">            cv2.line(image, (corners[f[1], 0], corners[f[1], 1]),</div>
+<div class="line">                     (corners[f[3], 0], corners[f[3], 1]), color, 1, lineType=cv2.LINE_AA)</div>
+<div class="line"> </div>
+<div class="line">    return image</div>
+<div class="line"> </div>
+<div class="line"># Calculates Rotation Matrix given euler angles.</div>
+<div class="line">def euler_to_rotation(theta) :</div>
+<div class="line"> </div>
+<div class="line">    R_x = np.array([[1,         0,                  0                   ],</div>
+<div class="line">                    [0,         np.cos(theta[0]), -np.sin(theta[0]) ],</div>
+<div class="line">                    [0,         np.sin(theta[0]),  np.cos(theta[0])  ]</div>
+<div class="line">                    ])</div>
+<div class="line"> </div>
+<div class="line">    R_y = np.array([[np.cos(theta[1]),    0,      np.sin(theta[1])  ],</div>
+<div class="line">                    [0,                   1,      0                   ],</div>
+<div class="line">                    [-np.sin(theta[1]),   0,      np.cos(theta[1])  ]</div>
+<div class="line">                    ])</div>
+<div class="line"> </div>
+<div class="line">    R_z = np.array([[np.cos(theta[2]),    -np.sin(theta[2]),    0],</div>
+<div class="line">                    [np.sin(theta[2]),     np.cos(theta[2]),     0],</div>
+<div class="line">                    [0,                     0,                      1]</div>
+<div class="line">                    ])</div>
+<div class="line"> </div>
+<div class="line">    R = np.dot(R_z, np.dot( R_y, R_x ))</div>
+<div class="line"> </div>
+<div class="line">    return R</div>
+<div class="line">&quot;&quot;&quot;</div>
+<div class="line">This matrix are specific for the camera configuration in the SDF world</div>
+<div class="line"> </div>
+<div class="line">    &lt;horizontal_fov&gt;1.57&lt;/horizontal_fov&gt;</div>
+<div class="line">    &lt;width&gt;800&lt;/width&gt;</div>
+<div class="line">    &lt;height&gt;600&lt;/height&gt;</div>
+<div class="line"> </div>
+<div class="line">If any of them is changed, you have to change the projection matrix</div>
+<div class="line">&quot;&quot;&quot;</div>
+<div class="line">projMatrix = np.array([</div>
+<div class="line">    [0.99975, 0, 0, 0],</div>
+<div class="line">    [0, 1.333, 0, 0 ],</div>
+<div class="line">    [0, 0, -1.00002, -0.02],</div>
+<div class="line">    [0, 0, -1, 0]</div>
+<div class="line">])</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"># Arg Parser to set the dataset path</div>
+<div class="line">parser = argparse.ArgumentParser()</div>
+<div class="line">parser.add_argument(&#39;--path&#39;, type=str, required=True, help=&#39;Segmentation Dataset Path&#39;)</div>
+<div class="line">args = parser.parse_args()</div>
+<div class="line"> </div>
+<div class="line"># dataset path</div>
+<div class="line">path = args.path</div>
+<div class="line"> </div>
+<div class="line"># paths of images folders</div>
+<div class="line">imageDir = os.path.join(path, &quot;images&quot;)</div>
+<div class="line">boxesDir = os.path.join(path, &quot;boxes&quot;)</div>
+<div class="line"> </div>
+<div class="line">imagesPaths = sorted(os.listdir(imageDir))</div>
+<div class="line">boxesPaths = sorted(os.listdir(boxesDir))</div>
+<div class="line"> </div>
+<div class="line">imagesPaths = [os.path.join(imageDir, path) for path in imagesPaths]</div>
+<div class="line">boxesPaths = [os.path.join(boxesDir, path) for path in boxesPaths]</div>
+<div class="line"> </div>
+<div class="line">for imagePath, boxesPath in zip(imagesPaths, boxesPaths):</div>
+<div class="line">    boxesFile = open(boxesPath)</div>
+<div class="line">    boxesLines = boxesFile.readlines()</div>
+<div class="line"> </div>
+<div class="line">    image = cv2.imread(imagePath)</div>
+<div class="line">    width, height = image.shape[1], image.shape[0]</div>
+<div class="line"> </div>
+<div class="line">    del boxesLines[0]</div>
+<div class="line">    for box in boxesLines:</div>
+<div class="line">        box = box.split(&#39;,&#39;)</div>
+<div class="line">        label = float(box[0])</div>
+<div class="line">        x     = float(box[1])</div>
+<div class="line">        y     = float(box[2])</div>
+<div class="line">        z     = float(box[3])</div>
+<div class="line">        w     = float(box[4])</div>
+<div class="line">        h     = float(box[5])</div>
+<div class="line">        l     = float(box[6])</div>
+<div class="line">        roll  = float(box[7])</div>
+<div class="line">        pitch = float(box[8])</div>
+<div class="line">        yaw   = float(box[9])</div>
+<div class="line"> </div>
+<div class="line">        # get the rotation matrix</div>
+<div class="line">        R = euler_to_rotation([roll, pitch, yaw])</div>
+<div class="line"> </div>
+<div class="line">        # get the 8 vertices of the box (the corners) in model coordinates</div>
+<div class="line">        x_corners = [w / 2, -w / 2, -w / 2, w / 2, w / 2, -w / 2, -w / 2, w / 2]</div>
+<div class="line">        y_corners = [h/2, h/2, h/2, h/2, -h/2, -h/2, -h/2, -h/2]</div>
+<div class="line">        z_corners = [l / 2, l / 2, -l / 2, -l / 2, l / 2, l / 2, -l / 2, -l / 2]</div>
+<div class="line">        # concatinate them</div>
+<div class="line">        corners = np.array([x_corners, y_corners, z_corners], dtype=np.float32)</div>
+<div class="line"> </div>
+<div class="line">        # transform the corners to the 3D camera coordinates by applying the rotation then addin the position</div>
+<div class="line">        corners_3d = np.dot(R, corners)</div>
+<div class="line">        corners_3d = corners_3d + np.array([x,y,z], dtype=np.float32).reshape(3, 1)</div>
+<div class="line">        corners_3d = corners_3d.transpose(1, 0)</div>
+<div class="line"> </div>
+<div class="line">        # convert the 3d points to 4d homogenous points to apply the projection matrix</div>
+<div class="line">        pts_3d_homo = np.concatenate([corners_3d, np.ones((corners_3d.shape[0], 1), dtype=np.float32)], axis=1)</div>
+<div class="line"> </div>
+<div class="line">        # projection</div>
+<div class="line">        pts_2d = np.dot(projMatrix, pts_3d_homo.transpose(1, 0)).transpose(1, 0)</div>
+<div class="line">        # devide by w component of the homogenous coord.</div>
+<div class="line">        pts_2d = pts_2d[:, :2] / pts_2d[:, 2:]</div>
+<div class="line">        pts_2d = pts_2d.astype(np.float32)</div>
+<div class="line"> </div>
+<div class="line">        # convert from [-1,1] to [0,1] range</div>
+<div class="line">        pts_2d = pts_2d.clip(-1,1)</div>
+<div class="line">        xx = (pts_2d[:,0] + 1) / 2</div>
+<div class="line">        yy = (1 - pts_2d[:,1]) / 2</div>
+<div class="line">        xx = xx.clip(0,1)</div>
+<div class="line">        yy = yy.clip(0,1)</div>
+<div class="line">        # convert to screen coord</div>
+<div class="line">        pts_2d = np.array([xx,yy], dtype=np.float32).T</div>
+<div class="line">        pts_2d *= (width, height)</div>
+<div class="line">        pts_2d = pts_2d.astype(np.int32)</div>
+<div class="line"> </div>
+<div class="line">        image = draw_box_3d(image, pts_2d)</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line">    print(&quot;&quot;)</div>
+<div class="line">    cv2.imshow(&quot;image&quot;, image)</div>
+<div class="line">    if cv2.waitKey(0) == 27:</div>
+<div class="line">        cv2.destroyAllWindows()</div>
+<div class="line">        break</div>
+</div><!-- fragment --><p>Note that, you shouldn't change the camera configuration to use that code, or you have to change the porjection matrix that is specified in the code.</p>
+<p>You should see output like this</p>
+<p><img src="files/boundingbox_camera/visualize_3d.png" alt="visualize_3d" class="inline"/></p>
+<h1><a class="anchor" id="autotoc_md10"></a>
+Processing the bounding box sensor via ign-transport</h1>
+<p>In the example above, the bounding box cameras publish an axis aligned 2d bounding box message in case of 2d boxes mode (visible 2d or full 2d) or a oriented 3d bounding box message to the topic provided in the <code>&lt;topic&gt;</code> tag in SDF For example, in the next code we publish on the topic “boxes”</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">sensor</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;boundingbox_camera&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;boundingbox_camera&quot;</span>&gt;</div>
+<div class="line">   &lt;<span class="keywordtype">topic</span>&gt;<span class="keyword">boxes</span>&lt;/<span class="keywordtype">topic</span>&gt;</div>
+<div class="line">  ....</div>
+</div><!-- fragment --><p>The camera also publishes an image message of an image with the bounding boxes drawn on it(not valid in case of 3d boxes), and it publish it on topic “TOPIC_TAG_NAME_image”, for example, in the above code, it will publish the image message on “boxes_image”.</p>
+<p>We can see the bounding boxes by running the following command: </p><div class="fragment"><div class="line">In the above example, it will be:</div>
+<div class="line">```ign topic -e -t boxe</div>
+</div><!-- fragment --><p>Here's an example for bounding box camera subscriber that gets the boxes: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;ignition/msgs.hh&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;ignition/transport.hh&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// a callback function that is triggered whenever the bounding box camera</span></div>
+<div class="line"><span class="comment">// topic receives a new 2d boxes message</span></div>
+<div class="line"><span class="keywordtype">void</span> OnNewBoxes2D(<span class="keyword">const</span> ignition::msgs::AnnotatedAxisAligned2DBox_V &amp;_msg)</div>
+<div class="line">{</div>
+<div class="line"> <span class="keywordtype">int</span> size = _msg.annotated_box_size();</div>
+<div class="line"> <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Reveived [&quot;</span> &lt;&lt; size &lt;&lt; <span class="stringliteral">&quot;] 2D bounding boxes: &quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"> <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; size; i++)</div>
+<div class="line"> {</div>
+<div class="line">   ignition::msgs::AnnotatedAxisAligned2DBox annotatedBox = _msg.annotated_box(i);</div>
+<div class="line">   <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; annotatedBox.DebugString() &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"> }</div>
+<div class="line"> <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// a callback function that is triggered whenever the bounding box camera</span></div>
+<div class="line"><span class="comment">// topic receives a new 3d boxes message</span></div>
+<div class="line"><span class="keywordtype">void</span> OnNewBoxes3D(<span class="keyword">const</span> ignition::msgs::AnnotatedOriented3DBox_V &amp;_msg)</div>
+<div class="line">{</div>
+<div class="line"> <span class="keywordtype">int</span> size = _msg.annotated_box_size();</div>
+<div class="line"> <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Reveived [&quot;</span> &lt;&lt; size &lt;&lt; <span class="stringliteral">&quot;] 3D bounding boxes: &quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"> <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; size; i++)</div>
+<div class="line"> {</div>
+<div class="line">   ignition::msgs::AnnotatedOriented3DBox annotatedBox = _msg.annotated_box(i);</div>
+<div class="line">   <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; annotatedBox.DebugString() &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"> }</div>
+<div class="line"> <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv)</div>
+<div class="line">{</div>
+<div class="line"> ignition::transport::Node node;</div>
+<div class="line"> <span class="keywordtype">bool</span> subscribed = <span class="keyword">false</span>;</div>
+<div class="line"> </div>
+<div class="line"> <span class="keywordflow">if</span> (argc &gt; 1)</div>
+<div class="line"> {</div>
+<div class="line">   <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> is3D = argv[1];</div>
+<div class="line">   <span class="keywordflow">if</span> (is3D == <span class="stringliteral">&quot;3d&quot;</span>)</div>
+<div class="line">     subscribed = node.Subscribe(<span class="stringliteral">&quot;/boxes&quot;</span>, &amp;OnNewBoxes3D);</div>
+<div class="line"> }</div>
+<div class="line"> <span class="keywordflow">else</span></div>
+<div class="line"> {</div>
+<div class="line">   subscribed = node.Subscribe(<span class="stringliteral">&quot;/boxes&quot;</span>, &amp;OnNewBoxes2D);</div>
+<div class="line"> }</div>
+<div class="line"> <span class="keywordflow">if</span> (!subscribed)</div>
+<div class="line"> {</div>
+<div class="line">   <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cerr</a> &lt;&lt; <span class="stringliteral">&quot;Error subscribing to the boundingbox camera topic&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line">   <span class="keywordflow">return</span> -1;</div>
+<div class="line"> }</div>
+<div class="line"> </div>
+<div class="line"> ignition::transport::waitForShutdown();</div>
+<div class="line"> <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>To run the sensor in 3d boxes mode, give it argument <code>3d</code>, for example: <code>./executable_name 3d</code></p>
+<p>And Its CMakeLists.txt file</p>
+<div class="fragment"><div class="line">cmake_minimum_required(VERSION 3.5 FATAL_ERROR)</div>
+<div class="line">project(ignition-sensors-camera-demo)</div>
+<div class="line"> </div>
+<div class="line"># Find the Gazebo Libraries used directly by the example</div>
+<div class="line">find_package(ignition-rendering6 REQUIRED OPTIONAL_COMPONENTS ogre ogre2)</div>
+<div class="line">find_package(ignition-sensors6 REQUIRED COMPONENTS rendering camera)</div>
+<div class="line"> </div>
+<div class="line">if (TARGET ignition-rendering6::ogre)</div>
+<div class="line">  add_definitions(-DWITH_OGRE)</div>
+<div class="line">endif()</div>
+<div class="line">if (TARGET ignition-rendering6::ogre2)</div>
+<div class="line">  add_definitions(-DWITH_OGRE2)</div>
+<div class="line">endif()</div>
+<div class="line"> </div>
+<div class="line">add_executable(boundingbox_camera main.cc)</div>
+<div class="line">target_link_libraries(boundingbox_camera PUBLIC</div>
+<div class="line"> ignition-sensors6::camera)</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="abasic_string_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a></div><div class="ttdoc">STL class.</div></div>
+<div class="ttc" id="abasic_ostream_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a></div></div>
+<div class="ttc" id="aendl_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a></div><div class="ttdeci">T endl(T... args)</div></div>
+      </div>
+    </main>
+  </div>
+</body>

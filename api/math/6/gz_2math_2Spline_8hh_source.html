@@ -1,0 +1,285 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Math">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Math: Spline.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Math</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        6.15.1
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 IgnCreateDocs.cmake -->
+      <nav class="ign-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.8.17 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_5f70b597a8f3cb7e191c654fdc4ac806.html">gz-math</a></li><li class="navelem"><a class="el" href="dir_078c05cd486cbf4f25c108ac6a855843.html">include</a></li><li class="navelem"><a class="el" href="dir_cb23e0bbad0208f30fc2b464607664c0.html">gz</a></li><li class="navelem"><a class="el" href="dir_0f196ca5b9fd4ac373b7623d3ec837c2.html">math</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">gz/math/Spline.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="gz_2math_2Spline_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (C) 2012 Open Source Robotics Foundation</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">// Note: Originally cribbed from Ogre3d. Modified to implement Cardinal</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">// spline and catmull-rom spline</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#ifndef GZ_MATH_SPLINE_HH_</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#define GZ_MATH_SPLINE_HH_</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="gz_2math_2Helpers_8hh.html">gz/math/Helpers.hh</a>&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="gz_2math_2Vector3_8hh.html">gz/math/Vector3.hh</a>&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;gz/math/config.hh&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition.html">ignition</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keyword">namespace </span>math</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">// Inline bracket to help doxygen filtering.</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">inline</span> <span class="keyword">namespace </span>IGNITION_MATH_VERSION_NAMESPACE {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// Forward declare private classes</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">class </span>ControlPoint;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">class </span>SplinePrivate;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classignition_1_1math_1_1Spline.html">   39</a></span>&#160;    <span class="keyword">class </span>IGNITION_MATH_VISIBLE <a class="code" href="classignition_1_1math_1_1Spline.html">Spline</a></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Spline.html">Spline</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <span class="keyword">public</span>: ~<a class="code" href="classignition_1_1math_1_1Spline.html">Spline</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> Tension(<span class="keywordtype">double</span> _t);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">double</span> Tension() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">double</span> ArcLength() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">double</span> ArcLength(<span class="keyword">const</span> <span class="keywordtype">double</span> _t) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">double</span> ArcLength(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _index,</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;                               <span class="keyword">const</span> <span class="keywordtype">double</span> _t) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> AddPoint(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3d</a> &amp;_p);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> AddPoint(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3d</a> &amp;_p, <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3d</a> &amp;_t);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      <span class="keyword">private</span>: <span class="keywordtype">void</span> AddPoint(<span class="keyword">const</span> ControlPoint &amp;_cp, <span class="keyword">const</span> <span class="keywordtype">bool</span> _fixed);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3d</a> Point(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _index) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3d</a> Tangent(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _index) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3d</a> MthDerivative(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _index,</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                                     <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _mth) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">size_t</span> PointCount() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> Clear();</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> UpdatePoint(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _index,</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                               <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3d</a> &amp;_p);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> UpdatePoint(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _index,</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                               <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3d</a> &amp;_p,</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                               <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3d</a> &amp;_t);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;      <span class="keyword">private</span>: <span class="keywordtype">bool</span> UpdatePoint(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _index,</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                                <span class="keyword">const</span> ControlPoint &amp;_cp,</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">bool</span> _fixed);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3d</a> Interpolate(<span class="keyword">const</span> <span class="keywordtype">double</span> _t) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3d</a> Interpolate(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _fromIndex,</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                                   <span class="keyword">const</span> <span class="keywordtype">double</span> _t) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3d</a> InterpolateTangent(<span class="keyword">const</span> <span class="keywordtype">double</span> _t) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3d</a> InterpolateTangent(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _fromIndex,</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                                          <span class="keyword">const</span> <span class="keywordtype">double</span> _t) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3d</a> InterpolateMthDerivative(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _mth,</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                                                <span class="keyword">const</span> <span class="keywordtype">double</span> _1) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1math_1_1Vector3.html">Vector3d</a> InterpolateMthDerivative(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _fromIndex,</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;                                                <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _mth,</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;                                                <span class="keyword">const</span> <span class="keywordtype">double</span> _s) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> AutoCalculate(<span class="keywordtype">bool</span> _autoCalc);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> RecalcTangents();</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;      <span class="keyword">private</span>: <span class="keywordtype">void</span> Rebuild();</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; </div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;      <span class="keyword">private</span>: <span class="keywordtype">bool</span> MapToSegment(<span class="keyword">const</span> <span class="keywordtype">double</span> _t,</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;                                 <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;_index,</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;                                 <span class="keywordtype">double</span> &amp;_fraction) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;      <span class="keyword">private</span>: SplinePrivate *dataPtr;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    };</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    }</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  }</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;}</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassignition_1_1math_1_1Spline_html_a8ee2f3f356aa8055d20304f549132c91"><div class="ttname"><a href="classignition_1_1math_1_1Spline.html#a8ee2f3f356aa8055d20304f549132c91">ignition::math::Spline::RecalcTangents</a></div><div class="ttdeci">void RecalcTangents()</div><div class="ttdoc">Recalculates the tangents associated with this spline.</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Spline_html"><div class="ttname"><a href="classignition_1_1math_1_1Spline.html">ignition::math::Spline</a></div><div class="ttdoc">Splines.</div><div class="ttdef"><b>Definition:</b> gz/math/Spline.hh:39</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Spline_html_ad0436d30b9055e5c27e8a05d8fb5f239"><div class="ttname"><a href="classignition_1_1math_1_1Spline.html#ad0436d30b9055e5c27e8a05d8fb5f239">ignition::math::Spline::Tension</a></div><div class="ttdeci">double Tension() const</div><div class="ttdoc">Gets the tension value.</div></div>
+<div class="ttc" id="anamespaceignition_html"><div class="ttname"><a href="namespaceignition.html">ignition</a></div><div class="ttdef"><b>Definition:</b> gz/math/AdditivelySeparableScalarField3.hh:27</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Spline_html_a81bec643082c36a63e2198ca0dcc82dd"><div class="ttname"><a href="classignition_1_1math_1_1Spline.html#a81bec643082c36a63e2198ca0dcc82dd">ignition::math::Spline::AutoCalculate</a></div><div class="ttdeci">void AutoCalculate(bool _autoCalc)</div><div class="ttdoc">Tells the spline whether it should automatically calculate tangents on demand as points are added.</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Spline_html_a7bf4adf7daa2c959047e4a59318c6c16"><div class="ttname"><a href="classignition_1_1math_1_1Spline.html#a7bf4adf7daa2c959047e4a59318c6c16">ignition::math::Spline::Tangent</a></div><div class="ttdeci">Vector3d Tangent(const unsigned int _index) const</div><div class="ttdoc">Gets the tangent value for one of the control points of the spline.</div></div>
+<div class="ttc" id="agz_2math_2Helpers_8hh_html"><div class="ttname"><a href="gz_2math_2Helpers_8hh.html">Helpers.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Spline_html_ac54d5fefc4d8208232f09f7e76a55c2a"><div class="ttname"><a href="classignition_1_1math_1_1Spline.html#ac54d5fefc4d8208232f09f7e76a55c2a">ignition::math::Spline::Point</a></div><div class="ttdeci">Vector3d Point(const unsigned int _index) const</div><div class="ttdoc">Gets the value for one of the control points of the spline.</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Spline_html_aee3d9720a147982bed034e4c54b901ac"><div class="ttname"><a href="classignition_1_1math_1_1Spline.html#aee3d9720a147982bed034e4c54b901ac">ignition::math::Spline::PointCount</a></div><div class="ttdeci">size_t PointCount() const</div><div class="ttdoc">Gets the number of control points in the spline.</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Spline_html_a0f342247dc1480aeb2b91d49aa5c179e"><div class="ttname"><a href="classignition_1_1math_1_1Spline.html#a0f342247dc1480aeb2b91d49aa5c179e">ignition::math::Spline::AddPoint</a></div><div class="ttdeci">void AddPoint(const Vector3d &amp;_p)</div><div class="ttdoc">Adds a single control point to the end of the spline.</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Spline_html_a4adca4736168e442abbadf0840c04712"><div class="ttname"><a href="classignition_1_1math_1_1Spline.html#a4adca4736168e442abbadf0840c04712">ignition::math::Spline::ArcLength</a></div><div class="ttdeci">double ArcLength() const</div><div class="ttdoc">Gets spline arc length.</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html"><div class="ttname"><a href="classignition_1_1math_1_1Vector3.html">ignition::math::Vector3</a></div><div class="ttdoc">The Vector3 class represents the generic vector containing 3 elements. Since it's commonly used to ke...</div><div class="ttdef"><b>Definition:</b> gz/math/Vector3.hh:41</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Spline_html_a94d5ee839d290e5be3a85abb8d16bed5"><div class="ttname"><a href="classignition_1_1math_1_1Spline.html#a94d5ee839d290e5be3a85abb8d16bed5">ignition::math::Spline::InterpolateMthDerivative</a></div><div class="ttdeci">Vector3d InterpolateMthDerivative(const unsigned int _mth, const double _1) const</div><div class="ttdoc">Interpolates the mth derivative of the spline at parameter value _t.</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Spline_html_aa71d36872f416feaa853788a7a7a7ef8"><div class="ttname"><a href="classignition_1_1math_1_1Spline.html#aa71d36872f416feaa853788a7a7a7ef8">ignition::math::Spline::Clear</a></div><div class="ttdeci">void Clear()</div><div class="ttdoc">Clears all the points in the spline.</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Spline_html_ad9c96902bfb640cf3d0093d299390883"><div class="ttname"><a href="classignition_1_1math_1_1Spline.html#ad9c96902bfb640cf3d0093d299390883">ignition::math::Spline::UpdatePoint</a></div><div class="ttdeci">bool UpdatePoint(const unsigned int _index, const Vector3d &amp;_p)</div><div class="ttdoc">Updates a single control point value in the spline, keeping its tangent.</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Spline_html_add9cdf708ac9e046dc979bcaff83e600"><div class="ttname"><a href="classignition_1_1math_1_1Spline.html#add9cdf708ac9e046dc979bcaff83e600">ignition::math::Spline::Spline</a></div><div class="ttdeci">Spline()</div><div class="ttdoc">constructor</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Spline_html_a5e5b8166cfc14164a7f34e7bce434465"><div class="ttname"><a href="classignition_1_1math_1_1Spline.html#a5e5b8166cfc14164a7f34e7bce434465">ignition::math::Spline::InterpolateTangent</a></div><div class="ttdeci">Vector3d InterpolateTangent(const double _t) const</div><div class="ttdoc">Interpolates a tangent on the spline at parameter value _t.</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Spline_html_aca7a9adef0d965ace2cd87d31e05945c"><div class="ttname"><a href="classignition_1_1math_1_1Spline.html#aca7a9adef0d965ace2cd87d31e05945c">ignition::math::Spline::Interpolate</a></div><div class="ttdeci">Vector3d Interpolate(const double _t) const</div><div class="ttdoc">Interpolates a point on the spline at parameter value _t.</div></div>
+<div class="ttc" id="agz_2math_2Vector3_8hh_html"><div class="ttname"><a href="gz_2math_2Vector3_8hh.html">Vector3.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Spline_html_afe1affe99df46c8cce9f9853471f6e1b"><div class="ttname"><a href="classignition_1_1math_1_1Spline.html#afe1affe99df46c8cce9f9853471f6e1b">ignition::math::Spline::~Spline</a></div><div class="ttdeci">~Spline()</div><div class="ttdoc">destructor</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Spline_html_a471ead16280c4244018aee4bf87ce5ab"><div class="ttname"><a href="classignition_1_1math_1_1Spline.html#a471ead16280c4244018aee4bf87ce5ab">ignition::math::Spline::MthDerivative</a></div><div class="ttdeci">Vector3d MthDerivative(const unsigned int _index, const unsigned int _mth) const</div><div class="ttdoc">Gets the mth derivative for one of the control points of the spline.</div></div>
+      </div>
+    </main>
+  </div>
+</body>

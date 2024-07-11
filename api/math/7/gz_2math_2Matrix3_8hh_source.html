@@ -1,0 +1,621 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Math">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Math: Matrix3.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Math</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        7.5.0
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 GzCreateDocs.cmake -->
+      <nav class="gz-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.9.1 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_5f70b597a8f3cb7e191c654fdc4ac806.html">gz-math</a></li><li class="navelem"><a class="el" href="dir_078c05cd486cbf4f25c108ac6a855843.html">include</a></li><li class="navelem"><a class="el" href="dir_cb23e0bbad0208f30fc2b464607664c0.html">gz</a></li><li class="navelem"><a class="el" href="dir_0f196ca5b9fd4ac373b7623d3ec837c2.html">math</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">gz/math/Matrix3.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="gz_2math_2Matrix3_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (C) 2012 Open Source Robotics Foundation</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef GZ_MATH_MATRIX3_HH_</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define GZ_MATH_MATRIX3_HH_</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;cstring&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="gz_2math_2Helpers_8hh.html">gz/math/Helpers.hh</a>&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="gz_2math_2Vector3_8hh.html">gz/math/Vector3.hh</a>&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="gz_2math_2Quaternion_8hh.html">gz/math/Quaternion.hh</a>&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;gz/math/config.hh&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacegz_1_1math.html">gz::math</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="comment">// Inline bracket to help doxygen filtering.</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keyword">inline</span> <span class="keyword">namespace </span>GZ_MATH_VERSION_NAMESPACE {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="comment">//</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt; <span class="keyword">class </span>Quaternion;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html">   92</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3</a></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  {</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#ae19fa41846cd971d1b9a4a848155b318">   96</a></span>&#160;    <span class="keyword">public</span>: <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a> &amp;<a class="code" href="classgz_1_1math_1_1Matrix3.html#ae19fa41846cd971d1b9a4a848155b318" title="A Matrix3 initialized to identity. This is equivalent to math::Matrix3&lt;T&gt;(1, 0, 0,...">Identity</a>;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a9eecbecbf8aeaf2af4a31cfdb93dd5fc">  100</a></span>&#160;    <span class="keyword">public</span>: <span class="keyword">static</span> <span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a> &amp;<a class="code" href="classgz_1_1math_1_1Matrix3.html#a9eecbecbf8aeaf2af4a31cfdb93dd5fc" title="A Matrix3 initialized to zero. This is equivalent to math::Matrix3&lt;T&gt;(0, 0, 0, 0, 0,...">Zero</a>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a01f7e135ceab4c52000593c367e63091">  103</a></span>&#160;    <span class="keyword">public</span>: <a class="code" href="classgz_1_1math_1_1Matrix3.html#a01f7e135ceab4c52000593c367e63091" title="Default constructor that initializes the matrix3 to zero.">Matrix3</a>()</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    {</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/byte/memset.html">std::memset</a>(this-&gt;data, 0, <span class="keyword">sizeof</span>(this-&gt;data[0][0])*9);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a20d30b1dddab9de0a51b5f11ece8b87c">  110</a></span>&#160;    <span class="keyword">public</span>: <a class="code" href="classgz_1_1math_1_1Matrix3.html#a20d30b1dddab9de0a51b5f11ece8b87c" title="Copy constructor.">Matrix3</a>(<span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a> &amp;_m) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a90af172cc6f507aa05a8e5e9dd358e30">  122</a></span>&#160;    <span class="keyword">public</span>: constexpr <a class="code" href="classgz_1_1math_1_1Matrix3.html#a90af172cc6f507aa05a8e5e9dd358e30" title="Construct a matrix3 using nine values.">Matrix3</a>(T _v00, T _v01, T _v02,</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                              T _v10, T _v11, T _v12,</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                              T _v20, T _v21, T _v22)</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    : data{{_v00, _v01, _v02},</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;           {_v10, _v11, _v12},</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;           {_v20, _v21, _v22}}</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    {</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    }</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#ac775f94a4db16dffb474b6e25dc1dbc2">  133</a></span>&#160;    <span class="keyword">public</span>: <span class="keyword">explicit</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html#ac775f94a4db16dffb474b6e25dc1dbc2" title="Construct 3x3 rotation Matrix from a quaternion.">Matrix3</a>(<span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Quaternion.html" title="A quaternion class that represents 3D rotations and orientations. Four scalar values,...">Quaternion&lt;T&gt;</a> &amp;_q)</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    {</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      <a class="code" href="classgz_1_1math_1_1Quaternion.html" title="A quaternion class that represents 3D rotations and orientations. Four scalar values,...">Quaternion&lt;T&gt;</a> qt = _q;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;      qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#af279e0f0ff720ee54d6733674dfda50a" title="Normalize the quaternion.">Normalize</a>();</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      this-&gt;Set(1 - 2*qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y component.">Y</a>()*qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y component.">Y</a>() - 2 *qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z component.">Z</a>()*qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z component.">Z</a>(),</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                2 * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x component.">X</a>()*qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y component.">Y</a>() - 2*qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z component.">Z</a>()*qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#ada2d68910c85b5a3cab09d6979f27c85" title="Get the w component.">W</a>(),</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                2 * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x component.">X</a>() * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z component.">Z</a>() + 2 * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y component.">Y</a>() * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#ada2d68910c85b5a3cab09d6979f27c85" title="Get the w component.">W</a>(),</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;                2 * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x component.">X</a>() * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y component.">Y</a>() + 2 * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z component.">Z</a>() * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#ada2d68910c85b5a3cab09d6979f27c85" title="Get the w component.">W</a>(),</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;                1 - 2*qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x component.">X</a>()*qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x component.">X</a>() - 2 * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z component.">Z</a>()*qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z component.">Z</a>(),</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;                2 * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y component.">Y</a>() * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z component.">Z</a>() - 2 * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x component.">X</a>() * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#ada2d68910c85b5a3cab09d6979f27c85" title="Get the w component.">W</a>(),</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;                2 * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x component.">X</a>() * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z component.">Z</a>() - 2 * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y component.">Y</a>() * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#ada2d68910c85b5a3cab09d6979f27c85" title="Get the w component.">W</a>(),</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;                2 * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y component.">Y</a>() * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z component.">Z</a>() + 2 * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x component.">X</a>() * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#ada2d68910c85b5a3cab09d6979f27c85" title="Get the w component.">W</a>(),</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;                1 - 2 * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x component.">X</a>()*qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x component.">X</a>() - 2 * qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y component.">Y</a>()*qt.<a class="code" href="classgz_1_1math_1_1Quaternion.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y component.">Y</a>());</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    }</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#ac68520978f1be4814500b4b1cc0c3b54">  149</a></span>&#160;    <span class="keyword">public</span>: <a class="code" href="classgz_1_1math_1_1Matrix3.html#ac68520978f1be4814500b4b1cc0c3b54" title="Desctructor.">~Matrix3</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#ad9c9768ffc11733060794b0638f309c4">  155</a></span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html#ad9c9768ffc11733060794b0638f309c4" title="Set a single value.">Set</a>(<span class="keywordtype">size_t</span> _row, <span class="keywordtype">size_t</span> _col, T _v)</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    {</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      this-&gt;data[<a class="code" href="namespacegz_1_1math.html#ab971b7643c4db5e8a305dee631ca7697" title="Simple clamping function that constrains a value to a range defined by a min and max value....">clamp</a>(_row, <a class="code" href="namespacegz_1_1math.html#aeb89769a0418f099e75e086bba4e40de" title="size_t type with a value of 0">GZ_ZERO_SIZE_T</a>, <a class="code" href="namespacegz_1_1math.html#a868597f0eb34228d0357b8ff6449e443" title="size_t type with a value of 2">GZ_TWO_SIZE_T</a>)]</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;                [<a class="code" href="namespacegz_1_1math.html#ab971b7643c4db5e8a305dee631ca7697" title="Simple clamping function that constrains a value to a range defined by a min and max value....">clamp</a>(_col, <a class="code" href="namespacegz_1_1math.html#aeb89769a0418f099e75e086bba4e40de" title="size_t type with a value of 0">GZ_ZERO_SIZE_T</a>, <a class="code" href="namespacegz_1_1math.html#a868597f0eb34228d0357b8ff6449e443" title="size_t type with a value of 2">GZ_TWO_SIZE_T</a>)] = _v;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#af99b0676438534732cd9e920b4aed314">  171</a></span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html#af99b0676438534732cd9e920b4aed314" title="Set values.">Set</a>(T _v00, T _v01, T _v02,</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;                     T _v10, T _v11, T _v12,</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;                     T _v20, T _v21, T _v22)</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    {</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;      this-&gt;data[0][0] = _v00;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;      this-&gt;data[0][1] = _v01;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;      this-&gt;data[0][2] = _v02;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;      this-&gt;data[1][0] = _v10;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;      this-&gt;data[1][1] = _v11;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;      this-&gt;data[1][2] = _v12;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;      this-&gt;data[2][0] = _v20;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;      this-&gt;data[2][1] = _v21;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;      this-&gt;data[2][2] = _v22;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    }</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a92ea098e150544f25b97d57e8f88c527">  192</a></span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">void</span> GZ_DEPRECATED(7) Axes(const <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3</a>&lt;T&gt; &amp;_xAxis,</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;                const <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3</a>&lt;T&gt; &amp;_yAxis,</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;                const <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3</a>&lt;T&gt; &amp;_zAxis)</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    {</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;      this-&gt;SetAxes(_xAxis, _yAxis, _zAxis);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    }</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a6883a60120f01e3b02c66e79ad25546c">  203</a></span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html#a6883a60120f01e3b02c66e79ad25546c" title="Set the matrix from three axis (1 per column).">SetAxes</a>(<span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3&lt;T&gt;</a> &amp;_xAxis,</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;                         <span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3&lt;T&gt;</a> &amp;_yAxis,</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;                         <span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3&lt;T&gt;</a> &amp;_zAxis)</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    {</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;      this-&gt;SetCol(0, _xAxis);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;      this-&gt;SetCol(1, _yAxis);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;      this-&gt;SetCol(2, _zAxis);</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    }</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#aad8730ece296b78203227b356e04f901">  216</a></span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">void</span> GZ_DEPRECATED(7) Axis(const <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3</a>&lt;T&gt; &amp;_axis, T _angle)</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    {</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      this-&gt;SetFromAxisAngle(_axis, _angle);</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    }</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00224"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#ae038bc2c945bc639e67218d313199c4b">  224</a></span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html#ae038bc2c945bc639e67218d313199c4b" title="Set as a rotation matrix from an axis and angle.">SetFromAxisAngle</a>(<span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3&lt;T&gt;</a> &amp;_axis, T _angle)</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    {</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;      T c = cos(_angle);</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;      T s = sin(_angle);</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;      T C = 1-c;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;      this-&gt;data[0][0] = _axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x value.">X</a>()*_axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x value.">X</a>()*C + c;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      this-&gt;data[0][1] = _axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x value.">X</a>()*_axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y value.">Y</a>()*C - _axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z value.">Z</a>()*s;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      this-&gt;data[0][2] = _axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x value.">X</a>()*_axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z value.">Z</a>()*C + _axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y value.">Y</a>()*s;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;      this-&gt;data[1][0] = _axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y value.">Y</a>()*_axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x value.">X</a>()*C + _axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z value.">Z</a>()*s;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;      this-&gt;data[1][1] = _axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y value.">Y</a>()*_axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y value.">Y</a>()*C + c;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;      this-&gt;data[1][2] = _axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y value.">Y</a>()*_axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z value.">Z</a>()*C - _axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x value.">X</a>()*s;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;      this-&gt;data[2][0] = _axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z value.">Z</a>()*_axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x value.">X</a>()*C - _axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y value.">Y</a>()*s;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;      this-&gt;data[2][1] = _axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z value.">Z</a>()*_axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y value.">Y</a>()*C + _axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x value.">X</a>()*s;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;      this-&gt;data[2][2] = _axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z value.">Z</a>()*_axis.<a class="code" href="classgz_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z value.">Z</a>()*C + c;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    }</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
+<div class="line"><a name="l00250"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#ab8d157cebd35fcc2a4420c1cb4949b36">  250</a></span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">void</span> GZ_DEPRECATED(7) From2Axes(</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;                const <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3</a>&lt;T&gt; &amp;_v1, const <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3</a>&lt;T&gt; &amp;_v2)</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    {</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      this-&gt;SetFrom2Axes(_v1, _v2);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    }</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
+<div class="line"><a name="l00262"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#afe0d5ea374e6fa4d77664561e1bfa965">  262</a></span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html#afe0d5ea374e6fa4d77664561e1bfa965" title="Set as a rotation matrix to represent rotation from vector _v1 to vector _v2, so that _v2....">SetFrom2Axes</a>(<span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3&lt;T&gt;</a> &amp;_v1, <span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3&lt;T&gt;</a> &amp;_v2)</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    {</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;      <span class="keyword">const</span> T _v1LengthSquared = _v1.<a class="code" href="classgz_1_1math_1_1Vector3.html#a9623de8878774ae8aad0dda9346fb05f" title="Return the square of the length (magnitude) of the vector.">SquaredLength</a>();</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;      <span class="keywordflow">if</span> (_v1LengthSquared &lt;= 0.0)</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;      {</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        <span class="comment">// zero vector - we can&#39;t handle this</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        this-&gt;Set(1, 0, 0, 0, 1, 0, 0, 0, 1);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;      }</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      <span class="keyword">const</span> T _v2LengthSquared = _v2.<a class="code" href="classgz_1_1math_1_1Vector3.html#a9623de8878774ae8aad0dda9346fb05f" title="Return the square of the length (magnitude) of the vector.">SquaredLength</a>();</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;      <span class="keywordflow">if</span> (_v2LengthSquared &lt;= 0.0)</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;      {</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;        <span class="comment">// zero vector - we can&#39;t handle this</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;        this-&gt;Set(1, 0, 0, 0, 1, 0, 0, 0, 1);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;      }</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; </div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;      <span class="keyword">const</span> T dot = _v1.<a class="code" href="classgz_1_1math_1_1Vector3.html#a3f578d15ea05ca11924e0fc82d7c0822" title="Return the dot product of this vector and another vector.">Dot</a>(_v2) / sqrt(_v1LengthSquared * _v2LengthSquared);</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      <span class="keywordflow">if</span> (fabs(dot - 1.0) &lt;= 1e-6)</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      {</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        <span class="comment">// the vectors are parallel</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        this-&gt;Set(1, 0, 0, 0, 1, 0, 0, 0, 1);</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      }</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (fabs(dot + 1.0) &lt;= 1e-6)</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;      {</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;        <span class="comment">// the vectors are opposite</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;        this-&gt;Set(-1, 0, 0, 0, -1, 0, 0, 0, -1);</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      }</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;      <span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3&lt;T&gt;</a> cross = _v1.<a class="code" href="classgz_1_1math_1_1Vector3.html#a304424f098727d9eacc755637addfd05" title="Return the cross product of this vector with another vector.">Cross</a>(_v2).<a class="code" href="classgz_1_1math_1_1Vector3.html#a0262c5cea6ab9b6e87b2bd579fb95af5" title="Normalize the vector length.">Normalize</a>();</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;      this-&gt;SetFromAxisAngle(cross, acos(dot));</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    }</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
+<div class="line"><a name="l00304"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#ac877b9f62b7111819ac653efe54d46db">  304</a></span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">void</span> GZ_DEPRECATED(7) Col(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _c, const <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3</a>&lt;T&gt; &amp;_v)</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    {</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;      this-&gt;SetCol(_c, _v);</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    }</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
+<div class="line"><a name="l00313"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#aa4bcf01282df4db3cca4774d6f31f470">  313</a></span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html#aa4bcf01282df4db3cca4774d6f31f470" title="Set a column.">SetCol</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _c, <span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3&lt;T&gt;</a> &amp;_v)</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    {</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> c = <a class="code" href="namespacegz_1_1math.html#ab971b7643c4db5e8a305dee631ca7697" title="Simple clamping function that constrains a value to a range defined by a min and max value....">clamp</a>(_c, 0u, 2u);</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;      this-&gt;data[0][c] = _v.<a class="code" href="classgz_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x value.">X</a>();</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      this-&gt;data[1][c] = _v.<a class="code" href="classgz_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y value.">Y</a>();</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      this-&gt;data[2][c] = _v.<a class="code" href="classgz_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z value.">Z</a>();</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    }</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
+<div class="line"><a name="l00325"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a040f8cc19bcd04fd944f6406dc798425">  325</a></span>&#160;    <span class="keyword">public</span>: <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a> &amp;<a class="code" href="classgz_1_1math_1_1Matrix3.html#a040f8cc19bcd04fd944f6406dc798425" title="Equal operator. this = _mat.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a> &amp;_mat) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
+<div class="line"><a name="l00330"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a6fc358375d77bc1955ec3c324f7bd2fb">  330</a></span>&#160;    <span class="keyword">public</span>: <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a> <a class="code" href="classgz_1_1math_1_1Matrix3.html#a6fc358375d77bc1955ec3c324f7bd2fb" title="Subtraction operator.">operator-</a>(<span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a> &amp;_m)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a>(</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;          this-&gt;data[0][0] - _m(0, 0),</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;          this-&gt;data[0][1] - _m(0, 1),</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;          this-&gt;data[0][2] - _m(0, 2),</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;          this-&gt;data[1][0] - _m(1, 0),</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;          this-&gt;data[1][1] - _m(1, 1),</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;          this-&gt;data[1][2] - _m(1, 2),</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;          this-&gt;data[2][0] - _m(2, 0),</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;          this-&gt;data[2][1] - _m(2, 1),</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;          this-&gt;data[2][2] - _m(2, 2));</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    }</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
+<div class="line"><a name="l00347"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#ab24840c3158986658a296af28298a278">  347</a></span>&#160;    <span class="keyword">public</span>: <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a> <a class="code" href="classgz_1_1math_1_1Matrix3.html#ab24840c3158986658a296af28298a278" title="Addition operation.">operator+</a>(<span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a> &amp;_m)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a>(</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;          this-&gt;data[0][0]+_m(0, 0),</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;          this-&gt;data[0][1]+_m(0, 1),</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;          this-&gt;data[0][2]+_m(0, 2),</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;          this-&gt;data[1][0]+_m(1, 0),</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;          this-&gt;data[1][1]+_m(1, 1),</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;          this-&gt;data[1][2]+_m(1, 2),</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;          this-&gt;data[2][0]+_m(2, 0),</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;          this-&gt;data[2][1]+_m(2, 1),</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;          this-&gt;data[2][2]+_m(2, 2));</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    }</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
+<div class="line"><a name="l00364"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a0a00d32db9a7c885b98111322909466e">  364</a></span>&#160;    <span class="keyword">public</span>: <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a> <a class="code" href="classgz_1_1math_1_1Matrix3.html#a0a00d32db9a7c885b98111322909466e" title="Scalar multiplication operator.">operator*</a>(<span class="keyword">const</span> T &amp;_s)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a>(</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;        _s * this-&gt;data[0][0], _s * this-&gt;data[0][1], _s * this-&gt;data[0][2],</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;        _s * this-&gt;data[1][0], _s * this-&gt;data[1][1], _s * this-&gt;data[1][2],</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;        _s * this-&gt;data[2][0], _s * this-&gt;data[2][1], _s * this-&gt;data[2][2]);</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    }</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160; </div>
+<div class="line"><a name="l00375"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a4d3e85ef8ead678713406cb23fe66744">  375</a></span>&#160;    <span class="keyword">public</span>: <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a> <a class="code" href="classgz_1_1math_1_1Matrix3.html#a4d3e85ef8ead678713406cb23fe66744" title="Matrix multiplication operator.">operator*</a>(<span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a> &amp;_m)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a>(</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;          <span class="comment">// first row</span></div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;          this-&gt;data[0][0]*_m(0, 0)+</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;          this-&gt;data[0][1]*_m(1, 0)+</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;          this-&gt;data[0][2]*_m(2, 0),</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160; </div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;          this-&gt;data[0][0]*_m(0, 1)+</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;          this-&gt;data[0][1]*_m(1, 1)+</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;          this-&gt;data[0][2]*_m(2, 1),</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160; </div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;          this-&gt;data[0][0]*_m(0, 2)+</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;          this-&gt;data[0][1]*_m(1, 2)+</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;          this-&gt;data[0][2]*_m(2, 2),</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160; </div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;          <span class="comment">// second row</span></div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;          this-&gt;data[1][0]*_m(0, 0)+</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;          this-&gt;data[1][1]*_m(1, 0)+</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;          this-&gt;data[1][2]*_m(2, 0),</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160; </div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;          this-&gt;data[1][0]*_m(0, 1)+</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;          this-&gt;data[1][1]*_m(1, 1)+</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;          this-&gt;data[1][2]*_m(2, 1),</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160; </div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;          this-&gt;data[1][0]*_m(0, 2)+</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;          this-&gt;data[1][1]*_m(1, 2)+</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;          this-&gt;data[1][2]*_m(2, 2),</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160; </div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;          <span class="comment">// third row</span></div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;          this-&gt;data[2][0]*_m(0, 0)+</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;          this-&gt;data[2][1]*_m(1, 0)+</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;          this-&gt;data[2][2]*_m(2, 0),</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;          this-&gt;data[2][0]*_m(0, 1)+</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;          this-&gt;data[2][1]*_m(1, 1)+</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;          this-&gt;data[2][2]*_m(2, 1),</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160; </div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;          this-&gt;data[2][0]*_m(0, 2)+</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;          this-&gt;data[2][1]*_m(1, 2)+</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;          this-&gt;data[2][2]*_m(2, 2));</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    }</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160; </div>
+<div class="line"><a name="l00422"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a2462feb69ed0fd39738bb1348f40cbee">  422</a></span>&#160;    <span class="keyword">public</span>: <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3&lt;T&gt;</a> <a class="code" href="classgz_1_1math_1_1Matrix3.html#a2462feb69ed0fd39738bb1348f40cbee" title="Multiplication operator with Vector3 on the right treated like a column vector.">operator*</a>(<span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3&lt;T&gt;</a> &amp;_vec)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3&lt;T&gt;</a>(</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;          this-&gt;data[0][0]*_vec.<a class="code" href="classgz_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x value.">X</a>() + this-&gt;data[0][1]*_vec.<a class="code" href="classgz_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y value.">Y</a>() +</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;          this-&gt;data[0][2]*_vec.<a class="code" href="classgz_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z value.">Z</a>(),</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;          this-&gt;data[1][0]*_vec.<a class="code" href="classgz_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x value.">X</a>() + this-&gt;data[1][1]*_vec.<a class="code" href="classgz_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y value.">Y</a>() +</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;          this-&gt;data[1][2]*_vec.<a class="code" href="classgz_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z value.">Z</a>(),</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;          this-&gt;data[2][0]*_vec.<a class="code" href="classgz_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x value.">X</a>() + this-&gt;data[2][1]*_vec.<a class="code" href="classgz_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y value.">Y</a>() +</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;          this-&gt;data[2][2]*_vec.<a class="code" href="classgz_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z value.">Z</a>());</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    }</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160; </div>
+<div class="line"><a name="l00437"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a1ac0e8012ceeb1f77670f1a0532c6ce9">  437</a></span>&#160;    <span class="keyword">public</span>: <span class="keyword">friend</span> <span class="keyword">inline</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a> <a class="code" href="classgz_1_1math_1_1Matrix3.html#a1ac0e8012ceeb1f77670f1a0532c6ce9" title="Matrix multiplication operator for scaling.">operator*</a>(T _s, <span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a> &amp;_m)</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    {</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;      <span class="keywordflow">return</span> _m * _s;</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    }</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160; </div>
+<div class="line"><a name="l00448"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a5f34e9614ca59adf89b985124516955c">  448</a></span>&#160;    <span class="keyword">public</span>: <span class="keyword">friend</span> <span class="keyword">inline</span> <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3&lt;T&gt;</a> <a class="code" href="classgz_1_1math_1_1Matrix3.html#a5f34e9614ca59adf89b985124516955c" title="Matrix left multiplication operator for Vector3. Treats the Vector3 like a row vector multiplying the...">operator*</a>(<span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3&lt;T&gt;</a> &amp;_v,</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;                                               <span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a> &amp;_m)</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;    {</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3&lt;T&gt;</a>(</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;          _m(0, 0)*_v.<a class="code" href="classgz_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x value.">X</a>() + _m(1, 0)*_v.<a class="code" href="classgz_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y value.">Y</a>() + _m(2, 0)*_v.<a class="code" href="classgz_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z value.">Z</a>(),</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;          _m(0, 1)*_v.<a class="code" href="classgz_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x value.">X</a>() + _m(1, 1)*_v.<a class="code" href="classgz_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y value.">Y</a>() + _m(2, 1)*_v.<a class="code" href="classgz_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z value.">Z</a>(),</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;          _m(0, 2)*_v.<a class="code" href="classgz_1_1math_1_1Vector3.html#ae6b656e82256821b0ef79462ca0079b8" title="Get the x value.">X</a>() + _m(1, 2)*_v.<a class="code" href="classgz_1_1math_1_1Vector3.html#aecdad7e976b3ed74a1828eac4d958db6" title="Get the y value.">Y</a>() + _m(2, 2)*_v.<a class="code" href="classgz_1_1math_1_1Vector3.html#a253c4659f98e0cffd70ae20bbada9c48" title="Get the z value.">Z</a>());</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;    }</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160; </div>
+<div class="line"><a name="l00462"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a665810631d8e6e64ca61fabbb9d30936">  462</a></span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html#a665810631d8e6e64ca61fabbb9d30936" title="Equality test with tolerance.">Equal</a>(<span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3</a> &amp;_m, <span class="keyword">const</span> T &amp;_tol)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;      <span class="keywordflow">return</span> equal&lt;T&gt;(this-&gt;data[0][0], _m(0, 0), _tol)</div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;          &amp;&amp; equal&lt;T&gt;(this-&gt;data[0][1], _m(0, 1), _tol)</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;          &amp;&amp; equal&lt;T&gt;(this-&gt;data[0][2], _m(0, 2), _tol)</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;          &amp;&amp; equal&lt;T&gt;(this-&gt;data[1][0], _m(1, 0), _tol)</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;          &amp;&amp; equal&lt;T&gt;(this-&gt;data[1][1], _m(1, 1), _tol)</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;          &amp;&amp; equal&lt;T&gt;(this-&gt;data[1][2], _m(1, 2), _tol)</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;          &amp;&amp; equal&lt;T&gt;(this-&gt;data[2][0], _m(2, 0), _tol)</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;          &amp;&amp; equal&lt;T&gt;(this-&gt;data[2][1], _m(2, 1), _tol)</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;          &amp;&amp; equal&lt;T&gt;(this-&gt;data[2][2], _m(2, 2), _tol);</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;    }</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160; </div>
+<div class="line"><a name="l00478"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#aecaf15f1e7c4bf599e946b10f167824d">  478</a></span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html#aecaf15f1e7c4bf599e946b10f167824d" title="Equality test operator.">operator==</a>(<span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a> &amp;_m)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;      <span class="keywordflow">return</span> this-&gt;Equal(_m, <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1e-6));</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;    }</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160; </div>
+<div class="line"><a name="l00486"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a69a733bc621b19cf00b2324e1b2446c0">  486</a></span>&#160;    <span class="keyword">public</span>: <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a> &amp;<a class="code" href="classgz_1_1math_1_1Matrix3.html#a69a733bc621b19cf00b2324e1b2446c0" title="Set as a 3x3 rotation matrix from a quaternion.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Quaternion.html" title="A quaternion class that represents 3D rotations and orientations. Four scalar values,...">Quaternion&lt;T&gt;</a> &amp;_q)</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160;    {</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160;      <span class="keywordflow">return</span> *<span class="keyword">this</span> = <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a>(_q);</div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;    }</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160; </div>
+<div class="line"><a name="l00494"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a45f4c9c9bb153f1cae248594b28a4f25">  494</a></span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html#a45f4c9c9bb153f1cae248594b28a4f25" title="Inequality test operator.">operator!=</a>(<span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a> &amp;_m)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;      <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == _m);</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;    }</div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160; </div>
+<div class="line"><a name="l00503"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#ac8c32334869fa9f07569ecde188eced6">  503</a></span>&#160;    <span class="keyword">public</span>: <span class="keyword">inline</span> T <a class="code" href="classgz_1_1math_1_1Matrix3.html#ac8c32334869fa9f07569ecde188eced6" title="Array subscript operator.">operator()</a>(<span class="keywordtype">size_t</span> _row, <span class="keywordtype">size_t</span> _col)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;      <span class="keywordflow">return</span> this-&gt;data[<a class="code" href="namespacegz_1_1math.html#ab971b7643c4db5e8a305dee631ca7697" title="Simple clamping function that constrains a value to a range defined by a min and max value....">clamp</a>(_row, <a class="code" href="namespacegz_1_1math.html#aeb89769a0418f099e75e086bba4e40de" title="size_t type with a value of 0">GZ_ZERO_SIZE_T</a>, <a class="code" href="namespacegz_1_1math.html#a868597f0eb34228d0357b8ff6449e443" title="size_t type with a value of 2">GZ_TWO_SIZE_T</a>)]</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;                       [<a class="code" href="namespacegz_1_1math.html#ab971b7643c4db5e8a305dee631ca7697" title="Simple clamping function that constrains a value to a range defined by a min and max value....">clamp</a>(_col, <a class="code" href="namespacegz_1_1math.html#aeb89769a0418f099e75e086bba4e40de" title="size_t type with a value of 0">GZ_ZERO_SIZE_T</a>, <a class="code" href="namespacegz_1_1math.html#a868597f0eb34228d0357b8ff6449e443" title="size_t type with a value of 2">GZ_TWO_SIZE_T</a>)];</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;    }</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160; </div>
+<div class="line"><a name="l00513"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a51a6900e71f18ef8a56e8f504830bd27">  513</a></span>&#160;    <span class="keyword">public</span>: <span class="keyword">inline</span> T &amp;<a class="code" href="classgz_1_1math_1_1Matrix3.html#a51a6900e71f18ef8a56e8f504830bd27" title="Array subscript operator.">operator()</a>(<span class="keywordtype">size_t</span> _row, <span class="keywordtype">size_t</span> _col)</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160;    {</div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;      <span class="keywordflow">return</span> this-&gt;data[<a class="code" href="namespacegz_1_1math.html#ab971b7643c4db5e8a305dee631ca7697" title="Simple clamping function that constrains a value to a range defined by a min and max value....">clamp</a>(_row, <a class="code" href="namespacegz_1_1math.html#aeb89769a0418f099e75e086bba4e40de" title="size_t type with a value of 0">GZ_ZERO_SIZE_T</a>, <a class="code" href="namespacegz_1_1math.html#a868597f0eb34228d0357b8ff6449e443" title="size_t type with a value of 2">GZ_TWO_SIZE_T</a>)]</div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;                       [<a class="code" href="namespacegz_1_1math.html#ab971b7643c4db5e8a305dee631ca7697" title="Simple clamping function that constrains a value to a range defined by a min and max value....">clamp</a>(_col, <a class="code" href="namespacegz_1_1math.html#aeb89769a0418f099e75e086bba4e40de" title="size_t type with a value of 0">GZ_ZERO_SIZE_T</a>, <a class="code" href="namespacegz_1_1math.html#a868597f0eb34228d0357b8ff6449e443" title="size_t type with a value of 2">GZ_TWO_SIZE_T</a>)];</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;    }</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160; </div>
+<div class="line"><a name="l00521"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#ac2999505859c7b92b4f6ebadebf626ef">  521</a></span>&#160;    <span class="keyword">public</span>: T <a class="code" href="classgz_1_1math_1_1Matrix3.html#ac2999505859c7b92b4f6ebadebf626ef" title="Return the determinant of the matrix.">Determinant</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;      T t0 = this-&gt;data[2][2]*this-&gt;data[1][1]</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;           - this-&gt;data[2][1]*this-&gt;data[1][2];</div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160; </div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;      T t1 = -(this-&gt;data[2][2]*this-&gt;data[1][0]</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;              -this-&gt;data[2][0]*this-&gt;data[1][2]);</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160; </div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;      T t2 = this-&gt;data[2][1]*this-&gt;data[1][0]</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;           - this-&gt;data[2][0]*this-&gt;data[1][1];</div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160; </div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;      <span class="keywordflow">return</span> t0 * this-&gt;data[0][0]</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;           + t1 * this-&gt;data[0][1]</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;           + t2 * this-&gt;data[0][2];</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;    }</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160; </div>
+<div class="line"><a name="l00539"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a3d4755fb8c84b6b85376d90176475ae8">  539</a></span>&#160;    <span class="keyword">public</span>: <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a> <a class="code" href="classgz_1_1math_1_1Matrix3.html#a3d4755fb8c84b6b85376d90176475ae8" title="Return the inverse matrix.">Inverse</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;      T t0 = this-&gt;data[2][2]*this-&gt;data[1][1] -</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;                  this-&gt;data[2][1]*this-&gt;data[1][2];</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160; </div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;      T t1 = -(this-&gt;data[2][2]*this-&gt;data[1][0] -</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;                    this-&gt;data[2][0]*this-&gt;data[1][2]);</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160; </div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;      T t2 = this-&gt;data[2][1]*this-&gt;data[1][0] -</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;                  this-&gt;data[2][0]*this-&gt;data[1][1];</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160; </div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;      T invDet = 1.0 / (t0 * this-&gt;data[0][0] +</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;                             t1 * this-&gt;data[0][1] +</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;                             t2 * this-&gt;data[0][2]);</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160; </div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;      <span class="keywordflow">return</span> invDet * <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a>(</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;        t0,</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;        - (this-&gt;data[2][2] * this-&gt;data[0][1] -</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;           this-&gt;data[2][1] * this-&gt;data[0][2]),</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;        + (this-&gt;data[1][2] * this-&gt;data[0][1] -</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;           this-&gt;data[1][1] * this-&gt;data[0][2]),</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;        t1,</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;        + (this-&gt;data[2][2] * this-&gt;data[0][0] -</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;           this-&gt;data[2][0] * this-&gt;data[0][2]),</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;        - (this-&gt;data[1][2] * this-&gt;data[0][0] -</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;           this-&gt;data[1][0] * this-&gt;data[0][2]),</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;        t2,</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;        - (this-&gt;data[2][1] * this-&gt;data[0][0] -</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;           this-&gt;data[2][0] * this-&gt;data[0][1]),</div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;        + (this-&gt;data[1][1] * this-&gt;data[0][0] -</div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;           this-&gt;data[1][0] * this-&gt;data[0][1]));</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;    }</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160; </div>
+<div class="line"><a name="l00573"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a109318636af36bc89e9853f19e4369e2">  573</a></span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html#a109318636af36bc89e9853f19e4369e2" title="Transpose this matrix.">Transpose</a>()</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    {</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/algorithm/swap.html">std::swap</a>(this-&gt;data[0][1], this-&gt;data[1][0]);</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/algorithm/swap.html">std::swap</a>(this-&gt;data[0][2], this-&gt;data[2][0]);</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/algorithm/swap.html">std::swap</a>(this-&gt;data[1][2], this-&gt;data[2][1]);</div>
+<div class="line"><a name="l00578"></a><span class="lineno">  578</span>&#160;    }</div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160; </div>
+<div class="line"><a name="l00582"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a15404dbefb75592575c368f3a0d33c4c">  582</a></span>&#160;    <span class="keyword">public</span>: <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a> <a class="code" href="classgz_1_1math_1_1Matrix3.html#a15404dbefb75592575c368f3a0d33c4c" title="Return the transpose of this matrix.">Transposed</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;      <span class="keywordflow">return</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a>(</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;        this-&gt;data[0][0], this-&gt;data[1][0], this-&gt;data[2][0],</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;        this-&gt;data[0][1], this-&gt;data[1][1], this-&gt;data[2][1],</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;        this-&gt;data[0][2], this-&gt;data[1][2], this-&gt;data[2][2]);</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;    }</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160; </div>
+<div class="line"><a name="l00595"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#abfb77f2bf3eef355fd7b8707568da80e">  595</a></span>&#160;    <span class="keyword">public</span>: <span class="keyword">friend</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a> &amp;<a class="code" href="classgz_1_1math_1_1Matrix3.html#abfb77f2bf3eef355fd7b8707568da80e" title="Stream insertion operator. This operator outputs all 9 scalar values in the matrix separated by a sin...">operator&lt;&lt;</a>(</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;                <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::ostream</a> &amp;_out, <span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">gz::math::Matrix3&lt;T&gt;</a> &amp;_m)</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;    {</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> i : {0, 1, 2})</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;      {</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> j : {0, 1, 2})</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;        {</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;          <span class="keywordflow">if</span> (!(i == 0 &amp;&amp; j == 0))</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;            _out &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160; </div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;          <a class="code" href="namespacegz_1_1math.html#a3cdd8fcd712198d74d90ea8e6edb7594" title="Append a number to a stream. Makes sure &quot;-0&quot; is returned as &quot;0&quot;.">appendToStream</a>(_out, _m(i, j));</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;        }</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;      }</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160; </div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;      <span class="keywordflow">return</span> _out;</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;    }</div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160; </div>
+<div class="line"><a name="l00617"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Matrix3.html#a42df3f95450bafaebcd27c3fd9f96627">  617</a></span>&#160;    <span class="keyword">public</span>: <span class="keyword">friend</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_istream.html">std::istream</a> &amp;<a class="code" href="classgz_1_1math_1_1Matrix3.html#a42df3f95450bafaebcd27c3fd9f96627" title="Stream extraction operator. This operator requires 9 space separated scalar values,...">operator&gt;&gt;</a>(</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;                <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_istream.html">std::istream</a> &amp;_in, <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">gz::math::Matrix3&lt;T&gt;</a> &amp;_m)</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;    {</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;      <span class="comment">// Skip white spaces</span></div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;      _in.<a class="codeRef" href="http://en.cppreference.com/w/cpp/io/ios_base/setf.html">setf</a>(std::ios_base::skipws);</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;      T d[9];</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;      _in &gt;&gt; d[0] &gt;&gt; d[1] &gt;&gt; d[2]</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;          &gt;&gt; d[3] &gt;&gt; d[4] &gt;&gt; d[5]</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;          &gt;&gt; d[6] &gt;&gt; d[7] &gt;&gt; d[8];</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160; </div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;      <span class="keywordflow">if</span> (!_in.<a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ios/fail.html">fail</a>())</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;      {</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;        _m.<a class="code" href="classgz_1_1math_1_1Matrix3.html#ad9c9768ffc11733060794b0638f309c4" title="Set a single value.">Set</a>(d[0], d[1], d[2],</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;               d[3], d[4], d[5],</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;               d[6], d[7], d[8]);</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;      }</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;      <span class="keywordflow">return</span> _in;</div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;    }</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160; </div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;    <span class="keyword">private</span>: T data[3][3];</div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;  };</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160; </div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;  <span class="keyword">namespace </span>detail {</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160; </div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;    constexpr Matrix3&lt;T&gt; gMatrix3Identity(</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;        1, 0, 0,</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;        0, 1, 0,</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;        0, 0, 1);</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160; </div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;    constexpr Matrix3&lt;T&gt; gMatrix3Zero(</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;        0, 0, 0,</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;        0, 0, 0,</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;        0, 0, 0);</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160; </div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;  }  <span class="comment">// namespace detail</span></div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160; </div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;  <span class="keyword">const</span> Matrix3&lt;T&gt; &amp;<a class="code" href="classgz_1_1math_1_1Matrix3.html#ae19fa41846cd971d1b9a4a848155b318" title="A Matrix3 initialized to identity. This is equivalent to math::Matrix3&lt;T&gt;(1, 0, 0,...">Matrix3&lt;T&gt;::Identity</a> = detail::gMatrix3Identity&lt;T&gt;;</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160; </div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;  <span class="keyword">const</span> Matrix3&lt;T&gt; &amp;<a class="code" href="classgz_1_1math_1_1Matrix3.html#a9eecbecbf8aeaf2af4a31cfdb93dd5fc" title="A Matrix3 initialized to zero. This is equivalent to math::Matrix3&lt;T&gt;(0, 0, 0, 0, 0,...">Matrix3&lt;T&gt;::Zero</a> = detail::gMatrix3Zero&lt;T&gt;;</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160; </div>
+<div class="line"><a name="l00663"></a><span class="lineno"><a class="line" href="namespacegz_1_1math.html#a968bc4736fac5af106094c63c24ac6ca">  663</a></span>&#160;  <span class="keyword">typedef</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;int&gt;</a> <a class="code" href="namespacegz_1_1math.html#a968bc4736fac5af106094c63c24ac6ca" title="typedef Matrix3&lt;int&gt; as Matrix3i.">Matrix3i</a>;</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160; </div>
+<div class="line"><a name="l00666"></a><span class="lineno"><a class="line" href="namespacegz_1_1math.html#a86e6f4c9798f85f6b09c74b4b60d2376">  666</a></span>&#160;  <span class="keyword">typedef</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;double&gt;</a> <a class="code" href="namespacegz_1_1math.html#a86e6f4c9798f85f6b09c74b4b60d2376" title="typedef Matrix3&lt;double&gt; as Matrix3d.">Matrix3d</a>;</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160; </div>
+<div class="line"><a name="l00669"></a><span class="lineno"><a class="line" href="namespacegz_1_1math.html#ae5a673b3d27428dc13b294596cc53a5d">  669</a></span>&#160;  <span class="keyword">typedef</span> <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;float&gt;</a> <a class="code" href="namespacegz_1_1math.html#ae5a673b3d27428dc13b294596cc53a5d" title="typedef Matrix3&lt;float&gt; as Matrix3f.">Matrix3f</a>;</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;  }  <span class="comment">// namespace GZ_MATH_VERSION_NAMESPACE</span></div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;}  <span class="comment">// namespace gz::math</span></div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// GZ_MATH_MATRIX3_HH_</span></div>
+</div><!-- fragment --></div><!-- contents -->
+      </div>
+    </main>
+  </div>
+</body>

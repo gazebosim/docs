@@ -1,0 +1,537 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Sensors">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Sensors: Segmentation Camera in Gazebo</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Sensors</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        7.3.0
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 GzCreateDocs.cmake -->
+      <nav class="gz-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.8.17 -->
+</div><!-- top -->
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Segmentation Camera in Gazebo </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>In this tutorial, we will discuss how to use a segmentation camera sensor in Gazebo.</p>
+<h2><a class="anchor" id="autotoc_md31"></a>
+Requirements</h2>
+<p>Since this tutorial will show how to use a segmentation camera sensor in Gazebo, you'll need to have Gazebo installed. We recommend installing all Gazebo libraries, using version Fortress or newer (the segmentation camera is not available in Gazebo versions prior to Fortress). If you need to install Gazebo, <a href="https://gazebosim.org/docs">pick the version you'd like to use</a> and then follow the installation instructions.</p>
+<h2><a class="anchor" id="autotoc_md32"></a>
+Setting up the segmentation camera</h2>
+<p>Here's an example of how to attach a segmentation camera sensor to a model in a SDF file:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">model</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;segmentation_model&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">pose</span>&gt;4 0 1.0 0 0.0 3.14&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">link</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;link&quot;</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">pose</span>&gt;0.05 0.05 0.05 0 0 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">inertial</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">mass</span>&gt;0.1&lt;/<span class="keywordtype">mass</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">inertia</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">ixx</span>&gt;0.000166667&lt;/<span class="keywordtype">ixx</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">iyy</span>&gt;0.000166667&lt;/<span class="keywordtype">iyy</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">izz</span>&gt;0.000166667&lt;/<span class="keywordtype">izz</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">inertia</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">inertial</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">collision</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;collision&quot;</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">box</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">size</span>&gt;0.1 0.1 0.1&lt;/<span class="keywordtype">size</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">box</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">collision</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">visual</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;visual&quot;</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">box</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">size</span>&gt;0.1 0.1 0.1&lt;/<span class="keywordtype">size</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">box</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">visual</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">    &lt;<span class="keywordtype">sensor</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;segmentation_camera&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;segmentation&quot;</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">topic</span>&gt;<span class="keyword">segmentation</span>&lt;/<span class="keywordtype">topic</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">camera</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">segmentation_type</span>&gt;<span class="keyword">instance</span>&lt;/<span class="keywordtype">segmentation_type</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">horizontal_fov</span>&gt;1.047&lt;/<span class="keywordtype">horizontal_fov</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">image</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">width</span>&gt;800&lt;/<span class="keywordtype">width</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">height</span>&gt;600&lt;/<span class="keywordtype">height</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">image</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">clip</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">near</span>&gt;0.1&lt;/<span class="keywordtype">near</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">far</span>&gt;10&lt;/<span class="keywordtype">far</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">clip</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">camera</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">always_on</span>&gt;1&lt;/<span class="keywordtype">always_on</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">update_rate</span>&gt;30&lt;/<span class="keywordtype">update_rate</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">visualize</span>&gt;<span class="keyword">true</span>&lt;/<span class="keywordtype">visualize</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">sensor</span>&gt;</div>
+<div class="line">  &lt;/<span class="keywordtype">link</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">model</span>&gt;</div>
+</div><!-- fragment --><p>Let’s take a closer look at the portion of the code above that focuses on the segmentation camera sensor:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">sensor</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;segmentation_camera&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;segmentation&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">topic</span>&gt;<span class="keyword">segmentation</span>&lt;/<span class="keywordtype">topic</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">camera</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">segmentation_type</span>&gt;<span class="keyword">instance</span>&lt;/<span class="keywordtype">segmentation_type</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">horizontal_fov</span>&gt;1.047&lt;/<span class="keywordtype">horizontal_fov</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">image</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">width</span>&gt;800&lt;/<span class="keywordtype">width</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">height</span>&gt;600&lt;/<span class="keywordtype">height</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">image</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">clip</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">near</span>&gt;0.1&lt;/<span class="keywordtype">near</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">far</span>&gt;10&lt;/<span class="keywordtype">far</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">clip</span>&gt;</div>
+<div class="line">  &lt;/<span class="keywordtype">camera</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">always_on</span>&gt;1&lt;/<span class="keywordtype">always_on</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">update_rate</span>&gt;30&lt;/<span class="keywordtype">update_rate</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">visualize</span>&gt;<span class="keyword">true</span>&lt;/<span class="keywordtype">visualize</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">sensor</span>&gt;</div>
+</div><!-- fragment --><p>As we can see, we define a sensor with the following SDF elements:</p><ul>
+<li><code>&lt;camera&gt;</code>: The camera, which has the following child elements:<ul>
+<li><code>&lt;segmentation_type&gt;</code>: The type of segmentation performed by the camera. Use <code>semantic</code> for <a href="https://www.jeremyjordan.me/semantic-segmentation/">semantic segmentation</a>. For <a href="https://en.wikipedia.org/wiki/Image_segmentation#Groups_of_image_segmentation">panoptic (instance) segmentation</a>, use <code>panoptic</code> or <code>instance</code>. The default value for <code>&lt;segmentation_type&gt;</code> is <code>semantic</code>.</li>
+<li><code>&lt;horizontal_fov&gt;</code>: The horizontal field of view, in radians.</li>
+<li><code>&lt;image&gt;</code>: The image size, in pixels.</li>
+<li><code>&lt;clip&gt;</code>: The near and far clip planes. Objects are only rendered if they're within these planes.</li>
+</ul>
+</li>
+<li><code>&lt;always_on&gt;</code>: Whether the sensor will always be updated (indicated by 1) or not (indicated by 0). This is currently unused by Gazebo.</li>
+<li><code>&lt;update_rate&gt;</code>: The sensor's update rate, in Hz.</li>
+<li><code>&lt;visualize&gt;</code>: Whether the sensor should be visualized in the GUI (indicated by true) or not (indicated by false). This is currently unused by Gazebo.</li>
+<li><code>&lt;topic&gt;</code>: The name of the topic which will be used to publish the sensor data.</li>
+</ul>
+<h4><a class="anchor" id="autotoc_md33"></a>
+Label map &amp; Colored map</h4>
+<p>The segmentation sensor creates 2 maps (or images):</p>
+<ul>
+<li>The <code>label map</code>: For semantic segmentation, each pixel contains the object's label. For panoptic segmentation, each pixel contains the label and object's instance count.</li>
+<li>The <code>colored map</code>: A colored version of the label map. In semantic segmentation, all items of the same label will have the same color. In panoptic segmentation, each pixel contains a unique color for each instance in the scene (so, for panoptic segmentation, items of the same label will not have the same color).</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md34"></a>
+Assigning a label to a model</h2>
+<p>Only models with labels (annotated classes) will be visible by the segmentation camera sensor. Unlabeled models will be considered as background.</p>
+<p>To assign a label to a model we use the label plugin in the SDF file:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">model</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;box&quot;</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">pose</span>&gt;0 -1 0.5 0 0 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">link</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;box_link&quot;</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">inertial</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">inertia</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ixx</span>&gt;1&lt;/<span class="keywordtype">ixx</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ixy</span>&gt;0&lt;/<span class="keywordtype">ixy</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ixz</span>&gt;0&lt;/<span class="keywordtype">ixz</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">iyy</span>&gt;1&lt;/<span class="keywordtype">iyy</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">iyz</span>&gt;0&lt;/<span class="keywordtype">iyz</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">izz</span>&gt;1&lt;/<span class="keywordtype">izz</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">inertia</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">mass</span>&gt;1.0&lt;/<span class="keywordtype">mass</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">inertial</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">collision</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;box_collision&quot;</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">box</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">size</span>&gt;1 1 1&lt;/<span class="keywordtype">size</span>&gt;</div>
+<div class="line">            &lt;/<span class="keywordtype">box</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">collision</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">        &lt;<span class="keywordtype">visual</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;box_visual&quot;</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">box</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">size</span>&gt;1 1 1&lt;/<span class="keywordtype">size</span>&gt;</div>
+<div class="line">            &lt;/<span class="keywordtype">box</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">material</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ambient</span>&gt;0 0 0.5 1&lt;/<span class="keywordtype">ambient</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">diffuse</span>&gt;0 0 1 1&lt;/<span class="keywordtype">diffuse</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">specular</span>&gt;0 0 0.3 1&lt;/<span class="keywordtype">specular</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">material</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">plugin</span> <span class="keyword">filename</span>=<span class="stringliteral">&quot;gz-sim-label-system&quot;</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;gz::sim::systems::Label&quot;</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">label</span>&gt;10&lt;/<span class="keywordtype">label</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">plugin</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">visual</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">link</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">model</span>&gt;</div>
+</div><!-- fragment --><p>Lets zoom in the label plugin:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">plugin</span> <span class="keyword">filename</span>=<span class="stringliteral">&quot;gz-sim-label-system&quot;</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;gz::sim::systems::Label&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">label</span>&gt;10&lt;/<span class="keywordtype">label</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
+</div><!-- fragment --><p>We assign the label of the model by adding the plugin to the model's <code>&lt;visual&gt;</code> tag. So, in this case, this model has a label of 10.</p>
+<p>You can also attach this plugin to the model's <code>&lt;model&gt;</code> tag:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">model</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;sphere&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">static</span>&gt;<span class="keyword">true</span>&lt;/<span class="keywordtype">static</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">pose</span>&gt;-1 -2 0.5 0 0 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">link</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;sphere_link&quot;</span>&gt;</div>
+<div class="line">  ...</div>
+<div class="line">  &lt;/<span class="keywordtype">link</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">plugin</span> <span class="keyword">filename</span>=<span class="stringliteral">&quot;gz-sim-label-system&quot;</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;gz::sim::systems::Label&quot;</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">label</span>&gt;20&lt;/<span class="keywordtype">label</span>&gt;</div>
+<div class="line">  &lt;/<span class="keywordtype">plugin</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">model</span>&gt;</div>
+</div><!-- fragment --><p>If you're including a model from a place like <a href="https://app.gazebosim.org/dashboard">Gazebo Fuel</a>, you can add the label plugin as a child for the <code>&lt;include&gt;</code> tag:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">include</span>&gt;</div>
+<div class="line">   &lt;<span class="keywordtype">pose</span>&gt;-1 0 3 0.0 0.0 1.57&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">   &lt;<span class="keywordtype">uri</span>&gt;</div>
+<div class="line">   <span class="keyword">https:</span>//<span class="keyword">fuel.gazebosim.org</span>/1.0/<span class="keyword">OpenRobotics</span>/<span class="keyword">models</span>/<span class="keyword">Construction</span> <span class="keyword">Cone</span></div>
+<div class="line">   &lt;/<span class="keywordtype">uri</span>&gt;</div>
+<div class="line">   &lt;<span class="keywordtype">plugin</span> <span class="keyword">filename</span>=<span class="stringliteral">&quot;gz-sim-label-system&quot;</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;gz::sim::systems::Label&quot;</span>&gt;</div>
+<div class="line">     &lt;<span class="keywordtype">label</span>&gt;30&lt;/<span class="keywordtype">label</span>&gt;</div>
+<div class="line">   &lt;/<span class="keywordtype">plugin</span>&gt;</div>
+<div class="line"> &lt;/<span class="keywordtype">include</span>&gt;</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md35"></a>
+Running an example:</h2>
+<p>Now that we've discussed how a segmentation camera and models with labels can be specified, let's run an example world that uses the segmentation camera. Run the following command: </p><div class="fragment"><div class="line">gz sim segmentation_camera.sdf</div>
+</div><!-- fragment --><p>You should see something similar to this: </p><div class="image">
+<img src="files/segmentation_camera/cars_segmentation.png" alt="" width="850px"/>
+</div>
+<p>There are 2 segmentation cameras in the SDF world: a semantic segmentation camera, and an instance/panoptic segmentation camera.</p>
+<p>For the instance/panoptic segmentation camera, colored map data is published to the <code>panoptic/colored_map topic</code>, and label map data is published to the <code>panoptic/labels_map</code> topic:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">sensor</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;instance_segmentation_camera&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;segmentation&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">topic</span>&gt;<span class="keyword">panoptic</span>&lt;/<span class="keywordtype">topic</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">camera</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">segmentation_type</span>&gt;<span class="keyword">instance</span>&lt;/<span class="keywordtype">segmentation_type</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">horizontal_fov</span>&gt;1.57&lt;/<span class="keywordtype">horizontal_fov</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">image</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">width</span>&gt;800&lt;/<span class="keywordtype">width</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">height</span>&gt;600&lt;/<span class="keywordtype">height</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">image</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">clip</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">near</span>&gt;0.1&lt;/<span class="keywordtype">near</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">far</span>&gt;100&lt;/<span class="keywordtype">far</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">clip</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">save</span> <span class="keyword">enabled</span>=<span class="stringliteral">&quot;true&quot;</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">path</span>&gt;<span class="keyword">segmentation_data</span>/<span class="keyword">instance_camera</span>&lt;/<span class="keywordtype">path</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">save</span>&gt;</div>
+<div class="line">  &lt;/<span class="keywordtype">camera</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">always_on</span>&gt;1&lt;/<span class="keywordtype">always_on</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">update_rate</span>&gt;30&lt;/<span class="keywordtype">update_rate</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">visualize</span>&gt;<span class="keyword">true</span>&lt;/<span class="keywordtype">visualize</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">sensor</span>&gt;</div>
+</div><!-- fragment --><p>For the semantic segmentation camera, colored map data is published to the <code>semantic/colored_map</code> topic, and label map data is published to the <code>semantic/labels_map</code> topic:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">sensor</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;semantic_segmentation_camera&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;segmentation&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">topic</span>&gt;<span class="keyword">semantic</span>&lt;/<span class="keywordtype">topic</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">camera</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">segmentation_type</span>&gt;<span class="keyword">semantic</span>&lt;/<span class="keywordtype">segmentation_type</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">horizontal_fov</span>&gt;1.57&lt;/<span class="keywordtype">horizontal_fov</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">image</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">width</span>&gt;800&lt;/<span class="keywordtype">width</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">height</span>&gt;600&lt;/<span class="keywordtype">height</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">image</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">clip</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">near</span>&gt;0.1&lt;/<span class="keywordtype">near</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">far</span>&gt;100&lt;/<span class="keywordtype">far</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">clip</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">save</span> <span class="keyword">enabled</span>=<span class="stringliteral">&quot;true&quot;</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">path</span>&gt;<span class="keyword">segmentation_data</span>/<span class="keyword">semantic_camera</span>&lt;/<span class="keywordtype">path</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">save</span>&gt;</div>
+<div class="line">  &lt;/<span class="keywordtype">camera</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">always_on</span>&gt;1&lt;/<span class="keywordtype">always_on</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">update_rate</span>&gt;30&lt;/<span class="keywordtype">update_rate</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">visualize</span>&gt;<span class="keyword">true</span>&lt;/<span class="keywordtype">visualize</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">sensor</span>&gt;</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md36"></a>
+Segmentation Dataset Generation</h2>
+<p>To save the output of the sensor as segmentation dataset samples, we add the <code>&lt;save&gt;</code> tag to the <code>&lt;camera&gt;</code> tag, and we specify the path to save the dataset in.</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">sensor</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;segmentation_camera&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;segmentation&quot;</span>&gt;</div>
+<div class="line">  ...</div>
+<div class="line">  &lt;<span class="keywordtype">camera</span>&gt;</div>
+<div class="line">    ...</div>
+<div class="line">    &lt;<span class="keywordtype">save</span> <span class="keyword">enabled</span>=<span class="stringliteral">&quot;true&quot;</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">path</span>&gt;<span class="keyword">DATSET_PATH</span>&lt;/<span class="keywordtype">path</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">save</span>&gt;</div>
+<div class="line">  &lt;/<span class="keywordtype">camera</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">sensor</span>&gt;</div>
+</div><!-- fragment --><p>In the example world we just ran (<code>segmentation_camera.sdf</code>), you'll notice that the panoptic camera is saving data to <code>segmentation_data/instance_camera</code>, while the semenatic camera is saving data to <code>segmentation_data/semantic_camera</code> (these are relative paths).</p>
+<h4><a class="anchor" id="autotoc_md37"></a>
+Dataset Demo</h4>
+<p>Up to this point, we have left simulation paused. Go ahead and start simulation by pressing the play button at the bottom-left part of the GUI. You'll see the camera drop, capturing updated segmentation images along the way:</p>
+<div class="image">
+<img src="files/segmentation_camera/segmentation_dataset.gif" alt=""/>
+</div>
+<p>Once the camera has reached the ground plane, you can go ahead and close Gazebo. We will now discuss how to visualize the segmentation data that was just generated by Gazebo.</p>
+<h2><a class="anchor" id="autotoc_md38"></a>
+Visualize the segmentation dataset via Python</h2>
+<p>Put the following code in a Python script called <code>segmentation_visualizer.py</code>:</p>
+<div class="fragment"><div class="line">import cv2</div>
+<div class="line">import argparse</div>
+<div class="line">import os</div>
+<div class="line">import numpy as np</div>
+<div class="line"> </div>
+<div class="line"># Add the colored map to the image for visualization</div>
+<div class="line">def add_colored_to_image(image, colored):</div>
+<div class="line">    return cv2.addWeighted(cv2.resize(image, (colored.shape[1], colored.shape[0]))</div>
+<div class="line">                            .astype(np.uint8), 1,</div>
+<div class="line">                            colored.astype(np.uint8), .5,</div>
+<div class="line">                            0, cv2.CV_32F)</div>
+<div class="line"> </div>
+<div class="line"># global labels map for mouse callback</div>
+<div class="line">labels_map = None</div>
+<div class="line"> </div>
+<div class="line"># Callback when you click on any pixel in the labels_map image</div>
+<div class="line"># Prints the label and instance count of the clicked pixel</div>
+<div class="line">def mouse_callback(event, x, y, flags, param):</div>
+<div class="line">    if event == cv2.EVENT_LBUTTONDOWN:</div>
+<div class="line">        # instance / panoptic</div>
+<div class="line">        # label id</div>
+<div class="line">        label = labels_map[y,x,0]</div>
+<div class="line"> </div>
+<div class="line">        # instance count from the other 2 values of the pixel</div>
+<div class="line">        instance_count = labels_map[y,x,1] * 256 + labels_map[y,x,2]</div>
+<div class="line"> </div>
+<div class="line">        print(f&#39;label: {label} .. instance count: {instance_count}&#39;)</div>
+<div class="line"> </div>
+<div class="line">cv2.namedWindow(&#39;labels_map&#39;)</div>
+<div class="line">cv2.setMouseCallback(&#39;labels_map&#39;, mouse_callback)</div>
+<div class="line"> </div>
+<div class="line"># Arg Parser to set the dataset path</div>
+<div class="line">parser = argparse.ArgumentParser()</div>
+<div class="line">parser.add_argument(&#39;--path&#39;, type=str, required=True, help=&#39;Segmentation Dataset Path&#39;)</div>
+<div class="line">args = parser.parse_args()</div>
+<div class="line"> </div>
+<div class="line"># dataset path</div>
+<div class="line">path = args.path</div>
+<div class="line"> </div>
+<div class="line"># paths of images folders</div>
+<div class="line">images_path = os.path.join(path, &quot;images&quot;)</div>
+<div class="line">labels_map_path = os.path.join(path, &quot;labels_maps&quot;)</div>
+<div class="line">colored_map_path = os.path.join(path, &quot;colored_maps&quot;)</div>
+<div class="line"> </div>
+<div class="line"># list all images paths</div>
+<div class="line">images_names  = sorted(os.listdir(images_path))</div>
+<div class="line">labels_names  = sorted(os.listdir(labels_map_path))</div>
+<div class="line">colored_names = sorted(os.listdir(colored_map_path))</div>
+<div class="line"> </div>
+<div class="line"># add the root path to images names</div>
+<div class="line">images_paths      = [os.path.join(images_path, name) for name in images_names]</div>
+<div class="line">labels_map_paths  = [os.path.join(labels_map_path, name) for name in labels_names]</div>
+<div class="line">colored_map_paths = [os.path.join(colored_map_path, name) for name in  colored_names]</div>
+<div class="line"> </div>
+<div class="line">for image_path, labels_path, colored_path in zip(images_paths, labels_map_paths, colored_map_paths):</div>
+<div class="line">    image = cv2.imread(image_path, cv2.IMREAD_COLOR)</div>
+<div class="line">    labels_map = cv2.imread(labels_path, cv2.IMREAD_COLOR)</div>
+<div class="line">    colored_map = cv2.imread(colored_path, cv2.IMREAD_COLOR)</div>
+<div class="line"> </div>
+<div class="line">    colored_image = add_colored_to_image(image, colored_map)</div>
+<div class="line">    cv2.imshow(&quot;segmentation&quot;, colored_image)</div>
+<div class="line"> </div>
+<div class="line">    cv2.imshow(&quot;image&quot;, image)</div>
+<div class="line">    cv2.imshow(&quot;labels_map&quot;, labels_map)</div>
+<div class="line">    cv2.imshow(&quot;colored_map&quot;, colored_map)</div>
+<div class="line"> </div>
+<div class="line">    print(&quot;Press Any Key to Continue ... ESC to exit&quot;)</div>
+<div class="line">    if cv2.waitKey(0) == 27:</div>
+<div class="line">        break</div>
+<div class="line"> </div>
+<div class="line">cv2.destroyAllWindows()</div>
+</div><!-- fragment --><p>Make sure you have all of the dependencies that are needed in order to run this Python script:</p><ul>
+<li><a href="https://pypi.org/project/opencv-python/">https://pypi.org/project/opencv-python/</a></li>
+<li><a href="https://numpy.org/install/">https://numpy.org/install/</a></li>
+</ul>
+<p>Run the script, setting the <code>--path</code> argument to what you specified for the <code>&lt;save&gt;</code> tag in the SDF file. Since we set the panoptic save path to <code>segmentation_data/instance_camera</code>, we'd run the following command to view the panoptic segmentation data: </p><div class="fragment"><div class="line">python3 segmentation_visualizer.py --path segmentation_data/instance_camera</div>
+</div><!-- fragment --><p>You will see 4 windows: <code>image</code>, <code>labels_map</code>, <code>colored_map</code>, and <code>colored_image</code> (which is a combination of the image and colored_map).</p>
+<div class="image">
+<img src="files/segmentation_camera/segmentation_images.png" alt="" width="900px"/>
+</div>
+<p>For panoptic/instance segmentation, to parse the <code>labels_map</code>, click on any pixel on the <code>labels_map</code> window to see the <code>label</code> and <code>instance count</code> of that pixel.</p>
+<h2><a class="anchor" id="autotoc_md39"></a>
+Processing the segmentation sensor via gz-transport</h2>
+<p>It's possible to process the segmentation data in real time via <code>gz-transport</code>. You will need to which topics to subscribe to in order to receive this information.</p>
+<p>Consider the following SDF snippet from the segmentation camera: </p><div class="fragment"><div class="line">&lt;<span class="keywordtype">topic</span>&gt;<span class="keyword">segmentation</span>&lt;/<span class="keywordtype">topic</span>&gt;</div>
+</div><!-- fragment --><p>In this scenario, the sensor data will publish the label map data to <code>segmentation/labels_map</code>, and the colored map data to <code>segmentation/colored_map</code>. We can write some c++ code that subscribes to these topics:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;gz/msgs.hh&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;gz/rendering.hh&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;gz/transport.hh&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> OnNewLabelMap(<span class="keyword">const</span> gz::msgs::Image &amp;_msg)</div>
+<div class="line">{</div>
+<div class="line">  <span class="keyword">auto</span> width = _msg.width();</div>
+<div class="line">  <span class="keyword">auto</span> height = _msg.height();</div>
+<div class="line">  <span class="keyword">auto</span> buffer = _msg.data();</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; height; ++i)</div>
+<div class="line">  {</div>
+<div class="line">    <span class="keywordflow">for</span> (uint32_t j = 0; j &lt; width; ++j)</div>
+<div class="line">    {</div>
+<div class="line">      <span class="keyword">auto</span> index = (i * width + j) * 3;</div>
+<div class="line"> </div>
+<div class="line">      <span class="comment">// label id of the pixel is in the last channel</span></div>
+<div class="line">      <span class="keyword">auto</span> label = buffer[index + 2];</div>
+<div class="line"> </div>
+<div class="line">      <span class="comment">// In case of semantic segmentation, instance count is ignored.</span></div>
+<div class="line">      <span class="comment">//</span></div>
+<div class="line">      <span class="comment">// For panoptic segmentation, we can get the instance count as follows:</span></div>
+<div class="line">      <span class="comment">// 16 bit value for instance count</span></div>
+<div class="line">      <span class="keyword">auto</span> instanceCount1 = buffer[index + 1];</div>
+<div class="line">      <span class="keyword">auto</span> instanceCount2 = buffer[index];</div>
+<div class="line">      <span class="comment">// get the 16-bit decimal value from the two 8-bit values by left-shifting</span></div>
+<div class="line">      <span class="comment">// instanceCount1 by 8 bits</span></div>
+<div class="line">      <span class="keyword">auto</span> instanceCount = instanceCount1 * 256 + instanceCount2;</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> OnNewColoredMap(<span class="keyword">const</span> gz::msgs::Image &amp;_msg)</div>
+<div class="line">{</div>
+<div class="line">  <span class="keyword">auto</span> width = _msg.width();</div>
+<div class="line">  <span class="keyword">auto</span> height = _msg.height();</div>
+<div class="line">  <span class="keyword">auto</span> buffer = _msg.data();</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">for</span> (uint32_t i = 0; i &lt; height; ++i)</div>
+<div class="line">  {</div>
+<div class="line">    <span class="keywordflow">for</span> (uint32_t j = 0; j &lt; width; ++j)</div>
+<div class="line">    {</div>
+<div class="line">      <span class="keyword">auto</span> index = (i * width + j) * 3;</div>
+<div class="line">      <span class="keyword">auto</span> r = buffer[index];</div>
+<div class="line">      <span class="keyword">auto</span> g = buffer[index + 1];</div>
+<div class="line">      <span class="keyword">auto</span> b = buffer[index + 2];</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span> **argv)</div>
+<div class="line">{</div>
+<div class="line">  gz::transport::Node node;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">if</span> (!node.Subscribe(<span class="stringliteral">&quot;/segmentation/colored_map&quot;</span>, &amp;OnNewColoredMap) ||</div>
+<div class="line">    !node.Subscribe(<span class="stringliteral">&quot;/segmentation/labels_map&quot;</span>, &amp;OnNewLabelMap))</div>
+<div class="line">  {</div>
+<div class="line">    <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cerr</a> &lt;&lt; <span class="stringliteral">&quot;Error subscribing to the boundingbox camera topic&quot;</span></div>
+<div class="line">              &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line">    <span class="keywordflow">return</span> -1;</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  gz::transport::waitForShutdown();</div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>If you'd like to gain a better understanding of how the subscriber code works, you can go through the <a href="https://gazebosim.org/api/transport/11.0/tutorials.html">gz-transport tutorials</a>. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+      </div>
+    </main>
+  </div>
+</body>

@@ -1,0 +1,576 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Rendering">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Rendering: BaseGpuRays.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Rendering</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        3.7.2
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 IgnCreateDocs.cmake -->
+      <nav class="ign-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.8.17 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_68720addb28ee8f762a8d1f55de1ba53.html">gz-rendering</a></li><li class="navelem"><a class="el" href="dir_ccc1703edcd2aae520499aaef06b68cb.html">include</a></li><li class="navelem"><a class="el" href="dir_42a5c6856abc46d6a330192debb6d004.html">gz</a></li><li class="navelem"><a class="el" href="dir_5269ccce336193d47739569941971412.html">rendering</a></li><li class="navelem"><a class="el" href="dir_bf8d1403b850d669fe2a43383d7c7814.html">base</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">gz/rendering/base/BaseGpuRays.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="gz_2rendering_2base_2BaseGpuRays_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (C) 2018 Open Source Robotics Foundation</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef GZ_RENDERING_BASE_BASEGPURAYS_HH_</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define GZ_RENDERING_BASE_BASEGPURAYS_HH_</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;gz/common/Event.hh&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;gz/common/Console.hh&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2GpuRays_8hh.html">gz/rendering/GpuRays.hh</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2Image_8hh.html">gz/rendering/Image.hh</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2RenderEngine_8hh.html">gz/rendering/RenderEngine.hh</a>&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2Scene_8hh.html">gz/rendering/Scene.hh</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2base_2BaseRenderTarget_8hh.html">gz/rendering/base/BaseRenderTarget.hh</a>&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2base_2BaseCamera_8hh.html">gz/rendering/base/BaseCamera.hh</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2Visual_8hh.html">gz/rendering/Visual.hh</a>&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2RenderTypes_8hh.html">gz/rendering/RenderTypes.hh</a>&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition.html">ignition</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">namespace </span>rendering</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">inline</span> <span class="keyword">namespace </span>IGNITION_RENDERING_VERSION_NAMESPACE {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html">   42</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html">BaseGpuRays</a> :</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> <a class="code" href="classignition_1_1rendering_1_1GpuRays.html">GpuRays</a>,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> <a class="code" href="classignition_1_1rendering_1_1BaseCamera.html">BaseCamera</a>&lt;T&gt;,</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> T</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="keyword">protected</span>: <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html">BaseGpuRays</a>();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> ~<a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html">BaseGpuRays</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">float</span> *Data() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> Copy(<span class="keywordtype">float</span> *_data) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetClamp(<span class="keywordtype">bool</span> _enable) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> Clamp() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">common::ConnectionPtr</a> ConnectNewGpuRaysFrame(</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                  <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a>&lt;<span class="keywordtype">void</span>(<span class="keyword">const</span> <span class="keywordtype">float</span> *_frame, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _width,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;                  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _height, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _depth,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                  <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_format)&gt; _subscriber) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">RenderTargetPtr</a> <a class="code" href="classignition_1_1rendering_1_1RenderTarget.html">RenderTarget</a>() <span class="keyword">const override</span> = 0;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetIsHorizontal(<span class="keyword">const</span> <span class="keywordtype">bool</span> _horizontal) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> IsHorizontal() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetVFOV(<span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Angle.html">math::Angle</a> &amp;_vfov);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Angle.html">math::Angle</a> VFOV() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> RayCountRatio() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> RangeCountRatio() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetRayCountRatio(</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                  <span class="keyword">const</span> <span class="keywordtype">double</span> _rayCountRatio) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> gz::math::Angle AngleMin() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetAngleMin(<span class="keywordtype">double</span> _angle) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> gz::math::Angle AngleMax() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetAngleMax(<span class="keywordtype">double</span> _angle) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetVerticalRayCount(<span class="keywordtype">int</span> _samples) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetRayCount(<span class="keywordtype">int</span> _samples) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">int</span> RayCount() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">int</span> RangeCount() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">int</span> VerticalRayCount() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">int</span> VerticalRangeCount() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> gz::math::Angle VerticalAngleMin() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetVerticalAngleMin(<span class="keyword">const</span> <span class="keywordtype">double</span> _angle) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> gz::math::Angle VerticalAngleMax() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetVerticalAngleMax(<span class="keyword">const</span> <span class="keywordtype">double</span> _angle) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Channels() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a74d92c0545d8f07b0dbd4a11095e5604">  143</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">float</span> dataMaxVal = gz::math::INF_D;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#abc18c590b6456928ed3185ad7effeb25">  146</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">float</span> dataMinVal = -gz::math::INF_D;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      <span class="comment">// false if data outside of camera range is +/- inf</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a704d7e98c1d7edc715732202fd0b03a1">  150</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> clamping = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a9e79e5a144bd7493f2de7b73fcae130e">  153</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> rayCountRatio = 0;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#ae41be8f1ab34f81b8ef0f875c8a0e133">  156</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> rangeCountRatio = 0;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#acebbfca663ea430844d518d2587ecd45">  159</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Angle.html">math::Angle</a> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#acebbfca663ea430844d518d2587ecd45">vfov</a>;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#ae75e8f5eb8d0657b86976153fb0a9e2e">  162</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">bool</span> isHorizontal = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a289eb8988776f812f50ee3e8d9cbbad2">  165</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> minAngle = 0;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a5e59e52de67221270d0fda0af3b85cad">  168</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> maxAngle = 0;</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a40946cc4ea2317591209230a40fd62b0">  171</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> vMinAngle = 0;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#aae66d417e1c14c589bff691d3d558760">  174</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> vMaxAngle = 0;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a15c4eccef06c54a45b1d71f4bed48d5c">  177</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">int</span> hSamples = 0;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a7cd986bc8a2d437f37c600092ac7d9f3">  180</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">int</span> vSamples = 0;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a16f6c36a726d291523f0769d2bdd1619">  183</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">int</span> hResolution = 1;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a13b908dd374185c5c75a55d400ea63c5">  186</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">int</span> vResolution = 1;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a9ed2af39747c91928713f96d4e28b53f">  189</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> channels = 1u;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a1e0f7829288ac151551584dbff4c778c">  191</a></span>&#160;      <span class="keyword">private</span>: <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classignition_1_1rendering_1_1OgreScene.html">OgreScene</a>;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    };</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a4e2e98d5d116dfe0bfec2d53e8d7991a">  196</a></span>&#160;    <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a4e2e98d5d116dfe0bfec2d53e8d7991a">BaseGpuRays&lt;T&gt;::BaseGpuRays</a>()</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    {</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    }</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00202"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#ac278eb456e725b2d83f791e9c0d7f02d">  202</a></span>&#160;    <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#ac278eb456e725b2d83f791e9c0d7f02d">BaseGpuRays&lt;T&gt;::~BaseGpuRays</a>()</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    {</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    }</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00208"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a416f73715cdb6b18f7e7d813bbd3a8bf">  208</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">float</span> *<a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a416f73715cdb6b18f7e7d813bbd3a8bf">BaseGpuRays&lt;T&gt;::Data</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    }</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00215"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a15fdf614712a8f69646a7bf7ca39df0d">  215</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a15fdf614712a8f69646a7bf7ca39df0d">BaseGpuRays&lt;T&gt;::Copy</a>(<span class="keywordtype">float</span> *_dataDest)</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    {</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;      <span class="comment">// Unused</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      (void)_dataDest;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    }</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00223"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a8358fa021731dce300e715e818df3a7a">  223</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a8358fa021731dce300e715e818df3a7a">BaseGpuRays&lt;T&gt;::SetClamp</a>(<span class="keywordtype">bool</span> _enable)</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    {</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;      this-&gt;clamping = _enable;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;      <span class="keywordflow">if</span> (this-&gt;clamping)</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;      {</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        this-&gt;dataMinVal = this-&gt;NearClipPlane();</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;        this-&gt;dataMaxVal = this-&gt;FarClipPlane();</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      }</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      {</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        this-&gt;dataMinVal = -gz::math::INF_D;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;        this-&gt;dataMaxVal = gz::math::INF_D;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;      }</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    }</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00241"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#aa94562cd4c9de17c9c3564fd39501c7d">  241</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#aa94562cd4c9de17c9c3564fd39501c7d">BaseGpuRays&lt;T&gt;::Clamp</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="keyword"></span> </div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;      <span class="keywordflow">return</span> this-&gt;clamping;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    }</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00249"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a2ac7e1dd0c7da8103d8b07465f084b8e">  249</a></span>&#160;    gz::common::ConnectionPtr <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a2ac7e1dd0c7da8103d8b07465f084b8e">BaseGpuRays&lt;T&gt;::ConnectNewGpuRaysFrame</a>(</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;          <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a>&lt;<span class="keywordtype">void</span>(<span class="keyword">const</span> <span class="keywordtype">float</span> *, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;          <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>, <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;)&gt;)</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    {</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    }</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00258"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a02e2802e11ee268d9cd8d5676b44c301">  258</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a02e2802e11ee268d9cd8d5676b44c301">BaseGpuRays&lt;T&gt;::SetIsHorizontal</a>(<span class="keyword">const</span> <span class="keywordtype">bool</span> _horizontal)</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    {</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;      this-&gt;isHorizontal = _horizontal;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    }</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00265"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a610c9a9a262e0b78d2e11a0c3bc1981c">  265</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a610c9a9a262e0b78d2e11a0c3bc1981c">BaseGpuRays&lt;T&gt;::IsHorizontal</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;      <span class="keywordflow">return</span> this-&gt;isHorizontal;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    }</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; </div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00272"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#add14b2459c1f41e6ae1a77fa5d65ee10">  272</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#add14b2459c1f41e6ae1a77fa5d65ee10">BaseGpuRays&lt;T&gt;::RayCountRatio</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;      <span class="keywordflow">return</span> this-&gt;rayCountRatio;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    }</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00279"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a6de74c2dc5e43ee3b8d0c0887b856180">  279</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a6de74c2dc5e43ee3b8d0c0887b856180">BaseGpuRays&lt;T&gt;::SetRayCountRatio</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> _rayCountRatio)</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    {</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      this-&gt;rayCountRatio = _rayCountRatio;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    }</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00286"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a13ae0d4c2170b45556ef83df3c417485">  286</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a13ae0d4c2170b45556ef83df3c417485">BaseGpuRays&lt;T&gt;::RangeCountRatio</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;      <span class="keywordflow">return</span> this-&gt;rangeCountRatio;</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    }</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00293"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a0a13121a4a0b7b8cdd441700ab92eb51">  293</a></span>&#160;    <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Angle.html">math::Angle</a> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a0a13121a4a0b7b8cdd441700ab92eb51">BaseGpuRays&lt;T&gt;::VFOV</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;      <span class="keywordflow">return</span> this-&gt;vfov;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    }</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; </div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00300"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a27e7bf46213d371def9b0fbdb4eb1cd2">  300</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a27e7bf46213d371def9b0fbdb4eb1cd2">BaseGpuRays&lt;T&gt;::SetVFOV</a>(<span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Angle.html">math::Angle</a> &amp;_vfov)</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;    {</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;      this-&gt;vfov = _vfov;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    }</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00307"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a97e1b817691d9e774f46bcd6dca2b9dc">  307</a></span>&#160;    gz::math::Angle <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a97e1b817691d9e774f46bcd6dca2b9dc">BaseGpuRays&lt;T&gt;::AngleMin</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      <span class="keywordflow">return</span> this-&gt;minAngle;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    }</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00314"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a20d1ceeab33fdf32ee0866f5799c49b3">  314</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a20d1ceeab33fdf32ee0866f5799c49b3">BaseGpuRays&lt;T&gt;::SetAngleMin</a>(<span class="keywordtype">double</span> _angle)</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    {</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;      this-&gt;minAngle = _angle;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    }</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00321"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a3f0dc610f276d83b9dcebbb7b95accdb">  321</a></span>&#160;    gz::math::Angle <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a3f0dc610f276d83b9dcebbb7b95accdb">BaseGpuRays&lt;T&gt;::AngleMax</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;      <span class="keywordflow">return</span> this-&gt;maxAngle;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    }</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00328"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a434e317b25e37b794f1b68f3acd8688c">  328</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a434e317b25e37b794f1b68f3acd8688c">BaseGpuRays&lt;T&gt;::SetAngleMax</a>(<span class="keywordtype">double</span> _angle)</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    {</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      this-&gt;maxAngle = _angle;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    }</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160; </div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00335"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a7e0276701f95b8de34c5408d44f72dcb">  335</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a7e0276701f95b8de34c5408d44f72dcb">BaseGpuRays&lt;T&gt;::RayCount</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;      <span class="keywordflow">return</span> this-&gt;hSamples;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    }</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00342"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a603e6f264b11fd2479cc79cc6153f53d">  342</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a603e6f264b11fd2479cc79cc6153f53d">BaseGpuRays&lt;T&gt;::SetRayCount</a>(<span class="keywordtype">int</span> _samples)</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    {</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;      this-&gt;hSamples = _samples;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    }</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00349"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a1b57f5677e56ad4581097c28860c16d2">  349</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a1b57f5677e56ad4581097c28860c16d2">BaseGpuRays&lt;T&gt;::RangeCount</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;      <span class="keywordflow">return</span> this-&gt;RayCount() * this-&gt;hResolution;</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;    }</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160; </div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00356"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a7094ee58687b58c0a9d5a87614853279">  356</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a7094ee58687b58c0a9d5a87614853279">BaseGpuRays&lt;T&gt;::VerticalRayCount</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;      <span class="keywordflow">return</span> this-&gt;vSamples;</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    }</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00363"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#aa71143a952ee87b839fbaa38527be8cf">  363</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#aa71143a952ee87b839fbaa38527be8cf">BaseGpuRays&lt;T&gt;::SetVerticalRayCount</a>(<span class="keywordtype">int</span> _samples)</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    {</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;      this-&gt;vSamples = _samples;</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;    }</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; </div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00370"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#af3098ffbad746fd11357385908120f72">  370</a></span>&#160;    <span class="keywordtype">int</span> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#af3098ffbad746fd11357385908120f72">BaseGpuRays&lt;T&gt;::VerticalRangeCount</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;      <span class="keywordflow">return</span> this-&gt;VerticalRayCount() * this-&gt;vResolution;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    }</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160; </div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00377"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#ac0a610842a4ed3b7d5678a42d6601ee1">  377</a></span>&#160;    gz::math::Angle <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#ac0a610842a4ed3b7d5678a42d6601ee1">BaseGpuRays&lt;T&gt;::VerticalAngleMin</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;      <span class="keywordflow">return</span> this-&gt;vMinAngle;</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    }</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160; </div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00384"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a9a6ace48e16331cbfbef7e8bc54a5626">  384</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a9a6ace48e16331cbfbef7e8bc54a5626">BaseGpuRays&lt;T&gt;::SetVerticalAngleMin</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> _angle)</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;    {</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;        this-&gt;vMinAngle = _angle;</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    }</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160; </div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00391"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a1a334bd5934a672d0aeea5694b6aaede">  391</a></span>&#160;    gz::math::Angle <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a1a334bd5934a672d0aeea5694b6aaede">BaseGpuRays&lt;T&gt;::VerticalAngleMax</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;      <span class="keywordflow">return</span> this-&gt;vMaxAngle;</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    }</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160; </div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00398"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#aea214a72bd60877d5a45c440bb262cd1">  398</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#aea214a72bd60877d5a45c440bb262cd1">BaseGpuRays&lt;T&gt;::SetVerticalAngleMax</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> _angle)</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;    {</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;        this-&gt;vMaxAngle = _angle;</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    }</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160; </div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00405"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseGpuRays.html#a5717c83b455df11caa10559443572924">  405</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classignition_1_1rendering_1_1BaseGpuRays.html#a5717c83b455df11caa10559443572924">BaseGpuRays&lt;T&gt;::Channels</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;      <span class="keywordflow">return</span> this-&gt;channels;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    }</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    }</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;  }</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;}</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a1a334bd5934a672d0aeea5694b6aaede"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a1a334bd5934a672d0aeea5694b6aaede">ignition::rendering::BaseGpuRays::VerticalAngleMax</a></div><div class="ttdeci">virtual gz::math::Angle VerticalAngleMax() const override</div><div class="ttdoc">Get maximal vertical angle value.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:391</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a20d1ceeab33fdf32ee0866f5799c49b3"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a20d1ceeab33fdf32ee0866f5799c49b3">ignition::rendering::BaseGpuRays::SetAngleMin</a></div><div class="ttdeci">virtual void SetAngleMin(double _angle) override</div><div class="ttdoc">Set minimal horizontal angle value.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:314</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_abc18c590b6456928ed3185ad7effeb25"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#abc18c590b6456928ed3185ad7effeb25">ignition::rendering::BaseGpuRays::dataMinVal</a></div><div class="ttdeci">float dataMinVal</div><div class="ttdoc">minimum value used for data outside sensor range</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:146</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_aea214a72bd60877d5a45c440bb262cd1"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#aea214a72bd60877d5a45c440bb262cd1">ignition::rendering::BaseGpuRays::SetVerticalAngleMax</a></div><div class="ttdeci">virtual void SetVerticalAngleMax(const double _angle) override</div><div class="ttdoc">Set maximal vertical angle value.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:398</div></div>
+<div class="ttc" id="agz_2rendering_2base_2BaseCamera_8hh_html"><div class="ttname"><a href="gz_2rendering_2base_2BaseCamera_8hh.html">BaseCamera.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a5e59e52de67221270d0fda0af3b85cad"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a5e59e52de67221270d0fda0af3b85cad">ignition::rendering::BaseGpuRays::maxAngle</a></div><div class="ttdeci">double maxAngle</div><div class="ttdoc">Horizontal maximal angle.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:168</div></div>
+<div class="ttc" id="anamespaceignition_html"><div class="ttname"><a href="namespaceignition.html">ignition</a></div></div>
+<div class="ttc" id="abasic_string_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a></div><div class="ttdoc">STL class.</div></div>
+<div class="ttc" id="ashared_ptr_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr</a></div><div class="ttdoc">STL class.</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a7094ee58687b58c0a9d5a87614853279"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a7094ee58687b58c0a9d5a87614853279">ignition::rendering::BaseGpuRays::VerticalRayCount</a></div><div class="ttdeci">virtual int VerticalRayCount() const override</div><div class="ttdoc">Get vertical quantity of rays.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:356</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a15fdf614712a8f69646a7bf7ca39df0d"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a15fdf614712a8f69646a7bf7ca39df0d">ignition::rendering::BaseGpuRays::Copy</a></div><div class="ttdeci">virtual void Copy(float *_data) override</div><div class="ttdoc">Copy to the specified memory direction the gpu rays data.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:215</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1OgreScene_html"><div class="ttname"><a href="classignition_1_1rendering_1_1OgreScene.html">ignition::rendering::OgreScene</a></div><div class="ttdef"><b>Definition:</b> gz/rendering/ogre/OgreScene.hh:39</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a610c9a9a262e0b78d2e11a0c3bc1981c"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a610c9a9a262e0b78d2e11a0c3bc1981c">ignition::rendering::BaseGpuRays::IsHorizontal</a></div><div class="ttdeci">virtual bool IsHorizontal() const override</div><div class="ttdoc">Gets if sensor is horizontal.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:265</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a3f0dc610f276d83b9dcebbb7b95accdb"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a3f0dc610f276d83b9dcebbb7b95accdb">ignition::rendering::BaseGpuRays::AngleMax</a></div><div class="ttdeci">virtual gz::math::Angle AngleMax() const override</div><div class="ttdoc">Get maximal horizontal angle value.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:321</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a2ac7e1dd0c7da8103d8b07465f084b8e"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a2ac7e1dd0c7da8103d8b07465f084b8e">ignition::rendering::BaseGpuRays::ConnectNewGpuRaysFrame</a></div><div class="ttdeci">virtual common::ConnectionPtr ConnectNewGpuRaysFrame(std::function&lt; void(const float *_frame, unsigned int _width, unsigned int _height, unsigned int _depth, const std::string &amp;_format)&gt; _subscriber) override</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:249</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_ac278eb456e725b2d83f791e9c0d7f02d"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#ac278eb456e725b2d83f791e9c0d7f02d">ignition::rendering::BaseGpuRays::~BaseGpuRays</a></div><div class="ttdeci">virtual ~BaseGpuRays()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:202</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a9ed2af39747c91928713f96d4e28b53f"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a9ed2af39747c91928713f96d4e28b53f">ignition::rendering::BaseGpuRays::channels</a></div><div class="ttdeci">unsigned int channels</div><div class="ttdoc">Number of channels used to store the data.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:189</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_aa71143a952ee87b839fbaa38527be8cf"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#aa71143a952ee87b839fbaa38527be8cf">ignition::rendering::BaseGpuRays::SetVerticalRayCount</a></div><div class="ttdeci">virtual void SetVerticalRayCount(int _samples) override</div><div class="ttdoc">Set vertical quantity of rays.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:363</div></div>
+<div class="ttc" id="agz_2rendering_2base_2BaseRenderTarget_8hh_html"><div class="ttname"><a href="gz_2rendering_2base_2BaseRenderTarget_8hh.html">BaseRenderTarget.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a15c4eccef06c54a45b1d71f4bed48d5c"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a15c4eccef06c54a45b1d71f4bed48d5c">ignition::rendering::BaseGpuRays::hSamples</a></div><div class="ttdeci">int hSamples</div><div class="ttdoc">Quantity of horizontal rays.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:177</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a416f73715cdb6b18f7e7d813bbd3a8bf"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a416f73715cdb6b18f7e7d813bbd3a8bf">ignition::rendering::BaseGpuRays::Data</a></div><div class="ttdeci">virtual const float * Data() const override</div><div class="ttdoc">All things needed to get back z buffer for gpu rays data.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:208</div></div>
+<div class="ttc" id="agz_2rendering_2GpuRays_8hh_html"><div class="ttname"><a href="gz_2rendering_2GpuRays_8hh.html">GpuRays.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_add14b2459c1f41e6ae1a77fa5d65ee10"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#add14b2459c1f41e6ae1a77fa5d65ee10">ignition::rendering::BaseGpuRays::RayCountRatio</a></div><div class="ttdeci">virtual double RayCountRatio() const override</div><div class="ttdoc">Get the ray count ratio (equivalent to aspect ratio)</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:272</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_aa94562cd4c9de17c9c3564fd39501c7d"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#aa94562cd4c9de17c9c3564fd39501c7d">ignition::rendering::BaseGpuRays::Clamp</a></div><div class="ttdeci">virtual bool Clamp() const override</div><div class="ttdoc">Get behaviour for data values outside of camera range.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:241</div></div>
+<div class="ttc" id="afunction_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a></div></div>
+<div class="ttc" id="agz_2rendering_2Image_8hh_html"><div class="ttname"><a href="gz_2rendering_2Image_8hh.html">Image.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a40946cc4ea2317591209230a40fd62b0"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a40946cc4ea2317591209230a40fd62b0">ignition::rendering::BaseGpuRays::vMinAngle</a></div><div class="ttdeci">double vMinAngle</div><div class="ttdoc">Vertical minimal angle.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:171</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a6de74c2dc5e43ee3b8d0c0887b856180"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a6de74c2dc5e43ee3b8d0c0887b856180">ignition::rendering::BaseGpuRays::SetRayCountRatio</a></div><div class="ttdeci">virtual void SetRayCountRatio(const double _rayCountRatio) override</div><div class="ttdoc">Sets the ray count ratio (equivalent to aspect ratio)</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:279</div></div>
+<div class="ttc" id="agz_2rendering_2Visual_8hh_html"><div class="ttname"><a href="gz_2rendering_2Visual_8hh.html">Visual.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html">ignition::rendering::BaseGpuRays</a></div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:42</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_ac0a610842a4ed3b7d5678a42d6601ee1"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#ac0a610842a4ed3b7d5678a42d6601ee1">ignition::rendering::BaseGpuRays::VerticalAngleMin</a></div><div class="ttdeci">virtual gz::math::Angle VerticalAngleMin() const override</div><div class="ttdoc">Get minimal vertical angle value.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:377</div></div>
+<div class="ttc" id="agz_2rendering_2Scene_8hh_html"><div class="ttname"><a href="gz_2rendering_2Scene_8hh.html">Scene.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a16f6c36a726d291523f0769d2bdd1619"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a16f6c36a726d291523f0769d2bdd1619">ignition::rendering::BaseGpuRays::hResolution</a></div><div class="ttdeci">int hResolution</div><div class="ttdoc">Resolution of horizontal rays.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:183</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_af3098ffbad746fd11357385908120f72"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#af3098ffbad746fd11357385908120f72">ignition::rendering::BaseGpuRays::VerticalRangeCount</a></div><div class="ttdeci">virtual int VerticalRangeCount() const override</div><div class="ttdoc">Get vertical range count, i.e. ray count * vert resolution.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:370</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a607d902672d214d85ed4a574ebce8ce2"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a607d902672d214d85ed4a574ebce8ce2">ignition::rendering::BaseGpuRays::RenderTarget</a></div><div class="ttdeci">virtual RenderTargetPtr RenderTarget() const override=0</div><div class="ttdoc">Pointer to the render target.</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a434e317b25e37b794f1b68f3acd8688c"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a434e317b25e37b794f1b68f3acd8688c">ignition::rendering::BaseGpuRays::SetAngleMax</a></div><div class="ttdeci">virtual void SetAngleMax(double _angle) override</div><div class="ttdoc">Set maximal horizontal angle value.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:328</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a8358fa021731dce300e715e818df3a7a"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a8358fa021731dce300e715e818df3a7a">ignition::rendering::BaseGpuRays::SetClamp</a></div><div class="ttdeci">virtual void SetClamp(bool _enable) override</div><div class="ttdoc">Configure behaviour for data values outside of camera range.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:223</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a02e2802e11ee268d9cd8d5676b44c301"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a02e2802e11ee268d9cd8d5676b44c301">ignition::rendering::BaseGpuRays::SetIsHorizontal</a></div><div class="ttdeci">virtual void SetIsHorizontal(const bool _horizontal) override</div><div class="ttdoc">Set sensor horizontal or vertical.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:258</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a74d92c0545d8f07b0dbd4a11095e5604"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a74d92c0545d8f07b0dbd4a11095e5604">ignition::rendering::BaseGpuRays::dataMaxVal</a></div><div class="ttdeci">float dataMaxVal</div><div class="ttdoc">maximum value used for data outside sensor range</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:143</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a9a6ace48e16331cbfbef7e8bc54a5626"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a9a6ace48e16331cbfbef7e8bc54a5626">ignition::rendering::BaseGpuRays::SetVerticalAngleMin</a></div><div class="ttdeci">virtual void SetVerticalAngleMin(const double _angle) override</div><div class="ttdoc">Set minimal vertical angle value.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:384</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a7cd986bc8a2d437f37c600092ac7d9f3"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a7cd986bc8a2d437f37c600092ac7d9f3">ignition::rendering::BaseGpuRays::vSamples</a></div><div class="ttdeci">int vSamples</div><div class="ttdoc">Quantity of verical rays.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:180</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1RenderTarget_html"><div class="ttname"><a href="classignition_1_1rendering_1_1RenderTarget.html">ignition::rendering::RenderTarget</a></div><div class="ttdoc">Represents a render-target to which cameras can render images.</div><div class="ttdef"><b>Definition:</b> gz/rendering/RenderTarget.hh:37</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a603e6f264b11fd2479cc79cc6153f53d"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a603e6f264b11fd2479cc79cc6153f53d">ignition::rendering::BaseGpuRays::SetRayCount</a></div><div class="ttdeci">virtual void SetRayCount(int _samples) override</div><div class="ttdoc">Set horizontal quantity of rays.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:342</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a9e79e5a144bd7493f2de7b73fcae130e"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a9e79e5a144bd7493f2de7b73fcae130e">ignition::rendering::BaseGpuRays::rayCountRatio</a></div><div class="ttdeci">double rayCountRatio</div><div class="ttdoc">Ray count ratio.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:153</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a289eb8988776f812f50ee3e8d9cbbad2"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a289eb8988776f812f50ee3e8d9cbbad2">ignition::rendering::BaseGpuRays::minAngle</a></div><div class="ttdeci">double minAngle</div><div class="ttdoc">Horizontal minimal angle.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:165</div></div>
+<div class="ttc" id="agz_2rendering_2RenderEngine_8hh_html"><div class="ttname"><a href="gz_2rendering_2RenderEngine_8hh.html">RenderEngine.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_ae41be8f1ab34f81b8ef0f875c8a0e133"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#ae41be8f1ab34f81b8ef0f875c8a0e133">ignition::rendering::BaseGpuRays::rangeCountRatio</a></div><div class="ttdeci">double rangeCountRatio</div><div class="ttdoc">Range count ratio.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:156</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1GpuRays_html"><div class="ttname"><a href="classignition_1_1rendering_1_1GpuRays.html">ignition::rendering::GpuRays</a></div><div class="ttdoc">Generate depth ray data.</div><div class="ttdef"><b>Definition:</b> gz/rendering/GpuRays.hh:37</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_aae66d417e1c14c589bff691d3d558760"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#aae66d417e1c14c589bff691d3d558760">ignition::rendering::BaseGpuRays::vMaxAngle</a></div><div class="ttdeci">double vMaxAngle</div><div class="ttdoc">Vertical maximal angle.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:174</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a5717c83b455df11caa10559443572924"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a5717c83b455df11caa10559443572924">ignition::rendering::BaseGpuRays::Channels</a></div><div class="ttdeci">virtual unsigned int Channels() const override</div><div class="ttdoc">Get the number of channels used to store the ray data.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:405</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a13ae0d4c2170b45556ef83df3c417485"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a13ae0d4c2170b45556ef83df3c417485">ignition::rendering::BaseGpuRays::RangeCountRatio</a></div><div class="ttdeci">virtual double RangeCountRatio() const override</div><div class="ttdoc">Get the ray count ratio (equivalent to aspect ratio)</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:286</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a7e0276701f95b8de34c5408d44f72dcb"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a7e0276701f95b8de34c5408d44f72dcb">ignition::rendering::BaseGpuRays::RayCount</a></div><div class="ttdeci">virtual int RayCount() const override</div><div class="ttdoc">Get horizontal quantity of rays.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:335</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a1b57f5677e56ad4581097c28860c16d2"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a1b57f5677e56ad4581097c28860c16d2">ignition::rendering::BaseGpuRays::RangeCount</a></div><div class="ttdeci">virtual int RangeCount() const override</div><div class="ttdoc">Get hoizontal range count, i.e. ray count * horz resolution.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:349</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Angle_html"><div class="ttname"><a href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Angle.html">ignition::math::Angle</a></div></div>
+<div class="ttc" id="agz_2rendering_2RenderTypes_8hh_html"><div class="ttname"><a href="gz_2rendering_2RenderTypes_8hh.html">RenderTypes.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a13b908dd374185c5c75a55d400ea63c5"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a13b908dd374185c5c75a55d400ea63c5">ignition::rendering::BaseGpuRays::vResolution</a></div><div class="ttdeci">int vResolution</div><div class="ttdoc">Resolution of vertical rays.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:186</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseCamera_html"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseCamera.html">ignition::rendering::BaseCamera</a></div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseCamera.hh:44</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a0a13121a4a0b7b8cdd441700ab92eb51"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a0a13121a4a0b7b8cdd441700ab92eb51">ignition::rendering::BaseGpuRays::VFOV</a></div><div class="ttdeci">virtual math::Angle VFOV() const override</div><div class="ttdoc">Get the vertical field-of-view.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:293</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_ae75e8f5eb8d0657b86976153fb0a9e2e"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#ae75e8f5eb8d0657b86976153fb0a9e2e">ignition::rendering::BaseGpuRays::isHorizontal</a></div><div class="ttdeci">bool isHorizontal</div><div class="ttdoc">True if the sensor is horizontal only.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:162</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a704d7e98c1d7edc715732202fd0b03a1"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a704d7e98c1d7edc715732202fd0b03a1">ignition::rendering::BaseGpuRays::clamping</a></div><div class="ttdeci">bool clamping</div><div class="ttdoc">True if data values are clamped to camera clip distances,.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:150</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_acebbfca663ea430844d518d2587ecd45"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#acebbfca663ea430844d518d2587ecd45">ignition::rendering::BaseGpuRays::vfov</a></div><div class="ttdeci">math::Angle vfov</div><div class="ttdoc">Vertical field-of-view.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:159</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a27e7bf46213d371def9b0fbdb4eb1cd2"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a27e7bf46213d371def9b0fbdb4eb1cd2">ignition::rendering::BaseGpuRays::SetVFOV</a></div><div class="ttdeci">virtual void SetVFOV(const math::Angle &amp;_vfov)</div><div class="ttdoc">Set the vertical fov.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:300</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a4e2e98d5d116dfe0bfec2d53e8d7991a"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a4e2e98d5d116dfe0bfec2d53e8d7991a">ignition::rendering::BaseGpuRays::BaseGpuRays</a></div><div class="ttdeci">BaseGpuRays()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:196</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseGpuRays_html_a97e1b817691d9e774f46bcd6dca2b9dc"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseGpuRays.html#a97e1b817691d9e774f46bcd6dca2b9dc">ignition::rendering::BaseGpuRays::AngleMin</a></div><div class="ttdeci">virtual gz::math::Angle AngleMin() const override</div><div class="ttdoc">Get minimal horizontal angle value.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseGpuRays.hh:307</div></div>
+      </div>
+    </main>
+  </div>
+</body>

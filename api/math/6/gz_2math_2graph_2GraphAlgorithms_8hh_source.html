@@ -1,0 +1,455 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Math">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Math: GraphAlgorithms.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Math</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        6.15.1
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 IgnCreateDocs.cmake -->
+      <nav class="ign-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.8.17 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_5f70b597a8f3cb7e191c654fdc4ac806.html">gz-math</a></li><li class="navelem"><a class="el" href="dir_078c05cd486cbf4f25c108ac6a855843.html">include</a></li><li class="navelem"><a class="el" href="dir_cb23e0bbad0208f30fc2b464607664c0.html">gz</a></li><li class="navelem"><a class="el" href="dir_0f196ca5b9fd4ac373b7623d3ec837c2.html">math</a></li><li class="navelem"><a class="el" href="dir_d5e3c1a045dd69938bfb9ba4235f599e.html">graph</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">gz/math/graph/GraphAlgorithms.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="gz_2math_2graph_2GraphAlgorithms_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (C) 2017 Open Source Robotics Foundation</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef GZ_MATH_GRAPH_GRAPHALGORITHMS_HH_</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define GZ_MATH_GRAPH_GRAPHALGORITHMS_HH_</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;list&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;queue&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;stack&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;gz/math/config.hh&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2math_2graph_2Graph_8hh.html">gz/math/graph/Graph.hh</a>&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2math_2Helpers_8hh.html">gz/math/Helpers.hh</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition.html">ignition</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span>math</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">// Inline bracket to help doxygen filtering.</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">inline</span> <span class="keyword">namespace </span>IGNITION_MATH_VERSION_NAMESPACE {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span>graph</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="namespaceignition_1_1math_1_1graph.html#a8d46ec0a314990fb639a6789d9535cb7">   43</a></span>&#160;  <span class="keyword">using</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/pair.html">CostInfo</a> = <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/pair.html">std::pair&lt;double, VertexId&gt;</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> V, <span class="keyword">typename</span> E, <span class="keyword">typename</span> EdgeType&gt;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespaceignition_1_1math_1_1graph.html#ade76f2b49bcc62cd2125cff1dc0be2f3">   52</a></span>&#160;  <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;VertexId&gt;</a> <a class="code" href="namespaceignition_1_1math_1_1graph.html#ade76f2b49bcc62cd2125cff1dc0be2f3">BreadthFirstSort</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html">Graph&lt;V, E, EdgeType&gt;</a> &amp;_graph,</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;                                         <span class="keyword">const</span> <a class="code" href="namespaceignition_1_1math_1_1graph.html#a1f7010c44b0824e6e2d08c537522e1a0">VertexId</a> &amp;_from)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="comment">// Create an auxiliary graph, where the data is just a boolean value that</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="comment">// stores whether the vertex has been visited or not.</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html">Graph&lt;bool, E, EdgeType&gt;</a> visitorGraph;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="comment">// Copy the vertices (just the Id).</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;v : _graph.<a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html#a9e1d28212e2e3170856ef2c86f29c4a6">Vertices</a>())</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      visitorGraph.<a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html#a0d827829d28146a07586160b8addaccf">AddVertex</a>(<span class="stringliteral">&quot;&quot;</span>, <span class="keyword">false</span>, v.first);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <span class="comment">// Copy the edges (without data).</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;e : _graph.<a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html#a80c98ee28ae312d26adb03cd9b12363f">Edges</a>())</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      visitorGraph.<a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html#a41bf01a9bf40ee27f08405b404187235">AddEdge</a>(e.second.get().Vertices(), E());</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;VertexId&gt;</a> visited;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/list.html">std::list&lt;VertexId&gt;</a> pending = {_from};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <span class="keywordflow">while</span> (!pending.<a class="codeRef" href="http://en.cppreference.com/w/cpp/container/list/empty.html">empty</a>())</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    {</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="keyword">auto</span> vId = pending.<a class="codeRef" href="http://en.cppreference.com/w/cpp/container/list/front.html">front</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      pending.<a class="codeRef" href="http://en.cppreference.com/w/cpp/container/list/pop_front.html">pop_front</a>();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="comment">// If the vertex has been visited, skip.</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <span class="keyword">auto</span> &amp;vertex = visitorGraph.<a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html#a3424c0c193ab38d9f6cf7582a2fa0830">VertexFromId</a>(vId);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="keywordflow">if</span> (vertex.Data())</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      visited.<a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector/push_back.html">push_back</a>(vId);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      vertex.Data() = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      <span class="comment">// Add more vertices to visit if they haven&#39;t been visited yet.</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      <span class="keyword">auto</span> adjacents = visitorGraph.<a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html#a1b2df28d5a426724e36fde045a2398bf">AdjacentsFrom</a>(vId);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;adj : adjacents)</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        vId = adj.first;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <span class="keyword">auto</span> &amp;v = adj.second.get();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;        <span class="keywordflow">if</span> (!v.Data())</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;          pending.<a class="codeRef" href="http://en.cppreference.com/w/cpp/container/list/push_back.html">push_back</a>(vId);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">return</span> visited;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> V, <span class="keyword">typename</span> E, <span class="keyword">typename</span> EdgeType&gt;</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="namespaceignition_1_1math_1_1graph.html#a6957c5c2fdc0b10bbaf0ee097168b72f">  104</a></span>&#160;  <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;VertexId&gt;</a> <a class="code" href="namespaceignition_1_1math_1_1graph.html#a6957c5c2fdc0b10bbaf0ee097168b72f">DepthFirstSort</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html">Graph&lt;V, E, EdgeType&gt;</a> &amp;_graph,</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;                                       <span class="keyword">const</span> <a class="code" href="namespaceignition_1_1math_1_1graph.html#a1f7010c44b0824e6e2d08c537522e1a0">VertexId</a> &amp;_from)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="comment">// Create an auxiliary graph, where the data is just a boolean value that</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <span class="comment">// stores whether the vertex has been visited or not.</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    <a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html">Graph&lt;bool, E, EdgeType&gt;</a> visitorGraph;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="comment">// Copy the vertices (just the Id).</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;v : _graph.<a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html#a9e1d28212e2e3170856ef2c86f29c4a6">Vertices</a>())</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      visitorGraph.<a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html#a0d827829d28146a07586160b8addaccf">AddVertex</a>(<span class="stringliteral">&quot;&quot;</span>, <span class="keyword">false</span>, v.first);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="comment">// Copy the edges (without data).</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;e : _graph.<a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html#a80c98ee28ae312d26adb03cd9b12363f">Edges</a>())</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      visitorGraph.<a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html#a41bf01a9bf40ee27f08405b404187235">AddEdge</a>(e.second.get().Vertices(), E());</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;VertexId&gt;</a> visited;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/stack.html">std::stack&lt;VertexId&gt;</a> pending({_from});</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">while</span> (!pending.empty())</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;      <span class="keyword">auto</span> vId = pending.<a class="codeRef" href="http://en.cppreference.com/w/cpp/container/stack/top.html">top</a>();</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      pending.pop();</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      <span class="comment">// If the vertex has been visited, skip.</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      <span class="keyword">auto</span> &amp;vertex = visitorGraph.<a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html#a3424c0c193ab38d9f6cf7582a2fa0830">VertexFromId</a>(vId);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;      <span class="keywordflow">if</span> (vertex.Data())</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;        <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;      visited.<a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector/push_back.html">push_back</a>(vId);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      vertex.Data() = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      <span class="comment">// Add more vertices to visit if they haven&#39;t been visited yet.</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;      <span class="keyword">auto</span> adjacents = visitorGraph.<a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html#a1b2df28d5a426724e36fde045a2398bf">AdjacentsFrom</a>(vId);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;adj : adjacents)</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      {</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;        vId = adj.first;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <span class="keyword">auto</span> &amp;v = adj.second.get();</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;        <span class="keywordflow">if</span> (!v.Data())</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;          pending.push(vId);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;      }</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    }</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keywordflow">return</span> visited;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  }</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> V, <span class="keyword">typename</span> E, <span class="keyword">typename</span> EdgeType&gt;</div>
+<div class="line"><a name="l00213"></a><span class="lineno"><a class="line" href="namespaceignition_1_1math_1_1graph.html#a76160fbfd4faecba9748cd9d57a99d48">  213</a></span>&#160;  <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/map.html">std::map&lt;VertexId, CostInfo&gt;</a> <a class="code" href="namespaceignition_1_1math_1_1graph.html#a76160fbfd4faecba9748cd9d57a99d48">Dijkstra</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html">Graph&lt;V, E, EdgeType&gt;</a> &amp;_graph,</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;                                        <span class="keyword">const</span> <a class="code" href="namespaceignition_1_1math_1_1graph.html#a1f7010c44b0824e6e2d08c537522e1a0">VertexId</a> &amp;_from,</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;                                        <span class="keyword">const</span> <a class="code" href="namespaceignition_1_1math_1_1graph.html#a1f7010c44b0824e6e2d08c537522e1a0">VertexId</a> &amp;_to = <a class="code" href="namespaceignition_1_1math_1_1graph.html#a6072871e8b2171f5fc136c763ace483a">kNullId</a>)</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  {</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keyword">auto</span> allVertices = _graph.<a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html#a9e1d28212e2e3170856ef2c86f29c4a6">Vertices</a>();</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="comment">// Sanity check: The source vertex should exist.</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordflow">if</span> (allVertices.find(_from) == allVertices.end())</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    {</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cerr</a> &lt;&lt; <span class="stringliteral">&quot;Vertex [&quot;</span> &lt;&lt; _from &lt;&lt; <span class="stringliteral">&quot;] Not found&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;      <span class="keywordflow">return</span> {};</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    }</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <span class="comment">// Sanity check: The destination vertex should exist (if used).</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordflow">if</span> (_to != <a class="code" href="namespaceignition_1_1math_1_1graph.html#a6072871e8b2171f5fc136c763ace483a">kNullId</a> &amp;&amp;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        allVertices.find(_to) == allVertices.end())</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    {</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cerr</a> &lt;&lt; <span class="stringliteral">&quot;Vertex [&quot;</span> &lt;&lt; _from &lt;&lt; <span class="stringliteral">&quot;] Not found&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      <span class="keywordflow">return</span> {};</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    }</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="comment">// Store vertices that are being preprocessed.</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/priority_queue.html">std::priority_queue</a>&lt;<a class="code" href="namespaceignition_1_1math_1_1graph.html#a8d46ec0a314990fb639a6789d9535cb7">CostInfo</a>,</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;CostInfo&gt;</a>, <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/greater.html">std::greater&lt;CostInfo&gt;</a>&gt; pq;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="comment">// Create a map for distances and next neightbor and initialize all</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    <span class="comment">// distances as infinite.</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/map.html">std::map&lt;VertexId, CostInfo&gt;</a> dist;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;v : allVertices)</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    {</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;      <span class="keyword">auto</span> <span class="keywordtype">id</span> = v.first;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;      dist[id] = <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/pair/make_pair.html">std::make_pair</a>(<a class="code" href="namespaceignition_1_1math.html#addeef129e4dae72dd32ec36a221c78f4">MAX_D</a>, <a class="code" href="namespaceignition_1_1math_1_1graph.html#a6072871e8b2171f5fc136c763ace483a">kNullId</a>);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    }</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    <span class="comment">// Insert _from in the priority queue and initialize its distance as 0.</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    pq.push(<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/pair/make_pair.html">std::make_pair</a>(0.0, _from));</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    dist[_from] = <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/pair/make_pair.html">std::make_pair</a>(0.0, _from);</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <span class="keywordflow">while</span> (!pq.empty())</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    {</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      <span class="comment">// This is the minimum distance vertex.</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;      <a class="code" href="namespaceignition_1_1math_1_1graph.html#a1f7010c44b0824e6e2d08c537522e1a0">VertexId</a> u = pq.top().second;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;      <span class="comment">// Shortcut: Destination vertex found, exiting.</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      <span class="keywordflow">if</span> (_to != <a class="code" href="namespaceignition_1_1math_1_1graph.html#a6072871e8b2171f5fc136c763ace483a">kNullId</a> &amp;&amp; _to == u)</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;      pq.pop();</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;edgePair : _graph.<a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html#a75226801052d910550bb03bce6df8ab6">IncidentsFrom</a>(u))</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;      {</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> &amp;edge = edgePair.second.get();</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;        <span class="keyword">const</span> <span class="keyword">auto</span> &amp;v = edge.From(u);</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;        <span class="keywordtype">double</span> weight = edge.Weight();</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        <span class="comment">//  If there is shorted path to v through u.</span></div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;        <span class="keywordflow">if</span> (dist[v].first &gt; dist[u].first + weight)</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;        {</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;          <span class="comment">// Updating distance of v.</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;          dist[v] = <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/pair/make_pair.html">std::make_pair</a>(dist[u].first + weight, u);</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;          pq.push(<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/pair/make_pair.html">std::make_pair</a>(dist[v].first, v));</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        }</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;      }</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    }</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keywordflow">return</span> dist;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  }</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> V, <span class="keyword">typename</span> E&gt;</div>
+<div class="line"><a name="l00290"></a><span class="lineno"><a class="line" href="namespaceignition_1_1math_1_1graph.html#ac50c9846ec8af8f5430d1926d0375c8d">  290</a></span>&#160;  <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;UndirectedGraph&lt;V, E&gt;</a>&gt; <a class="code" href="namespaceignition_1_1math_1_1graph.html#ac50c9846ec8af8f5430d1926d0375c8d">ConnectedComponents</a>(</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html">UndirectedGraph&lt;V, E&gt;</a> &amp;_graph)</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  {</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/map.html">std::map&lt;VertexId, unsigned int&gt;</a> visited;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> componentCount = 0;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;v : _graph.<a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html#a9e1d28212e2e3170856ef2c86f29c4a6">Vertices</a>())</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    {</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;      <span class="keywordflow">if</span> (visited.<a class="codeRef" href="http://en.cppreference.com/w/cpp/container/map/find.html">find</a>(v.first) == visited.<a class="codeRef" href="http://en.cppreference.com/w/cpp/container/map/end.html">end</a>())</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;      {</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;        <span class="keyword">auto</span> component = <a class="code" href="namespaceignition_1_1math_1_1graph.html#ade76f2b49bcc62cd2125cff1dc0be2f3">BreadthFirstSort</a>(_graph, v.first);</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;vId : component)</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;          visited[vId] = componentCount;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;        ++componentCount;</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;      }</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    }</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;UndirectedGraph&lt;V, E&gt;</a>&gt; res(componentCount);</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="comment">// Create the vertices.</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;vPair : _graph.<a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html#a9e1d28212e2e3170856ef2c86f29c4a6">Vertices</a>())</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    {</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> &amp;v = vPair.second.get();</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> &amp;componentId = visited[v.Id()];</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;      res[componentId].AddVertex(v.Name(), v.Data(), v.Id());</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    }</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="comment">// Create the edges.</span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;ePair : _graph.<a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html#a80c98ee28ae312d26adb03cd9b12363f">Edges</a>())</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    {</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> &amp;e = ePair.second.get();</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> &amp;vertices = e.Vertices();</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> &amp;componentId = visited[vertices.first];</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;      res[componentId].AddEdge(vertices, e.Data(), e.Weight());</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    }</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  }</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> V, <span class="keyword">typename</span> E&gt;</div>
+<div class="line"><a name="l00335"></a><span class="lineno"><a class="line" href="namespaceignition_1_1math_1_1graph.html#affe78af6002dee26ba17bf505ec47a5a">  335</a></span>&#160;  <a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html">UndirectedGraph&lt;V, E&gt;</a> <a class="code" href="namespaceignition_1_1math_1_1graph.html#affe78af6002dee26ba17bf505ec47a5a">ToUndirectedGraph</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html">DirectedGraph&lt;V, E&gt;</a> &amp;_graph)</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  {</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;Vertex&lt;V&gt;</a>&gt; vertices;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;EdgeInitializer&lt;E&gt;</a>&gt; edges;</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="comment">// Add all vertices.</span></div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;vPair : _graph.<a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html#a9e1d28212e2e3170856ef2c86f29c4a6">Vertices</a>())</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    {</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;      vertices.<a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector/push_back.html">push_back</a>(vPair.second.get());</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;    }</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; </div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    <span class="comment">// Add all edges.</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">auto</span> <span class="keyword">const</span> &amp;ePair : _graph.<a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html#a80c98ee28ae312d26adb03cd9b12363f">Edges</a>())</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    {</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;      <span class="keyword">auto</span> <span class="keyword">const</span> &amp;e = ePair.second.get();</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;      edges.<a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector/push_back.html">push_back</a>({e.Vertices(), e.Data(), e.Weight()});</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    }</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classignition_1_1math_1_1graph_1_1Graph.html">UndirectedGraph&lt;V, E&gt;</a>(vertices, edges);</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;  }</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;}</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;}</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;}</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;}</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="anamespaceignition_html"><div class="ttname"><a href="namespaceignition.html">ignition</a></div><div class="ttdef"><b>Definition:</b> gz/math/AdditivelySeparableScalarField3.hh:27</div></div>
+<div class="ttc" id="alist_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/list.html">std::list</a></div><div class="ttdoc">STL class.</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1graph_1_1Graph_html"><div class="ttname"><a href="classignition_1_1math_1_1graph_1_1Graph.html">ignition::math::graph::Graph</a></div><div class="ttdoc">A generic graph class. Both vertices and edges can store user information. A vertex could be created ...</div><div class="ttdef"><b>Definition:</b> gz/math/graph/Graph.hh:102</div></div>
+<div class="ttc" id="anamespaceignition_1_1math_1_1graph_html_ade76f2b49bcc62cd2125cff1dc0be2f3"><div class="ttname"><a href="namespaceignition_1_1math_1_1graph.html#ade76f2b49bcc62cd2125cff1dc0be2f3">ignition::math::graph::BreadthFirstSort</a></div><div class="ttdeci">std::vector&lt; VertexId &gt; BreadthFirstSort(const Graph&lt; V, E, EdgeType &gt; &amp;_graph, const VertexId &amp;_from)</div><div class="ttdoc">Breadth first sort (BFS). Starting from the vertex == _from, it traverses the graph exploring the nei...</div><div class="ttdef"><b>Definition:</b> gz/math/graph/GraphAlgorithms.hh:52</div></div>
+<div class="ttc" id="apop_front_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/list/pop_front.html">std::list::pop_front</a></div><div class="ttdeci">T pop_front(T... args)</div></div>
+<div class="ttc" id="apair_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/pair.html">std::pair</a></div></div>
+<div class="ttc" id="avector_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a></div><div class="ttdoc">STL class.</div></div>
+<div class="ttc" id="afind_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/map/find.html">std::map::find</a></div><div class="ttdeci">T find(T... args)</div></div>
+<div class="ttc" id="anamespaceignition_1_1math_1_1graph_html_a76160fbfd4faecba9748cd9d57a99d48"><div class="ttname"><a href="namespaceignition_1_1math_1_1graph.html#a76160fbfd4faecba9748cd9d57a99d48">ignition::math::graph::Dijkstra</a></div><div class="ttdeci">std::map&lt; VertexId, CostInfo &gt; Dijkstra(const Graph&lt; V, E, EdgeType &gt; &amp;_graph, const VertexId &amp;_from, const VertexId &amp;_to=kNullId)</div><div class="ttdoc">Dijkstra algorithm. Find the shortest path between the vertices in a graph. If only a graph and a sou...</div><div class="ttdef"><b>Definition:</b> gz/math/graph/GraphAlgorithms.hh:213</div></div>
+<div class="ttc" id="astack_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/stack.html">std::stack</a></div><div class="ttdoc">STL class.</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1graph_1_1Graph_html_a1b2df28d5a426724e36fde045a2398bf"><div class="ttname"><a href="classignition_1_1math_1_1graph_1_1Graph.html#a1b2df28d5a426724e36fde045a2398bf">ignition::math::graph::Graph::AdjacentsFrom</a></div><div class="ttdeci">VertexRef_M&lt; V &gt; AdjacentsFrom(const VertexId &amp;_vertex) const</div><div class="ttdoc">Get all vertices that are directly connected with one edge from a given vertex. In other words,...</div><div class="ttdef"><b>Definition:</b> gz/math/graph/Graph.hh:292</div></div>
+<div class="ttc" id="agz_2math_2graph_2Graph_8hh_html"><div class="ttname"><a href="gz_2math_2graph_2Graph_8hh.html">Graph.hh</a></div></div>
+<div class="ttc" id="anamespaceignition_1_1math_1_1graph_html_a6072871e8b2171f5fc136c763ace483a"><div class="ttname"><a href="namespaceignition_1_1math_1_1graph.html#a6072871e8b2171f5fc136c763ace483a">ignition::math::graph::kNullId</a></div><div class="ttdeci">static const VertexId kNullId</div><div class="ttdoc">Represents an invalid Id.</div><div class="ttdef"><b>Definition:</b> gz/math/graph/Vertex.hh:48</div></div>
+<div class="ttc" id="afront_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/list/front.html">std::list::front</a></div><div class="ttdeci">T front(T... args)</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1graph_1_1Graph_html_a41bf01a9bf40ee27f08405b404187235"><div class="ttname"><a href="classignition_1_1math_1_1graph_1_1Graph.html#a41bf01a9bf40ee27f08405b404187235">ignition::math::graph::Graph::AddEdge</a></div><div class="ttdeci">EdgeType &amp; AddEdge(const VertexId_P &amp;_vertices, const E &amp;_data, const double _weight=1.0)</div><div class="ttdoc">Add a new edge to the graph.</div><div class="ttdef"><b>Definition:</b> gz/math/graph/Graph.hh:211</div></div>
+<div class="ttc" id="apush_back_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/vector/push_back.html">std::vector::push_back</a></div><div class="ttdeci">T push_back(T... args)</div></div>
+<div class="ttc" id="agz_2math_2Helpers_8hh_html"><div class="ttname"><a href="gz_2math_2Helpers_8hh.html">Helpers.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1graph_1_1Graph_html_a80c98ee28ae312d26adb03cd9b12363f"><div class="ttname"><a href="classignition_1_1math_1_1graph_1_1Graph.html#a80c98ee28ae312d26adb03cd9b12363f">ignition::math::graph::Graph::Edges</a></div><div class="ttdeci">const EdgeRef_M&lt; EdgeType &gt; Edges() const</div><div class="ttdoc">The collection of all edges in the graph.</div><div class="ttdef"><b>Definition:</b> gz/math/graph/Graph.hh:266</div></div>
+<div class="ttc" id="anamespaceignition_1_1math_1_1graph_html_a8d46ec0a314990fb639a6789d9535cb7"><div class="ttname"><a href="namespaceignition_1_1math_1_1graph.html#a8d46ec0a314990fb639a6789d9535cb7">ignition::math::graph::CostInfo</a></div><div class="ttdeci">std::pair&lt; double, VertexId &gt; CostInfo</div><div class="ttdoc">Used in Dijkstra. For a given source vertex, this pair represents the cost (first element) to reach a...</div><div class="ttdef"><b>Definition:</b> gz/math/graph/GraphAlgorithms.hh:43</div></div>
+<div class="ttc" id="abasic_ostream_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cerr</a></div></div>
+<div class="ttc" id="atop_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/stack/top.html">std::stack::top</a></div><div class="ttdeci">T top(T... args)</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1graph_1_1Graph_html_a0d827829d28146a07586160b8addaccf"><div class="ttname"><a href="classignition_1_1math_1_1graph_1_1Graph.html#a0d827829d28146a07586160b8addaccf">ignition::math::graph::Graph::AddVertex</a></div><div class="ttdeci">Vertex&lt; V &gt; &amp; AddVertex(const std::string &amp;_name, const V &amp;_data, const VertexId &amp;_id=kNullId)</div><div class="ttdoc">Add a new vertex to the graph.</div><div class="ttdef"><b>Definition:</b> gz/math/graph/Graph.hh:137</div></div>
+<div class="ttc" id="anamespaceignition_1_1math_1_1graph_html_a6957c5c2fdc0b10bbaf0ee097168b72f"><div class="ttname"><a href="namespaceignition_1_1math_1_1graph.html#a6957c5c2fdc0b10bbaf0ee097168b72f">ignition::math::graph::DepthFirstSort</a></div><div class="ttdeci">std::vector&lt; VertexId &gt; DepthFirstSort(const Graph&lt; V, E, EdgeType &gt; &amp;_graph, const VertexId &amp;_from)</div><div class="ttdoc">Depth first sort (DFS). Starting from the vertex == _from, it visits the graph as far as possible alo...</div><div class="ttdef"><b>Definition:</b> gz/math/graph/GraphAlgorithms.hh:104</div></div>
+<div class="ttc" id="anamespaceignition_1_1math_1_1graph_html_ac50c9846ec8af8f5430d1926d0375c8d"><div class="ttname"><a href="namespaceignition_1_1math_1_1graph.html#ac50c9846ec8af8f5430d1926d0375c8d">ignition::math::graph::ConnectedComponents</a></div><div class="ttdeci">std::vector&lt; UndirectedGraph&lt; V, E &gt; &gt; ConnectedComponents(const UndirectedGraph&lt; V, E &gt; &amp;_graph)</div><div class="ttdoc">Calculate the connected components of an undirected graph. A connected component of an undirected gra...</div><div class="ttdef"><b>Definition:</b> gz/math/graph/GraphAlgorithms.hh:290</div></div>
+<div class="ttc" id="amap_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/map.html">std::map</a></div><div class="ttdoc">STL class.</div></div>
+<div class="ttc" id="apriority_queue_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/priority_queue.html">std::priority_queue</a></div><div class="ttdoc">STL class.</div></div>
+<div class="ttc" id="anamespaceignition_1_1math_1_1graph_html_affe78af6002dee26ba17bf505ec47a5a"><div class="ttname"><a href="namespaceignition_1_1math_1_1graph.html#affe78af6002dee26ba17bf505ec47a5a">ignition::math::graph::ToUndirectedGraph</a></div><div class="ttdeci">UndirectedGraph&lt; V, E &gt; ToUndirectedGraph(const DirectedGraph&lt; V, E &gt; &amp;_graph)</div><div class="ttdoc">Copy a DirectedGraph to an UndirectedGraph with the same vertices and edges.</div><div class="ttdef"><b>Definition:</b> gz/math/graph/GraphAlgorithms.hh:335</div></div>
+<div class="ttc" id="aendl_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a></div><div class="ttdeci">T endl(T... args)</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1graph_1_1Graph_html_a75226801052d910550bb03bce6df8ab6"><div class="ttname"><a href="classignition_1_1math_1_1graph_1_1Graph.html#a75226801052d910550bb03bce6df8ab6">ignition::math::graph::Graph::IncidentsFrom</a></div><div class="ttdeci">const EdgeRef_M&lt; EdgeType &gt; IncidentsFrom(const VertexId &amp;_vertex) const</div><div class="ttdoc">Get the set of outgoing edges from a given vertex.</div><div class="ttdef"><b>Definition:</b> gz/math/graph/Graph.hh:426</div></div>
+<div class="ttc" id="agreater_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/functional/greater.html">std::greater</a></div></div>
+<div class="ttc" id="anamespaceignition_1_1math_html_addeef129e4dae72dd32ec36a221c78f4"><div class="ttname"><a href="namespaceignition_1_1math.html#addeef129e4dae72dd32ec36a221c78f4">ignition::math::MAX_D</a></div><div class="ttdeci">static const double MAX_D</div><div class="ttdoc">Double maximum value. This value will be similar to 1.79769e+308.</div><div class="ttdef"><b>Definition:</b> gz/math/Helpers.hh:257</div></div>
+<div class="ttc" id="aempty_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/list/empty.html">std::list::empty</a></div><div class="ttdeci">T empty(T... args)</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1graph_1_1Graph_html_a3424c0c193ab38d9f6cf7582a2fa0830"><div class="ttname"><a href="classignition_1_1math_1_1graph_1_1Graph.html#a3424c0c193ab38d9f6cf7582a2fa0830">ignition::math::graph::Graph::VertexFromId</a></div><div class="ttdeci">const Vertex&lt; V &gt; &amp; VertexFromId(const VertexId &amp;_id) const</div><div class="ttdoc">Get a reference to a vertex using its Id.</div><div class="ttdef"><b>Definition:</b> gz/math/graph/Graph.hh:610</div></div>
+<div class="ttc" id="amake_pair_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/pair/make_pair.html">std::make_pair</a></div><div class="ttdeci">T make_pair(T... args)</div></div>
+<div class="ttc" id="aend_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/map/end.html">std::map::end</a></div><div class="ttdeci">T end(T... args)</div></div>
+<div class="ttc" id="anamespaceignition_1_1math_1_1graph_html_a1f7010c44b0824e6e2d08c537522e1a0"><div class="ttname"><a href="namespaceignition_1_1math_1_1graph.html#a1f7010c44b0824e6e2d08c537522e1a0">ignition::math::graph::VertexId</a></div><div class="ttdeci">uint64_t VertexId</div><div class="ttdoc">The unique Id of each vertex.</div><div class="ttdef"><b>Definition:</b> gz/math/graph/Vertex.hh:41</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1graph_1_1Graph_html_a9e1d28212e2e3170856ef2c86f29c4a6"><div class="ttname"><a href="classignition_1_1math_1_1graph_1_1Graph.html#a9e1d28212e2e3170856ef2c86f29c4a6">ignition::math::graph::Graph::Vertices</a></div><div class="ttdeci">const VertexRef_M&lt; V &gt; Vertices() const</div><div class="ttdoc">The collection of all vertices in the graph.</div><div class="ttdef"><b>Definition:</b> gz/math/graph/Graph.hh:181</div></div>
+      </div>
+    </main>
+  </div>
+</body>

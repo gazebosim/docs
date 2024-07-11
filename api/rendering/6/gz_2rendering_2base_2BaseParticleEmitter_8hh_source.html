@@ -1,0 +1,596 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Rendering">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Rendering: BaseParticleEmitter.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Rendering</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        6.6.3
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 IgnCreateDocs.cmake -->
+      <nav class="ign-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.8.17 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_68720addb28ee8f762a8d1f55de1ba53.html">gz-rendering</a></li><li class="navelem"><a class="el" href="dir_ccc1703edcd2aae520499aaef06b68cb.html">include</a></li><li class="navelem"><a class="el" href="dir_42a5c6856abc46d6a330192debb6d004.html">gz</a></li><li class="navelem"><a class="el" href="dir_5269ccce336193d47739569941971412.html">rendering</a></li><li class="navelem"><a class="el" href="dir_bf8d1403b850d669fe2a43383d7c7814.html">base</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">gz/rendering/base/BaseParticleEmitter.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="gz_2rendering_2base_2BaseParticleEmitter_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (C) 2020 Open Source Robotics Foundation</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#ifndef IGNITION_RENDERING_BASE_BASEPARTICLEEMITTER_HH_</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define IGNITION_RENDERING_BASE_BASEPARTICLEEMITTER_HH_</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ignition_2rendering_2base_2BaseScene_8hh.html">ignition/rendering/base/BaseScene.hh</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ignition_2rendering_2base_2BaseNode_8hh.html">ignition/rendering/base/BaseNode.hh</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="ignition_2rendering_2ParticleEmitter_8hh.html">ignition/rendering/ParticleEmitter.hh</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition.html">ignition</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keyword">namespace </span>rendering</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keyword">inline</span> <span class="keyword">namespace </span>IGNITION_RENDERING_VERSION_NAMESPACE {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">/* \class BaseParticleEmitter BaseParticleEmitter.hh \</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">     * ignition/rendering/base/BaseParticleEmitter.hh</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">     */</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html">   37</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html">BaseParticleEmitter</a> :</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> <a class="code" href="classignition_1_1rendering_1_1ParticleEmitter.html">ParticleEmitter</a>,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> T</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keyword">protected</span>: <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html">BaseParticleEmitter</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> ~<a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html">BaseParticleEmitter</a>();</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> Init() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> PreRender() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> Reset();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code" href="namespaceignition_1_1rendering.html#a02b9842e77a9f98c00982139def9a37b">EmitterType</a> Type() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetType(<span class="keyword">const</span> <a class="code" href="namespaceignition_1_1rendering.html#a02b9842e77a9f98c00982139def9a37b">EmitterType</a> _type) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Vector3.html">ignition::math::Vector3d</a> EmitterSize() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetEmitterSize(</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                  <span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Vector3.html">ignition::math::Vector3d</a> &amp;_size) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> Rate() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetRate(<span class="keywordtype">double</span> _rate) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> Duration() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetDuration(<span class="keywordtype">double</span> _duration) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> Emitting() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetEmitting(<span class="keywordtype">bool</span> _enable) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Vector3.html">ignition::math::Vector3d</a> ParticleSize() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetParticleSize(</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                  <span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Vector3.html">ignition::math::Vector3d</a> &amp;_size) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> Lifetime() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetLifetime(<span class="keywordtype">double</span> _lifetime) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> <a class="code" href="classignition_1_1rendering_1_1Material.html">Material</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetMaterial(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> &amp;_material) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> MinVelocity() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> MaxVelocity() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetVelocityRange(<span class="keywordtype">double</span> _minVelocity,</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;                                            <span class="keywordtype">double</span> _maxVelocity) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Color.html">ignition::math::Color</a> ColorStart() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Color.html">ignition::math::Color</a> ColorEnd() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetColorRange(</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                  <span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Color.html">ignition::math::Color</a> &amp;_colorStart,</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;                  <span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Color.html">ignition::math::Color</a> &amp;_colorEnd) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> ScaleRate() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetScaleRate(<span class="keywordtype">double</span> _scaleRate) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> ColorRangeImage() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetColorRangeImage(</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;                  <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_image) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">float</span> ParticleScatterRatio() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetParticleScatterRatio(<span class="keywordtype">float</span> _ratio) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#aa71343d1d24a3311919f2336e23da358">  147</a></span>&#160;      <span class="keyword">protected</span>: <a class="code" href="namespaceignition_1_1rendering.html#a02b9842e77a9f98c00982139def9a37b">EmitterType</a> type = <a class="code" href="namespaceignition_1_1rendering.html#a02b9842e77a9f98c00982139def9a37ba666efd25e983494bff95503a14bb67f0">EM_POINT</a>;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a705165495acce1eeec50f303193a393e">  150</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Vector3.html">ignition::math::Vector3d</a> emitterSize =</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;          <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Vector3.html#ad1b860564a0a85fb9a4c0d3889378610">ignition::math::Vector3d::One</a>;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a40fc078492fcc08ce7ad3957496b4c0b">  154</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> rate = 10;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ab9f68ef753113e9b47b3363a00156209">  157</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> duration = 0;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a22710f305272ad37890c31797a94d6c6">  160</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">bool</span> emitting = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a251adc739057c56d1c02e11b88bbc681">  163</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Vector3.html">ignition::math::Vector3d</a> particleSize = {1, 1, 1};</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ad28ee16fe3442bade928fbfdac52103c">  166</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> lifetime = 5;</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#af60ac894d1b064011b6b92289c985adc">  169</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> material = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#aab7c53375853ad7a44d559aac12fe477">  172</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> minVelocity = 1;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#acba381a799ccadfba3eef98284f346a3">  175</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> maxVelocity = 1;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ad398f51092a6e776929fa3b812df3c2e">  178</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Color.html">ignition::math::Color</a> colorStart =</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;          <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Color.html#a7a43a04cb403aa5f48a6c416ab72051d">ignition::math::Color::White</a>;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ac285e5658b83c5ece46201fa0ca85941">  182</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Color.html">ignition::math::Color</a> colorEnd =</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;          <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Color.html#a7a43a04cb403aa5f48a6c416ab72051d">ignition::math::Color::White</a>;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ab0b028532579fc7644f252eb336b2b15">  186</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> scaleRate = 1;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ac0f515e1926db3b21c6fe3e308d9240f">  189</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> colorRangeImage = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a91f4a52d1583801717e3715cc21c93f0">  198</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">float</span> particleScatterRatio = 0.65f;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#abf706e76c317348ceec1bd7700151a7d">  201</a></span>&#160;      <span class="keyword">private</span>: <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="classignition_1_1rendering_1_1BaseScene.html">BaseScene</a>;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    };</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a6db4f5e8d43e5ffd7c4c30b5f4f5798a">  206</a></span>&#160;    <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a6db4f5e8d43e5ffd7c4c30b5f4f5798a">BaseParticleEmitter&lt;T&gt;::BaseParticleEmitter</a>()</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    {</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    }</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00212"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a991efdeaf8dbbcae3e3f4af188380bf1">  212</a></span>&#160;    <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a991efdeaf8dbbcae3e3f4af188380bf1">BaseParticleEmitter&lt;T&gt;::~BaseParticleEmitter</a>()</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    {</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    }</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00218"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a47de93e849d14c3eda08d78613506608">  218</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a47de93e849d14c3eda08d78613506608">BaseParticleEmitter&lt;T&gt;::Init</a>()</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    {</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;      T::Init();</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    }</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00225"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a372de693ad40b3f42839c8ec6ac845f4">  225</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a372de693ad40b3f42839c8ec6ac845f4">BaseParticleEmitter&lt;T&gt;::Reset</a>()</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    {</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    }</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00231"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a2a062fe0fd3c5f4d771563834e4be9c6">  231</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a2a062fe0fd3c5f4d771563834e4be9c6">BaseParticleEmitter&lt;T&gt;::PreRender</a>()</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    {</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    }</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00237"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ad7ca76a0f02ca4f47f990198bad66b60">  237</a></span>&#160;    <a class="code" href="namespaceignition_1_1rendering.html#a02b9842e77a9f98c00982139def9a37b">EmitterType</a> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ad7ca76a0f02ca4f47f990198bad66b60">BaseParticleEmitter&lt;T&gt;::Type</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;      <span class="keywordflow">return</span> this-&gt;type;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    }</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00244"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a30037533792dc5e711084e16871f1894">  244</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a30037533792dc5e711084e16871f1894">BaseParticleEmitter&lt;T&gt;::SetType</a>(<span class="keyword">const</span> <a class="code" href="namespaceignition_1_1rendering.html#a02b9842e77a9f98c00982139def9a37b">EmitterType</a> _type)</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    {</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;      this-&gt;type = _type;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    }</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00251"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a5aee308e595115116f212a39dbcf69a0">  251</a></span>&#160;    <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Vector3.html">ignition::math::Vector3d</a> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a5aee308e595115116f212a39dbcf69a0">BaseParticleEmitter&lt;T&gt;::EmitterSize</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;      <span class="keywordflow">return</span> this-&gt;emitterSize;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    }</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00258"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#af789fd769303e8a48b61bf1561e599b2">  258</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#af789fd769303e8a48b61bf1561e599b2">BaseParticleEmitter&lt;T&gt;::SetEmitterSize</a>(</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;                <span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Vector3.html">ignition::math::Vector3d</a> &amp;_size)</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    {</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;      this-&gt;emitterSize = _size;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    }</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00266"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#aea0408fb90ebfdca49d2fe5035cc2a26">  266</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#aea0408fb90ebfdca49d2fe5035cc2a26">BaseParticleEmitter&lt;T&gt;::Rate</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;      <span class="keywordflow">return</span> this-&gt;rate;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    }</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00273"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ac09ac35adcc6b507b92d3a6663f456b3">  273</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ac09ac35adcc6b507b92d3a6663f456b3">BaseParticleEmitter&lt;T&gt;::SetRate</a>(<span class="keywordtype">double</span> _rate)</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    {</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;      this-&gt;rate = _rate;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    }</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00280"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a320252a7bd60584abb96f64ec93334f3">  280</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a320252a7bd60584abb96f64ec93334f3">BaseParticleEmitter&lt;T&gt;::Duration</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      <span class="keywordflow">return</span> this-&gt;duration;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    }</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00287"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a56672f3cd9f95684262b92a128ee8bd6">  287</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a56672f3cd9f95684262b92a128ee8bd6">BaseParticleEmitter&lt;T&gt;::SetDuration</a>(<span class="keywordtype">double</span> _duration)</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    {</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      this-&gt;duration = _duration;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    }</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00294"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ae1573e0495fcf31e5b72fb9d64d27d03">  294</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ae1573e0495fcf31e5b72fb9d64d27d03">BaseParticleEmitter&lt;T&gt;::Emitting</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;      <span class="keywordflow">return</span> this-&gt;emitting;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;    }</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00301"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a337ac46d1c8c82073c0c8626d74809bc">  301</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a337ac46d1c8c82073c0c8626d74809bc">BaseParticleEmitter&lt;T&gt;::SetEmitting</a>(<span class="keywordtype">bool</span> _enable)</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;    {</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;      this-&gt;emitting = _enable;</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;    }</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00308"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a7352332863231590ddb820543f29c35f">  308</a></span>&#160;    <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Vector3.html">ignition::math::Vector3d</a> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a7352332863231590ddb820543f29c35f">BaseParticleEmitter&lt;T&gt;::ParticleSize</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;      <span class="keywordflow">return</span> this-&gt;particleSize;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    }</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00315"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a08341fd9db65c105cc2c723679cfd89d">  315</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a08341fd9db65c105cc2c723679cfd89d">BaseParticleEmitter&lt;T&gt;::SetParticleSize</a>(</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;                <span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Vector3.html">ignition::math::Vector3d</a> &amp;_size)</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    {</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      this-&gt;particleSize = _size;</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    }</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00323"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a547316eed0522165f9c285805d50b4c3">  323</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a547316eed0522165f9c285805d50b4c3">BaseParticleEmitter&lt;T&gt;::Lifetime</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;      <span class="keywordflow">return</span> this-&gt;lifetime;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    }</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00330"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a5c05af6abb05fabdfaa6697825843cd1">  330</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a5c05af6abb05fabdfaa6697825843cd1">BaseParticleEmitter&lt;T&gt;::SetLifetime</a>(<span class="keywordtype">double</span> _lifetime)</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    {</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;      this-&gt;lifetime = _lifetime;</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    }</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160; </div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00337"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a1180627285223d3dcd760b581250176d">  337</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a1180627285223d3dcd760b581250176d">BaseParticleEmitter&lt;T&gt;::Material</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;      <span class="keywordflow">return</span> this-&gt;material;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    }</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160; </div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00344"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a3bc6d45527fa868179e2e2053e7084cb">  344</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a3bc6d45527fa868179e2e2053e7084cb">BaseParticleEmitter&lt;T&gt;::SetMaterial</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> &amp;_material)</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    {</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;      this-&gt;material = _material;</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    }</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00351"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a80b33dec792da86dd239b0e3e6a3ad63">  351</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a80b33dec792da86dd239b0e3e6a3ad63">BaseParticleEmitter&lt;T&gt;::MinVelocity</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;      <span class="keywordflow">return</span> this-&gt;minVelocity;</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    }</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160; </div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00358"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a3d0e3de85c802087e9692e673e5eef66">  358</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a3d0e3de85c802087e9692e673e5eef66">BaseParticleEmitter&lt;T&gt;::MaxVelocity</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;      <span class="keywordflow">return</span> this-&gt;maxVelocity;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    }</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160; </div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00365"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a7d0a06ff0bd6a0988961623b942b6c56">  365</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a7d0a06ff0bd6a0988961623b942b6c56">BaseParticleEmitter&lt;T&gt;::SetVelocityRange</a>(<span class="keywordtype">double</span> _minVelocity,</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;                                                  <span class="keywordtype">double</span> _maxVelocity)</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;    {</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;      this-&gt;minVelocity = _minVelocity;</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;      this-&gt;maxVelocity = _maxVelocity;</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;    }</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160; </div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00374"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#aa8eec448a669d18dc98904bb8af865da">  374</a></span>&#160;    <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Color.html">ignition::math::Color</a> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#aa8eec448a669d18dc98904bb8af865da">BaseParticleEmitter&lt;T&gt;::ColorStart</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;      <span class="keywordflow">return</span> this-&gt;colorStart;</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;    }</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00381"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a4df4209705b967c8cd7b463be1611d5f">  381</a></span>&#160;    <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Color.html">ignition::math::Color</a> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a4df4209705b967c8cd7b463be1611d5f">BaseParticleEmitter&lt;T&gt;::ColorEnd</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;      <span class="keywordflow">return</span> this-&gt;colorEnd;</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;    }</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160; </div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00388"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a1ed4cf0e602eefe16b0eeb0e940f01b3">  388</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a1ed4cf0e602eefe16b0eeb0e940f01b3">BaseParticleEmitter&lt;T&gt;::SetColorRange</a>(</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;                  <span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Color.html">ignition::math::Color</a> &amp;_colorStart,</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;                  <span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Color.html">ignition::math::Color</a> &amp;_colorEnd)</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;    {</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;      this-&gt;colorStart = _colorStart;</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;      this-&gt;colorEnd = _colorEnd;</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    }</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160; </div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00398"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a0917667d3b8cdbfccb30b913dcdccc61">  398</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a0917667d3b8cdbfccb30b913dcdccc61">BaseParticleEmitter&lt;T&gt;::ScaleRate</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;      <span class="keywordflow">return</span> this-&gt;scaleRate;</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;    }</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160; </div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00405"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ac0a021c79aff20a2bc42479db4846781">  405</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ac0a021c79aff20a2bc42479db4846781">BaseParticleEmitter&lt;T&gt;::SetScaleRate</a>(<span class="keywordtype">double</span> _scaleRate)</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    {</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;      this-&gt;scaleRate = _scaleRate;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    }</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160; </div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00412"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a719a453b497072779ab382286f7f12be">  412</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a719a453b497072779ab382286f7f12be">BaseParticleEmitter&lt;T&gt;::ColorRangeImage</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;      <span class="keywordflow">return</span> this-&gt;colorRangeImage;</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    }</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160; </div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00419"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#acdb704a0a863f963d601e6b6248c68e2">  419</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#acdb704a0a863f963d601e6b6248c68e2">BaseParticleEmitter&lt;T&gt;::SetColorRangeImage</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_image)</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;    {</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;      this-&gt;colorRangeImage = _image;</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    }</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160; </div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00426"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ab550828aba1176774f8f7b2249a51d22">  426</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ab550828aba1176774f8f7b2249a51d22">BaseParticleEmitter&lt;T&gt;::ParticleScatterRatio</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;      <span class="keywordflow">return</span> this-&gt;particleScatterRatio;</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    }</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160; </div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00433"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a36c7644a4cec5f160b3623f580e8e8d6">  433</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a36c7644a4cec5f160b3623f580e8e8d6">BaseParticleEmitter&lt;T&gt;::SetParticleScatterRatio</a>(<span class="keywordtype">float</span> _ratio)</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    {</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;      <span class="keywordflow">if</span> (_ratio &gt; 0.0f)</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;        this-&gt;particleScatterRatio = _ratio;</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;    }</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    }</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;  }</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;}</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a6db4f5e8d43e5ffd7c4c30b5f4f5798a"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a6db4f5e8d43e5ffd7c4c30b5f4f5798a">ignition::rendering::BaseParticleEmitter::BaseParticleEmitter</a></div><div class="ttdeci">BaseParticleEmitter()</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:206</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a7d0a06ff0bd6a0988961623b942b6c56"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a7d0a06ff0bd6a0988961623b942b6c56">ignition::rendering::BaseParticleEmitter::SetVelocityRange</a></div><div class="ttdeci">virtual void SetVelocityRange(double _minVelocity, double _maxVelocity) override</div><div class="ttdoc">Set a velocity range and each particle is emitted with a random velocity within this range (m/s)....</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:365</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a372de693ad40b3f42839c8ec6ac845f4"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a372de693ad40b3f42839c8ec6ac845f4">ignition::rendering::BaseParticleEmitter::Reset</a></div><div class="ttdeci">virtual void Reset()</div><div class="ttdoc">Reset the particle emitter visual state.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:225</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a30037533792dc5e711084e16871f1894"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a30037533792dc5e711084e16871f1894">ignition::rendering::BaseParticleEmitter::SetType</a></div><div class="ttdeci">virtual void SetType(const EmitterType _type) override</div><div class="ttdoc">Set the emitter type. Default value is EM_POINT.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:244</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_ad7ca76a0f02ca4f47f990198bad66b60"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ad7ca76a0f02ca4f47f990198bad66b60">ignition::rendering::BaseParticleEmitter::Type</a></div><div class="ttdeci">virtual EmitterType Type() const override</div><div class="ttdoc">Get the emitter type.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:237</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a5c05af6abb05fabdfaa6697825843cd1"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a5c05af6abb05fabdfaa6697825843cd1">ignition::rendering::BaseParticleEmitter::SetLifetime</a></div><div class="ttdeci">virtual void SetLifetime(double _lifetime) override</div><div class="ttdoc">Set the number of seconds each particle will ’live’ for before being destroyed. Default value is 5.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:330</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_ac285e5658b83c5ece46201fa0ca85941"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ac285e5658b83c5ece46201fa0ca85941">ignition::rendering::BaseParticleEmitter::colorEnd</a></div><div class="ttdeci">ignition::math::Color colorEnd</div><div class="ttdoc">The end color of a particle to choose from.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:182</div></div>
+<div class="ttc" id="anamespaceignition_html"><div class="ttname"><a href="namespaceignition.html">ignition</a></div></div>
+<div class="ttc" id="abasic_string_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a></div><div class="ttdoc">STL class.</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_ac09ac35adcc6b507b92d3a6663f456b3"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ac09ac35adcc6b507b92d3a6663f456b3">ignition::rendering::BaseParticleEmitter::SetRate</a></div><div class="ttdeci">virtual void SetRate(double _rate) override</div><div class="ttdoc">Set how many particles per second should be emitted. Default value is 10.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:273</div></div>
+<div class="ttc" id="ashared_ptr_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr</a></div><div class="ttdoc">STL class.</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Color_html"><div class="ttname"><a href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Color.html">ignition::math::Color</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_ad28ee16fe3442bade928fbfdac52103c"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ad28ee16fe3442bade928fbfdac52103c">ignition::rendering::BaseParticleEmitter::lifetime</a></div><div class="ttdeci">double lifetime</div><div class="ttdoc">Particle lifetime.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:166</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_ab0b028532579fc7644f252eb336b2b15"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ab0b028532579fc7644f252eb336b2b15">ignition::rendering::BaseParticleEmitter::scaleRate</a></div><div class="ttdeci">double scaleRate</div><div class="ttdoc">The scale rate.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:186</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_ab550828aba1176774f8f7b2249a51d22"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ab550828aba1176774f8f7b2249a51d22">ignition::rendering::BaseParticleEmitter::ParticleScatterRatio</a></div><div class="ttdeci">virtual float ParticleScatterRatio() const override</div><div class="ttdoc">Get the particle scatter ratio.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:426</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a1180627285223d3dcd760b581250176d"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a1180627285223d3dcd760b581250176d">ignition::rendering::BaseParticleEmitter::Material</a></div><div class="ttdeci">virtual MaterialPtr Material() const override</div><div class="ttdoc">Get the material which all particles in the emitter will use.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:337</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_aab7c53375853ad7a44d559aac12fe477"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#aab7c53375853ad7a44d559aac12fe477">ignition::rendering::BaseParticleEmitter::minVelocity</a></div><div class="ttdeci">double minVelocity</div><div class="ttdoc">The minimum velocity of each particle.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:172</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a1ed4cf0e602eefe16b0eeb0e940f01b3"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a1ed4cf0e602eefe16b0eeb0e940f01b3">ignition::rendering::BaseParticleEmitter::SetColorRange</a></div><div class="ttdeci">virtual void SetColorRange(const ignition::math::Color &amp;_colorStart, const ignition::math::Color &amp;_colorEnd) override</div><div class="ttdoc">Sets a color for all particle emitted. The actual color will be interpolated between these two colors...</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:388</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a705165495acce1eeec50f303193a393e"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a705165495acce1eeec50f303193a393e">ignition::rendering::BaseParticleEmitter::emitterSize</a></div><div class="ttdeci">ignition::math::Vector3d emitterSize</div><div class="ttdoc">Emitter size.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:150</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a991efdeaf8dbbcae3e3f4af188380bf1"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a991efdeaf8dbbcae3e3f4af188380bf1">ignition::rendering::BaseParticleEmitter::~BaseParticleEmitter</a></div><div class="ttdeci">virtual ~BaseParticleEmitter()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:212</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a56672f3cd9f95684262b92a128ee8bd6"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a56672f3cd9f95684262b92a128ee8bd6">ignition::rendering::BaseParticleEmitter::SetDuration</a></div><div class="ttdeci">virtual void SetDuration(double _duration) override</div><div class="ttdoc">Set the number of seconds the emitter is active. A value of 0 means infinite duration....</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:287</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html_ad1b860564a0a85fb9a4c0d3889378610"><div class="ttname"><a href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Vector3.html#ad1b860564a0a85fb9a4c0d3889378610">ignition::math::Vector3::One</a></div><div class="ttdeci">static const Vector3 One</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_ac0a021c79aff20a2bc42479db4846781"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ac0a021c79aff20a2bc42479db4846781">ignition::rendering::BaseParticleEmitter::SetScaleRate</a></div><div class="ttdeci">virtual void SetScaleRate(double _scaleRate) override</div><div class="ttdoc">Set the amount by which to scale the particles in both x and y direction per second.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:405</div></div>
+<div class="ttc" id="anamespaceignition_1_1rendering_html_a02b9842e77a9f98c00982139def9a37ba666efd25e983494bff95503a14bb67f0"><div class="ttname"><a href="namespaceignition_1_1rendering.html#a02b9842e77a9f98c00982139def9a37ba666efd25e983494bff95503a14bb67f0">ignition::rendering::EM_POINT</a></div><div class="ttdeci">@ EM_POINT</div><div class="ttdoc">Point emitter.</div><div class="ttdef"><b>Definition:</b> gz/rendering/ParticleEmitter.hh:39</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a251adc739057c56d1c02e11b88bbc681"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a251adc739057c56d1c02e11b88bbc681">ignition::rendering::BaseParticleEmitter::particleSize</a></div><div class="ttdeci">ignition::math::Vector3d particleSize</div><div class="ttdoc">Particle size.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:163</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a3bc6d45527fa868179e2e2053e7084cb"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a3bc6d45527fa868179e2e2053e7084cb">ignition::rendering::BaseParticleEmitter::SetMaterial</a></div><div class="ttdeci">virtual void SetMaterial(const MaterialPtr &amp;_material) override</div><div class="ttdoc">Sets the material which all particles in the emitter will use.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:344</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a91f4a52d1583801717e3715cc21c93f0"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a91f4a52d1583801717e3715cc21c93f0">ignition::rendering::BaseParticleEmitter::particleScatterRatio</a></div><div class="ttdeci">float particleScatterRatio</div><div class="ttdoc">The particle scatter ratio. This is used to determine the ratio of particles that will be detected by...</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:198</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a36c7644a4cec5f160b3623f580e8e8d6"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a36c7644a4cec5f160b3623f580e8e8d6">ignition::rendering::BaseParticleEmitter::SetParticleScatterRatio</a></div><div class="ttdeci">virtual void SetParticleScatterRatio(float _ratio) override</div><div class="ttdoc">Set the particle scatter ratio.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:433</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_aa8eec448a669d18dc98904bb8af865da"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#aa8eec448a669d18dc98904bb8af865da">ignition::rendering::BaseParticleEmitter::ColorStart</a></div><div class="ttdeci">virtual ignition::math::Color ColorStart() const override</div><div class="ttdoc">Get the starting color of the particles.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:374</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a08341fd9db65c105cc2c723679cfd89d"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a08341fd9db65c105cc2c723679cfd89d">ignition::rendering::BaseParticleEmitter::SetParticleSize</a></div><div class="ttdeci">virtual void SetParticleSize(const ignition::math::Vector3d &amp;_size) override</div><div class="ttdoc">Set the particle dimensions (width, height, depth). Default value is {1, 1, 1}.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:315</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a0917667d3b8cdbfccb30b913dcdccc61"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a0917667d3b8cdbfccb30b913dcdccc61">ignition::rendering::BaseParticleEmitter::ScaleRate</a></div><div class="ttdeci">virtual double ScaleRate() const override</div><div class="ttdoc">Get the amount by which to scale the particles in both x and y direction per second....</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:398</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_acdb704a0a863f963d601e6b6248c68e2"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#acdb704a0a863f963d601e6b6248c68e2">ignition::rendering::BaseParticleEmitter::SetColorRangeImage</a></div><div class="ttdeci">virtual void SetColorRangeImage(const std::string &amp;_image) override</div><div class="ttdoc">Set the path to the color image used as an affector. This affector modifies the color of particles in...</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:419</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a5aee308e595115116f212a39dbcf69a0"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a5aee308e595115116f212a39dbcf69a0">ignition::rendering::BaseParticleEmitter::EmitterSize</a></div><div class="ttdeci">virtual ignition::math::Vector3d EmitterSize() const override</div><div class="ttdoc">Get the size of the emitter where the particles are sampled.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:251</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_ae1573e0495fcf31e5b72fb9d64d27d03"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ae1573e0495fcf31e5b72fb9d64d27d03">ignition::rendering::BaseParticleEmitter::Emitting</a></div><div class="ttdeci">virtual bool Emitting() const override</div><div class="ttdoc">Is the particle emitter enabled?</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:294</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html">ignition::rendering::BaseParticleEmitter</a></div><div class="ttdoc">A base implementation of the ParticleEmitter class.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:37</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a320252a7bd60584abb96f64ec93334f3"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a320252a7bd60584abb96f64ec93334f3">ignition::rendering::BaseParticleEmitter::Duration</a></div><div class="ttdeci">virtual double Duration() const override</div><div class="ttdoc">Get the number of seconds the emitter is active. A value of 0 means infinite duration.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:280</div></div>
+<div class="ttc" id="aignition_2rendering_2base_2BaseScene_8hh_html"><div class="ttname"><a href="ignition_2rendering_2base_2BaseScene_8hh.html">BaseScene.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html"><div class="ttname"><a href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Vector3.html">ignition::math::Vector3</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_af789fd769303e8a48b61bf1561e599b2"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#af789fd769303e8a48b61bf1561e599b2">ignition::rendering::BaseParticleEmitter::SetEmitterSize</a></div><div class="ttdeci">virtual void SetEmitterSize(const ignition::math::Vector3d &amp;_size) override</div><div class="ttdoc">Set the size of the emitter where the particles are sampled. Default value is (1, 1,...</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:258</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_acba381a799ccadfba3eef98284f346a3"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#acba381a799ccadfba3eef98284f346a3">ignition::rendering::BaseParticleEmitter::maxVelocity</a></div><div class="ttdeci">double maxVelocity</div><div class="ttdoc">The maximum velocity of each particle.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:175</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a547316eed0522165f9c285805d50b4c3"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a547316eed0522165f9c285805d50b4c3">ignition::rendering::BaseParticleEmitter::Lifetime</a></div><div class="ttdeci">virtual double Lifetime() const override</div><div class="ttdoc">Get the number of seconds each particle will ’live’ for before being destroyed.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:323</div></div>
+<div class="ttc" id="aignition_2rendering_2base_2BaseNode_8hh_html"><div class="ttname"><a href="ignition_2rendering_2base_2BaseNode_8hh.html">BaseNode.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a719a453b497072779ab382286f7f12be"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a719a453b497072779ab382286f7f12be">ignition::rendering::BaseParticleEmitter::ColorRangeImage</a></div><div class="ttdeci">virtual std::string ColorRangeImage() const override</div><div class="ttdoc">Get the path to the color image used as an affector.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:412</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_aa71343d1d24a3311919f2336e23da358"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#aa71343d1d24a3311919f2336e23da358">ignition::rendering::BaseParticleEmitter::type</a></div><div class="ttdeci">EmitterType type</div><div class="ttdoc">Emitter type.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:147</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a80b33dec792da86dd239b0e3e6a3ad63"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a80b33dec792da86dd239b0e3e6a3ad63">ignition::rendering::BaseParticleEmitter::MinVelocity</a></div><div class="ttdeci">virtual double MinVelocity() const override</div><div class="ttdoc">Get the minimum velocity each particle is emitted (m/s).</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:351</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a4df4209705b967c8cd7b463be1611d5f"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a4df4209705b967c8cd7b463be1611d5f">ignition::rendering::BaseParticleEmitter::ColorEnd</a></div><div class="ttdeci">virtual ignition::math::Color ColorEnd() const override</div><div class="ttdoc">Get the end color of the particles.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:381</div></div>
+<div class="ttc" id="aignition_2rendering_2ParticleEmitter_8hh_html"><div class="ttname"><a href="ignition_2rendering_2ParticleEmitter_8hh.html">ParticleEmitter.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_ab9f68ef753113e9b47b3363a00156209"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ab9f68ef753113e9b47b3363a00156209">ignition::rendering::BaseParticleEmitter::duration</a></div><div class="ttdeci">double duration</div><div class="ttdoc">Duration of the emitter.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:157</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a7352332863231590ddb820543f29c35f"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a7352332863231590ddb820543f29c35f">ignition::rendering::BaseParticleEmitter::ParticleSize</a></div><div class="ttdeci">virtual ignition::math::Vector3d ParticleSize() const override</div><div class="ttdoc">Get the particle dimensions (width, height, depth).</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:308</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseScene_html"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseScene.html">ignition::rendering::BaseScene</a></div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseScene.hh:37</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a47de93e849d14c3eda08d78613506608"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a47de93e849d14c3eda08d78613506608">ignition::rendering::BaseParticleEmitter::Init</a></div><div class="ttdeci">virtual void Init() override</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:218</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_ac0f515e1926db3b21c6fe3e308d9240f"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ac0f515e1926db3b21c6fe3e308d9240f">ignition::rendering::BaseParticleEmitter::colorRangeImage</a></div><div class="ttdeci">std::string colorRangeImage</div><div class="ttdoc">The color image.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:189</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a2a062fe0fd3c5f4d771563834e4be9c6"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a2a062fe0fd3c5f4d771563834e4be9c6">ignition::rendering::BaseParticleEmitter::PreRender</a></div><div class="ttdeci">virtual void PreRender() override</div><div class="ttdoc">Prepare this object and any of its children for rendering. This should be called for each object in a...</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:231</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1ParticleEmitter_html"><div class="ttname"><a href="classignition_1_1rendering_1_1ParticleEmitter.html">ignition::rendering::ParticleEmitter</a></div><div class="ttdoc">Class to manage a particle emitter.</div><div class="ttdef"><b>Definition:</b> gz/rendering/ParticleEmitter.hh:58</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_aea0408fb90ebfdca49d2fe5035cc2a26"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#aea0408fb90ebfdca49d2fe5035cc2a26">ignition::rendering::BaseParticleEmitter::Rate</a></div><div class="ttdeci">virtual double Rate() const override</div><div class="ttdoc">Get how many particles per second should be emitted.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:266</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_ad398f51092a6e776929fa3b812df3c2e"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#ad398f51092a6e776929fa3b812df3c2e">ignition::rendering::BaseParticleEmitter::colorStart</a></div><div class="ttdeci">ignition::math::Color colorStart</div><div class="ttdoc">The start color of a particle to choose from.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:178</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1Material_html"><div class="ttname"><a href="classignition_1_1rendering_1_1Material.html">ignition::rendering::Material</a></div><div class="ttdoc">Represents a surface material of a Geometry.</div><div class="ttdef"><b>Definition:</b> gz/rendering/Material.hh:47</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a22710f305272ad37890c31797a94d6c6"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a22710f305272ad37890c31797a94d6c6">ignition::rendering::BaseParticleEmitter::emitting</a></div><div class="ttdeci">bool emitting</div><div class="ttdoc">Whether particle emitter is enabled or not.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:160</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a337ac46d1c8c82073c0c8626d74809bc"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a337ac46d1c8c82073c0c8626d74809bc">ignition::rendering::BaseParticleEmitter::SetEmitting</a></div><div class="ttdeci">virtual void SetEmitting(bool _enable) override</div><div class="ttdoc">This is used to turn on or off particle emission. Default value is false.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:301</div></div>
+<div class="ttc" id="anamespaceignition_1_1rendering_html_a02b9842e77a9f98c00982139def9a37b"><div class="ttname"><a href="namespaceignition_1_1rendering.html#a02b9842e77a9f98c00982139def9a37b">ignition::rendering::EmitterType</a></div><div class="ttdeci">EmitterType</div><div class="ttdoc">Enum for emitter types.</div><div class="ttdef"><b>Definition:</b> gz/rendering/ParticleEmitter.hh:36</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a40fc078492fcc08ce7ad3957496b4c0b"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a40fc078492fcc08ce7ad3957496b4c0b">ignition::rendering::BaseParticleEmitter::rate</a></div><div class="ttdeci">double rate</div><div class="ttdoc">Rate of emission.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:154</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_af60ac894d1b064011b6b92289c985adc"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#af60ac894d1b064011b6b92289c985adc">ignition::rendering::BaseParticleEmitter::material</a></div><div class="ttdeci">MaterialPtr material</div><div class="ttdoc">Particle material.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:169</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Color_html_a7a43a04cb403aa5f48a6c416ab72051d"><div class="ttname"><a href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Color.html#a7a43a04cb403aa5f48a6c416ab72051d">ignition::math::Color::White</a></div><div class="ttdeci">static const Color White</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseParticleEmitter_html_a3d0e3de85c802087e9692e673e5eef66"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseParticleEmitter.html#a3d0e3de85c802087e9692e673e5eef66">ignition::rendering::BaseParticleEmitter::MaxVelocity</a></div><div class="ttdeci">virtual double MaxVelocity() const override</div><div class="ttdoc">Get the maximum velocity each particle is emitted (m/s).</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseParticleEmitter.hh:358</div></div>
+      </div>
+    </main>
+  </div>
+</body>

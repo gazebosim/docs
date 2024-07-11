@@ -1,0 +1,527 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Rendering">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Rendering: BaseVisual.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Rendering</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        3.7.2
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 IgnCreateDocs.cmake -->
+      <nav class="ign-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.8.17 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_68720addb28ee8f762a8d1f55de1ba53.html">gz-rendering</a></li><li class="navelem"><a class="el" href="dir_ccc1703edcd2aae520499aaef06b68cb.html">include</a></li><li class="navelem"><a class="el" href="dir_42a5c6856abc46d6a330192debb6d004.html">gz</a></li><li class="navelem"><a class="el" href="dir_5269ccce336193d47739569941971412.html">rendering</a></li><li class="navelem"><a class="el" href="dir_bf8d1403b850d669fe2a43383d7c7814.html">base</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">gz/rendering/base/BaseVisual.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="gz_2rendering_2base_2BaseVisual_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (C) 2015 Open Source Robotics Foundation</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef GZ_RENDERING_BASE_BASEVISUAL_HH_</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define GZ_RENDERING_BASE_BASEVISUAL_HH_</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2Visual_8hh.html">gz/rendering/Visual.hh</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2Storage_8hh.html">gz/rendering/Storage.hh</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2RenderEngine_8hh.html">gz/rendering/RenderEngine.hh</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2base_2BaseStorage_8hh.html">gz/rendering/base/BaseStorage.hh</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition.html">ignition</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">namespace </span>rendering</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">inline</span> <span class="keyword">namespace </span>IGNITION_RENDERING_VERSION_NAMESPACE {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html">   35</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classignition_1_1rendering_1_1BaseVisual.html">BaseVisual</a> :</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> <a class="code" href="classignition_1_1rendering_1_1Visual.html">Visual</a>,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> T</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <span class="keyword">protected</span>: <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html">BaseVisual</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> ~<a class="code" href="classignition_1_1rendering_1_1BaseVisual.html">BaseVisual</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html">math::Pose3d</a> LocalPose() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetLocalPose(<span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html">math::Pose3d</a> &amp;_pose) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> GeometryCount() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> HasGeometry(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">ConstGeometryPtr</a> _geometry) <span class="keyword">const</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">                      override</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> GeometryByIndex(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _index) <span class="keyword">const</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">                      override</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> AddGeometry(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> _geometry) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> RemoveGeometry(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> _geometry)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                      <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> RemoveGeometryByIndex(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _index)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                      <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> RemoveGeometries() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetMaterial(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name,</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;                  <span class="keywordtype">bool</span> _unique = <span class="keyword">true</span>) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetMaterial(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> _material,</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;                  <span class="keywordtype">bool</span> _unique = <span class="keyword">true</span>) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetChildMaterial(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> _material,</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                  <span class="keywordtype">bool</span> _unique = <span class="keyword">true</span>) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetGeometryMaterial(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> _material,</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                  <span class="keywordtype">bool</span> _unique = <span class="keyword">true</span>) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> <a class="code" href="classignition_1_1rendering_1_1Material.html">Material</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetVisible(<span class="keywordtype">bool</span> _visible) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> PreRender() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> Destroy() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetUserData(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_key,</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;          <a class="code" href="namespaceignition_1_1rendering.html#a8ef5922dcbedd023cfd60f98c6ec6c84">Variant</a> _value) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code" href="namespaceignition_1_1rendering.html#a8ef5922dcbedd023cfd60f98c6ec6c84">Variant</a> UserData(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_key) <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> PreRenderChildren() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> PreRenderGeometries();</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryStorePtr</a> Geometries() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> AttachGeometry(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> _geometry) = 0;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> DetachGeometry(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> _geometry) = 0;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#af60ac894d1b064011b6b92289c985adc">  106</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#af60ac894d1b064011b6b92289c985adc">material</a>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#a61804bcc956f45d54cf36f409d3ca0fb">  109</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/map.html">std::map&lt;std::string, Variant&gt;</a> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#a61804bcc956f45d54cf36f409d3ca0fb">userData</a>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    };</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#aeb944d28fce7ff566b55a3fd21925647">  114</a></span>&#160;    <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#aeb944d28fce7ff566b55a3fd21925647">BaseVisual&lt;T&gt;::BaseVisual</a>()</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#a7726c6f075425d51820db9f55c653ff7">  120</a></span>&#160;    <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#a7726c6f075425d51820db9f55c653ff7">BaseVisual&lt;T&gt;::~BaseVisual</a>()</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#aa4d9e429254439169909d797dd23a2dd">  126</a></span>&#160;    <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html">math::Pose3d</a> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#aa4d9e429254439169909d797dd23a2dd">BaseVisual&lt;T&gt;::LocalPose</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;      <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html">math::Pose3d</a> rawPose = this-&gt;RawLocalPose();</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;      <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Vector3.html">math::Vector3d</a> scale = this-&gt;LocalScale();</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      rawPose.<a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html#a421679346c9da0b6271f43fc76308d49">Pos</a>() += rawPose.<a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html#a08a46aadf6b4011d64cce9020fdb68b7">Rot</a>() * (scale * this-&gt;origin);</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;      <span class="keywordflow">return</span> rawPose;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    }</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#a27a14e5b71a7e598af795d9de607bbc2">  136</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#a27a14e5b71a7e598af795d9de607bbc2">BaseVisual&lt;T&gt;::SetLocalPose</a>(<span class="keyword">const</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html">math::Pose3d</a> &amp;_pose)</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    {</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html">math::Pose3d</a> rawPose = _pose;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Vector3.html">math::Vector3d</a> scale = this-&gt;LocalScale();</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      rawPose.<a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html#a421679346c9da0b6271f43fc76308d49">Pos</a>() -= rawPose.<a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html#a08a46aadf6b4011d64cce9020fdb68b7">Rot</a>() * (scale * this-&gt;origin);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;      <span class="keywordflow">if</span> (!rawPose.<a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html#a33b7dcc502aae627fbc56bcfecf33af1">IsFinite</a>())</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;      {</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <a class="codeRef" href="https://gazebosim.org/api/common/3/gz_2common_2Console_8hh.html#ab2bfcd13bf44fe6d8c2f19c530c10e28">ignerr</a> &lt;&lt; <span class="stringliteral">&quot;Unable to set pose of a node: &quot;</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;               &lt;&lt; <span class="stringliteral">&quot;non-finite (nan, inf) values detected.&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;      }</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      this-&gt;SetRawLocalPose(rawPose);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    }</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#ab5c45d7eb256f46bcbe537567d4bd87b">  154</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#ab5c45d7eb256f46bcbe537567d4bd87b">BaseVisual&lt;T&gt;::GeometryCount</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      <span class="keywordflow">return</span> this-&gt;Geometries()-&gt;Size();</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;    }</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#a001ae9abc3bd0bae9d4c679c8de00c5e">  161</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#a001ae9abc3bd0bae9d4c679c8de00c5e">BaseVisual&lt;T&gt;::HasGeometry</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">ConstGeometryPtr</a> _geometry)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;      <span class="keywordflow">return</span> this-&gt;Geometries()-&gt;Contains(_geometry);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    }</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#a329b88a06bc78b024373af88ddfbe0a4">  168</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#a329b88a06bc78b024373af88ddfbe0a4">BaseVisual&lt;T&gt;::GeometryByIndex</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _index)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;      <span class="keywordflow">return</span> this-&gt;Geometries()-&gt;GetByIndex(_index);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    }</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#aa5e910f61cc97fa724a6509ea840166e">  175</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#aa5e910f61cc97fa724a6509ea840166e">BaseVisual&lt;T&gt;::AddGeometry</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> _geometry)</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    {</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;      <span class="keywordflow">if</span> (this-&gt;AttachGeometry(_geometry))</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;      {</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;        this-&gt;Geometries()-&gt;Add(_geometry);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;      }</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    }</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00185"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#af03ccf9b6aca255a53c7b0521b123d4f">  185</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#af03ccf9b6aca255a53c7b0521b123d4f">BaseVisual&lt;T&gt;::RemoveGeometry</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> _geometry)</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    {</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      <span class="keywordflow">if</span> (this-&gt;DetachGeometry(_geometry))</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      {</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;        this-&gt;Geometries()-&gt;Remove(_geometry);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;      }</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;      <span class="keywordflow">return</span> _geometry;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    }</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#a46153902ac603cbc9d91257a8b3b4b15">  196</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#a46153902ac603cbc9d91257a8b3b4b15">BaseVisual&lt;T&gt;::RemoveGeometryByIndex</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _index)</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    {</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;      <span class="keywordflow">return</span> this-&gt;RemoveGeometry(this-&gt;GeometryByIndex(_index));</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    }</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#a015c57fff9338d3923a83445353b193d">  203</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#a015c57fff9338d3923a83445353b193d">BaseVisual&lt;T&gt;::RemoveGeometries</a>()</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    {</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = this-&gt;GeometryCount(); i &gt; 0; --i)</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;      {</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;        this-&gt;RemoveGeometryByIndex(i-1);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;      }</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;    }</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00213"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#a8fa6cc908e8753da060b76f09dd2f4d6">  213</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#a8fa6cc908e8753da060b76f09dd2f4d6">BaseVisual&lt;T&gt;::SetMaterial</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name, <span class="keywordtype">bool</span> _unique)</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    {</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> mat = this-&gt;<a class="code" href="classignition_1_1rendering_1_1Scene.html">Scene</a>()-&gt;<a class="code" href="classignition_1_1rendering_1_1Scene.html#a2832fb86f24ded5d2291acfcbd2e513f">Material</a>(_name);</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;      <span class="keywordflow">if</span> (mat) this-&gt;SetMaterial(mat, _unique);</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    }</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#ae94b60291dde1c96e8dd261713454e0e">  221</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#a8fa6cc908e8753da060b76f09dd2f4d6">BaseVisual&lt;T&gt;::SetMaterial</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> _material, <span class="keywordtype">bool</span> _unique)</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    {</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;      _material = (_unique) ? _material-&gt;Clone() : _material;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      this-&gt;SetChildMaterial(_material, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;      this-&gt;SetGeometryMaterial(_material, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;      this-&gt;material = _material;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    }</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00231"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#a5fa1ace170b2faa145592439c67ac046">  231</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#a5fa1ace170b2faa145592439c67ac046">BaseVisual&lt;T&gt;::SetChildMaterial</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> _material, <span class="keywordtype">bool</span> _unique)</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    {</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> count = this-&gt;ChildCount();</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;      _material = (_unique &amp;&amp; count &gt; 0) ? _material-&gt;Clone() : _material;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;      <span class="keyword">auto</span> children_ =</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;          std::dynamic_pointer_cast&lt;BaseStore&lt;gz::rendering::Node, T&gt;&gt;(</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;          this-&gt;Children());</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;      <span class="keywordflow">if</span> (!children_)</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;      {</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;        <a class="codeRef" href="https://gazebosim.org/api/common/3/gz_2common_2Console_8hh.html#ab2bfcd13bf44fe6d8c2f19c530c10e28">ignerr</a> &lt;&lt; <span class="stringliteral">&quot;Cast failed in BaseVisual::SetChildMaterial&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;      }</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = children_-&gt;Begin(); it != children_-&gt;End(); ++it)</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;      {</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">NodePtr</a> child = it-&gt;second;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">VisualPtr</a> visual = std::dynamic_pointer_cast&lt;Visual&gt;(child);</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        <span class="keywordflow">if</span> (visual) visual-&gt;SetMaterial(_material, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;      }</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    }</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00254"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#ac6764d74ef149fc608212a6d566b0d21">  254</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#ac6764d74ef149fc608212a6d566b0d21">BaseVisual&lt;T&gt;::SetGeometryMaterial</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> _material, <span class="keywordtype">bool</span> _unique)</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    {</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> count = this-&gt;GeometryCount();</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      _material = (_unique &amp;&amp; count &gt; 0) ? _material-&gt;Clone() : _material;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; count; ++i)</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;      {</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> geometry = this-&gt;GeometryByIndex(i);</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;        geometry-&gt;SetMaterial(_material, <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;      }</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    }</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00268"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#aebb02ab276073badf4fc0575f038d3a3">  268</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#aebb02ab276073badf4fc0575f038d3a3">BaseVisual&lt;T&gt;::Material</a>()</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    {</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;      <span class="keywordflow">return</span> this-&gt;material;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    }</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00275"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#a2a062fe0fd3c5f4d771563834e4be9c6">  275</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#a2a062fe0fd3c5f4d771563834e4be9c6">BaseVisual&lt;T&gt;::PreRender</a>()</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    {</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      T::PreRender();</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;      this-&gt;PreRenderChildren();</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;      this-&gt;PreRenderGeometries();</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    }</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00284"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#a9138802bd505003fa7224b0dc0413fb4">  284</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#a9138802bd505003fa7224b0dc0413fb4">BaseVisual&lt;T&gt;::Destroy</a>()</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    {</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;      this-&gt;Geometries()-&gt;DestroyAll();</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      this-&gt;Children()-&gt;RemoveAll();</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;      this-&gt;material.reset();</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      T::Destroy();</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    }</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00294"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#affcd5f37d28b244b94bf5dfaf2062496">  294</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#affcd5f37d28b244b94bf5dfaf2062496">BaseVisual&lt;T&gt;::PreRenderChildren</a>()</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    {</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;      <span class="keyword">auto</span> children_ =</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;          std::dynamic_pointer_cast&lt;BaseStore&lt;gz::rendering::Node, T&gt;&gt;(</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;          this-&gt;Children());</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;      <span class="keywordflow">if</span> (!children_)</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;      {</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;        <a class="codeRef" href="https://gazebosim.org/api/common/3/gz_2common_2Console_8hh.html#ab2bfcd13bf44fe6d8c2f19c530c10e28">ignerr</a> &lt;&lt; <span class="stringliteral">&quot;Cast failed in BaseVisual::PreRenderChildren&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;      }</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> it = children_-&gt;Begin(); it != children_-&gt;End(); ++it)</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;      {</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;        it-&gt;second-&gt;PreRender();</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;      }</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    }</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; </div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00312"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#ae9dfa0ee2ede1c46e2a4408250297351">  312</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#ae9dfa0ee2ede1c46e2a4408250297351">BaseVisual&lt;T&gt;::PreRenderGeometries</a>()</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    {</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> count = this-&gt;GeometryCount();</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; count; ++i)</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;      {</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> geometry = this-&gt;GeometryByIndex(i);</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;        geometry-&gt;PreRender();</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      }</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    }</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00325"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#a90331d9ccfce5321f48b33c2327368df">  325</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#a90331d9ccfce5321f48b33c2327368df">BaseVisual&lt;T&gt;::SetVisible</a>(<span class="keywordtype">bool</span> _visible)</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    {</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;      <a class="codeRef" href="https://gazebosim.org/api/common/3/gz_2common_2Console_8hh.html#ab2bfcd13bf44fe6d8c2f19c530c10e28">ignerr</a> &lt;&lt; <span class="stringliteral">&quot;SetVisible(&quot;</span> &lt;&lt; _visible &lt;&lt; <span class="stringliteral">&quot;) not supported for &quot;</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;             &lt;&lt; <span class="stringliteral">&quot;render engine: &quot;</span> &lt;&lt; this-&gt;<a class="code" href="classignition_1_1rendering_1_1Scene.html">Scene</a>()-&gt;<a class="code" href="classignition_1_1rendering_1_1Scene.html#a38922be9a07a57794b9ce5d223aafb60">Engine</a>()-&gt;<a class="code" href="classignition_1_1rendering_1_1RenderEngine.html#a70ee001ce76c53aebb215a9f51653ab3">Name</a>()</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;             &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    }</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160; </div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00334"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#a313295e1413e3a989a39ef263f7b70c0">  334</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#a313295e1413e3a989a39ef263f7b70c0">BaseVisual&lt;T&gt;::SetUserData</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_key, <a class="code" href="namespaceignition_1_1rendering.html#a8ef5922dcbedd023cfd60f98c6ec6c84">Variant</a> _value)</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    {</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;      this-&gt;userData[_key] = _value;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    }</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00341"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseVisual.html#a7a4453ad95d17c4f25156057ed58f185">  341</a></span>&#160;    <a class="code" href="namespaceignition_1_1rendering.html#a8ef5922dcbedd023cfd60f98c6ec6c84">Variant</a> <a class="code" href="classignition_1_1rendering_1_1BaseVisual.html#a7a4453ad95d17c4f25156057ed58f185">BaseVisual&lt;T&gt;::UserData</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_key)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;      <a class="code" href="namespaceignition_1_1rendering.html#a8ef5922dcbedd023cfd60f98c6ec6c84">Variant</a> value;</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;      <span class="keyword">auto</span> it = this-&gt;userData.find(_key);</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;      <span class="keywordflow">if</span> (it != this-&gt;userData.end())</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;        value = it-&gt;second;</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;      <span class="keywordflow">return</span> value;</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    }</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    }</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;  }</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;}</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_a329b88a06bc78b024373af88ddfbe0a4"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#a329b88a06bc78b024373af88ddfbe0a4">ignition::rendering::BaseVisual::GeometryByIndex</a></div><div class="ttdeci">virtual GeometryPtr GeometryByIndex(unsigned int _index) const override</div><div class="ttdoc">Get geometry at given index. If no geometry exists at given index, NULL will be returned.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:168</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_a2899996713df8eb06aea90df7d712b63"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#a2899996713df8eb06aea90df7d712b63">ignition::rendering::BaseVisual::Geometries</a></div><div class="ttdeci">virtual GeometryStorePtr Geometries() const =0</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_aa84f5f4e615dd308a72423889bfa24bb"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#aa84f5f4e615dd308a72423889bfa24bb">ignition::rendering::BaseVisual::DetachGeometry</a></div><div class="ttdeci">virtual bool DetachGeometry(GeometryPtr _geometry)=0</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Pose3_html"><div class="ttname"><a href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html">ignition::math::Pose3</a></div></div>
+<div class="ttc" id="anamespaceignition_html"><div class="ttname"><a href="namespaceignition.html">ignition</a></div></div>
+<div class="ttc" id="abasic_string_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a></div><div class="ttdoc">STL class.</div></div>
+<div class="ttc" id="ashared_ptr_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr</a></div><div class="ttdoc">STL class.</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html">ignition::rendering::BaseVisual</a></div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:35</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_a015c57fff9338d3923a83445353b193d"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#a015c57fff9338d3923a83445353b193d">ignition::rendering::BaseVisual::RemoveGeometries</a></div><div class="ttdeci">virtual void RemoveGeometries() override</div><div class="ttdoc">Remove all attached geometries from this visual.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:203</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_a313295e1413e3a989a39ef263f7b70c0"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#a313295e1413e3a989a39ef263f7b70c0">ignition::rendering::BaseVisual::SetUserData</a></div><div class="ttdeci">virtual void SetUserData(const std::string &amp;_key, Variant _value) override</div><div class="ttdoc">Store any custom data associated with this visual.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:334</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Pose3_html_a421679346c9da0b6271f43fc76308d49"><div class="ttname"><a href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html#a421679346c9da0b6271f43fc76308d49">ignition::math::Pose3::Pos</a></div><div class="ttdeci">Vector3&lt; T &gt; &amp; Pos()</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1RenderEngine_html_a70ee001ce76c53aebb215a9f51653ab3"><div class="ttname"><a href="classignition_1_1rendering_1_1RenderEngine.html#a70ee001ce76c53aebb215a9f51653ab3">ignition::rendering::RenderEngine::Name</a></div><div class="ttdeci">virtual std::string Name() const =0</div><div class="ttdoc">Get name of the render-engine.</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1Scene_html_a38922be9a07a57794b9ce5d223aafb60"><div class="ttname"><a href="classignition_1_1rendering_1_1Scene.html#a38922be9a07a57794b9ce5d223aafb60">ignition::rendering::Scene::Engine</a></div><div class="ttdeci">virtual RenderEngine * Engine() const =0</div><div class="ttdoc">Get the creating render-engine of the scene.</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_a90331d9ccfce5321f48b33c2327368df"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#a90331d9ccfce5321f48b33c2327368df">ignition::rendering::BaseVisual::SetVisible</a></div><div class="ttdeci">virtual void SetVisible(bool _visible) override</div><div class="ttdoc">Specify if this visual is visible.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:325</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_ab5c45d7eb256f46bcbe537567d4bd87b"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#ab5c45d7eb256f46bcbe537567d4bd87b">ignition::rendering::BaseVisual::GeometryCount</a></div><div class="ttdeci">virtual unsigned int GeometryCount() const override</div><div class="ttdoc">Get the number of geometries attached to this visual.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:154</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_affcd5f37d28b244b94bf5dfaf2062496"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#affcd5f37d28b244b94bf5dfaf2062496">ignition::rendering::BaseVisual::PreRenderChildren</a></div><div class="ttdeci">virtual void PreRenderChildren() override</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:294</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_ac6764d74ef149fc608212a6d566b0d21"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#ac6764d74ef149fc608212a6d566b0d21">ignition::rendering::BaseVisual::SetGeometryMaterial</a></div><div class="ttdeci">virtual void SetGeometryMaterial(MaterialPtr _material, bool _unique=true) override</div><div class="ttdoc">Set the material for all attached geometries only.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:254</div></div>
+<div class="ttc" id="agz_2common_2Console_8hh_html_ab2bfcd13bf44fe6d8c2f19c530c10e28"><div class="ttname"><a href="https://gazebosim.org/api/common/3/gz_2common_2Console_8hh.html#ab2bfcd13bf44fe6d8c2f19c530c10e28">ignerr</a></div><div class="ttdeci">#define ignerr</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_af60ac894d1b064011b6b92289c985adc"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#af60ac894d1b064011b6b92289c985adc">ignition::rendering::BaseVisual::material</a></div><div class="ttdeci">MaterialPtr material</div><div class="ttdoc">Pointer to material assigned to this visual.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:106</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_aa5e910f61cc97fa724a6509ea840166e"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#aa5e910f61cc97fa724a6509ea840166e">ignition::rendering::BaseVisual::AddGeometry</a></div><div class="ttdeci">virtual void AddGeometry(GeometryPtr _geometry) override</div><div class="ttdoc">Add the given geometry to this visual. If the given node is already attached, no work will be done.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:175</div></div>
+<div class="ttc" id="agz_2rendering_2Visual_8hh_html"><div class="ttname"><a href="gz_2rendering_2Visual_8hh.html">Visual.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1Scene_html"><div class="ttname"><a href="classignition_1_1rendering_1_1Scene.html">ignition::rendering::Scene</a></div><div class="ttdoc">Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....</div><div class="ttdef"><b>Definition:</b> gz/rendering/Scene.hh:48</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_a61804bcc956f45d54cf36f409d3ca0fb"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#a61804bcc956f45d54cf36f409d3ca0fb">ignition::rendering::BaseVisual::userData</a></div><div class="ttdeci">std::map&lt; std::string, Variant &gt; userData</div><div class="ttdoc">A map of custom key value data.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:109</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_a2a062fe0fd3c5f4d771563834e4be9c6"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#a2a062fe0fd3c5f4d771563834e4be9c6">ignition::rendering::BaseVisual::PreRender</a></div><div class="ttdeci">virtual void PreRender() override</div><div class="ttdoc">Prepare this object and any of its children for rendering. This should be called for each object in a...</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:275</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_ae9dfa0ee2ede1c46e2a4408250297351"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#ae9dfa0ee2ede1c46e2a4408250297351">ignition::rendering::BaseVisual::PreRenderGeometries</a></div><div class="ttdeci">virtual void PreRenderGeometries()</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:312</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1Visual_html"><div class="ttname"><a href="classignition_1_1rendering_1_1Visual.html">ignition::rendering::Visual</a></div><div class="ttdoc">Represents a visual node in a scene graph. A Visual is the only node that can have Geometry and other...</div><div class="ttdef"><b>Definition:</b> gz/rendering/Visual.hh:36</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Vector3_html"><div class="ttname"><a href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Vector3.html">ignition::math::Vector3</a></div></div>
+<div class="ttc" id="agz_2rendering_2RenderEngine_8hh_html"><div class="ttname"><a href="gz_2rendering_2RenderEngine_8hh.html">RenderEngine.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_aa4d9e429254439169909d797dd23a2dd"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#aa4d9e429254439169909d797dd23a2dd">ignition::rendering::BaseVisual::LocalPose</a></div><div class="ttdeci">virtual math::Pose3d LocalPose() const override</div><div class="ttdoc">Get the local pose.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:126</div></div>
+<div class="ttc" id="amap_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/map.html">std::map&lt; std::string, Variant &gt;</a></div></div>
+<div class="ttc" id="agz_2rendering_2base_2BaseStorage_8hh_html"><div class="ttname"><a href="gz_2rendering_2base_2BaseStorage_8hh.html">BaseStorage.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1Scene_html_a2832fb86f24ded5d2291acfcbd2e513f"><div class="ttname"><a href="classignition_1_1rendering_1_1Scene.html#a2832fb86f24ded5d2291acfcbd2e513f">ignition::rendering::Scene::Material</a></div><div class="ttdeci">virtual MaterialPtr Material(const std::string &amp;_name) const =0</div><div class="ttdoc">Get material registered under the given name. If no material is registered under the given name,...</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_afe34fc999f3f5be97fcaf10925c41764"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#afe34fc999f3f5be97fcaf10925c41764">ignition::rendering::BaseVisual::AttachGeometry</a></div><div class="ttdeci">virtual bool AttachGeometry(GeometryPtr _geometry)=0</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_a46153902ac603cbc9d91257a8b3b4b15"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#a46153902ac603cbc9d91257a8b3b4b15">ignition::rendering::BaseVisual::RemoveGeometryByIndex</a></div><div class="ttdeci">virtual GeometryPtr RemoveGeometryByIndex(unsigned int _index) override</div><div class="ttdoc">Remove the geometry at the given index from this visual. If the specified node is not attached this v...</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:196</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_a27a14e5b71a7e598af795d9de607bbc2"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#a27a14e5b71a7e598af795d9de607bbc2">ignition::rendering::BaseVisual::SetLocalPose</a></div><div class="ttdeci">virtual void SetLocalPose(const math::Pose3d &amp;_pose) override</div><div class="ttdoc">Set the local pose.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:136</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_a9138802bd505003fa7224b0dc0413fb4"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#a9138802bd505003fa7224b0dc0413fb4">ignition::rendering::BaseVisual::Destroy</a></div><div class="ttdeci">virtual void Destroy() override</div><div class="ttdoc">Destroy any resources associated with this object. Invoking any other functions after destroying an o...</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:284</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_a8fa6cc908e8753da060b76f09dd2f4d6"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#a8fa6cc908e8753da060b76f09dd2f4d6">ignition::rendering::BaseVisual::SetMaterial</a></div><div class="ttdeci">virtual void SetMaterial(const std::string &amp;_name, bool _unique=true) override</div><div class="ttdoc">Set the material for all attached visuals and geometries. The specified material will be retrieved fr...</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:213</div></div>
+<div class="ttc" id="aendl_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a></div><div class="ttdeci">T endl(T... args)</div></div>
+<div class="ttc" id="anamespaceignition_1_1rendering_html_a8ef5922dcbedd023cfd60f98c6ec6c84"><div class="ttname"><a href="namespaceignition_1_1rendering.html#a8ef5922dcbedd023cfd60f98c6ec6c84">ignition::rendering::Variant</a></div><div class="ttdeci">std::variant&lt; int, float, double, std::string &gt; Variant</div><div class="ttdef"><b>Definition:</b> gz/rendering/Visual.hh:31</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_aeb944d28fce7ff566b55a3fd21925647"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#aeb944d28fce7ff566b55a3fd21925647">ignition::rendering::BaseVisual::BaseVisual</a></div><div class="ttdeci">BaseVisual()</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:114</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_a7a4453ad95d17c4f25156057ed58f185"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#a7a4453ad95d17c4f25156057ed58f185">ignition::rendering::BaseVisual::UserData</a></div><div class="ttdeci">virtual Variant UserData(const std::string &amp;_key) const override</div><div class="ttdoc">Get custom data stored in this visual.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:341</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_a001ae9abc3bd0bae9d4c679c8de00c5e"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#a001ae9abc3bd0bae9d4c679c8de00c5e">ignition::rendering::BaseVisual::HasGeometry</a></div><div class="ttdeci">virtual bool HasGeometry(ConstGeometryPtr _geometry) const override</div><div class="ttdoc">Determine if given geometry is attached to this visual.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:161</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_af03ccf9b6aca255a53c7b0521b123d4f"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#af03ccf9b6aca255a53c7b0521b123d4f">ignition::rendering::BaseVisual::RemoveGeometry</a></div><div class="ttdeci">virtual GeometryPtr RemoveGeometry(GeometryPtr _geometry) override</div><div class="ttdoc">Remove the given geometry from this visual. If the given node is not a child of this visual,...</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:185</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1Material_html"><div class="ttname"><a href="classignition_1_1rendering_1_1Material.html">ignition::rendering::Material</a></div><div class="ttdoc">Represents a surface material of a Geometry.</div><div class="ttdef"><b>Definition:</b> gz/rendering/Material.hh:47</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_aebb02ab276073badf4fc0575f038d3a3"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#aebb02ab276073badf4fc0575f038d3a3">ignition::rendering::BaseVisual::Material</a></div><div class="ttdeci">virtual MaterialPtr Material() override</div><div class="ttdoc">Get the material assigned to attached visuals and geometries.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:268</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Pose3_html_a33b7dcc502aae627fbc56bcfecf33af1"><div class="ttname"><a href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html#a33b7dcc502aae627fbc56bcfecf33af1">ignition::math::Pose3::IsFinite</a></div><div class="ttdeci">bool IsFinite() const</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_a5fa1ace170b2faa145592439c67ac046"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#a5fa1ace170b2faa145592439c67ac046">ignition::rendering::BaseVisual::SetChildMaterial</a></div><div class="ttdeci">virtual void SetChildMaterial(MaterialPtr _material, bool _unique=true) override</div><div class="ttdoc">Set the material for all attached visuals only.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:231</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseVisual_html_a7726c6f075425d51820db9f55c653ff7"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseVisual.html#a7726c6f075425d51820db9f55c653ff7">ignition::rendering::BaseVisual::~BaseVisual</a></div><div class="ttdeci">virtual ~BaseVisual()</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseVisual.hh:120</div></div>
+<div class="ttc" id="agz_2rendering_2Storage_8hh_html"><div class="ttname"><a href="gz_2rendering_2Storage_8hh.html">Storage.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Pose3_html_a08a46aadf6b4011d64cce9020fdb68b7"><div class="ttname"><a href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Pose3.html#a08a46aadf6b4011d64cce9020fdb68b7">ignition::math::Pose3::Rot</a></div><div class="ttdeci">Quaternion&lt; T &gt; &amp; Rot()</div></div>
+      </div>
+    </main>
+  </div>
+</body>

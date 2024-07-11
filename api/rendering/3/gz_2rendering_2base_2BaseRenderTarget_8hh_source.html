@@ -1,0 +1,535 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Rendering">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Rendering: BaseRenderTarget.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Rendering</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        3.7.2
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 IgnCreateDocs.cmake -->
+      <nav class="ign-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.8.17 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_68720addb28ee8f762a8d1f55de1ba53.html">gz-rendering</a></li><li class="navelem"><a class="el" href="dir_ccc1703edcd2aae520499aaef06b68cb.html">include</a></li><li class="navelem"><a class="el" href="dir_42a5c6856abc46d6a330192debb6d004.html">gz</a></li><li class="navelem"><a class="el" href="dir_5269ccce336193d47739569941971412.html">rendering</a></li><li class="navelem"><a class="el" href="dir_bf8d1403b850d669fe2a43383d7c7814.html">base</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">gz/rendering/base/BaseRenderTarget.hh</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="gz_2rendering_2base_2BaseRenderTarget_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment"> * Copyright (C) 2015 Open Source Robotics Foundation</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef GZ_RENDERING_BASE_BASERENDERTARGET_HH_</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define GZ_RENDERING_BASE_BASERENDERTARGET_HH_</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2RenderPass_8hh.html">gz/rendering/RenderPass.hh</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2RenderTarget_8hh.html">gz/rendering/RenderTarget.hh</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2Scene_8hh.html">gz/rendering/Scene.hh</a>&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="gz_2rendering_2base_2BaseRenderTypes_8hh.html">gz/rendering/base/BaseRenderTypes.hh</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition.html">ignition</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">namespace </span>rendering</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">inline</span> <span class="keyword">namespace </span>IGNITION_RENDERING_VERSION_NAMESPACE {</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">//</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html">   35</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classignition_1_1rendering_1_1BaseRenderTarget.html">BaseRenderTarget</a> :</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> <a class="code" href="classignition_1_1rendering_1_1RenderTarget.html">RenderTarget</a>,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> T</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1rendering_1_1BaseRenderTarget.html">BaseRenderTarget</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> ~<a class="code" href="classignition_1_1rendering_1_1BaseRenderTarget.html">BaseRenderTarget</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> PreRender() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> PostRender() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Width() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetWidth(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _width) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> Height() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetHeight(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _height) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code" href="namespaceignition_1_1rendering.html#a60883d4958a60b91661e97027a85072a">PixelFormat</a> Format() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetFormat(<a class="code" href="namespaceignition_1_1rendering.html#a60883d4958a60b91661e97027a85072a">PixelFormat</a> _format) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Color.html">math::Color</a> BackgroundColor() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> AddRenderPass(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">RenderPassPtr</a> &amp;_pass) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> RemoveRenderPass(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">RenderPassPtr</a> &amp;_pass)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;          <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> RenderPassCount() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">RenderPassPtr</a> RenderPassByIndex(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _index)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;          <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> Rebuild();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> RebuildImpl() = 0;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a66a9a92335243033aaf7ac4bd401f78f">   82</a></span>&#160;      <span class="keyword">protected</span>: <a class="code" href="namespaceignition_1_1rendering.html#a60883d4958a60b91661e97027a85072a">PixelFormat</a> format = <a class="code" href="namespaceignition_1_1rendering.html#a60883d4958a60b91661e97027a85072aace843cbed51441dcdfebc493cefbe673">PF_UNKNOWN</a>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a351d8d2446026641db6f31735757b019">   84</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">bool</span> targetDirty = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a6e09eac3bdaf602680137ccbfd097cbd">   87</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">bool</span> renderPassDirty = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#aca34d28e3d8bcbcadb8edb4e3af24f8c">   89</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> width = 0u;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#ab2e78c61905b4419fcc7b4cfc500fe85">   91</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> height = 0u;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#acb65ef767bcbc13b9b44fd0b3683656b">   94</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;RenderPassPtr&gt;</a> <a class="code" href="classignition_1_1rendering_1_1BaseRenderTarget.html#acb65ef767bcbc13b9b44fd0b3683656b">renderPasses</a>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    };</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTexture.html">   98</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classignition_1_1rendering_1_1BaseRenderTexture.html">BaseRenderTexture</a> :</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> <a class="code" href="classignition_1_1rendering_1_1RenderTexture.html">RenderTexture</a>,</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> T</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    {</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1rendering_1_1BaseRenderTexture.html">BaseRenderTexture</a>();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> ~<a class="code" href="classignition_1_1rendering_1_1BaseRenderTexture.html">BaseRenderTexture</a>();</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="comment">// Documentation inherited.</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> GLId() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    };</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderWindow.html">  111</a></span>&#160;    <span class="keyword">class </span><a class="code" href="classignition_1_1rendering_1_1BaseRenderWindow.html">BaseRenderWindow</a> :</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> <a class="code" href="classignition_1_1rendering_1_1RenderWindow.html">RenderWindow</a>,</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      <span class="keyword">public</span> <span class="keyword">virtual</span> T</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1rendering_1_1BaseRenderWindow.html">BaseRenderWindow</a>();</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> ~<a class="code" href="classignition_1_1rendering_1_1BaseRenderWindow.html">BaseRenderWindow</a>();</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> Handle() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetHandle(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_handle);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> DevicePixelRatio() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetDevicePixelRatio(<span class="keyword">const</span> <span class="keywordtype">double</span> _ratio);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> OnResize(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _width,</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;                  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _height);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> OnMove();</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderWindow.html#a2d4794477f7a225690f3aaa688954959">  132</a></span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> <a class="code" href="classignition_1_1rendering_1_1BaseRenderWindow.html#a2d4794477f7a225690f3aaa688954959">handle</a>;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderWindow.html#aa422b0077d0c570937a73aa5b8eb4440">  134</a></span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">double</span> ratio = 1.0;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    };</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;    <span class="comment">// BaseRenderTarget</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="comment"></span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a8c34ede4b96d47d16d26ed10f5825b9b">  141</a></span>&#160;    <a class="code" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a8c34ede4b96d47d16d26ed10f5825b9b">BaseRenderTarget&lt;T&gt;::BaseRenderTarget</a>()</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    {</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    }</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#aac86f88c0d522359ef0ee5a33f4faef8">  147</a></span>&#160;    <a class="code" href="classignition_1_1rendering_1_1BaseRenderTarget.html#aac86f88c0d522359ef0ee5a33f4faef8">BaseRenderTarget&lt;T&gt;::~BaseRenderTarget</a>()</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    {</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    }</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a2a062fe0fd3c5f4d771563834e4be9c6">  153</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a2a062fe0fd3c5f4d771563834e4be9c6">BaseRenderTarget&lt;T&gt;::PreRender</a>()</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    {</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;      T::PreRender();</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      this-&gt;Rebuild();</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;pass : this-&gt;renderPasses)</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;        pass-&gt;PreRender();</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#ad4c7af6b36e2b91213c6f3afaeceb879">  163</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseRenderTarget.html#ad4c7af6b36e2b91213c6f3afaeceb879">BaseRenderTarget&lt;T&gt;::PostRender</a>()</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    {</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;      T::PostRender();</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    }</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#afc899f9edd398e7654fe22627d3327f7">  170</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseRenderTarget.html#afc899f9edd398e7654fe22627d3327f7">BaseRenderTarget&lt;T&gt;::Rebuild</a>()</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    {</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;      <span class="keywordflow">if</span> (this-&gt;targetDirty)</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;      {</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        this-&gt;RebuildImpl();</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        this-&gt;targetDirty = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;      }</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    }</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#acf4417ca1a33616804be890cb1b072c7">  181</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classignition_1_1rendering_1_1BaseRenderTarget.html#acf4417ca1a33616804be890cb1b072c7">BaseRenderTarget&lt;T&gt;::Width</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;      <span class="keywordflow">return</span> this-&gt;width;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;    }</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a593c7dcf2cc8c1a2443cbb0b538b73b9">  188</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a593c7dcf2cc8c1a2443cbb0b538b73b9">BaseRenderTarget&lt;T&gt;::SetWidth</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _width)</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    {</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;      this-&gt;width = _width;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;      this-&gt;targetDirty = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    }</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00196"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#aa81031e09e2645a87a05f23a185948f1">  196</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classignition_1_1rendering_1_1BaseRenderTarget.html#aa81031e09e2645a87a05f23a185948f1">BaseRenderTarget&lt;T&gt;::Height</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;      <span class="keywordflow">return</span> this-&gt;height;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    }</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#ab4ad85de4199616c2c24159df56210df">  203</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseRenderTarget.html#ab4ad85de4199616c2c24159df56210df">BaseRenderTarget&lt;T&gt;::SetHeight</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _height)</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    {</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;      this-&gt;height = _height;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;      this-&gt;targetDirty = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    }</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00211"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a06ca379f137974f341ca1d8023218141">  211</a></span>&#160;    <a class="code" href="namespaceignition_1_1rendering.html#a60883d4958a60b91661e97027a85072a">PixelFormat</a> <a class="code" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a06ca379f137974f341ca1d8023218141">BaseRenderTarget&lt;T&gt;::Format</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;      <span class="keywordflow">return</span> this-&gt;format;</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;    }</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00218"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a84847c63f10c28e279db831df0e43722">  218</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a84847c63f10c28e279db831df0e43722">BaseRenderTarget&lt;T&gt;::SetFormat</a>(<a class="code" href="namespaceignition_1_1rendering.html#a60883d4958a60b91661e97027a85072a">PixelFormat</a> _format)</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    {</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;      this-&gt;format = <a class="code" href="classignition_1_1rendering_1_1PixelUtil.html#a299151628d42c0e3f1bbc197781fc779">PixelUtil::Sanitize</a>(_format);</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;      this-&gt;targetDirty = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    }</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00226"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#ab0fd24679d0e9d4c7f2f3ff6a0e10a98">  226</a></span>&#160;    <a class="codeRef" href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Color.html">math::Color</a> <a class="code" href="classignition_1_1rendering_1_1BaseRenderTarget.html#ab0fd24679d0e9d4c7f2f3ff6a0e10a98">BaseRenderTarget&lt;T&gt;::BackgroundColor</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;      <span class="keywordflow">return</span> this-&gt;<a class="code" href="classignition_1_1rendering_1_1Scene.html">Scene</a>()-&gt;<a class="code" href="classignition_1_1rendering_1_1Scene.html#a26091dd2571ab2486ec8cb9b535db1bd">BackgroundColor</a>();</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    }</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00233"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a0ebbac9e838781b4640c1e130d072820">  233</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a0ebbac9e838781b4640c1e130d072820">BaseRenderTarget&lt;T&gt;::AddRenderPass</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">RenderPassPtr</a> &amp;_pass)</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    {</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;      this-&gt;renderPasses.push_back(_pass);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;      this-&gt;renderPassDirty = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    }</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00241"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a01c970396c0167521d5ac5c298448214">  241</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a01c970396c0167521d5ac5c298448214">BaseRenderTarget&lt;T&gt;::RemoveRenderPass</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">RenderPassPtr</a> &amp;_pass)</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    {</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;      <span class="keyword">auto</span> it = <a class="codeRef" href="http://en.cppreference.com/w/cpp/algorithm/find.html">std::find</a>(this-&gt;renderPasses.begin(), this-&gt;renderPasses.end(),</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;          _pass);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;      <span class="keywordflow">if</span> (it != this-&gt;renderPasses.end())</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;      {</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;        (*it)-&gt;Destroy();</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;        this-&gt;renderPasses.erase(it);</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;        this-&gt;renderPassDirty = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      }</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    }</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00255"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a0d637fb2326106c54a11097f40e1e7c5">  255</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a0d637fb2326106c54a11097f40e1e7c5">BaseRenderTarget&lt;T&gt;::RenderPassCount</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      <span class="keywordflow">return</span> this-&gt;renderPasses.size();</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    }</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00262"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a8964f08b05c37cb9e2384d7ab823394f">  262</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">RenderPassPtr</a> <a class="code" href="classignition_1_1rendering_1_1BaseRenderTarget.html#a8964f08b05c37cb9e2384d7ab823394f">BaseRenderTarget&lt;T&gt;::RenderPassByIndex</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _index)<span class="keyword"></span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="keyword">        const</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;      <span class="keywordflow">if</span> (_index &gt; this-&gt;renderPasses.size())</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;      {</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;        <a class="codeRef" href="https://gazebosim.org/api/common/3/gz_2common_2Console_8hh.html#ab2bfcd13bf44fe6d8c2f19c530c10e28">ignerr</a> &lt;&lt; <span class="stringliteral">&quot;RenderPass index out of range: &quot;</span> &lt;&lt; _index &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;        <span class="keywordflow">return</span> <a class="code" href="namespaceignition_1_1rendering.html#ab078521fc0f74a5a382055db45c0f654">RenderPassPtr</a>();</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;      }</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;      <span class="keywordflow">return</span> this-&gt;renderPasses[_index];</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    }</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="comment">// BaseRenderTexture</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="comment"></span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00277"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTexture.html#ac3993d0c1a782848fcb311d455b368a3">  277</a></span>&#160;    <a class="code" href="classignition_1_1rendering_1_1BaseRenderTexture.html#ac3993d0c1a782848fcb311d455b368a3">BaseRenderTexture&lt;T&gt;::BaseRenderTexture</a>()</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    {</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    }</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00283"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTexture.html#aeb025f03b357955611640a7fd2f4b193">  283</a></span>&#160;    <a class="code" href="classignition_1_1rendering_1_1BaseRenderTexture.html#aeb025f03b357955611640a7fd2f4b193">BaseRenderTexture&lt;T&gt;::~BaseRenderTexture</a>()</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    {</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    }</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00289"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderTexture.html#a902543670f275d2644e9c10814c8abe1">  289</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code" href="classignition_1_1rendering_1_1BaseRenderTexture.html#a902543670f275d2644e9c10814c8abe1">BaseRenderTexture&lt;T&gt;::GLId</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;      <span class="keywordflow">return</span> 0u;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    }</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <span class="comment">// BaseRenderWindow</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="comment"></span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00298"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderWindow.html#ae8baf76ddefb02327ff0b05aabea7c33">  298</a></span>&#160;    <a class="code" href="classignition_1_1rendering_1_1BaseRenderWindow.html#ae8baf76ddefb02327ff0b05aabea7c33">BaseRenderWindow&lt;T&gt;::BaseRenderWindow</a>()</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    {</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    }</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160; </div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00304"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderWindow.html#a021457e31bc845c8f3d42bb438e7a408">  304</a></span>&#160;    <a class="code" href="classignition_1_1rendering_1_1BaseRenderWindow.html#a021457e31bc845c8f3d42bb438e7a408">BaseRenderWindow&lt;T&gt;::~BaseRenderWindow</a>()</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;    {</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;    }</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160; </div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00310"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderWindow.html#a42094719a059560082a1d0f5d6144f20">  310</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> <a class="code" href="classignition_1_1rendering_1_1BaseRenderWindow.html#a42094719a059560082a1d0f5d6144f20">BaseRenderWindow&lt;T&gt;::Handle</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;      <span class="keywordflow">return</span> this-&gt;handle;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    }</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00317"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderWindow.html#a7d1aa4097bb63dd30284ab1d43f3adb4">  317</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseRenderWindow.html#a7d1aa4097bb63dd30284ab1d43f3adb4">BaseRenderWindow&lt;T&gt;::SetHandle</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_handle)</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    {</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      this-&gt;handle = _handle;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;      this-&gt;targetDirty = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    }</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00325"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderWindow.html#ac0ac122f1a728c5f1e0d3f764b5015d6">  325</a></span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classignition_1_1rendering_1_1BaseRenderWindow.html#ac0ac122f1a728c5f1e0d3f764b5015d6">BaseRenderWindow&lt;T&gt;::DevicePixelRatio</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;      <span class="keywordflow">return</span> this-&gt;ratio;</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    }</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00332"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderWindow.html#a6cf0be5e13055cd7874941be509c84e1">  332</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseRenderWindow.html#a6cf0be5e13055cd7874941be509c84e1">BaseRenderWindow&lt;T&gt;::SetDevicePixelRatio</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> _ratio)</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    {</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;      this-&gt;ratio = _ratio;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;      this-&gt;targetDirty = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    }</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160; </div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00340"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderWindow.html#ac6aa7add885c435c4cb493d432a5526d">  340</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseRenderWindow.html#ac6aa7add885c435c4cb493d432a5526d">BaseRenderWindow&lt;T&gt;::OnResize</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _width,</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;        <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _height)</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    {</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;      this-&gt;width = _width;</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;      this-&gt;height = _height;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;      this-&gt;targetDirty = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;    }</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; </div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00350"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1BaseRenderWindow.html#a2d5e4bafa25f69d825d8de6399683ceb">  350</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classignition_1_1rendering_1_1BaseRenderWindow.html#a2d5e4bafa25f69d825d8de6399683ceb">BaseRenderWindow&lt;T&gt;::OnMove</a>()</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    {</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;      this-&gt;targetDirty = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    }</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    }</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;  }</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;}</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="agz_2rendering_2base_2BaseRenderTypes_8hh_html"><div class="ttname"><a href="gz_2rendering_2base_2BaseRenderTypes_8hh.html">BaseRenderTypes.hh</a></div></div>
+<div class="ttc" id="anamespaceignition_html"><div class="ttname"><a href="namespaceignition.html">ignition</a></div></div>
+<div class="ttc" id="abasic_string_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a></div><div class="ttdoc">STL class.</div></div>
+<div class="ttc" id="ashared_ptr_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr</a></div><div class="ttdoc">STL class.</div></div>
+<div class="ttc" id="aclassignition_1_1math_1_1Color_html"><div class="ttname"><a href="https://gazebosim.org/api/math/6/classignition_1_1math_1_1Color.html">ignition::math::Color</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderWindow_html_a021457e31bc845c8f3d42bb438e7a408"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderWindow.html#a021457e31bc845c8f3d42bb438e7a408">ignition::rendering::BaseRenderWindow::~BaseRenderWindow</a></div><div class="ttdeci">virtual ~BaseRenderWindow()</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:304</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_a01c970396c0167521d5ac5c298448214"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#a01c970396c0167521d5ac5c298448214">ignition::rendering::BaseRenderTarget::RemoveRenderPass</a></div><div class="ttdeci">virtual void RemoveRenderPass(const RenderPassPtr &amp;_pass) override</div><div class="ttdoc">Remove a render pass from the render target.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:241</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1RenderTexture_html"><div class="ttname"><a href="classignition_1_1rendering_1_1RenderTexture.html">ignition::rendering::RenderTexture</a></div><div class="ttdoc">Represents a off-screen render-texture to which cameras can render images.</div><div class="ttdef"><b>Definition:</b> gz/rendering/RenderTarget.hh:103</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_a0d637fb2326106c54a11097f40e1e7c5"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#a0d637fb2326106c54a11097f40e1e7c5">ignition::rendering::BaseRenderTarget::RenderPassCount</a></div><div class="ttdeci">virtual unsigned int RenderPassCount() const override</div><div class="ttdoc">Get the number of render passes applied to the render target.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:255</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderWindow_html_ae8baf76ddefb02327ff0b05aabea7c33"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderWindow.html#ae8baf76ddefb02327ff0b05aabea7c33">ignition::rendering::BaseRenderWindow::BaseRenderWindow</a></div><div class="ttdeci">BaseRenderWindow()</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:298</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTexture_html_ac3993d0c1a782848fcb311d455b368a3"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTexture.html#ac3993d0c1a782848fcb311d455b368a3">ignition::rendering::BaseRenderTexture::BaseRenderTexture</a></div><div class="ttdeci">BaseRenderTexture()</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:277</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderWindow_html_ac6aa7add885c435c4cb493d432a5526d"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderWindow.html#ac6aa7add885c435c4cb493d432a5526d">ignition::rendering::BaseRenderWindow::OnResize</a></div><div class="ttdeci">virtual void OnResize(const unsigned int _width, const unsigned int _height)</div><div class="ttdoc">Alert the window of a window resize event.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:340</div></div>
+<div class="ttc" id="anamespaceignition_1_1rendering_html_a60883d4958a60b91661e97027a85072a"><div class="ttname"><a href="namespaceignition_1_1rendering.html#a60883d4958a60b91661e97027a85072a">ignition::rendering::PixelFormat</a></div><div class="ttdeci">PixelFormat</div><div class="ttdoc">Image pixel format types.</div><div class="ttdef"><b>Definition:</b> gz/rendering/PixelFormat.hh:32</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_acb65ef767bcbc13b9b44fd0b3683656b"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#acb65ef767bcbc13b9b44fd0b3683656b">ignition::rendering::BaseRenderTarget::renderPasses</a></div><div class="ttdeci">std::vector&lt; RenderPassPtr &gt; renderPasses</div><div class="ttdoc">A chain of render passes applied to the render target.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:94</div></div>
+<div class="ttc" id="avector_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a></div><div class="ttdoc">STL class.</div></div>
+<div class="ttc" id="afind_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/algorithm/find.html">std::find</a></div><div class="ttdeci">T find(T... args)</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_a8964f08b05c37cb9e2384d7ab823394f"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#a8964f08b05c37cb9e2384d7ab823394f">ignition::rendering::BaseRenderTarget::RenderPassByIndex</a></div><div class="ttdeci">virtual RenderPassPtr RenderPassByIndex(unsigned int _index) const override</div><div class="ttdoc">Get a render pass by index.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:262</div></div>
+<div class="ttc" id="agz_2rendering_2RenderPass_8hh_html"><div class="ttname"><a href="gz_2rendering_2RenderPass_8hh.html">RenderPass.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1Scene_html_a26091dd2571ab2486ec8cb9b535db1bd"><div class="ttname"><a href="classignition_1_1rendering_1_1Scene.html#a26091dd2571ab2486ec8cb9b535db1bd">ignition::rendering::Scene::BackgroundColor</a></div><div class="ttdeci">virtual math::Color BackgroundColor() const =0</div><div class="ttdoc">Get the scene background color.</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1RenderWindow_html"><div class="ttname"><a href="classignition_1_1rendering_1_1RenderWindow.html">ignition::rendering::RenderWindow</a></div><div class="ttdoc">Represents a on-screen render-window to which cameras can render images.</div><div class="ttdef"><b>Definition:</b> gz/rendering/RenderTarget.hh:119</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTexture_html_a902543670f275d2644e9c10814c8abe1"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTexture.html#a902543670f275d2644e9c10814c8abe1">ignition::rendering::BaseRenderTexture::GLId</a></div><div class="ttdeci">virtual unsigned int GLId() const override</div><div class="ttdoc">Returns the OpenGL texture Id. A valid Id is returned only.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:289</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderWindow_html_a7d1aa4097bb63dd30284ab1d43f3adb4"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderWindow.html#a7d1aa4097bb63dd30284ab1d43f3adb4">ignition::rendering::BaseRenderWindow::SetHandle</a></div><div class="ttdeci">virtual void SetHandle(const std::string &amp;_handle)</div><div class="ttdoc">Set the window handle to attach the render window to.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:317</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_a2a062fe0fd3c5f4d771563834e4be9c6"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#a2a062fe0fd3c5f4d771563834e4be9c6">ignition::rendering::BaseRenderTarget::PreRender</a></div><div class="ttdeci">virtual void PreRender() override</div><div class="ttdoc">Prepare this object and any of its children for rendering. This should be called for each object in a...</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:153</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_a06ca379f137974f341ca1d8023218141"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#a06ca379f137974f341ca1d8023218141">ignition::rendering::BaseRenderTarget::Format</a></div><div class="ttdeci">virtual PixelFormat Format() const override</div><div class="ttdoc">Set the render target image format.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:211</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_ad4c7af6b36e2b91213c6f3afaeceb879"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#ad4c7af6b36e2b91213c6f3afaeceb879">ignition::rendering::BaseRenderTarget::PostRender</a></div><div class="ttdeci">virtual void PostRender() override</div><div class="ttdoc">Post process this object and any of its children after rendering.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:163</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_ab4ad85de4199616c2c24159df56210df"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#ab4ad85de4199616c2c24159df56210df">ignition::rendering::BaseRenderTarget::SetHeight</a></div><div class="ttdeci">virtual void SetHeight(const unsigned int _height) override</div><div class="ttdoc">Set the render target height in pixels.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:203</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_a0ebbac9e838781b4640c1e130d072820"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#a0ebbac9e838781b4640c1e130d072820">ignition::rendering::BaseRenderTarget::AddRenderPass</a></div><div class="ttdeci">virtual void AddRenderPass(const RenderPassPtr &amp;_pass) override</div><div class="ttdoc">Add a render pass to the render target.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:233</div></div>
+<div class="ttc" id="agz_2common_2Console_8hh_html_ab2bfcd13bf44fe6d8c2f19c530c10e28"><div class="ttname"><a href="https://gazebosim.org/api/common/3/gz_2common_2Console_8hh.html#ab2bfcd13bf44fe6d8c2f19c530c10e28">ignerr</a></div><div class="ttdeci">#define ignerr</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_ab0fd24679d0e9d4c7f2f3ff6a0e10a98"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#ab0fd24679d0e9d4c7f2f3ff6a0e10a98">ignition::rendering::BaseRenderTarget::BackgroundColor</a></div><div class="ttdeci">virtual math::Color BackgroundColor() const override</div><div class="ttdoc">Get the background color of the render target. This should be the same as the scene background color.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:226</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_aa81031e09e2645a87a05f23a185948f1"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#aa81031e09e2645a87a05f23a185948f1">ignition::rendering::BaseRenderTarget::Height</a></div><div class="ttdeci">virtual unsigned int Height() const override</div><div class="ttdoc">Get render target height in pixels.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:196</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1Scene_html"><div class="ttname"><a href="classignition_1_1rendering_1_1Scene.html">ignition::rendering::Scene</a></div><div class="ttdoc">Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....</div><div class="ttdef"><b>Definition:</b> gz/rendering/Scene.hh:48</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_ab2e78c61905b4419fcc7b4cfc500fe85"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#ab2e78c61905b4419fcc7b4cfc500fe85">ignition::rendering::BaseRenderTarget::height</a></div><div class="ttdeci">unsigned int height</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:91</div></div>
+<div class="ttc" id="agz_2rendering_2Scene_8hh_html"><div class="ttname"><a href="gz_2rendering_2Scene_8hh.html">Scene.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_afc899f9edd398e7654fe22627d3327f7"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#afc899f9edd398e7654fe22627d3327f7">ignition::rendering::BaseRenderTarget::Rebuild</a></div><div class="ttdeci">virtual void Rebuild()</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:170</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_acf4417ca1a33616804be890cb1b072c7"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#acf4417ca1a33616804be890cb1b072c7">ignition::rendering::BaseRenderTarget::Width</a></div><div class="ttdeci">virtual unsigned int Width() const override</div><div class="ttdoc">Get render target width in pixels.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:181</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_a66a9a92335243033aaf7ac4bd401f78f"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#a66a9a92335243033aaf7ac4bd401f78f">ignition::rendering::BaseRenderTarget::format</a></div><div class="ttdeci">PixelFormat format</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:82</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderWindow_html_a42094719a059560082a1d0f5d6144f20"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderWindow.html#a42094719a059560082a1d0f5d6144f20">ignition::rendering::BaseRenderWindow::Handle</a></div><div class="ttdeci">virtual std::string Handle() const</div><div class="ttdoc">Get the window handle that the render window is attached to.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:310</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1RenderTarget_html"><div class="ttname"><a href="classignition_1_1rendering_1_1RenderTarget.html">ignition::rendering::RenderTarget</a></div><div class="ttdoc">Represents a render-target to which cameras can render images.</div><div class="ttdef"><b>Definition:</b> gz/rendering/RenderTarget.hh:37</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_a593c7dcf2cc8c1a2443cbb0b538b73b9"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#a593c7dcf2cc8c1a2443cbb0b538b73b9">ignition::rendering::BaseRenderTarget::SetWidth</a></div><div class="ttdeci">virtual void SetWidth(const unsigned int _width) override</div><div class="ttdoc">Set the render target width in pixels.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:188</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderWindow_html_a6cf0be5e13055cd7874941be509c84e1"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderWindow.html#a6cf0be5e13055cd7874941be509c84e1">ignition::rendering::BaseRenderWindow::SetDevicePixelRatio</a></div><div class="ttdeci">virtual void SetDevicePixelRatio(const double _ratio)</div><div class="ttdoc">Set the device to pixel ratio.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:332</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTexture_html_aeb025f03b357955611640a7fd2f4b193"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTexture.html#aeb025f03b357955611640a7fd2f4b193">ignition::rendering::BaseRenderTexture::~BaseRenderTexture</a></div><div class="ttdeci">virtual ~BaseRenderTexture()</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:283</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_a8c34ede4b96d47d16d26ed10f5825b9b"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#a8c34ede4b96d47d16d26ed10f5825b9b">ignition::rendering::BaseRenderTarget::BaseRenderTarget</a></div><div class="ttdeci">BaseRenderTarget()</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:141</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1PixelUtil_html_a299151628d42c0e3f1bbc197781fc779"><div class="ttname"><a href="classignition_1_1rendering_1_1PixelUtil.html#a299151628d42c0e3f1bbc197781fc779">ignition::rendering::PixelUtil::Sanitize</a></div><div class="ttdeci">static PixelFormat Sanitize(PixelFormat _format)</div><div class="ttdoc">Sanitize given format. If the given value is invalid, PF_UNKNOWN will be returned,...</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_a6e09eac3bdaf602680137ccbfd097cbd"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#a6e09eac3bdaf602680137ccbfd097cbd">ignition::rendering::BaseRenderTarget::renderPassDirty</a></div><div class="ttdeci">bool renderPassDirty</div><div class="ttdoc">Flag to indicate if render pass need to be rebuilt.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:87</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderWindow_html_ac0ac122f1a728c5f1e0d3f764b5015d6"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderWindow.html#ac0ac122f1a728c5f1e0d3f764b5015d6">ignition::rendering::BaseRenderWindow::DevicePixelRatio</a></div><div class="ttdeci">virtual double DevicePixelRatio() const</div><div class="ttdoc">Get the device to pixel ratio.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:325</div></div>
+<div class="ttc" id="aendl_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a></div><div class="ttdeci">T endl(T... args)</div></div>
+<div class="ttc" id="agz_2rendering_2RenderTarget_8hh_html"><div class="ttname"><a href="gz_2rendering_2RenderTarget_8hh.html">RenderTarget.hh</a></div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html">ignition::rendering::BaseRenderTarget</a></div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:35</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_a351d8d2446026641db6f31735757b019"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#a351d8d2446026641db6f31735757b019">ignition::rendering::BaseRenderTarget::targetDirty</a></div><div class="ttdeci">bool targetDirty</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:84</div></div>
+<div class="ttc" id="anamespaceignition_1_1rendering_html_ab078521fc0f74a5a382055db45c0f654"><div class="ttname"><a href="namespaceignition_1_1rendering.html#ab078521fc0f74a5a382055db45c0f654">ignition::rendering::RenderPassPtr</a></div><div class="ttdeci">shared_ptr&lt; RenderPass &gt; RenderPassPtr</div><div class="ttdoc">Shared pointer to RenderPass.</div><div class="ttdef"><b>Definition:</b> gz/rendering/RenderTypes.hh:175</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderWindow_html_a2d4794477f7a225690f3aaa688954959"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderWindow.html#a2d4794477f7a225690f3aaa688954959">ignition::rendering::BaseRenderWindow::handle</a></div><div class="ttdeci">std::string handle</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:132</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_aca34d28e3d8bcbcadb8edb4e3af24f8c"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#aca34d28e3d8bcbcadb8edb4e3af24f8c">ignition::rendering::BaseRenderTarget::width</a></div><div class="ttdeci">unsigned int width</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:89</div></div>
+<div class="ttc" id="anamespaceignition_1_1rendering_html_a60883d4958a60b91661e97027a85072aace843cbed51441dcdfebc493cefbe673"><div class="ttname"><a href="namespaceignition_1_1rendering.html#a60883d4958a60b91661e97027a85072aace843cbed51441dcdfebc493cefbe673">ignition::rendering::PF_UNKNOWN</a></div><div class="ttdeci">@ PF_UNKNOWN</div><div class="ttdoc">&lt; Unknown or errant type</div><div class="ttdef"><b>Definition:</b> gz/rendering/PixelFormat.hh:35</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderWindow_html_a2d5e4bafa25f69d825d8de6399683ceb"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderWindow.html#a2d5e4bafa25f69d825d8de6399683ceb">ignition::rendering::BaseRenderWindow::OnMove</a></div><div class="ttdeci">virtual void OnMove()</div><div class="ttdoc">Alert the window of a window move event.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:350</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_aac86f88c0d522359ef0ee5a33f4faef8"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#aac86f88c0d522359ef0ee5a33f4faef8">ignition::rendering::BaseRenderTarget::~BaseRenderTarget</a></div><div class="ttdeci">virtual ~BaseRenderTarget()</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:147</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderWindow_html"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderWindow.html">ignition::rendering::BaseRenderWindow</a></div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:111</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_a84847c63f10c28e279db831df0e43722"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#a84847c63f10c28e279db831df0e43722">ignition::rendering::BaseRenderTarget::SetFormat</a></div><div class="ttdeci">virtual void SetFormat(PixelFormat _format) override</div><div class="ttdoc">Set the render target image format.</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:218</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderWindow_html_aa422b0077d0c570937a73aa5b8eb4440"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderWindow.html#aa422b0077d0c570937a73aa5b8eb4440">ignition::rendering::BaseRenderWindow::ratio</a></div><div class="ttdeci">double ratio</div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:134</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTexture_html"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTexture.html">ignition::rendering::BaseRenderTexture</a></div><div class="ttdef"><b>Definition:</b> gz/rendering/base/BaseRenderTarget.hh:98</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1BaseRenderTarget_html_a1581f3f1c19099d367ab80015874ace0"><div class="ttname"><a href="classignition_1_1rendering_1_1BaseRenderTarget.html#a1581f3f1c19099d367ab80015874ace0">ignition::rendering::BaseRenderTarget::RebuildImpl</a></div><div class="ttdeci">virtual void RebuildImpl()=0</div></div>
+      </div>
+    </main>
+  </div>
+</body>
