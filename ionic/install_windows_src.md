@@ -144,7 +144,7 @@ page to start using Gazebo!
 
 > **NOTE**
 > As Gazebo GUI is not yet working, running `gz sim` will not work. You can run only the server with
-> ```cmd
+> ```batch
 > gz sim -s -v
 > ```
 
@@ -152,7 +152,7 @@ page to start using Gazebo!
 > If your username contains spaces (which is quite common on Windows), you will probably get errors
 >  saying `Invalid partition name [Computer:My User With Spaces]`. Fix this by changing `GZ_PARTITION`
 >  to something else:
-> ```cmd
+> ```batch
 > set GZ_PARTITION=test
 > ```
 > Remember to set the same partition in all other consoles.

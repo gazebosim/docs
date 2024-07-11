@@ -98,9 +98,9 @@ versions that have the same major number (`gz-sim7_7.0.0`, `gz-sim7_7.1.0`,
 `gz-sim7_7.0.1`, ...) are binary compatible and thus interchangeable with a
 given ROS distro.
 
-## Installing Gazebo
+### Installing Gazebo
 
-### Gazebo Packages for Ubuntu
+#### Gazebo Packages for Ubuntu
 
 The easiest way of installing Gazebo on Ubuntu is to use binary packages. There
 are two main repositories that host Gazebo simulator and Gazebo libraries: one
@@ -254,7 +254,7 @@ Getting the latest versions of the Gazebo libraries and simulator is as easy
 as installing the [`osrfoundation.org` repository](https://gazebosim.org/docs/latest/install_ubuntu_src#install-dependencies)
 together with the ROS repository. Updates should be fully compatible.
 
-## FAQ
+### FAQ
 
 #### I am not using ROS at all, which version should I use?
 

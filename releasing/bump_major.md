@@ -1,3 +1,6 @@
+---
+orphan: true
+---
 # Bump major versions
 
 > WARNING: this document is no more than a list of steps. Check with the infra-team

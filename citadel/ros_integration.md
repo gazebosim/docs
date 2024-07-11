@@ -96,4 +96,4 @@ The screenshot shows all the shell windows and their expected content
 (it was taken using ROS Melodic):
 
 
-![Ignition Transport images and ROS 1 rqt](../acropolis/images/bridge_image_exchange_ign-gazebo.png)
+![Ignition Transport images and ROS 1 rqt](img/bridge_image_exchange_ign-gazebo.png)
