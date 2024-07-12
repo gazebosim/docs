@@ -212,7 +212,7 @@ which allowed the gz-math macOS CI build to include the new dependency.
 To build a dependency from source using a custom branch on macOS, modify the formula
 of that dependency such that its primary `url` field contains the URL of the
 desired git repository, along with a `branch` field indicating the branch name,
-similar to [this line in this version of gz-launch7]([url](https://github.com/osrf/homebrew-simulation/blob/3124ce318717192865a6427f9472b60239face96/Formula/gz-launch7.rb#L4C3-L4C67)).
+similar to [this line in this version of gz-launch7](https://github.com/osrf/homebrew-simulation/blob/3124ce318717192865a6427f9472b60239face96/Formula/gz-launch7.rb#L4C3-L4C67).
 If a matching branch name that starts with `ci_matching_branch/` is used for both
 the homebrew-simulation branch and the desired repository, then it will use
 the dependency from the custom branch.
