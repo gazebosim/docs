@@ -30,6 +30,7 @@ When adding a `plugin` to an SDF file which does not currently contain one, the 
     </plugin>
 
     <!-- ... -->
+```
 
 ## IMU sensor
 
