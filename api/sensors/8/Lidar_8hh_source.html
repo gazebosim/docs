@@ -266,28 +266,30 @@
 <div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
 <div class="line"><a name="l00245"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Lidar.html#ada57b6c34208ef68071d9ba4976c5936">  245</a></span>&#160;      <span class="keyword">public</span>: uint32_t <a class="code" href="classgz_1_1sensors_1_1Lidar.html#ada57b6c34208ef68071d9ba4976c5936" title="Get the visibility mask.">VisibilityMask</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;      GZ_UTILS_WARN_IGNORE__DLL_INTERFACE_MISSING</div>
-<div class="line"><a name="l00249"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Lidar.html#aca2b50b4d50c5aa34f20ea9615e984b5">  249</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">mutable</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/thread/mutex.html">std::mutex</a> <a class="code" href="classgz_1_1sensors_1_1Lidar.html#aca2b50b4d50c5aa34f20ea9615e984b5" title="Just a mutex for thread safety.">lidarMutex</a>;</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      GZ_UTILS_WARN_RESUME__DLL_INTERFACE_MISSING</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
-<div class="line"><a name="l00253"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Lidar.html#a541161c291665b3f5271c31366114ecc">  253</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">float</span> *laserBuffer = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
-<div class="line"><a name="l00256"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Lidar.html#aedeffc7d23da25d52b9a50045189fe2b">  256</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> initialized = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
-<div class="line"><a name="l00265"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Lidar.html#a86fe16eeb6d5cd0658169ea1b8da2037">  265</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> gz::common::ConnectionPtr <a class="code" href="classgz_1_1sensors_1_1Lidar.html#a86fe16eeb6d5cd0658169ea1b8da2037" title="Set a callback to be called when data is generated.">ConnectNewLidarFrame</a>(</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;          <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a>&lt;<span class="keywordtype">void</span>(<span class="keyword">const</span> <span class="keywordtype">float</span> *_scan, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _width,</div>
-<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;                  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _heighti, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _channels,</div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;                  <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;<span class="comment">/*_format*/</span>)&gt; _subscriber);</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; </div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;      GZ_UTILS_WARN_IGNORE__DLL_INTERFACE_MISSING</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;      <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;LidarPrivate&gt;</a> dataPtr;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;      GZ_UTILS_WARN_RESUME__DLL_INTERFACE_MISSING</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    };</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    }</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  }</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;}</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; </div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      <span class="keyword">private</span>: <span class="keywordtype">double</span> Clamp(<span class="keywordtype">double</span> _range) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;      GZ_UTILS_WARN_IGNORE__DLL_INTERFACE_MISSING</div>
+<div class="line"><a name="l00256"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Lidar.html#aca2b50b4d50c5aa34f20ea9615e984b5">  256</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">mutable</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/thread/mutex.html">std::mutex</a> <a class="code" href="classgz_1_1sensors_1_1Lidar.html#aca2b50b4d50c5aa34f20ea9615e984b5" title="Just a mutex for thread safety.">lidarMutex</a>;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;      GZ_UTILS_WARN_RESUME__DLL_INTERFACE_MISSING</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
+<div class="line"><a name="l00260"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Lidar.html#a541161c291665b3f5271c31366114ecc">  260</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">float</span> *laserBuffer = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
+<div class="line"><a name="l00263"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Lidar.html#aedeffc7d23da25d52b9a50045189fe2b">  263</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> initialized = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; </div>
+<div class="line"><a name="l00272"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Lidar.html#a86fe16eeb6d5cd0658169ea1b8da2037">  272</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> gz::common::ConnectionPtr <a class="code" href="classgz_1_1sensors_1_1Lidar.html#a86fe16eeb6d5cd0658169ea1b8da2037" title="Set a callback to be called when data is generated.">ConnectNewLidarFrame</a>(</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;          <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a>&lt;<span class="keywordtype">void</span>(<span class="keyword">const</span> <span class="keywordtype">float</span> *_scan, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _width,</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;                  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _heighti, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _channels,</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;                  <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;<span class="comment">/*_format*/</span>)&gt; _subscriber);</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      GZ_UTILS_WARN_IGNORE__DLL_INTERFACE_MISSING</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;      <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;LidarPrivate&gt;</a> dataPtr;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      GZ_UTILS_WARN_RESUME__DLL_INTERFACE_MISSING</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    };</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    }</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  }</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;}</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; </div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
       </div>
     </main>
