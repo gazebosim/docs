@@ -167,62 +167,70 @@
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="gz_2physics_2Feature_8hh.html">gz/physics/Feature.hh</a>&gt;</span></div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition.html">ignition</a></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keyword">namespace </span>physics</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">namespace </span>detail</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;      <span class="comment">// Forward declarations</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;      <span class="keyword">template</span> &lt;<span class="keyword">typename</span>...&gt; <span class="keyword">struct </span>CombineLists;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;      <span class="keyword">template</span> &lt;bool, <span class="keyword">typename</span>...&gt; <span class="keyword">struct </span>SelfConflict;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;      <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">struct </span>IterateTuple;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... FeaturesT&gt;</div>
-<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1FeatureList.html">   51</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1FeatureList.html">FeatureList</a> : detail::IterateTuple&lt;std::tuple&lt;FeaturesT...&gt;&gt;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    {</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <span class="keyword">public</span>: <span class="keyword">using</span> <a class="code" href="structignition_1_1physics_1_1FeatureList.html#a65565a72606524f7a401261ff102a898">Features</a> =</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1FeatureList.html#a65565a72606524f7a401261ff102a898">   58</a></span>&#160;          <span class="keyword">typename</span> detail::CombineLists&lt;FeaturesT...&gt;::Result;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1FeatureList.html#ad3c3613403b35d4ef058fd693b98147c">   60</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">using</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/tuple.html">FeatureTuple</a> = <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/tuple.html">std::tuple</a>&lt;FeaturesT...&gt;;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span> &lt;<span class="keyword">typename</span> F&gt;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> <a class="code" href="structignition_1_1physics_1_1FeatureList.html#a7f9dc5552780c297db001979bb905f13">HasFeature</a>();</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#if defined(_MSC_VER)</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#pragma warning(push)</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#pragma warning(disable: 4584)</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#endif  // defined(_MSC_VER)</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition.html">ignition</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">namespace </span>physics</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">namespace </span>detail</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="comment">// Forward declarations</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keyword">template</span> &lt;<span class="keyword">typename</span>...&gt; <span class="keyword">struct </span>CombineLists;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <span class="keyword">template</span> &lt;bool, <span class="keyword">typename</span>...&gt; <span class="keyword">struct </span>SelfConflict;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">struct </span>IterateTuple;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... FeaturesT&gt;</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1FeatureList.html">   61</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1FeatureList.html">FeatureList</a> : detail::IterateTuple&lt;std::tuple&lt;FeaturesT...&gt;&gt;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="keyword">public</span>: <span class="keyword">using</span> <a class="code" href="structignition_1_1physics_1_1FeatureList.html#a65565a72606524f7a401261ff102a898">Features</a> =</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1FeatureList.html#a65565a72606524f7a401261ff102a898">   68</a></span>&#160;          <span class="keyword">typename</span> detail::CombineLists&lt;FeaturesT...&gt;::Result;</div>
 <div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span> &lt;<span class="keyword">typename</span> SomeFeatureList,</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                        <span class="keywordtype">bool</span> AssertNoConflict = <span class="keyword">false</span>&gt;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> <a class="code" href="structignition_1_1physics_1_1FeatureList.html#a511435e48e4fbff2c77b90d582575265">ConflictsWith</a>();</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1FeatureList.html#af0fe658a8375578761c7cd5b0c1aaa4f">   89</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">using</span> <a class="code" href="structignition_1_1physics_1_1FeatureList.html#af0fe658a8375578761c7cd5b0c1aaa4f">RequiredFeatures</a> = void;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      <span class="comment">// Check that this FeatureList does not contain any self-conflicts.</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      static_assert(!detail::SelfConflict&lt;true, FeaturesT...&gt;::value,</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;          <span class="stringliteral">&quot;FeatureList ERROR: YOUR LIST CONTAINS CONFLICTING FEATURES!&quot;</span>);</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    };</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... ConflictingFeatures&gt;</div>
-<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1FeatureWithConflicts.html">  101</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1FeatureWithConflicts.html">FeatureWithConflicts</a>;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... RequiredFeatures&gt;</div>
-<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1FeatureWithRequirements.html">  108</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1FeatureWithRequirements.html">FeatureWithRequirements</a>;</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  }</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#include &lt;gz/physics/detail/FeatureList.hh&gt;</span></div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1FeatureList.html#ad3c3613403b35d4ef058fd693b98147c">   70</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">using</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/tuple.html">FeatureTuple</a> = <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/tuple.html">std::tuple</a>&lt;FeaturesT...&gt;;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span> &lt;<span class="keyword">typename</span> F&gt;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> <a class="code" href="structignition_1_1physics_1_1FeatureList.html#a7f9dc5552780c297db001979bb905f13">HasFeature</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span> &lt;<span class="keyword">typename</span> SomeFeatureList,</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;                        <span class="keywordtype">bool</span> AssertNoConflict = <span class="keyword">false</span>&gt;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      <span class="keyword">static</span> constexpr <span class="keywordtype">bool</span> <a class="code" href="structignition_1_1physics_1_1FeatureList.html#a511435e48e4fbff2c77b90d582575265">ConflictsWith</a>();</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1FeatureList.html#af0fe658a8375578761c7cd5b0c1aaa4f">   99</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">using</span> <a class="code" href="structignition_1_1physics_1_1FeatureList.html#af0fe658a8375578761c7cd5b0c1aaa4f">RequiredFeatures</a> = void;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      <span class="comment">// Check that this FeatureList does not contain any self-conflicts.</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      static_assert(!detail::SelfConflict&lt;true, FeaturesT...&gt;::value,</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;          <span class="stringliteral">&quot;FeatureList ERROR: YOUR LIST CONTAINS CONFLICTING FEATURES!&quot;</span>);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    };</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... ConflictingFeatures&gt;</div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1FeatureWithConflicts.html">  111</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1FeatureWithConflicts.html">FeatureWithConflicts</a>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... RequiredFeatures&gt;</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1FeatureWithRequirements.html">  118</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1FeatureWithRequirements.html">FeatureWithRequirements</a>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;}</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">#include &lt;gz/physics/detail/FeatureList.hh&gt;</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor">#if defined(_MSC_VER)</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;<span class="preprocessor">#pragma warning(pop)</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">#endif  // defined(_MSC_VER)</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#endif  // GZ_PHYSICS_FEATURELIST_HH_</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructignition_1_1physics_1_1FeatureWithRequirements_html"><div class="ttname"><a href="structignition_1_1physics_1_1FeatureWithRequirements.html">ignition::physics::FeatureWithRequirements</a></div><div class="ttdoc">If your feature is known to require any other features, then you should have your feature class inher...</div><div class="ttdef"><b>Definition:</b> gz/physics/FeatureList.hh:108</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1FeatureWithRequirements_html"><div class="ttname"><a href="structignition_1_1physics_1_1FeatureWithRequirements.html">ignition::physics::FeatureWithRequirements</a></div><div class="ttdoc">If your feature is known to require any other features, then you should have your feature class inher...</div><div class="ttdef"><b>Definition:</b> gz/physics/FeatureList.hh:118</div></div>
 <div class="ttc" id="anamespaceignition_html"><div class="ttname"><a href="namespaceignition.html">ignition</a></div></div>
-<div class="ttc" id="astructignition_1_1physics_1_1FeatureList_html_af0fe658a8375578761c7cd5b0c1aaa4f"><div class="ttname"><a href="structignition_1_1physics_1_1FeatureList.html#af0fe658a8375578761c7cd5b0c1aaa4f">ignition::physics::FeatureList&lt; GetEngineInfo, GetWorldFromEngine, GetModelFromWorld, GetNestedModelFromModel, GetLinkFromModel, GetJointFromModel, GetShapeFromLink &gt;::RequiredFeatures</a></div><div class="ttdeci">void RequiredFeatures</div><div class="ttdoc">All the features required by this FeatureList will be included in CombineLists.</div><div class="ttdef"><b>Definition:</b> gz/physics/FeatureList.hh:89</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1FeatureList_html_af0fe658a8375578761c7cd5b0c1aaa4f"><div class="ttname"><a href="structignition_1_1physics_1_1FeatureList.html#af0fe658a8375578761c7cd5b0c1aaa4f">ignition::physics::FeatureList&lt; GetEngineInfo, GetWorldFromEngine, GetModelFromWorld, GetNestedModelFromModel, GetLinkFromModel, GetJointFromModel, GetShapeFromLink &gt;::RequiredFeatures</a></div><div class="ttdeci">void RequiredFeatures</div><div class="ttdoc">All the features required by this FeatureList will be included in CombineLists.</div><div class="ttdef"><b>Definition:</b> gz/physics/FeatureList.hh:99</div></div>
 <div class="ttc" id="astructignition_1_1physics_1_1FeatureList_html_a511435e48e4fbff2c77b90d582575265"><div class="ttname"><a href="structignition_1_1physics_1_1FeatureList.html#a511435e48e4fbff2c77b90d582575265">ignition::physics::FeatureList::ConflictsWith</a></div><div class="ttdeci">static constexpr bool ConflictsWith()</div><div class="ttdoc">A static constexpr function which indicates whether any features in SomeFeatureList conflict with any...</div></div>
 <div class="ttc" id="atuple_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/tuple.html">std::tuple</a></div></div>
-<div class="ttc" id="astructignition_1_1physics_1_1FeatureList_html"><div class="ttname"><a href="structignition_1_1physics_1_1FeatureList.html">ignition::physics::FeatureList</a></div><div class="ttdoc">Use a FeatureList to aggregate a list of Features.</div><div class="ttdef"><b>Definition:</b> gz/physics/FeatureList.hh:51</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1FeatureList_html"><div class="ttname"><a href="structignition_1_1physics_1_1FeatureList.html">ignition::physics::FeatureList</a></div><div class="ttdoc">Use a FeatureList to aggregate a list of Features.</div><div class="ttdef"><b>Definition:</b> gz/physics/FeatureList.hh:61</div></div>
 <div class="ttc" id="agz_2physics_2Feature_8hh_html"><div class="ttname"><a href="gz_2physics_2Feature_8hh.html">Feature.hh</a></div></div>
 <div class="ttc" id="astructignition_1_1physics_1_1FeatureList_html_a7f9dc5552780c297db001979bb905f13"><div class="ttname"><a href="structignition_1_1physics_1_1FeatureList.html#a7f9dc5552780c297db001979bb905f13">ignition::physics::FeatureList::HasFeature</a></div><div class="ttdeci">static constexpr bool HasFeature()</div><div class="ttdoc">A static constexpr function which indicates whether a given Feature, F, is contained in this list.</div></div>
-<div class="ttc" id="astructignition_1_1physics_1_1FeatureWithConflicts_html"><div class="ttname"><a href="structignition_1_1physics_1_1FeatureWithConflicts.html">ignition::physics::FeatureWithConflicts</a></div><div class="ttdoc">If your feature is known to conflict with any other feature, then you should have your feature class ...</div><div class="ttdef"><b>Definition:</b> gz/physics/FeatureList.hh:101</div></div>
-<div class="ttc" id="astructignition_1_1physics_1_1FeatureList_html_a65565a72606524f7a401261ff102a898"><div class="ttname"><a href="structignition_1_1physics_1_1FeatureList.html#a65565a72606524f7a401261ff102a898">ignition::physics::FeatureList::Features</a></div><div class="ttdeci">typename detail::CombineLists&lt; FeaturesT... &gt;::Result Features</div><div class="ttdef"><b>Definition:</b> gz/physics/FeatureList.hh:58</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1FeatureWithConflicts_html"><div class="ttname"><a href="structignition_1_1physics_1_1FeatureWithConflicts.html">ignition::physics::FeatureWithConflicts</a></div><div class="ttdoc">If your feature is known to conflict with any other feature, then you should have your feature class ...</div><div class="ttdef"><b>Definition:</b> gz/physics/FeatureList.hh:111</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1FeatureList_html_a65565a72606524f7a401261ff102a898"><div class="ttname"><a href="structignition_1_1physics_1_1FeatureList.html#a65565a72606524f7a401261ff102a898">ignition::physics::FeatureList::Features</a></div><div class="ttdeci">typename detail::CombineLists&lt; FeaturesT... &gt;::Result Features</div><div class="ttdef"><b>Definition:</b> gz/physics/FeatureList.hh:68</div></div>
       </div>
     </main>
   </div>
