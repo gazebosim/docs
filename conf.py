@@ -32,7 +32,7 @@ from sphinx.config import Config
 sys.path.append(str(Path(__file__).parent))
 from base_conf import *  # noqa
 
-html_baseurl = f"{html_context['deploy_url']}/docs/latest"  # noqa
+html_baseurl = f"{html_context['deploy_url']}/docs/latest/"  # noqa
 
 html_context.update({
     "github_user": "gazebosim",
