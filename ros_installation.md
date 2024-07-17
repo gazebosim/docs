@@ -57,10 +57,12 @@ continued use.
 
 If you are planning on using a specific version of ROS and don't have a reason
 to use a specific version of Gazebo, we recommend using the default version of
-Gazebo available from the ROS repository when installing `ros_gz`. The following
-command will install the correct version of Gazebo and `ros_gz` for your ROS
-installation on a Linux system. You should replace `${ROS_DISTRO}` with your ROS
-distribution (e.g. `humble`, `rolling`,`foxy`, `noetic`, etc).
+Gazebo available from the ROS repository when installing `ros_gz`. You can find 
+instructions on adding the ROS repository to your system in the 
+[ROS documentation](https://docs.ros.org/en/humble/Installation/Alternatives/Ubuntu-Development-Setup.html#add-the-ros-2-apt-repository). 
+The following command will install the correct version of Gazebo and `ros_gz` 
+for your ROS installation on a Linux system. You should replace `${ROS_DISTRO}` 
+with your ROS distribution (e.g. `humble`, `rolling`,`foxy`, `noetic`, etc).
 
 ```bash
 sudo apt-get install ros-${ROS_DISTRO}-ros-gz
