@@ -82,4 +82,4 @@ conda uninstall libignition-<package_name> --channel conda-forge
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/citadel/troubleshooting)
+See [Troubleshooting](troubleshooting)

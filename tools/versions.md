@@ -17,7 +17,7 @@ How to read the columns:
 * **Gazebo Classic**: What Gazebo classic version requires as depedency that specific version (i.e. 9 for Gazebo 9).
 * **Gazebo**: What Gazebo version uses that specific version (i.e. B for Blueprint).
 * **Release date**: Release date for that specific version. TBD, to be decided, means that there aren't any current plans to release that version.
-* **EOL date**: Date of end of support. In general, each library's version is released as part of an [Gazebo release](https://gazebosim.org/docs/all/releases) and EOLs either with that Gazebo release, or with a later one. Libraries that are planned to be supported in the upcoming Gazebo release have a TBD EOL date because they may also be included in future releases. All EOL dates may be moved to a later date, but never to an earlier date.
+* **EOL date**: Date of end of support. In general, each library's version is released as part of an [Gazebo release](releases) and EOLs either with that Gazebo release, or with a later one. Libraries that are planned to be supported in the upcoming Gazebo release have a TBD EOL date because they may also be included in future releases. All EOL dates may be moved to a later date, but never to an earlier date.
 
 |Package|Version|Status|Ubuntu packages|OSRF packages|ROS packages|Gazebo Classic|Gazebo|Release date|EOL date|
 |---|---|---|---|---|---|---|---|---|---|

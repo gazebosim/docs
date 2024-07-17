@@ -173,7 +173,7 @@ colcon build --packages-select PACKAGE_NAME
 
 Visit [colcon documentation](https://colcon.readthedocs.io/en/released/#) to view more `colcon` build and test options.
 
-If there are no errors, all the binaries should be ready to use. You can check the [Troubleshooting](/docs/ionic/troubleshooting#ubuntu) section for errors.
+If there are no errors, all the binaries should be ready to use. You can check the [Troubleshooting](troubleshooting.md#ubuntu) section for errors.
 
 ## Using the workspace
 
@@ -191,7 +191,7 @@ Or in zsh:
 . ~/workspace/install/setup.zsh
 ```
 
-This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)
+This is the end of the source install instructions; head back to the [Getting started](getstarted)
 page to start using Gazebo!
 
 ## Uninstalling source-based install
@@ -216,7 +216,7 @@ the results you want:
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/ionic/troubleshooting#ubuntu)
+See [Troubleshooting](troubleshooting.md#ubuntu)
 
 ## QML Debugging
 

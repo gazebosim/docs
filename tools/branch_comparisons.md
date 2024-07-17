@@ -11,7 +11,7 @@ no pull requests need to be forward-ported.
 
 Otherwise, those branches could use a forward-port pull request.
 See the instructions on the
-[contributing guide](https://gazebosim.org/docs/all/contributing#process).
+[contributing guide](contributing.md#process).
 
 * **C**: Citadel
 * **E**: Edifice

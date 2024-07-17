@@ -4,9 +4,9 @@ This guide is an introduction to the Ignition Graphical User Interface (GUI).
 
 ## Prerequisites
 
-Before beginning, you should have [Ignition installed](/docs/blueprint/install).
-If you installed [from source](/docs/blueprint/install#option-3-source-installation-any-platform-)
-you will need to [source](/docs/blueprint/install#using-the-workspace) the workspace;
+Before beginning, you should have [Ignition installed](install).
+If you installed [from source](install.md#option-3-source-installation-any-platform)
+you will need to [source](install.md#using-the-workspace) the workspace;
 otherwise, you're good to go!
 
 Start by getting Ignition up and running with a sample world:
@@ -104,4 +104,4 @@ The function of the World Control options will become clearer once you begin man
 
 ## Next Up
 
-Now that you're comfortable with Ignition GUI navigation and terminology, let's start learning about more meaningful model interactions with the [Manipulating Models](/docs/blueprint/manipulating_models) tutorial.
+Now that you're comfortable with Ignition GUI navigation and terminology, let's start learning about more meaningful model interactions with the [Manipulating Models](manipulating_models) tutorial.

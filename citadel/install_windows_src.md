@@ -116,7 +116,7 @@ Run the following command to source the workspace:
 call install\setup.bat
 ```
 
-This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)
+This is the end of the source install instructions; head back to the [Getting started](getstarted)
 page to start using Ignition!
 
 ## Uninstalling source-based install
@@ -142,4 +142,4 @@ the results you want:
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/citadel/troubleshooting)
+See [Troubleshooting](troubleshooting)

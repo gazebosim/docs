@@ -6,7 +6,7 @@ This document covers all the CI jobs that are available for Gazebo and how to
 interpret their results.
 
 This documentation assumes you have gone over the
-[Contributing guide](https://gazebosim.org/docs/all/contributing) and
+[Contributing guide](contributing) and
 therefore are familiar with:
 
 * Opening pull requests

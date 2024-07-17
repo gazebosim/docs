@@ -4,7 +4,7 @@ This page details the set of past and planned releases.
 
 ## What is a Release?
 
-A release of Gazebo consists of a set of versioned [Gazebo Libraries](/libs). Each library follows [semantic versioning](https://semver.org), and the major version of a library is guaranteed not to change with an Gazebo release. This essentially means you can develop code against a release of Gazebo without the worry of breaking changes being made upstream.
+A release of Gazebo consists of a set of versioned [Gazebo Libraries](/libs){.external}. Each library follows [semantic versioning](https://semver.org){.external}, and the major version of a library is guaranteed not to change with an Gazebo release. This essentially means you can develop code against a release of Gazebo without the worry of breaking changes being made upstream.
 
 ### Naming Scheme
 

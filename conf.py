@@ -111,8 +111,12 @@ def config_init(app: Sphinx, config: Config):
 
     try:
         releases = load_releases(config.gz_root_index_file)
-        app.config.html_context["release_info"] = releases[config.gz_release]
+        release_info = releases[config.gz_release]
+        app.config.html_context["release_info"] = release_info
         app.config.html_context["preferred_release"] = get_preferred_release(releases)
+        if release_info.get('eol', False):
+            print(f"Disable nitpicky for {release_info['name']}")
+            app.config.nitpick_ignore_regex.append(("myst", r".*"))
 
     except KeyError as e:
         print(e)
