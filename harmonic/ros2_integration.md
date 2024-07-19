@@ -1,27 +1,24 @@
-# ROS 2 Integration
+# Use ROS 2 to interact with Gazebo
 
-In this tutorial we will learn how to Integrate ROS 2 with Gazebo. We will establish
-communication between them. This can help in many aspects; we can receive data or commands
-from ROS and apply it to Gazebo and vice versa.
+In this tutorial we will learn how to use ROS 2 to communicate with Gazebo. 
+This can help in many aspects; we can receive data (like joint states, TFs) or commands
+from ROS and apply it to Gazebo and vice versa. This can also help to enable RViz to visualize a robot model
+simulatenously simulated by a Gazebo world.
 
 ## ros_gz_bridge
 
-`ros_gz_bridge` provides a network bridge which enables the exchange of messages between ROS 2 and [Gazebo Transport](https://github.com/gazebosim/gz-transport). Its support is limited to only certain message types. Please, check this [README](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md) to verify if your message type is supported by the bridge.
+[`ros_gz_bridge`](https://github.com/gazebosim/ros_gz) provides a network bridge which enables the exchange of messages between ROS 2 and [Gazebo Transport](https://github.com/gazebosim/gz-transport). Its support is limited to only certain message types. Please, check this [README](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md) to verify if your message type is supported by the bridge.
 
-## Requirements
+Example uses of the bridge can be found in [`ros_gz_sim_demos`](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_sim_demos), including demo launch files with bridging of all major actuation and sensor types.
 
-Please follow the [Install Gazebo and ROS document](docs/latest/ros_installation)
-before starting this tutorial. A working installation of ROS 2 and Gazebo is
-required to go further.
+## Launching the bridge manually
 
-## Bidirectional communication
-
-We can initialize a bidirectional bridge so we can have ROS as the publisher and Gazebo as the subscriber or vice versa.
+We can initialize a bidirectional bridge so we can have ROS as the publisher and Gazebo as the subscriber or vice versa. The syntax is `/TOPIC@ROS_MSG@GZ_MSG`, such that `TOPIC` is the Gazebo internal topic, `ROS_MSG` is the ROS message type for this topic, and `GZ_MSG` is the Gazebo message type.
 
 For example:
 
 ```
-ros2 run ros_gz_bridge parameter_bridge /TOPIC@ROS_MSG@GZ_MSG
+ros2 run ros_gz_bridge parameter_bridge /scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan
 ```
 
 The `ros2 run ros_gz_bridge parameter_bridge` command simply runs the `parameter_bridge` code from the `ros_gz_bridge` package. Then, we specify our topic `/TOPIC` over which the messages will be sent. The first `@` symbol delimits the topic name from the message types. Following the first `@` symbol is the ROS message type.
@@ -34,6 +31,77 @@ The ROS message type is followed by an `@`, `[`, or `]` symbol where:
 
 Have a look at these [examples]( https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md#example-1a-gazebo-transport-talker-and-ros-2-listener)
 explaining how to make communication connections from ROS to Gazebo and vice versa.
+
+It is also possible to use ROS Launch with the `ros_gz_bridge` and represent the topics in yaml format to be given to the bridge at launch time.
+
+```
+- ros_topic_name: "scan"
+  gz_topic_name: "/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "gz.msgs.LaserScan"
+  direction: GZ_TO_ROS  # BIDIRECTIONAL or ROS_TO_GZ
+```
+
+The configuration file is a YAML file that contains the mapping between the ROS
+and Gazebo topics to be bridged. For each pair of topics to be bridged, the
+following parameters are accepted:
+
+* `ros_topic_name`: The topic name on the ROS side.
+* `gz_topic_name`: The corresponding topic name on the Gazebo side.
+* `ros_type_name`: The type of this ROS topic.
+* `gz_type_name`: The type of this Gazebo topic.
+* `subscriber_queue`: The size of the ROS subscriber queue.
+* `publisher_queue`: The size of the ROS publisher queue.
+* `lazy`: Whether there's a lazy subscriber or not. If there's no real
+subscribers the bridge won't create the internal subscribers either. This should
+speedup performance.
+* `direction`: It's possible to specify `GZ_TO_ROS`, `ROS_TO_GZ` and
+`BIDIRECTIONAL`.
+
+See [this example](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/test/config/full.yaml)
+for a valid configuration file.
+
+## Launching the bridge using the launch files included in `ros_gz_bridge` package.
+
+The package `ros_gz_bridge` contains a launch file named
+`ros_gz_bridge.launch.py`. You can use it to start a ROS 2 and Gazebo bridge.
+Here's an example:
+
+```bash
+ros2 launch ros_gz_bridge ros_gz_bridge.launch.py name:=ros_gz_bridge config_file:=<path_to_your_YAML_file>
+```
+
+## Launching the bridge from a custom launch file.
+
+It's also possible to trigger the bridge from your custom launch file. For that
+purpose we have created the `<ros_gz_bridge/>` tag that can be used from you
+XML or YAML launch file. In this case, the arguments are passed as attributes
+within this tag. Here's an example:
+
+```xml
+<launch>
+  <arg name="name" default="ros_gz_bridge" />
+  <arg name="config_file" default="" />
+  <arg name="container_name" default="ros_gz_container" />
+  <arg name="namespace" default="" />
+  <arg name="use_composition" default="True" />
+  <arg name="use_respawn" default="False" />
+  <arg name="log_level" default="info" />
+  <ros_gz_bridge 
+    name="$(var name)"
+    config_file="$(var config_file)"
+    container_name="$(var container_name)"
+    namespace="$(var namespace)"
+    use_composition="$(var use_composition)"
+    use_respawn="$(var use_respawn)"
+    log_level="$(var log_level)">
+  </ros_gz_bridge>
+</launch>
+```
+
+In this case the `<ros_gz_bridge>` parameters are read from the command line.
+That's an option but not strictly necessary as you could decide to hardcode some
+of the values.
 
 ## Publish key strokes to ROS
 
@@ -81,3 +149,31 @@ Now it's your turn! Try to send data from ROS to Gazebo. You can also try differ
 A video walk-through of this tutorial is available from our YouTube channel: [Gazebo tutorials: ROS 2 Foxy integration](https://youtu.be/IpZTNyTp9t8).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/IpZTNyTp9t8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Visualize in RViz
+
+Take a step further and try out demos from [`ros_gz_sim_demos`](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_sim_demos).
+
+For the `sdf_parser` demo, install [`ros_gz`](https://github.com/gazebosim/ros_gz/tree/ros2) and the parser plugin `sdformat_urdf` from source in a colcon workspace.
+Read more about `sdformat_urdf` [here](https://github.com/ros/sdformat_urdf/blob/ros2/sdformat_urdf/README.md).
+
+Run the demo launch file with the rviz launch argument set:
+
+```bash
+ros2 launch ros_gz_sim_demos sdf_parser.launch.py rviz:=True
+```
+
+Start the simulation in Gazebo and wait a few seconds for TFs to be published.
+
+In another terminal, send either ROS or Gazebo commands for the vehicle to move in circles:
+
+```bash
+gz topic -t "/model/vehicle/cmd_vel" -m gz.msgs.Twist -p "linear: {x: 1.0}, angular: {z: -0.1}"
+ros2 topic pub /model/vehicle/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 5.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -0.1}}
+```
+
+And verify the vehicle matching its trajectory in Gazebo and RViz.
+
+![gz_rviz](tutorials/ros2_integration/gz_rviz.gif)
+
+For more details on implementation of this demo see [ROS 2 Interoperability](ros2_interop).

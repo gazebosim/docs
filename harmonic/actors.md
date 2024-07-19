@@ -73,10 +73,10 @@ Animations that have displacement on the X axis, like `walk.dae`, will have the 
 We can make our actor follow the specified trajectory forever and start playing as soon as the world is loaded as follows:
 
 ```xml
-<script>
-    <loop>true</loop>
-    <delay_start>0.000000</delay_start>
-    <auto_start>true</auto_start>
+    <script>
+        <loop>true</loop>
+        <delay_start>0.000000</delay_start>
+        <auto_start>true</auto_start>
 ```
 
 The script is defined between the `<actor>` `</actor>` tags.

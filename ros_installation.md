@@ -4,7 +4,7 @@ This document provides guidance on using different versions
 of ROS in combination with different versions of Gazebo. We recommend reading
 it before installing [ros_gz](https://github.com/gazebosim/ros_gz).
 
-# Picking the "Correct" Versions of ROS & Gazebo
+## Picking the "Correct" Versions of ROS & Gazebo
 
 If this is your first time using ROS and Gazebo, and you are not following
 specific instructions or tutorials, we recommend using the latest long term
@@ -30,35 +30,39 @@ At the time of writing, our recommendation is that new users install:
 * [ROS 2 Humble Hawksbill](https://www.ros.org/reps/rep-2000.html#humble-hawksbill-may-2022-may-2027)
 * [Gazebo Fortress](https://gazebosim.org/docs/fortress/install)
 
-# Summary of Compatible ROS and Gazebo Combinations
+## Summary of Compatible ROS and Gazebo Combinations
 
 This table includes all currently supported versions of ROS and Gazebo. All
 other ROS and Gazebo releases are end of life and we do not recommend their
 continued use.
 
 
-|                         | **GZ Citadel (LTS)**  | **GZ Fortress (LTS)**   | **GZ Garden**   |
-|------------------------ |---------------------- |-----------------------  |---------------  |
-| **ROS 2 Rolling**       | ❌                    | ✅                      | ⚡               |
-| **ROS 2 Humble (LTS)**  | ❌                    | ✅                      | ⚡               |
-| **ROS 2 Foxy (LTS)**    | ✅                    | ❌                      | ❌              |
-| **ROS 1 Noetic (LTS)**  | ✅                    | ⚡                       | ❌              |
+|                           | **GZ Citadel (LTS)**  | **GZ Fortress (LTS)**   | **GZ Garden**   | **GZ Harmonic (LTS)**   |
+|---------------------------|---------------------- |-----------------------  |---------------  | ----------------------  |
+| **ROS 2 Jazzy (LTS)**     | ❌                    | ❌                      | ⚡              | ✅                      |
+| **ROS 2 Rolling**         | ❌                    | ✅                      | ⚡              | ⚡                      |
+| **ROS 2 Iron**            | ❌                    | ✅                      | ⚡              | ⚡                      |
+| **ROS 2 Humble (LTS)**    | ❌                    | ✅                      | ⚡              | ⚡                      |
+| **ROS 2 Foxy (LTS)**      | ✅                    | ❌                      | ❌              | ❌                      |
+| **ROS 1 Noetic (LTS)**    | ✅                    | ⚡                      | ❌              | ❌                      |
 
 
 * ✅ - Recommended combination
 * ❌ - Incompatible / not possible.
-* ⚡ - Possible, *but not recommended*. These combinations of ROS and Gazebo can
+* ⚡ - Possible, *but use with caution*. These combinations of ROS and Gazebo can
   be made to work together, but some effort is required.
 
 
-## Installing Gazebo with Older Versions of ROS
+## Installing the Default Gazebo/ROS Pairing
 
 If you are planning on using a specific version of ROS and don't have a reason
 to use a specific version of Gazebo, we recommend using the default version of
-Gazebo available from the ROS repository when installing `ros_gz`. The following
-command will install the correct version of Gazebo and `ros_gz` for your ROS
-installation on a Linux system. You should replace `${ROS_DISTRO}` with your ROS
-distribution (e.g. `humble`, `rolling`,`foxy`, etc).
+Gazebo available from the ROS repository when installing `ros_gz`. You can find 
+instructions on adding the ROS repository to your system in the 
+[ROS documentation](https://docs.ros.org/en/humble/Installation/Alternatives/Ubuntu-Development-Setup.html#add-the-ros-2-apt-repository). 
+The following command will install the correct version of Gazebo and `ros_gz` 
+for your ROS installation on a Linux system. You should replace `${ROS_DISTRO}` 
+with your ROS distribution (e.g. `humble`, `rolling`,`foxy`, `noetic`, etc).
 
 ```bash
 sudo apt-get install ros-${ROS_DISTRO}-ros-gz
@@ -67,13 +71,21 @@ sudo apt-get install ros-${ROS_DISTRO}-ros-gz
 This command will install the Gazebo libraries recommended for your ROS
 installation.
 
+### ROS 2 Gazebo Vendor packages
+
+As of ROS 2 Jazzy, Gazebo is available from the ROS package repository via
+vendor packages. If your package directly depends on a Gazebo library,
+instead of relying only on `ros_gz`, refer to
+[this documentation](ros2_gz_vendor_pkgs) to learn how to use the
+Gazebo vendor packages.
+
 <div class="warning">
 The rest of this document provides more information and other, alternative,
 installations pathways. We do not recommend the following approaches for new
 users.
 </div>
 
-# Specific ROS and Gazebo Pairings
+## Specific ROS and Gazebo Pairings
 
 Gazebo is an independent project like Boost, Ogre, and many other projects used
 by ROS. Usually, the latest version of Gazebo is available at the beginning of
@@ -88,9 +100,9 @@ versions that have the same major number (`gz-sim7_7.0.0`, `gz-sim7_7.1.0`,
 `gz-sim7_7.0.1`, ...) are binary compatible and thus interchangeable with a
 given ROS distro.
 
-## Installing Gazebo
+### Installing Gazebo
 
-### Gazebo Packages for Ubuntu
+#### Gazebo Packages for Ubuntu
 
 The easiest way of installing Gazebo on Ubuntu is to use binary packages. There
 are two main repositories that host Gazebo simulator and Gazebo libraries: one
@@ -101,65 +113,21 @@ of writing the following packages are available on the following hosts:
  * **packages.ros.org**
    * ROS1 Noetic: Gazebo Citadel
    * ROS2 Foxy: Gazebo Citadel
-   * ROS2 Galactic: Gazebo Edifice
    * ROS2 Humble: Gazebo Fortress
+   * ROS2 Iron: Gazebo Fortress
    * ROS2 Rolling: Gazebo Fortress (changing frequently)
 
  * **packages.osrfoundation.org**
    * Gazebo Citadel
-   * Gazebo Edifice
    * Gazebo Fortress
    * Gazebo Garden
+   * Gazebo Harmonic
 
 This means that including the `osrfoundation.org` repository is not strictly needed
 to get the Gazebo binary packages, as it can be installed from the ROS
 repository.
 
-## Installing the default Gazebo version for a ROS distribution using binary installations
-
-For users that need to run a specific version of ROS and want to use all
-the Gazebo ROS related packages out-of-the-box, taking
-the following approach is recommended:
-
-### ROS 2 Humble and ROS 2 Rolling
-
-* ROS 2 Humble and ROS 2 Rolling officially support Gazebo Fortress, meaning
-Fortress is the recommended version of Gazebo to use.
-* To install this combination of ROS and Gazebo first install ROS and then
-install either `ros-humble-ros-gz` and `ros-rolling-ros-gz` from
-`packages.ros.org`.
-* These packages will automatically install both Gazebo Fortress and the ros-gz
-bridge.
-
-### ROS 2 Galactic
-
-* **ROS 2 Galactic is presently end of life, and we do not recommend using this
-version of ROS.** However, if you must this version of ROS, it
-officially supports the also end of life Gazebo Edifice.
-* To install Gazebo Edifice simply install `ros-galactic-ros-gz`
-from `packages.ros.org`.
-* This package will automatically install both Gazebo
-Edifice and the ros-gz bridge.
-
-### ROS 2 Foxy
-
-* ROS 2 Foxy officially supports Gazebo Citadel, meaning the recommended version
-of Gazebo for ROS 2 Foxy is Citadel.
-* To install Gazebo Citadel with Foxy simply
-install `ros-foxy-ros-gz` from `packages.ros.org`.
-* This package will automatically install both Gazebo Citadel and the ros-gz
-  bridge.
-
-### ROS 1 Noetic
-
-* ROS Noetic officially supports Gazebo Citadel, meaning the recommended version
-of Gazebo for ROS Noetic is Citadel.
-* To install Gazebo Citadel with Noetic simply
-install `ros-noetic-ros-gz` from `packages.ros.org`.
-* This package will automatically install both Gazebo Citadel and the ros-gz
-  bridge.
-
-## Using a specific and unsupported Gazebo version with ROS 2
+## Installing Non-Default Gazebo/ROS 2 Pairings
 <div class="warning">
 <strong>Warning:</strong> Only use this approach if you absolutely need to run a
 version of Gazebo that is not officially supported by your ROS distro. Using
@@ -185,7 +153,45 @@ every ROS package that uses a Gazebo library):
 
 Both approaches may also require that you modify your ROS or Gazebo source code to support this compilation.
 
-### Gazebo Garden (Not Recommended)
+### 📦 Gazebo Harmonic with ROS 2 Humble, Iron or Rolling (Use with caution)
+
+Gazebo Harmonic can be used with ROS 2 Humble and non ROS official binary packages hosted
+in `packages.osrfoundation.org`. These packages conflict with `ros-humble-ros-gz*`
+packages (Humble officially supports Gazebo Fortress).
+
+To install the binary Gazebo Harmonic/ROS 2 Humble packages:
+
+ * Folow [these instruction to install gz-harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu#binary-installation-on-ubuntu)
+   from [`packages.osrfoundation.org`](https://packages.osrfoundation.org/gazebo/ubuntu/)
+   repository.
+ * Install `ros_gz` from the non official binary packages from apt:
+   * `apt-get install ros-humble-ros-gzharmonic`
+
+Gazebo Harmonic can be used with ROS 2 Iron and non ROS official binary packages hosted
+in `packages.osrfoundation.org`. These packages conflict with `ros-iron-ros-gz*`
+packages (Iron officially supports Gazebo Fortress).
+
+To install the binary Gazebo Harmonic/ROS 2 Iron packages:
+
+ * Folow [these instruction to install gz-harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu#binary-installation-on-ubuntu)
+   from [`packages.osrfoundation.org`](https://packages.osrfoundation.org/gazebo/ubuntu/)
+   repository.
+ * Install `ros_gz` from the non official binary packages from apt:
+   * `apt-get install ros-iron-ros-gzharmonic`
+
+Gazebo Harmonic can be used with ROS 2 Rolling but
+[`ros_gz`](https://github.com/gazebosim/ros_gz) will need to be compiled
+from source.
+
+ * Folow [these instruction to install gz-harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu#binary-installation-on-ubuntu)
+   from [`packages.osrfoundation.org`](https://packages.osrfoundation.org/gazebo/ubuntu/)
+   repository.
+ * Install [rosdep rules for Gazebo Harmonic](https://github.com/osrf/osrf-rosdep#installing-rosdep-rules-to-resolve-gazebo-harmonic-libraries)
+ * Follow the instructions to compile `ros_gz` from source in a colcon workspace
+   * [ROS 2 Rolling](https://github.com/gazebosim/ros_gz/tree/ros2#from-source)
+     * Be sure of using `export GZ_VERSION=harmonic`
+
+### 📦 Gazebo Garden with ROS 2 Humble, Iron or Rolling (Use with caution)
 
 Gazebo Garden can be used with ROS 2 Humble and non ROS official binary packages hosted
 in `packages.osrfoundation.org`. These packages conflict with `ros-humble-ros-gz*`
@@ -199,6 +205,18 @@ To install the binary Gazebo Garden/ROS 2 Humble packages:
  * Install `ros_gz` from the non official binary packages from apt:
    * `apt-get install ros-humble-ros-gzgarden`
 
+Gazebo Garden can be used with ROS 2 Iron and non ROS official binary packages hosted
+in `packages.osrfoundation.org`. These packages conflict with `ros-iron-ros-gz*`
+packages (Iron officially supports Gazebo Fortress).
+
+To install the binary Gazebo Garden/ROS 2 Iron packages:
+
+ * Folow [these instruction to install gz-garden](https://gazebosim.org/docs/garden/install_ubuntu#binary-installation-on-ubuntu)
+   from [`packages.osrfoundation.org`](https://packages.osrfoundation.org/gazebo/ubuntu/)
+   repository.
+ * Install `ros_gz` from the non official binary packages from apt:
+   * `apt-get install ros-iron-ros-gzgarden`
+
 Gazebo Garden can be used with ROS 2 Rolling but
 [`ros_gz`](https://github.com/gazebosim/ros_gz) will need to be compiled
 from source.
@@ -211,7 +229,7 @@ from source.
    * [ROS 2 Rolling](https://github.com/gazebosim/ros_gz/tree/ros2#from-source)
      * Be sure of using `export GZ_VERSION=garden`
 
-### Gazebo Fortress (Not Recommended)
+### 📦 Gazebo Fortress with ROS 2 Galactic or ROS 1 Noetic  (Not Recommended)
 
 Gazebo Fortress can be used with ROS 2 Galactic and ROS 1 Noetic by compiling
 [`ros_gz`](https://github.com/gazebosim/ros_gz) from source
@@ -226,23 +244,6 @@ source.
    * [ROS1 Noetic](https://github.com/gazebosim/ros_gz/tree/noetic#from-source)
      * Be sure of using `export GZ_VERSION=fortress`
 
-### Gazebo Edifice (Not Recommended)
-Gazebo Edifice is currently end of life, and its use is not recommeneded,
-However, Gazebo Edifice can be made to work with ROS 2 Foxy, ROS 2 Rolling and
-ROS 1 Noetic, by compiling
-[`ros_gz`](https://github.com/gazebosim/ros_gz) from source.
-
- * Folow [the instruction to install gz-edifice](https://gazebosim.org/docs/edifice/install_ubuntu#binary-installation-on-ubuntu)
-   from `osrfoundation.org` repository
- * Follow the instructions to compile `ros_gz` from source in a colcon workspace
-   * [ROS 2 Foxy](https://github.com/gazebosim/ros_gz/tree/foxy#from-source)
-     * Be sure of using `export GZ_VERSION=edifice`
-   * [ROS 2 Rolling](https://github.com/gazebosim/ros_gz/tree/ros2#from-source)
-     * Be sure of using `export GZ_VERSION=edifice`
-   * [ROS1 Noetic](https://github.com/gazebosim/ros_gz/tree/noetic#from-source)
-     * Be sure of using `export GZ_VERSION=edifice`
-
-
 ## Using the Latest Gazebo Source Code for a Gazebo Distribution
 
 The Gazebo team usually backports and releases new versions of each of the
@@ -255,7 +256,7 @@ Getting the latest versions of the Gazebo libraries and simulator is as easy
 as installing the [`osrfoundation.org` repository](https://gazebosim.org/docs/latest/install_ubuntu_src#install-dependencies)
 together with the ROS repository. Updates should be fully compatible.
 
-## FAQ
+### FAQ
 
 #### I am not using ROS at all, which version should I use?
 
@@ -263,11 +264,18 @@ If you don't need ROS support, the recommended version is the latest released
 version that can be [installed using the `osrfoundation.org` repo](https://gazebosim.org/docs)
 depending on your platform.
 
-#### I want to use Gazebo Garden with ROS. Where are the packages?
+#### I want to use Gazebo Harmonic or Gazebo Garden with ROS 2. Where are the packages?
 
-Unfortunately there are no Gazebo Garden packages for any ROS distribution. Please
-read how to compile it from source in this document under the section
-"[Using an specific Gazebo version with ROS2](https://staging.gazebosim.org/docs/garden/ros_installation#using-a-specific-and-unsupported-gazebo-version-with-ros-2)" >> "Gazebo Garden"
+We provide binary packages for `ros_gz` for the following Gazebo and ROS 2 pairings in the packages.osrfoundation.org repository
+but these packages are not official ROS packages, which means if there is a breaking change in the corresponding ROS 2 distribution,
+there will be a short delay before these packages are rebuilt with the changes. Installing these packages may also cause conflicts with
+other ROS packages that depend on Gazebo-classic.
+
+
+|                         | **Gazebo Garden**             | **Gazebo Harmonic (LTS)**   |
+|------------------------ |-----------------------------  | --------------------------  |
+| **ROS 2 Iron**          | `ros-iron-ros-gzgarden`       | `ros-iron-ros-gzharmonic`   |
+| **ROS 2 Humble (LTS)**  | `ros-humble-ros-gzgarden`     | `ros-humble-ros-gzharmonic` |
 
 #### Where I can find the different features implemented on each Gazebo version?
 

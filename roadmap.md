@@ -8,37 +8,43 @@ info@openrobotics.org.
 
 ## Quarterly Roadmap
 
-## 2023 Q1 (Jan - Mar) / Q2 (Apr - Jun) - ongoing
+## 2023 Q4 (Oct - Dec)
 
-* **Out-of-box experience**: Improve end-user experience
-    * [All open tickets](https://github.com/search?q=org%3Agazebosim+label%3A%22OOBE+%F0%9F%93%A6%E2%9C%A8%22&state=open&type=Issues)
-    * [Status](https://github.com/orgs/gazebosim/projects/1?card_filter_query=label%3A%22oobe+%F0%9F%93%A6%E2%9C%A8%22)
+* **Improve documentation website (gazebosim.org/docs)**
+    * Use a static site generator for the documentation website so that anyone can preview changes made in a PR. (https://github.com/gazebosim/docs/issues/85)
+    * Make doxygen tutorials from each library accessible on the main tutorials page on gazebosim.org/docs (https://github.com/gazebosim/docs/issues/55)
+    * Add new tutorials
+    * Copy/adapt tutorials from https://classic.gazebosim.org/tutorials
+    * Improve existing content
+    * Establish QA checklist for PRs in https://github.com/gazebosim/docs 
+* **Migrate from Qt5 to Qt6** (https://github.com/gazebosim/gz-gui/issues/586)
+* **Define platform dependencies and prepare for the new Ubuntu LTS 24.04 and the interaction with ROS 2 Jazzy.**
+* **Support nested models in Bullet-featherstone gz-physics engine plugin**
 
-* **APIs that ease migration from Gazebo-classic**
-    * Tickets: [gz-sim#325](https://github.com/gazebosim/gz-sim/issues/325), [gz-sim#85](https://github.com/gazebosim/gz-sim/issues/85)
+## 2024 Q1 (Jan - Mar)
 
-* **Provide infrastructure to generate bindings for gz-msg protos instead of packaging generated code**
-    * Tickets: Part of [gz-sim#494](https://github.com/gazebosim/gz-sim/issues/494), Related to: [gz-sim#36](https://github.com/gazebosim/gz-msgs/issues/36) and [gz-sim#113](https://github.com/gazebosim/gz-msgs/issues/113)
+* **Improve documentation website (gazebosim.org/docs)** (Continued from Q4/2023)
+* **Migrate from Qt5 to Qt6** (https://github.com/gazebosim/gz-gui/issues/586) (Continued from Q4/2023)
+* **Define platform dependencies and prepare for the new Ubuntu LTS 24.04 and the interaction with ROS 2 Jazzy.** (Continued from Q4/2023)
+* **Support nested models in Bullet-featherstone gz-physics engine plugin** (Continued from Q4/2023)
+* **Align ROS and Gazebo messages where possible**
+  * Make performance improvements to the `ros_gz` bridge
+* **Improve performance of Rendering Sensors (e.g., Lidar, Depth Cameras)**
+* **Set state of simulation in SDFormat (e.g. initial joint position and velocity)**
 
-* **Complete Python scripting capability with documentation and examples**
-    * Goals: 
-      * Ability to control simulation from python
-      * Ability to write system "plugins" in python
-      * Using Gazebo in a jupyter notebook
-    * Tickets: Part of [gz-sim#790](https://github.com/gazebosim/gz-sim/issues/790)
+## 2024 Q2 (Apr - Jun)
 
-## 2023 Q3 (Jul - Sept)
+* **Migrate from Qt5 to Qt6** (https://github.com/gazebosim/gz-gui/issues/586) (Continued from Q1/2024)
+* **Complete Bullet-featherstone implementation**
+* **Improve performance of Rendering Sensors (e.g., Lidar, Depth Cameras)** (Continued from Q1/2024)
+* **Create a third party plugin repository**
 
-* **Complete Python scripting capability with documentation and examples**
-    * Tickets: Part of [gz-sim#790](https://github.com/gazebosim/gz-sim/issues/790)
+## 2024 Q3 (July - Sep)
 
-* **Improve interoperability with ROS**
-    * Goals:
-      -  Make Joint state publisher work with SDF
-      -  Eliminate the need for having both URDF and SDF files in robot model packages
-      -  Create more documentation around ROS 2 launch and resources (eg. meshes)
-      -  Create a better workflow for creating custom message bridges other than forking the `ros_gz` repo. 
-      -  Events emitted by Gazebo to indicate completion of world/model loading.
+* **Create a third party plugin repository** (Continued from Q2/2024)
+* **Implement Mimic joints for DART**
+* **Prepare for release (feature freeze/code freeze)**
+* **Prepare and Run tutorial party**
 
 ## Feature Roadmap
 
@@ -56,8 +62,6 @@ compatible non-EOL release and propagate the feature forward.
 
 ### Citadel
 
-1. [Bash completion](https://github.com/gazebosim/gz-tools/issues/1)
-
 ### Fortress
 
 1. [Run server and client in the same process.](https://github.com/gazebosim/gz-sim/pull/793)
@@ -70,13 +74,13 @@ compatible non-EOL release and propagate the feature forward.
 ### Garden
 
 1. [Satisfying ASAN for Gazebo Math.](https://github.com/gazebosim/gz-math/issues/370)
-1. [Mimic joint type.](https://github.com/gazebosim/sdf_tutorials/pull/62)
 1. [SDF APIs to prevent console logging.](https://github.com/gazebosim/sdformat/issues/820)
 1. [Download Fuel models on the background](https://github.com/gazebosim/gz-sim/issues/1260)
 1. [Bazel build files.](https://github.com/gazebosim/gz-bazel)
-1. [Dynamic wrench application through the GUI (Mouse interaction with simulated models)](https://github.com/gazebosim/gz-sim/issues/306)
 
 ### Harmonic
+
+### Ionic
 
 See the [Quarterly Roadmap](/docs/all/roadmap#quarterly-roadmap) above.
 

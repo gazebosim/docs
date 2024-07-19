@@ -22,7 +22,20 @@ pages:
   - name: ros_installation
     title: ROS/Gazebo Installation
     file: ros_installation.md
-    description: Our development plans.
+    description: Ros and Gazebo options and combinations
+    children:
+      - name: ros2_gz_vendor_pkgs
+        title: ROS 2 Gazebo Vendor Packages
+        file: ros2_gz_vendor_pkgs.md
+        description: Using ROS 2 Gazebo Vendor packages
+  - name: install_gz11_side_by_side
+    title: Installing Gazebo11 side by side with new Gazebo
+    file: install_gz11_side_by_side.md
+    description: How to install gazebo11 and new Gazebo together
+  - name: migrating_gazebo_classic_ros2_packages
+    title: Migration from ROS 2 Gazebo Classic
+    file: migrating_gazebo_classic_ros2_packages.md
+    description: A tutorial on how to migrate a ROS 2 package that uses Gazebo Classic to the new Gazebo
   - name: roadmap
     title: Roadmap
     file: roadmap.md
@@ -60,18 +73,80 @@ pages:
     title: Sim Architecture
     file: architecture.md
     description: Gazebo Sim's architecture overview.
+  - name: fuel
+    title: Fuel
+    file: fuel/about.md
+    description: Fuel information
+    children:
+      - name: fuel_content_deletion_policy
+        title: Content Deletion Policy
+        file: fuel/content_deletion_policy.md
+      - name: fuel_contributing_model
+        title: Contributing New Model
+        file: fuel/contributing_model.md
+      - name: fuel_contributing_world
+        title: Contributing New World
+        file: fuel/contributing_world.md
+      - name: fuel_copyright
+        title: Copyright
+        file: fuel/copyright.md
+      - name: fuel_data_policy
+        title: Data and Privacy Policy
+        file: fuel/data_privacy_policy.md
+      - name: fuel_fair_use
+        title: What is Fair Use
+        file: fuel/fair_use.md
 releases:
+  - name: ionic
+    lts: false
+    eol: false
+    dev: true
+    description: Supported Sep, 2024 to Sep, 2026
+    libraries:
+      - name: cmake
+        version: 4
+      - name: common
+        version: 6
+      - name: fuel_tools
+        version: 10
+      - name: gui
+        version: 9
+      - name: launch
+        version: 8
+      - name: math
+        version: 8
+      - name: msgs
+        version: 11
+      - name: physics
+        version: 8
+      - name: plugin
+        version: 3
+      - name: rendering
+        version: 9
+      - name: sensors
+        version: 9
+      - name: sim
+        version: 9
+      - name: tools
+        version: 2
+      - name: transport
+        version: 14
+      - name: utils
+        version: 3
+      - name: sdformat
+        version: 15
   - name: harmonic
     lts: true
     eol: false
-    description: Upcoming release, under development.
+    preferred: true # Only one preferred=true is allowed
+    description: Supported Sep, 2023 to Sep, 2028
     libraries:
       - name: cmake
         version: 3
       - name: common
         version: 5
       - name: fuel_tools
-        version: 8
+        version: 9
       - name: gui
         version: 8
       - name: launch
@@ -79,9 +154,9 @@ releases:
       - name: math
         version: 7
       - name: msgs
-        version: 9
+        version: 10
       - name: physics
-        version: 6
+        version: 7
       - name: plugin
         version: 2
       - name: rendering
@@ -93,11 +168,11 @@ releases:
       - name: tools
         version: 2
       - name: transport
-        version: 12
+        version: 13
       - name: utils
         version: 2
       - name: sdformat
-        version: 13
+        version: 14
   - name: garden
     lts: false
     eol: false
@@ -349,4 +424,38 @@ releases:
         version: 6
       - name: sdformat
         version: 8
-
+# This dictionary is used to supply the description of each library and any other
+# information about each library that doesn't change between releases
+library_info:
+  cmake:
+    description: Provides modules that are used to find dependencies of Gazebo projects and generate cmake targets for consumers of Gazebo projects to link against.
+  common:
+    description: A collection of useful classes and functions for handling many command tasks. This includes parsing 3D mesh files, managing console output, and using PID controllers.
+  fuel_tools:
+    description: A C++ client library and command line tools for interacting with Gazebo Fuel servers
+  gui:
+    description: A framework for graphical user interfaces centered around QT. Each component in Gazebo GUI is an independent plugin
+  launch:
+    description: Launch is a system that runs and manages plugins and programs. A configuration script can be used to specify which programs and plugins to run. Alternatively, individual programs and plugins can be run from the command line.
+  math:
+    description: A small, fast, and high performance math library. This library is a self-contained set of classes and functions suitable for robot applications.
+  msgs:
+    description: Standard set of message definitions, used by Gazebo Transport, and other applications.
+  physics:
+    description: A plugin based interface to physics engines, such as ODE, Bullet, and DART.
+  plugin:
+    description: A plugin loading library
+  rendering:
+    description: A plugin based interface to rendering engines, such as OGRE and Optix.
+  sensors:
+    description: A large set of sensor and noise models suitable for generating realistic data in simulation.
+  sim:
+    description: Gazebo simulates multiple robots in a 3D environment, with extensive dynamic interaction between objects.
+  tools:
+    description: Gazebo tools provides the gz command line tool that accepts multiple subcommands.
+  transport:
+    description: The transport library combines ZeroMQ with Protobufs to create a fast and efficient message passing system. Asynchronous message publication and subscription is provided along with service calls and discovery.
+  sdformat:
+    description: Simulation Description Format parser and description files.
+  utils:
+    description: General purpose classes and functions with minimal dependencies. It includes command line parsing, a helper class to implement the PIMPL pattern, macros to suppress warnings, etc.

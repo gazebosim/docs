@@ -172,30 +172,32 @@ tool [`release.py`](https://github.com/gazebo-tooling/release-tools/blob/master/
 
 ![release.py interactions](releasing/images/releasepy_execution.png)
 
-Actions for releasing a new version of library (note that it can starts with
-ign or gz, ign/gz is used for this propose) `foo` with major version `X`:
+Actions for releasing a new version of library `gz-foo` with major version `X`:
 
  1. [`release.py`](https://github.com/gazebo-tooling/release-tools/blob/master/release.py)
-    will generate a local tarball with the source code of the new version and
-    upload it to `osrf-distributions S3`.
- 1. `release.py` will start the following jobs in the build server
+    will tag the local repository and call the `gz-fooX-source` Jenkins job to generate the sources
+    corresponding to that tag.
+ 1. `gz-fooX-source` will generate a tarball with the source code of the new version and
+    call `repository_uploader_packages` to upload the tarball to `osrf-distributions S3`.
+ 1. `gz-fooX-source` will call `_releasepy` with the tarball URI information.
+ 1. `_releasepy` will start the following jobs in the build server
     `build.osrfoundation.org`:
-      1. `ign/gz-fooX-debbuilder`: multiple calls for different Debian/Ubuntu releases
+      1. `gz-fooX-debbuilder`: multiple calls for different Debian/Ubuntu releases
       1. [`generic-release-homebrew_pull_request_updater`](https://build.osrfoundation.org/job/generic-release-homebrew_pull_request_updater/):
       one call for Homebrew macOS release
  1. `build.osrfoundation.org` jobs start the work of creating releases:
-      1. `ign/gz-fooX-debbuilder`: use tarball with release sources and metadata from `ign/gz-fooX-release`
+      1. `gz-fooX-debbuilder`: use tarball with release sources and metadata from `gz-fooX-release`
       1. `generic-release-homebrew_pull_request_updater`: use
          [`homebrew-simulation`](https://github.com/osrf/homebrew-simulation/)
          repository metadata together with the release sources
  1. The output of the first round of initial jobs triggered by `release.py` is
     different:
-      1. `ign/gz-fooX-debbuilder`: builds the Debian/Ubuntu .deb packages and
+      1. `gz-fooX-debbuilder`: builds the Debian/Ubuntu .deb packages and
          passes them to the `repository_uploader_packages` job
       1. `generic-release-homebrew_pull_request_updater`: opens a
          new PR to coordinate the release process in `homebrew-simulation`
  1. [`repository_uploader_packages`](https://build.osrfoundation.org/job/repository_uploader_packages/)
-    imports the packages created by the `ign/gz-fooX-debbuilder` job (there will be
+    imports the packages created by the `gz-fooX-debbuilder` job (there will be
     one build for each platform combination of Ubuntu/Debian release
     and architecture) and uploads the .deb packages to
     `packages.osrfoundation.org` and [`osrf-distributions S3`](http://gazebosim.org/distributions).
@@ -231,4 +233,10 @@ During the Gazebo Garden development period, this packaage was
 to use stable and nightly binaries.
 It is customary to use nightly binaries for all unreleased package versions.
 
+```{toctree}
+:hidden:
+:maxdepth: 1
+:titlesonly:
 
+releasing/versioning_pre_nightly
+```

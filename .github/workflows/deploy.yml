@@ -1,0 +1,97 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Deploy Website and Docs
+
+on:
+  pull_request:
+  push:
+    branches:
+      - master
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build_website:
+    runs-on: ubuntu-latest
+    steps:
+      # Build website from gazebosim-web-frontend
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          repository: gazebo-web/gazebosim-web-frontend
+          ref: main
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: package-lock.json
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Install Website dependencies
+        run: npm ci
+      - name: Build Website
+        run: npm run build -- --base-href "${{ steps.pages.outputs.base_url }}/"
+      # Upload the artifact for local preview
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: website
+          path: dist
+
+      # Build Docs
+  build_docs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+      - name: Install Docs dependencies
+        run: pip install -r requirements.txt
+      - name: Build Docs
+        run: python build_multiversion.py --pointers --libs --output_dir .build
+        env:
+          GZ_DEPLOY_URL: "${{ steps.pages.outputs.base_url }}"
+
+      # Upload the artifact for local preview
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: docs
+          path: .build
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build_website, build_docs]
+    permissions:
+      contents: write
+    # Allow only one concurrent deployment between this and the nightly-upload workflow.
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          merge-multiple: true
+      - name: Upload merged
+        uses: actions/upload-artifact@v4
+        with:
+          name: website-docs-merged
+          path: ./
+      - name: Commit
+        uses: peaceiris/actions-gh-pages@v4
+        # The workflow upto this point is good for generating a preview,
+        # but only commit to deploy if we are on the master branch (not a pull request).
+        if: github.ref == 'refs/heads/master'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./
+          keep_files: true

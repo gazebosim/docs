@@ -55,7 +55,7 @@ All the sources of gazebo-harmonic are declared in a yaml file. Download
 it to the workspace:
 
 ```bash
-wget https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-harmonic.yaml
+curl -O https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-harmonic.yaml
 ```
 
 Use `vcstool` to automatically retrieve all the Gazebo libraries sources from
@@ -81,7 +81,7 @@ Install all dependencies:
 Dependency for Ogre:
 
 ```bash
-brew cask install xquartz
+brew install xquartz --cask
 ```
 
 General dependencies:
