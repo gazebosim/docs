@@ -209,15 +209,25 @@ which allowed the gz-math macOS CI build to include the new dependency.
 
 #### Example: testing with a source build of a custom branch of a dependency on macOS
 
-To build a dependency from source using a custom branch on macOS, modify the formula
-of that dependency such that its primary `url` field contains the URL of the
-desired git repository, along with a `branch` field indicating the branch name,
-similar to [this line in this version of gz-launch7](https://github.com/osrf/homebrew-simulation/blob/3124ce318717192865a6427f9472b60239face96/Formula/gz-launch7.rb#L4C3-L4C67).
-If a matching branch name that starts with `ci_matching_branch/` is used for both
-the homebrew-simulation branch and the desired repository, then it will use
-the dependency from the custom branch.
-
-#### Example: testing with a source build of a custom branch of a dependency on Windows
+To determine whether changes in gz-math and sdformat were the cause of gz-sim
+test failures documented in
+[osrf/buildfarm-tools#67 (comment)](https://github.com/osrf/buildfarm-tools/issues/67#issuecomment-2232120738),
+the `gz-math8` and `sdformat15` formulae were modified so that the primary
+`url` field contains the URL of their respective git repositories, along with a
+`branch` field indicating the branch name to be tested. The `gz-math8` formula
+was [modified to use the `scpeters/revert_606` branch](https://github.com/osrf/homebrew-simulation/blob/6bdfaea6c9b5a30fed163c619e1f398b31937514/Formula/gz-math8.rb#L4)
+(corresponding to [gz-math#609](https://github.com/gazebosim/gz-math/pull/609)),
+and the `sdformat15` formula was [modified to use the `scpeters/revert_1458` branch](https://github.com/osrf/homebrew-simulation/blob/6bdfaea6c9b5a30fed163c619e1f398b31937514/Formula/sdformat15.rb#L4)
+(corresponding to [sdformat#1459](https://github.com/gazebosim/sdformat/pull/1459)).
+These changes to formulae were commited to the
+`ci_matching_branch/revert_math_graph_init` branch (see
+[osrf/homebrew-simulation@6bdfaea6](https://github.com/osrf/homebrew-simulation/pull/2701/commits/6bdfaea6c9b5a30fed163c619e1f398b31937514)).
+To test gz-sim with these branches of gz-math and sdformat, a trivial change
+to the gz-sim README was made in a branch with matching name
+`ci_matching_branch/revert_math_graph_init`, and a draft pull request
+([gz-sim#2482](https://github.com/gazebosim/gz-sim/pull/2482))
+was opened to trigger CI builds. The homebrew build used the matching
+branch of homebrew-simulation and built against the intended branches.
 
 ### Custom branches
 
