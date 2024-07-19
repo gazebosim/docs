@@ -23,7 +23,7 @@ sudo apt-get install ignition-fortress
 
 All libraries should be ready to use and the `ign gazebo` app ready to be executed.
 
-Head back to the [Getting started](/docs/all/getstarted)
+Head back to the [Getting started](getstarted)
 page to start using Ignition!
 
 ## Uninstalling binary install
@@ -37,4 +37,4 @@ sudo apt remove ignition-fortress && sudo apt autoremove
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/fortress/troubleshooting#ubuntu)
+See [Troubleshooting](troubleshooting.md#ubuntu)

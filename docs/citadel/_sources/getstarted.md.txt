@@ -9,7 +9,7 @@ simulation using Gazebo.
 
 <div class="warning">
   <strong>Note:</strong> If you are a <a href="https://ros.org">ROS</a> user, please first read our tutorial about
-  the <a href="docs/latest/ros_installation">ROS/Gazebo installation</a>.
+  the <a href="/docs/latest/ros_installation">ROS/Gazebo installation</a>.
 </div>
 
 The recommended installation for new users is the use of binary
@@ -98,7 +98,7 @@ This tutorial has covered the basics of getting started with Gazebo.
 Starting with Citadel, there are more [versioned tutorials](/docs/citadel/tutorials){.external}
 covering the basics of the GUI, creating worlds and robots, and more.
 
-Each [Gazebo library](/libs) also has a set of tutorials and
+Each [Gazebo library](/libs){.external} also has a set of tutorials and
 examples. Explore these resources, and don't forget to ask questions and
 find solutions at [answers.gazebosim.org](http://answers.gazebosim.org).
 

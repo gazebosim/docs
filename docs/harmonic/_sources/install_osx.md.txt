@@ -18,7 +18,7 @@ brew install gz-harmonic
 
 All libraries should be ready to use and the `gz sim -s` server app ready to be executed.
 
-Head back to the [Getting started](/docs/all/getstarted)
+Head back to the [Getting started](getstarted)
 page to start using Gazebo!
 
 ## Uninstalling binary install
@@ -32,4 +32,4 @@ brew uninstall gz-harmonic
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/harmonic/troubleshooting#macos)
+See [Troubleshooting](troubleshooting.md#macos)

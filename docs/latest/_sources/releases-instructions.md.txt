@@ -58,12 +58,12 @@ the process:
 ### 2. Update code version and changelogs
 
 The first step to get a new release ready is to update the current code (upstream)
-version (view the [versioning](release#versioning) section for more information). This
+version (view the [versioning](release.md#versioning) section for more information). This
 bump could be in the major number (non-compatible changes), minor number (new
 features), patch number (patches and bugfixes).
 
 **Bumping major number** of the version implies some work to have the
-[metadata](#metadata-for-releasing) updated correctly. There is a [dedicated
+metadata updated correctly. There is a [dedicated
 document](releasing/bump_major.md) that you should go through before continuing to work through the steps in this
 document.
 
@@ -158,7 +158,7 @@ build in the server. Now, the following needs to happen:
         1. Brew: entry job is `generic-release-homebrew_pull_request_updater`
 
 The `release.py` script  and Jenkins will perform all these actions. For more information of all the processes
-triggered by the `release.py` script please check [the release process](release#using-the-gzdev-repository-command).
+triggered by the `release.py` script please check [the release process](release.md#using-the-gzdev-repository-command).
 
 ### 4. Executing release.py
 
@@ -170,7 +170,7 @@ Running `release.py` from the source code repository will generate and
 upload some Git tags ("release tags") to the source code repository.
 
 You will also need the token described in the [credentials
-section](#access-and-credentials).
+section](#2-access-and-credentials).
 
 **dry-run simulation mode**
 
@@ -236,7 +236,7 @@ ordering for package managers. [This information about versioning](https://class
 
 **release.py for revision bumps**
 
-Bumping the [revision number for binary packages](release#versioning) is a special
+Bumping the [revision number for binary packages](release.md#versioning) is a special
 case of releasing since the original tarball with the source code will
 remain the same. Once the release repository is ready with the new release
 version, `release.py` needs the `--only-bump-revision-linux` flag.

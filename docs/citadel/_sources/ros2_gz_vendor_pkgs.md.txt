@@ -7,10 +7,10 @@ upstream Ubuntu. However, due to the package
 [update policy of Ubuntu](https://wiki.ubuntu.com/StableReleaseUpdates), the
 Gazebo packages on upstream Ubuntu did not receive any updates. Thus, upstream
 Ubuntu almost always had older versions of Gazebo than what was available from
-the Gazebo package repository ([packages.osrfoundation.org](packages.osrfoundation.org)). To overcome this,
+the Gazebo package repository ([packages.osrfoundation.org](https://packages.osrfoundation.org)). To overcome this,
 more up-to-date Gazebo packages were copied to the ROS bootstrap repository
-([repos.ros.org](repos.ros.org)) which were then copied to the main ROS package repository
-([packages.ros.org](packages.ros.org)). However, the process was error prone and keeping package
+([repos.ros.org](https://repos.ros.org)) which were then copied to the main ROS package repository
+([packages.ros.org](https://packages.ros.org)). However, the process was error prone and keeping package
 versions in sync between the Gazebo and ROS package repositories was difficult
 since this was a manual process.
 
@@ -31,7 +31,7 @@ Each release of ROS 2 is paired with a specific release of Gazebo. For ROS 2
 Jazzy, the vendor packages contain Gazebo libraries from the Harmonic release.
 For ROS 2 K-turtle (next release), the vendor packages will contain Gazebo
 Ionic. This default pairing is found in the
-[ROS installation instructions](https://gazebosim.org/docs/harmonic/ros_installation)
+[ROS installation instructions](ros_installation)
 
 The following is a table of all vendor packages and the underlying Gazebo
 library they vendor:
@@ -140,7 +140,7 @@ If you want to use a new release of Gazebo that is not officially paired with
 the release of ROS you are using (e.g. Gazebo Ionic with ROS 2 Jazzy), you can
 follow the following steps:
 
-1. Install the binaries from [packages.osrfoundation.org](packages.osrfoundation.org). Make sure to install
+1. Install the binaries from [packages.osrfoundation.org](https://packages.osrfoundation.org). Make sure to install
    the metapackage that includes all library components (e.g. gz-ionic,
    gz-harmonic, etc.)
 1. Clone the set of vendor packages included in
@@ -148,7 +148,7 @@ follow the following steps:
    in your workspace using [vcstool](https://github.com/dirk-thomas/vcstool).
 1. Checkout the desired branch. The branch names currently track ROS 2 releases.
    You'll need to determine the branch based on the
-   [default pairings](/docs/latest/ros_installation)
+   [default pairings](ros_installation)
 1. Add any additional packages you need that also depend on Gazebo, such as
    [`ros_gz`](https://github.com/gazebosim/ros_gz) and
    [`gz_ros2_control`](https://github.com/ros-controls/gz_ros2_control/)
@@ -178,7 +178,7 @@ source:
    [vcstool](https://github.com/dirk-thomas/vcstool).
 1. Checkout the desired branch. The branch names currently track ROS 2 releases.
    You'll need to determine the branch based on the
-   [official pairings](/docs/latest/ros_installation)
+   [official pairings](ros_installation)
 1. Add any additional packages you need that also depend on Gazebo, such as
    [`ros_gz`](https://github.com/gazebosim/ros_gz) and
    [`gz_ros2_control`](https://github.com/ros-controls/gz_ros2_control/)

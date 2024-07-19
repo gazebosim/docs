@@ -33,5 +33,5 @@ or use this information for ads or marketing.
 Content may be immediately removed if it
 
   * contains images that do not represent the actual data,
-  * violates copyright law (See our [Copyright](/docs/latest/fuel_copyright) and [Fair Use](/docs/latest/fuel_fair_use) pages), or
+  * violates copyright law (See our [Copyright](fuel_copyright) and [Fair Use](fuel_fair_use) pages), or
   * contains inappropriate material including but not limited to spam, marketing material, or sexually explicit content.

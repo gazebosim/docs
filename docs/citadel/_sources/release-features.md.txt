@@ -2,7 +2,7 @@
 
 Here you will find the set of features that are available in each release.
 
-Take a look at the [Roadmap](/docs/all/roadmap) for information about upcoming
+Take a look at the [Roadmap](roadmap) for information about upcoming
 features, some of which may land in released versions of Gazebo.
 
 ## Harmonic
@@ -353,11 +353,11 @@ For a complete list of features included in the initial release of Harmonic, ple
 
 The first major release of Gazebo focused on the basics of simulation. The basics primarily encompassed integration of physics, sensors, graphical tools, and programmatic interfaces.
 
-1. Support for [DART](https://dartsim.github.io/) in [Gazebo Physics](/libs/physics).
-2. Ogre1.9 and Ogre2.1 support in [Gazebo Rendering](/libs/rendering)
-3. [Entity Component System](https://en.wikipedia.org/wiki/Entity_component_system) based simulation engine in [Gazebo Sim](/libs/gazebo).
-4. A sensor suite that includes contact sensor, logical camera, monocular camera, depth camera, LIDAR, magnetometer, altimeter, and IMU is available through [Gazebo Sensors](/libs/sensors) and [Gazebo Sim](/libs/gazebo).
-5. [Launch system](/libs/launch) capable of running and managing a set of plugins and executables.
+1. Support for [DART](https://dartsim.github.io/) in [Gazebo Physics](/libs/physics){.external}.
+2. Ogre1.9 and Ogre2.1 support in [Gazebo Rendering](/libs/rendering){.external}
+3. [Entity Component System](https://en.wikipedia.org/wiki/Entity_component_system) based simulation engine in [Gazebo Sim](/libs/gazebo){.external}.
+4. A sensor suite that includes contact sensor, logical camera, monocular camera, depth camera, LIDAR, magnetometer, altimeter, and IMU is available through [Gazebo Sensors](/libs/sensors){.external} and [Gazebo Sim](/libs/gazebo){.external}.
+5. [Launch system](/libs/launch){.external} capable of running and managing a set of plugins and executables.
 6. Cloud-hosted simulation assets provided by [app.gazebosim.org](https://app.gazebosim.org).
 7. Distributed simulation using lock-stepping.
 8. Dynamic loading/unloading of simulation models based on the location of performer, usually a robot.

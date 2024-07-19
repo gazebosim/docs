@@ -69,4 +69,4 @@ conda uninstall libgz-<package_name> --channel conda-forge
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/harmonic/troubleshooting#windows)
+See [Troubleshooting](troubleshooting.md#windows)

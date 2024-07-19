@@ -43,7 +43,7 @@ collection assures that all libraries are compatible and can be used together.
 
 ## Supported platforms
 
-Citadel is [supported](/docs/all/releases) on the platforms below.
+Citadel is [supported](releases) on the platforms below.
 
 These are the **officially** supported platforms:
 

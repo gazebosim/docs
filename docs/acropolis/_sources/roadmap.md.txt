@@ -50,12 +50,12 @@ info@openrobotics.org.
 
 A number of features are planned for specific releases of Gazebo. The
 features listed here derive from the Quarterly Roadmap, listed above, and other
-ongoing projects.  See the [Release Features](/docs/all/release-features) page
+ongoing projects.  See the [Release Features](release-features) page
 for a list of features already available in each release of Gazebo.
 
 A named release of Gazebo, such as Acropolis or Blueprint, is tied to
-a set of [library](/libs) major versions. Our
-[development and release pattern](/docs/all/releases) allows us to distribute
+a set of [library](/libs){.external} major versions. Our
+[development and release pattern](releases) allows us to distribute
 patch and minor updates into a stable Gazebo version. For example, if a new
 feature does not break API/ABI then we will target the feature to the oldest
 compatible non-EOL release and propagate the feature forward.
@@ -82,7 +82,7 @@ compatible non-EOL release and propagate the feature forward.
 
 ### Ionic
 
-See the [Quarterly Roadmap](/docs/all/roadmap#quarterly-roadmap) above.
+See the [Quarterly Roadmap](#quarterly-roadmap) above.
 
 ## Planned releases
 
@@ -94,8 +94,8 @@ Please see the [Releases](https://github.com/gazebosim/docs/blob/master/releases
 Looking for something to work on, or just want to help out? Here are a few
 resources to get you going.
 
-1. [How to contribute](/docs/all/contributing) guide.
-1. [Feature comparision](/docs/citadel/comparison) list. This page lists the
+1. [How to contribute](contributing) guide.
+1. [Feature comparision](/docs/citadel/comparison){.external} list. This page lists the
    feature gaps between Gazebo classic and Gazebo Sim.
-1. Take a look at the various [libraries](/libs), and the issue tracker
+1. Take a look at the various [libraries](/libs){.external}, and the issue tracker
    associated with each.

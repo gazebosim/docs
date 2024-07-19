@@ -132,7 +132,7 @@ This tutorial assumes you are using Gazebo Fortress as it is the version of
 Gazebo officially paired with ROS 2 Humble. While it is possible to use newer
 versions of Gazebo with ROS 2 Humble, it requires extra work and is not
 recommend for most users. See
-[Installing Gazebo with ROS](https://gazebosim.org/docs/latest/ros_installation)
+[Installing Gazebo with ROS](ros_installation)
 to learn more. If you intend to switch back and forth between the new Gazebo and
 Gazebo Classic, it's best to use Gazebo Fortress since the newer versions will
 automatically uninstall Gazebo Classic. With that being said, the concepts
@@ -715,9 +715,9 @@ other aspects, such as migrating Gazebo Classic plugins, materials and textures.
 - Case study: migrating the ArduPilot ModelPlugin from Gazebo classic to
   Gazebo - [Fortress](https://gazebosim.org/api/gazebo/6/ardupilot.html) |
   [Harmonic](https://gazebosim.org/api/sim/8/ardupilot.html)
-- [Basic description of SDF worlds](https://gazebosim.org/docs/latest/sdf_worlds)
-- [Feature Comparison with Gazebo Classic](https://gazebosim.org/docs/latest/comparison)
-- [Documentation for ros_gz](https://gazebosim.org/docs/latest/ros2_integration)
+- [Basic description of SDF worlds](sdf_worlds)
+- [Feature Comparison with Gazebo Classic](comparison)
+- [Documentation for ros_gz](ros2_integration)
 - List of Systems (plugins):
   [Fortress](https://gazebosim.org/api/gazebo/6/namespaceignition_1_1gazebo_1_1systems.html)
   |

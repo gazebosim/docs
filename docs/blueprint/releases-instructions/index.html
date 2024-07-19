@@ -534,12 +534,12 @@ release.</p></li>
 <section id="update-code-version-and-changelogs">
 <h3>2. Update code version and changelogs<a class="headerlink" href="#update-code-version-and-changelogs" title="Link to this heading">#</a></h3>
 <p>The first step to get a new release ready is to update the current code (upstream)
-version (view the <a class="reference external" href="release#versioning">versioning</a> section for more information). This
+version (view the <a class="reference internal" href="../release/#versioning"><span class="std std-ref">versioning</span></a> section for more information). This
 bump could be in the major number (non-compatible changes), minor number (new
 features), patch number (patches and bugfixes).</p>
 <p><strong>Bumping major number</strong> of the version implies some work to have the
-<a class="reference external" href="#metadata-for-releasing">metadata</a> updated correctly. There is a <a class="reference external" href="releasing/bump_major.md">dedicated
-document</a> that you should go through before continuing to work through the steps in this
+metadata updated correctly. There is a <a class="reference internal" href="../releasing/bump_major/"><span class="std std-doc">dedicated
+document</span></a> that you should go through before continuing to work through the steps in this
 document.</p>
 <ol class="arabic">
 <li><p>To update the upstream version a local checkout of the Gz library is
@@ -591,7 +591,7 @@ is usually 2.1.0-1).</p>
 <p>There should be a repository matching the name and major version of Gz
 library that you want to bump in the
 <a class="reference external" href="https://github.com/gazebo-release/">gz-release</a> GitHub organization.
-(see <a class="reference external" href="releasing/release_repositories.md">release repositories document</a> for more
+(see <a class="reference internal" href="../releasing/release_repositories/"><span class="std std-doc">release repositories document</span></a> for more
 information about how they are used).</p>
 <ol class="arabic">
 <li><p>It is required to clone the corresponding release repository to update the
@@ -601,7 +601,7 @@ git<span class="w"> </span>clone<span class="w"> </span>https://github.com/gazeb
 </pre></div>
 </div>
 </li>
-<li><p>To bump the package versions that will appear in Debian/Ubuntu binary packages there is a helper script in <code class="docutils literal notranslate"><span class="pre">release-tools</span></code> (see <a class="reference external" href="#initial-setup">initial setup</a>). The script is called <code class="docutils literal notranslate"><span class="pre">changelog_spawn.sh</span></code> and require to be executed while the active directory is a <code class="docutils literal notranslate"><span class="pre">release</span> <span class="pre">repository</span></code>:</p>
+<li><p>To bump the package versions that will appear in Debian/Ubuntu binary packages there is a helper script in <code class="docutils literal notranslate"><span class="pre">release-tools</span></code> (see <a class="reference internal" href="#initial-setup">initial setup</a>). The script is called <code class="docutils literal notranslate"><span class="pre">changelog_spawn.sh</span></code> and require to be executed while the active directory is a <code class="docutils literal notranslate"><span class="pre">release</span> <span class="pre">repository</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Gz library named foo and major version X</span>
 <span class="nb">cd</span><span class="w"> </span>gz-fooX-release
 ~/release-tools/release-repo-scripts/changelog_spawn.sh<span class="w"> </span>X.Y.Z-R
@@ -635,7 +635,7 @@ build in the server. Now, the following needs to happen:</p>
 </li>
 </ol>
 <p>The <code class="docutils literal notranslate"><span class="pre">release.py</span></code> script  and Jenkins will perform all these actions. For more information of all the processes
-triggered by the <code class="docutils literal notranslate"><span class="pre">release.py</span></code> script please check <a class="reference external" href="release#using-the-gzdev-repository-command">the release process</a>.</p>
+triggered by the <code class="docutils literal notranslate"><span class="pre">release.py</span></code> script please check <a class="reference internal" href="../release/#using-the-gzdev-repository-command"><span class="std std-ref">the release process</span></a>.</p>
 <section id="executing-release-py">
 <h3>4. Executing <a class="reference external" href="http://release.py">release.py</a><a class="headerlink" href="#executing-release-py" title="Link to this heading">#</a></h3>
 <p>Make sure you are in the source code repository before running <code class="docutils literal notranslate"><span class="pre">release.py</span></code>.
@@ -643,7 +643,7 @@ You should be on the branch to be released, after the pull request bumping
 the version has been merged (run <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">status</span></code> to check the branch, and <code class="docutils literal notranslate"><span class="pre">git</span>&#160;&#160;&#160;&#160; <span class="pre">log</span></code> to check that the version bump pull request has been included).
 Running <code class="docutils literal notranslate"><span class="pre">release.py</span></code> from the source code repository will generate and
 upload some Git tags (“release tags”) to the source code repository.</p>
-<p>You will also need the token described in the <a class="reference external" href="#access-and-credentials">credentials
+<p>You will also need the token described in the <a class="reference internal" href="#access-and-credentials">credentials
 section</a>.</p>
 <p><strong>dry-run simulation mode</strong></p>
 <p>The <code class="docutils literal notranslate"><span class="pre">release.py</span></code> tool supports a <code class="docutils literal notranslate"><span class="pre">--dry-run</span></code> flag that allows users to
@@ -694,7 +694,7 @@ branch pointed by <code class="docutils literal notranslate"><span class="pre">-
 <p>Prerelease and nightlies binary versions use particular naming schema to define right
 ordering for package managers. <a class="reference external" href="https://classic.gazebosim.org/tutorials?tut=install_unstable&amp;amp;cat=install#Versioninginnightlyandprerelease">This information about versioning</a> in Gazebo Classic applies to the [Gazebo] too.</p>
 <p><strong><a class="reference external" href="http://release.py">release.py</a> for revision bumps</strong></p>
-<p>Bumping the <a class="reference external" href="release#versioning">revision number for binary packages</a> is a special
+<p>Bumping the <a class="reference internal" href="../release/#versioning"><span class="std std-ref">revision number for binary packages</span></a> is a special
 case of releasing since the original tarball with the source code will
 remain the same. Once the release repository is ready with the new release
 version, <code class="docutils literal notranslate"><span class="pre">release.py</span></code> needs the <code class="docutils literal notranslate"><span class="pre">--only-bump-revision-linux</span></code> flag.</p>
@@ -848,7 +848,7 @@ For further details, see the <a class="reference external" href="https://github.
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.5.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.6.
     <br/>
   </p>
 </div>
