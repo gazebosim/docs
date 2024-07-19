@@ -23,7 +23,7 @@ sudo apt-get install gz-ionic
 
 All libraries should be ready to use and the `gz sim` app ready to be executed.
 
-Head back to the [Getting started](/docs/all/getstarted)
+Head back to the [Getting started](getstarted)
 page to start using Gazebo!
 
 
@@ -38,4 +38,4 @@ sudo apt remove gz-ionic && sudo apt autoremove
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/ionic/troubleshooting#ubuntu)
+See [Troubleshooting](troubleshooting.md#ubuntu)

@@ -24,4 +24,4 @@ These tutorials cover general concepts to help get you started with Ignition.
 * [Actors](actors)
 
 
-More specific content correlating to each Ignition library can be found under the *API & Tutorials* sections on the [Libraries page](/libs).
+More specific content correlating to each Ignition library can be found under the *API & Tutorials* sections on the [Libraries page](/libs){.external}.

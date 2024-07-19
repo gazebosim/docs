@@ -13,7 +13,7 @@ Example uses of the bridge can be found in [`ros_gz_sim_demos`](https://github.c
 
 ## Requirements
 
-Please follow the [Install Gazebo and ROS document](/docs/latest/ros_installation)
+Please follow the [Install Gazebo and ROS document](ros_installation)
 before starting this tutorial. A working installation of ROS 2 and Gazebo is
 required to go further.
 

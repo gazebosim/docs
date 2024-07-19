@@ -44,7 +44,6 @@ source_suffix = [
 ]
 
 myst_heading_anchors = 4
-myst_all_links_external = True
 
 myst_enable_extensions = [
     "amsmath",
@@ -64,6 +63,7 @@ myst_enable_extensions = [
     "tasklist",
 ]
 
+nitpicky = True
 # -- Options for HTML output -------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
 

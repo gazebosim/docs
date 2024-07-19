@@ -10,7 +10,7 @@ Users can interact with `rrbot` through ROS 2 commands to move the robot's arms 
 
 ## Prerequisites
 
-1. A working installation of ROS 2 and Gazebo is required to go further. Please follow the [Install Gazebo and ROS document](/docs/latest/ros_installation). 
+1. A working installation of ROS 2 and Gazebo is required to go further. Please follow the [Install Gazebo and ROS document](ros_installation). 
 2. Basic familiarity with ROS concepts and terminal commands.
 3. Check out [ROS 2 Integration](ros2_integration) to get familiar with [`ros_gz_bridge`](https://github.com/gazebosim/ros_gz) before starting this tutorial.
 

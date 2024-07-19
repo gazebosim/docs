@@ -23,9 +23,9 @@ High level instructions:
 
 1. Create a workspace with the source to mount into a container using `vcstool`
 2. Use `gzdev ign-docker-env` to build and start a container with `--vol` pointing to the previously created workspace
-3. See [Ubuntu Source Install section on building](install_ubuntu_src#building-the-ignition-libraries) for instructions to work with a source install
-4. Consider [Contributing](/docs/all/contributing)
+3. See [Ubuntu Source Install section on building](install_ubuntu_src.md#building-the-ignition-libraries) for instructions to work with a source install
+4. Consider [Contributing](contributing)
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/fortress/troubleshooting)
+See [Troubleshooting](troubleshooting)
