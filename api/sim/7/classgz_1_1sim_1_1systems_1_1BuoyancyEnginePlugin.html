@@ -172,16 +172,16 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class provides a simple mechanical bladder which is used to control the buoyancy of an underwater glider. It uses Archimedes' principle to apply an upward force based on the volume of the bladder. It listens to the topic <code>buoyancy_engine</code> or <code>/model/{namespace}/buoyancy_engine</code> topic for the volume of the bladder in <em>cubicmeters</em>. </p>
-<h2><a class="anchor" id="autotoc_md367"></a>
+<h2><a class="anchor" id="autotoc_md371"></a>
 Parameters</h2>
 <p>&lt;link_name&gt; - The link which the plugin is attached to [required, string] &lt;namespace&gt; - The namespace for the topic. If empty the plugin will listen on <code>buoyancy_engine</code> otherwise it listens on <code>/model/{namespace}/buoyancy_engine</code> [optional, string] &lt;min_volume&gt; - Minimum volume of the engine [optional, float, default=0.00003m^3] &lt;neutral_volume&gt; - At this volume the engine has neutral buoyancy. Used to estimate the weight of the engine [optional, float, default=0.0003m^3] &lt;default_volume&gt; - The volume which the engine starts at [optional, float, default=0.0003m^3] &lt;max_volume&gt; - Maximum volume of the engine [optional, float, default=0.00099m^3] &lt;max_inflation_rate&gt; - Maximum inflation rate for bladder [optional, float, default=0.000003m^3/s] &lt;fluid_density&gt; - The fluid density of the liquid its suspended in kgm^-3. [optional, float, default=1000kgm^-3] &lt;surface&gt; - The Z height in metres at which the surface of the water is. If not defined then there is no surface [optional, float]</p>
-<h2><a class="anchor" id="autotoc_md368"></a>
+<h2><a class="anchor" id="autotoc_md372"></a>
 Topics</h2>
 <ul>
 <li>Subscribes to a <a class="elRef" href="https://gazebosim.org/api/msgs/9/classgz_1_1msgs_1_1Double.html">gz::msgs::Double</a> on <code>buoyancy_engine</code> or <code>/model/{namespace}/buoyancy_engine</code>. This is the set point for the engine.</li>
 <li>Publishes a <a class="elRef" href="https://gazebosim.org/api/msgs/9/classgz_1_1msgs_1_1Double.html">gz::msgs::Double</a> on <code>buoyancy_engine</code> or <code>/model/{namespace}/buoyancy_engine/current_volume</code> on the current volume</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md369"></a>
+<h2><a class="anchor" id="autotoc_md373"></a>
 Examples</h2>
 <p>To get started run: </p><div class="fragment"><div class="line"><a class="code" href="namespacegz.html" title="This library is part of the Gazebo project.">gz</a> sim buoyancy_engine.sdf</div>
 </div><!-- fragment --><p>Enter the following in a separate terminal: </p><div class="fragment"><div class="line"><a class="code" href="namespacegz.html" title="This library is part of the Gazebo project.">gz</a> topic -t  /model/buoyant_box/buoyancy_engine/ -m <a class="code" href="namespacegz.html" title="This library is part of the Gazebo project.">gz</a>.<a class="code" href="namespacegz_1_1msgs.html">msgs</a>.<a class="codeRef" href="https://gazebosim.org/api/msgs/9/classgz_1_1msgs_1_1Double.html">Double</a></div>

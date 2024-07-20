@@ -179,10 +179,10 @@ Public Member Functions</h2></td></tr>
 <div class="textblock"><p>Controller of a track on either a conveyor belt or a tracked vehicle. The system should be attached to a model. If implementing a tracked vehicle, use also <a class="el" href="classgz_1_1sim_1_1systems_1_1TrackedVehicle.html" title="Tracked vehicle controller which can be attached to a model with any number of left and right tracks....">TrackedVehicle</a> system. </p>
 <p>The system is implemented along the lines of M. Pecka, K. Zimmermann and T. Svoboda, "Fast simulation of vehicles with non-deformable tracks," 2017 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2017, pp. 6414-6419, doi: 10.1109/IROS.2017.8206546. It does not provide 100% plausible track drivetrain simulation, but provides one that is provably better than a set of wheels instead of the track. Only velocity control is supported - no effort controller is available. The basic idea of the implementation is utilizing the so called "contact
 surface motion" parameter of each contact point between the track and the environment. Instead of telling the physics engine to push velocity towards zero in contact points (up to friction), it tells it to maintain the desired track velocity in the contact point (up to friction). For better behavior when turning with tracked vehicles, it also accepts the position of the center of rotation of the whole vehicle so that it can adjust the direction of friction along the desired circle. This system does not simulate the effect of grousers. The best way to achieve a similar effect is to set a very high <code>&lt;mu1&gt;</code> for the track links.</p>
-<h1><a class="anchor" id="autotoc_md403"></a>
+<h1><a class="anchor" id="autotoc_md407"></a>
 Examples</h1>
 <p>See example usage in worlds example/conveyor.sdf and example/tracked_vehicle_simple.sdf .</p>
-<h1><a class="anchor" id="autotoc_md404"></a>
+<h1><a class="anchor" id="autotoc_md408"></a>
 System Parameters</h1>
 <p><code>&lt;link&gt;</code> Name of the link the controller controls. Required parameter.</p>
 <p><code>&lt;debug&gt;</code> If 1, the system will output debugging info and visualizations. The default value is 0.</p>
