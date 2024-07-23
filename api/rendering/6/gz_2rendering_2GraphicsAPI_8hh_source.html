@@ -162,43 +162,44 @@
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef IGNITION_RENDERING_GRAPHICSAPI_HH_</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define IGNITION_RENDERING_GRAPHICSAPI_HH_</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="config_8hh.html">ignition/rendering/config.hh</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="include_2ignition_2rendering_2Export_8hh.html">ignition/rendering/Export.hh</a>&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition.html">ignition</a></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;  <span class="keyword">namespace </span>rendering</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  {</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">inline</span> <span class="keyword">namespace </span>IGNITION_RENDERING_VERSION_NAMESPACE {</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264e">   31</a></span>&#160;    <span class="keyword">enum class</span> IGNITION_RENDERING_VISIBLE <a class="code" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264e">GraphicsAPI</a> : uint16_t</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    {</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      <a class="code" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264ea96b7ae3a5b0d35a1aca5d8996090c695">GRAPHICS_API_BEGIN</a> = 0,</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;      <a class="code" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264ea696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a> = <a class="code" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264ea96b7ae3a5b0d35a1aca5d8996090c695">GRAPHICS_API_BEGIN</a>,</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <a class="code" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264eac0ad831a34c4633bee584066cfcc5040">OPENGL</a> = 1,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      <a class="code" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264eaac255387bdb2c5b299223426279e4aeb">DIRECT3D11</a> = 2,</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      <a class="code" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264eac60cacb57b9e78f018a9d973bee2f801">VULKAN</a> = 3,</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      <a class="codeRef" href="https://gazebosim.org/api/common/4/namespaceignition_1_1common.html#a18ae24a143a8cca4587c3b3928d6079fa74108a89672c573afee1fae6de8e4e0b">METAL</a> = 4,</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <a class="code" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264eac682a6063cfdff1e54f6505567b8e67d">GRAPHICS_API_END</a></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    };</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1GraphicsAPIUtils.html">   60</a></span>&#160;    <span class="keyword">class </span>IGNITION_RENDERING_VISIBLE <a class="code" href="classignition_1_1rendering_1_1GraphicsAPIUtils.html">GraphicsAPIUtils</a></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="keyword">public</span>: <span class="keyword">static</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> Str(<a class="code" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264e">GraphicsAPI</a> _e);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      <span class="keyword">public</span>: <span class="keyword">static</span> <a class="code" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264e">GraphicsAPI</a> Set(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_str);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    };</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="config_8hh.html">ignition/rendering/config.hh</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="include_2ignition_2rendering_2Export_8hh.html">ignition/rendering/Export.hh</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition.html">ignition</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  <span class="keyword">namespace </span>rendering</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">inline</span> <span class="keyword">namespace </span>IGNITION_RENDERING_VERSION_NAMESPACE {</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264e">   32</a></span>&#160;    <span class="keyword">enum class</span> IGNITION_RENDERING_VISIBLE <a class="code" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264e">GraphicsAPI</a> : uint16_t</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;      <a class="code" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264ea96b7ae3a5b0d35a1aca5d8996090c695">GRAPHICS_API_BEGIN</a> = 0,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      <a class="code" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264ea696b031073e74bf2cb98e5ef201d4aa3">UNKNOWN</a> = <a class="code" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264ea96b7ae3a5b0d35a1aca5d8996090c695">GRAPHICS_API_BEGIN</a>,</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      <a class="code" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264eac0ad831a34c4633bee584066cfcc5040">OPENGL</a> = 1,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <a class="code" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264eaac255387bdb2c5b299223426279e4aeb">DIRECT3D11</a> = 2,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <a class="code" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264eac60cacb57b9e78f018a9d973bee2f801">VULKAN</a> = 3,</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <a class="codeRef" href="https://gazebosim.org/api/common/4/namespaceignition_1_1common.html#a18ae24a143a8cca4587c3b3928d6079fa74108a89672c573afee1fae6de8e4e0b">METAL</a> = 4,</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;      <a class="code" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264eac682a6063cfdff1e54f6505567b8e67d">GRAPHICS_API_END</a></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    };</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="classignition_1_1rendering_1_1GraphicsAPIUtils.html">   61</a></span>&#160;    <span class="keyword">class </span>IGNITION_RENDERING_VISIBLE <a class="code" href="classignition_1_1rendering_1_1GraphicsAPIUtils.html">GraphicsAPIUtils</a></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keyword">public</span>: <span class="keyword">static</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> Str(<a class="code" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264e">GraphicsAPI</a> _e);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="keyword">public</span>: <span class="keyword">static</span> <a class="code" href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264e">GraphicsAPI</a> Set(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_str);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    };</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;}</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="anamespaceignition_html"><div class="ttname"><a href="namespaceignition.html">ignition</a></div></div>
 <div class="ttc" id="abasic_string_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a></div><div class="ttdoc">STL class.</div></div>
@@ -208,8 +209,8 @@
 <div class="ttc" id="anamespaceignition_1_1rendering_html_aa803a2404fdc2dfb510481449b25264ea74108a89672c573afee1fae6de8e4e0b"><div class="ttname"><a href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264ea74108a89672c573afee1fae6de8e4e0b">ignition::rendering::GraphicsAPI::METAL</a></div><div class="ttdeci">@ METAL</div><div class="ttdoc">Metal graphics interface.</div></div>
 <div class="ttc" id="aclassignition_1_1rendering_1_1GraphicsAPIUtils_html_aa4090616323b8a697937816492bbd51a"><div class="ttname"><a href="classignition_1_1rendering_1_1GraphicsAPIUtils.html#aa4090616323b8a697937816492bbd51a">ignition::rendering::GraphicsAPIUtils::Set</a></div><div class="ttdeci">static GraphicsAPI Set(const std::string &amp;_str)</div><div class="ttdoc">Set an enum from a string. This function requires a valid string, and an array of names for the enum ...</div></div>
 <div class="ttc" id="anamespaceignition_1_1rendering_html_aa803a2404fdc2dfb510481449b25264eac682a6063cfdff1e54f6505567b8e67d"><div class="ttname"><a href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264eac682a6063cfdff1e54f6505567b8e67d">ignition::rendering::GraphicsAPI::GRAPHICS_API_END</a></div><div class="ttdeci">@ GRAPHICS_API_END</div></div>
-<div class="ttc" id="aclassignition_1_1rendering_1_1GraphicsAPIUtils_html"><div class="ttname"><a href="classignition_1_1rendering_1_1GraphicsAPIUtils.html">ignition::rendering::GraphicsAPIUtils</a></div><div class="ttdoc">Utils to convert GraphicsAPI to and from strings.</div><div class="ttdef"><b>Definition:</b> gz/rendering/GraphicsAPI.hh:60</div></div>
-<div class="ttc" id="anamespaceignition_1_1rendering_html_aa803a2404fdc2dfb510481449b25264e"><div class="ttname"><a href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264e">ignition::rendering::GraphicsAPI</a></div><div class="ttdeci">GraphicsAPI</div><div class="ttdoc">The graphics API used by the render engine.</div><div class="ttdef"><b>Definition:</b> gz/rendering/GraphicsAPI.hh:31</div></div>
+<div class="ttc" id="aclassignition_1_1rendering_1_1GraphicsAPIUtils_html"><div class="ttname"><a href="classignition_1_1rendering_1_1GraphicsAPIUtils.html">ignition::rendering::GraphicsAPIUtils</a></div><div class="ttdoc">Utils to convert GraphicsAPI to and from strings.</div><div class="ttdef"><b>Definition:</b> gz/rendering/GraphicsAPI.hh:61</div></div>
+<div class="ttc" id="anamespaceignition_1_1rendering_html_aa803a2404fdc2dfb510481449b25264e"><div class="ttname"><a href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264e">ignition::rendering::GraphicsAPI</a></div><div class="ttdeci">GraphicsAPI</div><div class="ttdoc">The graphics API used by the render engine.</div><div class="ttdef"><b>Definition:</b> gz/rendering/GraphicsAPI.hh:32</div></div>
 <div class="ttc" id="anamespaceignition_1_1rendering_html_aa803a2404fdc2dfb510481449b25264ea696b031073e74bf2cb98e5ef201d4aa3"><div class="ttname"><a href="namespaceignition_1_1rendering.html#aa803a2404fdc2dfb510481449b25264ea696b031073e74bf2cb98e5ef201d4aa3">ignition::rendering::GraphicsAPI::UNKNOWN</a></div><div class="ttdeci">@ UNKNOWN</div><div class="ttdoc">Unknown graphics interface.</div></div>
 <div class="ttc" id="ainclude_2ignition_2rendering_2Export_8hh_html"><div class="ttname"><a href="include_2ignition_2rendering_2Export_8hh.html">Export.hh</a></div></div>
 <div class="ttc" id="aclassignition_1_1rendering_1_1GraphicsAPIUtils_html_a3ee8882917f7207e0a729b1ff6449073"><div class="ttname"><a href="classignition_1_1rendering_1_1GraphicsAPIUtils.html#a3ee8882917f7207e0a729b1ff6449073">ignition::rendering::GraphicsAPIUtils::Str</a></div><div class="ttdeci">static std::string Str(GraphicsAPI _e)</div><div class="ttdoc">Convert enum value to string.</div></div>
