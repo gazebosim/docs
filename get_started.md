@@ -17,6 +17,7 @@ packages available for the platform to use:
 
 |Platform|Gazebo Versions|
 |---|---|
+| Ubuntu 24.04 Noble | [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended), (recommended if using ROS 2 Jazzy)
 | Ubuntu 22.04 Jammy | [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended), [Gazebo Garden](/docs/garden/install_ubuntu){.external} and [Gazebo Fortress](/docs/fortress/install_ubuntu){.external} (recommended if using ROS 2 Humble or Iron)
 | Ubuntu 20.04 Focal | [Gazebo Garden](/docs/garden/install_ubuntu){.external} (recommended), [Gazebo Fortress](/docs/fortress/install_ubuntu){.external} and [Gazebo Citadel](/docs/citadel/install_ubuntu){.external}
 | Ubuntu 18.04 Bionic | [Gazebo Citadel](/docs/citadel/install_ubuntu){.external}
