@@ -624,9 +624,15 @@ single coverage result for each branch.</p></li>
 have some differences. Some Jenkins jobs run with on GPU machines and
 provides a nice interface to introspect builds. On the other hand, Actions
 runs coverage and codecheck.</p></li>
-<li><p>The choice of stable / pre-release / nightly dependencies for Linux CI on both
-Jenkins and Actions is defined on
-<a class="reference external" href="https://github.com/gazebo-tooling/gzdev/blob/master/plugins/config/repository.yaml">gzdev’s repository.yaml</a></p></li>
+<li><p>For Linux CI, the choice of stable / pre-release / nightly dependencies on both
+Jenkins and Actions is defined in
+<a class="reference external" href="https://github.com/gazebo-tooling/gzdev/blob/master/plugins/config/repository.yaml">gzdev’s repository.yaml</a>.</p></li>
+<li><p>For macOS CI, the dependencies and tarball / source branch of each package are
+specified in the <a class="reference external" href="https://github.com/osrf/homebrew-simulation/tree/master/Formula">Formula/*.rb</a>
+files.</p></li>
+<li><p>For Windows CI, the dependencies and source branch of each package are specified
+in <code class="docutils literal notranslate"><span class="pre">.yaml</span></code> files in the <a class="reference external" href="https://github.com/gazebo-tooling/gazebodistro">gazebo-tooling/gazebodistro</a>
+repository.</p></li>
 </ul>
 </section>
 <section id="required-checks">
@@ -745,6 +751,50 @@ after login.</p></li>
 </ul>
 </li>
 </ul>
+<section id="testing-pull-requests-with-custom-tooling-branches">
+<h3>Testing pull requests with custom tooling branches<a class="headerlink" href="#testing-pull-requests-with-custom-tooling-branches" title="Link to this heading">#</a></h3>
+<p>As noted above, the <a class="reference external" href="https://github.com/gazebo-tooling/gzdev">gzdev</a>,
+<a class="reference external" href="https://github.com/osrf/homebrew-simulation">homebrew-simulation</a>, and
+<a class="reference external" href="https://github.com/gazebo-tooling/gazebodistro">gazebodistro</a> tooling repositories
+each contain metadata about dependencies for each package on Ubuntu, macOS,
+and Windows, respectively. If you wish to test a pull request with a custom
+branch of one of these tooling repositories, you can do this by creating
+branches with the same name that starts with <code class="docutils literal notranslate"><span class="pre">ci_matching_branch/</span></code> on both the
+tooling repository and the repository to be tested.</p>
+<section id="example-testing-with-an-additional-dependency-on-macos">
+<h4>Example: testing with an additional dependency on macOS<a class="headerlink" href="#example-testing-with-an-additional-dependency-on-macos" title="Link to this heading">#</a></h4>
+<p>In <a class="reference external" href="https://github.com/gazebosim/gz-math/pull/361">gz-math#361</a>, a fix for
+gz-math’s python bindings on macOS was proposed, but <code class="docutils literal notranslate"><span class="pre">pybind11</span></code> was not yet
+a dependency of the <code class="docutils literal notranslate"><span class="pre">gz-math</span></code> homebrew formulae. To test this pull request
+with pybind11 installed in the macOS CI machines,
+identical branch names <code class="docutils literal notranslate"><span class="pre">ci_matching_branch/math_scripting</span></code> were used for
+<a class="reference external" href="https://github.com/gazebosim/gz-math/pull/361">gz-math#361</a> and
+<a class="reference external" href="https://github.com/osrf/homebrew-simulation/pull/1793">homebrew-simulation#1793</a>
+which allowed the gz-math macOS CI build to include the new dependency.</p>
+</section>
+<section id="example-testing-with-a-source-build-of-a-custom-branch-of-a-dependency-on-macos">
+<h4>Example: testing with a source build of a custom branch of a dependency on macOS<a class="headerlink" href="#example-testing-with-a-source-build-of-a-custom-branch-of-a-dependency-on-macos" title="Link to this heading">#</a></h4>
+<p>To determine whether changes in gz-math and sdformat were the cause of gz-sim
+test failures documented in
+<a class="reference external" href="https://github.com/osrf/buildfarm-tools/issues/67#issuecomment-2232120738">osrf/buildfarm-tools#67 (comment)</a>,
+the <code class="docutils literal notranslate"><span class="pre">gz-math8</span></code> and <code class="docutils literal notranslate"><span class="pre">sdformat15</span></code> formulae were modified so that the primary
+<code class="docutils literal notranslate"><span class="pre">url</span></code> field contains the URL of their respective git repositories, along with a
+<code class="docutils literal notranslate"><span class="pre">branch</span></code> field indicating the branch name to be tested. The <code class="docutils literal notranslate"><span class="pre">gz-math8</span></code> formula
+was <a class="reference external" href="https://github.com/osrf/homebrew-simulation/blob/6bdfaea6c9b5a30fed163c619e1f398b31937514/Formula/gz-math8.rb#L4">modified to use the <code class="docutils literal notranslate"><span class="pre">scpeters/revert_606</span></code> branch</a>
+(corresponding to <a class="reference external" href="https://github.com/gazebosim/gz-math/pull/609">gz-math#609</a>),
+and the <code class="docutils literal notranslate"><span class="pre">sdformat15</span></code> formula was <a class="reference external" href="https://github.com/osrf/homebrew-simulation/blob/6bdfaea6c9b5a30fed163c619e1f398b31937514/Formula/sdformat15.rb#L4">modified to use the <code class="docutils literal notranslate"><span class="pre">scpeters/revert_1458</span></code> branch</a>
+(corresponding to <a class="reference external" href="https://github.com/gazebosim/sdformat/pull/1459">sdformat#1459</a>).
+These changes to formulae were commited to the
+<code class="docutils literal notranslate"><span class="pre">ci_matching_branch/revert_math_graph_init</span></code> branch (see
+<a class="reference external" href="https://github.com/osrf/homebrew-simulation/pull/2701/commits/6bdfaea6c9b5a30fed163c619e1f398b31937514">osrf/homebrew-simulation&#64;6bdfaea6</a>).
+To test gz-sim with these branches of gz-math and sdformat, a trivial change
+to the gz-sim README was made in a branch with matching name
+<code class="docutils literal notranslate"><span class="pre">ci_matching_branch/revert_math_graph_init</span></code>, and a draft pull request
+(<a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/2482">gz-sim#2482</a>)
+was opened to trigger CI builds. The homebrew build used the matching
+branch of homebrew-simulation and built against the intended branches.</p>
+</section>
+</section>
 <section id="custom-branches">
 <h3>Custom branches<a class="headerlink" href="#custom-branches" title="Link to this heading">#</a></h3>
 <p>Maintainers can manually trigger builds for custom branches without opening pull
@@ -828,6 +878,11 @@ request.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#required-checks">Required checks</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#interpreting-results">Interpreting results</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#triggering-ci">Triggering CI</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-pull-requests-with-custom-tooling-branches">Testing pull requests with custom tooling branches</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-testing-with-an-additional-dependency-on-macos">Example: testing with an additional dependency on macOS</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#example-testing-with-a-source-build-of-a-custom-branch-of-a-dependency-on-macos">Example: testing with a source build of a custom branch of a dependency on macOS</a></li>
+</ul>
+</li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-branches">Custom branches</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#actions">Actions</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jenkins">Jenkins</a></li>
