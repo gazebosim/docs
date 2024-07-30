@@ -42,7 +42,7 @@ The next step is to clone the `turtlebot3_simulation` package. We'll use the
 source /opt/ros/humble/setup.bash
 mkdir -p ~/turtlebot3_ws/src
 cd ~/turtlebot3_ws/src
-git clone -b d16cdbe https://github.com/ROBOTIS-GIT/turtlebot3_simulations/
+git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations/
 ```
 
 Install dependencies using `rosdep`
