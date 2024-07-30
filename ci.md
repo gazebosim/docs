@@ -78,9 +78,15 @@ Notes:
   have some differences. Some Jenkins jobs run with on GPU machines and
   provides a nice interface to introspect builds. On the other hand, Actions
   runs coverage and codecheck.
-* The choice of stable / pre-release / nightly dependencies for Linux CI on both
-  Jenkins and Actions is defined on
-  [gzdev's repository.yaml](https://github.com/gazebo-tooling/gzdev/blob/master/plugins/config/repository.yaml)
+* For Linux CI, the choice of stable / pre-release / nightly dependencies on both
+  Jenkins and Actions is defined in
+  [gzdev's repository.yaml](https://github.com/gazebo-tooling/gzdev/blob/master/plugins/config/repository.yaml).
+* For macOS CI, the dependencies and tarball / source branch of each package are
+  specified in the [Formula/*.rb](https://github.com/osrf/homebrew-simulation/tree/master/Formula)
+  files.
+* For Windows CI, the dependencies and source branch of each package are specified
+  in `.yaml` files in the [gazebo-tooling/gazebodistro](https://github.com/gazebo-tooling/gazebodistro)
+  repository.
 
 ## Required checks
 
@@ -178,6 +184,50 @@ The following methods can be used by maintainers to re-trigger builds:
 * **Actions**
     * On the top-right of a build inside the 'Actions' tab of GitHub, click
      `Re-run jobs`. Note that this button sometimes mysteriously disappears.
+
+### Testing pull requests with custom tooling branches
+
+As noted above, the [gzdev](https://github.com/gazebo-tooling/gzdev),
+[homebrew-simulation](https://github.com/osrf/homebrew-simulation), and
+[gazebodistro](https://github.com/gazebo-tooling/gazebodistro) tooling repositories
+each contain metadata about dependencies for each package on Ubuntu, macOS,
+and Windows, respectively. If you wish to test a pull request with a custom
+branch of one of these tooling repositories, you can do this by creating
+branches with the same name that starts with `ci_matching_branch/` on both the
+tooling repository and the repository to be tested.
+
+#### Example: testing with an additional dependency on macOS
+
+In [gz-math#361](https://github.com/gazebosim/gz-math/pull/361), a fix for
+gz-math's python bindings on macOS was proposed, but `pybind11` was not yet
+a dependency of the `gz-math` homebrew formulae. To test this pull request
+with pybind11 installed in the macOS CI machines,
+identical branch names `ci_matching_branch/math_scripting` were used for
+[gz-math#361](https://github.com/gazebosim/gz-math/pull/361) and
+[homebrew-simulation#1793](https://github.com/osrf/homebrew-simulation/pull/1793)
+which allowed the gz-math macOS CI build to include the new dependency.
+
+#### Example: testing with a source build of a custom branch of a dependency on macOS
+
+To determine whether changes in gz-math and sdformat were the cause of gz-sim
+test failures documented in
+[osrf/buildfarm-tools#67 (comment)](https://github.com/osrf/buildfarm-tools/issues/67#issuecomment-2232120738),
+the `gz-math8` and `sdformat15` formulae were modified so that the primary
+`url` field contains the URL of their respective git repositories, along with a
+`branch` field indicating the branch name to be tested. The `gz-math8` formula
+was [modified to use the `scpeters/revert_606` branch](https://github.com/osrf/homebrew-simulation/blob/6bdfaea6c9b5a30fed163c619e1f398b31937514/Formula/gz-math8.rb#L4)
+(corresponding to [gz-math#609](https://github.com/gazebosim/gz-math/pull/609)),
+and the `sdformat15` formula was [modified to use the `scpeters/revert_1458` branch](https://github.com/osrf/homebrew-simulation/blob/6bdfaea6c9b5a30fed163c619e1f398b31937514/Formula/sdformat15.rb#L4)
+(corresponding to [sdformat#1459](https://github.com/gazebosim/sdformat/pull/1459)).
+These changes to formulae were commited to the
+`ci_matching_branch/revert_math_graph_init` branch (see
+[osrf/homebrew-simulation@6bdfaea6](https://github.com/osrf/homebrew-simulation/pull/2701/commits/6bdfaea6c9b5a30fed163c619e1f398b31937514)).
+To test gz-sim with these branches of gz-math and sdformat, a trivial change
+to the gz-sim README was made in a branch with matching name
+`ci_matching_branch/revert_math_graph_init`, and a draft pull request
+([gz-sim#2482](https://github.com/gazebosim/gz-sim/pull/2482))
+was opened to trigger CI builds. The homebrew build used the matching
+branch of homebrew-simulation and built against the intended branches.
 
 ### Custom branches
 
