@@ -128,7 +128,7 @@ call install\setup.bat
 .\install\setup.ps1
 ```
 
-This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)
+This is the end of the source install instructions; head back to the [Getting started](getstarted)
 page to start using Ignition!
 
 ## Uninstalling source-based install
@@ -154,4 +154,4 @@ the results you want:
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/fortress/troubleshooting#windows)
+See [Troubleshooting](troubleshooting.md#windows)

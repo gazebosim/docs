@@ -4,7 +4,7 @@ This page details the set of past and planned releases.
 
 ## What is a Release?
 
-A release of Gazebo consists of a set of versioned [Gazebo Libraries](/libs). Each library follows [semantic versioning](https://semver.org), and the major version of a library is guaranteed not to change with an Gazebo release. This essentially means you can develop code against a release of Gazebo without the worry of breaking changes being made upstream.
+A release of Gazebo consists of a set of versioned [Gazebo Libraries](/libs){.external}. Each library follows [semantic versioning](https://semver.org){.external}, and the major version of a library is guaranteed not to change with an Gazebo release. This essentially means you can develop code against a release of Gazebo without the worry of breaking changes being made upstream.
 
 ### Naming Scheme
 
@@ -50,9 +50,9 @@ Example of function `foo` deprecated and replaced by function `bar`:
 
 Version     | API
 ----------- | ---
-Ign-(N)     | void foo();
-Ign-(N+1)   | void foo() IGN_DEPRECATED(N+1); <br> void bar();
-Ign-(N+2)   | void bar();
+gz-(N)     | void foo();
+gz-(N+1)   | void foo() GZ_DEPRECATED(N+1); <br> void bar();
+gz-(N+2)   | void bar();
 
 ### Support lifecycle
 
@@ -62,12 +62,12 @@ for a list of release and EOL dates for all versions of all libraries.
 ### Supported platforms
 
 Platforms are defined as a combination of operating system and architecture.
-For example, "Ubuntu Focal on amd64".
+For example, "Ubuntu Noble on amd64".
 
 Each release is targeted at a specific set of platforms. A support level applies
 to an entire Gazebo release, including all library versions within it. The
 supported platforms for each release are listed on their home pages (i.e.
-[Fortress](https://gazebosim.org/docs/fortress)).
+[Harmonic](https://gazebosim.org/docs/harmonic)).
 
 In general, there are three categories of support for a platform:
 

@@ -264,9 +264,9 @@ gz sim -v 4 shapes.sdf -s
 gz sim -v 4 -g
 ```
 
-This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)
+This is the end of the source install instructions; head back to the [Getting started](getstarted)
 page to start using Gazebo!
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/garden/troubleshooting#macos)
+See [Troubleshooting](troubleshooting.md#macos)

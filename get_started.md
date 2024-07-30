@@ -7,16 +7,16 @@ simulation using Gazebo.
 
 ## Step 1: Install
 
-<div class="warning">
-  <strong>Note:</strong> If you are a <a href="https://ros.org">ROS</a> user, please first read our tutorial about
-  the <a href="docs/latest/ros_installation">ROS/Gazebo installation</a>.
-</div>
+:::{important}
+If you are a [ROS](https://ros.org) user, please first read our tutorial on [ROS/Gazebo installation](ros_installation)
+:::
 
 The recommended installation for new users is the use of binary
 packages available for the platform to use:
 
 |Platform|Gazebo Versions|
 |---|---|
+| Ubuntu 24.04 Noble | [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended), (recommended if using ROS 2 Jazzy)
 | Ubuntu 22.04 Jammy | [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended), [Gazebo Garden](/docs/garden/install_ubuntu){.external} and [Gazebo Fortress](/docs/fortress/install_ubuntu){.external} (recommended if using ROS 2 Humble or Iron)
 | Ubuntu 20.04 Focal | [Gazebo Garden](/docs/garden/install_ubuntu){.external} (recommended), [Gazebo Fortress](/docs/fortress/install_ubuntu){.external} and [Gazebo Citadel](/docs/citadel/install_ubuntu){.external}
 | Ubuntu 18.04 Bionic | [Gazebo Citadel](/docs/citadel/install_ubuntu){.external}
@@ -98,7 +98,7 @@ This tutorial has covered the basics of getting started with Gazebo.
 Starting with Citadel, there are more [versioned tutorials](/docs/citadel/tutorials){.external}
 covering the basics of the GUI, creating worlds and robots, and more.
 
-Each [Gazebo library](/libs) also has a set of tutorials and
+Each [Gazebo library](/libs){.external} also has a set of tutorials and
 examples. Explore these resources, and don't forget to ask questions and
 find solutions at [answers.gazebosim.org](http://answers.gazebosim.org).
 

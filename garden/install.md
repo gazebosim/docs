@@ -47,7 +47,7 @@ This list of library versions may change up to the release date.
 
 ## Supported platforms
 
-Garden is planned to be [supported](/docs/all/releases) on the platforms below.
+Garden is planned to be [supported](releases) on the platforms below.
 This list may change up to the release date.
 
 These are the **officially** supported platforms:

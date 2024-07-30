@@ -47,7 +47,7 @@ collection assures that all libraries are compatible and can be used together.
 
 ## Supported platforms
 
-Dome is [supported](/docs/all/releases) on the platforms below.
+Dome is [supported](releases) on the platforms below.
 
 These are the **officially** supported platforms:
 

@@ -253,7 +253,7 @@ repository. The ROS repository syncs from the `osrfoundation.org` repository
 frequently but versions can be different.
 
 Getting the latest versions of the Gazebo libraries and simulator is as easy
-as installing the [`osrfoundation.org` repository](https://gazebosim.org/docs/latest/install_ubuntu_src#install-dependencies)
+as installing the [`osrfoundation.org` repository](install_ubuntu_src.md#install-dependencies)
 together with the ROS repository. Updates should be fully compatible.
 
 ### FAQ
@@ -280,7 +280,7 @@ other ROS packages that depend on Gazebo-classic.
 #### Where I can find the different features implemented on each Gazebo version?
 
 The best place is the Gazebo web page that hosts a list of the
-[main features available in each Gazebo distribution](https://gazebosim.org/docs/latest/release-features).
+[main features available in each Gazebo distribution](release-features).
 
 Some notes are regularly posted on the [Gazebo community
 site](https://community.gazebosim.org/tags/c/release-announcements-and-discussions/10/release)
@@ -292,5 +292,5 @@ one for
 examples.
 
 Additionally, when navigating through the different versions of Gazebo there is a menu item
-called "[Feature Comparison](https://gazebosim.org/docs/garden/comparison)" which provides a comparison with the features of Gazebo-Classic.
+called "[Feature Comparison](comparison)" which provides a comparison with the features of Gazebo-Classic.
 In the top right corner of the [Gazebo documentation page](https://gazebosim.org/docs) the specific Gazebo version to compare with can be selected.

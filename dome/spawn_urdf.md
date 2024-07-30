@@ -14,7 +14,7 @@ If you have a `xacro` representation of a robot model, you can turn the `xacro` 
 
 ## Spawning the URDF
 
-To spawn a URDF model in Gazebo Sim, we will start a world and make use of the world's `create` service, which uses the [EntityFactory](https://gazebosim.org/api/msgs/8.1/classignition_1_1msgs_1_1EntityFactory.html) message type.
+To spawn a URDF model in Gazebo Sim, we will start a world and make use of the world's `create` service, which uses the [EntityFactory](https://gazebosim.org/api/msgs/8/classignition_1_1msgs_1_1EntityFactory.html) message type.
 
 Start by launching an empty world in Gazebo Sim:
 ```bash
