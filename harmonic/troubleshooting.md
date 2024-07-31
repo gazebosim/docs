@@ -169,20 +169,26 @@ If that loads, you can continue to use Gazebo with Ogre 1, just use the
 
 ### Wayland issues
 
-For users on Wayland, you will need to make sure Gazebo is launched with
-XWayland.
-
-If you see an error message like the one below:
+There's an issue with the interaction of Ogre and Qt in Gazebo that prevents wayland from
+working properly. You might see an error message like the one below:
 
 ```
 Unable to create the rendering window: OGRE EXCEPTION(3:RenderingAPIException): currentGLContext was specified with no current GL context in GLXWindow::create at ./RenderSystems/GL3Plus/src/windowing/GLX/OgreGLXWindow.cpp (line 165)
 ```
 
-try unsetting the `WAYLAND_DISPLAY` environment variable, e.g.
+A workaround is to set `QT_QPA_PLATFORM=xcb`. e.g.:
+
+```
+QT_QPA_PLATFORM=xcb gz sim -v 4 shapes.sdf
+```
+
+Another workaround to try is to make sure Gazebo is launched with
+XWayland by unsetting the `WAYLAND_DISPLAY` environment variable, e.g.
 
 ```sh
 env -u WAYLAND_DISPLAY gz sim -v 4 shapes.sdf
 ```
+
 
 ## Windows
 
