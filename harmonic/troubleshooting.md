@@ -189,6 +189,18 @@ XWayland by unsetting the `WAYLAND_DISPLAY` environment variable, e.g.
 env -u WAYLAND_DISPLAY gz sim -v 4 shapes.sdf
 ```
 
+### EGL warnings
+
+On startup, Gazebo prints out EGL warning messages like the one below:
+
+```
+libEGL warning: DRI2: failed to create dri screen
+```
+
+This message is printed out by Ogre 2 on initialization when it enumerates
+through devices to query for EGL support. The warning is fine to ignore. Gazebo
+should continue to operate without any issues.
+
 
 ## Windows
 
