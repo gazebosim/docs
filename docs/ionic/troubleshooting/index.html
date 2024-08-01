@@ -642,16 +642,30 @@ that’s working by running a world which uses Ogre 1 instead of Ogre 2, such as
 </section>
 <section id="wayland-issues">
 <h3>Wayland issues<a class="headerlink" href="#wayland-issues" title="Link to this heading">#</a></h3>
-<p>For users on Wayland, you will need to make sure Gazebo is launched with
-XWayland.</p>
-<p>If you see an error message like the one below:</p>
+<p>There’s an issue with the interaction of Ogre and Qt in Gazebo that prevents wayland from
+working properly. You might see an error message like the one below:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Unable</span> <span class="n">to</span> <span class="n">create</span> <span class="n">the</span> <span class="n">rendering</span> <span class="n">window</span><span class="p">:</span> <span class="n">OGRE</span> <span class="n">EXCEPTION</span><span class="p">(</span><span class="mi">3</span><span class="p">:</span><span class="n">RenderingAPIException</span><span class="p">):</span> <span class="n">currentGLContext</span> <span class="n">was</span> <span class="n">specified</span> <span class="k">with</span> <span class="n">no</span> <span class="n">current</span> <span class="n">GL</span> <span class="n">context</span> <span class="ow">in</span> <span class="n">GLXWindow</span><span class="p">::</span><span class="n">create</span> <span class="n">at</span> <span class="o">./</span><span class="n">RenderSystems</span><span class="o">/</span><span class="n">GL3Plus</span><span class="o">/</span><span class="n">src</span><span class="o">/</span><span class="n">windowing</span><span class="o">/</span><span class="n">GLX</span><span class="o">/</span><span class="n">OgreGLXWindow</span><span class="o">.</span><span class="n">cpp</span> <span class="p">(</span><span class="n">line</span> <span class="mi">165</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>try unsetting the <code class="docutils literal notranslate"><span class="pre">WAYLAND_DISPLAY</span></code> environment variable, e.g.</p>
+<p>A workaround is to set <code class="docutils literal notranslate"><span class="pre">QT_QPA_PLATFORM=xcb</span></code>. e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">QT_QPA_PLATFORM</span><span class="o">=</span><span class="n">xcb</span> <span class="n">gz</span> <span class="n">sim</span> <span class="o">-</span><span class="n">v</span> <span class="mi">4</span> <span class="n">shapes</span><span class="o">.</span><span class="n">sdf</span>
+</pre></div>
+</div>
+<p>Another workaround to try is to make sure Gazebo is launched with
+XWayland by unsetting the <code class="docutils literal notranslate"><span class="pre">WAYLAND_DISPLAY</span></code> environment variable, e.g.</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>env<span class="w"> </span>-u<span class="w"> </span>WAYLAND_DISPLAY<span class="w"> </span>gz<span class="w"> </span>sim<span class="w"> </span>-v<span class="w"> </span><span class="m">4</span><span class="w"> </span>shapes.sdf
 </pre></div>
 </div>
+</section>
+<section id="egl-warnings">
+<h3>EGL warnings<a class="headerlink" href="#egl-warnings" title="Link to this heading">#</a></h3>
+<p>On startup, Gazebo prints out EGL warning messages like the one below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">libEGL</span> <span class="n">warning</span><span class="p">:</span> <span class="n">DRI2</span><span class="p">:</span> <span class="n">failed</span> <span class="n">to</span> <span class="n">create</span> <span class="n">dri</span> <span class="n">screen</span>
+</pre></div>
+</div>
+<p>This message is printed out by Ogre 2 on initialization when it enumerates
+through devices to query for EGL support. The warning is fine to ignore. Gazebo
+should continue to operate without any issues.</p>
 </section>
 </section>
 <section id="windows">
@@ -724,6 +738,7 @@ foreach<span class="w"> </span><span class="o">{</span>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unable-to-create-the-rendering-window">Unable to create the rendering window</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wayland-issues">Wayland issues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#egl-warnings">EGL warnings</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a><ul class="nav section-nav flex-column">
