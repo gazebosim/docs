@@ -36,6 +36,7 @@ jobs:
         uses: gazebo-tooling/setup-gazebo@1f55cec330de851fa373f1ade8ac6b7ddfe6f013
         with:
           required-gazebo-distributions: ${{ matrix.gazebo_distribution }}
+          use-gazebo-nightly: ${{ matrix.gazebo_distribution == 'ionic'}}
       - name: 'Add Doxygen'
         run: sudo apt-get install -y doxygen graphviz
       - name: 'Add missing dependencies'
