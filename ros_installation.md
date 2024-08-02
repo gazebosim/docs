@@ -39,12 +39,12 @@ continued use.
 
 |                           | **GZ Citadel (LTS)**  | **GZ Fortress (LTS)**   | **GZ Garden**   | **GZ Harmonic (LTS)**   |
 |---------------------------|---------------------- |-----------------------  |---------------  | ----------------------  |
-| **ROS 2 Jazzy (LTS)**     | ❌                    | ❌                      | ⚡              | ✅                      |
-| **ROS 2 Rolling**         | ❌                    | ✅                      | ⚡              | ⚡                      |
-| **ROS 2 Iron**            | ❌                    | ✅                      | ⚡              | ⚡                      |
-| **ROS 2 Humble (LTS)**    | ❌                    | ✅                      | ⚡              | ⚡                      |
+| **ROS 2 Jazzy (LTS)**     | ❌                    | ❌                      | ⚡               | ✅                      |
+| **ROS 2 Rolling**         | ❌                    | ❌                      | ⚡               | ✅                      |
+| **ROS 2 Iron**            | ❌                    | ✅                      | ⚡               | ⚡                       |
+| **ROS 2 Humble (LTS)**    | ❌                    | ✅                      | ⚡               | ⚡                       |
 | **ROS 2 Foxy (LTS)**      | ✅                    | ❌                      | ❌              | ❌                      |
-| **ROS 1 Noetic (LTS)**    | ✅                    | ⚡                      | ❌              | ❌                      |
+| **ROS 1 Noetic (LTS)**    | ✅                    | ⚡                       | ❌              | ❌                      |
 
 
 * ✅ - Recommended combination
