@@ -205,7 +205,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0f13645aff4c76489e4fd9e85b0a95cb"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Matrix6.html#a0f13645aff4c76489e4fd9e85b0a95cb">operator==</a> (const <a class="el" href="classgz_1_1math_1_1Matrix6.html">Matrix6</a>&lt; T &gt; &amp;_m) const</td></tr>
 <tr class="memdesc:a0f13645aff4c76489e4fd9e85b0a95cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Equality operator.  <a href="classgz_1_1math_1_1Matrix6.html#a0f13645aff4c76489e4fd9e85b0a95cb">More...</a><br /></td></tr>
 <tr class="separator:a0f13645aff4c76489e4fd9e85b0a95cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc54eacbc1d4df677171fdbdfa47689e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Matrix6.html#affc54eacbc1d4df677171fdbdfa47689e">Set</a> (T _v00, T _v01, T _v02, T _v03, T _v04, T _v05, T _v10, T _v11, T _v12, T _v13, T _v14, T _v15, T _v20, T _v21, T _v22, T _v23, T _v24, T _v25, T _v30, T _v31, T _v32, T _v33, T _v34, T _v35, T _v40, T _v41, T _v42, T _v43, T _v44, T _v45, T _v50, T _v51, T _v52, T _v53, T _v54, T _v55)</td></tr>
+<tr class="memitem:afc54eacbc1d4df677171fdbdfa47689e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Matrix6.html#afc54eacbc1d4df677171fdbdfa47689e">Set</a> (T _v00, T _v01, T _v02, T _v03, T _v04, T _v05, T _v10, T _v11, T _v12, T _v13, T _v14, T _v15, T _v20, T _v21, T _v22, T _v23, T _v24, T _v25, T _v30, T _v31, T _v32, T _v33, T _v34, T _v35, T _v40, T _v41, T _v42, T _v43, T _v44, T _v45, T _v50, T _v51, T _v52, T _v53, T _v54, T _v55)</td></tr>
 <tr class="memdesc:afc54eacbc1d4df677171fdbdfa47689e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Change the values.  <a href="classgz_1_1math_1_1Matrix6.html#afc54eacbc1d4df677171fdbdfa47689e">More...</a><br /></td></tr>
 <tr class="separator:afc54eacbc1d4df677171fdbdfa47689e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9838cdf0a02f845774e0bcb31bbcc188"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Matrix6.html#a9838cdf0a02f845774e0bcb31bbcc188">SetSubmatrix</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html#aebfff8a8b94605369c3965390f697022">Matrix6Corner</a> _corner, const <a class="el" href="classgz_1_1math_1_1Matrix3.html">Matrix3</a>&lt; T &gt; &amp;_mat)</td></tr>
@@ -660,8 +660,6 @@ class gz::math::Matrix6&lt; T &gt;</h3>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the elements of the matrices are equal within the tolerence specified by _tol. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="classgz_1_1math_1_1Matrix6.html#a0f13645aff4c76489e4fd9e85b0a95cb">Matrix6&lt; T &gt;::operator==()</a>.</p>
-
 </div>
 </div>
 <a id="a882bc3deb22fea715aea57cdb414a998"></a>
@@ -827,8 +825,6 @@ class gz::math::Matrix6&lt; T &gt;</h3>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>This matrix * _m2 </dd></dl>
-
-<p class="reference">References <a class="el" href="classgz_1_1math_1_1Matrix6.html#a8eae03d8d353365411e4783c77190274">Matrix6&lt; T &gt;::MatrixSize</a>.</p>
 
 </div>
 </div>
@@ -1004,8 +1000,6 @@ class gz::math::Matrix6&lt; T &gt;</h3>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if the 2 matrices are equal (using the tolerance 1e-6), false otherwise </dd></dl>
-
-<p class="reference">References <a class="el" href="classgz_1_1math_1_1Matrix6.html#a1e1b4f8a55c2db60f934f786f32ee983">Matrix6&lt; T &gt;::Equal()</a>.</p>
 
 </div>
 </div>
@@ -1327,7 +1321,19 @@ class gz::math::Matrix6&lt; T &gt;</h3>
 </div><div class="memdoc">
 
 <p>Set one of the four 3x3 submatrices that compose this matrix. These submatrices are formed by dividing the 6x6 matrix in 4 parts that do not overlap with each other. </p>
-<dl class="params"><dt>Parameters</dt><dd4f"></a>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_corner</td><td>Which corner to set. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_mat</td><td>The matrix to set. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="reference">Referenced by <a class="el" href="classgz_1_1math_1_1Inertial.html#a45f01df1dec6817c78c738eeff703f59">Inertial&lt; T &gt;::BodyMatrix()</a>.</p>
+
+</div>
+</div>
+<a id="a23621f328e30f9c47ff97e77ef18024f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a23621f328e30f9c47ff97e77ef18024f">&#9670;&nbsp;</a></span>SetValue()</h2>
 
 <div class="memitem">
