@@ -158,9 +158,9 @@ be co-installable with Ogre 1.x. The code can be found here:
 https://github.com/osrf/ogre-2.2-release
 
 You should be able to use Ogre 1 without any issues however. You can check if
-that's working by running a world which uses Ogre 1 instead of Ogre 2, such as:
+that's working by running with Ogre 1 instead of Ogre 2, such as:
 
-    ign gazebo -v 3 lights.sdf
+    ign gazebo -v 3 shapes.sdf --render-engine ogre
 
 If that loads, you can continue to use Ignition with Ogre 1, just use the
 `--render-engine ogre` option.
