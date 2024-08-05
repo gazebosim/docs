@@ -1,0 +1,343 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Rendering">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Rendering: Camera.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Rendering</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        9.0.0
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 GzCreateDocs.cmake -->
+      <nav class="gz-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.9.8 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_68720addb28ee8f762a8d1f55de1ba53.html">gz-rendering</a></li><li class="navelem"><a class="el" href="dir_ccc1703edcd2aae520499aaef06b68cb.html">include</a></li><li class="navelem"><a class="el" href="dir_42a5c6856abc46d6a330192debb6d004.html">gz</a></li><li class="navelem"><a class="el" href="dir_5269ccce336193d47739569941971412.html">rendering</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Camera.hh</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Camera_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (C) 2015 Open Source Robotics Foundation</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#ifndef GZ_RENDERING_CAMERA_HH_</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define GZ_RENDERING_CAMERA_HH_</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;<a class="codeRef" href="https://gazebosim.org/api/common/6/Event_8hh.html">gz/common/Event.hh</a>&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;<a class="codeRef" href="https://gazebosim.org/api/math/8/Matrix4_8hh.html">gz/math/Matrix4.hh</a>&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;gz/rendering/config.hh&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;<a class="code" href="Image_8hh.html">gz/rendering/Image.hh</a>&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;<a class="code" href="PixelFormat_8hh.html">gz/rendering/PixelFormat.hh</a>&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;<a class="code" href="Sensor_8hh.html">gz/rendering/Sensor.hh</a>&quot;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;<a class="code" href="Scene_8hh.html">gz/rendering/Scene.hh</a>&quot;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">// overloaded-virtuals warnings appeared on Ubuntu Noble</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">// GCC-13. it is not easy to fix them without breaking ABI</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="comment">// ignore them to preserve current ABI.</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#if defined(__GNUC__) || defined(__clang__)</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor"># pragma GCC diagnostic push</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor"># pragma GCC diagnostic ignored &quot;-Woverloaded-virtual&quot;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">namespace </span><a class="code hl_namespaceRef" href="https://gazebosim.org/api/common/6/namespacegz.html">gz</a></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>{</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <span class="keyword">namespace </span>rendering</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  {</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keyword">inline</span> <span class="keyword">namespace </span>GZ_RENDERING_VERSION_NAMESPACE {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="comment">//</span></div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="};">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="namespacegz_1_1rendering.html#a07f284387dda2cd2d77f2b7a027f501f">   46</a></span>    <span class="keyword">enum</span> GZ_RENDERING_VISIBLE <a class="code hl_enumeration" href="namespacegz_1_1rendering.html#a07f284387dda2cd2d77f2b7a027f501f" title="Enum for projection types.">CameraProjectionType</a></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="namespacegz_1_1rendering.html#a07f284387dda2cd2d77f2b7a027f501fa33a438a24012e33e488b38a4a1794864">   49</a></span>      <a class="code hl_enumvalue" href="namespacegz_1_1rendering.html#a07f284387dda2cd2d77f2b7a027f501fa33a438a24012e33e488b38a4a1794864" title="Perspective projection.">CPT_PERSPECTIVE</a>,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>      <a class="code hl_enumvalue" href="namespacegz_1_1rendering.html#a07f284387dda2cd2d77f2b7a027f501fa85f303a7317c24f19b366b27c0998846" title="Orthographic projection.">CPT_ORTHOGRAPHIC</a></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="namespacegz_1_1rendering.html#a07f284387dda2cd2d77f2b7a027f501fa85f303a7317c24f19b366b27c0998846">   52</a></span>    };</div>
+</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="foldopen" id="foldopen00056" data-start="{" data-end="};">
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html">   56</a></span>    <span class="keyword">class </span>GZ_RENDERING_VISIBLE <a class="code hl_class" href="classgz_1_1rendering_1_1Camera.html" title="Posable camera used for rendering the scene graph.">Camera</a> :</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>      <span class="keyword">public</span> <span class="keyword">virtual</span> <a class="code hl_class" href="classgz_1_1rendering_1_1Sensor.html" title="Represents a scene sensor. The most obvious example is a camera, but it can be anything that generate...">Sensor</a></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    {</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>      <span class="keyword">public</span>: <span class="keyword">typedef</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a>&lt;void(<span class="keyword">const</span> <span class="keywordtype">void</span>*, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>,</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#aa3161319199b5f9f5f4b2058dcb487cf">   61</a></span>          <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>, <span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>&amp;)&gt; <a class="code hl_typedef" href="classgz_1_1rendering_1_1Camera.html#aa3161319199b5f9f5f4b2058dcb487cf" title="Callback function for new frame render event listeners.">NewFrameListener</a>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a8fca188017e03e451bc90f29ea39b79e">   64</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a8fca188017e03e451bc90f29ea39b79e" title="Destructor.">~Camera</a>();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a015112b25d5abb9c3ca8f6fa579c1d5e">   68</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a015112b25d5abb9c3ca8f6fa579c1d5e" title="Get the image width in pixels.">ImageWidth</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#ac4b866028cc4e794189dc32c61985022">   72</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#ac4b866028cc4e794189dc32c61985022" title="Set the image width in pixels.">SetImageWidth</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _width) = 0;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#af7efc842f6c43f1687ce76ea63ecd29b">   76</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#af7efc842f6c43f1687ce76ea63ecd29b" title="Get the image height in pixels.">ImageHeight</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a9931c967c61f1795bf3e8b4a9cb1f036">   80</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a9931c967c61f1795bf3e8b4a9cb1f036" title="Set the image height in pixels.">SetImageHeight</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _height) = 0;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a18c8905e32c8271c53eb511c6bca0ea4">   85</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_enumeration" href="namespacegz_1_1rendering.html#a60883d4958a60b91661e97027a85072a" title="Image pixel format types.">PixelFormat</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a18c8905e32c8271c53eb511c6bca0ea4" title="Get the image pixel format. If the image pixel format has not been set with a valid value,...">ImageFormat</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a06a81e8ee61486e27db9fd957b7862f3">   90</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a06a81e8ee61486e27db9fd957b7862f3" title="Set the image pixel format.">SetImageFormat</a>(<a class="code hl_enumeration" href="namespacegz_1_1rendering.html#a60883d4958a60b91661e97027a85072a" title="Image pixel format types.">PixelFormat</a> _format,</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>                                          <span class="keywordtype">bool</span> _reinterpretable = <span class="keyword">false</span>) = 0;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#ac9eea817c91494265c47a07e63bd6a0d">   95</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#ac9eea817c91494265c47a07e63bd6a0d" title="Get the total image memory size in bytes.">ImageMemorySize</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a1472dbc26d6d9a367a59cac5344ee7ac">   99</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_classRef" href="https://gazebosim.org/api/math/8/classgz_1_1math_1_1Angle.html">math::Angle</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a1472dbc26d6d9a367a59cac5344ee7ac" title="Get the camera&#39;s horizontal field-of-view.">HFOV</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a6006ab82914cfea1380c8cf1801c8506">  103</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a6006ab82914cfea1380c8cf1801c8506" title="Set the camera&#39;s horizontal field-of-view.">SetHFOV</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="https://gazebosim.org/api/math/8/classgz_1_1math_1_1Angle.html">math::Angle</a> &amp;_hfov) = 0;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#af39b834118a401f30efcb394d338c3a8">  112</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#af39b834118a401f30efcb394d338c3a8" title="Get the camera&#39;s aspect ratio.">AspectRatio</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#adc6fc0b99e5c81f89408f0a69693f155">  122</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#adc6fc0b99e5c81f89408f0a69693f155" title="Set the camera&#39;s aspect ratio. This value determines the cameras vertical field-of-view....">SetAspectRatio</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> _ratio) = 0;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>      <span class="comment">// TODO(anyone): add auto-aspect ratio</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#ae13f9c0b5b5807ef77903850477f2d97">  128</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#ae13f9c0b5b5807ef77903850477f2d97" title="Get the level of anti-aliasing used during rendering.">AntiAliasing</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#ab157f1f3e2249f54a4d5786cb8ff576b">  135</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#ab157f1f3e2249f54a4d5786cb8ff576b" title="Set the level of anti-aliasing used during rendering. If a value of 0 is given, no anti-aliasing will...">SetAntiAliasing</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _aa) = 0;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a147c8a4a423087305bf9078d3d25fe5d">  139</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a147c8a4a423087305bf9078d3d25fe5d" title="Get the camera&#39;s far clipping plane distance.">FarClipPlane</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a836de880dc9b7a7b1af916877080bfb5">  143</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a836de880dc9b7a7b1af916877080bfb5" title="Set the camera&#39;s far clipping plane distance.">SetFarClipPlane</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> _far) = 0;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a10282c0ef9fc02889712704f3120263f">  147</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a10282c0ef9fc02889712704f3120263f" title="Get the camera&#39;s near clipping plane distance.">NearClipPlane</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a9ba66f9dd5f4e055b8648bfe088dce60">  151</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a9ba66f9dd5f4e055b8648bfe088dce60" title="Set the camera&#39;s near clipping plane distance.">SetNearClipPlane</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> _near) = 0;</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#ae47dde92cc4cd811c8db7d851e00510c">  156</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#ae47dde92cc4cd811c8db7d851e00510c" title="Renders the current scene using this camera. This function assumes PreRender() has already been calle...">Render</a>() = 0;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#aee73a4d9fd3bca2a941038e4a5a3879d">  162</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#aee73a4d9fd3bca2a941038e4a5a3879d" title="Preforms any necessary final rendering work. Once rendering is complete the camera will alert any lis...">PostRender</a>() = 0;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>      <span class="comment">//  \return visual for that position, null if no visual was found</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#afd3aca11c03a7504c4c51625534a90cc">  167</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">VisualPtr</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#afd3aca11c03a7504c4c51625534a90cc" title="Get the visual for a given mouse position param[in] _mousePos mouse position.">VisualAt</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="https://gazebosim.org/api/math/8/classgz_1_1math_1_1Vector2.html">gz::math::Vector2i</a></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>                  &amp;_mousePos) = 0;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a3095b4c60155b1cd356b96cf25c49110">  175</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a3095b4c60155b1cd356b96cf25c49110" title="Renders a new frame. This is a convenience function for single-camera scenes. It wraps the pre-render...">Update</a>() = 0;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a9ca742cb4bcad4bc374f837aa8516ecb">  182</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_class" href="classgz_1_1rendering_1_1Image.html" title="Encapsulates a raw image buffer and relevant properties.">Image</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a9ca742cb4bcad4bc374f837aa8516ecb" title="Created an empty image buffer for capturing images. The resulting image will have sufficient memory a...">CreateImage</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a722b50a5de7593020b2ba35cabbe113f">  190</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a722b50a5de7593020b2ba35cabbe113f" title="Renders a new frame and writes the results to the given image. This is a convenience function for sin...">Capture</a>(<a class="code hl_class" href="classgz_1_1rendering_1_1Image.html" title="Encapsulates a raw image buffer and relevant properties.">Image</a> &amp;_image) = 0;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#ac2c0db89ad2896ca461e6ae88db387c9">  197</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#ac2c0db89ad2896ca461e6ae88db387c9" title="Writes the last rendered image to the given image buffer. This function can be called multiple times ...">Copy</a>(<a class="code hl_class" href="classgz_1_1rendering_1_1Image.html" title="Encapsulates a raw image buffer and relevant properties.">Image</a> &amp;_image) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a47679df4013984bbfe7a98b468d844e3">  204</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a47679df4013984bbfe7a98b468d844e3" title="Writes the previously rendered frame to a file. This function can be called multiple times after Post...">SaveFrame</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) = 0;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#acdff5960c39c7a591f27245329ad37bb">  208</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">common::ConnectionPtr</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#acdff5960c39c7a591f27245329ad37bb" title="Subscribes a new listener to this camera&#39;s new frame event.">ConnectNewImageFrame</a>(</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>                  <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">NewFrameListener</a> _listener) = 0;</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a2a68cb11799ca99655190e4f5a665a47">  213</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">RenderWindowPtr</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a2a68cb11799ca99655190e4f5a665a47" title="Create a render window.">CreateRenderWindow</a>() = 0;</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#ad3c843e108e9ada2fc38761b8f7a02d2">  217</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_classRef" href="https://gazebosim.org/api/math/8/classgz_1_1math_1_1Matrix4.html">math::Matrix4d</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#ad3c843e108e9ada2fc38761b8f7a02d2" title="Get the projection matrix for this camera.">ProjectionMatrix</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a50d285f6e4e826c7eb08d75be86f52e8">  221</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_classRef" href="https://gazebosim.org/api/math/8/classgz_1_1math_1_1Matrix4.html">math::Matrix4d</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a50d285f6e4e826c7eb08d75be86f52e8" title="Get the view matrix for this camera.">ViewMatrix</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#ab24ecbf1e3abc3c15dbff24927545503">  226</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#ab24ecbf1e3abc3c15dbff24927545503" title="Set the projection matrix for this camera. This overrides the standard projection matrix computed bas...">SetProjectionMatrix</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="https://gazebosim.org/api/math/8/classgz_1_1math_1_1Matrix4.html">math::Matrix4d</a> &amp;_matrix)</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>          = 0;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#af7c60fc0c599340c1753bebbfe39800c">  231</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_enumeration" href="namespacegz_1_1rendering.html#a07f284387dda2cd2d77f2b7a027f501f" title="Enum for projection types.">CameraProjectionType</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#af7c60fc0c599340c1753bebbfe39800c" title="Get the projection type for this camera.">ProjectionType</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#aafc20c4f9bafcdc6dce5c19359b8a2b5">  241</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#aafc20c4f9bafcdc6dce5c19359b8a2b5" title="Set the projection type for this camera This changes the projection matrix of the camera based on the...">SetProjectionType</a>(<a class="code hl_enumeration" href="namespacegz_1_1rendering.html#a07f284387dda2cd2d77f2b7a027f501f" title="Enum for projection types.">CameraProjectionType</a> _type) = 0;</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a6a0f1851d6fa71e67fd9e00c1e178216">  246</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_classRef" href="https://gazebosim.org/api/math/8/classgz_1_1math_1_1Vector2.html">math::Vector2i</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a6a0f1851d6fa71e67fd9e00c1e178216" title="Project point in 3d world space to 2d screen space.">Project</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="https://gazebosim.org/api/math/8/classgz_1_1math_1_1Vector3.html">math::Vector3d</a> &amp;_pt) <span class="keyword">const</span></div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>           = 0;</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a492d6ad21711d6050ccda1a96676f8fe">  261</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a492d6ad21711d6050ccda1a96676f8fe" title="Set a node for camera to track. The camera will automatically change its orientation to face the targ...">SetTrackTarget</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">NodePtr</a> &amp;_target,</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>                  <span class="keyword">const</span> <a class="code hl_classRef" href="https://gazebosim.org/api/math/8/classgz_1_1math_1_1Vector3.html">math::Vector3d</a> &amp;_offset = math::Vector3d::Zero,</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>                  <span class="keyword">const</span> <span class="keywordtype">bool</span> _worldFrame = <span class="keyword">false</span>) = 0;</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#aa5d89183bfd1463c3d1c4511b073c3a8">  267</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">NodePtr</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#aa5d89183bfd1463c3d1c4511b073c3a8" title="Get the target node being tracked.">TrackTarget</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#ab47a460750b82715608a619d227f0c14">  273</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#ab47a460750b82715608a619d227f0c14" title="Set track offset. Camera will track a point that&#39;s at an offset from the target node....">SetTrackOffset</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="https://gazebosim.org/api/math/8/classgz_1_1math_1_1Vector3.html">math::Vector3d</a> &amp;_offset) = 0;</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a872c086cb0fd73d882b92898ad1f437d">  278</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_classRef" href="https://gazebosim.org/api/math/8/classgz_1_1math_1_1Vector3.html">math::Vector3d</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a872c086cb0fd73d882b92898ad1f437d" title="Get the track offset vector in the frame specified at the time the track target is set.">TrackOffset</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a38a1a18a8cb28c39c838e8a3b736f332">  283</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a38a1a18a8cb28c39c838e8a3b736f332" title="Set track P Gain. Determines how fast the camera rotates to look at the target node....">SetTrackPGain</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> _pGain) = 0;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a80ddf22b34244b60c4a79db98f8947f9">  287</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a80ddf22b34244b60c4a79db98f8947f9" title="Get the camera track rotation P gain.">TrackPGain</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#ae5dac859964f1c47eba4d46d6d3ef9f9">  300</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#ae5dac859964f1c47eba4d46d6d3ef9f9" title="Set a node for camera to follow. The camera will automatically update its position to keep itself at ...">SetFollowTarget</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">NodePtr</a> &amp;_target,</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>                  <span class="keyword">const</span> <a class="code hl_classRef" href="https://gazebosim.org/api/math/8/classgz_1_1math_1_1Vector3.html">math::Vector3d</a> &amp;_offset = math::Vector3d::Zero,</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>                  <span class="keyword">const</span> <span class="keywordtype">bool</span> _worldFrame = <span class="keyword">false</span>) = 0;</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span> </div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#ae61720acb36e9a193823f235d7d2cfd9">  306</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">NodePtr</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#ae61720acb36e9a193823f235d7d2cfd9" title="Get the target node being followed.">FollowTarget</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a2c039e42aff60a8af8a0a9a259440c60">  312</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a2c039e42aff60a8af8a0a9a259440c60" title="Set offset of camera from target node being followed. The offset will be in the frame that is specifi...">SetFollowOffset</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="https://gazebosim.org/api/math/8/classgz_1_1math_1_1Vector3.html">math::Vector3d</a> &amp;_offset) = 0;</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a77e592cf3107418c2bb664d68d7fca89">  317</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_classRef" href="https://gazebosim.org/api/math/8/classgz_1_1math_1_1Vector3.html">math::Vector3d</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a77e592cf3107418c2bb664d68d7fca89" title="Get the follow offset vector in the frame specified at the time the follow target is set.">FollowOffset</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span> </div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#add61795d96a31dd14e079cd6949ec1ba">  322</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#add61795d96a31dd14e079cd6949ec1ba" title="Set follow P Gain. Determines how fast the camera moves to follow the target node....">SetFollowPGain</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> _pGain) = 0;</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a6aae55a02b0fa2e4163d36200a38d5ba">  326</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">double</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a6aae55a02b0fa2e4163d36200a38d5ba" title="Get the camera follow movement P gain.">FollowPGain</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span> </div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a6e44f0ec4fb40d949e2ad5ec50e692c3">  330</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a6e44f0ec4fb40d949e2ad5ec50e692c3" title="Set a material that the camera should see on all objects.">SetMaterial</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> &amp;_material) = 0;</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span> </div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a8cfad6b18bb26e1a9ea6f400efdbc22f">  336</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a8cfad6b18bb26e1a9ea6f400efdbc22f" title="Get the OpenGL texture id associated with the render texture used by this camera. A valid id is retur...">RenderTextureGLId</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span> </div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a1a31834536300647551f6994c2e1d6cd">  344</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a1a31834536300647551f6994c2e1d6cd" title="Get the Metal texture id associated with the render texture used by this camera. A valid Id is obtain...">RenderTextureMetalId</a>(<span class="keywordtype">void</span> *_textureIdPtr) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span> </div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a202c48e1d6e13c9b06c711a0f7c160d4">  350</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a202c48e1d6e13c9b06c711a0f7c160d4" title="Right now this is Vulkan-only. This function needs to be called after rendering, and before handling ...">PrepareForExternalSampling</a>() = 0;</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span> </div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a3dc7e9c26a8c567dae0ad48f54ce9a59">  354</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a3dc7e9c26a8c567dae0ad48f54ce9a59" title="Add a render pass to the camera.">AddRenderPass</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">RenderPassPtr</a> &amp;_pass) = 0;</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span> </div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a2e348e9500b0b9cf9605fd3209474915">  358</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a2e348e9500b0b9cf9605fd3209474915" title="Remove a render pass from the camera.">RemoveRenderPass</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">RenderPassPtr</a> &amp;_pass) = 0;</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span> </div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a4efc4b40472c22d504baf7b2c206d75f">  361</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a4efc4b40472c22d504baf7b2c206d75f" title="Remove all render passes from the camera.">RemoveAllRenderPasses</a>() = 0;</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span> </div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a645d4aad810809e65c972d7353118eca">  365</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a645d4aad810809e65c972d7353118eca" title="Get the number of render passes applied to the camera.">RenderPassCount</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span> </div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a355e236f8e92fc46d9a28305d2523332">  369</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">RenderPassPtr</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a355e236f8e92fc46d9a28305d2523332" title="Get a render passes by index.">RenderPassByIndex</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _index)</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>          <span class="keyword">const</span> = 0;</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span> </div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Camera.html#a6d6b493b5ee97c5f8a6c9d0b50d562c1">  374</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Camera.html#a6d6b493b5ee97c5f8a6c9d0b50d562c1">SetShadowsDirty</a>() = 0;</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>    };</div>
+</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>    }</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>  }</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>}</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span> </div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span><span class="preprocessor">#if defined(__GNUC__) || defined(__clang__)</span></div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span><span class="preprocessor"># pragma GCC diagnostic pop</span></div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span> </div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span><span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+      </div>
+    </main>
+  </div>
+</body>

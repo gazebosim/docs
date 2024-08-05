@@ -1,0 +1,477 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Math">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Math: Inertial.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Math</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        8.0.0
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 GzCreateDocs.cmake -->
+      <nav class="gz-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.9.8 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_5f70b597a8f3cb7e191c654fdc4ac806.html">gz-math</a></li><li class="navelem"><a class="el" href="dir_078c05cd486cbf4f25c108ac6a855843.html">include</a></li><li class="navelem"><a class="el" href="dir_cb23e0bbad0208f30fc2b464607664c0.html">gz</a></li><li class="navelem"><a class="el" href="dir_0f196ca5b9fd4ac373b7623d3ec837c2.html">math</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Inertial.hh</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Inertial_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (C) 2016 Open Source Robotics Foundation</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#ifndef GZ_MATH_INERTIAL_HH_</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define GZ_MATH_INERTIAL_HH_</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;gz/math/config.hh&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;<a class="code" href="MassMatrix3_8hh.html">gz/math/MassMatrix3.hh</a>&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="Matrix3_8hh.html">gz/math/Matrix3.hh</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="Matrix6_8hh.html">gz/math/Matrix6.hh</a>&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;<a class="code" href="Pose3_8hh.html">gz/math/Pose3.hh</a>&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacegz_1_1math.html">gz::math</a></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <span class="comment">// Inline bracket to help doxygen filtering.</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <span class="keyword">inline</span> <span class="keyword">namespace </span>GZ_MATH_VERSION_NAMESPACE {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  <span class="comment">//</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="};">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html">   50</a></span>  <span class="keyword">class </span><a class="code hl_class" href="classgz_1_1math_1_1Inertial.html" title="The Inertial object provides a representation for the mass and inertia matrix of a body B....">Inertial</a></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  {</div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#a5da829d0dc71193550995d8699401ace">   53</a></span>    <span class="keyword">public</span>: <a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#a5da829d0dc71193550995d8699401ace" title="Default Constructor.">Inertial</a>()</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    {}</div>
+</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#af0f12e386e4f63a556a52304d6b3f395">   65</a></span>    <span class="keyword">public</span>: <a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#af0f12e386e4f63a556a52304d6b3f395" title="Constructs an inertial object from the mass matrix for a body B, about its center of mass Bcm,...">Inertial</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">MassMatrix3&lt;T&gt;</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_massMatrix</a>,</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                     <span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Pose3&lt;T&gt;</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_pose</a>)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    : massMatrix(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_massMatrix</a>), pose(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_pose</a>)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    {}</div>
+</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="foldopen" id="foldopen00081" data-start="{" data-end="}">
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#a302bcf878d9040ad1823b7d273015828">   81</a></span>    <span class="keyword">public</span>: <a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#a302bcf878d9040ad1823b7d273015828" title="Constructs an inertial object from the mass matrix for a body B, about its center of mass Bcm,...">Inertial</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">MassMatrix3&lt;T&gt;</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_massMatrix</a>,</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                     <span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Pose3&lt;T&gt;</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_pose</a>,</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                     <span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Matrix6&lt;T&gt;</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_addedMass</a>)</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    : massMatrix(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_massMatrix</a>), pose(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_pose</a>), addedMass(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_addedMass</a>)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    {}</div>
+</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#ad77f304abde41bd61a3edffcf56eb76f">   89</a></span>    <span class="keyword">public</span>: <a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#ad77f304abde41bd61a3edffcf56eb76f" title="Copy constructor.">Inertial</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Inertial&lt;T&gt;</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_inertial</a>) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#a3f77efd8f6fba99a4294039c76876906">   92</a></span>    <span class="keyword">public</span>: <a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#a3f77efd8f6fba99a4294039c76876906" title="Destructor.">~Inertial</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="foldopen" id="foldopen00104" data-start="{" data-end="}">
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#a96ad282d4900ea3069a9f3a94d77c704">  104</a></span>    <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#a96ad282d4900ea3069a9f3a94d77c704" title="Set the mass and inertia matrix.">SetMassMatrix</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">MassMatrix3&lt;T&gt;</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_m</a>,</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>                <span class="keyword">const</span> T <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_tolerance</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">GZ_MASSMATRIX3_DEFAULT_TOLERANCE&lt;T&gt;</a>)</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    {</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>      this-&gt;massMatrix = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_m</a>;</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>      <span class="keywordflow">return</span> this-&gt;massMatrix.IsValid(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_tolerance</a>);</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    }</div>
+</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="foldopen" id="foldopen00115" data-start="{" data-end="}">
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#a36ae3c2a3e15f58aceb1f26ffc2b7884">  115</a></span>    <span class="keyword">public</span>: <span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">MassMatrix3&lt;T&gt;</a> &amp;<a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#a36ae3c2a3e15f58aceb1f26ffc2b7884" title="Get the mass and inertia matrix.">MassMatrix</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>      <span class="keywordflow">return</span> this-&gt;massMatrix;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    }</div>
+</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="foldopen" id="foldopen00123" data-start="{" data-end="}">
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#aca1960b85ce5094b7941fdb264b7e0cf">  123</a></span>    <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#aca1960b85ce5094b7941fdb264b7e0cf" title="Set the pose of the center of mass reference frame.">SetPose</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Pose3&lt;T&gt;</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_pose</a>)</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    {</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>      this-&gt;pose = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_pose</a>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>      <span class="keywordflow">return</span> this-&gt;massMatrix.IsValid();</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    }</div>
+</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="foldopen" id="foldopen00132" data-start="{" data-end="}">
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#a8a820dd373c3767190f7e076d118e80f">  132</a></span>    <span class="keyword">public</span>: <span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Pose3&lt;T&gt;</a> &amp;<a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#a8a820dd373c3767190f7e076d118e80f" title="Get the pose of the center of mass reference frame.">Pose</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>      <span class="keywordflow">return</span> this-&gt;pose;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    }</div>
+</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="foldopen" id="foldopen00145" data-start="{" data-end="}">
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#a3bce543dcee404b0d51720947b8b6181">  145</a></span>    <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#a3bce543dcee404b0d51720947b8b6181" title="Set the matrix representing the inertia of the fluid that is dislocated when the body moves....">SetFluidAddedMass</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Matrix6&lt;T&gt;</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_m</a>)</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    {</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>      this-&gt;addedMass = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_m</a>;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>      <span class="keywordflow">return</span> this-&gt;addedMass.value() == this-&gt;addedMass.value().<a class="code hl_function" href="classgz_1_1math_1_1Matrix6.html#abce64e079e0ad1966dab08b0de0289c6" title="Return the transpose of this matrix.">Transposed</a>();</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    }</div>
+</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="foldopen" id="foldopen00154" data-start="{" data-end="}">
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#ae5afcb3f1ee923b13a4b46746ddc3bf5">  154</a></span>    <span class="keyword">public</span>: <span class="keyword">const</span> std::optional&lt; Matrix6&lt;T&gt; &gt; &amp;<a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#ae5afcb3f1ee923b13a4b46746ddc3bf5" title="Get the fluid added mass matrix.">FluidAddedMass</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>      <span class="keywordflow">return</span> this-&gt;addedMass;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    }</div>
+</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="foldopen" id="foldopen00164" data-start="{" data-end="}">
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#a4c8266fda7a2cd0ca58c9564b76d9652">  164</a></span>    <span class="keyword">public</span>: <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Matrix3&lt;T&gt;</a> <a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#a4c8266fda7a2cd0ca58c9564b76d9652" title="Get the moment of inertia matrix computer about the body&#39;s center of mass and expressed in this Inert...">Moi</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>      <span class="keyword">auto</span> R = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Matrix3&lt;T&gt;</a>(this-&gt;pose.Rot());</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>      <span class="keywordflow">return</span> R * this-&gt;massMatrix.Moi() * R.Transposed();</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    }</div>
+</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="foldopen" id="foldopen00185" data-start="{" data-end="}">
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#a5a778a528ab1ed9b3caf01409f661a63">  185</a></span>    <span class="keyword">public</span>: <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Matrix6&lt;T&gt;</a> <a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#a5a778a528ab1ed9b3caf01409f661a63" title="Spatial mass matrix for body B. It does not include fluid added mass. The matrix is expressed in the ...">BodyMatrix</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>      <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Matrix6&lt;T&gt;</a> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">result</a>;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>      <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">result</a>.<a class="code hl_function" href="classgz_1_1math_1_1Matrix6.html#a9838cdf0a02f845774e0bcb31bbcc188" title="Set one of the four 3x3 submatrices that compose this matrix. These submatrices are formed by dividin...">SetSubmatrix</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Matrix6&lt;T&gt;::TOP_LEFT</a>,</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>          <a class="code hl_class" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;::Identity</a> * this-&gt;massMatrix.Mass());</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>      <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">result</a>.<a class="code hl_function" href="classgz_1_1math_1_1Matrix6.html#a9838cdf0a02f845774e0bcb31bbcc188" title="Set one of the four 3x3 submatrices that compose this matrix. These submatrices are formed by dividin...">SetSubmatrix</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Matrix6&lt;T&gt;::BOTTOM_RIGHT</a>, this-&gt;Moi());</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>      <span class="keyword">auto</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">x</a> = this-&gt;pose.Pos().X();</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>      <span class="keyword">auto</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">y</a> = this-&gt;pose.Pos().Y();</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>      <span class="keyword">auto</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">z</a> = this-&gt;pose.Pos().Z();</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>      <span class="keyword">auto</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">skew</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Matrix3&lt;T&gt;</a>(</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>          0, -<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">z</a>, <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">y</a>,</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>          <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">z</a>, 0, -<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">x</a>,</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>          -<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">y</a>, <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">x</a>, 0) * this-&gt;massMatrix.Mass();</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>      <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">result</a>.<a class="code hl_function" href="classgz_1_1math_1_1Matrix6.html#a9838cdf0a02f845774e0bcb31bbcc188" title="Set one of the four 3x3 submatrices that compose this matrix. These submatrices are formed by dividin...">SetSubmatrix</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Matrix6&lt;T&gt;::BOTTOM_LEFT</a>, <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">skew</a>);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>      <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">result</a>.<a class="code hl_function" href="classgz_1_1math_1_1Matrix6.html#a9838cdf0a02f845774e0bcb31bbcc188" title="Set one of the four 3x3 submatrices that compose this matrix. These submatrices are formed by dividin...">SetSubmatrix</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Matrix6&lt;T&gt;::TOP_RIGHT</a>, <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">skew</a>.<a class="code hl_function" href="classgz_1_1math_1_1Matrix6.html#abce64e079e0ad1966dab08b0de0289c6" title="Return the transpose of this matrix.">Transposed</a>());</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>      <span class="keywordflow">return</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">result</a>;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    }</div>
+</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="foldopen" id="foldopen00214" data-start="{" data-end="}">
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#a9e6dfd7aaf6358f6152857b4b6657a3f">  214</a></span>    <span class="keyword">public</span>: <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Matrix6&lt;T&gt;</a> <a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#a9e6dfd7aaf6358f6152857b4b6657a3f" title="Spatial mass matrix, which includes the body&#39;s inertia, as well as the inertia of the fluid that is d...">SpatialMatrix</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>      <span class="keywordflow">return</span> this-&gt;addedMass.has_value() ?</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>          this-&gt;BodyMatrix() + this-&gt;addedMass.value() : this-&gt;BodyMatrix();</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    }</div>
+</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="foldopen" id="foldopen00224" data-start="{" data-end="}">
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#ad02263cbb48549c4a51a3b9283056b61">  224</a></span>    <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#ad02263cbb48549c4a51a3b9283056b61" title="Set the inertial pose rotation without affecting the MOI in the base coordinate frame.">SetInertialRotation</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Quaternion&lt;T&gt;</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_q</a>)</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    {</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>      <span class="keyword">auto</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">moi</a> = this-&gt;Moi();</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>      this-&gt;pose.Rot() = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_q</a>;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>      <span class="keyword">auto</span> R = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Matrix3&lt;T&gt;</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_q</a>);</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>      <span class="keywordflow">return</span> this-&gt;massMatrix.SetMoi(R.Transposed() * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">moi</a> * R);</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    }</div>
+</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="foldopen" id="foldopen00244" data-start="{" data-end="}">
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#a19ae8b63c925f91ee2bb9a40a0a54a53">  244</a></span>    <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#a19ae8b63c925f91ee2bb9a40a0a54a53" title="Set the MassMatrix rotation (eigenvectors of inertia matrix) without affecting the MOI in the base co...">SetMassMatrixRotation</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Quaternion&lt;T&gt;</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_q</a>,</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>                                       <span class="keyword">const</span> T <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_tol</a> = 1<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">e</a>-6)</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    {</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>      this-&gt;pose.Rot() *= this-&gt;MassMatrix().PrincipalAxesOffset(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_tol</a>) *</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>                          <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_q</a>.Inverse();</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>      <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">moments</a> = this-&gt;MassMatrix().PrincipalMoments(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_tol</a>);</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>      <span class="keyword">const</span> <span class="keyword">auto</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">diag</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Matrix3&lt;T&gt;</a>(</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>          <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">moments</a>[0], 0, 0,</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>          0, <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">moments</a>[1], 0,</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>          0, 0, <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">moments</a>[2]);</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>      <span class="keyword">const</span> <span class="keyword">auto</span> R = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Matrix3&lt;T&gt;</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_q</a>);</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>      <span class="keywordflow">return</span> this-&gt;massMatrix.SetMoi(R * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">diag</a> * R.<a class="code hl_function" href="classgz_1_1math_1_1Matrix6.html#abce64e079e0ad1966dab08b0de0289c6" title="Return the transpose of this matrix.">Transposed</a>());</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    }</div>
+</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#a1a400a30bf41ddc9bde0633cf5f21008">  261</a></span>    <span class="keyword">public</span>: <a class="code hl_class" href="classgz_1_1math_1_1Inertial.html" title="The Inertial object provides a representation for the mass and inertia matrix of a body B....">Inertial</a> &amp;<a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#a1a400a30bf41ddc9bde0633cf5f21008" title="Equal operator.">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Inertial&lt;T&gt;</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_inertial</a>) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
+<div class="foldopen" id="foldopen00267" data-start="{" data-end="}">
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#a334f1042f4a1f01b72cc9745a74ba0f7">  267</a></span>    <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#a334f1042f4a1f01b72cc9745a74ba0f7" title="Equality comparison operator.">operator==</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Inertial&lt;T&gt;</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_inertial</a>)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>      <span class="keywordflow">return</span> (this-&gt;pose == <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_inertial</a>.Pose()) &amp;&amp;</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>             (this-&gt;massMatrix == <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_inertial</a>.MassMatrix()) &amp;&amp;</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>             (this-&gt;addedMass == <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_inertial</a>.FluidAddedMass());</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    }</div>
+</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
+<div class="foldopen" id="foldopen00277" data-start="{" data-end="}">
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#aee951592f702b0a2c2cf532b96dd193b">  277</a></span>    <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#aee951592f702b0a2c2cf532b96dd193b" title="Inequality test operator.">operator!=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Inertial&lt;T&gt;</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_inertial</a>)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>      <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_inertial</a>);</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    }</div>
+</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="foldopen" id="foldopen00287" data-start="{" data-end="}">
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#ab45ee710c933413fc16709591ace6f06">  287</a></span>    <span class="keyword">public</span>: <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Inertial&lt;T&gt;</a> &amp;<a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#ab45ee710c933413fc16709591ace6f06" title="Adds inertial properties to current object. The mass, center of mass location, and inertia matrix are...">operator+=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Inertial&lt;T&gt;</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_inertial</a>)</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    {</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>      T <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m1</a> = this-&gt;massMatrix.Mass();</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>      T <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m2</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_inertial</a>.MassMatrix().Mass();</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>      <span class="comment">// Total mass</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>      T mass = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m1</a> + <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m2</a>;</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span> </div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>      <span class="comment">// Only continue if total mass is positive</span></div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>      <span class="keywordflow">if</span> (mass &lt;= 0)</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>      {</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>      }</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span> </div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>      <span class="keyword">auto</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">com1</a> = this-&gt;Pose().Pos();</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>      <span class="keyword">auto</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">com2</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_inertial</a>.Pose().Pos();</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>      <span class="comment">// New center of mass location in base frame</span></div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>      <span class="keyword">auto</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">com</a> = (<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m1</a>*<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">com1</a> + <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m2</a>*<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">com2</a>) / mass;</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>      <span class="comment">// Components of new moment of inertia matrix</span></div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>      <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Vector3&lt;T&gt;</a> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixxyyzz</a>;</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>      <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Vector3&lt;T&gt;</a> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixyxzyz</a>;</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>      <span class="comment">// First add matrices in base frame</span></div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>      {</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        <span class="keyword">auto</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">moi</a> = this-&gt;Moi() + <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_inertial</a>.Moi();</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixxyyzz</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Vector3&lt;T&gt;</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">moi</a>(0, 0), <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">moi</a>(1, 1), <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">moi</a>(2, 2));</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixyxzyz</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Vector3&lt;T&gt;</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">moi</a>(0, 1), <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">moi</a>(0, 2), <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">moi</a>(1, 2));</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>      }</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>      <span class="comment">// Then account for parallel axis theorem</span></div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>      {</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>        <span class="keyword">auto</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">com1</a> - <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">com</a>;</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixxyyzz</a>.X() += <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m1</a> * (<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[1], 2) + <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[2], 2));</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixxyyzz</a>.Y() += <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m1</a> * (<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[2], 2) + <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[0], 2));</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixxyyzz</a>.Z() += <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m1</a> * (<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[0], 2) + <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[1], 2));</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixyxzyz</a>.X() -= <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m1</a> * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[0] * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[1];</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixyxzyz</a>.Y() -= <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m1</a> * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[0] * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[2];</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixyxzyz</a>.Z() -= <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m1</a> * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[1] * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[2];</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>      }</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>      {</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>        <span class="keyword">auto</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">com2</a> - <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">com</a>;</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixxyyzz</a>.X() += <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m2</a> * (<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[1], 2) + <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[2], 2));</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixxyyzz</a>.Y() += <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m2</a> * (<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[2], 2) + <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[0], 2));</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixxyyzz</a>.Z() += <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m2</a> * (<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[0], 2) + <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[1], 2));</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixyxzyz</a>.X() -= <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m2</a> * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[0] * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[1];</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixyxzyz</a>.Y() -= <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m2</a> * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[0] * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[2];</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixyxzyz</a>.Z() -= <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m2</a> * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[1] * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[2];</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>      }</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>      this-&gt;massMatrix = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">MassMatrix3&lt;T&gt;</a>(mass, <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixxyyzz</a>, <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixyxzyz</a>);</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>      this-&gt;pose = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Pose3&lt;T&gt;</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">com</a>, <a class="code hl_class" href="classgz_1_1math_1_1Quaternion.html" title="A quaternion class that represents 3D rotations and orientations. Four scalar values,...">Quaternion&lt;T&gt;::Identity</a>);</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span> </div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>      <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>    }</div>
+</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
+<div class="foldopen" id="foldopen00345" data-start="{" data-end="}">
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#adfcd33937dd628ef193563deaa22d41b">  345</a></span>   <span class="keyword">public</span>: <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Inertial&lt;T&gt;</a> &amp;<a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#adfcd33937dd628ef193563deaa22d41b" title="Subtracts inertial properties from current object. The mass, center of mass location,...">operator-=</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Inertial&lt;T&gt;</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_inertial</a>)</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    {</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>      T m = this-&gt;massMatrix.Mass();</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>      T <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m2</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_inertial</a>.MassMatrix().Mass();</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>      <span class="comment">// Remaining mass</span></div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>      T <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m1</a> = m - <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m2</a>;</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span> </div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>      <span class="comment">// Only continue if remaining mass is positive</span></div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>      <span class="keywordflow">if</span> (<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m1</a> &lt;= 0)</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>      {</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>        <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>      }</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span> </div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>      <span class="keyword">auto</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">com</a> = this-&gt;Pose().Pos();</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>      <span class="keyword">auto</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">com2</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_inertial</a>.Pose().Pos();</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>      <span class="comment">// Remaining center of mass location in base frame</span></div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>      <span class="keyword">auto</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">com1</a> = (m*<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">com</a> - <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m2</a>*<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">com2</a>)/<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m1</a>;</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span> </div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>      <span class="comment">// Components of new moment of inertia matrix</span></div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>      <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Vector3&lt;T&gt;</a> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixxyyzz</a>;</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>      <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Vector3&lt;T&gt;</a> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixyxzyz</a>;</div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span> </div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>      <span class="comment">// First subtract matrices in base frame</span></div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>      {</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>        <span class="keyword">auto</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">moi</a> = this-&gt;Moi() - <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_inertial</a>.Moi();</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixxyyzz</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Vector3&lt;T&gt;</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">moi</a>(0, 0), <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">moi</a>(1, 1), <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">moi</a>(2, 2));</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixyxzyz</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Vector3&lt;T&gt;</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">moi</a>(0, 1), <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">moi</a>(0, 2), <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">moi</a>(1, 2));</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>      }</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>      <span class="comment">// Then account for parallel axis theorem</span></div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>      {</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>        <span class="keyword">auto</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">com1</a> - <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">com</a>;</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixxyyzz</a>.X() -= <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m1</a> * (<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[1], 2) + <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[2], 2));</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixxyyzz</a>.Y() -= <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m1</a> * (<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[2], 2) + <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[0], 2));</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixxyyzz</a>.Z() -= <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m1</a> * (<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[0], 2) + <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[1], 2));</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixyxzyz</a>.X() += <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m1</a> * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[0] * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[1];</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixyxzyz</a>.Y() += <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m1</a> * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[0] * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[2];</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixyxzyz</a>.Z() += <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m1</a> * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[1] * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[2];</div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>      }</div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>      {</div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>        <span class="keyword">auto</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">com2</a> - <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">com</a>;</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixxyyzz</a>.X() -= <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m2</a> * (<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[1], 2) + <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[2], 2));</div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixxyyzz</a>.Y() -= <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m2</a> * (<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[2], 2) + <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[0], 2));</div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixxyyzz</a>.Z() -= <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m2</a> * (<a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[0], 2) + <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[1], 2));</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixyxzyz</a>.X() += <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m2</a> * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[0] * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[1];</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixyxzyz</a>.Y() += <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m2</a> * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[0] * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[2];</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>        <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixyxzyz</a>.Z() += <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m2</a> * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[1] * <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dc</a>[2];</div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>      }</div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>      this-&gt;massMatrix = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">MassMatrix3&lt;T&gt;</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">m1</a>, <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixxyyzz</a>, <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ixyxzyz</a>);</div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>      this-&gt;pose = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Pose3&lt;T&gt;</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">com1</a>, <a class="code hl_class" href="classgz_1_1math_1_1Quaternion.html" title="A quaternion class that represents 3D rotations and orientations. Four scalar values,...">Quaternion&lt;T&gt;::Identity</a>);</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span> </div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>      <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>    }</div>
+</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span> </div>
+<div class="foldopen" id="foldopen00404" data-start="{" data-end="}">
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#aaa287ebf84d104becdf7edcc18b51dcd">  404</a></span>    <span class="keyword">public</span>: <span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Inertial&lt;T&gt;</a> <a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#aaa287ebf84d104becdf7edcc18b51dcd" title="Adds inertial properties to current object. The mass, center of mass location, and inertia matrix are...">operator+</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Inertial&lt;T&gt;</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_inertial</a>)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span>      <span class="keywordflow">return</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Inertial&lt;T&gt;</a>(*<span class="keyword">this</span>) += <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_inertial</a>;</div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>    }</div>
+</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span> </div>
+<div class="foldopen" id="foldopen00414" data-start="{" data-end="}">
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#affab18a95be5e4c44a6791f2faea724a">  414</a></span>    <span class="keyword">public</span>: <span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Inertial&lt;T&gt;</a> <a class="code hl_function" href="classgz_1_1math_1_1Inertial.html#affab18a95be5e4c44a6791f2faea724a" title="Subtracts inertial properties from current object. The mass, center of mass location,...">operator-</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Inertial&lt;T&gt;</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_inertial</a>)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>      <span class="keywordflow">return</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Inertial&lt;T&gt;</a>(*<span class="keyword">this</span>) -= <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_inertial</a>;</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span>    }</div>
+</div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span> </div>
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno">  421</span>    <span class="keyword">private</span>: <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">MassMatrix3&lt;T&gt;</a> massMatrix;</div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span> </div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>    <span class="keyword">private</span>: <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Pose3&lt;T&gt;</a> pose;</div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span> </div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>    <span class="keyword">private</span>: std::optional&lt;Matrix6&lt;T&gt;&gt; addedMass;</div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>  };</div>
+</div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span> </div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno"><a class="line" href="namespacegz_1_1math.html#a37a9eeb96bfbfde10aa4345c92f7fde8">  431</a></span>  <span class="keyword">typedef</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Inertial&lt;double&gt;</a> <a class="code hl_typedef" href="namespacegz_1_1math.html#a37a9eeb96bfbfde10aa4345c92f7fde8">Inertiald</a>;</div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno"><a class="line" href="namespacegz_1_1math.html#a78f2a0d12bdb9e27b9c9f5aac4c18a81">  432</a></span>  <span class="keyword">typedef</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Inertial&lt;float&gt;</a> <a class="code hl_typedef" href="namespacegz_1_1math.html#a78f2a0d12bdb9e27b9c9f5aac4c18a81">Inertialf</a>;</div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span>  }  <span class="comment">// namespace GZ_MATH_VERSION_NAMESPACE</span></div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>}  <span class="comment">// namespace gz::math</span></div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span><span class="preprocessor">#endif  </span><span class="comment">// GZ_MATH_INERTIAL_HH_</span></div>
+</div><!-- fragment --></div><!-- contents -->
+      </div>
+    </main>
+  </div>
+</body>

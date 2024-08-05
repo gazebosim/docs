@@ -1,0 +1,535 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Math">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Math: GaussMarkovProcess Class Reference</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Math</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        8.0.0
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 GzCreateDocs.cmake -->
+      <nav class="gz-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.9.8 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacegz.html">gz</a></li><li class="navelem"><a class="el" href="namespacegz_1_1math.html">math</a></li><li class="navelem"><a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html">GaussMarkovProcess</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="classgz_1_1math_1_1GaussMarkovProcess-members.html">List of all members</a> &#124;
+<a href="#pub-methods">Public Member Functions</a>  </div>
+  <div class="headertitle"><div class="title">GaussMarkovProcess Class Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Implementation of a stationary gauss-markov process, also known as a Ornstein Ulenbeck process.  
+ <a href="classgz_1_1math_1_1GaussMarkovProcess.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="GaussMarkovProcess_8hh_source.html">gz/math/GaussMarkovProcess.hh</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a5103a5fc6cd8d68942216fc3b63f86bd" id="r_a5103a5fc6cd8d68942216fc3b63f86bd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#a5103a5fc6cd8d68942216fc3b63f86bd">GaussMarkovProcess</a> ()</td></tr>
+<tr class="separator:a5103a5fc6cd8d68942216fc3b63f86bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08d19fd32ca329a17f2d97095c5d04aa" id="r_a08d19fd32ca329a17f2d97095c5d04aa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#a08d19fd32ca329a17f2d97095c5d04aa">GaussMarkovProcess</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_start</a>, <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_theta</a>, <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_mu</a>, <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_sigma</a>)</td></tr>
+<tr class="memdesc:a08d19fd32ca329a17f2d97095c5d04aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a process with the provided process parameters. This will also call <a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#ae7c0924866e5750ab014953573feacd8" title="Set the process parameters. This will also call Reset().">Set()</a>, and in turn <a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#a372de693ad40b3f42839c8ec6ac845f4" title="Reset the process. This will set the current process value to the start value.">Reset()</a>.  <br /></td></tr>
+<tr class="separator:a08d19fd32ca329a17f2d97095c5d04aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af777592523168812688b598f2b43b9d8" id="r_af777592523168812688b598f2b43b9d8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#af777592523168812688b598f2b43b9d8">Mu</a> () <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:af777592523168812688b598f2b43b9d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the mu ( \(\mu\)) value.  <br /></td></tr>
+<tr class="separator:af777592523168812688b598f2b43b9d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a372de693ad40b3f42839c8ec6ac845f4" id="r_a372de693ad40b3f42839c8ec6ac845f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#a372de693ad40b3f42839c8ec6ac845f4">Reset</a> ()</td></tr>
+<tr class="memdesc:a372de693ad40b3f42839c8ec6ac845f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the process. This will set the current process value to the start value.  <br /></td></tr>
+<tr class="separator:a372de693ad40b3f42839c8ec6ac845f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7c0924866e5750ab014953573feacd8" id="r_ae7c0924866e5750ab014953573feacd8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#ae7c0924866e5750ab014953573feacd8">Set</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_start</a>, <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_theta</a>, <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_mu</a>, <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_sigma</a>)</td></tr>
+<tr class="memdesc:ae7c0924866e5750ab014953573feacd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the process parameters. This will also call <a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#a372de693ad40b3f42839c8ec6ac845f4" title="Reset the process. This will set the current process value to the start value.">Reset()</a>.  <br /></td></tr>
+<tr class="separator:ae7c0924866e5750ab014953573feacd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ab0e92688aad39d42465d6022f6a327" id="r_a1ab0e92688aad39d42465d6022f6a327"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#a1ab0e92688aad39d42465d6022f6a327">Sigma</a> () <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:a1ab0e92688aad39d42465d6022f6a327"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the sigma ( \(\sigma\)) value.  <br /></td></tr>
+<tr class="separator:a1ab0e92688aad39d42465d6022f6a327"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19b5771d8786e4cf36edaf0254eb9d8e" id="r_a19b5771d8786e4cf36edaf0254eb9d8e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#a19b5771d8786e4cf36edaf0254eb9d8e">Start</a> () <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:a19b5771d8786e4cf36edaf0254eb9d8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the start value.  <br /></td></tr>
+<tr class="separator:a19b5771d8786e4cf36edaf0254eb9d8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4da9bf93a42d55302ddb96a6a7442f4c" id="r_a4da9bf93a42d55302ddb96a6a7442f4c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#a4da9bf93a42d55302ddb96a6a7442f4c">Theta</a> () <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:a4da9bf93a42d55302ddb96a6a7442f4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the theta ( \(\theta\)) value.  <br /></td></tr>
+<tr class="separator:a4da9bf93a42d55302ddb96a6a7442f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cd2ebd57b12698b5ebe8cab3711b5ac" id="r_a2cd2ebd57b12698b5ebe8cab3711b5ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#a2cd2ebd57b12698b5ebe8cab3711b5ac">Update</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> clock::duration &amp;<a class="el" href="classgz_1_1math_1_1Matrix6.html">_dt</a>)</td></tr>
+<tr class="memdesc:a2cd2ebd57b12698b5ebe8cab3711b5ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the process and get the new value.  <br /></td></tr>
+<tr class="separator:a2cd2ebd57b12698b5ebe8cab3711b5ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11e79c79a8f7254e6760f9fa9f2be99b" id="r_a11e79c79a8f7254e6760f9fa9f2be99b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#a11e79c79a8f7254e6760f9fa9f2be99b">Update</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_dt</a>)</td></tr>
+<tr class="separator:a11e79c79a8f7254e6760f9fa9f2be99b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8554e97d98d05016f16300cedf2be9f6" id="r_a8554e97d98d05016f16300cedf2be9f6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#a8554e97d98d05016f16300cedf2be9f6">Value</a> () <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:a8554e97d98d05016f16300cedf2be9f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current process value.  <br /></td></tr>
+<tr class="separator:a8554e97d98d05016f16300cedf2be9f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation of a stationary gauss-markov process, also known as a Ornstein Ulenbeck process. </p>
+<p>See the <a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#a2cd2ebd57b12698b5ebe8cab3711b5ac" title="Update the process and get the new value.">Update(const clock::duration &amp;)</a> for details on the forumla used to update the process.</p>
+<h2><a class="anchor" id="autotoc_md57"></a>
+Example usage</h2>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="GaussMarkovProcess_8hh.html">gz/math/GaussMarkovProcess.hh</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// You can plot the data generated by this program by following these</span></div>
+<div class="line"><span class="comment">// steps.</span></div>
+<div class="line"><span class="comment">//</span></div>
+<div class="line"><span class="comment">// 1. Run this program and save the output to a file:</span></div>
+<div class="line"><span class="comment">//     ./gauss_markov_process &gt; plot.data</span></div>
+<div class="line"><span class="comment">//</span></div>
+<div class="line"><span class="comment">// 2. Use gnuplot to create a plot:</span></div>
+<div class="line"><span class="comment">//     gnuplot -e &#39;set terminal jpeg; plot &quot;plot.data&quot; with lines&#39; &gt; out.jpg</span></div>
+<div class="line"><span class="keywordtype">int</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">main</a>(<span class="keywordtype">int</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">argc</a>, <span class="keywordtype">char</span> **<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">argv</a>)</div>
+<div class="line">{</div>
+<div class="line">  <span class="comment">// Create the process with:</span></div>
+<div class="line">  <span class="comment">//   * Start value of 20.2</span></div>
+<div class="line">  <span class="comment">//   * Theta (rate at which the process should approach the mean) of 0.1</span></div>
+<div class="line">  <span class="comment">//   * Mu (mean value) 0.</span></div>
+<div class="line">  <span class="comment">//   * Sigma (volatility) of 0.5.</span></div>
+<div class="line">  <a class="code hl_class" href="classgz_1_1math_1_1GaussMarkovProcess.html" title="Implementation of a stationary gauss-markov process, also known as a Ornstein Ulenbeck process.">gz::math::GaussMarkovProcess</a> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">gmp</a>(20.2, 0.1, 0, 0.5);</div>
+<div class="line"> </div>
+<div class="line">  std::chrono::steady_clock::duration <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dt</a> = <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::milliseconds</a>(100);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// This process should decrease toward the mean value of 0.</span></div>
+<div class="line">  <span class="comment">// With noise of 0.5, the process will walk a bit.</span></div>
+<div class="line">  <span class="keywordflow">for</span> (<span class="keywordtype">int</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">i</a> = 0; <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">i</a> &lt; 1000; ++<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">i</a>)</div>
+<div class="line">  {</div>
+<div class="line">    <span class="keywordtype">double</span> value = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">gmp</a>.Update(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">dt</a>);</div>
+<div class="line">    <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; value &lt;&lt; <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">return</span> 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a5103a5fc6cd8d68942216fc3b63f86bd" name="a5103a5fc6cd8d68942216fc3b63f86bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5103a5fc6cd8d68942216fc3b63f86bd">&#9670;&#160;</a></span>GaussMarkovProcess() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html">GaussMarkovProcess</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a08d19fd32ca329a17f2d97095c5d04aa" name="a08d19fd32ca329a17f2d97095c5d04aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08d19fd32ca329a17f2d97095c5d04aa">&#9670;&#160;</a></span>GaussMarkovProcess() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html">GaussMarkovProcess</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_theta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_mu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_sigma</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create a process with the provided process parameters. This will also call <a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#ae7c0924866e5750ab014953573feacd8" title="Set the process parameters. This will also call Reset().">Set()</a>, and in turn <a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#a372de693ad40b3f42839c8ec6ac845f4" title="Reset the process. This will set the current process value to the start value.">Reset()</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_start</td><td>The start value of the process. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_theta</td><td>The theta ( \(\theta\)) parameter. A value of zero will be used if this parameter is negative. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_mu</td><td>The mu ( \(\mu\)) parameter. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_sigma</td><td>The sigma ( \(\sigma\)) parameter. A value of zero will be used if this parameter is negative. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#a2cd2ebd57b12698b5ebe8cab3711b5ac" title="Update the process and get the new value.">Update(const clock::duration &amp;)</a> </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="af777592523168812688b598f2b43b9d8" name="af777592523168812688b598f2b43b9d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af777592523168812688b598f2b43b9d8">&#9670;&#160;</a></span>Mu()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> Mu </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the mu ( \(\mu\)) value. </p>
+<dl class="section return"><dt>Returns</dt><dd>The mu value. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#ae7c0924866e5750ab014953573feacd8" title="Set the process parameters. This will also call Reset().">Set(double, double, double, double)</a> </dd></dl>
+
+</div>
+</div>
+<a id="a372de693ad40b3f42839c8ec6ac845f4" name="a372de693ad40b3f42839c8ec6ac845f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a372de693ad40b3f42839c8ec6ac845f4">&#9670;&#160;</a></span>Reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a> Reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reset the process. This will set the current process value to the start value. </p>
+
+</div>
+</div>
+<a id="ae7c0924866e5750ab014953573feacd8" name="ae7c0924866e5750ab014953573feacd8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7c0924866e5750ab014953573feacd8">&#9670;&#160;</a></span>Set()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a> Set </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_theta</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_mu</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_sigma</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the process parameters. This will also call <a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#a372de693ad40b3f42839c8ec6ac845f4" title="Reset the process. This will set the current process value to the start value.">Reset()</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_start</td><td>The start value of the process. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_theta</td><td>The theta ( \(\theta\)) parameter. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_mu</td><td>The mu ( \(\mu\)) parameter. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_sigma</td><td>The sigma ( \(\sigma\)) parameter. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#a2cd2ebd57b12698b5ebe8cab3711b5ac" title="Update the process and get the new value.">Update(const clock::duration &amp;)</a> </dd></dl>
+
+</div>
+</div>
+<a id="a1ab0e92688aad39d42465d6022f6a327" name="a1ab0e92688aad39d42465d6022f6a327"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ab0e92688aad39d42465d6022f6a327">&#9670;&#160;</a></span>Sigma()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> Sigma </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the sigma ( \(\sigma\)) value. </p>
+<dl class="section return"><dt>Returns</dt><dd>The sigma value. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#ae7c0924866e5750ab014953573feacd8" title="Set the process parameters. This will also call Reset().">Set(double, double, double, double)</a> </dd></dl>
+
+</div>
+</div>
+<a id="a19b5771d8786e4cf36edaf0254eb9d8e" name="a19b5771d8786e4cf36edaf0254eb9d8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19b5771d8786e4cf36edaf0254eb9d8e">&#9670;&#160;</a></span>Start()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> Start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the start value. </p>
+<dl class="section return"><dt>Returns</dt><dd>The start value. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#ae7c0924866e5750ab014953573feacd8" title="Set the process parameters. This will also call Reset().">Set(double, double, double, double)</a> </dd></dl>
+
+</div>
+</div>
+<a id="a4da9bf93a42d55302ddb96a6a7442f4c" name="a4da9bf93a42d55302ddb96a6a7442f4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4da9bf93a42d55302ddb96a6a7442f4c">&#9670;&#160;</a></span>Theta()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> Theta </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the theta ( \(\theta\)) value. </p>
+<dl class="section return"><dt>Returns</dt><dd>The theta value. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classgz_1_1math_1_1GaussMarkovProcess.html#ae7c0924866e5750ab014953573feacd8" title="Set the process parameters. This will also call Reset().">Set(double, double, double, double)</a> </dd></dl>
+
+</div>
+</div>
+<a id="a2cd2ebd57b12698b5ebe8cab3711b5ac" name="a2cd2ebd57b12698b5ebe8cab3711b5ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cd2ebd57b12698b5ebe8cab3711b5ac">&#9670;&#160;</a></span>Update() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> Update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> clock::duration &amp;&#160;</td>
+          <td class="paramname"><em>_dt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update the process and get the new value. </p>
+<p>The following equation is computed:</p>
+<p>\(x_{t+1} += \theta * (\mu - x_t) * dt + \sigma * dW_t\)</p>
+<p>where</p>
+<ul>
+<li>\(\theta, \mu, \sigma\) are parameters specified by the user. In order, the parameters are theta, mu, and sigma. Theta and sigma must be greater than or equal to zero. You can think of mu as representing the mean or equilibrium value, sigma as the degree of volatility, and theta as the rate by which changes dissipate and revert towards the mean.</li>
+<li>\(dt\) is the time step in seconds.</li>
+<li>\(dW_t\) is a random number drawm from a normal distribution with mean of zero and variance of 1.</li>
+<li>\(x_t\) is the current value of the Gauss-Markov process</li>
+<li>\(x_{t+1}\) is the new value of the Gauss-Markvov process</li>
+</ul>
+<p>See also: <a href="https://en.wikipedia.org/wiki/Ornstein%E2%80%93Uhlenbeck_process">https://en.wikipedia.org/wiki/Ornstein%E2%80%93Uhlenbeck_process</a></p>
+<p>This implementation include a drift parameter, mu. In financial mathematics, this is known as a Vasicek model.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_dt</td><td>Length of the timestep after which a new sample should be taken. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The new value of this process. </dd></dl>
+
+</div>
+</div>
+<a id="a11e79c79a8f7254e6760f9fa9f2be99b" name="a11e79c79a8f7254e6760f9fa9f2be99b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11e79c79a8f7254e6760f9fa9f2be99b">&#9670;&#160;</a></span>Update() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> Update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_dt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8554e97d98d05016f16300cedf2be9f6" name="a8554e97d98d05016f16300cedf2be9f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8554e97d98d05016f16300cedf2be9f6">&#9670;&#160;</a></span>Value()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> Value </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the current process value. </p>
+<dl class="section return"><dt>Returns</dt><dd>The value of the process. </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="GaussMarkovProcess_8hh_source.html">GaussMarkovProcess.hh</a></li>
+</ul>
+</div><!-- contents -->
+      </div>
+    </main>
+  </div>
+</body>

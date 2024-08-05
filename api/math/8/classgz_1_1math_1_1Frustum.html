@@ -1,0 +1,665 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Math">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Math: Frustum Class Reference</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Math</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        8.0.0
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 GzCreateDocs.cmake -->
+      <nav class="gz-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.9.8 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacegz.html">gz</a></li><li class="navelem"><a class="el" href="namespacegz_1_1math.html">math</a></li><li class="navelem"><a class="el" href="classgz_1_1math_1_1Frustum.html">Frustum</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="classgz_1_1math_1_1Frustum-members.html">List of all members</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a>  </div>
+  <div class="headertitle"><div class="title">Frustum Class Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Mathematical representation of a frustum and related functions. This is also known as a view frustum.  
+ <a href="classgz_1_1math_1_1Frustum.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Frustum_8hh_source.html">Frustum.hh</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ae9e1c8a3d097c4fa8df79abc03911ec5" id="r_ae9e1c8a3d097c4fa8df79abc03911ec5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Frustum.html#ae9e1c8a3d097c4fa8df79abc03911ec5">FrustumPlane</a> { <br />
+&#160;&#160;<a class="el" href="classgz_1_1math_1_1Frustum.html#ae9e1c8a3d097c4fa8df79abc03911ec5ae2202e23d7736197225d0b7a46839ab2">FRUSTUM_PLANE_NEAR</a> = 0
+, <a class="el" href="classgz_1_1math_1_1Frustum.html#ae9e1c8a3d097c4fa8df79abc03911ec5aff7610a99c3aeaa24bb6781b13c99489">FRUSTUM_PLANE_FAR</a> = 1
+, <a class="el" href="classgz_1_1math_1_1Frustum.html#ae9e1c8a3d097c4fa8df79abc03911ec5a9b9e1d227e8cfe34356a95b312186445">FRUSTUM_PLANE_LEFT</a> = 2
+, <a class="el" href="classgz_1_1math_1_1Frustum.html#ae9e1c8a3d097c4fa8df79abc03911ec5aaf028928cf4519f7b0c04854b9a14950">FRUSTUM_PLANE_RIGHT</a> = 3
+, <br />
+&#160;&#160;<a class="el" href="classgz_1_1math_1_1Frustum.html#ae9e1c8a3d097c4fa8df79abc03911ec5a6821522139674a34a3d17b4e9dbaeda6">FRUSTUM_PLANE_TOP</a> = 4
+, <a class="el" href="classgz_1_1math_1_1Frustum.html#ae9e1c8a3d097c4fa8df79abc03911ec5a906d964e61e7a24ef905ecebaecab8b1">FRUSTUM_PLANE_BOTTOM</a> = 5
+<br />
+ }</td></tr>
+<tr class="memdesc:ae9e1c8a3d097c4fa8df79abc03911ec5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Planes that define the boundaries of the frustum.  <a href="classgz_1_1math_1_1Frustum.html#ae9e1c8a3d097c4fa8df79abc03911ec5">More...</a><br /></td></tr>
+<tr class="separator:ae9e1c8a3d097c4fa8df79abc03911ec5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a6768c58ca61f1f5d3b4a0192abd0695b" id="r_a6768c58ca61f1f5d3b4a0192abd0695b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Frustum.html#a6768c58ca61f1f5d3b4a0192abd0695b">Frustum</a> ()</td></tr>
+<tr class="memdesc:a6768c58ca61f1f5d3b4a0192abd0695b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default constructor. With the following default values:  <br /></td></tr>
+<tr class="separator:a6768c58ca61f1f5d3b4a0192abd0695b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a24f691f3d4be90b1f0f711f1d4869a93" id="r_a24f691f3d4be90b1f0f711f1d4869a93"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Frustum.html#a24f691f3d4be90b1f0f711f1d4869a93">Frustum</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_near</a>, <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_far</a>, <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Angle.html">math::Angle</a> &amp;<a class="el" href="classgz_1_1math_1_1Matrix6.html">_fov</a>, <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_aspectRatio</a>, <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="namespacegz_1_1math.html#a507d73d4a494a03691fb87691dd07215">math::Pose3d</a> &amp;<a class="el" href="classgz_1_1math_1_1Matrix6.html">_pose</a>=<a class="el" href="classgz_1_1math_1_1Matrix6.html#ad9d3df549da5a8de858e3345734f21c4">math::Pose3d::Zero</a>)</td></tr>
+<tr class="memdesc:a24f691f3d4be90b1f0f711f1d4869a93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
+<tr class="separator:a24f691f3d4be90b1f0f711f1d4869a93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bdc2ccc73727b65d2bf99a0898cddde" id="r_a3bdc2ccc73727b65d2bf99a0898cddde"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Frustum.html#a3bdc2ccc73727b65d2bf99a0898cddde">AspectRatio</a> () <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:a3bdc2ccc73727b65d2bf99a0898cddde"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the aspect ratio, which is the width divided by height of the near or far planes.  <br /></td></tr>
+<tr class="separator:a3bdc2ccc73727b65d2bf99a0898cddde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb2f195a6aaa6e61df061d89a6f151e7" id="r_aeb2f195a6aaa6e61df061d89a6f151e7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Frustum.html#aeb2f195a6aaa6e61df061d89a6f151e7">Contains</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1AxisAlignedBox.html">AxisAlignedBox</a> &amp;<a class="el" href="classgz_1_1math_1_1Matrix6.html">_b</a>) <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:aeb2f195a6aaa6e61df061d89a6f151e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a box lies inside the pyramid frustum.  <br /></td></tr>
+<tr class="separator:aeb2f195a6aaa6e61df061d89a6f151e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa550334f3d37f63e2cfa8bffff565f01" id="r_aa550334f3d37f63e2cfa8bffff565f01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Frustum.html#aa550334f3d37f63e2cfa8bffff565f01">Contains</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="namespacegz_1_1math.html#a1f05093f5ee1a9ecdd54476792e4c206">Vector3d</a> &amp;<a class="el" href="classgz_1_1math_1_1Matrix6.html">_p</a>) <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:aa550334f3d37f63e2cfa8bffff565f01"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if a point lies inside the pyramid frustum.  <br /></td></tr>
+<tr class="separator:aa550334f3d37f63e2cfa8bffff565f01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae13f0786421b516e3d8fe6c936249eb1" id="r_ae13f0786421b516e3d8fe6c936249eb1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Frustum.html#ae13f0786421b516e3d8fe6c936249eb1">Far</a> () <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:ae13f0786421b516e3d8fe6c936249eb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the far distance. This is the distance from the frustum's vertex to the farthest plane.  <br /></td></tr>
+<tr class="separator:ae13f0786421b516e3d8fe6c936249eb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee225ab537f7f2844ed07e6a24bb2dc4" id="r_aee225ab537f7f2844ed07e6a24bb2dc4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Angle.html">math::Angle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Frustum.html#aee225ab537f7f2844ed07e6a24bb2dc4">FOV</a> () <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:aee225ab537f7f2844ed07e6a24bb2dc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the horizontal field of view. The field of view is the angle between the frustum's vertex and the edges of the near or far plane. This value represents the horizontal angle.  <br /></td></tr>
+<tr class="separator:aee225ab537f7f2844ed07e6a24bb2dc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e7d6587083f056b3514a08c4c173e18" id="r_a5e7d6587083f056b3514a08c4c173e18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Frustum.html#a5e7d6587083f056b3514a08c4c173e18">Near</a> () <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:a5e7d6587083f056b3514a08c4c173e18"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the near distance. This is the distance from the frustum's vertex to the closest plane.  <br /></td></tr>
+<tr class="separator:a5e7d6587083f056b3514a08c4c173e18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a302702dc9c94d275f0204ee13ab88d78" id="r_a302702dc9c94d275f0204ee13ab88d78"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacegz_1_1math.html#ae8167e057ec4d8fdbbbf7d2f96247c5f">Planed</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Frustum.html#a302702dc9c94d275f0204ee13ab88d78">Plane</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Frustum.html#ae9e1c8a3d097c4fa8df79abc03911ec5">FrustumPlane</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_plane</a>) <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:a302702dc9c94d275f0204ee13ab88d78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a plane of the frustum.  <br /></td></tr>
+<tr class="separator:a302702dc9c94d275f0204ee13ab88d78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6498414759b57ab7d80e0d751285132b" id="r_a6498414759b57ab7d80e0d751285132b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacegz_1_1math.html#a507d73d4a494a03691fb87691dd07215">Pose3d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Frustum.html#a6498414759b57ab7d80e0d751285132b">Pose</a> () <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:a6498414759b57ab7d80e0d751285132b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the pose of the frustum.  <br /></td></tr>
+<tr class="separator:a6498414759b57ab7d80e0d751285132b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a137cd252d9372f0ac1f3bf2a65e245bb" id="r_a137cd252d9372f0ac1f3bf2a65e245bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Frustum.html#a137cd252d9372f0ac1f3bf2a65e245bb">SetAspectRatio</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_aspectRatio</a>)</td></tr>
+<tr class="memdesc:a137cd252d9372f0ac1f3bf2a65e245bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the aspect ratio, which is the width divided by height of the near or far planes.  <br /></td></tr>
+<tr class="separator:a137cd252d9372f0ac1f3bf2a65e245bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8c177a033a68a74130f0af8a870ff64" id="r_af8c177a033a68a74130f0af8a870ff64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Frustum.html#af8c177a033a68a74130f0af8a870ff64">SetFar</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_far</a>)</td></tr>
+<tr class="memdesc:af8c177a033a68a74130f0af8a870ff64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the far distance. This is the distance from the frustum's vertex to the farthest plane.  <br /></td></tr>
+<tr class="separator:af8c177a033a68a74130f0af8a870ff64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab41e1f2322986a96b62eb78bf70c3a7b" id="r_ab41e1f2322986a96b62eb78bf70c3a7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Frustum.html#ab41e1f2322986a96b62eb78bf70c3a7b">SetFOV</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Angle.html">math::Angle</a> &amp;<a class="el" href="classgz_1_1math_1_1Matrix6.html">_fov</a>)</td></tr>
+<tr class="memdesc:ab41e1f2322986a96b62eb78bf70c3a7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the horizontal field of view. The field of view is the angle between the frustum's vertex and the edges of the near or far plane. This value represents the horizontal angle.  <br /></td></tr>
+<tr class="separator:ab41e1f2322986a96b62eb78bf70c3a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9565a95e4f9f352cf4eb1789ed86295b" id="r_a9565a95e4f9f352cf4eb1789ed86295b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Frustum.html#a9565a95e4f9f352cf4eb1789ed86295b">SetNear</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_near</a>)</td></tr>
+<tr class="memdesc:a9565a95e4f9f352cf4eb1789ed86295b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the near distance. This is the distance from the frustum's vertex to the closest plane.  <br /></td></tr>
+<tr class="separator:a9565a95e4f9f352cf4eb1789ed86295b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c3d674b3481eab4d3628b210a5db273" id="r_a7c3d674b3481eab4d3628b210a5db273"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Frustum.html#a7c3d674b3481eab4d3628b210a5db273">SetPose</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="namespacegz_1_1math.html#a507d73d4a494a03691fb87691dd07215">Pose3d</a> &amp;<a class="el" href="classgz_1_1math_1_1Matrix6.html">_pose</a>)</td></tr>
+<tr class="memdesc:a7c3d674b3481eab4d3628b210a5db273"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the pose of the frustum.  <br /></td></tr>
+<tr class="separator:a7c3d674b3481eab4d3628b210a5db273"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Mathematical representation of a frustum and related functions. This is also known as a view frustum. </p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="ae9e1c8a3d097c4fa8df79abc03911ec5" name="ae9e1c8a3d097c4fa8df79abc03911ec5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9e1c8a3d097c4fa8df79abc03911ec5">&#9670;&#160;</a></span>FrustumPlane</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">enum</a> <a class="el" href="classgz_1_1math_1_1Frustum.html#ae9e1c8a3d097c4fa8df79abc03911ec5">FrustumPlane</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Planes that define the boundaries of the frustum. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ae9e1c8a3d097c4fa8df79abc03911ec5ae2202e23d7736197225d0b7a46839ab2" name="ae9e1c8a3d097c4fa8df79abc03911ec5ae2202e23d7736197225d0b7a46839ab2"></a>FRUSTUM_PLANE_NEAR&#160;</td><td class="fielddoc"><p>Near plane. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae9e1c8a3d097c4fa8df79abc03911ec5aff7610a99c3aeaa24bb6781b13c99489" name="ae9e1c8a3d097c4fa8df79abc03911ec5aff7610a99c3aeaa24bb6781b13c99489"></a>FRUSTUM_PLANE_FAR&#160;</td><td class="fielddoc"><p>Far plane. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae9e1c8a3d097c4fa8df79abc03911ec5a9b9e1d227e8cfe34356a95b312186445" name="ae9e1c8a3d097c4fa8df79abc03911ec5a9b9e1d227e8cfe34356a95b312186445"></a>FRUSTUM_PLANE_LEFT&#160;</td><td class="fielddoc"><p>Left plane. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae9e1c8a3d097c4fa8df79abc03911ec5aaf028928cf4519f7b0c04854b9a14950" name="ae9e1c8a3d097c4fa8df79abc03911ec5aaf028928cf4519f7b0c04854b9a14950"></a>FRUSTUM_PLANE_RIGHT&#160;</td><td class="fielddoc"><p>Right plane. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae9e1c8a3d097c4fa8df79abc03911ec5a6821522139674a34a3d17b4e9dbaeda6" name="ae9e1c8a3d097c4fa8df79abc03911ec5a6821522139674a34a3d17b4e9dbaeda6"></a>FRUSTUM_PLANE_TOP&#160;</td><td class="fielddoc"><p>Top plane. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ae9e1c8a3d097c4fa8df79abc03911ec5a906d964e61e7a24ef905ecebaecab8b1" name="ae9e1c8a3d097c4fa8df79abc03911ec5a906d964e61e7a24ef905ecebaecab8b1"></a>FRUSTUM_PLANE_BOTTOM&#160;</td><td class="fielddoc"><p>Bottom plane. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a6768c58ca61f1f5d3b4a0192abd0695b" name="a6768c58ca61f1f5d3b4a0192abd0695b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6768c58ca61f1f5d3b4a0192abd0695b">&#9670;&#160;</a></span>Frustum() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Frustum.html">Frustum</a> </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Default constructor. With the following default values: </p>
+<ul>
+<li>near: 0.0</li>
+<li>far: 1.0</li>
+<li>fov: 0.78539 radians (45 degrees)</li>
+<li>aspect ratio: 1.0</li>
+<li>pose: <a class="el" href="classgz_1_1math_1_1Matrix6.html#ad9d3df549da5a8de858e3345734f21c4" title="Zero matrix.">Pose3d::Zero</a> </li>
+</ul>
+
+</div>
+</div>
+<a id="a24f691f3d4be90b1f0f711f1d4869a93" name="a24f691f3d4be90b1f0f711f1d4869a93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a24f691f3d4be90b1f0f711f1d4869a93">&#9670;&#160;</a></span>Frustum() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Frustum.html">Frustum</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_near</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_far</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Angle.html">math::Angle</a> &amp;&#160;</td>
+          <td class="paramname"><em>_fov</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_aspectRatio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="namespacegz_1_1math.html#a507d73d4a494a03691fb87691dd07215">math::Pose3d</a> &amp;&#160;</td>
+          <td class="paramname"><em>_pose</em> = <code><a class="el" href="classgz_1_1math_1_1Matrix6.html#ad9d3df549da5a8de858e3345734f21c4">math::Pose3d::Zero</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_near</td><td>Near plane distance. This is the distance from the frustum's vertex to the closest plane </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_far</td><td>Far plane distance. This is the distance from the frustum's vertex to the farthest plane. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_fov</td><td>Field of view. The field of view is the angle between the frustum's vertex and the edges of the near or far plane. This value represents the horizontal angle. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_aspectRatio</td><td>The aspect ratio, which is the width divided by height of the near or far planes. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_pose</td><td>Pose of the frustum, which is the vertex (top of the pyramid). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3bdc2ccc73727b65d2bf99a0898cddde" name="a3bdc2ccc73727b65d2bf99a0898cddde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bdc2ccc73727b65d2bf99a0898cddde">&#9670;&#160;</a></span>AspectRatio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> AspectRatio </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the aspect ratio, which is the width divided by height of the near or far planes. </p>
+<dl class="section return"><dt>Returns</dt><dd>The frustum's aspect ratio. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classgz_1_1math_1_1Frustum.html#a137cd252d9372f0ac1f3bf2a65e245bb" title="Set the aspect ratio, which is the width divided by height of the near or far planes.">SetAspectRatio</a> </dd></dl>
+
+</div>
+</div>
+<a id="aeb2f195a6aaa6e61df061d89a6f151e7" name="aeb2f195a6aaa6e61df061d89a6f151e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb2f195a6aaa6e61df061d89a6f151e7">&#9670;&#160;</a></span>Contains() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">bool</a> Contains </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1AxisAlignedBox.html">AxisAlignedBox</a> &amp;&#160;</td>
+          <td class="paramname"><em>_b</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if a box lies inside the pyramid frustum. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_b</td><td><a class="el" href="classgz_1_1math_1_1Box.html" title="A representation of a box. All units are in meters.">Box</a> to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the box is inside the pyramid frustum. </dd></dl>
+
+</div>
+</div>
+<a id="aa550334f3d37f63e2cfa8bffff565f01" name="aa550334f3d37f63e2cfa8bffff565f01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa550334f3d37f63e2cfa8bffff565f01">&#9670;&#160;</a></span>Contains() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">bool</a> Contains </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="namespacegz_1_1math.html#a1f05093f5ee1a9ecdd54476792e4c206">Vector3d</a> &amp;&#160;</td>
+          <td class="paramname"><em>_p</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if a point lies inside the pyramid frustum. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_p</td><td>Point to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the point is inside the pyramid frustum. </dd></dl>
+
+</div>
+</div>
+<a id="ae13f0786421b516e3d8fe6c936249eb1" name="ae13f0786421b516e3d8fe6c936249eb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae13f0786421b516e3d8fe6c936249eb1">&#9670;&#160;</a></span>Far()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> Far </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the far distance. This is the distance from the frustum's vertex to the farthest plane. </p>
+<dl class="section return"><dt>Returns</dt><dd>Far distance. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classgz_1_1math_1_1Frustum.html#af8c177a033a68a74130f0af8a870ff64" title="Set the far distance. This is the distance from the frustum&#39;s vertex to the farthest plane.">SetFar</a> </dd></dl>
+
+</div>
+</div>
+<a id="aee225ab537f7f2844ed07e6a24bb2dc4" name="aee225ab537f7f2844ed07e6a24bb2dc4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee225ab537f7f2844ed07e6a24bb2dc4">&#9670;&#160;</a></span>FOV()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Angle.html">math::Angle</a> FOV </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the horizontal field of view. The field of view is the angle between the frustum's vertex and the edges of the near or far plane. This value represents the horizontal angle. </p>
+<dl class="section return"><dt>Returns</dt><dd>The field of view. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classgz_1_1math_1_1Frustum.html#ab41e1f2322986a96b62eb78bf70c3a7b" title="Set the horizontal field of view. The field of view is the angle between the frustum&#39;s vertex and the...">SetFOV</a> </dd></dl>
+
+</div>
+</div>
+<a id="a5e7d6587083f056b3514a08c4c173e18" name="a5e7d6587083f056b3514a08c4c173e18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e7d6587083f056b3514a08c4c173e18">&#9670;&#160;</a></span>Near()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> Near </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the near distance. This is the distance from the frustum's vertex to the closest plane. </p>
+<dl class="section return"><dt>Returns</dt><dd>Near distance. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classgz_1_1math_1_1Frustum.html#a9565a95e4f9f352cf4eb1789ed86295b" title="Set the near distance. This is the distance from the frustum&#39;s vertex to the closest plane.">SetNear</a> </dd></dl>
+
+</div>
+</div>
+<a id="a302702dc9c94d275f0204ee13ab88d78" name="a302702dc9c94d275f0204ee13ab88d78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a302702dc9c94d275f0204ee13ab88d78">&#9670;&#160;</a></span>Plane()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacegz_1_1math.html#ae8167e057ec4d8fdbbbf7d2f96247c5f">Planed</a> <a class="el" href="classgz_1_1math_1_1Plane.html">Plane</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Frustum.html#ae9e1c8a3d097c4fa8df79abc03911ec5">FrustumPlane</a>&#160;</td>
+          <td class="paramname"><em>_plane</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get a plane of the frustum. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_plane</td><td>The plane to return. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classgz_1_1math_1_1Plane.html" title="A plane and related functions.">Plane</a> of the frustum. </dd></dl>
+
+</div>
+</div>
+<a id="a6498414759b57ab7d80e0d751285132b" name="a6498414759b57ab7d80e0d751285132b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6498414759b57ab7d80e0d751285132b">&#9670;&#160;</a></span>Pose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacegz_1_1math.html#a507d73d4a494a03691fb87691dd07215">Pose3d</a> Pose </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the pose of the frustum. </p>
+<dl class="section return"><dt>Returns</dt><dd>Pose of the frustum </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classgz_1_1math_1_1Frustum.html#a7c3d674b3481eab4d3628b210a5db273" title="Set the pose of the frustum.">SetPose</a> </dd></dl>
+
+</div>
+</div>
+<a id="a137cd252d9372f0ac1f3bf2a65e245bb" name="a137cd252d9372f0ac1f3bf2a65e245bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a137cd252d9372f0ac1f3bf2a65e245bb">&#9670;&#160;</a></span>SetAspectRatio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a> SetAspectRatio </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_aspectRatio</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the aspect ratio, which is the width divided by height of the near or far planes. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_aspectRatio</td><td>The frustum's aspect ratio. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classgz_1_1math_1_1Frustum.html#a3bdc2ccc73727b65d2bf99a0898cddde" title="Get the aspect ratio, which is the width divided by height of the near or far planes.">AspectRatio</a> </dd></dl>
+
+</div>
+</div>
+<a id="af8c177a033a68a74130f0af8a870ff64" name="af8c177a033a68a74130f0af8a870ff64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8c177a033a68a74130f0af8a870ff64">&#9670;&#160;</a></span>SetFar()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a> SetFar </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_far</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the far distance. This is the distance from the frustum's vertex to the farthest plane. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_far</td><td>Far distance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classgz_1_1math_1_1Frustum.html#ae13f0786421b516e3d8fe6c936249eb1" title="Get the far distance. This is the distance from the frustum&#39;s vertex to the farthest plane.">Far</a> </dd></dl>
+
+</div>
+</div>
+<a id="ab41e1f2322986a96b62eb78bf70c3a7b" name="ab41e1f2322986a96b62eb78bf70c3a7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab41e1f2322986a96b62eb78bf70c3a7b">&#9670;&#160;</a></span>SetFOV()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a> SetFOV </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Angle.html">math::Angle</a> &amp;&#160;</td>
+          <td class="paramname"><em>_fov</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the horizontal field of view. The field of view is the angle between the frustum's vertex and the edges of the near or far plane. This value represents the horizontal angle. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_fov</td><td>The field of view. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classgz_1_1math_1_1Frustum.html#aee225ab537f7f2844ed07e6a24bb2dc4" title="Get the horizontal field of view. The field of view is the angle between the frustum&#39;s vertex and the...">FOV</a> </dd></dl>
+
+</div>
+</div>
+<a id="a9565a95e4f9f352cf4eb1789ed86295b" name="a9565a95e4f9f352cf4eb1789ed86295b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9565a95e4f9f352cf4eb1789ed86295b">&#9670;&#160;</a></span>SetNear()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a> SetNear </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_near</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the near distance. This is the distance from the frustum's vertex to the closest plane. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_near</td><td>Near distance. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classgz_1_1math_1_1Frustum.html#a5e7d6587083f056b3514a08c4c173e18" title="Get the near distance. This is the distance from the frustum&#39;s vertex to the closest plane.">Near</a> </dd></dl>
+
+</div>
+</div>
+<a id="a7c3d674b3481eab4d3628b210a5db273" name="a7c3d674b3481eab4d3628b210a5db273"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c3d674b3481eab4d3628b210a5db273">&#9670;&#160;</a></span>SetPose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a> SetPose </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="namespacegz_1_1math.html#a507d73d4a494a03691fb87691dd07215">Pose3d</a> &amp;&#160;</td>
+          <td class="paramname"><em>_pose</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the pose of the frustum. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_pose</td><td>Pose of the frustum, top vertex. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classgz_1_1math_1_1Frustum.html#a6498414759b57ab7d80e0d751285132b" title="Get the pose of the frustum.">Pose</a> </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="Frustum_8hh_source.html">Frustum.hh</a></li>
+</ul>
+</div><!-- contents -->
+      </div>
+    </main>
+  </div>
+</body>

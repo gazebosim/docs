@@ -1,0 +1,338 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Math">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Math: MovingWindowFilter.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Math</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        8.0.0
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 GzCreateDocs.cmake -->
+      <nav class="gz-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.9.8 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_5f70b597a8f3cb7e191c654fdc4ac806.html">gz-math</a></li><li class="navelem"><a class="el" href="dir_078c05cd486cbf4f25c108ac6a855843.html">include</a></li><li class="navelem"><a class="el" href="dir_cb23e0bbad0208f30fc2b464607664c0.html">gz</a></li><li class="navelem"><a class="el" href="dir_0f196ca5b9fd4ac373b7623d3ec837c2.html">math</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">MovingWindowFilter.hh</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="MovingWindowFilter_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (C) 2016 Open Source Robotics Foundation</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#ifndef GZ_MATH_MOVINGWINDOWFILTER_HH_</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define GZ_MATH_MOVINGWINDOWFILTER_HH_</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;gz/math/config.hh&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;gz/math/Export.hh&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;<a class="code" href="Vector3_8hh.html">gz/math/Vector3.hh</a>&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;gz/utils/SuppressWarning.hh&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacegz_1_1math.html">gz::math</a></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <span class="comment">// Inline bracket to help doxygen filtering.</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  <span class="keyword">inline</span> <span class="keyword">namespace </span>GZ_MATH_VERSION_NAMESPACE {</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <span class="keyword">template</span>&lt; <span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00038" data-start="{" data-end="};">
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1MovingWindowFilter.html">   38</a></span>  <span class="keyword">class </span><a class="code hl_class" href="classgz_1_1math_1_1MovingWindowFilter.html" title="Base class for MovingWindowFilter. This replaces the version of MovingWindowFilter in the Gazebo Comm...">MovingWindowFilter</a></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  {</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">public</span>: <a class="code hl_class" href="classgz_1_1math_1_1MovingWindowFilter.html" title="Base class for MovingWindowFilter. This replaces the version of MovingWindowFilter in the Gazebo Comm...">MovingWindowFilter</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_windowSize</a> = 4);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1MovingWindowFilter.html#a7d94f0553497f5e981aa7092f0a43761">   44</a></span>    <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_function" href="classgz_1_1math_1_1MovingWindowFilter.html#a7d94f0553497f5e981aa7092f0a43761" title="Destructor.">~MovingWindowFilter</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keyword">public</span>: <span class="keywordtype">void</span> Update(<span class="keyword">const</span> T <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_val</a>);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    <span class="keyword">public</span>: <span class="keywordtype">void</span> SetWindowSize(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_n</a>);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">public</span>: <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> WindowSize() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">public</span>: <span class="keywordtype">bool</span> WindowFilled() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keyword">public</span>: T Value() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1MovingWindowFilter.html#a2640634776caff393b9e7452e7e1cb7a">   67</a></span>    <span class="keyword">public</span>: <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> valWindowSize = 4;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1MovingWindowFilter.html#ae3f31aa39921829eefb3c77d8ec1008e">   70</a></span>    <span class="keyword">public</span>: <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> samples = 0;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">GZ_UTILS_WARN_IGNORE__DLL_INTERFACE_MISSING</a></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1MovingWindowFilter.html#a6aa4666a90fb5ac6403ad52307c02411">   74</a></span>    <span class="keyword">public</span>: <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;T&gt;</a> <a class="code hl_variable" href="classgz_1_1math_1_1MovingWindowFilter.html#a6aa4666a90fb5ac6403ad52307c02411" title="buffer history of raw values">valHistory</a>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1MovingWindowFilter.html#a14d155763cee3d5c6e5058801e6b9999">   77</a></span>    <span class="keyword">public</span>: <span class="keyword">typename</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;T&gt;::iterator</a> <a class="code hl_variable" href="classgz_1_1math_1_1MovingWindowFilter.html#a14d155763cee3d5c6e5058801e6b9999" title="iterator pointing to current value in buffer">valIter</a>;</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1MovingWindowFilter.html#a3831ac509ee03865056cb87af3b6f6b2">   80</a></span>    <span class="keyword">public</span>: T <a class="code hl_variable" href="classgz_1_1math_1_1MovingWindowFilter.html#a3831ac509ee03865056cb87af3b6f6b2" title="keep track of running sum">sum</a>;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">GZ_UTILS_WARN_RESUME__DLL_INTERFACE_MISSING</a></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  };</div>
+</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="namespacegz_1_1math.html#abe9701aecf6fc4f5799af63ee11bae5e">   84</a></span>  <span class="keyword">using </span><a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">MovingWindowFilteri</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">MovingWindowFilter&lt;int&gt;</a>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="namespacegz_1_1math.html#ac82ec22bf0ac87eed243af6b5c585038">   85</a></span>  <span class="keyword">using </span><a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">MovingWindowFilterf</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">MovingWindowFilter&lt;float&gt;</a>;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="namespacegz_1_1math.html#ae7648c7033173d996485264b85b446d6">   86</a></span>  <span class="keyword">using </span><a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">MovingWindowFilterd</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">MovingWindowFilter&lt;double&gt;</a>;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="namespacegz_1_1math.html#a2ae57ba91b68658c68975bcad85a0353">   87</a></span>  <span class="keyword">using </span><a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">MovingWindowFilterVector3i</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">MovingWindowFilter&lt;Vector3i&gt;</a>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="namespacegz_1_1math.html#a1216d754498d4776d5e1a793ae5ef5c1">   88</a></span>  <span class="keyword">using </span><a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">MovingWindowFilterVector3f</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">MovingWindowFilter&lt;Vector3f&gt;</a>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="namespacegz_1_1math.html#a3e2fa1c0f64b725c858af7686212a00c">   89</a></span>  <span class="keyword">using </span><a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">MovingWindowFilterVector3d</a> = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">MovingWindowFilter&lt;Vector3d&gt;</a>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>  }  <span class="comment">// namespace GZ_MATH_VERSION_NAMESPACE</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00094" data-start="{" data-end="}">
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1MovingWindowFilter.html#ae41ff3daf324a798b930932a809f3a3b">   94</a></span>  <a class="code hl_function" href="classgz_1_1math_1_1MovingWindowFilter.html#ae41ff3daf324a798b930932a809f3a3b" title="Constructor.">MovingWindowFilter&lt;T&gt;::MovingWindowFilter</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_windowSize</a>)</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  {</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    this-&gt;SetWindowSize(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_windowSize</a>);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  }</div>
+</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00101" data-start="{" data-end="}">
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1MovingWindowFilter.html#a1ff5ad94df32132de34ea5bb0cbffc39">  101</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1math_1_1MovingWindowFilter.html#a1ff5ad94df32132de34ea5bb0cbffc39" title="Update value of filter.">MovingWindowFilter&lt;T&gt;::Update</a>(<span class="keyword">const</span> T <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_val</a>)</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>  {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="comment">// update sum and sample size with incoming _val</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <span class="comment">// keep running sum</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    this-&gt;sum += <a class="code hl_function" href="classgz_1_1math_1_1Matrix6.html#a61719e53f99e6c6600eb663d601c955c" title="Constructor.">_val</a>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment">// shift pointer, wrap around if end has been reached.</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    ++this-&gt;valIter;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordflow">if</span> (this-&gt;valIter == this-&gt;valHistory.end())</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    {</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>      <span class="comment">// reset iterator to beginning of queue</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>      this-&gt;valIter = this-&gt;valHistory.begin();</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    }</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="comment">// increment sample size</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    ++this-&gt;samples;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    <span class="keywordflow">if</span> (this-&gt;samples &gt; this-&gt;valWindowSize)</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>      <span class="comment">// subtract old value if buffer already filled</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>      this-&gt;sum -= (*this-&gt;valIter);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>      <span class="comment">// put new value into queue</span></div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>      (*this-&gt;valIter) = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_val</a>;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>      <span class="comment">// reduce sample size</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>      --this-&gt;samples;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    }</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    {</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>      <span class="comment">// put new value into queue</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>      (*this-&gt;valIter) = <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_val</a>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    }</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>  }</div>
+</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00137" data-start="{" data-end="}">
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1MovingWindowFilter.html#aeceadbd3596bc2687ee9e3c6d6d1790e">  137</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1math_1_1MovingWindowFilter.html#aeceadbd3596bc2687ee9e3c6d6d1790e" title="Set window size.">MovingWindowFilter&lt;T&gt;::SetWindowSize</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_n</a>)</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>  {</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    this-&gt;valWindowSize = <a class="code hl_function" href="classgz_1_1math_1_1Matrix6.html#a61719e53f99e6c6600eb663d601c955c" title="Constructor.">_n</a>;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    this-&gt;valHistory = <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;T&gt;</a>(<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_n</a>, T());</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    this-&gt;valIter = this-&gt;valHistory.begin();</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    this-&gt;sum = T();</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    this-&gt;samples = 0;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>  }</div>
+</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00148" data-start="{" data-end="}">
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1MovingWindowFilter.html#a145882d12351d32172548550cf88b526">  148</a></span>  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classgz_1_1math_1_1MovingWindowFilter.html#a145882d12351d32172548550cf88b526" title="Get the window size.">MovingWindowFilter&lt;T&gt;::WindowSize</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keywordflow">return</span> this-&gt;valWindowSize;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>  }</div>
+</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00155" data-start="{" data-end="}">
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1MovingWindowFilter.html#a18efb811f5b580db512a9f79dedab349">  155</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="classgz_1_1math_1_1MovingWindowFilter.html#a18efb811f5b580db512a9f79dedab349" title="Get whether the window has been filled.">MovingWindowFilter&lt;T&gt;::WindowFilled</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordflow">return</span> this-&gt;samples == this-&gt;valWindowSize;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>  }</div>
+</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>  <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>  <span class="keyword">inline</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">gz::math::Vector3i</a></div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>  <a class="code hl_function" href="classgz_1_1math_1_1MovingWindowFilter.html#ac3319aaa470553ea166dfb793747c9b8" title="Get filtered result.">MovingWindowFilter&lt;gz::math::Vector3i&gt;::Value</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <span class="keyword">auto</span> value = this-&gt;sum / this-&gt;samples;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="keywordflow">return</span> value;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>  }</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>  <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>  <span class="keyword">inline</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">gz::math::Vector3f</a></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>  <a class="code hl_function" href="classgz_1_1math_1_1MovingWindowFilter.html#ac3319aaa470553ea166dfb793747c9b8" title="Get filtered result.">MovingWindowFilter&lt;gz::math::Vector3f&gt;::Value</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">gz::math::Vector3f</a> <a class="code hl_function" href="classgz_1_1math_1_1Matrix6.html#a61719e53f99e6c6600eb663d601c955c" title="Constructor.">divisor</a>;</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <a class="code hl_function" href="classgz_1_1math_1_1Matrix6.html#a61719e53f99e6c6600eb663d601c955c" title="Constructor.">divisor</a> = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(this-&gt;samples);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keyword">auto</span> value = this-&gt;sum / <a class="code hl_function" href="classgz_1_1math_1_1Matrix6.html#a61719e53f99e6c6600eb663d601c955c" title="Constructor.">divisor</a>;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="keywordflow">return</span> value;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>  }</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>  <span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>  <span class="keyword">inline</span> <a class="code hl_class" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">gz::math::Vector3d</a></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>  <a class="code hl_function" href="classgz_1_1math_1_1MovingWindowFilter.html#ac3319aaa470553ea166dfb793747c9b8" title="Get filtered result.">MovingWindowFilter&lt;gz::math::Vector3d&gt;::Value</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="keyword">auto</span> value = this-&gt;sum / this-&gt;samples;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keywordflow">return</span> value;</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>  }</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00191" data-start="{" data-end="}">
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1MovingWindowFilter.html#ac3319aaa470553ea166dfb793747c9b8">  191</a></span>  T <a class="code hl_function" href="classgz_1_1math_1_1MovingWindowFilter.html#ac3319aaa470553ea166dfb793747c9b8" title="Get filtered result.">MovingWindowFilter&lt;T&gt;::Value</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <span class="keywordflow">if</span> (std::is_integral_v&lt;T&gt;)</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    {</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>      <span class="keyword">auto</span> value = this-&gt;sum / this-&gt;samples;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>      <span class="keywordflow">return</span> T(value);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    }</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    {</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>      <span class="keyword">auto</span> value = this-&gt;sum / <span class="keyword">static_cast&lt;</span><span class="keywordtype">double</span><span class="keyword">&gt;</span>(this-&gt;samples);</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>      <span class="keywordflow">return</span> T(value);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    }</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>  }</div>
+</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>}  <span class="comment">// namespace gz::math</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="preprocessor">#endif  </span><span class="comment">// GZ_MATH_MOVINGWINDOWFILTER_HH_</span></div>
+</div><!-- fragment --></div><!-- contents -->
+      </div>
+    </main>
+  </div>
+</body>

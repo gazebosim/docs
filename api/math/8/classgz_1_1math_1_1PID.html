@@ -1,0 +1,963 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Math">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Math: PID Class Reference</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Math</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        8.0.0
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 GzCreateDocs.cmake -->
+      <nav class="gz-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.9.8 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespacegz.html">gz</a></li><li class="navelem"><a class="el" href="namespacegz_1_1math.html">math</a></li><li class="navelem"><a class="el" href="classgz_1_1math_1_1PID.html">PID</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="classgz_1_1math_1_1PID-members.html">List of all members</a> &#124;
+<a href="#pub-methods">Public Member Functions</a>  </div>
+  <div class="headertitle"><div class="title">PID Class Reference</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Generic <a class="el" href="classgz_1_1math_1_1PID.html" title="Generic PID controller class. Generic proportional-integral-derivative controller class that keeps tr...">PID</a> controller class. Generic proportional-integral-derivative controller class that keeps track of PID-error states and control inputs given the state of a system and a user specified target state. It includes a user-adjustable command offset term (feed-forward).  
+ <a href="classgz_1_1math_1_1PID.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="PID_8hh_source.html">gz/math/PID.hh</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:ae166fb4794b82ea02869f923eb7622dd" id="r_ae166fb4794b82ea02869f923eb7622dd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#ae166fb4794b82ea02869f923eb7622dd">PID</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_p</a>=0.0, <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_i</a>=0.0, <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_d</a>=0.0, <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_imax</a>=-1.0, <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_imin</a>=0.0, <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_cmdMax</a>=-1.0, <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_cmdMin</a>=0.0, <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_cmdOffset</a>=0.0)</td></tr>
+<tr class="memdesc:ae166fb4794b82ea02869f923eb7622dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor, zeros out Pid values when created and initialize Pid-gains and integral term limits:[iMax:iMin]-[I1:I2].  <br /></td></tr>
+<tr class="separator:ae166fb4794b82ea02869f923eb7622dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c11350f73f593b79318328e89f6769b" id="r_a0c11350f73f593b79318328e89f6769b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#a0c11350f73f593b79318328e89f6769b">Cmd</a> () <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:a0c11350f73f593b79318328e89f6769b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return current command for this <a class="el" href="classgz_1_1math_1_1PID.html" title="Generic PID controller class. Generic proportional-integral-derivative controller class that keeps tr...">PID</a> controller.  <br /></td></tr>
+<tr class="separator:a0c11350f73f593b79318328e89f6769b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab39f4248e7b3da05c808fb4e1a4f3398" id="r_ab39f4248e7b3da05c808fb4e1a4f3398"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#ab39f4248e7b3da05c808fb4e1a4f3398">CmdMax</a> () <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:ab39f4248e7b3da05c808fb4e1a4f3398"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the maximum value for the command.  <br /></td></tr>
+<tr class="separator:ab39f4248e7b3da05c808fb4e1a4f3398"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99b963c8984ce47e2292deced8ac23f2" id="r_a99b963c8984ce47e2292deced8ac23f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#a99b963c8984ce47e2292deced8ac23f2">CmdMin</a> () <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:a99b963c8984ce47e2292deced8ac23f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the minimun value for the command.  <br /></td></tr>
+<tr class="separator:a99b963c8984ce47e2292deced8ac23f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaed2f588b6ae733b592c3001b7d90576" id="r_aaed2f588b6ae733b592c3001b7d90576"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#aaed2f588b6ae733b592c3001b7d90576">CmdOffset</a> () <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:aaed2f588b6ae733b592c3001b7d90576"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the offset value for the command.  <br /></td></tr>
+<tr class="separator:aaed2f588b6ae733b592c3001b7d90576"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a14b186d8924020d26b51490ce553c8" id="r_a9a14b186d8924020d26b51490ce553c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#a9a14b186d8924020d26b51490ce553c8">DGain</a> () <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:a9a14b186d8924020d26b51490ce553c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the derivative Gain.  <br /></td></tr>
+<tr class="separator:a9a14b186d8924020d26b51490ce553c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a430ed7ec54811a0bece4d2c4a12df44c" id="r_a430ed7ec54811a0bece4d2c4a12df44c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#a430ed7ec54811a0bece4d2c4a12df44c">Errors</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> &amp;<a class="el" href="classgz_1_1math_1_1Matrix6.html">_pe</a>, <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> &amp;<a class="el" href="classgz_1_1math_1_1Matrix6.html">_ie</a>, <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> &amp;<a class="el" href="classgz_1_1math_1_1Matrix6.html">_de</a>) <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:a430ed7ec54811a0bece4d2c4a12df44c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return <a class="el" href="classgz_1_1math_1_1PID.html" title="Generic PID controller class. Generic proportional-integral-derivative controller class that keeps tr...">PID</a> error terms for the controller.  <br /></td></tr>
+<tr class="separator:a430ed7ec54811a0bece4d2c4a12df44c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45f8a96679336cc5fbb351893e0dd464" id="r_a45f8a96679336cc5fbb351893e0dd464"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#a45f8a96679336cc5fbb351893e0dd464">IGain</a> () <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:a45f8a96679336cc5fbb351893e0dd464"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the integral Gain.  <br /></td></tr>
+<tr class="separator:a45f8a96679336cc5fbb351893e0dd464"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad48b730adc9171bc2f4a329a3da668ea" id="r_ad48b730adc9171bc2f4a329a3da668ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#ad48b730adc9171bc2f4a329a3da668ea">IMax</a> () <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:ad48b730adc9171bc2f4a329a3da668ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the integral upper limit.  <br /></td></tr>
+<tr class="separator:ad48b730adc9171bc2f4a329a3da668ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6195e3ae6868badd90f61c51d4ee307" id="r_ad6195e3ae6868badd90f61c51d4ee307"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#ad6195e3ae6868badd90f61c51d4ee307">IMin</a> () <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:ad6195e3ae6868badd90f61c51d4ee307"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the integral lower limit.  <br /></td></tr>
+<tr class="separator:ad6195e3ae6868badd90f61c51d4ee307"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4257ef08cfbaeb40a0cc8261668f7ea3" id="r_a4257ef08cfbaeb40a0cc8261668f7ea3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#a4257ef08cfbaeb40a0cc8261668f7ea3">Init</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_p</a>=0.0, <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_i</a>=0.0, <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_d</a>=0.0, <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_imax</a>=-1.0, <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_imin</a>=0.0, <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_cmdMax</a>=-1.0, <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_cmdMin</a>=0.0, <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_cmdOffset</a>=0.0)</td></tr>
+<tr class="memdesc:a4257ef08cfbaeb40a0cc8261668f7ea3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize PID-gains and integral term limits:[iMax:iMin]-[I1:I2].  <br /></td></tr>
+<tr class="separator:a4257ef08cfbaeb40a0cc8261668f7ea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2580e0542a82e3dca3af12344b939d9" id="r_ae2580e0542a82e3dca3af12344b939d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#ae2580e0542a82e3dca3af12344b939d9">PGain</a> () <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:ae2580e0542a82e3dca3af12344b939d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the proportional Gain.  <br /></td></tr>
+<tr class="separator:ae2580e0542a82e3dca3af12344b939d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a372de693ad40b3f42839c8ec6ac845f4" id="r_a372de693ad40b3f42839c8ec6ac845f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#a372de693ad40b3f42839c8ec6ac845f4">Reset</a> ()</td></tr>
+<tr class="memdesc:a372de693ad40b3f42839c8ec6ac845f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset the errors and command.  <br /></td></tr>
+<tr class="separator:a372de693ad40b3f42839c8ec6ac845f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70e065342179fd8ce10acd6142ae0cf0" id="r_a70e065342179fd8ce10acd6142ae0cf0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#a70e065342179fd8ce10acd6142ae0cf0">SetCmd</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_cmd</a>)</td></tr>
+<tr class="memdesc:a70e065342179fd8ce10acd6142ae0cf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set current target command for this <a class="el" href="classgz_1_1math_1_1PID.html" title="Generic PID controller class. Generic proportional-integral-derivative controller class that keeps tr...">PID</a> controller.  <br /></td></tr>
+<tr class="separator:a70e065342179fd8ce10acd6142ae0cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a627ec98d5bdacbcbdd393b462752749b" id="r_a627ec98d5bdacbcbdd393b462752749b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#a627ec98d5bdacbcbdd393b462752749b">SetCmdMax</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_c</a>)</td></tr>
+<tr class="memdesc:a627ec98d5bdacbcbdd393b462752749b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the maximum value for the command.  <br /></td></tr>
+<tr class="separator:a627ec98d5bdacbcbdd393b462752749b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fa06bd3fd5aaffbe1b89e9cbfc0928c" id="r_a6fa06bd3fd5aaffbe1b89e9cbfc0928c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#a6fa06bd3fd5aaffbe1b89e9cbfc0928c">SetCmdMin</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_c</a>)</td></tr>
+<tr class="memdesc:a6fa06bd3fd5aaffbe1b89e9cbfc0928c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the minimum value for the command.  <br /></td></tr>
+<tr class="separator:a6fa06bd3fd5aaffbe1b89e9cbfc0928c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f1c95b2ba24bfe5ac2dc3725be1cf49" id="r_a0f1c95b2ba24bfe5ac2dc3725be1cf49"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#a0f1c95b2ba24bfe5ac2dc3725be1cf49">SetCmdOffset</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_c</a>)</td></tr>
+<tr class="memdesc:a0f1c95b2ba24bfe5ac2dc3725be1cf49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the offset value for the command, which is added to the result of the <a class="el" href="classgz_1_1math_1_1PID.html" title="Generic PID controller class. Generic proportional-integral-derivative controller class that keeps tr...">PID</a> controller.  <br /></td></tr>
+<tr class="separator:a0f1c95b2ba24bfe5ac2dc3725be1cf49"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8bdf46b6b42d1e701b36640ec239d17" id="r_aa8bdf46b6b42d1e701b36640ec239d17"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#aa8bdf46b6b42d1e701b36640ec239d17">SetDGain</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_d</a>)</td></tr>
+<tr class="memdesc:aa8bdf46b6b42d1e701b36640ec239d17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the derivative Gain.  <br /></td></tr>
+<tr class="separator:aa8bdf46b6b42d1e701b36640ec239d17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e96dec0cd887c667cf3c479a377f6f5" id="r_a4e96dec0cd887c667cf3c479a377f6f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#a4e96dec0cd887c667cf3c479a377f6f5">SetIGain</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_i</a>)</td></tr>
+<tr class="memdesc:a4e96dec0cd887c667cf3c479a377f6f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the integral Gain.  <br /></td></tr>
+<tr class="separator:a4e96dec0cd887c667cf3c479a377f6f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a12d2c713d009afbf44abfb3637b7d0f2" id="r_a12d2c713d009afbf44abfb3637b7d0f2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#a12d2c713d009afbf44abfb3637b7d0f2">SetIMax</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_i</a>)</td></tr>
+<tr class="memdesc:a12d2c713d009afbf44abfb3637b7d0f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the integral upper limit.  <br /></td></tr>
+<tr class="separator:a12d2c713d009afbf44abfb3637b7d0f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d9bb38e258891a031a0dadccffd2399" id="r_a9d9bb38e258891a031a0dadccffd2399"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#a9d9bb38e258891a031a0dadccffd2399">SetIMin</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_i</a>)</td></tr>
+<tr class="memdesc:a9d9bb38e258891a031a0dadccffd2399"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the integral lower limit.  <br /></td></tr>
+<tr class="separator:a9d9bb38e258891a031a0dadccffd2399"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41849e444347734ead33294339e82ae7" id="r_a41849e444347734ead33294339e82ae7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#a41849e444347734ead33294339e82ae7">SetPGain</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_p</a>)</td></tr>
+<tr class="memdesc:a41849e444347734ead33294339e82ae7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the proportional Gain.  <br /></td></tr>
+<tr class="separator:a41849e444347734ead33294339e82ae7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c474c745fd95ec4303cdbb1678d5fb6" id="r_a8c474c745fd95ec4303cdbb1678d5fb6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#a8c474c745fd95ec4303cdbb1678d5fb6">Update</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_error</a>, <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::duration</a>&lt; <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> &gt; &amp;<a class="el" href="classgz_1_1math_1_1Matrix6.html">_dt</a>)</td></tr>
+<tr class="memdesc:a8c474c745fd95ec4303cdbb1678d5fb6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the Pid loop with nonuniform time step size.  <br /></td></tr>
+<tr class="separator:a8c474c745fd95ec4303cdbb1678d5fb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c4b7299470011a1c11b04cda4edb1a5" id="r_a7c4b7299470011a1c11b04cda4edb1a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1PID.html#a7c4b7299470011a1c11b04cda4edb1a5">Update</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_error</a>, <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_errorRate</a>, <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::duration</a>&lt; <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> &gt; &amp;<a class="el" href="classgz_1_1math_1_1Matrix6.html">_dt</a>)</td></tr>
+<tr class="memdesc:a7c4b7299470011a1c11b04cda4edb1a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the Pid loop with nonuniform time step size.  <br /></td></tr>
+<tr class="separator:a7c4b7299470011a1c11b04cda4edb1a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Generic <a class="el" href="classgz_1_1math_1_1PID.html" title="Generic PID controller class. Generic proportional-integral-derivative controller class that keeps tr...">PID</a> controller class. Generic proportional-integral-derivative controller class that keeps track of PID-error states and control inputs given the state of a system and a user specified target state. It includes a user-adjustable command offset term (feed-forward). </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ae166fb4794b82ea02869f923eb7622dd" name="ae166fb4794b82ea02869f923eb7622dd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae166fb4794b82ea02869f923eb7622dd">&#9670;&#160;</a></span>PID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1PID.html">PID</a> </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_p</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_i</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_d</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_imax</em> = <code>-1.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_imin</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_cmdMax</em> = <code>-1.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_cmdMin</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_cmdOffset</em> = <code>0.0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor, zeros out Pid values when created and initialize Pid-gains and integral term limits:[iMax:iMin]-[I1:I2]. </p>
+<p>Disable command clamping by setting _cmdMin to a value larger than _cmdMax. Command clamping is disabled by default.</p>
+<p>Disable integral clamping by setting _iMin to a value larger than _iMax. Integral clamping is disabled by default.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_p</td><td>The proportional gain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_i</td><td>The integral gain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_d</td><td>The derivative gain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_imax</td><td>The integral upper limit. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_imin</td><td>The integral lower limit. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_cmdMax</td><td>Output max value. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_cmdMin</td><td>Output min value. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_cmdOffset</td><td>Command offset (feed-forward). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a0c11350f73f593b79318328e89f6769b" name="a0c11350f73f593b79318328e89f6769b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c11350f73f593b79318328e89f6769b">&#9670;&#160;</a></span>Cmd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> Cmd </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return current command for this <a class="el" href="classgz_1_1math_1_1PID.html" title="Generic PID controller class. Generic proportional-integral-derivative controller class that keeps tr...">PID</a> controller. </p>
+<dl class="section return"><dt>Returns</dt><dd>the command value </dd></dl>
+
+</div>
+</div>
+<a id="ab39f4248e7b3da05c808fb4e1a4f3398" name="ab39f4248e7b3da05c808fb4e1a4f3398"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab39f4248e7b3da05c808fb4e1a4f3398">&#9670;&#160;</a></span>CmdMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> CmdMax </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the maximum value for the command. </p>
+<dl class="section return"><dt>Returns</dt><dd>The maximum value </dd></dl>
+
+</div>
+</div>
+<a id="a99b963c8984ce47e2292deced8ac23f2" name="a99b963c8984ce47e2292deced8ac23f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99b963c8984ce47e2292deced8ac23f2">&#9670;&#160;</a></span>CmdMin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> CmdMin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the minimun value for the command. </p>
+<dl class="section return"><dt>Returns</dt><dd>The maximum value </dd></dl>
+
+</div>
+</div>
+<a id="aaed2f588b6ae733b592c3001b7d90576" name="aaed2f588b6ae733b592c3001b7d90576"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaed2f588b6ae733b592c3001b7d90576">&#9670;&#160;</a></span>CmdOffset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> CmdOffset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the offset value for the command. </p>
+<dl class="section return"><dt>Returns</dt><dd>The offset value </dd></dl>
+
+</div>
+</div>
+<a id="a9a14b186d8924020d26b51490ce553c8" name="a9a14b186d8924020d26b51490ce553c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a14b186d8924020d26b51490ce553c8">&#9670;&#160;</a></span>DGain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> DGain </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the derivative Gain. </p>
+<dl class="section return"><dt>Returns</dt><dd>The derivative gain value </dd></dl>
+
+</div>
+</div>
+<a id="a430ed7ec54811a0bece4d2c4a12df44c" name="a430ed7ec54811a0bece4d2c4a12df44c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a430ed7ec54811a0bece4d2c4a12df44c">&#9670;&#160;</a></span>Errors()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a> Errors </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> &amp;&#160;</td>
+          <td class="paramname"><em>_pe</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> &amp;&#160;</td>
+          <td class="paramname"><em>_ie</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> &amp;&#160;</td>
+          <td class="paramname"><em>_de</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return <a class="el" href="classgz_1_1math_1_1PID.html" title="Generic PID controller class. Generic proportional-integral-derivative controller class that keeps tr...">PID</a> error terms for the controller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_pe</td><td>The proportional error. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_ie</td><td>The integral of gain times error. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_de</td><td>The derivative error. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a45f8a96679336cc5fbb351893e0dd464" name="a45f8a96679336cc5fbb351893e0dd464"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a45f8a96679336cc5fbb351893e0dd464">&#9670;&#160;</a></span>IGain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> IGain </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the integral Gain. </p>
+<dl class="section return"><dt>Returns</dt><dd>The integral gain value </dd></dl>
+
+</div>
+</div>
+<a id="ad48b730adc9171bc2f4a329a3da668ea" name="ad48b730adc9171bc2f4a329a3da668ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad48b730adc9171bc2f4a329a3da668ea">&#9670;&#160;</a></span>IMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> IMax </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the integral upper limit. </p>
+<dl class="section return"><dt>Returns</dt><dd>The integral upper limit value </dd></dl>
+
+</div>
+</div>
+<a id="ad6195e3ae6868badd90f61c51d4ee307" name="ad6195e3ae6868badd90f61c51d4ee307"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6195e3ae6868badd90f61c51d4ee307">&#9670;&#160;</a></span>IMin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> IMin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the integral lower limit. </p>
+<dl class="section return"><dt>Returns</dt><dd>The integral lower limit value </dd></dl>
+
+</div>
+</div>
+<a id="a4257ef08cfbaeb40a0cc8261668f7ea3" name="a4257ef08cfbaeb40a0cc8261668f7ea3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4257ef08cfbaeb40a0cc8261668f7ea3">&#9670;&#160;</a></span>Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a> Init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_p</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_i</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_d</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_imax</em> = <code>-1.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_imin</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_cmdMax</em> = <code>-1.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_cmdMin</em> = <code>0.0</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_cmdOffset</em> = <code>0.0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize PID-gains and integral term limits:[iMax:iMin]-[I1:I2]. </p>
+<p>Disable command clamping by setting _cmdMin to a value larger than _cmdMax. Command clamping is disabled by default.</p>
+<p>Disable integral clamping by setting _iMin to a value larger than _iMax. Integral clamping is disabled by default.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_p</td><td>The proportional gain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_i</td><td>The integral gain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_d</td><td>The derivative gain. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_imax</td><td>The integral upper limit. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_imin</td><td>The integral lower limit. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_cmdMax</td><td>Output max value. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_cmdMin</td><td>Output min value. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_cmdOffset</td><td>Command offset (feed-forward). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae2580e0542a82e3dca3af12344b939d9" name="ae2580e0542a82e3dca3af12344b939d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2580e0542a82e3dca3af12344b939d9">&#9670;&#160;</a></span>PGain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> PGain </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the proportional Gain. </p>
+<dl class="section return"><dt>Returns</dt><dd>The proportional gain value </dd></dl>
+
+</div>
+</div>
+<a id="a372de693ad40b3f42839c8ec6ac845f4" name="a372de693ad40b3f42839c8ec6ac845f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a372de693ad40b3f42839c8ec6ac845f4">&#9670;&#160;</a></span>Reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a> Reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reset the errors and command. </p>
+
+</div>
+</div>
+<a id="a70e065342179fd8ce10acd6142ae0cf0" name="a70e065342179fd8ce10acd6142ae0cf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70e065342179fd8ce10acd6142ae0cf0">&#9670;&#160;</a></span>SetCmd()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a> SetCmd </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_cmd</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set current target command for this <a class="el" href="classgz_1_1math_1_1PID.html" title="Generic PID controller class. Generic proportional-integral-derivative controller class that keeps tr...">PID</a> controller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_cmd</td><td>New command </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a627ec98d5bdacbcbdd393b462752749b" name="a627ec98d5bdacbcbdd393b462752749b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a627ec98d5bdacbcbdd393b462752749b">&#9670;&#160;</a></span>SetCmdMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a> SetCmdMax </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the maximum value for the command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_c</td><td>The maximum value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a6fa06bd3fd5aaffbe1b89e9cbfc0928c" name="a6fa06bd3fd5aaffbe1b89e9cbfc0928c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fa06bd3fd5aaffbe1b89e9cbfc0928c">&#9670;&#160;</a></span>SetCmdMin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a> SetCmdMin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the minimum value for the command. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_c</td><td>The minimum value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0f1c95b2ba24bfe5ac2dc3725be1cf49" name="a0f1c95b2ba24bfe5ac2dc3725be1cf49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f1c95b2ba24bfe5ac2dc3725be1cf49">&#9670;&#160;</a></span>SetCmdOffset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a> SetCmdOffset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the offset value for the command, which is added to the result of the <a class="el" href="classgz_1_1math_1_1PID.html" title="Generic PID controller class. Generic proportional-integral-derivative controller class that keeps tr...">PID</a> controller. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_c</td><td>The offset value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa8bdf46b6b42d1e701b36640ec239d17" name="aa8bdf46b6b42d1e701b36640ec239d17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8bdf46b6b42d1e701b36640ec239d17">&#9670;&#160;</a></span>SetDGain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a> SetDGain </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_d</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the derivative Gain. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_d</td><td>derivative gain value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4e96dec0cd887c667cf3c479a377f6f5" name="a4e96dec0cd887c667cf3c479a377f6f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e96dec0cd887c667cf3c479a377f6f5">&#9670;&#160;</a></span>SetIGain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a> SetIGain </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the integral Gain. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_i</td><td>integral gain value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a12d2c713d009afbf44abfb3637b7d0f2" name="a12d2c713d009afbf44abfb3637b7d0f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12d2c713d009afbf44abfb3637b7d0f2">&#9670;&#160;</a></span>SetIMax()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a> SetIMax </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the integral upper limit. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_i</td><td>integral upper limit value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a9d9bb38e258891a031a0dadccffd2399" name="a9d9bb38e258891a031a0dadccffd2399"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d9bb38e258891a031a0dadccffd2399">&#9670;&#160;</a></span>SetIMin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a> SetIMin </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_i</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the integral lower limit. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_i</td><td>integral lower limit value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a41849e444347734ead33294339e82ae7" name="a41849e444347734ead33294339e82ae7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41849e444347734ead33294339e82ae7">&#9670;&#160;</a></span>SetPGain()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">void</a> SetPGain </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_p</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the proportional Gain. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_p</td><td>proportional gain value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8c474c745fd95ec4303cdbb1678d5fb6" name="a8c474c745fd95ec4303cdbb1678d5fb6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c474c745fd95ec4303cdbb1678d5fb6">&#9670;&#160;</a></span>Update() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> Update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_error</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::duration</a>&lt; <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>_dt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update the Pid loop with nonuniform time step size. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_error</td><td>Error since last call (p_state - p_target). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_dt</td><td>Change in time since last update call. Normally, this is called at every time step, The return value is an updated command to be passed to the object being controlled. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the command value </dd></dl>
+
+</div>
+</div>
+<a id="a7c4b7299470011a1c11b04cda4edb1a5" name="a7c4b7299470011a1c11b04cda4edb1a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c4b7299470011a1c11b04cda4edb1a5">&#9670;&#160;</a></span>Update() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> Update </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_error</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a>&#160;</td>
+          <td class="paramname"><em>_errorRate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::duration</a>&lt; <a class="el" href="classgz_1_1math_1_1Matrix6.html">double</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>_dt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Update the Pid loop with nonuniform time step size. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_error</td><td>Error since last call (p_state - p_target). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_errorRate</td><td>Estimate of error rate, that can be used when a smoother estimate is available than the finite difference used by <a class="el" href="classgz_1_1math_1_1PID.html#a8c474c745fd95ec4303cdbb1678d5fb6" title="Update the Pid loop with nonuniform time step size.">Update(const double _error,
+const std::chrono::duration&lt;double&gt; &amp;_dt)</a> </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_dt</td><td>Change in time since last update call. Normally, this is called at every time step, The return value is an updated command to be passed to the object being controlled. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>the command value </dd></dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="PID_8hh_source.html">PID.hh</a></li>
+</ul>
+</div><!-- contents -->
+      </div>
+    </main>
+  </div>
+</body>

@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Math">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Math: Spline.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Math</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        8.0.0
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 GzCreateDocs.cmake -->
+      <nav class="gz-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.9.8 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_5f70b597a8f3cb7e191c654fdc4ac806.html">gz-math</a></li><li class="navelem"><a class="el" href="dir_078c05cd486cbf4f25c108ac6a855843.html">include</a></li><li class="navelem"><a class="el" href="dir_cb23e0bbad0208f30fc2b464607664c0.html">gz</a></li><li class="navelem"><a class="el" href="dir_0f196ca5b9fd4ac373b7623d3ec837c2.html">math</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Spline.hh</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Spline_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (C) 2012 Open Source Robotics Foundation</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">// Note: Originally cribbed from Ogre3d. Modified to implement Cardinal</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">// spline and catmull-rom spline</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#ifndef GZ_MATH_SPLINE_HH_</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#define GZ_MATH_SPLINE_HH_</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;<a class="code" href="Helpers_8hh.html">gz/math/Helpers.hh</a>&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;<a class="code" href="Vector3_8hh.html">gz/math/Vector3.hh</a>&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;gz/math/config.hh&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;gz/utils/ImplPtr.hh&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacegz_1_1math.html">gz::math</a></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <span class="comment">// Inline bracket to help doxygen filtering.</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <span class="keyword">inline</span> <span class="keyword">namespace </span>GZ_MATH_VERSION_NAMESPACE {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>  <span class="comment">//</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>  <span class="comment">// Forward declare private classes</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  <span class="keyword">class </span><a class="code hl_function" href="classgz_1_1math_1_1Matrix6.html#a61719e53f99e6c6600eb663d601c955c" title="Constructor.">ControlPoint</a>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html">   37</a></span>  <span class="keyword">class </span><a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">GZ_MATH_VISIBLE</a> <a class="code hl_class" href="classgz_1_1math_1_1Spline.html" title="Splines.">Spline</a></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#add9cdf708ac9e046dc979bcaff83e600">   40</a></span>    <span class="keyword">public</span>: <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#add9cdf708ac9e046dc979bcaff83e600" title="constructor">Spline</a>();</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#a1e96f3841cb3789bef441a8a163f1d0a">   46</a></span>    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#a1e96f3841cb3789bef441a8a163f1d0a" title="Sets the tension parameter.">Tension</a>(<span class="keywordtype">double</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_t</a>);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#ad0436d30b9055e5c27e8a05d8fb5f239">   50</a></span>    <span class="keyword">public</span>: <span class="keywordtype">double</span> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#ad0436d30b9055e5c27e8a05d8fb5f239" title="Gets the tension value.">Tension</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#a4adca4736168e442abbadf0840c04712">   54</a></span>    <span class="keyword">public</span>: <span class="keywordtype">double</span> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#a4adca4736168e442abbadf0840c04712" title="Gets spline arc length.">ArcLength</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#af6a091f2bcfb008b3a6fc4bfabc5b08d">   60</a></span>    <span class="keyword">public</span>: <span class="keywordtype">double</span> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#af6a091f2bcfb008b3a6fc4bfabc5b08d" title="Sets spline arc length up to a given parameter value _t.">ArcLength</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_t</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#a7a1e096912699bc5b2e53dce4c837ada">   67</a></span>    <span class="keyword">public</span>: <span class="keywordtype">double</span> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#a7a1e096912699bc5b2e53dce4c837ada" title="Sets a spline segment arc length.">ArcLength</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_index</a>,</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                             <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_t</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#a0f342247dc1480aeb2b91d49aa5c179e">   73</a></span>    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#a0f342247dc1480aeb2b91d49aa5c179e" title="Adds a single control point to the end of the spline.">AddPoint</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3d</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_p</a>);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#a6d8e527ca0e5bd3bf441d73111ee9b25">   79</a></span>    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#a6d8e527ca0e5bd3bf441d73111ee9b25" title="Adds a single control point to the end of the spline with fixed tangent.">AddPoint</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3d</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_p</a>, <span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3d</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_t</a>);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keyword">private</span>: <span class="keywordtype">void</span> AddPoint(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ControlPoint</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_cp</a>, <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_fixed</a>);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#ac54d5fefc4d8208232f09f7e76a55c2a">   93</a></span>    <span class="keyword">public</span>: <a class="code hl_class" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3d</a> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#ac54d5fefc4d8208232f09f7e76a55c2a" title="Gets the value for one of the control points of the spline.">Point</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_index</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#a7bf4adf7daa2c959047e4a59318c6c16">  100</a></span>    <span class="keyword">public</span>: <a class="code hl_class" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3d</a> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#a7bf4adf7daa2c959047e4a59318c6c16" title="Gets the tangent value for one of the control points of the spline.">Tangent</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_index</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#a471ead16280c4244018aee4bf87ce5ab">  108</a></span>    <span class="keyword">public</span>: <a class="code hl_class" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3d</a> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#a471ead16280c4244018aee4bf87ce5ab" title="Gets the mth derivative for one of the control points of the spline.">MthDerivative</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_index</a>,</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>                                   <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_mth</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#aee3d9720a147982bed034e4c54b901ac">  113</a></span>    <span class="keyword">public</span>: <span class="keywordtype">size_t</span> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#aee3d9720a147982bed034e4c54b901ac" title="Gets the number of control points in the spline.">PointCount</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#aa71d36872f416feaa853788a7a7a7ef8">  116</a></span>    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#aa71d36872f416feaa853788a7a7a7ef8" title="Clears all the points in the spline.">Clear</a>();</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#ad9c96902bfb640cf3d0093d299390883">  123</a></span>    <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#ad9c96902bfb640cf3d0093d299390883" title="Updates a single control point value in the spline, keeping its tangent.">UpdatePoint</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_index</a>,</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>                             <span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3d</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_p</a>);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#a04419bd11088bb5cc9c53ed1ea34b6f7">  132</a></span>    <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#a04419bd11088bb5cc9c53ed1ea34b6f7" title="Updates a single control point in the spline, along with its tangent.">UpdatePoint</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_index</a>,</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>                             <span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3d</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_p</a>,</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                             <span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3d</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_t</a>);</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keyword">private</span>: <span class="keywordtype">bool</span> UpdatePoint(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_index</a>,</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                              <span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">ControlPoint</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_cp</a>,</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>                              <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_fixed</a>);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#aca7a9adef0d965ace2cd87d31e05945c">  155</a></span>    <span class="keyword">public</span>: <a class="code hl_class" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3d</a> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#aca7a9adef0d965ace2cd87d31e05945c" title="Interpolates a point on the spline at parameter value _t.">Interpolate</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_t</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#abad4884625af7bf7b8a10ddfd0ef6402">  167</a></span>    <span class="keyword">public</span>: <a class="code hl_class" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3d</a> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#abad4884625af7bf7b8a10ddfd0ef6402" title="Interpolates a point on a segment of the spline at parameter value _t.">Interpolate</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_fromIndex</a>,</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>                                 <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_t</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#a5e5b8166cfc14164a7f34e7bce434465">  178</a></span>    <span class="keyword">public</span>: <a class="code hl_class" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3d</a> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#a5e5b8166cfc14164a7f34e7bce434465" title="Interpolates a tangent on the spline at parameter value _t.">InterpolateTangent</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_t</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#a7468a92363c9f22f167d26cc236ce43a">  190</a></span>    <span class="keyword">public</span>: <a class="code hl_class" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3d</a> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#a7468a92363c9f22f167d26cc236ce43a" title="Interpolates the tangent on a segment of the spline at parameter value _t.">InterpolateTangent</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_fromIndex</a>,</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>                                        <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_t</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#a94d5ee839d290e5be3a85abb8d16bed5">  199</a></span>    <span class="keyword">public</span>: <a class="code hl_class" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3d</a> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#a94d5ee839d290e5be3a85abb8d16bed5" title="Interpolates the mth derivative of the spline at parameter value _t.">InterpolateMthDerivative</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_mth</a>,</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>                                              <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_1</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#ad5a10afeace964ca77191f62d58e2e79">  212</a></span>    <span class="keyword">public</span>: <a class="code hl_class" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3d</a> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#ad5a10afeace964ca77191f62d58e2e79" title="Interpolates the mth derivative of a segment of the spline at parameter value _t.">InterpolateMthDerivative</a>(<span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_fromIndex</a>,</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>                                              <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_mth</a>,</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>                                              <span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_s</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#a81bec643082c36a63e2198ca0dcc82dd">  230</a></span>    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#a81bec643082c36a63e2198ca0dcc82dd" title="Tells the spline whether it should automatically calculate tangents on demand as points are added.">AutoCalculate</a>(<span class="keywordtype">bool</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_autoCalc</a>);</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Spline.html#a8ee2f3f356aa8055d20304f549132c91">  236</a></span>    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1math_1_1Spline.html#a8ee2f3f356aa8055d20304f549132c91" title="Recalculates the tangents associated with this spline.">RecalcTangents</a>();</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <span class="keyword">private</span>: <span class="keywordtype">void</span> Rebuild();</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span> </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    <span class="keyword">private</span>: <span class="keywordtype">bool</span> MapToSegment(<span class="keyword">const</span> <span class="keywordtype">double</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_t</a>,</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>                               <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_index</a>,</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>                               <span class="keywordtype">double</span> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_fraction</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">GZ_UTILS_IMPL_PTR</a>(dataPtr)</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>  };</div>
+</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>  }  <span class="comment">// namespace GZ_MATH_VERSION_NAMESPACE</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>}  <span class="comment">// namespace gz::math</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="preprocessor">#endif  </span><span class="comment">// GZ_MATH_SPLINE_HH_</span></div>
+</div><!-- fragment --></div><!-- contents -->
+      </div>
+    </main>
+  </div>
+</body>

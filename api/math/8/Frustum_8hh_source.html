@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Math">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Math: Frustum.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Math</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        8.0.0
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 GzCreateDocs.cmake -->
+      <nav class="gz-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.9.8 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_5f70b597a8f3cb7e191c654fdc4ac806.html">gz-math</a></li><li class="navelem"><a class="el" href="dir_078c05cd486cbf4f25c108ac6a855843.html">include</a></li><li class="navelem"><a class="el" href="dir_cb23e0bbad0208f30fc2b464607664c0.html">gz</a></li><li class="navelem"><a class="el" href="dir_0f196ca5b9fd4ac373b7623d3ec837c2.html">math</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Frustum.hh</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Frustum_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (C) 2015 Open Source Robotics Foundation</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#ifndef GZ_MATH_FRUSTUM_HH_</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define GZ_MATH_FRUSTUM_HH_</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;<a class="code" href="Angle_8hh.html">gz/math/Angle.hh</a>&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;<a class="code" href="AxisAlignedBox_8hh.html">gz/math/AxisAlignedBox.hh</a>&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;<a class="code" href="Plane_8hh.html">gz/math/Plane.hh</a>&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;<a class="code" href="Pose3_8hh.html">gz/math/Pose3.hh</a>&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;gz/math/config.hh&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;gz/utils/ImplPtr.hh&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacegz_1_1math.html">gz::math</a></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>  <span class="comment">// Inline bracket to help doxygen filtering.</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>  <span class="keyword">inline</span> <span class="keyword">namespace </span>GZ_MATH_VERSION_NAMESPACE {</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html">   34</a></span>  <span class="keyword">class </span><a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">GZ_MATH_VISIBLE</a> <a class="code hl_class" href="classgz_1_1math_1_1Frustum.html" title="Mathematical representation of a frustum and related functions. This is also known as a view frustum.">Frustum</a></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>  {</div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#ae9e1c8a3d097c4fa8df79abc03911ec5">   37</a></span>    <span class="keyword">public</span>: <span class="keyword">enum</span> <a class="code hl_enumeration" href="classgz_1_1math_1_1Frustum.html#ae9e1c8a3d097c4fa8df79abc03911ec5" title="Planes that define the boundaries of the frustum.">FrustumPlane</a></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    {</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#ae9e1c8a3d097c4fa8df79abc03911ec5ae2202e23d7736197225d0b7a46839ab2">   40</a></span>      FRUSTUM_PLANE_NEAR   = 0,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#ae9e1c8a3d097c4fa8df79abc03911ec5aff7610a99c3aeaa24bb6781b13c99489">   43</a></span>      FRUSTUM_PLANE_FAR    = 1,</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#ae9e1c8a3d097c4fa8df79abc03911ec5a9b9e1d227e8cfe34356a95b312186445">   46</a></span>      FRUSTUM_PLANE_LEFT   = 2,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#ae9e1c8a3d097c4fa8df79abc03911ec5aaf028928cf4519f7b0c04854b9a14950">   49</a></span>      FRUSTUM_PLANE_RIGHT  = 3,</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#ae9e1c8a3d097c4fa8df79abc03911ec5a6821522139674a34a3d17b4e9dbaeda6">   52</a></span>      FRUSTUM_PLANE_TOP    = 4,</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>      FRUSTUM_PLANE_BOTTOM = 5</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#ae9e1c8a3d097c4fa8df79abc03911ec5a906d964e61e7a24ef905ecebaecab8b1">   56</a></span>    };</div>
+</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#a6768c58ca61f1f5d3b4a0192abd0695b">   65</a></span>    <span class="keyword">public</span>: <a class="code hl_function" href="classgz_1_1math_1_1Frustum.html#a6768c58ca61f1f5d3b4a0192abd0695b" title="Default constructor. With the following default values:">Frustum</a>();</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#a24f691f3d4be90b1f0f711f1d4869a93">   79</a></span>    <span class="keyword">public</span>: <a class="code hl_function" href="classgz_1_1math_1_1Frustum.html#a24f691f3d4be90b1f0f711f1d4869a93" title="Constructor.">Frustum</a>(<span class="keywordtype">double</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_near</a>,</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                    <span class="keywordtype">double</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_far</a>,</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                    <span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Angle.html" title="The Angle class is used to simplify and clarify the use of radians and degrees measurements....">math::Angle</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_fov</a>,</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                    <span class="keywordtype">double</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_aspectRatio</a>,</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                    <span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">math::Pose3d</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_pose</a> = math::Pose3d::Zero);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#a5e7d6587083f056b3514a08c4c173e18">   89</a></span>    <span class="keyword">public</span>: <span class="keywordtype">double</span> <a class="code hl_function" href="classgz_1_1math_1_1Frustum.html#a5e7d6587083f056b3514a08c4c173e18" title="Get the near distance. This is the distance from the frustum&#39;s vertex to the closest plane.">Near</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#a9565a95e4f9f352cf4eb1789ed86295b">   95</a></span>    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1math_1_1Frustum.html#a9565a95e4f9f352cf4eb1789ed86295b" title="Set the near distance. This is the distance from the frustum&#39;s vertex to the closest plane.">SetNear</a>(<span class="keywordtype">double</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_near</a>);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#ae13f0786421b516e3d8fe6c936249eb1">  101</a></span>    <span class="keyword">public</span>: <span class="keywordtype">double</span> <a class="code hl_function" href="classgz_1_1math_1_1Frustum.html#ae13f0786421b516e3d8fe6c936249eb1" title="Get the far distance. This is the distance from the frustum&#39;s vertex to the farthest plane.">Far</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#af8c177a033a68a74130f0af8a870ff64">  107</a></span>    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1math_1_1Frustum.html#af8c177a033a68a74130f0af8a870ff64" title="Set the far distance. This is the distance from the frustum&#39;s vertex to the farthest plane.">SetFar</a>(<span class="keywordtype">double</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_far</a>);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#aee225ab537f7f2844ed07e6a24bb2dc4">  114</a></span>    <span class="keyword">public</span>: <a class="code hl_class" href="classgz_1_1math_1_1Angle.html" title="The Angle class is used to simplify and clarify the use of radians and degrees measurements....">math::Angle</a> <a class="code hl_function" href="classgz_1_1math_1_1Frustum.html#aee225ab537f7f2844ed07e6a24bb2dc4" title="Get the horizontal field of view. The field of view is the angle between the frustum&#39;s vertex and the...">FOV</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#ab41e1f2322986a96b62eb78bf70c3a7b">  121</a></span>    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1math_1_1Frustum.html#ab41e1f2322986a96b62eb78bf70c3a7b" title="Set the horizontal field of view. The field of view is the angle between the frustum&#39;s vertex and the...">SetFOV</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Angle.html" title="The Angle class is used to simplify and clarify the use of radians and degrees measurements....">math::Angle</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_fov</a>);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#a3bdc2ccc73727b65d2bf99a0898cddde">  127</a></span>    <span class="keyword">public</span>: <span class="keywordtype">double</span> <a class="code hl_function" href="classgz_1_1math_1_1Frustum.html#a3bdc2ccc73727b65d2bf99a0898cddde" title="Get the aspect ratio, which is the width divided by height of the near or far planes.">AspectRatio</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#a137cd252d9372f0ac1f3bf2a65e245bb">  133</a></span>    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1math_1_1Frustum.html#a137cd252d9372f0ac1f3bf2a65e245bb" title="Set the aspect ratio, which is the width divided by height of the near or far planes.">SetAspectRatio</a>(<span class="keywordtype">double</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_aspectRatio</a>);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#a302702dc9c94d275f0204ee13ab88d78">  138</a></span>    <span class="keyword">public</span>: <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Planed</a> <a class="code hl_function" href="classgz_1_1math_1_1Frustum.html#a302702dc9c94d275f0204ee13ab88d78" title="Get a plane of the frustum.">Plane</a>(<span class="keyword">const</span> <a class="code hl_enumeration" href="classgz_1_1math_1_1Frustum.html#ae9e1c8a3d097c4fa8df79abc03911ec5" title="Planes that define the boundaries of the frustum.">FrustumPlane</a> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_plane</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#aeb2f195a6aaa6e61df061d89a6f151e7">  143</a></span>    <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code hl_function" href="classgz_1_1math_1_1Frustum.html#aeb2f195a6aaa6e61df061d89a6f151e7" title="Check if a box lies inside the pyramid frustum.">Contains</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1AxisAlignedBox.html" title="Mathematical representation of a box that is aligned along an X,Y,Z axis.">AxisAlignedBox</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_b</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#aa550334f3d37f63e2cfa8bffff565f01">  148</a></span>    <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code hl_function" href="classgz_1_1math_1_1Frustum.html#aa550334f3d37f63e2cfa8bffff565f01" title="Check if a point lies inside the pyramid frustum.">Contains</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Vector3.html" title="The Vector3 class represents the generic vector containing 3 elements. Since it&#39;s commonly used to ke...">Vector3d</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_p</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#a6498414759b57ab7d80e0d751285132b">  153</a></span>    <span class="keyword">public</span>: <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Pose3d</a> <a class="code hl_function" href="classgz_1_1math_1_1Frustum.html#a6498414759b57ab7d80e0d751285132b" title="Get the pose of the frustum.">Pose</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Frustum.html#a7c3d674b3481eab4d3628b210a5db273">  158</a></span>    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1math_1_1Frustum.html#a7c3d674b3481eab4d3628b210a5db273" title="Set the pose of the frustum.">SetPose</a>(<span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">Pose3d</a> &amp;<a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">_pose</a>);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keyword">private</span>: <span class="keywordtype">void</span> ComputePlanes();</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">GZ_UTILS_IMPL_PTR</a>(dataPtr)</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>  };</div>
+</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>  }  <span class="comment">// GZ_MATH_VERSION_NAMESPACE</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>}  <span class="comment">// namespace gz::math</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="preprocessor">#endif  </span><span class="comment">// GZ_MATH_FRUSTUM_HH_</span></div>
+</div><!-- fragment --></div><!-- contents -->
+      </div>
+    </main>
+  </div>
+</body>

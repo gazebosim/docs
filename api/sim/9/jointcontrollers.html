@@ -1,0 +1,711 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Sim">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Sim: Joint Controllers</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Sim</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        9.0.0
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 GzCreateDocs.cmake -->
+      <nav class="gz-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.9.8 -->
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Joint Controllers</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>Gazebo provides three joint controller plugins which are <code>JointController</code>, <code>JointPositionController</code>, and <code>JointTrajectoryController</code>.</p>
+<p>Let's see a detailed description of each of them and an example usage to help users select the right joint controller for their usage.</p>
+<h2><a class="anchor" id="autotoc_md127"></a>
+1) JointController</h2>
+<ul>
+<li>Joint controller which can be attached to a model with a reference to a single joint.</li>
+<li>Currently, only the first axis of a joint can be actuated.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md128"></a>
+Modes of JointController</h3>
+<p>1) Velocity mode: This mode lets the user control the desired joint velocity directly.</p>
+<p>2) Force mode: A user who wants to control joint velocity using a PID controller can use this mode.</p>
+<p><b>Note</b>: This force mode is for the user who is looking to manually tune PID gains for velocity control according to a specific use case (e.g. Custom models). For general testing purposes, velocity mode will give the best results.</p>
+<p>All the parameters related to this controller can be found <a class="el" href="classgz_1_1sim_1_1systems_1_1JointController.html">here</a>.</p>
+<p>The commanded velocity(cmd_vel) can be published or subscribed at the topic: <code>/model/&lt;model_name&gt;/joint/&lt;joint_name&gt;/cmd_vel</code> by default.</p>
+<p>Message data type: <code>Double</code></p>
+<h3><a class="anchor" id="autotoc_md129"></a>
+Example usage</h3>
+<p>Let's see an example for both modes using a simple model having only one joint.</p>
+<p>For controlling joints one would require adding the Gazebo's joint controller plugin to the existing <code>&lt;model_name&gt;.sdf</code> file.</p>
+<p>1) Save the SDF file in the desired directory or create one</p>
+<p>e.g.</p>
+<div class="fragment"><div class="line">mkdir gz_tutorial</div>
+<div class="line">cd gz_turtorial</div>
+</div><!-- fragment --><p>2) In this tutorial we will be using the following SDF file (this is just a slight modification of the original <code>joint_controller.sdf</code> <a href="https://github.com/gazebosim/gz-sim/blob/gz-sim7/examples/worlds/joint_controller.sdf">example</a>).</p>
+<p>After changing the directory, name the SDF file as <code>example.sdf</code></p>
+<ul>
+<li>SDF file:</li>
+</ul>
+<div class="fragment"><div class="line">&lt;?<span class="keyword">xml</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.0&quot;</span> ?&gt;</div>
+<div class="line">&lt;<span class="keywordtype">sdf</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.6&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">world</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;default&quot;</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">light</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;directional&quot;</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;sun&quot;</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">cast_shadows</span>&gt;<span class="keyword">true</span>&lt;/<span class="keywordtype">cast_shadows</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">pose</span>&gt;0 0 10 0 0 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">diffuse</span>&gt;1 1 1 1&lt;/<span class="keywordtype">diffuse</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">specular</span>&gt;0.5 0.5 0.5 1&lt;/<span class="keywordtype">specular</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">attenuation</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">range</span>&gt;1000&lt;/<span class="keywordtype">range</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">constant</span>&gt;0.9&lt;/<span class="keywordtype">constant</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">linear</span>&gt;0.01&lt;/<span class="keywordtype">linear</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">quadratic</span>&gt;0.001&lt;/<span class="keywordtype">quadratic</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">attenuation</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">direction</span>&gt;-0.5 0.1 -0.9&lt;/<span class="keywordtype">direction</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">light</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">model</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;joint_controller_demo&quot;</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">pose</span>&gt;0 0 0 0 0 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">link</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;base_link&quot;</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">pose</span>&gt;0.0 0.0 0.0 0 0 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">inertial</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">inertia</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ixx</span>&gt;2.501&lt;/<span class="keywordtype">ixx</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ixy</span>&gt;0&lt;/<span class="keywordtype">ixy</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ixz</span>&gt;0&lt;/<span class="keywordtype">ixz</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">iyy</span>&gt;2.501&lt;/<span class="keywordtype">iyy</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">iyz</span>&gt;0&lt;/<span class="keywordtype">iyz</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">izz</span>&gt;5&lt;/<span class="keywordtype">izz</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">inertia</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">mass</span>&gt;120.0&lt;/<span class="keywordtype">mass</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">inertial</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">visual</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;base_visual&quot;</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">pose</span>&gt;0.0 0.0 0.0 0 0 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">box</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">size</span>&gt;0.5 0.5 0.01&lt;/<span class="keywordtype">size</span>&gt;</div>
+<div class="line">            &lt;/<span class="keywordtype">box</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">visual</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">collision</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;base_collision&quot;</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">pose</span>&gt;0.0 0.0 0.0 0 0 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">box</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">size</span>&gt;0.5 0.5 0.01&lt;/<span class="keywordtype">size</span>&gt;</div>
+<div class="line">            &lt;/<span class="keywordtype">box</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">collision</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">link</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">link</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;rotor&quot;</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">pose</span>&gt;0.0 0.0 0.1 0 0 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">inertial</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">inertia</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ixx</span>&gt;0.032&lt;/<span class="keywordtype">ixx</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ixy</span>&gt;0&lt;/<span class="keywordtype">ixy</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ixz</span>&gt;0&lt;/<span class="keywordtype">ixz</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">iyy</span>&gt;0.032&lt;/<span class="keywordtype">iyy</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">iyz</span>&gt;0&lt;/<span class="keywordtype">iyz</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">izz</span>&gt;0.00012&lt;/<span class="keywordtype">izz</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">inertia</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">mass</span>&gt;0.6&lt;/<span class="keywordtype">mass</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">inertial</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">visual</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;visual&quot;</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">box</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">size</span>&gt;0.25 0.1 0.05&lt;/<span class="keywordtype">size</span>&gt;</div>
+<div class="line">            &lt;/<span class="keywordtype">box</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">material</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ambient</span>&gt;0.2 0.8 0.2 1&lt;/<span class="keywordtype">ambient</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">diffuse</span>&gt;0.8 0 0 1&lt;/<span class="keywordtype">diffuse</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">material</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">visual</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">collision</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;collision&quot;</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">box</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">size</span>&gt;0.25 0.1 0.05&lt;/<span class="keywordtype">size</span>&gt;</div>
+<div class="line">            &lt;/<span class="keywordtype">box</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">collision</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">link</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">      &lt;<span class="keywordtype">joint</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;world_fixed&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;fixed&quot;</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">parent</span>&gt;<span class="keyword">world</span>&lt;/<span class="keywordtype">parent</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">child</span>&gt;<span class="keyword">base_link</span>&lt;/<span class="keywordtype">child</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">joint</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">      &lt;<span class="keywordtype">joint</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;j1&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;revolute&quot;</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">pose</span>&gt;0 0 -0.5 0 0 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">parent</span>&gt;<span class="keyword">base_link</span>&lt;/<span class="keywordtype">parent</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">child</span>&gt;<span class="keyword">rotor</span>&lt;/<span class="keywordtype">child</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">axis</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">xyz</span>&gt;0 0 1&lt;/<span class="keywordtype">xyz</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">axis</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">joint</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">model</span>&gt;</div>
+<div class="line">  &lt;/<span class="keywordtype">world</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">sdf</span>&gt;</div>
+</div><!-- fragment --><p>3) Run the following command to launch the gazebo simulation:</p>
+<div class="fragment"><div class="line">gz sim -v 4 -r example.sdf</div>
+</div><!-- fragment --><p>This is how the model will look:</p>
+<div style="text-align:center;"> <div class="image">
+<img src="JointController.png" alt="" width="50%"/>
+</div>
+ </div><p>4) Now let's add the Gazebo JointController plugin to the SDF file. Add the following line to your file just before the tag <code>&lt;/model&gt;</code>.</p>
+<p><b>Note</b>: All the plugins discussed here should be between <code>&lt;model&gt;</code> and <code>&lt;/model&gt;</code> tags. Ideally just before the <code>&lt;/model&gt;</code> tag for better readability.</p>
+<ul>
+<li>Velocity mode</li>
+</ul>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">plugin</span></div>
+<div class="line"> <span class="keyword">filename</span>=<span class="stringliteral">&quot;gz-sim-joint-controller-system&quot;</span></div>
+<div class="line"> <span class="keyword">name</span>=<span class="stringliteral">&quot;gz::sim::systems::JointController&quot;</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">joint_name</span>&gt;<span class="keyword">j1</span>&lt;/<span class="keywordtype">joint_name</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">initial_velocity</span>&gt;1.0&lt;/<span class="keywordtype">initial_velocity</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
+</div><!-- fragment --><p>The initial velocity is set to 1.0 rad/s.</p>
+<div style="text-align:center;"> <div class="image">
+<img src="JointControllerVelMode1.gif" alt="" width="50%"/>
+</div>
+ </div><p>One can change the joint velocity by publishing a message on the topic <code>/model/joint_controller_demo/joint/j1/cmd_vel</code> or can change the topic name within the plugin.</p>
+<p>To change the topic name add the following line before <code>&lt;/plugin&gt;</code> tag in the SDF file.</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">topic</span>&gt;<span class="keyword">topic_name</span>&lt;/<span class="keywordtype">topic</span>&gt;</div>
+</div><!-- fragment --><ul>
+<li>Sending velocity commands</li>
+</ul>
+<div class="fragment"><div class="line">gz topic -t &quot;/topic_name&quot; -m gz.msgs.Double -p &quot;data: 10.0&quot;</div>
+</div><!-- fragment --><div style="text-align:center;"> <div class="image">
+<img src="JointControllerVelMode2.gif" alt="" width="50%"/>
+</div>
+ </div><ul>
+<li>Force mode</li>
+</ul>
+<p>Replace the velocity mode plugin mentioned above with the following lines in the SDF file for force mode.</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">plugin</span></div>
+<div class="line"> <span class="keyword">filename</span>=<span class="stringliteral">&quot;gz-sim-joint-controller-system&quot;</span></div>
+<div class="line"> <span class="keyword">name</span>=<span class="stringliteral">&quot;gz::sim::systems::JointController&quot;</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">joint_name</span>&gt;<span class="keyword">j1</span>&lt;/<span class="keywordtype">joint_name</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">use_force_commands</span>&gt;<span class="keyword">true</span>&lt;/<span class="keywordtype">use_force_commands</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">p_gain</span>&gt;0.2&lt;/<span class="keywordtype">p_gain</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">i_gain</span>&gt;0.01&lt;/<span class="keywordtype">i_gain</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
+</div><!-- fragment --><p>This would look almost the same as velocity mode if PID gains are tuned properly.</p>
+<p>5) Checking Joint states. Here the state of the joint is obtained using the Gazebo’s JointStatepublisher plugin. Please visit <a class="el" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html">gz::sim::systems::JointStatePublisher</a> for more information.</p><ul>
+<li>Add the following lines to the SDF file before <code>&lt;/model&gt;</code> tag: <div class="fragment"><div class="line">&lt;<span class="keywordtype">plugin</span></div>
+<div class="line"> <span class="keyword">filename</span>=<span class="stringliteral">&quot;gz-sim-joint-state-publisher-system&quot;</span></div>
+<div class="line"> <span class="keyword">name</span>=<span class="stringliteral">&quot;gz::sim::systems::JointStatePublisher&quot;</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">joint_name</span>&gt;<span class="keyword">j1</span>&lt;/<span class="keywordtype">joint_name</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
+</div><!-- fragment --></li>
+<li>To check joint state.</li>
+</ul>
+<div class="fragment"><div class="line">gz topic -e -t /world/default/model/joint_controller_demo/joint_state</div>
+</div><!-- fragment --><div class="fragment"><div class="line">joint {</div>
+<div class="line">  name: &quot;j1&quot;</div>
+<div class="line">  id: 12</div>
+<div class="line">  parent: &quot;base_link&quot;</div>
+<div class="line">  child: &quot;rotor&quot;</div>
+<div class="line">  pose {</div>
+<div class="line">    position {</div>
+<div class="line">      z: -0.5</div>
+<div class="line">    }</div>
+<div class="line">    orientation {</div>
+<div class="line">      w: 1</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line">  axis1 {</div>
+<div class="line">    xyz {</div>
+<div class="line">      z: 1</div>
+<div class="line">    }</div>
+<div class="line">    limit_lower: -inf</div>
+<div class="line">    limit_upper: inf</div>
+<div class="line">    position: 35.115896338490096</div>
+<div class="line">    velocity: 1.0000051832309742</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>An example where p_gain was set to 2.0 and the joint controller failed to reach the desired velocity and behaved absurdly due to improper gains is shown below.</p>
+<div style="text-align:center;"> <div class="image">
+<img src="JoinControllerForceMode.gif" alt="" width="50%"/>
+</div>
+ </div><div class="fragment"><div class="line">joint {</div>
+<div class="line">  name: &quot;j1&quot;</div>
+<div class="line">  id: 12</div>
+<div class="line">  parent: &quot;base_link&quot;</div>
+<div class="line">  child: &quot;rotor&quot;</div>
+<div class="line">  pose {</div>
+<div class="line">    position {</div>
+<div class="line">      z: -0.5</div>
+<div class="line">    }</div>
+<div class="line">    orientation {</div>
+<div class="line">      w: 1</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line">  axis1 {</div>
+<div class="line">    xyz {</div>
+<div class="line">      z: 1</div>
+<div class="line">    }</div>
+<div class="line">    limit_lower: -inf</div>
+<div class="line">    limit_upper: inf</div>
+<div class="line">    position: 44282.754868627489</div>
+<div class="line">    velocity: -2891.1685359866523</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md130"></a>
+2) JointPositionController</h2>
+<ul>
+<li>Joint position controller which can be attached to a model with a reference to a single joint.</li>
+<li>One can mention the axis of the joint they want to control.</li>
+</ul>
+<p>JointPositionController uses a PID controller to reach a desired joint position.</p>
+<p>All the parameters related to this controller can be found <a class="el" href="classgz_1_1sim_1_1systems_1_1JointPositionController.html">here</a>.</p>
+<p>Commanded position(cmd_pos) can be published or subscribed at the topic: <code>/model/&lt;model_name&gt;/joint/&lt;joint_name&gt;/&lt;joint_index&gt;/cmd_pos</code> by default.</p>
+<p>Message data type: <code>Double</code>.</p>
+<h3><a class="anchor" id="autotoc_md131"></a>
+Example usage:</h3>
+<p>For this let's use the previously discussed SDF file.</p>
+<p>1) Replace the JointController plugin with the JointPositionController plugin in SDF file.</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">plugin</span></div>
+<div class="line"> <span class="keyword">filename</span>=<span class="stringliteral">&quot;gz-sim-joint-position-controller-system&quot;</span></div>
+<div class="line"> <span class="keyword">name</span>=<span class="stringliteral">&quot;gz::sim::systems::JointPositionController&quot;</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">joint_name</span>&gt;<span class="keyword">j1</span>&lt;/<span class="keywordtype">joint_name</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">topic</span>&gt;<span class="keyword">topic_name</span>&lt;/<span class="keywordtype">topic</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">p_gain</span>&gt;1&lt;/<span class="keywordtype">p_gain</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">i_gain</span>&gt;0.1&lt;/<span class="keywordtype">i_gain</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">d_gain</span>&gt;0.01&lt;/<span class="keywordtype">d_gain</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">i_max</span>&gt;1&lt;/<span class="keywordtype">i_max</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">i_min</span>&gt;-1&lt;/<span class="keywordtype">i_min</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">cmd_max</span>&gt;1000&lt;/<span class="keywordtype">cmd_max</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">cmd_min</span>&gt;-1000&lt;/<span class="keywordtype">cmd_min</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
+</div><!-- fragment --><p>2) Sending joint position command.</p>
+<div class="fragment"><div class="line">gz topic -t &quot;/topic_name&quot; -m gz.msgs.Double -p &quot;data: -1.0&quot;</div>
+</div><!-- fragment --><div style="text-align:center;"> <div class="image">
+<img src="JointPositionController.gif" alt="" width="50%"/>
+</div>
+ </div><p>3) Checking joint state.</p>
+<div class="fragment"><div class="line">gz topic -e -t /world/default/model/joint_controller_demo/joint_state</div>
+</div><!-- fragment --><div class="fragment"><div class="line">joint {</div>
+<div class="line">  name: &quot;j1&quot;</div>
+<div class="line">  id: 12</div>
+<div class="line">  parent: &quot;base_link&quot;</div>
+<div class="line">  child: &quot;rotor&quot;</div>
+<div class="line">  pose {</div>
+<div class="line">    position {</div>
+<div class="line">      z: -0.5</div>
+<div class="line">    }</div>
+<div class="line">    orientation {</div>
+<div class="line">      w: 1</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line">  axis1 {</div>
+<div class="line">    xyz {</div>
+<div class="line">      z: 1</div>
+<div class="line">    }</div>
+<div class="line">    limit_lower: -inf</div>
+<div class="line">    limit_upper: inf</div>
+<div class="line">    position: 0.99999991907580654</div>
+<div class="line">    velocity: 8.1005154347602952e-09</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md132"></a>
+3) JointTrajectoryController.</h2>
+<ul>
+<li>Joint trajectory controller, which can be attached to a model with reference to one or more 1-axis joints to follow a trajectory.</li>
+</ul>
+<p>JointTrajectoryController lets’s user specify the required position, velocity, and effort with respect to time. For velocity and position, this controller uses a PID controller.</p>
+<p>A detailed description and related parameter of JointTrajectoryController can be found <a class="el" href="classgz_1_1sim_1_1systems_1_1JointTrajectoryController.html">here</a>.</p>
+<p>The trajectory message can be published or subscribed at <code>/model/${MODEL_NAME}/joint_trajectory</code> by default.</p>
+<p>Message type: <a href="https://gazebosim.org/api/msgs/7.2/classignition_1_1msgs_1_1JointTrajectory.html"><code>JointTrajectory</code></a></p>
+<h3><a class="anchor" id="autotoc_md133"></a>
+Example usage:</h3>
+<p>Let’s set up a new model for this example. A two-linked manipulator arm which has a total of two joints to control (<a href="https://github.com/gazebosim/gz-sim/blob/gz-sim7/examples/worlds/joint_trajectory_controller.sdf"><code>joint_trajectory_controller.sdf</code></a> is the original example). Name it as <code>example2.sdf</code>.</p>
+<ul>
+<li>SDF file:</li>
+</ul>
+<div class="fragment"><div class="line">&lt;?<span class="keyword">xml</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.0&quot;</span></div>
+<div class="line">&lt;<span class="keywordtype">sdf</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.6&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">world</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;default&quot;</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">scene</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">ambient</span>&gt;0.4 0.4 0.4&lt;/<span class="keywordtype">ambient</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">grid</span>&gt;<span class="keyword">false</span>&lt;/<span class="keywordtype">grid</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">scene</span>&gt;</div>
+<div class="line">    <span class="comment">&lt;!--              --&gt;</span></div>
+<div class="line">    <span class="comment">&lt;!-- Illumination --&gt;</span></div>
+<div class="line">    <span class="comment">&lt;!--              --&gt;</span></div>
+<div class="line">    &lt;<span class="keywordtype">light</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;directional&quot;</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;sun&quot;</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">cast_shadows</span>&gt;<span class="keyword">false</span>&lt;/<span class="keywordtype">cast_shadows</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">pose</span>&gt;5 5 5 0 0 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">diffuse</span>&gt;0.8 0.8 0.8 1&lt;/<span class="keywordtype">diffuse</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">specular</span>&gt;0.2 0.2 0.2 1&lt;/<span class="keywordtype">specular</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">attenuation</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">range</span>&gt;1000&lt;/<span class="keywordtype">range</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">constant</span>&gt;0.9&lt;/<span class="keywordtype">constant</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">linear</span>&gt;0.01&lt;/<span class="keywordtype">linear</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">quadratic</span>&gt;0.001&lt;/<span class="keywordtype">quadratic</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">attenuation</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">direction</span>&gt;-1 -1 -1&lt;/<span class="keywordtype">direction</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">light</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">&lt;!--        --&gt;</span></div>
+<div class="line">    <span class="comment">&lt;!-- Models --&gt;</span></div>
+<div class="line">    <span class="comment">&lt;!--        --&gt;</span></div>
+<div class="line">    &lt;<span class="keywordtype">model</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;background_plane&quot;</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">pose</span>&gt;-0.1 0 0 0 1.5708 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">static</span>&gt;<span class="keyword">true</span>&lt;/<span class="keywordtype">static</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">link</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;background_plane_link&quot;</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">visual</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;background_plane_visual&quot;</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">plane</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">normal</span>&gt;0 0 1&lt;/<span class="keywordtype">normal</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">size</span>&gt;5 5&lt;/<span class="keywordtype">size</span>&gt;</div>
+<div class="line">            &lt;/<span class="keywordtype">plane</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">material</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">diffuse</span>&gt;0.5 0.5 0.5 1&lt;/<span class="keywordtype">diffuse</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">specular</span>&gt;0.5 0.5 0.5 1&lt;/<span class="keywordtype">specular</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">material</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">visual</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">link</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">model</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">&lt;!-- RR robot (Red) - Position control --&gt;</span></div>
+<div class="line">    &lt;<span class="keywordtype">model</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;RR_position_control&quot;</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">pose</span>&gt;0 0 0 0 -3.14159 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">      <span class="comment">&lt;!-- Fix To World --&gt;</span></div>
+<div class="line">      &lt;<span class="keywordtype">joint</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;RR_position_control_world&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;fixed&quot;</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">parent</span>&gt;<span class="keyword">world</span>&lt;/<span class="keywordtype">parent</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">child</span>&gt;<span class="keyword">RR_position_control_link0</span>&lt;/<span class="keywordtype">child</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">joint</span>&gt;</div>
+<div class="line">      <span class="comment">&lt;!-- Links --&gt;</span></div>
+<div class="line">      &lt;<span class="keywordtype">link</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;RR_position_control_link0&quot;</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">collision</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;RR_position_control_link0_collision_0&quot;</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">sphere</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">radius</span>&gt;0.025&lt;/<span class="keywordtype">radius</span>&gt;</div>
+<div class="line">            &lt;/<span class="keywordtype">sphere</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">collision</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">visual</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;RR_position_control_link0_visual_0&quot;</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">sphere</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">radius</span>&gt;0.025&lt;/<span class="keywordtype">radius</span>&gt;</div>
+<div class="line">            &lt;/<span class="keywordtype">sphere</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">material</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ambient</span>&gt;0 0.5 0.5 1&lt;/<span class="keywordtype">ambient</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">diffuse</span>&gt;0 0.8 0.8 1&lt;/<span class="keywordtype">diffuse</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">specular</span>&gt;0.8 0.8 0.8 1&lt;/<span class="keywordtype">specular</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">material</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">visual</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">link</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">link</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;RR_position_control_link1&quot;</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">pose</span> <span class="keyword">relative_to</span>=<span class="stringliteral">&quot;RR_position_control_joint1&quot;</span>&gt;0 0 0.1 0 0 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">collision</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;RR_position_control_link1_collision_0&quot;</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">cylinder</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">radius</span>&gt;0.01&lt;/<span class="keywordtype">radius</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">length</span>&gt;0.2&lt;/<span class="keywordtype">length</span>&gt;</div>
+<div class="line">            &lt;/<span class="keywordtype">cylinder</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">collision</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">collision</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;RR_position_control_link1_collision_1&quot;</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">sphere</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">radius</span>&gt;0.0125&lt;/<span class="keywordtype">radius</span>&gt;</div>
+<div class="line">            &lt;/<span class="keywordtype">sphere</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">collision</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">visual</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;RR_position_control_link1_visual_0&quot;</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">cylinder</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">radius</span>&gt;0.01&lt;/<span class="keywordtype">radius</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">length</span>&gt;0.2&lt;/<span class="keywordtype">length</span>&gt;</div>
+<div class="line">            &lt;/<span class="keywordtype">cylinder</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">material</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ambient</span>&gt;0.5 0 0 1&lt;/<span class="keywordtype">ambient</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">diffuse</span>&gt;0.8 0 0 1&lt;/<span class="keywordtype">diffuse</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">specular</span>&gt;0.8 0 0 1&lt;/<span class="keywordtype">specular</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">material</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">visual</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">visual</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;RR_position_control_link1_visual_1&quot;</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">pose</span> <span class="keyword">relative_to</span>=<span class="stringliteral">&quot;RR_position_control_joint1&quot;</span>&gt;0 0 0.2 0 0 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">sphere</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">radius</span>&gt;0.0125&lt;/<span class="keywordtype">radius</span>&gt;</div>
+<div class="line">            &lt;/<span class="keywordtype">sphere</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">material</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ambient</span>&gt;0.5 0.5 0.5 1&lt;/<span class="keywordtype">ambient</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">diffuse</span>&gt;0.8 0.8 0.8 1&lt;/<span class="keywordtype">diffuse</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">specular</span>&gt;0.8 0.8 0.8 1&lt;/<span class="keywordtype">specular</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">material</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">visual</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">inertial</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">mass</span>&gt;0.1&lt;/<span class="keywordtype">mass</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">inertia</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ixx</span>&gt;0.0003358&lt;/<span class="keywordtype">ixx</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">iyy</span>&gt;0.0003358&lt;/<span class="keywordtype">iyy</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">izz</span>&gt;0.000005&lt;/<span class="keywordtype">izz</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">inertia</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">inertial</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">link</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">link</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;RR_position_control_link2&quot;</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">pose</span> <span class="keyword">relative_to</span>=<span class="stringliteral">&quot;RR_position_control_joint2&quot;</span>&gt;0 0 0.1 0 0 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">collision</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;RR_position_control_link2_collision&quot;</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">cylinder</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">radius</span>&gt;0.01&lt;/<span class="keywordtype">radius</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">length</span>&gt;0.2&lt;/<span class="keywordtype">length</span>&gt;</div>
+<div class="line">            &lt;/<span class="keywordtype">cylinder</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">collision</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">visual</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;RR_position_control_link2_visual&quot;</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">cylinder</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">radius</span>&gt;0.01&lt;/<span class="keywordtype">radius</span>&gt;</div>
+<div class="line">              &lt;<span class="keywordtype">length</span>&gt;0.2&lt;/<span class="keywordtype">length</span>&gt;</div>
+<div class="line">            &lt;/<span class="keywordtype">cylinder</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">geometry</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">material</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ambient</span>&gt;0.5 0 0 1&lt;/<span class="keywordtype">ambient</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">diffuse</span>&gt;0.8 0 0 1&lt;/<span class="keywordtype">diffuse</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">specular</span>&gt;0.8 0 0 1&lt;/<span class="keywordtype">specular</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">material</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">visual</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">inertial</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">mass</span>&gt;0.1&lt;/<span class="keywordtype">mass</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">inertia</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">ixx</span>&gt;0.0003358&lt;/<span class="keywordtype">ixx</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">iyy</span>&gt;0.0003358&lt;/<span class="keywordtype">iyy</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">izz</span>&gt;0.000005&lt;/<span class="keywordtype">izz</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">inertia</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">inertial</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">link</span>&gt;</div>
+<div class="line">      <span class="comment">&lt;!-- Joints --&gt;</span></div>
+<div class="line">      &lt;<span class="keywordtype">joint</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;RR_position_control_joint1&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;revolute&quot;</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">pose</span> <span class="keyword">relative_to</span>=<span class="stringliteral">&quot;RR_position_control_link0&quot;</span>&gt;0 0 0 0 0 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">parent</span>&gt;<span class="keyword">RR_position_control_link0</span>&lt;/<span class="keywordtype">parent</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">child</span>&gt;<span class="keyword">RR_position_control_link1</span>&lt;/<span class="keywordtype">child</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">axis</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">xyz</span>&gt;1 0 0&lt;/<span class="keywordtype">xyz</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">dynamics</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">damping</span>&gt;0.5&lt;/<span class="keywordtype">damping</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">dynamics</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">axis</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">joint</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">joint</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;RR_position_control_joint2&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;revolute&quot;</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">pose</span> <span class="keyword">relative_to</span>=<span class="stringliteral">&quot;RR_position_control_link1&quot;</span>&gt;0 0 0.1 0 0 0&lt;/<span class="keywordtype">pose</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">parent</span>&gt;<span class="keyword">RR_position_control_link1</span>&lt;/<span class="keywordtype">parent</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">child</span>&gt;<span class="keyword">RR_position_control_link2</span>&lt;/<span class="keywordtype">child</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">axis</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">xyz</span>&gt;1 0 0&lt;/<span class="keywordtype">xyz</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">dynamics</span>&gt;</div>
+<div class="line">            &lt;<span class="keywordtype">damping</span>&gt;0.25&lt;/<span class="keywordtype">damping</span>&gt;</div>
+<div class="line">          &lt;/<span class="keywordtype">dynamics</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">axis</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">joint</span>&gt;</div>
+<div class="line">      <span class="comment">&lt;!-- Controller --&gt;</span></div>
+<div class="line">    &lt;/<span class="keywordtype">model</span>&gt;</div>
+<div class="line">  &lt;/<span class="keywordtype">world</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">sdf</span>&gt;</div>
+</div><!-- fragment --><p>1) Launching gazebo simulation.</p>
+<div class="fragment"><div class="line">gz sim -v 4 -r example2.sdf</div>
+</div><!-- fragment --><p>This is how the model will look:</p>
+<div style="text-align:center;"> <div class="image">
+<img src="JointTrajectoryController.png" alt="" width="50%"/>
+</div>
+ </div><p>2) Adding the JointTrajectoryController plugin and let’s do position control for both joints.</p>
+<p>Append the following lines before <code>&lt;/model&gt;</code> tag in the SDF file.</p>
+<div class="fragment"><div class="line"> &lt;<span class="keywordtype">plugin</span></div>
+<div class="line"> <span class="keyword">filename</span>=<span class="stringliteral">&quot;gz-sim-joint-trajectory-controller-system&quot;</span></div>
+<div class="line"> <span class="keyword">name</span>=<span class="stringliteral">&quot;gz::sim::systems::JointTrajectoryController&quot;</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">joint_name</span>&gt;<span class="keyword">RR_position_control_joint1</span>&lt;/<span class="keywordtype">joint_name</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">initial_position</span>&gt;0.7854&lt;/<span class="keywordtype">initial_position</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">position_p_gain</span>&gt;20&lt;/<span class="keywordtype">position_p_gain</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">position_i_gain</span>&gt;0.4&lt;/<span class="keywordtype">position_i_gain</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">position_d_gain</span>&gt;1.0&lt;/<span class="keywordtype">position_d_gain</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">position_i_min</span>&gt;-1&lt;/<span class="keywordtype">position_i_min</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">position_i_max</span>&gt;1&lt;/<span class="keywordtype">position_i_max</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">position_cmd_min</span>&gt;-20&lt;/<span class="keywordtype">position_cmd_min</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">position_cmd_max</span>&gt;20&lt;/<span class="keywordtype">position_cmd_max</span>&gt;</div>
+<div class="line"> </div>
+<div class="line"> &lt;<span class="keywordtype">joint_name</span>&gt;<span class="keyword">RR_position_control_joint2</span>&lt;/<span class="keywordtype">joint_name</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">initial_position</span>&gt;-1.5708&lt;/<span class="keywordtype">initial_position</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">position_p_gain</span>&gt;10&lt;/<span class="keywordtype">position_p_gain</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">position_i_gain</span>&gt;0.2&lt;/<span class="keywordtype">position_i_gain</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">position_d_gain</span>&gt;0.5&lt;/<span class="keywordtype">position_d_gain</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">position_i_min</span>&gt;-1&lt;/<span class="keywordtype">position_i_min</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">position_i_max</span>&gt;1&lt;/<span class="keywordtype">position_i_max</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">position_cmd_min</span>&gt;-10&lt;/<span class="keywordtype">position_cmd_min</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">position_cmd_max</span>&gt;10&lt;/<span class="keywordtype">position_cmd_max</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
+</div><!-- fragment --><p>3) Sending trajectory message (Can also change the topic name).</p>
+<div class="fragment"><div class="line">gz topic -t &quot;topic_name&quot; -m gz.msgs.JointTrajectory -p &#39;</div>
+<div class="line">    joint_names: &quot;RR_position_control_joint1&quot;</div>
+<div class="line">    joint_names: &quot;RR_position_control_joint2&quot;</div>
+<div class="line">    points {</div>
+<div class="line">      positions: -0.7854</div>
+<div class="line">      positions: 1.5708</div>
+<div class="line">      time_from_start {</div>
+<div class="line">        sec: 0</div>
+<div class="line">        nsec: 250000000</div>
+<div class="line">      }</div>
+<div class="line">    }</div>
+<div class="line">    points {</div>
+<div class="line">      positions: -1.5708</div>
+<div class="line">      positions: 0</div>
+<div class="line">      time_from_start {</div>
+<div class="line">        sec: 0</div>
+<div class="line">        nsec: 500000000</div>
+<div class="line">      }</div>
+<div class="line">    }</div>
+<div class="line">    points {</div>
+<div class="line">      positions: -1.5708</div>
+<div class="line">      positions: -1.5708</div>
+<div class="line">      time_from_start {</div>
+<div class="line">        sec: 0</div>
+<div class="line">        nsec: 750000000</div>
+<div class="line">      }</div>
+<div class="line">    }</div>
+<div class="line">    points {</div>
+<div class="line">      positions: 0</div>
+<div class="line">      positions: 0</div>
+<div class="line">      time_from_start {</div>
+<div class="line">        sec: 1</div>
+<div class="line">        nsec: 0</div>
+<div class="line">      }</div>
+<div class="line">    }</div>
+</div><!-- fragment --><div style="text-align:center;"> <div class="image">
+<img src="JointTrajectoryController.gif" alt="" width="50%"/>
+</div>
+ </div><p><b>Note</b>: by default velocity and position control are disabled if one wants to use this mode, they must specify the PID gains value according to usage.</p>
+<p>In case, PID gains are not specified then by default force mode will work.</p>
+<p>4) Checking the progress of the commanded trajectory.</p>
+<div class="fragment"><div class="line">gz topic -e -t &quot;/model/RR_position_control/joint_trajectory_progress&quot;</div>
+</div><!-- fragment --><p>This returns the progress of the commanded trajectory which is a value between (0,1].</p>
+<p>Finally, JointTrajectoryController can be used for hybrid control (e.g. In manipulator robots) where value from position PID, velocity PID, and commanded force value are summed up and applied. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+      </div>
+    </main>
+  </div>
+</body>

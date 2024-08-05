@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Rendering">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Rendering: Custom shaders</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Rendering</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        9.0.0
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 GzCreateDocs.cmake -->
+      <nav class="gz-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.9.8 -->
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Custom shaders</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>This example shows how use custom shaders in gz-rendering to change the appearance of objects in the scene. It demonstrates two uses of shaders: The first is setting shaders for a camera and the other is setting shaders for an object in the scene.</p>
+<h2><a class="anchor" id="autotoc_md38"></a>
+Compile and run the example</h2>
+<p>Clone the source code, create a build directory and use <code>cmake</code> and <code>make</code> to compile the code:</p>
+<div class="fragment"><div class="line">git clone https://github.com/gazebosim/gz-rendering</div>
+<div class="line">cd gz-rendering/examples/custom_shaders</div>
+<div class="line">mkdir build</div>
+<div class="line">cd build</div>
+<div class="line">cmake ..</div>
+<div class="line">make</div>
+</div><!-- fragment --><div class="fragment"><div class="line">./custom_shaders</div>
+</div><!-- fragment --><p>You'll see:</p>
+<div class="fragment"><div class="line">Image saved: depth.png</div>
+<div class="line">Image saved: regular.png</div>
+</div><!-- fragment --><p>The <code>depth.png</code> shows result of setting shaders for a camera: This example shades objects in the scene based on their depth values</p>
+<div class="image">
+<img src="custom_shaders_depth.png" alt=""/>
+</div>
+<p>The <code>regular.png</code> shows result of setting shaders for a visual: This example changes the box visual in the scene to a flat green color</p>
+<div class="image">
+<img src="custom_shaders_rgb.png" alt=""/>
+</div>
+<h2><a class="anchor" id="autotoc_md39"></a>
+Code</h2>
+<p>In the first lines of the <code>custom_shaders.cc</code> file there are some constants defined with the name of the shaders that the program will use:</p>
+<div class="fragment"><div class="line"><span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> depth_vertex_shader_file =</div>
+<div class="line">  <span class="stringliteral">&quot;depth_vertex_shader.glsl&quot;</span>;</div>
+<div class="line"><span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> depth_fragment_shader_file =</div>
+<div class="line">  <span class="stringliteral">&quot;depth_fragment_shader.glsl&quot;</span>;</div>
+<div class="line"><span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> vertex_shader_file = <span class="stringliteral">&quot;vertex_shader.glsl&quot;</span>;</div>
+<div class="line"><span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> fragment_shader_file = <span class="stringliteral">&quot;fragment_shader.glsl&quot;</span>;</div>
+</div><!-- fragment --><p>Construct absolute path to the shaders. Here the <code>RESOURCE_PATH</code> variable points to the <code>media</code> directory where the two sets of shaders are located:</p>
+<div class="fragment"><div class="line">  <span class="comment">// path to look for vertex and fragment shaders</span></div>
+<div class="line">  <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> depth_vertex_shader_path = <a class="code hl_functionRef" href="https://gazebosim.org/api/common/6/namespacegz_1_1common.html#a869402808cb7582b2b5b85afff00275b">gz::common::joinPaths</a>(</div>
+<div class="line">      RESOURCE_PATH,  depth_vertex_shader_file);</div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> depth_fragment_shader_path = <a class="code hl_functionRef" href="https://gazebosim.org/api/common/6/namespacegz_1_1common.html#a869402808cb7582b2b5b85afff00275b">gz::common::joinPaths</a>(</div>
+<div class="line">      RESOURCE_PATH, depth_fragment_shader_file);</div>
+</div><!-- fragment --><p>The first set of shaders are applied to the camera:</p>
+<div class="fragment"><div class="line">  <span class="comment">// create shader material</span></div>
+<div class="line">  <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">gz::rendering::MaterialPtr</a> depthMat = scene-&gt;CreateMaterial();</div>
+<div class="line">  depthMat-&gt;SetVertexShader(depth_vertex_shader_path);</div>
+<div class="line">  depthMat-&gt;SetFragmentShader(depth_fragment_shader_path);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// apply shader to camera</span></div>
+<div class="line">  depthCamera-&gt;SetMaterial(depthMat);</div>
+</div><!-- fragment --><p>The second set of shaders are applied to the visual's material:</p>
+<div class="fragment"><div class="line">  <span class="comment">// create shader material</span></div>
+<div class="line">  <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">gz::rendering::MaterialPtr</a> shader = _scene-&gt;CreateMaterial();</div>
+<div class="line">  shader-&gt;SetVertexShader(vertex_shader_path);</div>
+<div class="line">  shader-&gt;SetFragmentShader(fragment_shader_path);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// create box visual and apply shader</span></div>
+<div class="line">  <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">gz::rendering::VisualPtr</a> box = _scene-&gt;CreateVisual();</div>
+<div class="line">  box-&gt;AddGeometry(_scene-&gt;CreateBox());</div>
+<div class="line">  box-&gt;SetOrigin(0.0, 0.5, 0.0);</div>
+<div class="line">  box-&gt;SetLocalPosition(3, 0, 0);</div>
+<div class="line">  box-&gt;SetLocalRotation(GZ_PI / 4, 0, GZ_PI / 3);</div>
+<div class="line">  box-&gt;SetLocalScale(1, 2.5, 1);</div>
+<div class="line">  box-&gt;SetMaterial(shader);</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+      </div>
+    </main>
+  </div>
+</body>

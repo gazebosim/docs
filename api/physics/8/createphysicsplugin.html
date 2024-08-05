@@ -1,0 +1,252 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Physics">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Physics: Implement physics feature</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Physics</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        8.0.0
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 GzCreateDocs.cmake -->
+      <nav class="gz-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.9.8 -->
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">Implement physics feature</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>This tutorial shows how to develop a simple plugin that implements a <a class="el" href="namespacegz_1_1physics.html#a6d38e59cc9ee7d1edeb9af2205aac83d">3D policy</a> and includes a sample list of <a class="el" href="classgz_1_1physics_1_1Feature.html">Feature</a> Features.</p>
+<h2><a class="anchor" id="autotoc_md52"></a>
+Prerequisites</h2>
+<ul>
+<li><a class="el" href="installation.html">Installation</a></li>
+<li><a class="el" href="physicsplugin.html">Understanding the physics plugin</a></li>
+<li><a class="el" href="pluginloading.html">Loading physics plugins</a></li>
+</ul>
+<h2><a class="anchor" id="autotoc_md53"></a>
+Write a simple physics plugin</h2>
+<p>First we need to create a workspace</p>
+<div class="fragment"><div class="line">cd ~</div>
+<div class="line">mkdir -p ~/hello_world_plugin/build</div>
+<div class="line">cd hello_world_plugin</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md54"></a>
+Examine the code</h3>
+<p>To set up all libraries needed to implement physics feature, we need to include the following:</p><ul>
+<li><a class="el" href="structgz_1_1physics_1_1FeatureList.html">FeatureList</a> header: to define a list of <a class="el" href="classgz_1_1physics_1_1Feature.html">Feature</a> that will be implemented for the plugin, e.g. <a class="el" href="classgz_1_1physics_1_1GetEngineInfo.html">GetEngineInfo</a>.</li>
+<li><a class="el" href="structgz_1_1physics_1_1FeaturePolicy.html">FeaturePolicy</a> header: to specify the metadata about the coordinate system (e.g. 2 or 3 dimensions) and numeric system (e.g. float, int) that the <code>Features</code> will be implemented accordingly.</li>
+<li><code><a class="el" href="GetEntities_8hh.html">GetEntities.hh</a></code> header: to retrieve the pre-defined list of features in Gazebo Physics. Please refer to this <a href="https://gazebosim.org/api/physics/2.0/GetEntities_8hh.html">API Reference</a> for a list of features defined in <code><a class="el" href="GetEntities_8hh.html">GetEntities.hh</a></code> and <a class="el" href="physicsplugin.html">Understanding the Physics Plugin</a> tutorial for an example list of common features implemented with a plugin.</li>
+<li><code>Register.hh</code> header: to register a plugin to Gazebo Physics.</li>
+</ul>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="FeatureList_8hh.html">gz/physics/FeatureList.hh</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="FeaturePolicy_8hh.html">gz/physics/FeaturePolicy.hh</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="GetEntities_8hh.html">gz/physics/GetEntities.hh</a>&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &lt;<a class="code" href="Register_8hh.html">gz/physics/Register.hh</a>&gt;</span></div>
+</div><!-- fragment --><p>Next, we use a dummy namespace <code>mock</code> and list all the features we would like to implement.</p>
+<div class="fragment"><div class="line">  <span class="comment">// List of all features that this plugin will implement</span></div>
+<div class="line">  <span class="keyword">struct </span>HelloWorldFeatureList : <a class="code hl_struct" href="structgz_1_1physics_1_1FeatureList.html" title="Use a FeatureList to aggregate a list of Features.">gz::physics::FeatureList</a>&lt;</div>
+<div class="line">      gz::physics::GetEngineInfo</div>
+<div class="line">  &gt; { };</div>
+</div><!-- fragment --><p>The plugin will be able to return its physics engine metadata. We will now implement our plugin class named <code>HelloWorldPlugin</code> using the defined <a class="el" href="structgz_1_1physics_1_1FeatureList.html">FeatureList</a> above. The class is inherited from <a class="el" href="namespacegz_1_1physics.html#a6d38e59cc9ee7d1edeb9af2205aac83d">Implements3d</a> to declare that the plugin's <code>HelloWorldFeatureList</code> will be in the 3D coordinate system.</p>
+<div class="fragment"><div class="line">  <span class="comment">// The plugin class, which implements a 3D policy</span></div>
+<div class="line">  <span class="keyword">class </span>HelloWorldPlugin</div>
+<div class="line">      : <span class="keyword">public</span> <a class="code hl_typedef" href="namespacegz_1_1physics.html#a6d38e59cc9ee7d1edeb9af2205aac83d">gz::physics::Implements3d</a>&lt;HelloWorldFeatureList&gt;</div>
+<div class="line">  {</div>
+<div class="line">    <span class="keyword">using </span>Identity = gz::physics::Identity;</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span>: Identity InitiateEngine(<a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/types/size_t.html">std::size_t</a> <span class="comment">/*_engineID*/</span>)<span class="keyword"> override</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">      this-&gt;engineName = <span class="stringliteral">&quot;HelloWorld&quot;</span>;</div>
+<div class="line"> </div>
+<div class="line">      <span class="keywordflow">return</span> this-&gt;GenerateIdentity(0);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span>: <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/types/size_t.html">std::size_t</a> GetEngineIndex(<span class="keyword">const</span> Identity &amp;<span class="comment">/*_id*/</span>)<span class="keyword"> const override</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">      <span class="keywordflow">return</span> 0;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keyword">public</span>: <span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;GetEngineName(<span class="keyword">const</span> Identity &amp;<span class="comment">/*_id*/</span>)<span class="keyword"> const override</span></div>
+<div class="line"><span class="keyword">    </span>{</div>
+<div class="line">      <span class="keywordflow">return</span> this-&gt;engineName;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> engineName;</div>
+<div class="line">  };</div>
+</div><!-- fragment --><p>Because we are not using a real physics engines, a dummy physics engines is defined inside member function <code>InitiateEngine</code> by simply setting the <code>engineName</code> to <code>HelloWorld</code>, and returning the engine object using <code>Identity</code>. Then, we define the metadata getters <code>GetEngineIndex</code> and <code>GetEngineName</code> for the feature <a class="el" href="classgz_1_1physics_1_1GetEngineInfo.html">GetEngineInfo</a> (please look into corresponding public member functions defined in the subclasses). A list of other pre-defined features can be found in the <a href="https://gazebosim.org/api/physics/2.0/GetEntities_8hh.html"><code>GetEntities</code> FeatureList</a>.</p>
+<p>Finally, we only have to register our plugin in Gazebo Physics as a physics engine by:</p>
+<div class="fragment"><div class="line">  <span class="comment">// Register plugin</span></div>
+<div class="line">  <a class="code hl_define" href="Register_8hh.html#ae8a956c3cc7caff24077244c505bdf1a" title="Add a plugin that can be used as physics engine.">GZ_PHYSICS_ADD_PLUGIN</a>(</div>
+<div class="line">      HelloWorldPlugin,</div>
+<div class="line">      <a class="code hl_struct" href="structgz_1_1physics_1_1FeaturePolicy.html" title="FeaturePolicy is a &quot;policy class&quot; used to provide metadata to features about what kind of simulation ...">gz::physics::FeaturePolicy3d</a>,</div>
+<div class="line">      HelloWorldFeatureList)</div>
+</div><!-- fragment --><p>Note that:</p><ul>
+<li>The first argument is the name of the class that wraps the physics engine into a plugin.</li>
+<li>The second argument is the <code>FeaturePolicy</code> for this plugin, i.e. <code>FeaturePolicy3d</code></li>
+<li>The third argument is the <code>FeatureList</code>, specifying all the features that this plugin provides, i.e. <code>HelloWorldFeatureList</code></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md55"></a>
+Setup CMakeLists.txt for building (Version: gz-physics8)</h3>
+<p>Now create a file named <code>CMakeLists.txt</code> with your favorite editor and add these lines for finding <code>gz-plugin</code> and <code>gz-physics</code> dependencies for the Fortress release:</p>
+<div class="fragment"><div class="line">cmake_minimum_required(VERSION 3.22.1 FATAL_ERROR)</div>
+<div class="line"> </div>
+<div class="line">project(<a class="code hl_namespaceRef" href="https://gazebosim.org/api/common/6/namespacegz.html">gz</a>-physics-hello-world-plugin)</div>
+<div class="line"> </div>
+<div class="line">find_package(<a class="code hl_namespaceRef" href="https://gazebosim.org/api/common/6/namespacegz.html">gz</a>-plugin3 REQUIRED COMPONENTS all)</div>
+<div class="line">set(GZ_PLUGIN_VER ${<a class="code hl_namespaceRef" href="https://gazebosim.org/api/common/6/namespacegz.html">gz</a>-plugin3_VERSION_MAJOR})</div>
+<div class="line"> </div>
+<div class="line">find_package(<a class="code hl_namespaceRef" href="https://gazebosim.org/api/common/6/namespacegz.html">gz</a>-physics8 REQUIRED)</div>
+<div class="line">set(GZ_PHYSICS_VER ${<a class="code hl_namespaceRef" href="https://gazebosim.org/api/common/6/namespacegz.html">gz</a>-physics8_VERSION_MAJOR})</div>
+<div class="line"> </div>
+<div class="line">add_library(HelloWorldPlugin SHARED HelloWorldPlugin.cc)</div>
+<div class="line">target_link_libraries(HelloWorldPlugin</div>
+<div class="line">  PRIVATE</div>
+<div class="line">    <a class="code hl_namespaceRef" href="https://gazebosim.org/api/common/6/namespacegz.html">gz</a>-physics${GZ_PHYSICS_VER}::gz-physics${GZ_PHYSICS_VER})</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md56"></a>
+Build and run</h2>
+<h3><a class="anchor" id="autotoc_md57"></a>
+Compile the plugin</h3>
+<p>Your current plugin folder should look like this:</p>
+<div class="fragment"><div class="line">$ ls ~/hello_world_plugin</div>
+<div class="line">CMakeLists.txt  HelloWorldPlugin.cc  build</div>
+</div><!-- fragment --><p>Now you can build the plugin by:</p>
+<div class="fragment"><div class="line">cd ~/hello_world_plugin/build</div>
+<div class="line">cmake ..</div>
+<div class="line">make</div>
+</div><!-- fragment --><p>This will generate the <code>HelloWorldPlugin</code> library under <code>build</code>. The exact name of the library file depends on the operating system such as <code>libHelloWorldPlugin.so</code> on Linux, <code>libHelloWorldPlugin.dylib</code> on MacOS, and <code>HelloWorldPlugin.dll</code> on Windows.</p>
+<h3><a class="anchor" id="autotoc_md58"></a>
+Test loading the plugin on Linux</h3>
+<p>Please first follow the <a class="el" href="pluginloading.html">Loading physics plugins</a> tutorial to create a simple loader. Then we test our plugin using the loader as follow:</p>
+<div class="fragment"><div class="line">cd ~</div>
+<div class="line">./hello_world_loader/build/hello_world_loader simple_plugin/build/libHelloWorldPlugin.so</div>
+</div><!-- fragment --><p>And you will see the engine info of our plugin:</p>
+<div class="fragment"><div class="line">Testing plugin: mock::HelloWorldPlugin</div>
+<div class="line">  engine name: HelloWorld</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+      </div>
+    </main>
+  </div>
+</body>

@@ -1,0 +1,335 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <meta name="keywords" content="Gazebo Rendering">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Gazebo Rendering: Ogre2RenderEngine.hh Source File</title>
+    <script type="text/javascript" src="https://gazebosim.org/assets/doxygen/dynsections.js"></script>
+    <script type="text/javascript" src="jquery.js"></script>
+    <link rel="icon" type="image/x-icon" href="https://gazebosim.org/assets/icon/favicon.ico">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.deep_orange-blue.min.css">
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> </script>
+    <link href="https://gazebosim.org/assets/doxygen/doxygen.css" rel="stylesheet" type="text/css">
+  </head>
+    <script type="text/javascript">
+      /* Replace all the "permalink" &#9670;&nbsp; icons with a unicode link
+        symbol.*/
+      $(document).ready(function() {
+        var elems = document.getElementsByClassName("permalink");
+        for (var i = 0; i < elems.length; ++i) {
+          elems[i].firstChild.innerHTML="&#x1f517;";
+          elems[i].firstChild.style.fontSize="18px";
+        }
+      });
+    </script>
+  </head>
+<body>
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+    <div class="mdl-layout__drawer mdl-color--grey-100 mdl-color-text--blue-grey-50">
+      <header class="mdl-color--grey-100">
+        <a href="index.html"><img width="60px" src="https://gazebosim.org/assets/doxygen/gazebo_logo.svg"/></a>
+        <h1 class="project_title">Gazebo Rendering</h1>
+        <h2>API Reference</h2>
+        <div class="version">
+        9.0.0
+        </div>
+      </header>
+      <!-- NOTE: If you add a link to a doxygen generated page, then make
+                 sure to update the required_html_fils list in
+                 GzCreateDocs.cmake -->
+      <nav class="gz-navigation mdl-navigation">
+        <a class="mdl-navigation__link" href="tutorials.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Tutorials</a>
+        <a id="class_menu" class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">library_books</i>Classes</a>
+        <a id="namespaces_menu"class="mdl-navigation__link" href="#">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">toc</i>Namespaces</a>
+        <a class="mdl-navigation__link" href="files.html">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">insert_drive_file</i>Files</a>
+        <a class="mdl-navigation__link" target="_blank"
+           href="http://gazebosim.org">
+          <i class="mdl-color-text--grey-400 material-icons"
+             role="presentation">launch</i>Gazebo Website</a>
+      </nav>
+      <!-- classes sub menu -->
+      <ul for="class_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link" href="classes.html">Index</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="annotated.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="hierarchy.html">Hierarchy</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions.html">Members: All</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_func.html">Members: Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_vars.html">Members: Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_type.html">Members: Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_enum.html">Members: Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+             href="functions_eval.html">Members: Enumerator</a>
+        </li>
+      </ul>
+      <!-- namespaces sub menu -->
+      <ul for="namespaces_menu" class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect mdl-navigation">
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespaces.html">List</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers.html">Members</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_func.html">Functions</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_type.html">Typedefs</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_vars.html">Variables</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_enum.html">Enumerations</a>
+        </li>
+        <li class="mdl-menu__item">
+          <a class="mdl-navigation__link"
+            href="namespacemembers_eval.html">Enumerator</a>
+        </li>
+      </ul>
+    </div>
+    <main class="mdl-layout__content mdl-color--white">
+    <div id="top">
+<!-- Generated by Doxygen 1.9.8 -->
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_68720addb28ee8f762a8d1f55de1ba53.html">gz-rendering</a></li><li class="navelem"><a class="el" href="dir_87eafc3028a4c212104c693d411a4fe0.html">ogre2</a></li><li class="navelem"><a class="el" href="dir_23993da918218268cf4f4abe9c093c0e.html">include</a></li><li class="navelem"><a class="el" href="dir_b150b96b4767a2d74224c52880dedd3a.html">gz</a></li><li class="navelem"><a class="el" href="dir_747a66b2f263ff39005cac7a8913ca76.html">rendering</a></li><li class="navelem"><a class="el" href="dir_1e800f0f20b6132e2b30092dcf688a41.html">ogre2</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">Ogre2RenderEngine.hh</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Ogre2RenderEngine_8hh.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright (C) 2018 Open Source Robotics Foundation</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> *     http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#ifndef GZ_RENDERING_OGRE2_OGRE2RENDERENGINE_HH_</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define GZ_RENDERING_OGRE2_OGRE2RENDERENGINE_HH_</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;<a class="codeRef" href="https://gazebosim.org/api/common/6/SingletonT_8hh.html">gz/common/SingletonT.hh</a>&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;<a class="code" href="GraphicsAPI_8hh.html">gz/rendering/GraphicsAPI.hh</a>&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;<a class="code" href="RenderEnginePlugin_8hh.html">gz/rendering/RenderEnginePlugin.hh</a>&quot;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;<a class="code" href="BaseRenderEngine_8hh.html">gz/rendering/base/BaseRenderEngine.hh</a>&quot;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;<a class="code" href="BaseRenderTypes_8hh.html">gz/rendering/base/BaseRenderTypes.hh</a>&quot;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;<a class="code" href="Ogre2RenderTypes_8hh.html">gz/rendering/ogre2/Ogre2RenderTypes.hh</a>&quot;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;<a class="code" href="Ogre2GzOgreRenderingMode_8hh.html">gz/rendering/ogre2/Ogre2GzOgreRenderingMode.hh</a>&quot;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &quot;gz/rendering/ogre2/Export.hh&quot;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceOgre.html">Ogre</a></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  <span class="keyword">class </span>LogManager;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  <span class="keyword">class </span>Root;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="keyword">class </span>Window;</div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="namespaceOgre_1_1v1.html">   40</a></span>  <span class="keyword">namespace </span>v1</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">class </span>OverlaySystem;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  }</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <span class="keyword">class </span>HlmsPbsTerraShadows;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keyword">class </span>CompositorWorkspaceListener;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="keyword">namespace </span><a class="code hl_namespaceRef" href="https://gazebosim.org/api/common/6/namespacegz.html">gz</a></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>{</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="keyword">namespace </span>rendering</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keyword">inline</span> <span class="keyword">namespace </span>GZ_RENDERING_VERSION_NAMESPACE {</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="comment">//</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="comment">// forward declaration</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keyword">class </span>Ogre2RenderEnginePrivate;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">class </span>Ogre2GzHlmsSphericalClipMinDistance;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="};">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEnginePlugin.html">   60</a></span>    <span class="keyword">class </span>GZ_RENDERING_OGRE2_VISIBLE <a class="code hl_class" href="classgz_1_1rendering_1_1Ogre2RenderEnginePlugin.html" title="Plugin for loading ogre render engine.">Ogre2RenderEnginePlugin</a> :</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>      <span class="keyword">public</span> <a class="code hl_class" href="classgz_1_1rendering_1_1RenderEnginePlugin.html" title="Base plugin class for render engines.">RenderEnginePlugin</a></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEnginePlugin.html#ac1805262738e0f0c128e67709aee24d5">   64</a></span>      <span class="keyword">public</span>: <a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEnginePlugin.html#ac1805262738e0f0c128e67709aee24d5" title="Constructor.">Ogre2RenderEnginePlugin</a>();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEnginePlugin.html#a1d3789d88e0ae12f2066350719c97d56">   67</a></span>      <span class="keyword">public</span>: <a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEnginePlugin.html#a1d3789d88e0ae12f2066350719c97d56" title="Destructor.">~Ogre2RenderEnginePlugin</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEnginePlugin.html#a41087c5f2f732f7a2f336b45b952f199">   71</a></span>      <span class="keyword">public</span>: <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEnginePlugin.html#a41087c5f2f732f7a2f336b45b952f199" title="Get the name of the render engine loaded by this plugin.">Name</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEnginePlugin.html#ae5868662ce70a149945b03843ff68142">   75</a></span>      <span class="keyword">public</span>: <a class="code hl_class" href="classgz_1_1rendering_1_1RenderEngine.html" title="An abstract interface to a concrete render-engine. A RenderEngine is responsible for initializing a r...">RenderEngine</a> *<a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEnginePlugin.html#ae5868662ce70a149945b03843ff68142" title="Get a pointer to the render engine loaded by this plugin.">Engine</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    };</div>
+</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="foldopen" id="foldopen00081" data-start="{" data-end="};">
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html">   81</a></span>    <span class="keyword">class </span>GZ_RENDERING_OGRE2_VISIBLE <a class="code hl_class" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html" title="Ogre2 render engine class. A singleton class that manages the underlying ogre2 render engine,...">Ogre2RenderEngine</a> :</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>      <span class="keyword">public</span> <span class="keyword">virtual</span> <a class="code hl_class" href="classgz_1_1rendering_1_1BaseRenderEngine.html">BaseRenderEngine</a></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    {</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>      <span class="keyword">private</span>: <a class="code hl_class" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html" title="Ogre2 render engine class. A singleton class that manages the underlying ogre2 render engine,...">Ogre2RenderEngine</a>();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#acea0429c831f60c7d7f30c984151a211">   88</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#acea0429c831f60c7d7f30c984151a211" title="Destructor.">~Ogre2RenderEngine</a>();</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>      <span class="comment">// Documentation Inherited.</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#aa20f2399ad9e8174bf106d35758d93b3">   91</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#aa20f2399ad9e8174bf106d35758d93b3" title="Destroys all scenes created by render-engine and releases all loaded resources. This should be called...">Destroy</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>      <span class="comment">// Documentation Inherited.</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a4271678dfd12769b85cf552f7b0ea6ed">   94</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a4271678dfd12769b85cf552f7b0ea6ed" title="Determines if the render-engine can be used. Despite loading and initializing the render-engine,...">IsEnabled</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>      <span class="comment">// Documentation Inherited.</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a702958d9717c1e01b7211002e52a5d0f">   97</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a702958d9717c1e01b7211002e52a5d0f" title="Get name of the render-engine.">Name</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#ae7abff8111e21e5baf69d8c465f2b8fa">  101</a></span>      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#ae7abff8111e21e5baf69d8c465f2b8fa" title="Add path to resource in ogre2&#39;s resource manager.">AddResourcePath</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_uri) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a75abd3e69d1591b6e3077ac68a873aa7">  104</a></span>      <span class="keyword">public</span>: Ogre::Window * <a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a75abd3e69d1591b6e3077ac68a873aa7" title="return the ogre window">OgreWindow</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a3c4c5f3ffcb7bab2d44158eb3ac1af44">  108</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> Ogre::Root *<a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a3c4c5f3ffcb7bab2d44158eb3ac1af44" title="Get the ogre2 root object.">OgreRoot</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#ae6e8d51a75cf7a872c3667838c1b5395">  118</a></span>      <span class="keyword">public</span>: <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#ae6e8d51a75cf7a872c3667838c1b5395" title="Create a render window.">CreateRenderWindow</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_handle,</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>                  <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _width, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _height,</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>                  <span class="keyword">const</span> <span class="keywordtype">double</span> _ratio, <span class="keyword">const</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _antiAliasing);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>      <span class="comment">// Documentation Inherited</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a992cad4fece4d489b2ed495a68179844">  123</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_enumeration" href="namespacegz_1_1rendering.html#aa803a2404fdc2dfb510481449b25264e" title="The graphics API used by the render engine.">rendering::GraphicsAPI</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a992cad4fece4d489b2ed495a68179844" title="Returns the GraphicsAPI currently in use.">GraphicsAPI</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>      <span class="comment">// Documentation Inherited</span></div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#ad9c0005ee55ebbc8217abb9133f6a747">  126</a></span>      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">NativeWindowPtr</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#ad9c0005ee55ebbc8217abb9133f6a747" title="Creates a basic native window. Note: This is useful when you need a basic single window with both gre...">CreateNativeWindow</a>(</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>          <span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_winHandle, <span class="keyword">const</span> uint32_t _width,</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>          <span class="keyword">const</span> uint32_t _height, <span class="keyword">const</span> <span class="keywordtype">double</span> _ratio) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#ae87203630f6ac2567420828d9441eadf">  133</a></span>      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">ScenePtr</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#ae87203630f6ac2567420828d9441eadf" title="Create a scene.">CreateSceneImpl</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> _id,</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>                  <span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a0c1fab4581ab0a43578c14e7f60c9b4a">  139</a></span>      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">SceneStorePtr</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a0c1fab4581ab0a43578c14e7f60c9b4a" title="Get a pointer to the list of scenes managed by the render engine.">Scenes</a>() <span class="keyword">const override</span>;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>      <span class="comment">// Documentation Inherited.</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#ad53f9ea0b156cce4d520523cd4a07840">  142</a></span>      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#ad53f9ea0b156cce4d520523cd4a07840" title="Engine implementation of Load function.">LoadImpl</a>(</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>          <span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/container/map.html">std::map&lt;std::string, std::string&gt;</a> &amp;_params) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a43b3fee12b7dbcd87619f71aec1671d1">  147</a></span>      <span class="keyword">protected</span>: <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a43b3fee12b7dbcd87619f71aec1671d1" title="Initialize the render engine.">InitImpl</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>      <span class="keyword">private</span>: <span class="keywordtype">void</span> LoadAttempt();</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>      <span class="keyword">private</span>: <span class="keywordtype">void</span> CreateLogger();</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>      <span class="keyword">private</span>: <span class="keywordtype">void</span> CreateContext();</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>      <span class="keyword">private</span>: <span class="keywordtype">void</span> RegisterHlms();</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>      <span class="keyword">private</span>: <span class="keywordtype">void</span> CreateRoot();</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>      <span class="keyword">private</span>: <span class="keywordtype">void</span> CreateOverlay();</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>      <span class="keyword">private</span>: <span class="keywordtype">void</span> LoadPlugins();</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>      <span class="keyword">private</span>: <span class="keywordtype">void</span> CreateRenderSystem();</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>      <span class="keyword">private</span>: <span class="keywordtype">void</span> CreateRenderWindow();</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>      <span class="keyword">private</span>: <span class="keywordtype">void</span> CreateResources();</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>      <span class="keyword">private</span>: <span class="keywordtype">void</span> InitAttempt();</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a25352f663f909baaccfe57a1d17df00f">  184</a></span>      <span class="keyword">public</span>: <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;unsigned int&gt;</a> <a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a25352f663f909baaccfe57a1d17df00f" title="Get a list of all supported FSAA levels for this render system.">FSAALevels</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a9dff709ac300bd2f847a960bed4c5c5a">  188</a></span>      <span class="keyword">public</span>: Ogre2GzHlmsSphericalClipMinDistance &amp;<a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a9dff709ac300bd2f847a960bed4c5c5a" title="Retrieves Hlms customizations for tweaking them.">SphericalClipMinDistance</a>();</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a000d6f5fb060c53cd8699d20b0e75d73">  193</a></span>      <span class="keyword">public</span>: Ogre::v1::OverlaySystem *<a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a000d6f5fb060c53cd8699d20b0e75d73">OverlaySystem</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a712966f6351a4876630eeb244c05538c">  199</a></span>      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a712966f6351a4876630eeb244c05538c">SetGzOgreRenderingMode</a>(<a class="code hl_enumeration" href="namespacegz_1_1rendering_1_1GZ__RENDERING__VERSION__NAMESPACE.html#aded3b11c627fcfa2c7648d932ed42c78" title="Rendering modes so that GzHlms implementations follow alternate code paths or extra customizations wh...">GzOgreRenderingMode</a> renderingMode);</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a1b1f835febf4d576994066e2665c57dc">  207</a></span>      <span class="keyword">public</span>: Ogre::HlmsPbsTerraShadows *<a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#a1b1f835febf4d576994066e2665c57dc">HlmsPbsTerraShadows</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>      <span class="keyword">public</span>: Ogre::CompositorWorkspaceListener</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#ad078ab8c70066099f2f68c3a2946dbaf">  218</a></span>          *<a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#ad078ab8c70066099f2f68c3a2946dbaf">TerraWorkspaceListener</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#af6fc4e2b977a87bca65e595c2914a434">  222</a></span>      <span class="keyword">public</span>: <span class="keyword">static</span> <a class="code hl_class" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html" title="Ogre2 render engine class. A singleton class that manages the underlying ogre2 render engine,...">Ogre2RenderEngine</a> *<a class="code hl_function" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#af6fc4e2b977a87bca65e595c2914a434" title="Get a pointer to the render engine.">Instance</a>();</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>      <span class="keyword">private</span>: Ogre::v1::OverlaySystem *ogreOverlaySystem = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>      <span class="keyword">private</span>: <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">Ogre2SceneStorePtr</a> scenes;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>      <span class="keyword">private</span>: Ogre::Root *ogreRoot = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>      <span class="keyword">private</span>: Ogre::LogManager *ogreLogManager = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>      <span class="keyword">private</span>: <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;std::string&gt;</a> ogrePaths;</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>      <span class="keyword">private</span>: <span class="keywordtype">void</span> *dummyDisplay = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>      <span class="keyword">private</span>: <span class="keywordtype">void</span> *dummyContext = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>      <span class="keyword">private</span>: uint64_t dummyWindowId = 0u;</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span> </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>      <span class="keyword">private</span>: Ogre::Window *window = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>      <span class="keyword">private</span>: <span class="keywordtype">bool</span> useCurrentGLContext = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html#adcaab0133058d2e4974d5c2d1aa80151">  255</a></span>      <span class="keyword">private</span>: <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;Ogre2RenderEnginePrivate&gt;</a> dataPtr;</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>      <span class="keyword">private</span>: <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_classRef" href="https://gazebosim.org/api/common/6/classgz_1_1common_1_1SingletonT.html">common::SingletonT</a>&lt;<a class="code hl_class" href="classgz_1_1rendering_1_1Ogre2RenderEngine.html" title="Ogre2 render engine class. A singleton class that manages the underlying ogre2 render engine,...">Ogre2RenderEngine</a>&gt;;</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    };</div>
+</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    }</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>  }</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>}</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span><span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+      </div>
+    </main>
+  </div>
+</body>
