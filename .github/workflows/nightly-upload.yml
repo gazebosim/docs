@@ -27,12 +27,16 @@ jobs:
 
           - ubuntu_distribution: jammy
             gazebo_distribution: harmonic
+
+          - ubuntu_distribution: noble
+            gazebo_distribution: ionic
     steps:
       - uses: ros-tooling/setup-ros@v0.7
       - name: 'Set up Gazebo'
         uses: gazebo-tooling/setup-gazebo@1f55cec330de851fa373f1ade8ac6b7ddfe6f013
         with:
           required-gazebo-distributions: ${{ matrix.gazebo_distribution }}
+          use-gazebo-nightly: ${{ matrix.gazebo_distribution == 'ionic'}}
       - name: 'Add Doxygen'
         run: sudo apt-get install -y doxygen graphviz
       - name: 'Add missing dependencies'
