@@ -285,6 +285,14 @@
 <div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    };</div>
 <div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
 <div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> N&gt;</div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="classgz_1_1common_1_1EventT.html#a19a251ac79129d997b7b6</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;      <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/thread/mutex.html">std::mutex</a> mutex;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;      <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/list.html">std::list&lt;typename EvtConnectionMap::const_iterator&gt;</a></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;              connectionsToRemove;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    };</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> N&gt;</div>
 <div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="classgz_1_1common_1_1EventT.html#a19a251ac79129d997b7b36cdc5f6b946">  197</a></span>&#160;    <a class="code" href="classgz_1_1common_1_1EventT.html#a19a251ac79129d997b7b36cdc5f6b946" title="Constructor.">EventT&lt;T, N&gt;::EventT</a>()</div>
 <div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    : <a class="code" href="classgz_1_1common_1_1Event.html" title="Base class for all events.">Event</a>()</div>
 <div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    {</div>
@@ -307,7 +315,7 @@
 <div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    }</div>
 <div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
 <div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> N&gt;</div>
-<div class="line"><a name="l00222"></a><span class="lineno"><a class="line" href="classgz_1_1common_1_1EventT.html#abf68768feadc05a88bbd4b490a42b1e7">  222</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html" title="STL class.">ConnectionPtr</a> <a class="code" href="classgz_1_1common_1_1EventT.html#abf68768feadc05a88bbd4b490a42b1e7" title="Connect a callback to this event.">EventT&lt;T, N&gt;::Connect</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function&lt;T&gt;</a> &amp;_subscriber)</div>
+<div class="line"><a name="l00222"></a><span class="lineno"><a class="line" href="classgz_1_1common_1_1EventT.html#abf68768feadc05a88bbd4b490a42b1e7">  222</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">ConnectionPtr</a> <a class="code" href="classgz_1_1common_1_1EventT.html#abf68768feadc05a88bbd4b490a42b1e7" title="Connect a callback to this event.">EventT&lt;T, N&gt;::Connect</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function&lt;T&gt;</a> &amp;_subscriber)</div>
 <div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    {</div>
 <div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      <span class="keywordtype">int</span> index = 0;</div>
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;      <span class="keywordflow">if</span> (!this-&gt;connections.empty())</div>
@@ -351,21 +359,7 @@
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, <span class="keyword">typename</span> N&gt;</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1common_1_1EventT.html" title="A class for event processing.">EventT&lt;T, N&gt;::Cleanup</a>()</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    {</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/thread/lock_guard.html" title="STL class.">std::lock_guard&lt;std::mutex&gt;</a> lock(this-&gt;mutex);</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      <span class="comment">// Remove all queue connections.</span></div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;conn : this-&gt;connectionsToRemove)</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        this-&gt;connections.erase(conn);</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;      this-&gt;connectionsToRemove.clear();</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    }</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  }</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;}</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;<span class="preprocessor">#endif</span></div>
-</div><!-- fragment --></div><!-- contents -->
-      </div>
-    </main>
-  </div>
-</body>
-="http://en.cppreference.com/w/cpp/thread/lock_guard.html">std::lock_guard&lt;std::mutex&gt;</a> lock(this-&gt;mutex);</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/thread/lock_guard.html">std::lock_guard&lt;std::mutex&gt;</a> lock(this-&gt;mutex);</div>
 <div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;      <span class="comment">// Remove all queue connections.</span></div>
 <div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;      <span class="keywordflow">for</span> (<span class="keyword">auto</span> &amp;conn : this-&gt;connectionsToRemove)</div>
 <div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;        this-&gt;connections.erase(conn);</div>
