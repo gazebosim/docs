@@ -82,9 +82,9 @@ You can also check your OpenGL version running:
     glxinfo | grep "OpenGL version"
 
 You should be able to use Ogre 1 without any issues however. You can check if
-that's working by running a world which uses Ogre 1 instead of Ogre 2, such as:
+that's working by running with Ogre 1 instead of Ogre 2, such as:
 
-    ign gazebo -v 3 lights.sdf
+    ign gazebo -v 3 shapes.sdf --render-engine ogre
 
 If that loads, you can continue to use Ignition with Ogre 1, just use the
 `--render-engine ogre` option.
@@ -102,5 +102,5 @@ https://github.com/osrf/ogre-2.1-release
 ### Ignition crashes when an actor is added to the world
 
 If you are trying to spawn an actor in your environment and you get an error like `Assertion !pos.isNan() && "Invalid vector supplied as parameter"`
-means you are passing nan values to ogre. 
+means you are passing nan values to ogre.
 To fix this you need to do `export LC_NUMERIC="C"` before running ign gazebo.
