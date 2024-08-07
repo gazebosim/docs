@@ -330,6 +330,7 @@
 <div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="keyword">    </span>{</div>
 <div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;      <span class="keywordflow">return</span> equal&lt;T&gt;(this-&gt;mass, _m.<a class="code" href="classgz_1_1math_1_1MassMatrix3.html#a734cafaaadd4059ab51680b416ad8937" title="Get the mass.">Mass</a>()) &amp;&amp;</div>
 <div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;             (this-&gt;Ixxyyzz == _m.<a class="code" href="classgz_1_1math_1_1MassMatrix3.html#a618a1b2389b4a64b3273de02d9e2a7bf" title="Get the diagonal moments of inertia (Ixx, Iyy, Izz).">DiagonalMoments</a>()) &amp;&amp;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;             (this-&gt;Ixyxzyz == _m.<a class="code" href="classgz_1_1math_1_1MassMatrix3.html#ad07cf971a564ddf46aa5177a534df587" title="Get the off-diagonal moments of inertia (Ixy, Ixz, Iyz).">OffDiag) &amp;&amp;</div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;             (this-&gt;Ixyxzyz == _m.<a class="code" href="classgz_1_1math_1_1MassMatrix3.html#ad07cf971a564ddf46aa5177a534df587" title="Get the off-diagonal moments of inertia (Ixy, Ixz, Iyz).">OffDiagonalMoments</a>());</div>
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    }</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
@@ -383,8 +384,6 @@
 <div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;      <span class="comment">// used to compute whether the moments are valid.</span></div>
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;      <span class="comment">//</span></div>
 <div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;      <span class="comment">// The maximum moment of inertia is bounded by:</span></div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;      <span class="comment">// trace / 3 &lt;= maxPossibleMoi &lt;= trace / 2.</span></div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;      <span class="comment">/nded by:</span></div>
 <div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;      <span class="comment">// trace / 3 &lt;= maxPossibleMoi &lt;= trace / 2.</span></div>
 <div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;      <span class="comment">//</span></div>
 <div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;      <span class="comment">// The trace of a matrix is the sum of the coefficients on the</span></div>
@@ -650,11 +649,7 @@
 <div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;      T phi3 = acos(clamp&lt;T&gt;(ClampedSqrt(w), -1, 1));</div>
 <div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160; </div>
 <div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;      <span class="comment">// compute g1, g2 for phi2,phi3 &gt;= 0</span></div>
-<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;      <span class="comment">// equations 5.7, 5.8</span></div>
-<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;      <a class="code" href="classgz_1_1math_1_1Vector2.html" title="Two dimensional (x, y) vector.">Vector2&lt;T&gt;</a> g1(</div>
-<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;        0.5* (moments[0]-moments[1])*ClampedSqrt(v)*sin(2*phi3),</div>
-<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;        0.5*((moments[0]-moments[1])*w + moments[1]-moments[2])*sin(2*phi2));</div>
-<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;      <a class="code" href="classgz_1_1math_1_1Vector2.html" title="Two dimensional (x, y) vector.">Vector2&lt;T&gt;</a> g2(</div>
+<div class="line"><a name="l00708"><712</span>&#160;      <a class="code" href="classgz_1_1math_1_1Vector2.html" title="Two dimensional (x, y) vector.">Vector2&lt;T&gt;</a> g2(</div>
 <div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;        (moments[0]-moments[1])*(1 + (v-2)*w) + (moments[1]-moments[2])*v,</div>
 <div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;        (moments[0]-moments[1])*sin(phi2)*sin(2*phi3));</div>
 <div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160; </div>
@@ -715,7 +710,11 @@
 <div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;          phi12a.<a class="code" href="classgz_1_1math_1_1Angle.html#af279e0f0ff720ee54d6733674dfda50a" title="Normalize the angle in the range -Pi to Pi. This modifies the value contained in this Angle instance.">Normalize</a>();</div>
 <div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;          T erra = <a class="codeRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(sin(phi11a.<a class="code" href="classgz_1_1math_1_1Angle.html#a1baee8c1ede140d2f743b8d17cd29a0b" title="Set the value from an angle in radians.">Radian</a>()) - sin(phi12a.<a class="code" href="classgz_1_1math_1_1Angle.html#a1baee8c1ede140d2f743b8d17cd29a0b" title="Set the value from an angle in radians.">Radian</a>()), 2)</div>
 <div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;                 + <a class="codeRef" href="http://en.cppreference.com/w/cpp/numeric/math/pow.html">std::pow</a>(cos(phi11a.<a class="code" href="classgz_1_1math_1_1Angle.html#a1baee8c1ede140d2f743b8d17cd29a0b" title="Set the value from an angle in radians.">Radian</a>()) - cos(phi12a.<a class="code" href="classgz_1_1math_1_1Angle.html#a1baee8c1ede140d2f743b8d17cd29a0b" title="Set the value from an angle in radians.">Radian</a>()), 2);</div>
-<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;      469180989af9f7fb99f31b61f7" title="Set the contents of the vector.">Set</a>(-1, 1);</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;          <span class="keywordflow">if</span> (erra &lt; err)</div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;          {</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;            err = erra;</div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;            phi1 = phi11a.<a class="code" href="classgz_1_1math_1_1Angle.html#a1baee8c1ede140d2f743b8d17cd29a0b" title="Set the value from an angle in radians.">Radian</a>();</div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;            signsPhi23.<a class="code" href="classgz_1_1math_1_1Vector2.html#a3c8359469180989af9f7fb99f31b61f7" title="Set the contents of the vector.">Set</a>(-1, 1);</div>
 <div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;          }</div>
 <div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;        }</div>
 <div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;        <span class="comment">// case b: phi3 &lt;= 0</span></div>
