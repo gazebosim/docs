@@ -831,6 +831,40 @@ for building a custom <code class="docutils literal notranslate"><span class="pr
 <p>If you want to share the status of your custom build on a pull request,
 click on <code class="docutils literal notranslate"><span class="pre">Embeddable</span> <span class="pre">Build</span> <span class="pre">Status</span></code> and copy the markdown code into the pull
 request.</p>
+<section id="manually-triggered-from-source-jobs">
+<h5>Manually triggered from source jobs<a class="headerlink" href="#manually-triggered-from-source-jobs" title="Link to this heading">#</a></h5>
+<p>The <a class="reference external" href="https://build.osrfoundation.org/view/ci/">CI view in Jenkins</a> contains
+different jobs generated designed to build all the Gazebo libraries in a
+releases from source using the build tools: vcs (tool to grab sources,
+mainly with the yaml files at <a class="reference external" href="https://github.com/gazebo-tooling/gazebodistro">gazebodistro repository</a>
+and colcon (build tool).</p>
+<p>The <a class="reference external" href="https://build.osrfoundation.org/view/ci/">CI view in Jenkins</a> contains
+different jobs:</p>
+<ul class="simple">
+<li><p>Separated by ubuntu distro. i.e: <code class="docutils literal notranslate"><span class="pre">ci__colcon_any-manual_ubuntu_jammy_amd64</span></code> or
+<code class="docutils literal notranslate"><span class="pre">ci__colcon_any-manual_ubuntu_noble_amd64</span></code> for jammy and noble.</p></li>
+<li><p>Separated to be run on GPU or not: <code class="docutils literal notranslate"><span class="pre">ci__colcon_gpu_any-manual_ubuntu_jammy_amd64</span></code>
+in gpu or <code class="docutils literal notranslate"><span class="pre">ci__colcon_any-manual_ubuntu_jammy_amd64</span></code> to not use gpu.</p></li>
+</ul>
+<p><strong>Parameters</strong> in the CI jobs (most important ones):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">repos_file_urls</span></code>: typically a VCS yaml file defining the sources to be built.
+Default can be modified to build any Gazebo collection or any Gazebo package
+starting from Harmonic. Typical value is one of the raw files at
+<a class="reference external" href="https://github.com/gazebo-tooling/gazebodistro">gazebodistro repository</a> .</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">build_tool_args</span></code>: <a class="reference external" href="https://colcon.readthedocs.io/en/released/reference/verb/build.html">colcon build parameters</a>
+to use. Default can be preserve <strong>but</strong>, unless the whole list of packages
+defined in <code class="docutils literal notranslate"><span class="pre">repos_file_urls</span></code> is to be built, a set of packages needs to
+defined. For example, to build all packages needed until gz-tranport8,
+<code class="docutils literal notranslate"><span class="pre">--packages-up-to</span> <span class="pre">gz-transport8</span></code> can be added to the default options.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">build_tool_test_args</span></code>: <a class="reference external" href="https://colcon.readthedocs.io/en/released/reference/verb/test.html">colcon test parameters</a>
+to use. Default can be preserve <strong>but</strong>, unless the whole list of tests
+of all packages defined in <code class="docutils literal notranslate"><span class="pre">repos_file_urls</span></code> is to be run, a set of
+packages needs to be defined to be the software under test. For example,
+to run only gz-transport8 tests, the <code class="docutils literal notranslate"><span class="pre">--packages-select</span> <span class="pre">gz-transport8</span></code> can
+be added to the default options.</p></li>
+</ul>
+</section>
 </section>
 </section>
 </section>
@@ -880,7 +914,10 @@ request.</p>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-branches">Custom branches</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#actions">Actions</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jenkins">Jenkins</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#jenkins">Jenkins</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#manually-triggered-from-source-jobs">Manually triggered from source jobs</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

@@ -277,6 +277,40 @@ If you want to share the status of your custom build on a pull request,
 click on `Embeddable Build Status` and copy the markdown code into the pull
 request.
 
+##### Manually triggered from source jobs
+
+The [CI view in Jenkins](https://build.osrfoundation.org/view/ci/) contains
+different jobs generated designed to build all the Gazebo libraries in a
+releases from source using the build tools: vcs (tool to grab sources,
+mainly with the yaml files at [gazebodistro repository](https://github.com/gazebo-tooling/gazebodistro)
+and colcon (build tool).
+
+The [CI view in Jenkins](https://build.osrfoundation.org/view/ci/) contains
+different jobs:
+ * Separated by ubuntu distro. i.e: `ci__colcon_any-manual_ubuntu_jammy_amd64` or
+ `ci__colcon_any-manual_ubuntu_noble_amd64` for jammy and noble.
+ * Separated to be run on GPU or not: `ci__colcon_gpu_any-manual_ubuntu_jammy_amd64`
+ in gpu or `ci__colcon_any-manual_ubuntu_jammy_amd64` to not use gpu.
+
+**Parameters** in the CI jobs (most important ones):
+ * `repos_file_urls`: typically a VCS yaml file defining the sources to be built.
+   Default can be modified to build any Gazebo collection or any Gazebo package
+   starting from Harmonic. Typical value is one of the raw files at
+   [gazebodistro repository](https://github.com/gazebo-tooling/gazebodistro) .
+
+ * `build_tool_args`: [colcon build parameters](https://colcon.readthedocs.io/en/released/reference/verb/build.html)
+   to use. Default can be preserve **but**, unless the whole list of packages
+   defined in `repos_file_urls` is to be built, a set of packages needs to
+   defined. For example, to build all packages needed until gz-tranport8,
+   `--packages-up-to gz-transport8` can be added to the default options.
+
+ * `build_tool_test_args`: [colcon test parameters](https://colcon.readthedocs.io/en/released/reference/verb/test.html)
+   to use. Default can be preserve **but**, unless the whole list of tests
+   of all packages defined in `repos_file_urls` is to be run, a set of
+   packages needs to be defined to be the software under test. For example,
+   to run only gz-transport8 tests, the `--packages-select gz-transport8` can
+   be added to the default options.
+
 ## Development
 
 All the infrastructure for our CI is in the
