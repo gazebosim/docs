@@ -24,7 +24,7 @@ cases where the default option cannot be easily changed.
 Install tools needed by this tutorial:
 
 ```bash
-sudo apt install python3-pip wget lsb-release gnupg curl
+sudo apt install python3-pip lsb-release gnupg curl
 ```
 
 ## vcstool and colcon from pip
@@ -90,7 +90,7 @@ All the sources of ignition-citadel are declared in a yaml file. Download
 it to the workspace:
 
 ```bash
-wget https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-citadel.yaml
+curl -O https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-citadel.yaml
 ```
 
 Use `vcstool` to automatically retrieve all the Ignition libraries sources from
@@ -112,7 +112,7 @@ Add `packages.osrfoundation.org` to the apt sources list:
 
 ```bash
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
-wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+curl https://packages.osrfoundation.org/gazebo.key | sudo apt-key add -
 sudo apt-get update
 ```
 
@@ -217,7 +217,7 @@ Or in zsh:
 . ~/workspace/install/setup.zsh
 ```
 
-This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)
+This is the end of the source install instructions; head back to the [Getting started](getstarted)
 page to start using Ignition!
 
 ## Uninstalling source-based install
@@ -242,4 +242,4 @@ the results you want:
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/citadel/troubleshooting#ubuntu)
+See [Troubleshooting](troubleshooting.md#ubuntu)

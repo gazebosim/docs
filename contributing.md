@@ -8,29 +8,6 @@ Organization](https://github.com/gazebosim) on GitHub. These
 are mostly guidelines, not rules. Use your best judgment, and feel free to
 propose changes to this document in a pull request.
 
-#### Table of Contents
-
-[Code of Conduct](https://gazebosim.org/docs/all/contributing#code-of-conduct)
-
-[Project Design](https://gazebosim.org/docs/all/contributing#project-design)
-
-  * [Repository List](https://gazebosim.org/docs/all/contributing#repository-list)
-
-[How to Contribute](https://gazebosim.org/docs/all/contributing#how-to-contribute)
-
-  * [Reporting Bugs](https://gazebosim.org/docs/all/contributing#reporting-bugs)
-  * [Suggesting Enhancements](https://gazebosim.org/docs/all/contributing#suggesting-enhancements)
-  * [Contributing Code](https://gazebosim.org/docs/all/contributing#contributing-code)
-  * [Tracking Progress](https://gazebosim.org/docs/all/contributing#tracking-progress)
-
-[Writing Tests](https://gazebosim.org/docs/all/contributing#writing-tests)
-
-  * [Test Coverage](https://gazebosim.org/docs/all/contributing#test-coverage)
-
-[Styleguides](https://gazebosim.org/docs/all/contributing#style-guides)
-
-[Appendix](https://gazebosim.org/docs/all/contributing#appendix)
-
 ## Code of Conduct
 
 This project and everyone participating in it is governed by the [Gazebo
@@ -85,7 +62,7 @@ classes and functions with minimal dependencies.
 
 Documents describing the architecture of Gazebo are listed here:
 
-* [Gazebo Sim Architecture](/docs/all/architecture)
+* [Gazebo Sim Architecture](architecture)
 
 ## How to Contribute
 
@@ -94,7 +71,7 @@ Documents describing the architecture of Gazebo are listed here:
 **Before Submitting a Bug Report**
 
 1. Check the [questions and answers forum](http://answers.gazebosim.org). Your issue may have already been resolved.
-2. Determine [the repository](https://gazebosim.org/docs/all/contributing#repository-list) which should receive the problem.
+2. Determine [the repository](contributing.md#repository-list) which should receive the problem.
 3. Search the repository's issues to see if the same or similar problem has
    been opened. If it has and the issue is still open, then add a comment to
    the existing issue. Otherwise, create a new issue.
@@ -111,7 +88,7 @@ Guide](http://sscce.org/) as well as the following tips:
 * **Provide specific examples to demonstrate the steps.** Include links to files or projects, or copy/pasteable snippets, which you use in those examples.
 * **Describe the behavior you observed after following the steps** and point out what exactly is the problem with that behavior.
 * **Explain which behavior you expected to see instead and why**.
-* **Include screenshots and animated GIFs** which show you following the described steps and clearly demonstrate the problem. See [Creating GIFs](https://gazebosim.org/docs/all/contributing#creating-gifs) for GIF creation utilities.
+* **Include screenshots and animated GIFs** which show you following the described steps and clearly demonstrate the problem. See [Creating GIFs](contributing.md#creating-gifs) for GIF creation utilities.
 * **If the problem wasn't triggered by a specific action**, describe what you were doing before the problem happened and share more information using the guidelines below.
 
 Provide more context by answering these questions:
@@ -135,10 +112,10 @@ functionality. Following these guidelines helps maintainers and the
 community understand your suggestion and find related suggestions.
 
 Before creating enhancement suggestions, please check [this
-list](https://gazebosim.org/docs/all/contributing#before-submitting-an-enhancement-suggestion) as you
+list](contributing.md#before-submitting-an-enhancement-suggestion) as you
 might find out that you don't need to create one. When you are creating an
 enhancement suggestion, please [include as many details as
-possible](https://gazebosim.org/docs/all/contributing#how-do-i-submit-a-good-enhancement-suggestion-).
+possible](contributing.md#how-do-i-submit-a-good-enhancement-suggestion).
 When filling in the issue form for an enhancement suggestion, include the
 steps that you imagine you would take if the feature you're requesting
 existed.
@@ -147,7 +124,7 @@ existed.
 
 * **Check if you're using the latest software version**. A more recent version may contain your desired feature.
 * **Check if there's already [a library](https://gazebosim.org/libs) which provides that enhancement.**
-* **Determine [which repository the enhancement should be suggested in](https://gazebosim.org/docs/all/contributing#repository-list).**
+* **Determine [which repository the enhancement should be suggested in](contributing.md#repository-list).**
 * **Perform a [cursory search](https://github.com/search?q=org%3Agazebosim&type=Issues)** to see if the enhancement has already been suggested. If it has, add a comment to the existing issue instead of opening a new one.
 * **Ask on the [community forum](https://community.gazebosim.org) about your
 feature.** Someone else might already have started, and you might be able to
@@ -157,7 +134,7 @@ help.
 
 Enhancement suggestions are tracked as [GitHub
 issues](https://help.github.com/en/github/managing-your-work-on-github/about-issues).
-After you've determined [which repository](https://gazebosim.org/docs/all/contributing#repository-list)
+After you've determined [which repository](contributing.md#repository-list)
 your enhancement suggestion is related to, create an issue on that
 repository and provide the following information:
 
@@ -165,7 +142,7 @@ repository and provide the following information:
 * **Provide a step-by-step description of the suggested enhancement** in as many details as possible.
 * **Provide specific examples to demonstrate the steps**. Include copy/pasteable snippets which you use in those examples, as [Markdown code blocks](https://help.github.com/en/github/writing-on-github/creating-and-highlighting-code-blocks).
 * **Describe the current behavior** and **explain which behavior you expected to see instead** and why.
-* **Include screenshots and animated GIFs** which show you following the described steps and clearly demonstrate the problem. See [Creating GIFs](https://gazebosim.org/docs/all/contributing#creating-gifs) for GIF creation utilities.
+* **Include screenshots and animated GIFs** which show you following the described steps and clearly demonstrate the problem. See [Creating GIFs](contributing.md#creating-gifs) for GIF creation utilities.
 * **Explain why this enhancement would be useful** to most users and isn't something that can or should be implemented as a separate application.
 * **Specify which version of Gazebo you're using.**
 * **Specify the name and version of the OS you're using.**
@@ -176,15 +153,21 @@ We follow a development process designed to reduce errors, encourage
 collaboration, and make high quality code. Review the following to
 get acquainted with this development process.
 
-1. **Read the [Reporting Bugs](https://gazebosim.org/docs/all/contributing#reporting-bugs) and [Suggesting Enhancements](https://gazebosim.org/docs/all/contributing#suggesting-enhancements)** sections first.
+1. **Read the [Reporting Bugs](contributing.md#reporting-bugs) and [Suggesting Enhancements](contributing.md#suggesting-enhancements)** sections first.
 
 1. **Fork the Gazebo library** you want to contribute to. This will create
    your own personal copy of the library. All of your development should
    take place in your fork.
    - An important thing to do is create a remote pointing to the [upstream remote repository](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork). This way, you can always check for modifications on the original repository and **always** keep your fork repository up to date.
 
-1. **Choose a base branch.** If your changes will break API or ABI, then
-   base your new branch off of `main`. If your changes don't break
+1. **Choose a base branch.**
+   - If your changes will break API or ABI, then base your new branch off of `main`.
+   - If you are making interdependent changes to multiple repositories without
+     breaking API or ABI, it is also recommended to base your new branches of of `main`
+     to simplify automated testing of the changes and the review process. Your
+     changes may be backported to an existing release once all the changes
+     have been merged.
+   - If your changes don't break
    API/ABI and you would like them to be released to an existing release
    with major version `N`, then use branch `gz-<library>N` as the base.
 
@@ -193,17 +176,17 @@ get acquainted with this development process.
    your life easier.
 
 1. **Write your code.** This is the fun part, but is good to remember:
-   - Always [signoff on your commits](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository#about-commit-signoffs) (See the bullet about Developer Certificate of Origin in the [Process](https://gazebosim.org/docs/all/contributing#process) section below)
+   - Always [signoff on your commits](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-the-commit-signoff-policy-for-your-repository#about-commit-signoffs) (See the bullet about Developer Certificate of Origin in the [Process](contributing.md#process) section below)
    - Look at the existing code and try to maintain the existing style and pattern as much as possible
    - **Always** keep your branch updated with the original repository
 
 1. **Write tests.** In most cases, a pull request will only be accepted if
-   it has tests. See the [Writing Tests](https://gazebosim.org/docs/all/contributing#writing-tests)
+   it has tests. See the [Writing Tests](contributing.md#writing-tests)
   section below for more information.
 
 1. **Resolve compiler warnings.** Code must have zero compile warnings, or at least make sure your pull request is not adding new warnings.
 
-1. **Follow the [style guide](https://gazebosim.org/docs/all/contributing#style-guides).**
+1. **Follow the [style guide](contributing.md#style-guides).**
 
     Static code checking analyzes your code for bugs, such as potential memory
     leaks, and style. Most Gazebo libraries use the `cppcheck` static code
@@ -214,7 +197,7 @@ get acquainted with this development process.
 
     To check your code, run the following script from the `build` folder of the project that you're working on.
     If you're working on *gz-math*, for instance, the path for the folder should be something similar to `~/citadel_ws/build/gz-math6`.
-    The path example is assuming you followed [our installation instructions](/docs/citadel/install) using colcon.
+    The path example is assuming you followed [our installation instructions](install) using colcon.
 
     Then, run the script inside this folder:
 
@@ -225,7 +208,7 @@ get acquainted with this development process.
 
         Built target codecheck
 
-    The tool does not catch all style errors. See the [code style](https://gazebosim.org/docs/all/contributing#style-guides) section below for more information.
+    The tool does not catch all style errors. See the [code style](contributing.md#style-guides) section below for more information.
 
 1. **(optional) Use clang-tidy for additional checks.**
 
@@ -274,7 +257,7 @@ get acquainted with this development process.
     will be started. These jobs will build your branch on Linux, Mac and
     Windows, run all tests and check for warnings.
 
-    Check the [Continuous Integration guide](https://gazebosim.org/docs/all/ci)
+    Check the [Continuous Integration guide](ci)
     for information on how to interpret the results.
 
 1. **Respond to reviewers.** At least two other people have to approve your pull request before it can be merged. Please be responsive to any questions and comments.
@@ -399,7 +382,7 @@ Merging strategy:
 Porting changes across branches:
 
 * Pull requests should target the lowest possible
-  [supported version](https://gazebosim.org/docs/all/releases) where the
+  [supported version](releases) where the
   changes can be added in a backwards-compatible way (no API / ABI / behavior
   break in released branches).
 * Periodically, a maintainer will **forward-port** changes to newer release
@@ -546,7 +529,7 @@ You can find more details [here](https://github.com/colcon/colcon-sanitizer-repo
 #### Compiling the code and running the tests
 
 Create a Gazebo workspace for ASAN/TSAN related tasks. Refer to the [offical documentation to get
-all the Gazebo sources](https://gazebosim.org/docs/latest/install_ubuntu_src#getting-the-sources).
+all the Gazebo sources](install_ubuntu_src.md#getting-the-sources).
 
 First, compile all packages:
 
@@ -708,7 +691,7 @@ In general, we follow [Google's style guide](https://google.github.io/styleguide
 
 ### Releasing information for members of development team
 
-[Releasing documentation](/docs/all/release) is available for the development team
+[Releasing documentation](release) is available for the development team
 members. Includes a general overview as well as detailed information about how to
 run a new release.
 

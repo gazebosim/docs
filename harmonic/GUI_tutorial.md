@@ -4,9 +4,9 @@ This guide is an introduction to the Gazebo Graphical User Interface (GUI).
 
 ## Prerequisites
 
-Before beginning, you should have [Harmonic installed](/docs/harmonic/install).
-If you installed [from source](/docs/harmonic/install)
-you will need to [source](/docs/harmonic/install_ubuntu_src#using-the-workspace) the workspace;
+Before beginning, you should have [Harmonic installed](install).
+If you installed [from source](install)
+you will need to [source](install_ubuntu_src.md#using-the-workspace) the workspace;
 otherwise, you're good to go!
 
 Start by getting Gazebo up and running with a sample world:

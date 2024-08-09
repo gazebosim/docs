@@ -83,4 +83,4 @@ conda uninstall libignition-<package_name> --channel conda-forge
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/dome/troubleshooting)
+See [Troubleshooting](troubleshooting)

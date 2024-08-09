@@ -8,7 +8,29 @@ to other models in our world. We will use three different sensors:
 an IMU sensor, a Contact sensor and a Lidar sensor. We will also
 learn how to launch multiple tasks with just one file using `ign_launch`.
 
-You can find the final world of this tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/fortress/tutorials/sensors/sensor_tutorial.sdf)
+You can find the final world of this tutorial showing all these plugins in use [here](https://github.com/gazebosim/docs/blob/master/fortress/tutorials/sensors/sensor_tutorial.sdf).
+You may also find an extensive set of world examples with many possible sensors and actuation capabilities in [`gz-sim/examples/worlds`](https://github.com/gazebosim/gz-sim/tree/ign-gazebo6/examples/worlds) for individual examples.
+The full set of sensors can be found in the [`gz-sensors` library](https://github.com/gazebosim/gz-sensors).
+If using ROS, you can see demo launches and bridging configuration for these examples [here](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_sim_demos/launch).
+
+## Preliminaries
+
+When adding a `plugin` to an SDF file which does not currently contain one, the default plugins are not loaded. Before adding a sensor, make sure to add in a couple of logical defaults to your world so that it is possible to continue to use the GZ GUI:
+
+```xml
+<sdf version='1.9'>
+  <world name='demo'>
+    <plugin
+        filename="ignition-gazebo-physics-system"
+        name="ignition::gazebo::systems::Physics">
+    </plugin>
+    <plugin
+        filename="ignition-gazebo-scene-broadcaster-system"
+        name="ignition::gazebo::systems::SceneBroadcaster">
+    </plugin>
+
+    <!-- ... -->
+```
 
 ## IMU sensor
 
@@ -362,14 +384,14 @@ Inside the main we subscribe to the `lidar` topic, and wait until the node is sh
 
 Download the [CMakeLists.txt](https://github.com/ignitionrobotics/docs/blob/master/fortress/tutorials/sensors/CMakeLists.txt), and in the same folder of `lidar_node` create `build/` directory:
 
-```{.sh}
+```sh
 mkdir build
 cd build
 ```
 
 Run cmake and build the code:
 
-```{.sh}
+```sh
 cmake ..
 make lidar_node
 ```
@@ -378,13 +400,13 @@ make lidar_node
 
 Run the node from terminal 1:
 
-```{.sh}
+```sh
 ./build/lidar_node
 ```
 
 Run the world from terminal 2:
 
-```{.sh}
+```sh
 ign gazebo sensor_tutorial.sdf
 ```
 
@@ -413,7 +435,7 @@ The first command is `ign gazebo sensor_tutorial.sdf` which launches the world.
 And the second command is `./build/lidar_node` which runs the `lidar_node`.
 Save the file as `sensor_launch.ign`, and then run it using the following command:
 
-```{.sh}
+```sh
 ign launch sensor_launch.ign
 ```
 

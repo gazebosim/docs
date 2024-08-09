@@ -4,9 +4,9 @@ This guide is an introduction to the Ignition Graphical User Interface (GUI).
 
 ## Prerequisites
 
-Before beginning, you should have [Ignition installed](/docs/fortress/install).
-If you installed [from source](/docs/fortress/install)
-you will need to [source](/docs/fortress/install_ubuntu_src#using-the-workspace) the workspace;
+Before beginning, you should have [Ignition installed](install).
+If you installed [from source](install)
+you will need to [source](install_ubuntu_src.md#using-the-workspace) the workspace;
 otherwise, you're good to go!
 
 Start by getting Ignition up and running with a sample world:

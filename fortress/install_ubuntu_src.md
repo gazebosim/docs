@@ -24,7 +24,7 @@ cases where the default option cannot be easily changed.
 Install tools needed by this tutorial:
 
 ```bash
-sudo apt install python3-pip wget lsb-release gnupg curl
+sudo apt install python3-pip lsb-release gnupg curl
 ```
 
 ## vcstool and colcon from pip
@@ -93,7 +93,7 @@ All the sources of ignition-fortress are declared in a yaml file. Download
 it to the workspace:
 
 ```bash
-wget https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-fortress.yaml
+curl -O https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-fortress.yaml
 ```
 
 Use `vcstool` to automatically retrieve all the Ignition libraries sources from
@@ -114,7 +114,7 @@ method to install software dependencies.
 Add `packages.osrfoundation.org` to the apt sources list:
 
 ```bash
-sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
 sudo apt-get update
 ```
@@ -221,7 +221,7 @@ Or in zsh:
 . ~/workspace/install/setup.zsh
 ```
 
-This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)
+This is the end of the source install instructions; head back to the [Getting started](getstarted)
 page to start using Ignition!
 
 ## Uninstalling source-based install
@@ -246,4 +246,4 @@ the results you want:
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/fortress/troubleshooting#ubuntu)
+See [Troubleshooting](troubleshooting.md#ubuntu)

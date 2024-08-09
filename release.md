@@ -233,4 +233,10 @@ During the Gazebo Garden development period, this packaage was
 to use stable and nightly binaries.
 It is customary to use nightly binaries for all unreleased package versions.
 
+```{toctree}
+:hidden:
+:maxdepth: 1
+:titlesonly:
 
+releasing/versioning_pre_nightly
+```

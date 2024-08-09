@@ -49,13 +49,13 @@ This list of library versions may change up to the release date.
 
 ## Supported platforms
 
-Harmonic is planned to be [supported](/docs/all/releases) on the platforms below.
+Harmonic is planned to be [supported](releases) on the platforms below.
 This list may change up to the release date.
 
 These are the **officially** supported platforms:
 
 * Ubuntu Jammy on amd64
-* Ubuntu 24.04 on amd64
+* Ubuntu Noble on amd64
 
 Platforms supported at **best-effort** include arm architectures, Windows and
 macOS. See

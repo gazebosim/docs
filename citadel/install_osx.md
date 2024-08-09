@@ -16,7 +16,7 @@ brew install ignition-citadel
 
 All libraries should be ready to use and the `ign gazebo` app ready to be executed.
 
-Head back to the [Getting started](/docs/all/getstarted)
+Head back to the [Getting started](getstarted)
 page to start using Ignition!
 
 ## Uninstalling binary install
@@ -30,4 +30,4 @@ brew uninstall ignition-citadel
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/citadel/troubleshooting#macos)
+See [Troubleshooting](troubleshooting.md#macos)

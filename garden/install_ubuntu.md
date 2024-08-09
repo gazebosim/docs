@@ -4,20 +4,25 @@ Garden binaries are provided for Ubuntu Focal and Jammy. The
 Garden binaries are hosted in the packages.osrfoundation.org repository.
 To install all of them, the metapackage `gz-garden` can be installed.
 
-**WARNING:** `gz-garden` cannot be installed alongside gazebo-classic (eg. `gazebo11`) since both use the `gz` command line tool. Trying to install `gz-garden` on a system that already has gazebo-classic installed from binaries will cause gazebo-classic and its dependencies to be uninstalled. Currently, the workarounds for this are to install from source or to use Docker [`gazebo-classic`](https://hub.docker.com/_/gazebo) so they are not installed side-by-side on the same system.
+<div class="warning">
+WARNING: for gazebo-classic (eg. `gazebo11`) users: `gz-garden` cannot be
+installed alongside with `gazebo11` by default. To facilitate the migration
+this can be done using the instruction detailed in
+<a href="https://gazebosim.org/docs/garden/install_gz11_side_by_side">Installing Gazebo11 side by side with new Gazebo</a>
+</div>
 
 First install some necessary tools:
 
 ```bash
 sudo apt-get update
-sudo apt-get install lsb-release wget gnupg
+sudo apt-get install lsb-release curl gnupg
 ```
 
 Then install Gazebo Garden:
 
 
 ```bash
-sudo wget https://packages.osrfoundation.org/gazebo.gpg -O /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
 sudo apt-get update
 sudo apt-get install gz-garden
@@ -25,7 +30,7 @@ sudo apt-get install gz-garden
 
 All libraries should be ready to use and the `gz sim` app ready to be executed.
 
-Head back to the [Getting started](/docs/all/getstarted)
+Head back to the [Getting started](getstarted)
 page to start using Gazebo!
 
 
@@ -40,4 +45,4 @@ sudo apt remove gz-garden && sudo apt autoremove
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/garden/troubleshooting#ubuntu)
+See [Troubleshooting](troubleshooting.md#ubuntu)

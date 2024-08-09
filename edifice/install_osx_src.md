@@ -122,7 +122,7 @@ If you want to compile Ignition Libraries in MacOS Catalina (10.15) you will nee
 
 Create a file called `intern.patch` with the following content:
 
-```patch
+```diff
 --- intern.h    2019-12-16 18:17:08.000000000 +0100
 +++ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Ruby.framework/Headers/ruby/ruby/intern.h
 @@ -14,6 +14,10 @@
@@ -140,7 +140,7 @@ Create a file called `intern.patch` with the following content:
 
 Now we can apply the patch:
 
-```{.sh}
+```sh
 sudo patch -p0 < intern.patch
 ```
 
@@ -164,7 +164,7 @@ Create a file called `config.patch` with the following content:
 
 Now we can appply the patch:
 
-```{.sh}
+```sh
 sudo patch -p0 < config.patch
 ```
 
@@ -226,7 +226,7 @@ Or in zsh:
 . ~/workspace/install/setup.zsh
 ```
 
-This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)
+This is the end of the source install instructions; head back to the [Getting started](getstarted)
 page to start using Ignition!
 
 ## Uninstalling source-based install
@@ -242,4 +242,4 @@ sudo make uninstall
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/edifice/troubleshooting#macos)
+See [Troubleshooting](troubleshooting.md#macos)

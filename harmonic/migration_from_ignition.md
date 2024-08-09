@@ -239,7 +239,7 @@ In `CMakeLists.txt` files (and their references in your source files!):
 
 **Variables and macro/function calls**
 
-```cpp
+```
 Find: IGN(ITION)?_GAZEBO
 Replace: GZ_SIM
 
@@ -255,7 +255,7 @@ Replace: gz_
 
 **Includes**
 
-```cpp
+```
 Find: include\(Ign
 Replace: include(Gz
 
@@ -271,7 +271,7 @@ Replace: gz_find_package(Gz-
 
 **Project Names**
 
-```cpp
+```
 Find: ignition-gazebo
 Replace: gz-sim
 
@@ -288,7 +288,7 @@ Replace: gz-
 
 Migrate source macros and environment variables
 
-```cpp
+```
 Find: IGN(ITION)?_GAZEBO
 Replace: GZ_SIM
 
@@ -319,7 +319,7 @@ Additionally, the logging macros have also been migrated! Migrate any uses!
 
 In `.sdf` files:
 
-```cpp
+```
 Find: <ignition
 Replace: <gz
 
@@ -341,7 +341,7 @@ The plugin finder is able to find plugins even if their filenames are stripped o
 
 In `.sdf` files and source files (e.g. `.cc`):
 
-```cpp
+```
 Find: (lib)?ign(ition)?-gazebo([^. ]*)\.so
 Replace: gz-sim\3
 
@@ -359,7 +359,7 @@ Replace: gz::
 
 In Python files (e.g. `.py`)
 
-```cpp
+```
 Find: ignition.gazebo
 Replace: gz.sim
 
@@ -369,7 +369,7 @@ Replace: gz.
 
 In Ruby files (e.g. `.i`, `.rb`)
 
-```cpp
+```
 Find: ign(ition)?/
 Replace: gz/
 ```
@@ -378,7 +378,7 @@ Replace: gz/
 
 In your message definitions
 
-```cpp
+```
 Find: ign(ition)?\.gazebo
 Replace: gz.sim
 
@@ -398,7 +398,7 @@ Sweeping checks everywhere (pay special attention to reviewing these!)
 
 **Headers**
 
-```cpp
+```
 Find: #include\s*([<"])ign(ition)?/gazebo
 Replace: #include \1gz/sim
 
@@ -416,7 +416,7 @@ Replace: #endif  // GZ$1_H
 
 **Namespaces**
 
-```cpp
+```
 Find: namespace\s*ignition
 Replace: namespace gz
 
@@ -449,13 +449,13 @@ And also be mindful that certain instances of `gazebo` (usually as part of an AP
 
 Where you used to use:
 
-```cpp
+```
 ign gazebo shapes.sdf
 ```
 
 Now you should use:
 
-```cpp
+```
 gz sim shapes.sdf
 ```
 

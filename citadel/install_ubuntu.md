@@ -8,7 +8,7 @@ First install some necessary tools:
 
 ```bash
 sudo apt-get update
-sudo apt-get install lsb-release wget gnupg
+sudo apt-get install lsb-release gnupg
 ```
 
 Then install Ignition Citadel:
@@ -16,14 +16,14 @@ Then install Ignition Citadel:
 
 ```bash
 sudo sh -c 'echo "deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main" > /etc/apt/sources.list.d/gazebo-stable.list'
-wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -
+curl https://packages.osrfoundation.org/gazebo.key | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install ignition-citadel
 ```
 
 All libraries should be ready to use and the `ign gazebo` app ready to be executed.
 
-Head back to the [Getting started](/docs/all/getstarted)
+Head back to the [Getting started](getstarted)
 page to start using Ignition!
 
 ## Uninstalling binary install
@@ -37,4 +37,4 @@ sudo apt remove ignition-citadel && sudo apt autoremove
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/citadel/troubleshooting#ubuntu)
+See [Troubleshooting](troubleshooting.md#ubuntu)

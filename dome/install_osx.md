@@ -18,7 +18,7 @@ brew install ignition-dome
 
 All libraries should be ready to use and the `ign gazebo` app ready to be executed.
 
-Head back to the [Getting started](/docs/all/getstarted)
+Head back to the [Getting started](getstarted)
 page to start using Ignition!
 
 ## Uninstalling binary install
@@ -32,4 +32,4 @@ brew uninstall ignition-dome
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/dome/troubleshooting#macos)
+See [Troubleshooting](troubleshooting.md#macos)

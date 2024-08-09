@@ -4,27 +4,29 @@ In this tutorial we will learn how to Integrate ROS 2 with Ignition. We will est
 communication between them. This can help in many aspects; we can receive data or commands
 from ROS and apply it to Ignition and vice versa.
 
-## ros_ign_bridge
+## ros_gz_bridge
 
-`ros_ign_bridge` provides a network bridge which enables the exchange of messages between ROS 2 and Ignition Transport. Its support is limited to only certain message types. Please, check this [README](https://github.com/ignitionrobotics/ros_ign/blob/ros2/ros_ign_bridge/README.md) to verify if your message type is supported by the bridge.
+`ros_gz_bridge` provides a network bridge which enables the exchange of messages between ROS 2 and Ignition Transport. Its support is limited to only certain message types. Please, check this [README](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md) to verify if your message type is supported by the bridge.
+
+Example uses of the bridge can be found in [`ros_gz_sim_demos`](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_sim_demos), including demo launch files with bridging of all major actuation and sensor types.
 
 ## Requirements
 
-Please follow the [Install Gazebo and ROS document](/docs/latest/ros_installation)
+Please follow the [Install Gazebo and ROS document](ros_installation)
 before starting this tutorial. A working installation of ROS 2 and Gazebo is
 required to go further.
 
 ## Bidirectional communication
 
-We can initialize a bidirectional bridge so we can have ROS as the publisher and Ignition as the subscriber or vice versa.
+We can initialize a bidirectional bridge so we can have ROS as the publisher and Ignition as the subscriber or vice versa. The syntax is `/TOPIC@ROS_MSG@IGN_MSG`, such that `TOPIC` is the Ignition internal topic, `ROS_MSG` is the ROS message type for this topic, and `IGN_MSG` is the Ignition message type.
 
 For example:
 
 ```
-ros2 run ros_ign_bridge parameter_bridge /TOPIC@ROS_MSG@IGN_MSG
+ros2 run ros_gz_bridge parameter_bridge /TOPIC@ROS_MSG@IGN_MSG
 ```
 
-The `ros2 run ros_ign_bridge parameter_bridge` command simply runs the `parameter_bridge` code from the `ros_ign_bridge` package. Then, we specify our topic `/TOPIC` over which the messages will be sent. The first `@` symbol delimits the topic name from the message types. Following the first `@` symbol is the ROS message type.
+The `ros2 run ros_gz_bridge parameter_bridge` command simply runs the `parameter_bridge` code from the `ros_gz_bridge` package. Then, we specify our topic `/TOPIC` over which the messages will be sent. The first `@` symbol delimits the topic name from the message types. Following the first `@` symbol is the ROS message type.
 
 The ROS message type is followed by an `@`, `[`, or `]` symbol where:
 
@@ -32,8 +34,18 @@ The ROS message type is followed by an `@`, `[`, or `]` symbol where:
 * `[`  is a bridge from Ignition to ROS.
 * `]`  is a bridge from ROS to Ignition.
 
-Have a look at these [examples](https://github.com/ignitionrobotics/ros_ign/blob/ros2/ros_ign_bridge/README.md#example-1a-ignition-transport-talker-and-ros-2-listener)
+Have a look at these [examples](https://github.com/ignitionrobotics/ros_ign/blob/ros2/ros_gz_bridge/README.md#example-1a-ignition-transport-talker-and-ros-2-listener)
 explaining how to make communication connections from ROS to Ignition and vice versa.
+
+It is also possible to use ROS Launch with the `ros_ign_bridge` and represent the topics in yaml format to be given to the bridge at launch time.
+
+```
+- ros_topic_name: "scan"
+  gz_topic_name: "/scan"
+  ros_type_name: "sensor_msgs/msg/LaserScan"
+  gz_type_name: "ignition.msgs.LaserScan"
+  direction: IGN_TO_ROS  # BIDIRECTIONAL or ROS_TO_IGN
+```
 
 ## Publish key strokes to ROS
 
@@ -47,7 +59,7 @@ at which the `Key Publisher` plugin sends messages and also the type
 of the messages as follows:
 
 ```
-ros2 run ros_ign_bridge parameter_bridge /keyboard/keypress@std_msgs/msg/Int32@ignition.msgs.Int32
+ros2 run ros_gz_bridge parameter_bridge /keyboard/keypress@std_msgs/msg/Int32@ignition.msgs.Int32
 ```
 
 We started a bridge on `/keyboard/keypress` topic with message of type `Int32`.

@@ -160,29 +160,47 @@ be co-installable with Ogre 1.x. The code can be found here:
 https://github.com/osrf/ogre-2.3-release
 
 You should be able to use Ogre 1 without any issues however. You can check if
-that's working by running a world which uses Ogre 1 instead of Ogre 2, such as:
+that's working by running with Ogre 1 instead of Ogre 2, such as:
 
-    gz sim -v 3 lights.sdf
+    gz sim -v 3 shapes.sdf --render-engine ogre
 
 If that loads, you can continue to use Gazebo with Ogre 1, just use the
 `--render-engine ogre` option.
 
 ### Wayland issues
 
-For users on Wayland, you will need to make sure Gazebo is launched with
-XWayland.
-
-If you see an error message like the one below:
+There's an issue with the interaction of Ogre and Qt in Gazebo that prevents wayland from
+working properly. You might see an error message like the one below:
 
 ```
 Unable to create the rendering window: OGRE EXCEPTION(3:RenderingAPIException): currentGLContext was specified with no current GL context in GLXWindow::create at ./RenderSystems/GL3Plus/src/windowing/GLX/OgreGLXWindow.cpp (line 165)
 ```
 
-try unsetting the `WAYLAND_DISPLAY` environment variable, e.g.
+A workaround is to set `QT_QPA_PLATFORM=xcb`. e.g.:
+
+```
+QT_QPA_PLATFORM=xcb gz sim -v 4 shapes.sdf
+```
+
+Another workaround to try is to make sure Gazebo is launched with
+XWayland by unsetting the `WAYLAND_DISPLAY` environment variable, e.g.
 
 ```sh
 env -u WAYLAND_DISPLAY gz sim -v 4 shapes.sdf
 ```
+
+### EGL warnings
+
+On startup, Gazebo prints out EGL warning messages like the one below:
+
+```
+libEGL warning: DRI2: failed to create dri screen
+```
+
+This message is printed out by Ogre 2 on initialization when it enumerates
+through devices to query for EGL support. The warning is fine to ignore. Gazebo
+should continue to operate without any issues.
+
 
 ## Windows
 

@@ -55,7 +55,7 @@ All the sources of gazebo-ionic are declared in a yaml file. Download
 it to the workspace:
 
 ```bash
-wget https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-ionic.yaml
+curl -O https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-ionic.yaml
 ```
 
 Use `vcstool` to automatically retrieve all the Gazebo libraries sources from
@@ -207,9 +207,9 @@ gz sim -v 4 shapes.sdf -s
 gz sim -v 4 -g
 ```
 
-This is the end of the source install instructions; head back to the [Getting started](/docs/all/getstarted)
+This is the end of the source install instructions; head back to the [Getting started](getstarted)
 page to start using Gazebo!
 
 ## Troubleshooting
 
-See [Troubleshooting](/docs/ionic/troubleshooting#macos)
+See [Troubleshooting](troubleshooting.md#macos)
