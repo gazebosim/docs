@@ -161,7 +161,7 @@ packages (Humble officially supports Gazebo Fortress).
 
 To install the binary Gazebo Harmonic/ROS 2 Humble packages:
 
- * Folow [these instruction to install gz-harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu#binary-installation-on-ubuntu)
+ * Follow [these instruction to install gz-harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu#binary-installation-on-ubuntu)
    from [`packages.osrfoundation.org`](https://packages.osrfoundation.org/gazebo/ubuntu/)
    repository.
  * Install `ros_gz` from the non official binary packages from apt:
@@ -173,7 +173,7 @@ packages (Iron officially supports Gazebo Fortress).
 
 To install the binary Gazebo Harmonic/ROS 2 Iron packages:
 
- * Folow [these instruction to install gz-harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu#binary-installation-on-ubuntu)
+ * Follow [these instruction to install gz-harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu#binary-installation-on-ubuntu)
    from [`packages.osrfoundation.org`](https://packages.osrfoundation.org/gazebo/ubuntu/)
    repository.
  * Install `ros_gz` from the non official binary packages from apt:
@@ -183,7 +183,7 @@ Gazebo Harmonic can be used with ROS 2 Rolling but
 [`ros_gz`](https://github.com/gazebosim/ros_gz) will need to be compiled
 from source.
 
- * Folow [these instruction to install gz-harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu#binary-installation-on-ubuntu)
+ * Follow [these instruction to install gz-harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu#binary-installation-on-ubuntu)
    from [`packages.osrfoundation.org`](https://packages.osrfoundation.org/gazebo/ubuntu/)
    repository.
  * Install [rosdep rules for Gazebo Harmonic](https://github.com/osrf/osrf-rosdep#installing-rosdep-rules-to-resolve-gazebo-harmonic-libraries)
@@ -199,7 +199,7 @@ packages (Humble officially supports Gazebo Fortress).
 
 To install the binary Gazebo Garden/ROS 2 Humble packages:
 
- * Folow [these instruction to install gz-garden](https://gazebosim.org/docs/garden/install_ubuntu#binary-installation-on-ubuntu)
+ * Follow [these instruction to install gz-garden](https://gazebosim.org/docs/garden/install_ubuntu#binary-installation-on-ubuntu)
    from [`packages.osrfoundation.org`](https://packages.osrfoundation.org/gazebo/ubuntu/)
    repository.
  * Install `ros_gz` from the non official binary packages from apt:
@@ -211,7 +211,7 @@ packages (Iron officially supports Gazebo Fortress).
 
 To install the binary Gazebo Garden/ROS 2 Iron packages:
 
- * Folow [these instruction to install gz-garden](https://gazebosim.org/docs/garden/install_ubuntu#binary-installation-on-ubuntu)
+ * Follow [these instruction to install gz-garden](https://gazebosim.org/docs/garden/install_ubuntu#binary-installation-on-ubuntu)
    from [`packages.osrfoundation.org`](https://packages.osrfoundation.org/gazebo/ubuntu/)
    repository.
  * Install `ros_gz` from the non official binary packages from apt:
@@ -221,7 +221,7 @@ Gazebo Garden can be used with ROS 2 Rolling but
 [`ros_gz`](https://github.com/gazebosim/ros_gz) will need to be compiled
 from source.
 
- * Folow [these instruction to install gz-garden](https://gazebosim.org/docs/garden/install_ubuntu#binary-installation-on-ubuntu)
+ * Follow [these instruction to install gz-garden](https://gazebosim.org/docs/garden/install_ubuntu#binary-installation-on-ubuntu)
    from [`packages.osrfoundation.org`](https://packages.osrfoundation.org/gazebo/ubuntu/)
    repository.
  * Install [rosdep rules for Gazebo Garden](https://github.com/osrf/osrf-rosdep#installing-rosdep-rules-to-resolve-gazebo-garden-libraries)
