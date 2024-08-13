@@ -200,12 +200,12 @@ System Parameters</h2>
 <h3><a class="anchor" id="autotoc_md449"></a>
 Diagonal terms:</h3>
 <ul>
-<li>&lt;xDotU&gt; - Added mass in x direction [kg]</li>
-<li>&lt;yDotV&gt; - Added mass in y direction [kg]</li>
-<li>&lt;zDotW&gt; - Added mass in z direction [kg]</li>
-<li>&lt;kDotP&gt; - Added mass in roll direction [kgm^2]</li>
-<li>&lt;mDotQ&gt; - Added mass in pitch direction [kgm^2]</li>
-<li>&lt;nDotR&gt; - Added mass in yaw direction [kgm^2]</li>
+<li>&lt;xDotU&gt; - (Deprecated) Added mass in x direction [kg]</li>
+<li>&lt;yDotV&gt; - (Deprecated) Added mass in y direction [kg]</li>
+<li>&lt;zDotW&gt; - (Deprecated) Added mass in z direction [kg]</li>
+<li>&lt;kDotP&gt; - (Deprecated) Added mass in roll direction [kgm^2]</li>
+<li>&lt;mDotQ&gt; - (Deprecated) Added mass in pitch direction [kgm^2]</li>
+<li>&lt;nDotR&gt; - (Deprecated) Added mass in yaw direction [kgm^2]</li>
 <li>&lt;xUabsU&gt; - Quadratic damping, 2nd order, x component [kg/m]</li>
 <li>&lt;xU&gt; - Linear damping, 1st order, x component [kg]</li>
 <li>&lt;yVabsV&gt; - Quadratic damping, 2nd order, y component [kg/m]</li>
@@ -221,8 +221,8 @@ Diagonal terms:</h3>
 </ul>
 <h3><a class="anchor" id="autotoc_md450"></a>
 Cross terms</h3>
-<p>In general we support cross terms as well. These are terms which act on non-diagonal sides. We use the SNAMe convention of naming search terms. (x, y, z) correspond to the respective axis. (k, m, n) correspond to roll, pitch and yaw. Similarly U, V, W represent velocity vectors in X, Y and Z axis while P, Q, R representangular velocity in roll, pitch and yaw axis respectively.</p><ul>
-<li>Added Mass: &lt;{x|y|z|k|m|n}Dot{U|V|W|P|Q|R}&gt; e.g. &lt;xDotR&gt; Units are either kg or kgm^2 depending on the choice of terms.</li>
+<p>In general we support cross terms as well. These are terms which act on non-diagonal sides. We use the SNAMe convention of naming search terms. (x, y, z) correspond to the respective axis. (k, m, n) correspond to roll, pitch and yaw. Similarly U, V, W represent velocity vectors in X, Y and Z axis while P, Q, R represent angular velocity in roll, pitch and yaw axis respectively.</p><ul>
+<li>Added Mass: &lt;{x|y|z|k|m|n}Dot{U|V|W|P|Q|R}&gt; e.g. &lt;xDotR&gt; (Deprecated) Units are either kg or kgm^2 depending on the choice of terms. You should use the sdf method based spec <a href="http://sdformat.org/spec?ver=1.11&elem=link#inertial_fluid_added_mass">http://sdformat.org/spec?ver=1.11&amp;elem=link#inertial_fluid_added_mass</a></li>
 <li>Quadratic Damping With abs term (this is probably what you want): &lt;{x|y|z|k|m|n}{U|V|W|P|Q|R}abs{U|V|W|P|Q|R}&gt; e.g. &lt;xRabsQ&gt; Units are either kg/m or kg/m^2.</li>
 <li>Quadratic Damping (could lead to unwanted oscillations): &lt;{x|y|z|k|m|n}{U|V|W|P|Q|R}{U|V|W|P|Q|R}&gt; e.g. &lt;xRQ&gt; Units are either kg/m or kg/m^2.</li>
 <li>Linear Damping: &lt;{x|y|z|k|m|n}{U|V|W|P|Q|R}&gt;. e.g. &lt;xR&gt; Units are either kg or kg or kg/m. Additionally the system also supports the following parameters:</li>
