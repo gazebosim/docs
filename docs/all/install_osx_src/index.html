@@ -486,28 +486,30 @@ although other ways of correctly getting and building the sources are also possi
 <p>The easiest way to get the sources of all libraries is to use
 <a class="reference external" href="https://github.com/dirk-thomas/vcstool">vcstool</a>.</p>
 <p>To compile all the different libraries and gz-sim in the right order
-<a class="reference external" href="https://colcon.readthedocs.io/en/released/">colcon</a> is recommended.
-The colcon tool is available on all platforms using pip (or pip3, if pip fails).</p>
-</section>
-<section id="python3-from-homebrew">
-<h2>Python3 from homebrew<a class="headerlink" href="#python3-from-homebrew" title="Link to this heading">#</a></h2>
-<p>Tools and dependencies for Harmonic can be installed using the <a class="reference external" href="https://brew.sh/">homebrew package manager</a>.
-The homebrew tool can be installed by entering the following in a terminal:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/master/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+<a class="reference external" href="https://colcon.readthedocs.io/en/released/">colcon</a> is recommended.</p>
+<p>Tools and dependencies for Harmonic can be installed using the <a class="reference external" href="https://brew.sh/">Homebrew package manager</a>. After installing Homebrew, add the <code class="docutils literal notranslate"><span class="pre">osrf/simulation</span></code> to Homebrew tap to be able to install prebuilt dependencies.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>tap<span class="w"> </span>osrf/simulation
+brew<span class="w"> </span>update
 </pre></div>
 </div>
-<p>Harmonic is compatible with Python3; it can be installed by running the following in a terminal:</p>
+<section id="install-compiler-requirements">
+<h3>Install compiler requirements<a class="headerlink" href="#install-compiler-requirements" title="Link to this heading">#</a></h3>
+<p>Building Gazebo Libraries require at least Xcode 10 on MacOS Mojave. The Xcode Command Line Tools are sufficient, and can be installed with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xcode-select<span class="w"> </span>--install
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-3-from-homebrew">
+<h2>Python 3 from Homebrew<a class="headerlink" href="#python-3-from-homebrew" title="Link to this heading">#</a></h2>
+<p>Harmonic is compatible with Python 3. Install the latest version from Homebrew:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>python3
 </pre></div>
 </div>
 </section>
-<section id="vcstool-and-colcon-from-pip">
-<h2>vcstool and colcon from pip<a class="headerlink" href="#vcstool-and-colcon-from-pip" title="Link to this heading">#</a></h2>
-<p>PIP is available on all platforms:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>vcstool
-</pre></div>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>colcon-common-extensions
+<section id="vcstool-and-colcon-from-pypi">
+<h2>vcstool and colcon from PyPI<a class="headerlink" href="#vcstool-and-colcon-from-pypi" title="Link to this heading">#</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>colcon-common-extensions<span class="w"> </span>vcstool
 </pre></div>
 </div>
 </section>
@@ -521,7 +523,7 @@ The homebrew tool can be installed by entering the following in a terminal:</p>
 </div>
 <p>All the sources of gazebo-harmonic are declared in a yaml file. Download
 it to the workspace:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-O<span class="w"> </span>https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-harmonic.yaml
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-OL<span class="w"> </span>https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-harmonic.yaml
 </pre></div>
 </div>
 <p>Use <code class="docutils literal notranslate"><span class="pre">vcstool</span></code> to automatically retrieve all the Gazebo libraries sources from
@@ -533,50 +535,24 @@ their repositories:</p>
 </section>
 <section id="install-dependencies">
 <h2>Install dependencies<a class="headerlink" href="#install-dependencies" title="Link to this heading">#</a></h2>
-<p>Add <code class="docutils literal notranslate"><span class="pre">osrf/simulation</span></code> to Homebrew formulae</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>update
-brew<span class="w"> </span>tap<span class="w"> </span>osrf/simulation
-</pre></div>
-</div>
-<p>Install all dependencies:</p>
 <p>Dependency for Ogre:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>xquartz<span class="w"> </span>--cask
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>--cask<span class="w"> </span>xquartz
 </pre></div>
 </div>
 <p>General dependencies:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>assimp<span class="w"> </span>boost<span class="w"> </span>bullet<span class="w"> </span>cmake<span class="w"> </span>cppzmq<span class="w"> </span>dartsim@6.10.0<span class="w"> </span>doxygen<span class="w"> </span>eigen<span class="w"> </span>fcl<span class="w"> </span>ffmpeg<span class="w"> </span>flann<span class="w"> </span>freeimage<span class="w"> </span>freetype<span class="w"> </span>gdal<span class="w"> </span>gflags<span class="w"> </span>google-benchmark<span class="w"> </span>gts<span class="w"> </span>ipopt<span class="w"> </span>jsoncpp<span class="w"> </span>libccd<span class="w"> </span>libyaml<span class="w"> </span>libzzip<span class="w"> </span>libzip<span class="w"> </span>nlopt<span class="w"> </span>ode<span class="w"> </span>open-scene-graph<span class="w"> </span>ossp-uuid<span class="w"> </span>ogre1.9<span class="w"> </span>ogre2.3<span class="w"> </span>pkg-config<span class="w"> </span>protobuf<span class="w"> </span>qt@5<span class="w"> </span>qwt-qt5<span class="w"> </span>rapidjson<span class="w"> </span>ruby<span class="w"> </span>tbb<span class="w"> </span>tinyxml<span class="w"> </span>tinyxml2<span class="w"> </span>urdfdom<span class="w"> </span>zeromq
 </pre></div>
 </div>
-<p><code class="docutils literal notranslate"><span class="pre">dartsim&#64;6.10.0</span></code> and <code class="docutils literal notranslate"><span class="pre">qt&#64;5</span></code> are not sym-linked. To use those dependencies when building
-<code class="docutils literal notranslate"><span class="pre">gz-physics7</span></code> and <code class="docutils literal notranslate"><span class="pre">gz-gui8</span></code>, run the following after installation:</p>
-<p>For Macs with Intel processors, add them to <code class="docutils literal notranslate"><span class="pre">/usr/local</span></code>:</p>
+<p><code class="docutils literal notranslate"><span class="pre">dartsim&#64;6.10.0</span></code> and <code class="docutils literal notranslate"><span class="pre">qt&#64;5</span></code> are “keg only” Homebrew formulae and their paths must be explicitly configured before building Gazebo:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># dartsim@6.10.0</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">CMAKE_PREFIX_PATH</span><span class="si">}</span>:/usr/local/opt/dartsim@6.10.0
-<span class="nb">export</span><span class="w"> </span><span class="nv">DYLD_FALLBACK_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">DYLD_FALLBACK_LIBRARY_PATH</span><span class="si">}</span>:/usr/local/opt/dartsim@6.10.0/lib:/usr/local/opt/octomap/local
-<span class="nb">export</span><span class="w"> </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">PKG_CONFIG_PATH</span><span class="si">}</span>:/usr/local/opt/dartsim@6.10.0/lib/pkgconfig
+<span class="nb">export</span><span class="w"> </span><span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">CMAKE_PREFIX_PATH</span><span class="p">:+</span><span class="nv">$CMAKE_PREFIX_PATH</span><span class="p">:</span><span class="si">}</span><span class="sb">`</span>brew<span class="w"> </span>--prefix<span class="w"> </span>dartsim@6.10.0<span class="sb">`</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">DYLD_FALLBACK_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">DYLD_FALLBACK_LIBRARY_PATH</span><span class="p">:+</span><span class="nv">$DYLD_FALLBACK_LIBRARY_PATH</span><span class="p">:</span><span class="si">}</span><span class="sb">`</span>brew<span class="w"> </span>--prefix<span class="w"> </span>dartsim@6.10.0<span class="sb">`</span>/lib:<span class="sb">`</span>brew<span class="w"> </span>--prefix<span class="w"> </span>octomap<span class="sb">`</span>/local
+<span class="nb">export</span><span class="w"> </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">PKG_CONFIG_PATH</span><span class="p">:+</span><span class="nv">$PKG_CONFIG_PATH</span><span class="p">:</span><span class="si">}</span><span class="sb">`</span>brew<span class="w"> </span>--prefix<span class="w"> </span>dartsim@6.10.0<span class="sb">`</span>/lib/pkgconfig
+
 <span class="c1"># qt@5</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">CMAKE_PREFIX_PATH</span><span class="si">}</span>:/usr/local/opt/qt@5
+<span class="nb">export</span><span class="w"> </span><span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">CMAKE_PREFIX_PATH</span><span class="p">:+</span><span class="nv">$CMAKE_PREFIX_PATH</span><span class="p">:</span><span class="si">}</span><span class="sb">`</span>brew<span class="w"> </span>--prefix<span class="w"> </span>qt@5<span class="sb">`</span>
 </pre></div>
 </div>
-<p>Note if you are on an ARM based Apple Silicon Mac machine, you will need to add them to <code class="docutils literal notranslate"><span class="pre">/opt/homebrew</span></code> instead:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># dartsim@6.10.0</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">CMAKE_PREFIX_PATH</span><span class="si">}</span>:/opt/homebrew/opt/dartsim@6.10.0
-<span class="nb">export</span><span class="w"> </span><span class="nv">DYLD_FALLBACK_LIBRARY_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">DYLD_FALLBACK_LIBRARY_PATH</span><span class="si">}</span>:/opt/homoebrew/opt/dartsim@6.10.0/lib:/opt/homebrew/opt/octomap/local
-<span class="nb">export</span><span class="w"> </span><span class="nv">PKG_CONFIG_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">PKG_CONFIG_PATH</span><span class="si">}</span>:/opt/homebrew/opt/dartsim@6.10.0/lib/pkgconfig
-<span class="c1"># qt@5</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">CMAKE_PREFIX_PATH</span><span class="si">}</span>:/opt/homebrew/opt/qt@5
-</pre></div>
-</div>
-<section id="install-compiler-requirements">
-<h3>Install compiler requirements<a class="headerlink" href="#install-compiler-requirements" title="Link to this heading">#</a></h3>
-<p>The Gazebo Libraries require the Xcode 10 compiler on MacOS Mojave.</p>
-<p>On Mac machines, gcc is acquired by installing Xcode command line tools.
-The required version of Xcode for Harmonic is Xcode 10.3, which can be downloaded from
-<a class="reference external" href="https://developer.apple.com/download/more/">Apple Developer Site</a>.
-You will need to sign in to your Apple account and download the Mojave version of
-Xcode command line tools. Command line tools can also be obtained by downloading
-Xcode from the Apple App Store (installing the full app may take over an hour).</p>
-</section>
 </section>
 <section id="building-the-gazebo-libraries">
 <h2>Building the Gazebo Libraries<a class="headerlink" href="#building-the-gazebo-libraries" title="Link to this heading">#</a></h2>
@@ -620,12 +596,12 @@ to build the whole set of libraries:</p>
 <section id="using-the-workspace">
 <h2>Using the workspace<a class="headerlink" href="#using-the-workspace" title="Link to this heading">#</a></h2>
 <p>The workspace needs to be sourced every time a new terminal is used.</p>
-<p>Run the following command to source the workspace in bash:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.<span class="w"> </span>~/workspace/install/setup.bash
+<p>Run the following command to source the workspace in zsh (the default macOS shell):</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>.<span class="w"> </span>~/workspace/install/setup.zsh
 </pre></div>
 </div>
-<p>Or in zsh:</p>
-<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>.<span class="w"> </span>~/workspace/install/setup.zsh
+<p>Or if you are using bash:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>.<span class="w"> </span>~/workspace/install/setup.bash
 </pre></div>
 </div>
 <p>You should now be able to launch gazebo:</p>
@@ -668,14 +644,14 @@ page to start using Gazebo!</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-tools">Install tools</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python3-from-homebrew">Python3 from homebrew</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vcstool-and-colcon-from-pip">vcstool and colcon from pip</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-the-sources">Getting the sources</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dependencies">Install dependencies</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-tools">Install tools</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#install-compiler-requirements">Install compiler requirements</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#python-3-from-homebrew">Python 3 from Homebrew</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vcstool-and-colcon-from-pypi">vcstool and colcon from PyPI</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-the-sources">Getting the sources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dependencies">Install dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-gazebo-libraries">Building the Gazebo Libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-workspace">Using the workspace</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">Troubleshooting</a></li>
