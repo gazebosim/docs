@@ -87,32 +87,20 @@ brew cask install xquartz
 General dependencies:
 
 ```bash
-brew install assimp boost bullet cmake cppzmq dartsim@6.10.0 doxygen eigen fcl ffmpeg flann freeimage freetype gdal gflags google-benchmark gts ipopt jsoncpp libccd libyaml libzzip libzip nlopt ode open-scene-graph ossp-uuid ogre1.9 ogre2.3 pkg-config protobuf qt@5 qwt-qt5 rapidjson ruby tbb tinyxml tinyxml2 urdfdom zeromq
+brew install assimp boost bullet cmake cppzmq dartsim doxygen eigen fcl ffmpeg flann freeimage freetype gdal gflags google-benchmark gts ipopt jsoncpp libccd libyaml libzzip libzip nlopt ode open-scene-graph ossp-uuid ogre1.9 ogre2.3 pkg-config protobuf qt@5 qwt-qt5 rapidjson ruby tbb tinyxml tinyxml2 urdfdom zeromq
 ```
 
-`dartsim@6.10.0` and `qt@5` are not sym-linked. To use those dependencies when building
-`gz-physics8` and `gz-gui9`, run the following after installation:
-
-For Macs with Intel processors, add them to `/usr/local`:
+`qt@5` is a "keg only" Homebrew formula and its path must be explicitly configured before building Gazebo:
 
 ```bash
-# dartsim@6.10.0
-export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/usr/local/opt/dartsim@6.10.0
-export DYLD_FALLBACK_LIBRARY_PATH=${DYLD_FALLBACK_LIBRARY_PATH}:/usr/local/opt/dartsim@6.10.0/lib:/usr/local/opt/octomap/local
-export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:/usr/local/opt/dartsim@6.10.0/lib/pkgconfig
 # qt@5
-export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/usr/local/opt/qt@5
+export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH:+$CMAKE_PREFIX_PATH:}`brew --prefix qt@5`
 ```
 
-Note if you are on an ARM based Apple Silicon Mac machine, you will need to add them to `/opt/homebrew` instead:
+Unlink `qt` to avoid conflicts with other versions of qt (e.g. qt6)
 
-```bash
-# dartsim@6.10.0
-export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/homebrew/opt/dartsim@6.10.0
-export DYLD_FALLBACK_LIBRARY_PATH=${DYLD_FALLBACK_LIBRARY_PATH}:/opt/homoebrew/opt/dartsim@6.10.0/lib:/opt/homebrew/opt/octomap/local
-export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:/opt/homebrew/opt/dartsim@6.10.0/lib/pkgconfig
-# qt@5
-export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/homebrew/opt/qt@5
+```
+brew unlink qt
 ```
 
 ### Install compiler requirements
