@@ -703,22 +703,7 @@ tutorial. For reference, those files have also been migrated in
 ## Migrating other files in turtlebot3_gazebo
 
 This tutorial does not cover all aspects of migrating models and launch files
-from Gazebo classic. The following is a list of useful resources that cover
-other aspects, such as migrating Gazebo Classic plugins, materials and textures.
-
-- Migration from Gazebo Classic: Plugins -
-  [Fortress](https://gazebosim.org/api/gazebo/6/migrationplugins.html) |
-  [Harmonic](https://gazebosim.org/api/sim/8/migrationplugins.html)
-- Migration from Gazebo classic: SDF -
-  [Fortress](https://gazebosim.org/api/gazebo/6/migrationsdf.html) |
-  [Harmonic](https://gazebosim.org/api/sim/8/migrationsdf.html)
-- Case study: migrating the ArduPilot ModelPlugin from Gazebo classic to
-  Gazebo - [Fortress](https://gazebosim.org/api/gazebo/6/ardupilot.html) |
-  [Harmonic](https://gazebosim.org/api/sim/8/ardupilot.html)
-- [Basic description of SDF worlds](sdf_worlds)
-- [Feature Comparison with Gazebo Classic](comparison)
-- [Documentation for ros_gz](ros2_integration)
-- List of Systems (plugins):
-  [Fortress](https://gazebosim.org/api/gazebo/6/namespaceignition_1_1gazebo_1_1systems.html)
-  |
-  [Harmonic](https://gazebosim.org/api/sim/8/namespacegz_1_1sim_1_1systems.html)
+from Gazebo classic. Please see the
+[Gazebo Classic Migration](gazebo_classic_migration) document for more resources
+that help with migrating other aspects, such as Gazebo Classic plugins,
+materials and textures.
