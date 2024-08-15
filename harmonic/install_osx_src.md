@@ -79,19 +79,20 @@ brew install --cask xquartz
 General dependencies:
 
 ```bash
-brew install assimp boost bullet cmake cppzmq dartsim@6.10.0 doxygen eigen fcl ffmpeg flann freeimage freetype gdal gflags google-benchmark gts ipopt jsoncpp libccd libyaml libzzip libzip nlopt ode open-scene-graph ossp-uuid ogre1.9 ogre2.3 pkg-config protobuf qt@5 qwt-qt5 rapidjson ruby tbb tinyxml tinyxml2 urdfdom zeromq
+brew install assimp boost bullet cmake cppzmq dartsim doxygen eigen fcl ffmpeg flann freeimage freetype gdal gflags google-benchmark gts ipopt jsoncpp libccd libyaml libzzip libzip nlopt ode open-scene-graph ossp-uuid ogre1.9 ogre2.3 pkg-config protobuf qt@5 qwt-qt5 rapidjson ruby tbb tinyxml tinyxml2 urdfdom zeromq
 ```
 
-`dartsim@6.10.0` and `qt@5` are "keg only" Homebrew formulae and their paths must be explicitly configured before building Gazebo:
+`qt@5` is a "keg only" Homebrew formula and its path must be explicitly configured before building Gazebo:
 
 ```bash
-# dartsim@6.10.0
-export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH:+$CMAKE_PREFIX_PATH:}`brew --prefix dartsim@6.10.0`
-export DYLD_FALLBACK_LIBRARY_PATH=${DYLD_FALLBACK_LIBRARY_PATH:+$DYLD_FALLBACK_LIBRARY_PATH:}`brew --prefix dartsim@6.10.0`/lib:`brew --prefix octomap`/local
-export PKG_CONFIG_PATH=${PKG_CONFIG_PATH:+$PKG_CONFIG_PATH:}`brew --prefix dartsim@6.10.0`/lib/pkgconfig
-
 # qt@5
 export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH:+$CMAKE_PREFIX_PATH:}`brew --prefix qt@5`
+```
+
+Unlink `qt` to avoid conflicts with other versions of qt (e.g. qt6)
+
+```
+brew unlink qt
 ```
 
 ## Building the Gazebo Libraries
