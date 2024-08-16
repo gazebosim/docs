@@ -4,7 +4,7 @@ WARNING: Current Windows support is experimental.
 
 # Source Installation on Windows 10 or 11
 
-OGRE2 rendering capabilities are not currently supported in Windows, and Gazebo GUI
+OGRE2 rendering capabilities are also supported in Windows, and Gazebo GUI
 works in a limited fashion. These functionalities correspond to the currently
 building packages `gz-rendering` and `gz-sim`, respectively. The packages will build,
 but you can expect runtime failures when using their functionalities.
@@ -160,8 +160,7 @@ page to start using Gazebo!
 ### Gazebo GUI workaround
 
 Although running `gz sim` without arguments is not supported on Windows,
-and `gz sim -g` is also not supported, there is a workaround you can apply
-to be able to launch `gz sim -g` on Windows.
+ the `gz sim -g` command is  supported, and you can use it to launch the graphical interface on Windows.
 
 > Manually comment [these lines](https://github.com/gazebosim/gz-sim/blob/gz-sim7_7.5.0/src/cmd/cmdsim.rb.in#L497-L501) and [these lines](https://github.com/gazebosim/gz-sim/blob/gz-sim7_7.5.0/src/cmd/cmdsim.rb.in#L558-L562) in file `install\lib\ruby\gz\cmdsim8.rb`.
 
