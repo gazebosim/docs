@@ -139,18 +139,18 @@ call install\setup.bat
 .\install\setup.ps1
 ```
 
+You should now be able to launch gazebo:
+
+```bash
+# Launch server in one terminal 
+gz sim -s
+
+# In separate terminal, launch gui
+gz sim -g
+```
+
 This is the end of the source install instructions; head back to the [Getting started](getstarted)
 page to start using Gazebo!
-
-> **NOTE**
-> To launch Gazebo GUI , run 
->```bat
->gz sim
->``` 
-> You can run only the server with
-> ```bat
-> gz sim -s -v
-> ```
 
 > **NOTE**
 > If your username contains spaces (which is quite common on Windows), you will probably get errors
