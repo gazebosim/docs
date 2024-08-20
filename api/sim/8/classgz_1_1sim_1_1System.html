@@ -141,7 +141,9 @@
 <div class="header">
   <div class="summary">
 <a href="classgz_1_1sim_1_1System-members.html">List of all members</a> &#124;
-<a href="#pub-methods">Public Member Functions</a>  </div>
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a>  </div>
   <div class="headertitle">
 <div class="title">System Class Reference</div>  </div>
 </div><!--header-->
@@ -152,6 +154,12 @@
 
 <p><code>#include &lt;<a class="el" href="System_8hh_source.html">gz/sim/System.hh</a>&gt;</code></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:adec1e7fffb154d1713093e63839e6674"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1System.html#adec1e7fffb154d1713093e63839e6674">PriorityType</a> = int32_t</td></tr>
+<tr class="memdesc:adec1e7fffb154d1713093e63839e6674"><td class="mdescLeft">&#160;</td><td class="mdescRight">Signed integer type used for specifying priority of the execution order of PreUpdate and Update phases.  <a href="classgz_1_1sim_1_1System.html#adec1e7fffb154d1713093e63839e6674">More...</a><br /></td></tr>
+<tr class="separator:adec1e7fffb154d1713093e63839e6674"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aad5da93cf8921039ac524abb10ad4254"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1System.html#aad5da93cf8921039ac524abb10ad4254">System</a> ()=default</td></tr>
@@ -160,6 +168,15 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a75d73261228a8127f188edb3aa46fc21"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1System.html#a75d73261228a8127f188edb3aa46fc21">~System</a> ()=default</td></tr>
 <tr class="memdesc:a75d73261228a8127f188edb3aa46fc21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="classgz_1_1sim_1_1System.html#a75d73261228a8127f188edb3aa46fc21">More...</a><br /></td></tr>
 <tr class="separator:a75d73261228a8127f188edb3aa46fc21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a49bef3263f3b1061b477815c052b0041"><td class="memItemLeft" align="right" valign="top">constexpr static <a class="el" href="classgz_1_1sim_1_1System.html#adec1e7fffb154d1713093e63839e6674">PriorityType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1System.html#a49bef3263f3b1061b477815c052b0041">kDefaultPriority</a> = {0}</td></tr>
+<tr class="memdesc:a49bef3263f3b1061b477815c052b0041"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default priority value for execution order of the PreUpdate and Update phases.  <a href="classgz_1_1sim_1_1System.html#a49bef3263f3b1061b477815c052b0041">More...</a><br /></td></tr>
+<tr class="separator:a49bef3263f3b1061b477815c052b0041"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaae853a03f7fb3ed7797b664aaaa5d65"><td class="memItemLeft" align="right" valign="top">constexpr static std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1System.html#aaae853a03f7fb3ed7797b664aaaa5d65">kPriorityElementName</a></td></tr>
+<tr class="memdesc:aaae853a03f7fb3ed7797b664aaaa5d65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the XML element from which the priority value will be parsed.  <a href="classgz_1_1sim_1_1System.html#aaae853a03f7fb3ed7797b664aaaa5d65">More...</a><br /></td></tr>
+<tr class="separator:aaae853a03f7fb3ed7797b664aaaa5d65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base class for a <a class="el" href="classgz_1_1sim_1_1System.html" title="Base class for a System.">System</a>. </p>
@@ -183,8 +200,26 @@ Public Member Functions</h2></td></tr>
 </ul>
 </li>
 </ul>
+<p>The PreUpdate and Update phases are executed sequentially in the same thread, while the PostUpdate phase is executed in parallel in multiple threads. The order of execution of PreUpdate and Update phases can be controlled by specifying a signed integer Priority value for the <a class="el" href="classgz_1_1sim_1_1System.html" title="Base class for a System.">System</a> in its XML configuration. The default Priority value is zero, and smaller values are executed earlier. Systems with the same Priority value are executed in the order in which they are loaded.</p>
 <p>It's important to note that <a class="el" href="structgz_1_1sim_1_1UpdateInfo.html#a26918c04b76429ee00d33a079c4327dd" title="Total time elapsed in simulation. This will not increase while paused.">UpdateInfo::simTime</a> does not refer to the current time, but the time reached after the PreUpdate and Update calls have finished. So, if any of the *Update functions are called with simulation paused, time does not advance, which means the time reached after PreUpdate and Update is the same as the starting time. This explains why <a class="el" href="structgz_1_1sim_1_1UpdateInfo.html#a26918c04b76429ee00d33a079c4327dd" title="Total time elapsed in simulation. This will not increase while paused.">UpdateInfo::simTime</a> is initially 0 if simulation is started paused, while <a class="el" href="structgz_1_1sim_1_1UpdateInfo.html#a26918c04b76429ee00d33a079c4327dd" title="Total time elapsed in simulation. This will not increase while paused.">UpdateInfo::simTime</a> is initially <a class="el" href="structgz_1_1sim_1_1UpdateInfo.html#a602fa3ba04aafaad5bcaa12557e3fd26" title="Simulation time handled during a single update.">UpdateInfo::dt</a> if simulation is started un-paused. </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+</div><h2 class="groupheader">Member Typedef Documentation</h2>
+<a id="adec1e7fffb154d1713093e63839e6674"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adec1e7fffb154d1713093e63839e6674">&#9670;&nbsp;</a></span>PriorityType</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="classgz_1_1sim_1_1System.html#adec1e7fffb154d1713093e63839e6674">PriorityType</a> =  int32_t</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Signed integer type used for specifying priority of the execution order of PreUpdate and Update phases. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aad5da93cf8921039ac524abb10ad4254"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aad5da93cf8921039ac524abb10ad4254">&#9670;&nbsp;</a></span>System()</h2>
 
@@ -236,6 +271,57 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Destructor. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a49bef3263f3b1061b477815c052b0041"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49bef3263f3b1061b477815c052b0041">&#9670;&nbsp;</a></span>kDefaultPriority</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr static <a class="el" href="classgz_1_1sim_1_1System.html#adec1e7fffb154d1713093e63839e6674">PriorityType</a> kDefaultPriority = {0}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Default priority value for execution order of the PreUpdate and Update phases. </p>
+
+</div>
+</div>
+<a id="aaae853a03f7fb3ed7797b664aaaa5d65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaae853a03f7fb3ed7797b664aaaa5d65">&#9670;&nbsp;</a></span>kPriorityElementName</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr static std::string_view kPriorityElementName</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">=</div>
+<div class="line">          {<span class="stringliteral">&quot;gz:system_priority&quot;</span>}</div>
+</div><!-- fragment -->
+<p>Name of the XML element from which the priority value will be parsed. </p>
 
 </div>
 </div>
