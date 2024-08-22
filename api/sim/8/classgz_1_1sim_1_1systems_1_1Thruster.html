@@ -190,7 +190,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This plugin simulates a maritime thruster for boats and underwater vehicles. It uses the equations described in Fossen's "Guidance and Control of Ocean Vehicles" in page 246. This plugin has two modes of operation. In the default mode it takes in a force in Newtons and applies it to the thruster. It also calculates the theoretical angular velocity of the blades and spins them accordingly. Alternatively, one may send angular velocity commands to calculate the force to be applied using the said equation. In the default mode the plugin will publish angular velocity in radians per second on <code>/model/{ns}/joint/{joint_name}/ang_vel</code> as a gz.msgs.double. If &lt;use_angvel_cmd&gt; is set to true it publishes force in Newtons instead to <code>/model/{ns}/joint/{joint_name}/force</code>. </p>
-<h2><a class="anchor" id="autotoc_md483"></a>
+<h2><a class="anchor" id="autotoc_md487"></a>
 System Parameters</h2>
 <ul>
 <li><code>&lt;namespace&gt;</code>: The namespace in which the robot exists. The plugin will listen on the topic <code>/model/{namespace}/joint/{joint_name}/cmd_thrust</code>or <code>/model/{namespace}/joint/{joint_name}/cmd_vel</code> depending on the mode of operation. If {topic} is set then the plugin will listen on {namespace}/{topic} [Optional]</li>
@@ -218,7 +218,7 @@ System Parameters</h2>
 <div class="line">    (Va / (propeller_revolution * propeller_diameter))</div>
 </div><!-- fragment --></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md484"></a>
+<h2><a class="anchor" id="autotoc_md488"></a>
 Example</h2>
 <p>An example configuration is installed with Gazebo. The example uses the <a class="el" href="classgz_1_1sim_1_1systems_1_1LiftDrag.html" title="The LiftDrag system computes lift and drag forces enabling simulation of aerodynamic robots.">LiftDrag</a> plugin to apply steering controls. It also uses the thruster plugin to propell the craft and the buoyancy plugin for buoyant force. To run the example: </p><div class="fragment"><div class="line"><a class="code" href="namespacegz.html" title="This library is part of the Gazebo project.">gz</a> sim auv_controls.sdf</div>
 </div><!-- fragment --><p> To control the rudder of the craft run the following: </p><div class="fragment"><div class="line"><a class="code" href="namespacegz.html" title="This library is part of the Gazebo project.">gz</a> topic -t /model/tethys/joint/vertical_fins_joint/0/cmd_pos \</div>
