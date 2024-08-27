@@ -147,7 +147,7 @@
 <li>Spawn entities at given latitude / longitude</li>
 <li>Teleport entities based on a given latitude / longitude</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md359"></a>
+<h2><a class="anchor" id="autotoc_md363"></a>
 Coordinates for the world origin</h2>
 <p>The world's Cartesian coordinates correspond to a <a href="https://en.wikipedia.org/wiki/Local_tangent_plane_coordinates">local tangent plane</a> at a given point on the planetary surface. By default, this plane follows the ENU (East-North-Up) convention, as shown on the image below:</p>
 <div class="image">
@@ -155,7 +155,7 @@ Coordinates for the world origin</h2>
 </div>
 <p>Users can define where the origin of the ENU coordinates sits on the surface of the planet in three different ways: through the SDF file, the GUI, or through a Gazebo Transport service call.</p>
 <p>Changing the world origin will only affect operations performed afterwards. For example, models already in the world will not be moved when the world origin's coordinates change.</p>
-<h3><a class="anchor" id="autotoc_md360"></a>
+<h3><a class="anchor" id="autotoc_md364"></a>
 SDF file</h3>
 <p>On the SDF file, it's possible to define the world origin's spherical coordinates with the <a href="http://sdformat.org/spec?ver=1.8&amp;elem=world#world_spherical_coordinates"><code>/world/spherical_coordinates</code></a> element.</p>
 <p>For example:</p>
@@ -187,10 +187,10 @@ SDF file</h3>
 <div class="line">  &lt;<span class="keywordtype">surface_axis_equatorial</span>&gt;1738100.0&lt;/<span class="keywordtype">surface_axis_equatorial</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">surface_axis_polar</span>&gt;1736000.0&lt;/<span class="keywordtype">surface_axis_polar</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">spherical_coordinates</span>&gt;</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md361"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md365"></a>
 GUI</h3>
 <p>To change the world origin through the GUI, edit values within the component inspector shown above, and these changes will be reflected on simulation.</p>
-<h3><a class="anchor" id="autotoc_md362"></a>
+<h3><a class="anchor" id="autotoc_md366"></a>
 Service</h3>
 <p>It's also possible to change the coordinates for the world origin at runtime through the <code>/world/&lt;world_name&gt;/set_spherical_coordinates</code> service.</p>
 <p>Loading the world above, try calling for example:</p>
@@ -201,7 +201,7 @@ Service</h3>
 <div class="line">--timeout 2000 \</div>
 <div class="line">--req &quot;surface_model: EARTH_WGS84, latitude_deg: 35.6, longitude_deg: 140.1, elevation: 10.0&quot;</div>
 </div><!-- fragment --><p>You should see the coordinates changing on the GUI.</p>
-<h2><a class="anchor" id="autotoc_md363"></a>
+<h2><a class="anchor" id="autotoc_md367"></a>
 Creating entities</h2>
 <p>See the <a href="entity_creation.html">Entity creation</a> tutorial for an introduction to creating entities.</p>
 <p>In order to create an entity at a given spherical coordinate using the <code>/world/&lt;world_name&gt;/create</code> service, omit the <code>pose</code> field from the <code>gz::msgs::EntityFactory</code> message and use the <code>spherical_coordinates</code> field instead.</p>
@@ -225,7 +225,7 @@ Creating entities</h2>
 <div class="line">&#39;&lt;/model&gt;&#39;\</div>
 <div class="line">&#39;&lt;/sdf&gt;&quot; &#39;\</div>
 <div class="line">&#39;spherical_coordinates: {latitude_deg: 35.59999, longitude_deg: 140.09999, elevation: 11.0} &#39;</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md364"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md368"></a>
 Moving entities</h2>
 <p>It's also possible to move entities to a given spherical coordinate. Just use the <code>set_spherical_coordinate</code> service that was used to set the world origin, but specify the entity to be moved.</p>
 <p>For example, to move the sphere created above:</p>
@@ -234,7 +234,7 @@ Moving entities</h2>
 <div class="line">--reptype gz.msgs.Boolean \</div>
 <div class="line">--timeout 300 \</div>
 <div class="line">--req &#39;entity: {name: &quot;spawned_model&quot;, type: MODEL}, latitude_deg: 35.59990, longitude_deg: 140.09990&#39;</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md365"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md369"></a>
 Querying entities' coordinates</h2>
 <p>When writing plugins, developers can use the <code><a class="el" href="namespacegz_1_1sim.html#aa5263c9dc99be077478cea8ec33dfea4" title="Get the spherical coordinates for an entity.">gz::sim::sphericalCoordinates</a></code> helper function to query the current coordinates for any entity that has a pose. </p>
 </div></div><!-- contents -->

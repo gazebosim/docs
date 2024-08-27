@@ -138,10 +138,10 @@
   <div class="headertitle"><div class="title">md__2____w_2docs_2docs_2ws_2src_2gz-sim_2tutorials_2underwater__vehicles</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md392"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md396"></a>
 Overview</h1>
 <p><a class="anchor" id="underwater_vehicles"></a> Gazebo now supports basic simulation of underwater vehicles. This capability is based on the equations described in Fossen's <a href="https://www.wiley.com/en-sg/Guidance+and+Control+of+Ocean+Vehicles-p-9780471941132">"Guidance and Control of Ocean Vehicles"</a>. This tutorial will guide you through the steps you need to setup simulation of an underwater vehicle. In this tutorial, we will guide you through the setup of the <a href="https://app.gazebosim.org/accurrent/fuel/models/MBARI%20Tethys%20LRAUV">MBARI LRAUV</a>.</p>
-<h2><a class="anchor" id="autotoc_md393"></a>
+<h2><a class="anchor" id="autotoc_md397"></a>
 Related tutorials</h2>
 <p><a href="https://gazebosim.org/api/sim/8/create_vehicle.html">https://gazebosim.org/api/sim/8/create_vehicle.html</a></p>
 <p><a href="https://gazebosim.org/api/sim/8/adding_visuals.html">https://gazebosim.org/api/sim/8/adding_visuals.html</a></p>
@@ -149,7 +149,7 @@ Related tutorials</h2>
 <p><a href="https://gazebosim.org/api/sim/8/adding_system_plugins.html">https://gazebosim.org/api/sim/8/adding_system_plugins.html</a></p>
 <p><a href="https://gazebosim.org/api/sim/8/theory_buoyancy.html">https://gazebosim.org/api/sim/8/theory_buoyancy.html</a></p>
 <p><a href="https://gazebosim.org/api/sim/8/theory_hydrodynamics.html">https://gazebosim.org/api/sim/8/theory_hydrodynamics.html</a></p>
-<h1><a class="anchor" id="autotoc_md394"></a>
+<h1><a class="anchor" id="autotoc_md398"></a>
 Create your vehicle</h1>
 <p>As an example, we'll go through the process of creating an MBARI LRAUV underwater vehicle.</p>
 <p>Create a workspace to store your brand new model named <code>my_lrauv</code>.</p>
@@ -171,7 +171,7 @@ Create your vehicle</h1>
 <p>Let's run the simulation:</p>
 <div class="fragment"><div class="line">gz sim ~/gazebo_maritime/models/my_lrauv/model.sdf</div>
 </div><!-- fragment --><p>You should see Gazebo with your LRAUV loaded. If you hit play, your robot will sadly sink. The good news is that this is expected as we did not attach any plugins to the LRAUV model. Let's do that!</p>
-<h1><a class="anchor" id="autotoc_md395"></a>
+<h1><a class="anchor" id="autotoc_md399"></a>
 Adding buoyancy</h1>
 <p>The first thing we need to decide is how much buoyancy we want to provide to our vehicle. In the LRAUV case, we want a robot with neutral buoyancy. In other words, our robot should maintain depth when stationary.</p>
 <p>Buoyancy works by opposing the weight of the vehicle. In order to compute the amount of buoyancy force, first we need to sum the total weight of our LRAUV. There's a total of <code>148.3571</code> kg (<code>147.8671</code> + <code>0.2</code> + <code>0.2</code> + <code>0.09</code> kgs) when we add the mass of the chassis, fins and propeller. The buoyancy force is proportional the volume of air in the vehicle according to this equation:</p>
@@ -198,7 +198,7 @@ Adding buoyancy</h1>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">box</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">size</span>&gt;2 0.3 0.2464451666666667&lt;/<span class="keywordtype">size</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">box</span>&gt;</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md396"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md400"></a>
 Adding thrusters</h1>
 <p>We need the vehicle to move, so we will be adding the <code>Thruster</code> plugin. The thruster plugin takes in a force and applies it along with calculating the desired rpm. Uncomment the following block from your <code>buoyant_lrauv.sdf</code> world:</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">plugin</span></div>
@@ -218,7 +218,7 @@ Adding thrusters</h1>
 </div><!-- fragment --><p>We should see the model move. The thrusters are governed by the equation on page 246 of Fossen's book. In particular it relates force to rpm as follows:</p>
 <p>$$thrust = fluid\_density * RPM^2 * thrust\_constant * propeller\_blade\_size^4$$</p>
 <p>The plugin takes in commands in newtons. So if you have a different thrust curve you can still use the plugin with some type of adapter script. The thrust constant is normally determined by individual manufacturers. In this case we are using the LRAUV's thrust coefficient. you may also build a test rig to measure your thruster's thrust coefficient.</p>
-<h1><a class="anchor" id="autotoc_md397"></a>
+<h1><a class="anchor" id="autotoc_md401"></a>
 Adding hydrodynamics</h1>
 <p>You may notice that the robot now keeps getting faster and faster. This is because there is no drag to oppose the thruster's force. We will be using Fossen's equations which describe the motion of a craft through the water for this. For better understanding of the parameters here, I would refer you to his book. Usually these parameters can be found via fluid simulation programs or experimental tests in a water tub.</p>
 <p>Uncomment the following block from <code>buoyant_lrauv.sdf</code> to enable hydrodynamics.</p>
@@ -245,7 +245,7 @@ Adding hydrodynamics</h1>
 <div class="line">  &lt;<span class="keywordtype">nRabsR</span>&gt;-632.698957&lt;/<span class="keywordtype">nRabsR</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">nR</span>&gt;0&lt;/<span class="keywordtype">nR</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md398"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md402"></a>
 Adding control surfaces</h1>
 <p>Just like aeroplanes, an underwater vehicle may also use fins for stability and control. Fortunately, Gazebo already has a version of the LiftDrag plugin. In this tutorial, we will simply add two liftdrag plugins to the rudder and elevator of MBARI's LRAUV. For more info about the liftdrag plugin including what the parameters mean, you may look at <a href="http://gazebosim.org/tutorials?tut=aerodynamics&amp;cat=physics">this gazebo classic tutorial</a>. Essentially when we tilt the fins, we should experience a lift force which will cause the vehicle to experience a torque and the vehicle should start turning when we move.</p>
 <p>These are the relevant blocks to enable the LiftDrag plugins. They're already attached to the model for you.</p>
