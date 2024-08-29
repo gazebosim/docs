@@ -374,7 +374,10 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../fuel_insert/">Model Insertion from Fuel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hotkeys/">Keyboard Shortcuts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../spawn_urdf/">Spawn URDF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ros2_integration/">ROS 2 integration via bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_overview/">ROS 2 integration overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_launch_gazebo/">Launch Gazebo from ROS 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_integration/">Use ROS 2 to interact with Gazebo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_spawn_model/">Use ROS 2 to spawn a Gazebo model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ros2_interop/">ROS 2 interoperability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ros_gz_project_template_guide/">ROS 2 integration template</a></li>
 </ul>
@@ -492,10 +495,10 @@ WARNING: Current Windows support is experimental.
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="source-installation-on-windows-10-or-11">
 <h1>Source Installation on Windows 10 or 11<a class="headerlink" href="#source-installation-on-windows-10-or-11" title="Link to this heading">#</a></h1>
-<p>OGRE2 rendering capabilities are not currently supported in Windows, and Gazebo GUI
+<p>OGRE2 rendering capabilities are supported in Windows, and Gazebo GUI
 works in a limited fashion. These functionalities correspond to the currently
 building packages <code class="docutils literal notranslate"><span class="pre">gz-rendering</span></code> and <code class="docutils literal notranslate"><span class="pre">gz-sim</span></code>, respectively. The packages will build,
-but you can expect runtime failures when using their functionalities.</p>
+without any failures when using their functionalities.</p>
 <blockquote>
 <div><p><strong>NOTE</strong>
 You should be able to use <code class="docutils literal notranslate"><span class="pre">ogre</span></code> as a rendering engine instead of the default <code class="docutils literal notranslate"><span class="pre">ogre2</span></code>.
@@ -614,21 +617,22 @@ call<span class="w"> </span>install<span class="se">\s</span>etup.bat
 .<span class="se">\i</span>nstall<span class="se">\s</span>etup.ps1
 </pre></div>
 </div>
-<p>This is the end of the source install instructions; head back to the <a class="reference internal" href="../getstarted/"><span class="doc std std-doc">Getting started</span></a>
-page to start using Gazebo!</p>
-<blockquote>
-<div><p><strong>NOTE</strong>
-As Gazebo GUI is not yet working, running <code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">sim</span></code> will not work. You can run only the server with</p>
-<div class="highlight-batch notranslate"><div class="highlight"><pre><span></span>gz sim -s -v
+<p>You should now be able to launch gazebo:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Launch server in one terminal </span>
+gz<span class="w"> </span>sim<span class="w"> </span>-s
+
+<span class="c1"># In separate terminal, launch gui</span>
+gz<span class="w"> </span>sim<span class="w"> </span>-g
 </pre></div>
 </div>
-</div></blockquote>
+<p>This is the end of the source install instructions; head back to the <a class="reference internal" href="../getstarted/"><span class="doc std std-doc">Getting started</span></a>
+page to start using Gazebo!</p>
 <blockquote>
 <div><p><strong>NOTE</strong>
 If your username contains spaces (which is quite common on Windows), you will probably get errors
 saying <code class="docutils literal notranslate"><span class="pre">Invalid</span> <span class="pre">partition</span> <span class="pre">name</span> <span class="pre">[Computer:My</span> <span class="pre">User</span> <span class="pre">With</span> <span class="pre">Spaces]</span></code>. Fix this by changing <code class="docutils literal notranslate"><span class="pre">GZ_PARTITION</span></code>
 to something else:</p>
-<div class="highlight-batch notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nv">GZ_PARTITION</span><span class="p">=</span>test
+<div class="highlight-bat notranslate"><div class="highlight"><pre><span></span><span class="k">set</span> <span class="nv">GZ_PARTITION</span><span class="p">=</span>test
 </pre></div>
 </div>
 <p>Remember to set the same partition in all other consoles.</p>
@@ -636,11 +640,7 @@ to something else:</p>
 <section id="gazebo-gui-workaround">
 <h3>Gazebo GUI workaround<a class="headerlink" href="#gazebo-gui-workaround" title="Link to this heading">#</a></h3>
 <p>Although running <code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">sim</span></code> without arguments is not supported on Windows,
-and <code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">sim</span> <span class="pre">-g</span></code> is also not supported, there is a workaround you can apply
-to be able to launch <code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">sim</span> <span class="pre">-g</span></code> on Windows.</p>
-<blockquote>
-<div><p>Manually comment <a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/gz-sim7_7.5.0/src/cmd/cmdsim.rb.in#L497-L501">these lines</a> and <a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/gz-sim7_7.5.0/src/cmd/cmdsim.rb.in#L558-L562">these lines</a> in file <code class="docutils literal notranslate"><span class="pre">install\lib\ruby\gz\cmdsim9.rb</span></code>.</p>
-</div></blockquote>
+the <code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">sim</span> <span class="pre">-g</span></code> command is  supported, and you can use it to launch the graphical interface on Windows.</p>
 <p>This should allow you to run the GUI in a separate console, connecting to the server running in another console.</p>
 </section>
 </section>

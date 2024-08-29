@@ -4,10 +4,10 @@ WARNING: Current Windows support is experimental.
 
 # Source Installation on Windows 10 or 11
 
-OGRE2 rendering capabilities are not currently supported in Windows, and Gazebo GUI
+OGRE2 rendering capabilities are supported in Windows, and Gazebo GUI
 works in a limited fashion. These functionalities correspond to the currently
 building packages `gz-rendering` and `gz-sim`, respectively. The packages will build,
-but you can expect runtime failures when using their functionalities.
+without any failures when using their functionalities.
 
 > **NOTE**
 > You should be able to use `ogre` as a rendering engine instead of the default `ogre2`.
@@ -139,20 +139,24 @@ call install\setup.bat
 .\install\setup.ps1
 ```
 
+You should now be able to launch gazebo:
+
+```bash
+# Launch server in one terminal 
+gz sim -s
+
+# In separate terminal, launch gui
+gz sim -g
+```
+
 This is the end of the source install instructions; head back to the [Getting started](getstarted)
 page to start using Gazebo!
-
-> **NOTE**
-> As Gazebo GUI is not yet working, running `gz sim` will not work. You can run only the server with
-> ```batch
-> gz sim -s -v
-> ```
 
 > **NOTE**
 > If your username contains spaces (which is quite common on Windows), you will probably get errors
 >  saying `Invalid partition name [Computer:My User With Spaces]`. Fix this by changing `GZ_PARTITION`
 >  to something else:
-> ```batch
+> ```bat
 > set GZ_PARTITION=test
 > ```
 > Remember to set the same partition in all other consoles.
@@ -160,10 +164,8 @@ page to start using Gazebo!
 ### Gazebo GUI workaround
 
 Although running `gz sim` without arguments is not supported on Windows,
-and `gz sim -g` is also not supported, there is a workaround you can apply
-to be able to launch `gz sim -g` on Windows.
+ the `gz sim -g` command is  supported, and you can use it to launch the graphical interface on Windows.
 
-> Manually comment [these lines](https://github.com/gazebosim/gz-sim/blob/gz-sim7_7.5.0/src/cmd/cmdsim.rb.in#L497-L501) and [these lines](https://github.com/gazebosim/gz-sim/blob/gz-sim7_7.5.0/src/cmd/cmdsim.rb.in#L558-L562) in file `install\lib\ruby\gz\cmdsim9.rb`.
 
 This should allow you to run the GUI in a separate console, connecting to the server running in another console.
 

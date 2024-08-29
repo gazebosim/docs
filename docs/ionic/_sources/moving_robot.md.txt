@@ -63,7 +63,7 @@ After the `-p` option we specify the content (value) of the message: linear spee
 
 **Hint:** You can know what every topic option does using this command: `gz topic -h`
 
-For more information about `Topics` and `Messages` in Gazebo check the [Transport library tutorials](https://gazebosim.org/api/transport/9.0/tutorials.html)
+For more information about `Topics` and `Messages` in Gazebo check the [Transport library tutorials](https://gazebosim.org/api/transport/14/tutorials.html)
 
 ## Moving the robot using the keyboard
 

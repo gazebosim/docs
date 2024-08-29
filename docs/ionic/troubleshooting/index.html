@@ -374,7 +374,10 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../fuel_insert/">Model Insertion from Fuel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hotkeys/">Keyboard Shortcuts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../spawn_urdf/">Spawn URDF</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ros2_integration/">ROS 2 integration via bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_overview/">ROS 2 integration overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_launch_gazebo/">Launch Gazebo from ROS 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_integration/">Use ROS 2 to interact with Gazebo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_spawn_model/">Use ROS 2 to spawn a Gazebo model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ros2_interop/">ROS 2 interoperability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ros_gz_project_template_guide/">ROS 2 integration template</a></li>
 </ul>
@@ -670,6 +673,12 @@ XWayland by unsetting the <code class="docutils literal notranslate"><span class
 through devices to query for EGL support. The warning is fine to ignore. Gazebo
 should continue to operate without any issues.</p>
 </section>
+<section id="network-configuration-issue">
+<h3>Network Configuration Issue<a class="headerlink" href="#network-configuration-issue" title="Link to this heading">#</a></h3>
+<p>Improper network configuration can cause Gazebo to open a window and then become unresponsive. This issue can be diagnosed by running <code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">sim</span> <span class="pre">-v</span> <span class="pre">4</span> <span class="pre">shapes.sdf</span></code> and checking for the following output:</p>
+<p><code class="docutils literal notranslate"><span class="pre">[GUI]</span> <span class="pre">[Dbg]</span> <span class="pre">[Gui.cc:343]</span> <span class="pre">GUI</span> <span class="pre">requesting</span> <span class="pre">list</span> <span class="pre">of</span> <span class="pre">world</span> <span class="pre">names.</span> <span class="pre">The</span> <span class="pre">server</span> <span class="pre">may</span> <span class="pre">be</span> <span class="pre">busy</span> <span class="pre">downloading</span> <span class="pre">resources.</span> <span class="pre">Please</span> <span class="pre">be</span> <span class="pre">patient.</span></code></p>
+<p>To fix this, enable multicast by following the steps at <a class="reference external" href="https://docs.ros.org/en/rolling/How-To-Guides/Installation-Troubleshooting.html#enable-multicast">ROS Enable Multicast</a>.</p>
+</section>
 </section>
 <section id="windows">
 <h2>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h2>
@@ -742,6 +751,7 @@ foreach<span class="w"> </span><span class="o">{</span>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unable-to-create-the-rendering-window">Unable to create the rendering window</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wayland-issues">Wayland issues</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#egl-warnings">EGL warnings</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#network-configuration-issue">Network Configuration Issue</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a><ul class="nav section-nav flex-column">

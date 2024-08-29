@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>ROS 2 Integration &#8212; Gazebo ionic documentation</title>
+    <title>Use ROS 2 to interact with Gazebo &#8212; Gazebo ionic documentation</title>
   
   
   
@@ -55,8 +55,8 @@
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
-    <link rel="next" title="ROS 2 Interoperability" href="../ros2_interop/" />
-    <link rel="prev" title="Spawn URDF" href="../spawn_urdf/" />
+    <link rel="next" title="Spawn a Gazebo model from ROS 2" href="../ros2_spawn_model/" />
+    <link rel="prev" title="Launch Gazebo from ROS 2" href="../ros2_launch_gazebo/" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -374,7 +374,10 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="../fuel_insert/">Model Insertion from Fuel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../hotkeys/">Keyboard Shortcuts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../spawn_urdf/">Spawn URDF</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">ROS 2 integration via bridge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_overview/">ROS 2 integration overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_launch_gazebo/">Launch Gazebo from ROS 2</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Use ROS 2 to interact with Gazebo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_spawn_model/">Use ROS 2 to spawn a Gazebo model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ros2_interop/">ROS 2 interoperability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ros_gz_project_template_guide/">ROS 2 integration template</a></li>
 </ul>
@@ -470,7 +473,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../tutorials/" class="nav-link">Gazebo Tutorials</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">ROS 2 Integration</li>
+    <li class="breadcrumb-item active" aria-current="page">Use ROS 2...</li>
   </ul>
 </nav>
 </div>
@@ -487,10 +490,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="ros-2-integration">
-<h1>ROS 2 Integration<a class="headerlink" href="#ros-2-integration" title="Link to this heading">#</a></h1>
-<p>In this tutorial we will learn how to Integrate ROS 2 with Gazebo. We will establish
-communication between them. This can help in many aspects; we can receive data (like joint states, TFs) or commands
+  <section class="tex2jax_ignore mathjax_ignore" id="use-ros-2-to-interact-with-gazebo">
+<h1>Use ROS 2 to interact with Gazebo<a class="headerlink" href="#use-ros-2-to-interact-with-gazebo" title="Link to this heading">#</a></h1>
+<p>In this tutorial we will learn how to use ROS 2 to communicate with Gazebo.
+This can help in many aspects; we can receive data (like joint states, TFs) or commands
 from ROS and apply it to Gazebo and vice versa. This can also help to enable RViz to visualize a robot model
 simulatenously simulated by a Gazebo world.</p>
 <section id="ros-gz-bridge">
@@ -498,14 +501,8 @@ simulatenously simulated by a Gazebo world.</p>
 <p><a class="reference external" href="https://github.com/gazebosim/ros_gz"><code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code></a> provides a network bridge which enables the exchange of messages between ROS 2 and <a class="reference external" href="https://github.com/gazebosim/gz-transport">Gazebo Transport</a>. Its support is limited to only certain message types. Please, check this <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md">README</a> to verify if your message type is supported by the bridge.</p>
 <p>Example uses of the bridge can be found in <a class="reference external" href="https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_sim_demos"><code class="docutils literal notranslate"><span class="pre">ros_gz_sim_demos</span></code></a>, including demo launch files with bridging of all major actuation and sensor types.</p>
 </section>
-<section id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">#</a></h2>
-<p>Please follow the <a class="reference internal" href="../ros_installation/"><span class="doc std std-doc">Install Gazebo and ROS document</span></a>
-before starting this tutorial. A working installation of ROS 2 and Gazebo is
-required to go further.</p>
-</section>
-<section id="bidirectional-communication">
-<h2>Bidirectional communication<a class="headerlink" href="#bidirectional-communication" title="Link to this heading">#</a></h2>
+<section id="launching-the-bridge-manually">
+<h2>Launching the bridge manually<a class="headerlink" href="#launching-the-bridge-manually" title="Link to this heading">#</a></h2>
 <p>We can initialize a bidirectional bridge so we can have ROS as the publisher and Gazebo as the subscriber or vice versa. The syntax is <code class="docutils literal notranslate"><span class="pre">/TOPIC&#64;ROS_MSG&#64;GZ_MSG</span></code>, such that <code class="docutils literal notranslate"><span class="pre">TOPIC</span></code> is the Gazebo internal topic, <code class="docutils literal notranslate"><span class="pre">ROS_MSG</span></code> is the ROS message type for this topic, and <code class="docutils literal notranslate"><span class="pre">GZ_MSG</span></code> is the Gazebo message type.</p>
 <p>For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ros2</span> <span class="n">run</span> <span class="n">ros_gz_bridge</span> <span class="n">parameter_bridge</span> <span class="o">/</span><span class="n">scan</span><span class="nd">@sensor_msgs</span><span class="o">/</span><span class="n">msg</span><span class="o">/</span><span class="n">LaserScan</span><span class="nd">@gz</span><span class="o">.</span><span class="n">msgs</span><span class="o">.</span><span class="n">LaserScan</span>
@@ -528,6 +525,63 @@ explaining how to make communication connections from ROS to Gazebo and vice ver
   <span class="n">direction</span><span class="p">:</span> <span class="n">GZ_TO_ROS</span>  <span class="c1"># BIDIRECTIONAL or ROS_TO_GZ</span>
 </pre></div>
 </div>
+<p>The configuration file is a YAML file that contains the mapping between the ROS
+and Gazebo topics to be bridged. For each pair of topics to be bridged, the
+following parameters are accepted:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ros_topic_name</span></code>: The topic name on the ROS side.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gz_topic_name</span></code>: The corresponding topic name on the Gazebo side.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ros_type_name</span></code>: The type of this ROS topic.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gz_type_name</span></code>: The type of this Gazebo topic.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subscriber_queue</span></code>: The size of the ROS subscriber queue.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">publisher_queue</span></code>: The size of the ROS publisher queue.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">lazy</span></code>: Whether there’s a lazy subscriber or not. If there’s no real
+subscribers the bridge won’t create the internal subscribers either. This should
+speedup performance.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">direction</span></code>: It’s possible to specify <code class="docutils literal notranslate"><span class="pre">GZ_TO_ROS</span></code>, <code class="docutils literal notranslate"><span class="pre">ROS_TO_GZ</span></code> and
+<code class="docutils literal notranslate"><span class="pre">BIDIRECTIONAL</span></code>.</p></li>
+</ul>
+<p>See <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/test/config/full.yaml">this example</a>
+for a valid configuration file.</p>
+</section>
+<section id="launching-the-bridge-using-the-launch-files-included-in-ros-gz-bridge-package">
+<h2>Launching the bridge using the launch files included in <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> package.<a class="headerlink" href="#launching-the-bridge-using-the-launch-files-included-in-ros-gz-bridge-package" title="Link to this heading">#</a></h2>
+<p>The package <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> contains a launch file named
+<code class="docutils literal notranslate"><span class="pre">ros_gz_bridge.launch.py</span></code>. You can use it to start a ROS 2 and Gazebo bridge.
+Here’s an example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>ros_gz_bridge<span class="w"> </span>ros_gz_bridge.launch.py<span class="w"> </span>name:<span class="o">=</span>ros_gz_bridge<span class="w"> </span>config_file:<span class="o">=</span>&lt;path_to_your_YAML_file&gt;
+</pre></div>
+</div>
+</section>
+<section id="launching-the-bridge-from-a-custom-launch-file">
+<h2>Launching the bridge from a custom launch file.<a class="headerlink" href="#launching-the-bridge-from-a-custom-launch-file" title="Link to this heading">#</a></h2>
+<p>It’s also possible to trigger the bridge from your custom launch file. For that
+purpose we have created the <code class="docutils literal notranslate"><span class="pre">&lt;ros_gz_bridge/&gt;</span></code> tag that can be used from you
+XML or YAML launch file. In this case, the arguments are passed as attributes
+within this tag. Here’s an example:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;launch&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;ros_gz_bridge&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;config_file&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;container_name&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;ros_gz_container&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;namespace&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;use_composition&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;True&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;use_respawn&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;False&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;log_level&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;info&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;ros_gz_bridge</span><span class="w"> </span>
+<span class="w">    </span><span class="na">name=</span><span class="s">&quot;$(var name)&quot;</span>
+<span class="w">    </span><span class="na">config_file=</span><span class="s">&quot;$(var config_file)&quot;</span>
+<span class="w">    </span><span class="na">container_name=</span><span class="s">&quot;$(var container_name)&quot;</span>
+<span class="w">    </span><span class="na">namespace=</span><span class="s">&quot;$(var namespace)&quot;</span>
+<span class="w">    </span><span class="na">use_composition=</span><span class="s">&quot;$(var use_composition)&quot;</span>
+<span class="w">    </span><span class="na">use_respawn=</span><span class="s">&quot;$(var use_respawn)&quot;</span>
+<span class="w">    </span><span class="na">log_level=</span><span class="s">&quot;$(var log_level)&quot;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/ros_gz_bridge&gt;</span>
+<span class="nt">&lt;/launch&gt;</span>
+</pre></div>
+</div>
+<p>In this case the <code class="docutils literal notranslate"><span class="pre">&lt;ros_gz_bridge&gt;</span></code> parameters are read from the command line.
+That’s an option but not strictly necessary as you could decide to hardcode some
+of the values.</p>
 </section>
 <section id="publish-key-strokes-to-ros">
 <h2>Publish key strokes to ROS<a class="headerlink" href="#publish-key-strokes-to-ros" title="Link to this heading">#</a></h2>
@@ -605,8 +659,9 @@ ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </s
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ros-gz-bridge">ros_gz_bridge</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#requirements">Requirements</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bidirectional-communication">Bidirectional communication</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-the-bridge-manually">Launching the bridge manually</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-the-bridge-using-the-launch-files-included-in-ros-gz-bridge-package">Launching the bridge using the launch files included in <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> package.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-the-bridge-from-a-custom-launch-file">Launching the bridge from a custom launch file.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publish-key-strokes-to-ros">Publish key strokes to ROS</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video-walk-through">Video walk-through</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-in-rviz">Visualize in RViz</a></li>
