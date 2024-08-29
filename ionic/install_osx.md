@@ -1,6 +1,7 @@
 # Binary Installation on MacOS
 
 All the Ionic binaries are available in Monterey and Ventura using the
+
 [Homebrew package manager](https://brew.sh/). After installing Homebrew, Gazebo Ionic can be installed running:
 
 ```bash
