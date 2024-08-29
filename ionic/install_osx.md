@@ -1,6 +1,6 @@
 # Binary Installation on MacOS
 
-All the Ionic binaries are available in Big Sur and Monterey using the
+All the Ionic binaries are available in Monterey and Ventura using the
 [homebrew package manager](https://brew.sh/).
 
 The homebrew tool can be installed using:
