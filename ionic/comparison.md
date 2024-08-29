@@ -36,7 +36,7 @@ Sonar | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/19)
 Thermal camera | ✕  | ✓
 Triggered camera | ✕ | ✓
 Wide-angle camera | ✓ | ✓
-Wireless | ✓ | [Issue](https://github.com/gazebosim/gz-sensors/issues/28)
+Wireless | ✓ | ✓ RFComms
 
 Sensor features | Gazebo-classic | Gazebo Sim
 -- | -- | --

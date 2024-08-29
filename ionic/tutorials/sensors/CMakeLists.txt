@@ -3,8 +3,8 @@ cmake_minimum_required(VERSION 3.10.2 FATAL_ERROR)
 project(avoid_wall)
 
 # Find the Gazebo_Transport library
-find_package(gz-transport12 QUIET REQUIRED OPTIONAL_COMPONENTS log)
-set(GZ_TRANSPORT_VER ${gz-transport12_VERSION_MAJOR})
+find_package(gz-transport14 QUIET REQUIRED OPTIONAL_COMPONENTS log)
+set(GZ_TRANSPORT_VER ${gz-transport14_VERSION_MAJOR})
 
 include_directories(${CMAKE_BINARY_DIR})
 
