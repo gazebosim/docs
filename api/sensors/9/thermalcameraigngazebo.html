@@ -36,7 +36,7 @@
         <h1 class="project_title">Gazebo Sensors</h1>
         <h2>API Reference</h2>
         <div class="version">
-        9.0.0~pre1
+        9.0.0~pre2
         </div>
       </header>
       <!-- NOTE: If you add a link to a doxygen generated page, then make
@@ -140,7 +140,7 @@
 <div class="contents">
 <div class="textblock"><p>In this tutorial, we will discuss how to use a thermal camera sensor in <a href="https://gazebosim.org/libs/sim">Gazebo</a>.</p>
 <p>There are currently a few limitations with the thermal camera, which will be mentioned at the end of the tutorial.</p>
-<h2><a class="anchor" id="autotoc_md40"></a>
+<h2><a class="anchor" id="autotoc_md39"></a>
 Requirements</h2>
 <p>Since this tutorial will show how to use a thermal camera sensor in Gazebo, you'll need to have Gazebo installed. We recommend installing all Gazebo libraries, using version Citadel or newer (the thermal camera is not available in Gazebo versions prior to Citadel).</p>
 <p>The following thermal camera capabilities are available starting from Gazebo Dome:</p><ul>
@@ -148,7 +148,7 @@ Requirements</h2>
 <li>8-bit thermal camera image format (the default thermal camera image format is 16-bit)</li>
 </ul>
 <p>If you need to install Gazebo, <a href="https://gazebosim.org/docs">pick the version you'd like to use</a> and then follow the installation instructions.</p>
-<h2><a class="anchor" id="autotoc_md41"></a>
+<h2><a class="anchor" id="autotoc_md40"></a>
 Setting up the thermal camera</h2>
 <p>Here's an example of how to attach a thermal camera sensor to a model in a <a href="http://sdformat.org/">SDF</a> file:</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">model</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;thermal_camera_8bit&quot;</span>&gt;</div>
@@ -243,11 +243,11 @@ Setting up the thermal camera</h2>
 <li><code>&lt;max_temp&gt;</code>: The thermal camera's maximum temperature, in Kelvin. The default maximum temperature is calculated as <code>(2^(bitDepth) - 1) * resolution</code>. For a 8-bit thermal camera with a linear resolution of <code>3.0</code>, the maximum temperature is <code>((2^8) - 1) * 3 = 765 Kelvin</code>.</li>
 <li><code>&lt;resolution&gt;</code>: The thermal camera's linear resolution. The default linear resolution is <code>0.01</code> for a 16-bit thermal camera, and <code>3.0</code> for a 8-bit thermal camera.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md42"></a>
+<h2><a class="anchor" id="autotoc_md41"></a>
 Assigning a temperature to a model</h2>
 <p>Now that we have set up our thermal camera, we'll need to assign temperatures to models in the environment. If a model doesn't have a temperature associated with it, then the model's temperature is set to the ambient temperature. There will be some variation in the model's temperature based on the model's color and the world's temperature gradient.</p>
 <p>The thermal camera can support objects that either have a uniform or varying surface temperature. We will go over each approach in the following subsections.</p>
-<h3><a class="anchor" id="autotoc_md43"></a>
+<h3><a class="anchor" id="autotoc_md42"></a>
 Setting atmospheric temperature properties</h3>
 <p>It is recommended to specify the ambient temperature and world's temperature gradient, since this dictates how objects with no specified temperature appear. Here's an example that sets the ambient temperature to 300 kelvin, and the temperature gradient to 0.1 Kelvin/meter:</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">atmosphere</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;adiabatic&quot;</span>&gt;</div>
@@ -262,7 +262,7 @@ Setting atmospheric temperature properties</h3>
 <div class="line">  &lt;<span class="keywordtype">temperature_gradient</span>&gt;0.1&lt;/<span class="keywordtype">temperature_gradient</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">atmosphere</span>&gt;</div>
 </div><!-- fragment --><p>The default values for ambient temperature and temperature gradient can be found in the <a href="http://sdformat.org/spec?ver=1.7&amp;elem=world#world_atmosphere">SDFormat Specification</a>.</p>
-<h3><a class="anchor" id="autotoc_md44"></a>
+<h3><a class="anchor" id="autotoc_md43"></a>
 Objects with a uniform temperature</h3>
 <p>Here's an example of a box model that has a uniform temperature assigned to it:</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">model</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;box&quot;</span>&gt;</div>
@@ -312,7 +312,7 @@ Objects with a uniform temperature</h3>
 <div class="line">  &lt;<span class="keywordtype">temperature</span>&gt;285.0&lt;/<span class="keywordtype">temperature</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
 </div><!-- fragment --><p>Once the thermal system plugin is specified, all we need to do is include the <code>&lt;temperature&gt;</code> element, which specifies the model's temperature in Kelvin.</p>
-<h3><a class="anchor" id="autotoc_md45"></a>
+<h3><a class="anchor" id="autotoc_md44"></a>
 Objects with a varying surface temperature</h3>
 <p>Most of the time, objects have a varying surface temperature. Here's an example of the <a href="https://app.gazebosim.org/OpenRobotics/fuel/models/Rescue%20Randy">Rescue Randy</a> model, which has a "heat signature" applied to it. The heat signature is a texture that can be applied to a model, which specifies the model's temperature across its surface.</p>
 <p>If we take a look at Rescue Randy's <code>model.sdf</code>, we can see that it incorporates the thermal system plugin, just like the uniform temperature box example above:</p>
@@ -327,7 +327,7 @@ Objects with a varying surface temperature</h3>
 <li><code>&lt;min_temp&gt;</code>: The minimum temperature (in Kelvin) that should be represented by the heat signature. This defaults to the world's ambient temperature if not specified.</li>
 <li><code>&lt;max_temp&gt;</code>: The maximum temperature (in Kelvin) that should be represented by the heat signature. This defaults to the world's ambient temperature if not specified.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md46"></a>
+<h2><a class="anchor" id="autotoc_md45"></a>
 Running an example:</h2>
 <p>Now that we've discussed how a thermal camera and models with temperature can be specified, let's start an example world that uses the thermal camera.</p>
 <p>Run the following command:</p>
@@ -351,7 +351,7 @@ Running an example:</h2>
 <img src="thermal_camera_demo_3.png" alt=""/>
 </div>
 <p>Since Rescue Randy's maximum temperature (500 Kelvin) is significantly larger (~200 Kelvin or more) than the temperature of other objects in the scene, Rescue Randy is now a lot brighter compared to the rest of each camera's output.</p>
-<h2><a class="anchor" id="autotoc_md47"></a>
+<h2><a class="anchor" id="autotoc_md46"></a>
 Processing the thermal camera's output</h2>
 <p>In the example above, the thermal cameras publish an <a href="https://github.com/gazebosim/gz-msgs/blob/main/proto/gz/msgs/image.proto">image message</a> to the following topics whenever the camera has a new image:</p><ul>
 <li>8-bit thermal camera: <code>/thermal_camera_8bit/image</code></li>
@@ -428,7 +428,7 @@ Processing the thermal camera's output</h2>
 <li>The image published by the camera is represented as serialized bytes. In order to read the actual temperature data that's stored in the image, we need to convert the data in the image to unsigned 16-bit integers.</li>
 <li>Once the image is stored in an array of unsigned 16-bit integers, we'll need to multiply the data in this array by the camera's linear resolution in order to ensure we are working with units of Kelvin. Since this thermal camera has a linear resolution of .01 (10mK), and the maximum value that can be stored in an unsigned 16-bit integer is 65535, this means that the maximum temperature that can be recorded by this camera is (65535 * .01) = 655.35 Kelvin / 680.72 F / 360.4 C.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md48"></a>
+<h2><a class="anchor" id="autotoc_md47"></a>
 Thermal Camera Limitations</h2>
 <p>The thermal camera has a few limitations:</p><ul>
 <li>If one object with a given temperature blocks another object with a given temperature (with respect to the thermal camera's point of view), the blocked object will not be displayed at all, regardless of each object's thickness and temperature difference between them (see the image below for an example). A more realistic implementation would have the camera display temperature fluctuations in the closer object if the temperature difference between the two objects is large enough, and if the closer object isn't too thick.<ul>

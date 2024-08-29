@@ -36,7 +36,7 @@
         <h1 class="project_title">Gazebo Common</h1>
         <h2>API Reference</h2>
         <div class="version">
-        6.0.0~pre1
+        6.0.0~pre2
         </div>
       </header>
       <!-- NOTE: If you add a link to a doxygen generated page, then make
@@ -146,34 +146,27 @@
   <div class="headertitle"><div class="title">Console.hh File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<div class="textblock"><code>#include &lt;spdlog/logger.h&gt;</code><br />
+<code>#include &lt;spdlog/spdlog.h&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
-<code>#include &lt;memory&gt;</code><br />
-<code>#include &lt;mutex&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;ostream&gt;</code><br />
 <code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;gz/common/Export.hh&gt;</code><br />
-<code>#include &lt;gz/utils/SuppressWarning.hh&gt;</code><br />
 <code>#include &lt;<a class="el" href="include_2gz_2common_2Util_8hh_source.html">gz/common/Util.hh</a>&gt;</code><br />
+<code>#include &lt;gz/utils/log/Logger.hh&gt;</code><br />
+<code>#include &lt;gz/utils/SuppressWarning.hh&gt;</code><br />
 </div>
 <p><a href="Console_8hh_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1FileLogger_1_1Buffer.html">FileLogger::Buffer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">String buffer for the file logger.  <a href="classgz_1_1common_1_1FileLogger_1_1Buffer.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1Logger_1_1Buffer.html">Logger::Buffer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">String buffer for the base logger.  <a href="classgz_1_1common_1_1Logger_1_1Buffer.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1Console.html">Console</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container for loggers, and global logging options (such as verbose vs. quiet output).  <a href="classgz_1_1common_1_1Console.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1FileLogger.html">FileLogger</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A logger that outputs messages to a file.  <a href="classgz_1_1common_1_1FileLogger.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1Logger.html">Logger</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Terminal logger.  <a href="classgz_1_1common_1_1Logger.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1LogMessage.html">LogMessage</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper class for providing gzlog macros.  <a href="classgz_1_1common_1_1LogMessage.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -186,32 +179,56 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a58c4a30f09cc339a21a6f92a75cd367a" id="r_a58c4a30f09cc339a21a6f92a75cd367a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Console_8hh.html#a58c4a30f09cc339a21a6f92a75cd367a">gzdbg</a>&#160;&#160;&#160;(Console::dbg(__FILE__, __LINE__))</td></tr>
-<tr class="memdesc:a58c4a30f09cc339a21a6f92a75cd367a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output a debug message, if the verbose level is &gt;= 4.  <br /></td></tr>
+<tr class="memitem:a05b52dd6b72bdc6d3dc89ea57bccaaef" id="r_a05b52dd6b72bdc6d3dc89ea57bccaaef"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Console_8hh.html#a05b52dd6b72bdc6d3dc89ea57bccaaef">gzcrit</a></td></tr>
+<tr class="memdesc:a05b52dd6b72bdc6d3dc89ea57bccaaef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output a critical message.  <br /></td></tr>
+<tr class="separator:a05b52dd6b72bdc6d3dc89ea57bccaaef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58c4a30f09cc339a21a6f92a75cd367a" id="r_a58c4a30f09cc339a21a6f92a75cd367a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Console_8hh.html#a58c4a30f09cc339a21a6f92a75cd367a">gzdbg</a></td></tr>
+<tr class="memdesc:a58c4a30f09cc339a21a6f92a75cd367a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output a debug message.  <br /></td></tr>
 <tr class="separator:a58c4a30f09cc339a21a6f92a75cd367a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf18c83e7419e002351f1eeceb6c2cf4" id="r_acf18c83e7419e002351f1eeceb6c2cf4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Console_8hh.html#acf18c83e7419e002351f1eeceb6c2cf4">gzerr</a>&#160;&#160;&#160;(Console::err(__FILE__, __LINE__))</td></tr>
-<tr class="memdesc:acf18c83e7419e002351f1eeceb6c2cf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output an error message, if the verbose level is &gt;= 1.  <br /></td></tr>
+<tr class="memitem:acf18c83e7419e002351f1eeceb6c2cf4" id="r_acf18c83e7419e002351f1eeceb6c2cf4"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Console_8hh.html#acf18c83e7419e002351f1eeceb6c2cf4">gzerr</a></td></tr>
+<tr class="memdesc:acf18c83e7419e002351f1eeceb6c2cf4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output an error message.  <br /></td></tr>
 <tr class="separator:acf18c83e7419e002351f1eeceb6c2cf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefef8dba50fdec1fb53a2b6522af17d2" id="r_aefef8dba50fdec1fb53a2b6522af17d2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Console_8hh.html#aefef8dba50fdec1fb53a2b6522af17d2">gzlog</a>&#160;&#160;&#160;(Console::log())</td></tr>
-<tr class="memdesc:aefef8dba50fdec1fb53a2b6522af17d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output a message to a log file, regardless of verbosity level.  <br /></td></tr>
+<tr class="memitem:aefef8dba50fdec1fb53a2b6522af17d2" id="r_aefef8dba50fdec1fb53a2b6522af17d2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Console_8hh.html#aefef8dba50fdec1fb53a2b6522af17d2">gzlog</a></td></tr>
+<tr class="memdesc:aefef8dba50fdec1fb53a2b6522af17d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output a message to a log file.  <br /></td></tr>
 <tr class="separator:aefef8dba50fdec1fb53a2b6522af17d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b5468d68970d59e0ac185f24706f0ec" id="r_a4b5468d68970d59e0ac185f24706f0ec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Console_8hh.html#a4b5468d68970d59e0ac185f24706f0ec">gzLogClose</a>()&#160;&#160;&#160;        Console::log.Close()</td></tr>
+<tr class="memitem:a4b5468d68970d59e0ac185f24706f0ec" id="r_a4b5468d68970d59e0ac185f24706f0ec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Console_8hh.html#a4b5468d68970d59e0ac185f24706f0ec">gzLogClose</a>()&#160;&#160;&#160;      Console::Close()</td></tr>
 <tr class="memdesc:a4b5468d68970d59e0ac185f24706f0ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Close the file used for logging.  <br /></td></tr>
 <tr class="separator:a4b5468d68970d59e0ac185f24706f0ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac63c2a12a0ea8a2bf628ad6d286abd78" id="r_ac63c2a12a0ea8a2bf628ad6d286abd78"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Console_8hh.html#ac63c2a12a0ea8a2bf628ad6d286abd78">gzLogDirectory</a>()&#160;&#160;&#160;        (Console::log.LogDirectory())</td></tr>
+<tr class="memitem:ac63c2a12a0ea8a2bf628ad6d286abd78" id="r_ac63c2a12a0ea8a2bf628ad6d286abd78"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Console_8hh.html#ac63c2a12a0ea8a2bf628ad6d286abd78">gzLogDirectory</a>()&#160;&#160;&#160;      (Console::Directory())</td></tr>
 <tr class="memdesc:ac63c2a12a0ea8a2bf628ad6d286abd78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the full path of the directory where the log files are stored.  <br /></td></tr>
 <tr class="separator:ac63c2a12a0ea8a2bf628ad6d286abd78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf4526e2e3c3a5ab51712756542de3a0" id="r_adf4526e2e3c3a5ab51712756542de3a0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Console_8hh.html#adf4526e2e3c3a5ab51712756542de3a0">gzLogInit</a>(_dir,  _file)&#160;&#160;&#160;        Console::log.Init(_dir, _file)</td></tr>
+<tr class="memitem:adf4526e2e3c3a5ab51712756542de3a0" id="r_adf4526e2e3c3a5ab51712756542de3a0"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Console_8hh.html#adf4526e2e3c3a5ab51712756542de3a0">gzLogInit</a>(_dir,  _file)&#160;&#160;&#160;      Console::Init(_dir, _file)</td></tr>
 <tr class="memdesc:adf4526e2e3c3a5ab51712756542de3a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize log file with filename given by _dir/_file. If called twice, it will close the file currently in use and open a new log file.  <br /></td></tr>
 <tr class="separator:adf4526e2e3c3a5ab51712756542de3a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4477f82c7273e73b91daf71766bcfda6" id="r_a4477f82c7273e73b91daf71766bcfda6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Console_8hh.html#a4477f82c7273e73b91daf71766bcfda6">gzmsg</a>&#160;&#160;&#160;(Console::msg())</td></tr>
-<tr class="memdesc:a4477f82c7273e73b91daf71766bcfda6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output a message, if the verbose level is &gt;= 3.  <br /></td></tr>
+<tr class="memitem:a4477f82c7273e73b91daf71766bcfda6" id="r_a4477f82c7273e73b91daf71766bcfda6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Console_8hh.html#a4477f82c7273e73b91daf71766bcfda6">gzmsg</a></td></tr>
+<tr class="memdesc:a4477f82c7273e73b91daf71766bcfda6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output a message.  <br /></td></tr>
 <tr class="separator:a4477f82c7273e73b91daf71766bcfda6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeaf9d2ac2ef57897410c40b1a379c543" id="r_aeaf9d2ac2ef57897410c40b1a379c543"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Console_8hh.html#aeaf9d2ac2ef57897410c40b1a379c543">gzwarn</a>&#160;&#160;&#160;(Console::warn(__FILE__, __LINE__))</td></tr>
-<tr class="memdesc:aeaf9d2ac2ef57897410c40b1a379c543"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output a warning message, if the verbose level is &gt;= 2.  <br /></td></tr>
+<tr class="memitem:a61bddf842d1b3ab35e850e5fa176b3a5" id="r_a61bddf842d1b3ab35e850e5fa176b3a5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Console_8hh.html#a61bddf842d1b3ab35e850e5fa176b3a5">gztrace</a></td></tr>
+<tr class="memdesc:a61bddf842d1b3ab35e850e5fa176b3a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output a trace message.  <br /></td></tr>
+<tr class="separator:a61bddf842d1b3ab35e850e5fa176b3a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeaf9d2ac2ef57897410c40b1a379c543" id="r_aeaf9d2ac2ef57897410c40b1a379c543"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Console_8hh.html#aeaf9d2ac2ef57897410c40b1a379c543">gzwarn</a></td></tr>
+<tr class="memdesc:aeaf9d2ac2ef57897410c40b1a379c543"><td class="mdescLeft">&#160;</td><td class="mdescRight">Output a warning message.  <br /></td></tr>
 <tr class="separator:aeaf9d2ac2ef57897410c40b1a379c543"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a05b52dd6b72bdc6d3dc89ea57bccaaef" name="a05b52dd6b72bdc6d3dc89ea57bccaaef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05b52dd6b72bdc6d3dc89ea57bccaaef">&#9670;&#160;</a></span>gzcrit</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define gzcrit</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">      (LogMessage( \</div>
+<div class="line">      __FILE__, __LINE__, spdlog::level::critical).stream())</div>
+</div><!-- fragment -->
+<p>Output a critical message. </p>
+
+</div>
+</div>
 <a id="a58c4a30f09cc339a21a6f92a75cd367a" name="a58c4a30f09cc339a21a6f92a75cd367a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a58c4a30f09cc339a21a6f92a75cd367a">&#9670;&#160;</a></span>gzdbg</h2>
 
@@ -219,12 +236,14 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define gzdbg&#160;&#160;&#160;(Console::dbg(__FILE__, __LINE__))</td>
+          <td class="memname">#define gzdbg</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Output a debug message, if the verbose level is &gt;= 4. </p>
+<b>Value:</b><div class="fragment"><div class="line">      LogMessage( \</div>
+<div class="line">      __FILE__, __LINE__, spdlog::level::debug).stream()</div>
+</div><!-- fragment -->
+<p>Output a debug message. </p>
 
 </div>
 </div>
@@ -235,12 +254,14 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define gzerr&#160;&#160;&#160;(Console::err(__FILE__, __LINE__))</td>
+          <td class="memname">#define gzerr</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Output an error message, if the verbose level is &gt;= 1. </p>
+<b>Value:</b><div class="fragment"><div class="line">      LogMessage( \</div>
+<div class="line">      __FILE__, __LINE__, spdlog::level::err).stream()</div>
+</div><!-- fragment -->
+<p>Output an error message. </p>
 
 </div>
 </div>
@@ -251,12 +272,14 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define gzlog&#160;&#160;&#160;(Console::log())</td>
+          <td class="memname">#define gzlog</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Output a message to a log file, regardless of verbosity level. </p>
+<b>Value:</b><div class="fragment"><div class="line">      LogMessage( \</div>
+<div class="line">      __FILE__, __LINE__, spdlog::level::err).stream()</div>
+</div><!-- fragment -->
+<p>Output a message to a log file. </p>
 
 </div>
 </div>
@@ -270,7 +293,7 @@ Macros</h2></td></tr>
           <td class="memname">#define gzLogClose</td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;        Console::log.Close()</td>
+          <td>&#160;&#160;&#160;      Console::Close()</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -289,7 +312,7 @@ Macros</h2></td></tr>
           <td class="memname">#define gzLogDirectory</td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td>&#160;&#160;&#160;        (Console::log.LogDirectory())</td>
+          <td>&#160;&#160;&#160;      (Console::Directory())</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -320,7 +343,7 @@ Macros</h2></td></tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;        Console::log.Init(_dir, _file)</td>
+          <td></td><td>&#160;&#160;&#160;      Console::Init(_dir, _file)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -329,7 +352,7 @@ Macros</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">_dir</td><td>Name of directory in which to store the log file. Note that if _dir is not an absolute path, then _dir will be relative to your home directory. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">_file</td><td>Name of log file for ignlog messages. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_file</td><td>Name of log file for gzlog messages. </td></tr>
   </table>
   </dd>
 </dl>
@@ -343,12 +366,32 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define gzmsg&#160;&#160;&#160;(Console::msg())</td>
+          <td class="memname">#define gzmsg</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">      LogMessage( \</div>
+<div class="line">      __FILE__, __LINE__, spdlog::level::info).stream()</div>
+</div><!-- fragment -->
+<p>Output a message. </p>
 
-<p>Output a message, if the verbose level is &gt;= 3. </p>
+</div>
+</div>
+<a id="a61bddf842d1b3ab35e850e5fa176b3a5" name="a61bddf842d1b3ab35e850e5fa176b3a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61bddf842d1b3ab35e850e5fa176b3a5">&#9670;&#160;</a></span>gztrace</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define gztrace</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Value:</b><div class="fragment"><div class="line">      LogMessage( \</div>
+<div class="line">      __FILE__, __LINE__, spdlog::level::trace).stream()</div>
+</div><!-- fragment -->
+<p>Output a trace message. </p>
 
 </div>
 </div>
@@ -359,12 +402,14 @@ Macros</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define gzwarn&#160;&#160;&#160;(Console::warn(__FILE__, __LINE__))</td>
+          <td class="memname">#define gzwarn</td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Output a warning message, if the verbose level is &gt;= 2. </p>
+<b>Value:</b><div class="fragment"><div class="line">      LogMessage( \</div>
+<div class="line">      __FILE__, __LINE__, spdlog::level::warn).stream()</div>
+</div><!-- fragment -->
+<p>Output a warning message. </p>
 
 </div>
 </div>

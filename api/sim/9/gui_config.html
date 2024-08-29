@@ -147,7 +147,13 @@ How to load different GUI configurations</h2>
 <li>A <code>&lt;gui&gt;</code> element inside an SDF file</li>
 <li>The default configuration file at <code>$HOME/.gz/sim/&lt;#&gt;/gui.config</code> *, where <code>&lt;#&gt;</code> is Gazebo Sim's major version.</li>
 </ol>
-<p>Each of the items above takes precedence over the ones below it. For example, if a user chooses a <code>--gui-config</code>, the SDF's <code>&lt;gui&gt;</code> element is ignored. And the default configuration file is only loaded if no configuration is passed through the command line or the SDF file.</p>
+<p>If a configuration file is specified using <code>--gui-config</code>, Gazebo will ignore both the <code>&lt;gui&gt;</code> element inside the SDF file and the default configuration file. Otherwise, Gazebo will load plugins by combining plugins in the <code>&lt;gui&gt;</code> element and the default configuration file. How Gazebo combines these plugins is determined by the <code>&lt;include_gui_default_plugins&gt;</code> policy set in <code>&lt;gz:policies&gt;</code>:</p>
+<ul>
+<li><p class="startli"><code>&lt;include_gui_default_plugins&gt;true&lt;/include_gui_default_plugins&gt;</code>: Plugins from the default configuration file merged with plugins from the SDF file. Plugins from SDF files take precedence over plugins from the default configuration file. This means, if a plugin is specified in both places, by default, only the one specified in the SDF file will be loaded. If replacement occurs, the replacement plugin will take the position of the replaced plugin in the order of plugins. If replacement does not occur, the plugin is appended to the end of the list.</p>
+<p class="startli">The main use case for this policy is for users to rely on the default list of plugins and only add extra plugins they need for the application. This policy is also useful for overriding the parameters of a small subset of the default plugins. This is the default setting in Gazebo Ionic and later.</p>
+</li>
+<li><code>&lt;include_gui_default_plugins&gt;false&lt;/include_gui_default_plugins&gt;</code>: If there are any plugins specified in the SDF file, plugins from the default configuration file are ignored. This allows the user to have complete control over which plugins are loaded. This is the default setting in Gazebo Harmonic and earlier.</li>
+</ul>
 <blockquote class="doxtable">
 <p>&zwj;* For log-playback, the default file is <code>$HOME/.gz/sim/&lt;#&gt;/playback_gui.config</code> </p>
 </blockquote>
@@ -155,8 +161,8 @@ How to load different GUI configurations</h2>
 Try it out</h2>
 <h3><a class="anchor" id="autotoc_md115"></a>
 Default configuration</h3>
-<p>Let's try this in practice. First, let's open Gazebo without passing any arguments:</p>
-<p><code>gz sim</code></p>
+<p>Let's try this in practice. First, let's open the default Gazebo world:</p>
+<p><code>gz sim default.sdf</code></p>
 <p>You should see an empty world with several plugins loaded by default, such as the 3D Scene, the play/pause button, etc.</p>
 <div class="image">
 <img src="default_gui.png" alt=""/>
@@ -171,7 +177,7 @@ Default configuration</h3>
 </li>
 <li>Change <code>material_theme</code> from <code>Light</code> to <code>Dark</code></li>
 <li><p class="startli">Reload Gazebo:</p>
-<p class="startli"><code>gz sim</code></p>
+<p class="startli"><code>gz sim default.sdf</code></p>
 </li>
 </ol>
 <p>Note how the UI is now in dark mode!</p>
@@ -183,68 +189,135 @@ Default configuration</h3>
 <h3><a class="anchor" id="autotoc_md116"></a>
 SDF</h3>
 <p>Let's try overriding the default configuration from an SDF file. Open your favorite editor and save this file as <code>fuel_preview.sdf</code>:</p>
-<div class="fragment"><div class="line">&lt;?xml version=&quot;1.0&quot; ?&gt;</div>
-<div class="line">&lt;sdf version=&quot;1.6&quot;&gt;</div>
-<div class="line">  &lt;world name=&quot;fuel_preview&quot;&gt;</div>
-<div class="line">    &lt;plugin</div>
-<div class="line">      filename=&quot;gz-sim-scene-broadcaster-system&quot;</div>
-<div class="line">      name=&quot;gz::sim::systems::SceneBroadcaster&quot;&gt;</div>
-<div class="line">    &lt;/plugin&gt;</div>
+<div class="fragment"><div class="line">&lt;?<span class="keyword">xml</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.0&quot;</span> ?&gt;</div>
+<div class="line">&lt;<span class="keywordtype">sdf</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.6&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">world</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;fuel_preview&quot;</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">plugin</span></div>
+<div class="line">      <span class="keyword">filename</span>=<span class="stringliteral">&quot;gz-sim-scene-broadcaster-system&quot;</span></div>
+<div class="line">      <span class="keyword">name</span>=<span class="stringliteral">&quot;gz::sim::systems::SceneBroadcaster&quot;</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">plugin</span>&gt;</div>
 <div class="line"> </div>
-<div class="line">    &lt;gui fullscreen=&quot;0&quot;&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">gz:policies</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">include_gui_default_plugins</span>&gt;<span class="keyword">false</span>&lt;/<span class="keywordtype">include_gui_default_plugins</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">gz:policies</span>&gt;</div>
 <div class="line"> </div>
-<div class="line">      &lt;!-- 3D scene --&gt;</div>
-<div class="line">      &lt;plugin filename=&quot;MinimalScene&quot; name=&quot;3D View&quot;&gt;</div>
-<div class="line">        &lt;gz-gui&gt;</div>
-<div class="line">          &lt;title&gt;3D View&lt;/title&gt;</div>
-<div class="line">          &lt;property type=&quot;bool&quot; key=&quot;showTitleBar&quot;&gt;false&lt;/property&gt;</div>
-<div class="line">          &lt;property type=&quot;string&quot; key=&quot;state&quot;&gt;docked&lt;/property&gt;</div>
-<div class="line">        &lt;/gz-gui&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">gui</span> <span class="keyword">fullscreen</span>=<span class="stringliteral">&quot;0&quot;</span>&gt;</div>
 <div class="line"> </div>
-<div class="line">        &lt;engine&gt;ogre2&lt;/engine&gt;</div>
-<div class="line">        &lt;scene&gt;scene&lt;/scene&gt;</div>
-<div class="line">        &lt;ambient_light&gt;1.0 1.0 1.0&lt;/ambient_light&gt;</div>
-<div class="line">        &lt;background_color&gt;0.4 0.6 1.0&lt;/background_color&gt;</div>
-<div class="line">        &lt;camera_pose&gt;8.3 7 7.8 0 0.5 -2.4&lt;/camera_pose&gt;</div>
-<div class="line">      &lt;/plugin&gt;</div>
-<div class="line">      &lt;plugin filename=&quot;GzSceneManager&quot; name=&quot;Scene Manager&quot;&gt;</div>
-<div class="line">        &lt;gz-gui&gt;</div>
-<div class="line">          &lt;property key=&quot;resizable&quot; type=&quot;bool&quot;&gt;false&lt;/property&gt;</div>
-<div class="line">          &lt;property key=&quot;width&quot; type=&quot;double&quot;&gt;5&lt;/property&gt;</div>
-<div class="line">          &lt;property key=&quot;height&quot; type=&quot;double&quot;&gt;5&lt;/property&gt;</div>
-<div class="line">          &lt;property key=&quot;state&quot; type=&quot;string&quot;&gt;floating&lt;/property&gt;</div>
-<div class="line">          &lt;property key=&quot;showTitleBar&quot; type=&quot;bool&quot;&gt;false&lt;/property&gt;</div>
-<div class="line">        &lt;/gz-gui&gt;</div>
-<div class="line">      &lt;/plugin&gt;</div>
-<div class="line">      &lt;plugin filename=&quot;InteractiveViewControl&quot; name=&quot;Interactive view control&quot;&gt;</div>
-<div class="line">        &lt;gz-gui&gt;</div>
-<div class="line">          &lt;property key=&quot;resizable&quot; type=&quot;bool&quot;&gt;false&lt;/property&gt;</div>
-<div class="line">          &lt;property key=&quot;width&quot; type=&quot;double&quot;&gt;5&lt;/property&gt;</div>
-<div class="line">          &lt;property key=&quot;height&quot; type=&quot;double&quot;&gt;5&lt;/property&gt;</div>
-<div class="line">          &lt;property key=&quot;state&quot; type=&quot;string&quot;&gt;floating&lt;/property&gt;</div>
-<div class="line">          &lt;property key=&quot;showTitleBar&quot; type=&quot;bool&quot;&gt;false&lt;/property&gt;</div>
-<div class="line">        &lt;/gz-gui&gt;</div>
-<div class="line">      &lt;/plugin&gt;</div>
+<div class="line">      <span class="comment">&lt;!-- 3D scene --&gt;</span></div>
+<div class="line">      &lt;<span class="keywordtype">plugin</span> <span class="keyword">filename</span>=<span class="stringliteral">&quot;MinimalScene&quot;</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;3D View&quot;</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">gz-gui</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">title</span>&gt;3<span class="keyword">D</span> <span class="keyword">View</span>&lt;/<span class="keywordtype">title</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;bool&quot;</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;showTitleBar&quot;</span>&gt;<span class="keyword">false</span>&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;string&quot;</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;state&quot;</span>&gt;<span class="keyword">docked</span>&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">gz-gui</span>&gt;</div>
 <div class="line"> </div>
-<div class="line">    &lt;/gui&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">engine</span>&gt;<span class="keyword">ogre2</span>&lt;/<span class="keywordtype">engine</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">scene</span>&gt;<span class="keyword">scene</span>&lt;/<span class="keywordtype">scene</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">ambient_light</span>&gt;1.0 1.0 1.0&lt;/<span class="keywordtype">ambient_light</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">background_color</span>&gt;0.4 0.6 1.0&lt;/<span class="keywordtype">background_color</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">camera_pose</span>&gt;8.3 7 7.8 0 0.5 -2.4&lt;/<span class="keywordtype">camera_pose</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">plugin</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">plugin</span> <span class="keyword">filename</span>=<span class="stringliteral">&quot;GzSceneManager&quot;</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;Scene Manager&quot;</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">gz-gui</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;resizable&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;bool&quot;</span>&gt;<span class="keyword">false</span>&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;width&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;double&quot;</span>&gt;5&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;height&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;double&quot;</span>&gt;5&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;state&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;string&quot;</span>&gt;<span class="keyword">floating</span>&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;showTitleBar&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;bool&quot;</span>&gt;<span class="keyword">false</span>&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">gz-gui</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">plugin</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">plugin</span> <span class="keyword">filename</span>=<span class="stringliteral">&quot;InteractiveViewControl&quot;</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;Interactive view control&quot;</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">gz-gui</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;resizable&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;bool&quot;</span>&gt;<span class="keyword">false</span>&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;width&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;double&quot;</span>&gt;5&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;height&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;double&quot;</span>&gt;5&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;state&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;string&quot;</span>&gt;<span class="keyword">floating</span>&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;showTitleBar&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;bool&quot;</span>&gt;<span class="keyword">false</span>&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">gz-gui</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">plugin</span>&gt;</div>
 <div class="line"> </div>
-<div class="line">    &lt;include&gt;</div>
-<div class="line">      &lt;uri&gt;https://fuel.gazebosim.org/1.0/OpenRobotics/models/Sun&lt;/uri&gt;</div>
-<div class="line">    &lt;/include&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">gui</span>&gt;</div>
 <div class="line"> </div>
-<div class="line">    &lt;include&gt;</div>
-<div class="line">      &lt;uri&gt;https://fuel.gazebosim.org/1.0/OpenRobotics/models/Gazebo&lt;/uri&gt;</div>
-<div class="line">    &lt;/include&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">include</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">uri</span>&gt;<span class="keyword">https:</span>//<span class="keyword">fuel.gazebosim.org</span>/1.0/<span class="keyword">OpenRobotics</span>/<span class="keyword">models</span>/<span class="keyword">Sun</span>&lt;/<span class="keywordtype">uri</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">include</span>&gt;</div>
 <div class="line"> </div>
-<div class="line">  &lt;/world&gt;</div>
-<div class="line">&lt;/sdf&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">include</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">uri</span>&gt;<span class="keyword">https:</span>//<span class="keyword">fuel.gazebosim.org</span>/1.0/<span class="keyword">OpenRobotics</span>/<span class="keyword">models</span>/<span class="keyword">Gazebo</span>&lt;/<span class="keywordtype">uri</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">include</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">  &lt;/<span class="keywordtype">world</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">sdf</span>&gt;</div>
 </div><!-- fragment --><p>Now let's load this world:</p>
 <p><code>gz sim &lt;path to&gt;/fuel_preview.sdf</code></p>
-<p>Notice how the application has only one GUI plugin loaded, the 3D scene, as defined on the SDF file above.</p>
+<p>Notice how the application has only 3 GUI plugins loaded, as defined on the SDF file above.</p>
 <div class="image">
 <img src="fuel_preview.png" alt=""/>
 </div>
 <p>If you delete the <code>&lt;gui&gt;</code> element from the file above and reload it, you'll see the same model loaded into the default GUI layout.</p>
+<div class="image">
+<img src="fuel_preview_no_gui.png" alt=""/>
+</div>
+<p>Now, let's change the policy so that default plugins are included</p>
+<div class="fragment"><div class="line">&lt;?<span class="keyword">xml</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.0&quot;</span> ?&gt;</div>
+<div class="line">&lt;<span class="keywordtype">sdf</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.6&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">world</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;fuel_preview&quot;</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">plugin</span></div>
+<div class="line">      <span class="keyword">filename</span>=<span class="stringliteral">&quot;gz-sim-scene-broadcaster-system&quot;</span></div>
+<div class="line">      <span class="keyword">name</span>=<span class="stringliteral">&quot;gz::sim::systems::SceneBroadcaster&quot;</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">plugin</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">    &lt;<span class="keywordtype">gz:policies</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">include_gui_default_plugins</span>&gt;<span class="keyword">true</span>&lt;/<span class="keywordtype">include_gui_default_plugins</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">gz:policies</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">gui</span> <span class="keyword">fullscreen</span>=<span class="stringliteral">&quot;0&quot;</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">      <span class="comment">&lt;!-- 3D scene --&gt;</span></div>
+<div class="line">      &lt;<span class="keywordtype">plugin</span> <span class="keyword">filename</span>=<span class="stringliteral">&quot;MinimalScene&quot;</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;3D View&quot;</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">gz-gui</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">title</span>&gt;3<span class="keyword">D</span> <span class="keyword">View</span>&lt;/<span class="keywordtype">title</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;bool&quot;</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;showTitleBar&quot;</span>&gt;<span class="keyword">false</span>&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;string&quot;</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;state&quot;</span>&gt;<span class="keyword">docked</span>&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">gz-gui</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">        &lt;<span class="keywordtype">engine</span>&gt;<span class="keyword">ogre2</span>&lt;/<span class="keywordtype">engine</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">scene</span>&gt;<span class="keyword">scene</span>&lt;/<span class="keywordtype">scene</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">ambient_light</span>&gt;1.0 1.0 1.0&lt;/<span class="keywordtype">ambient_light</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">background_color</span>&gt;0.4 0.6 1.0&lt;/<span class="keywordtype">background_color</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">camera_pose</span>&gt;8.3 7 7.8 0 0.5 -2.4&lt;/<span class="keywordtype">camera_pose</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">plugin</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">plugin</span> <span class="keyword">filename</span>=<span class="stringliteral">&quot;GzSceneManager&quot;</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;Scene Manager&quot;</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">gz-gui</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;resizable&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;bool&quot;</span>&gt;<span class="keyword">false</span>&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;width&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;double&quot;</span>&gt;5&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;height&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;double&quot;</span>&gt;5&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;state&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;string&quot;</span>&gt;<span class="keyword">floating</span>&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;showTitleBar&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;bool&quot;</span>&gt;<span class="keyword">false</span>&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">gz-gui</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">plugin</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">plugin</span> <span class="keyword">filename</span>=<span class="stringliteral">&quot;InteractiveViewControl&quot;</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;Interactive view control&quot;</span>&gt;</div>
+<div class="line">        &lt;<span class="keywordtype">gz-gui</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;resizable&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;bool&quot;</span>&gt;<span class="keyword">false</span>&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;width&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;double&quot;</span>&gt;5&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;height&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;double&quot;</span>&gt;5&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;state&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;string&quot;</span>&gt;<span class="keyword">floating</span>&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">          &lt;<span class="keywordtype">property</span> <span class="keyword">key</span>=<span class="stringliteral">&quot;showTitleBar&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;bool&quot;</span>&gt;<span class="keyword">false</span>&lt;/<span class="keywordtype">property</span>&gt;</div>
+<div class="line">        &lt;/<span class="keywordtype">gz-gui</span>&gt;</div>
+<div class="line">      &lt;/<span class="keywordtype">plugin</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">    &lt;/<span class="keywordtype">gui</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">    &lt;<span class="keywordtype">include</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">uri</span>&gt;<span class="keyword">https:</span>//<span class="keyword">fuel.gazebosim.org</span>/1.0/<span class="keyword">OpenRobotics</span>/<span class="keyword">models</span>/<span class="keyword">Sun</span>&lt;/<span class="keywordtype">uri</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">include</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">    &lt;<span class="keywordtype">include</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">uri</span>&gt;<span class="keyword">https:</span>//<span class="keyword">fuel.gazebosim.org</span>/1.0/<span class="keyword">OpenRobotics</span>/<span class="keyword">models</span>/<span class="keyword">Gazebo</span>&lt;/<span class="keywordtype">uri</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">include</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">  &lt;/<span class="keywordtype">world</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">sdf</span>&gt;</div>
+</div><!-- fragment --><p>You will now see the same model loaded in the default GUI layout similar to when you deleted the <code>&lt;gui&gt;</code> element altogether. Note that this will also be the behavior if we removed <code>&lt;include_gui_default_plugins&gt;</code> tag.</p>
 <div class="image">
 <img src="fuel_preview_no_gui.png" alt=""/>
 </div>
