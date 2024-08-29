@@ -1,6 +1,6 @@
 # Binary Installation on Ubuntu
 
-Ionic binaries are provided for Ubuntu Jammy (22.04) and Ubuntu Noble (24.04). The
+Ionic binaries are provided for Ubuntu Noble (24.04). The
 Ionic binaries are hosted in the packages.osrfoundation.org repository.
 To install all of them, the metapackage `gz-ionic` can be installed.
 

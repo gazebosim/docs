@@ -1,7 +1,7 @@
-# ROS 2 Integration
+# Use ROS 2 to interact with Gazebo
 
-In this tutorial we will learn how to Integrate ROS 2 with Gazebo. We will establish
-communication between them. This can help in many aspects; we can receive data (like joint states, TFs) or commands
+In this tutorial we will learn how to use ROS 2 to communicate with Gazebo. 
+This can help in many aspects; we can receive data (like joint states, TFs) or commands
 from ROS and apply it to Gazebo and vice versa. This can also help to enable RViz to visualize a robot model
 simulatenously simulated by a Gazebo world.
 
@@ -11,13 +11,7 @@ simulatenously simulated by a Gazebo world.
 
 Example uses of the bridge can be found in [`ros_gz_sim_demos`](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_sim_demos), including demo launch files with bridging of all major actuation and sensor types.
 
-## Requirements
-
-Please follow the [Install Gazebo and ROS document](ros_installation)
-before starting this tutorial. A working installation of ROS 2 and Gazebo is
-required to go further.
-
-## Bidirectional communication
+## Launching the bridge manually
 
 We can initialize a bidirectional bridge so we can have ROS as the publisher and Gazebo as the subscriber or vice versa. The syntax is `/TOPIC@ROS_MSG@GZ_MSG`, such that `TOPIC` is the Gazebo internal topic, `ROS_MSG` is the ROS message type for this topic, and `GZ_MSG` is the Gazebo message type.
 
@@ -47,6 +41,67 @@ It is also possible to use ROS Launch with the `ros_gz_bridge` and represent the
   gz_type_name: "gz.msgs.LaserScan"
   direction: GZ_TO_ROS  # BIDIRECTIONAL or ROS_TO_GZ
 ```
+
+The configuration file is a YAML file that contains the mapping between the ROS
+and Gazebo topics to be bridged. For each pair of topics to be bridged, the
+following parameters are accepted:
+
+* `ros_topic_name`: The topic name on the ROS side.
+* `gz_topic_name`: The corresponding topic name on the Gazebo side.
+* `ros_type_name`: The type of this ROS topic.
+* `gz_type_name`: The type of this Gazebo topic.
+* `subscriber_queue`: The size of the ROS subscriber queue.
+* `publisher_queue`: The size of the ROS publisher queue.
+* `lazy`: Whether there's a lazy subscriber or not. If there's no real
+subscribers the bridge won't create the internal subscribers either. This should
+speedup performance.
+* `direction`: It's possible to specify `GZ_TO_ROS`, `ROS_TO_GZ` and
+`BIDIRECTIONAL`.
+
+See [this example](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/test/config/full.yaml)
+for a valid configuration file.
+
+## Launching the bridge using the launch files included in `ros_gz_bridge` package.
+
+The package `ros_gz_bridge` contains a launch file named
+`ros_gz_bridge.launch.py`. You can use it to start a ROS 2 and Gazebo bridge.
+Here's an example:
+
+```bash
+ros2 launch ros_gz_bridge ros_gz_bridge.launch.py name:=ros_gz_bridge config_file:=<path_to_your_YAML_file>
+```
+
+## Launching the bridge from a custom launch file.
+
+It's also possible to trigger the bridge from your custom launch file. For that
+purpose we have created the `<ros_gz_bridge/>` tag that can be used from you
+XML or YAML launch file. In this case, the arguments are passed as attributes
+within this tag. Here's an example:
+
+```xml
+<launch>
+  <arg name="name" default="ros_gz_bridge" />
+  <arg name="config_file" default="" />
+  <arg name="container_name" default="ros_gz_container" />
+  <arg name="namespace" default="" />
+  <arg name="use_composition" default="True" />
+  <arg name="use_respawn" default="False" />
+  <arg name="log_level" default="info" />
+  <ros_gz_bridge 
+    name="$(var name)"
+    config_file="$(var config_file)"
+    container_name="$(var container_name)"
+    namespace="$(var namespace)"
+    use_composition="$(var use_composition)"
+    use_respawn="$(var use_respawn)"
+    log_level="$(var log_level)">
+  </ros_gz_bridge>
+</launch>
+```
+
+In this case the `<ros_gz_bridge>` parameters are read from the command line.
+That's an option but not strictly necessary as you could decide to hardcode some
+of the values.
 
 ## Publish key strokes to ROS
 

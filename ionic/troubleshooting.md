@@ -201,6 +201,13 @@ This message is printed out by Ogre 2 on initialization when it enumerates
 through devices to query for EGL support. The warning is fine to ignore. Gazebo
 should continue to operate without any issues.
 
+### Network Configuration Issue
+Improper network configuration can cause Gazebo to open a window and then become unresponsive. This issue can be diagnosed by running ```gz sim -v 4 shapes.sdf``` and checking for the following output:
+
+```[GUI] [Dbg] [Gui.cc:343] GUI requesting list of world names. The server may be busy downloading resources. Please be patient.```
+
+To fix this, enable multicast by following the steps at [ROS Enable Multicast](https://docs.ros.org/en/rolling/How-To-Guides/Installation-Troubleshooting.html#enable-multicast).
+
 
 ## Windows
 

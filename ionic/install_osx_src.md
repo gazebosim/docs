@@ -12,33 +12,34 @@ The easiest way to get the sources of all libraries is to use
 
 To compile all the different libraries and gz-sim in the right order
 [colcon](https://colcon.readthedocs.io/en/released/) is recommended.
-The colcon tool is available on all platforms using pip (or pip3, if pip fails).
 
-## Python3 from homebrew
-
-Tools and dependencies for Ionic can be installed using the [homebrew package manager](https://brew.sh/).
-The homebrew tool can be installed by entering the following in a terminal:
+Tools and dependencies for Ionic can be installed using the [Homebrew package manager](https://brew.sh/). After installing Homebrew, add the `osrf/simulation` to Homebrew tap to be able to install prebuilt dependencies.
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+brew tap osrf/simulation
+brew update
 ```
 
-Ionic is compatible with Python3; it can be installed by running the following in a terminal:
+### Install compiler requirements
+
+Building Gazebo Libraries require at least Xcode 10 on MacOS Mojave. The Xcode Command Line Tools are sufficient, and can be installed with:
+
+```bash
+xcode-select --install
+```
+
+## Python 3 from Homebrew
+
+Ionic is compatible with Python 3. Install the latest version from Homebrew:
 
 ```bash
 brew install python3
 ```
 
-## vcstool and colcon from pip
-
-PIP is available on all platforms:
+## vcstool and colcon from PyPI
 
 ```bash
-python3 -m pip install vcstool
-```
-
-```bash
-python3 -m pip install -U colcon-common-extensions
+python3 -m pip install -U colcon-common-extensions vcstool
 ```
 
 ## Getting the sources
@@ -55,7 +56,7 @@ All the sources of gazebo-ionic are declared in a yaml file. Download
 it to the workspace:
 
 ```bash
-curl -O https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-ionic.yaml
+curl -OL https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-ionic.yaml
 ```
 
 Use `vcstool` to automatically retrieve all the Gazebo libraries sources from
@@ -69,19 +70,10 @@ The src subdirectory should contain all the sources ready to be built.
 
 ## Install dependencies
 
-Add `osrf/simulation` to Homebrew formulae
-
-```bash
-brew update
-brew tap osrf/simulation
-```
-
-Install all dependencies:
-
 Dependency for Ogre:
 
 ```bash
-brew cask install xquartz
+brew install --cask xquartz
 ```
 
 General dependencies:
@@ -102,17 +94,6 @@ Unlink `qt` to avoid conflicts with other versions of qt (e.g. qt6)
 ```
 brew unlink qt
 ```
-
-### Install compiler requirements
-
-The Gazebo Libraries require the Xcode 10 compiler on MacOS Mojave.
-
-On Mac machines, gcc is acquired by installing Xcode command line tools.
-The required version of Xcode for Ionic is Xcode 10.3, which can be downloaded from
-[Apple Developer Site](https://developer.apple.com/download/more/).
-You will need to sign in to your Apple account and download the Mojave version of
-Xcode command line tools. Command line tools can also be obtained by downloading
-Xcode from the Apple App Store (installing the full app may take over an hour).
 
 ## Building the Gazebo Libraries
 
@@ -172,16 +153,16 @@ If there are no errors, all the binaries should be ready to use.
 
 The workspace needs to be sourced every time a new terminal is used.
 
-Run the following command to source the workspace in bash:
-
-```bash
-. ~/workspace/install/setup.bash
-```
-
-Or in zsh:
+Run the following command to source the workspace in zsh (the default macOS shell):
 
 ```zsh
 . ~/workspace/install/setup.zsh
+```
+
+Or if you are using bash:
+
+```bash
+. ~/workspace/install/setup.bash
 ```
 
 You should now be able to launch gazebo:
