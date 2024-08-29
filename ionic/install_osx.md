@@ -1,7 +1,7 @@
 # Binary Installation on MacOS
 
-All the Harmonic binaries are available in Monterey and Ventura using the
-[Homebrew package manager](https://brew.sh/). After installing Homebrew, Gazebo Harmonic can be installed running:
+All the Ionic binaries are available in Monterey and Ventura using the
+[Homebrew package manager](https://brew.sh/). After installing Homebrew, Gazebo Ionic can be installed running:
 
 ```bash
 brew tap osrf/simulation
