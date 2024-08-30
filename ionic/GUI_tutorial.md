@@ -48,8 +48,8 @@ An interface configuration consists of the plugins you have loaded and the style
 
 ![toolbars](tutorials/gui/toolbars.png)
 
-The top left toolbar hanging below the file menu button contains shape buttons (sphere, box, cylinder, capsule and ellipsoid) as well as lighting controls (point, directional and spot). 
-The shape buttons allow you to directly insert a box, sphere, cylinder capsule, or ellipsoid model into the world.
+The top left toolbar hanging below the file menu button contains shape buttons (box, sphere, cone, cylinder, capsule) as well as lighting controls (point, directional and spot). 
+The shape buttons allow you to directly insert a box, sphere, cone, cylinder or capsule model into the world.
 Simply click on the shape you would like to insert, and place it into the world.
 The shape will automatically snap onto the ground plane, and its properties will show up on the Entity Tree plugin window.
 
@@ -91,7 +91,8 @@ Currently, you can navigate the scene with a mouse in several ways:
 * **Left-click**: select entity
 * **Right-click**: opens menu with options:
   * *Move to*: center the scene on an entity
-  * *Follow*: choose an entity for the view to  stay centered on, whether it moves or you pan around
+  * *Follow*: open a submenu with different options to choose the view behaviour, whether it moves or you pan around
+  * *Track*: choose an entity for the view to track
   * *Remove*: erase the entity from the simulation
   * *Copy*: copy the entity to the virtual clipboard
   * *Paste*: paste the entity from the virtual clipboard creating a duplicate
@@ -120,7 +121,7 @@ Along the bottom edge of the scene, you'll notice several buttons:
 
 ![Playback buttons](tutorials/gui/playback.png)
 
-From left to right, the options are `Play`, `Steps` and `RTF` (real time factor).
+From left to right, the options are `Play`, `Steps`, `Reset`,  `RTF` (real time factor).
 
 Pressing `Play` will start the simulation.
 You can use the same button to pause the simulation as well.
@@ -129,6 +130,8 @@ The `Steps` button allows you to step through the simulation at the rate of a st
 You can customize step size by hovering over the button.
 
 ![hover steps](tutorials/gui/hover_steps.png)
+
+Pressing `Reset` will clear any unsaved modification to the scene. Clicking it will remove the newly inserted shapes `box_0`, `sphere_0` and `capsule_0`.
 
 At the furthest right end of the scene, you can expand `RTF` to see not only the percentage value that compares real time with sim time, but also those individual values themselves, as well as iteration count.
 
