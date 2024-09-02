@@ -150,7 +150,7 @@ colcon build --merge-install
 To speed up the build process, you could also disable tests by using
 
 ```bash
-colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install
+colcon build --cmake-args ' -DBUILD_TESTING=OFF' --merge-install
 ```
 
 To use debuggers activate debug symbols. Gazebo will run slower, but you'll be able to use GDB:
@@ -228,7 +228,7 @@ To perform QML debugging you'll need:
 You will need to build Gazebo with:
 
 ```bash
-colcon build --cmake-args -DQT_QML_DEBUG --merge-install
+colcon build --cmake-args ' -DQT_QML_DEBUG' --merge-install
 ```
 
 > **Note:** Advanced users may note that only the `gz-sim` project needs this flag.
