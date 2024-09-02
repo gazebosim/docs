@@ -143,6 +143,13 @@ colcon graph
 If that is the case, then you are ready
 to build the whole set of libraries:
 
+<div class="warning">
+WARNING: compilation can take up to 16Gb of RAM memory. Use MAKEFLAGS with
+colcon as detailed in its instructions to reduce the number of
+compilation threads if needed.
+</div>
+
+
 ```bash
 colcon build --merge-install
 ```
