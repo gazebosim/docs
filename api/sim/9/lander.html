@@ -157,7 +157,7 @@ Basic SDF</h2>
 <p>Create a workspace to store your brand new model named <code>my_lander</code>.</p>
 <div class="fragment"><div class="line">mkdir -p ~/gazebo_maritime/models/my_lander &amp;&amp; cd ~/gazebo_maritime/models/my_lander</div>
 </div><!-- fragment --><p>Download the <code>model.config</code> file and copy it within that directory:</p>
-<div class="fragment"><div class="line">wget https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim8/tutorials/files/lander/model.config -O ~/gazebo_maritime/models/my_lander/model.config</div>
+<div class="fragment"><div class="line">wget https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim9/tutorials/files/lander/model.config -O ~/gazebo_maritime/models/my_lander/model.config</div>
 </div><!-- fragment --><p>In its simple version, the lander does not have any moving pieces, so the SDF model only has one single link, <code>base_link</code> in our case.</p>
 <p>Create a <code>model.sdf</code> and paste the following content:</p>
 <div class="fragment"><div class="line">&lt;?<span class="keyword">xml</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.0&quot;</span>?&gt;</div>
@@ -200,7 +200,7 @@ Basic SDF</h2>
 Adding visuals</h2>
 <p>Let's now add nicer-looking visuals to our lander. Download the following <code>COLLADA</code> mesh file from here.</p>
 <div class="fragment"><div class="line">mkdir ~/gazebo_maritime/models/my_lander/meshes</div>
-<div class="line">wget https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim8/tutorials/files/lander/inkfish-lander.dae -O ~/gazebo_maritime/models/my_lander/meshes/inkfish-lander.dae</div>
+<div class="line">wget https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim9/tutorials/files/lander/inkfish-lander.dae -O ~/gazebo_maritime/models/my_lander/meshes/inkfish-lander.dae</div>
 </div><!-- fragment --><p>Replace the <code>chassis_visual</code> element in your <code>model.sdf</code> with the following block:</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">visual</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;chassis_visual&quot;</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">geometry</span>&gt;</div>
@@ -210,7 +210,7 @@ Adding visuals</h2>
 <div class="line">  &lt;/<span class="keywordtype">geometry</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">visual</span>&gt;</div>
 </div><!-- fragment --><p>And launch Gazebo to see the results:</p>
-<div class="fragment"><div class="line">gz sim ~/my_models/my_lander/model.sdf</div>
+<div class="fragment"><div class="line">gz sim ~/gazebo_maritime/models/my_lander/model.sdf</div>
 </div><!-- fragment --><p>Your box should now be replaced with a better looking mesh.</p>
 <div class="image">
 <img src="lander_visuals.png" alt=""/>
@@ -235,7 +235,7 @@ Buoyancy</h3>
 </ol>
 <p>Let's start with the world. Download the following world:</p>
 <div class="fragment"><div class="line">mkdir -p ~/gazebo_maritime/worlds</div>
-<div class="line">wget https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim8/tutorials/files/lander/buoyant_lander.sdf -O ~/gazebo_maritime/worlds/buoyant_lander.sdf</div>
+<div class="line">wget https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim9/tutorials/files/lander/buoyant_lander.sdf -O ~/gazebo_maritime/worlds/buoyant_lander.sdf</div>
 <div class="line">export GZ_SIM_RESOURCE_PATH=:$HOME/gazebo_maritime/models</div>
 </div><!-- fragment --><p>Now, open your <code>~/gazebo_maritime/models/my_lander/model.sdf</code> and add the low volume outer collision elements to the <code>base_link</code>:</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">collision</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;collision_top&quot;</span>&gt;</div>

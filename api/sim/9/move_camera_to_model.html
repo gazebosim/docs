@@ -145,7 +145,7 @@ How to move the camera to a model</h2>
 <li>Load the <b>View Angle</b> plugin. This service is only available when the <b>View Angle</b> plugin is loaded.</li>
 <li>Call the service using the request message type <code>gz.msgs.GUICamera</code> and the response message type <code>gz.msgs.Boolean</code>. The distance to the object is defined as the z coordinate, and the direction of the camera with a quaternion. It's possible to select the projection type.</li>
 </ol>
-<p>For example, Let's move the camera to the <code>box</code> model looking down from 5 meters away.</p>
+<p>For example, Let's move the camera to the <code>box</code> model looking down from 5 meters away. This example uses the <code>shapes.sdf</code> world.</p>
 <div class="fragment"><div class="line">gz service  -s /gui/move_to/model --reqtype gz.msgs.GUICamera  --reptype gz.msgs.Boolean -r &#39;name: &quot;box&quot;, pose: {position: {z:5}, orientation: {x:0, y:0, z: -1, w:0}}, projection_type: &quot;orbit&quot;&#39; --timeout 5000</div>
 </div><!-- fragment --><div class="image">
 <img src="files/move_camera_to_model/box_5.gif" alt=""/>

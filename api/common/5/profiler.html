@@ -160,7 +160,7 @@ On custom example</h3>
 <div class="line">void thread(<span class="keyword">const</span> <span class="keywordtype">char</span> *_thread_name)</div>
 <div class="line">{</div>
 <div class="line">  <span class="comment">// Sets the name of the thread to appear in the UI</span></div>
-<div class="line">  <a class="code" href="gz_2common_2Profiler_8hh.html#a969e457aa69134b1852732ad1b7695b3">GZ_PROFILE_TTHREAD_NAME</a>(_thread_name);</div>
+<div class="line">  <a class="code" href="gz_2common_2Profiler_8hh.html#a969e457aa69134b1852732ad1b7695b3">GZ_PROFILE_THREAD_NAME</a>(_thread_name);</div>
 <div class="line">  <span class="keywordflow">while</span> (running)</div>
 <div class="line">  {</div>
 <div class="line">    <span class="comment">// Add a profiling point to this scope.</span></div>
@@ -183,7 +183,7 @@ On custom example</h3>
 <div class="line">add_executable(profiler_example profiler.cc)</div>
 <div class="line">target_link_libraries(profiler_example <a class="code" href="namespaceignition.html">ignition</a>-common5::profiler)</div>
 <div class="line"><span class="preprocessor"># Enable the profiler for the example</span></div>
-<div class="line"><span class="preprocessor">target_compile_definitions(profiler_example PUBLIC &quot;GZ_PROFILER_ENABLE=1&quot;)</span></div>
+<div class="line"><span class="preprocessor">target_compile_definitions(profiler_example PUBLIC &quot;GZ_PROFILER_ENABLE=1&quot;</span>)</div>
 </div><!-- fragment --><p>Run <code>cmake</code> and build the example</p>
 <div class="fragment"><div class="line">cd build</div>
 <div class="line">cmake ..</div>
@@ -218,7 +218,7 @@ On custom example</h3>
 On Gazebo library</h3>
 <p>If you want to use profiler on any other Gazebo library, enable the profiler at compile time with <code>ENABLE_PROFILER</code> cmake argument.</p>
 <p>When compiling with <code>CMake</code>: </p><div class="fragment"><div class="line">cmake .. -DENABLE_PROFILER=1</div>
-</div><!-- fragment --><p>When compiling with <code>colcon</code>: </p><div class="fragment"><div class="line">colcon build --cmake-args -DENABLE_PROFILER=1</div>
+</div><!-- fragment --><p> When compiling with <code>colcon</code>: </p><div class="fragment"><div class="line">colcon build --cmake-args -DENABLE_PROFILER=1</div>
 </div><!-- fragment --><p>Run your Gazebo library then go to your Gazebo installation path and open the profiler browser using: </p><div class="fragment"><div class="line">&lt;workspace&gt;/install/libexec/gz/gz-common&lt;N&gt;/gz_remotery_vis</div>
 </div><!-- fragment --><p>If the profiler is run successfully, you should see output in a browser. Similar to this</p>
 <p><img src="https://raw.githubusercontent.com/gazebosim/gz-common/main/tutorials/imgs/profiler_tutorial_example.png" alt="" class="inline"/></p>
