@@ -562,7 +562,26 @@ Let’s try this plugin as follows:</p>
 </ul>
 <p>The last command will display all messages sent on <code class="docutils literal notranslate"><span class="pre">/keyboard/keypress</span></code> topic.</p>
 <p>In the Gazebo window press different keys and you should see data (numbers) on the terminal where you run the <code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">topic</span> <span class="pre">-e</span> <span class="pre">-t</span> <span class="pre">/keyboard/keypress</span></code> command.</p>
-<p><img alt="KeyPublisher" src="../_images/keypublisher_data.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gz topic -e -t /keyboard/keypress
+data: 68
+
+data: 85
+
+data: 72
+
+data: 74
+
+data: 81
+
+data: 16777235
+
+data: 16777234
+
+data: 16777237
+
+data: 16777236
+</pre></div>
+</div>
 <p>We want to map these keystrokes into messages of type <code class="docutils literal notranslate"><span class="pre">Twist</span></code> and publish them to the <code class="docutils literal notranslate"><span class="pre">/cmd_vel</span></code> topic which our model listens to.
 The <code class="docutils literal notranslate"><span class="pre">TriggeredPublisher</span></code> plugin will do this.</p>
 </section>
@@ -585,7 +604,7 @@ Let’s add the following code under the <code class="docutils literal notransla
 <p>This code defines the <code class="docutils literal notranslate"><span class="pre">triggered-publisher</span></code> plugin.
 It accepts messages of type <code class="docutils literal notranslate"><span class="pre">gz.msgs.Int32</span></code> on the <code class="docutils literal notranslate"><span class="pre">/keyboard/keypress</span></code> topic and if the value in the <code class="docutils literal notranslate"><span class="pre">data</span></code> field matches <code class="docutils literal notranslate"><span class="pre">16777235</span></code>(Up arrow key) it outputs a <code class="docutils literal notranslate"><span class="pre">Twist</span></code> message on the <code class="docutils literal notranslate"><span class="pre">cmd_vel</span></code> topic with values <code class="docutils literal notranslate"><span class="pre">x:</span> <span class="pre">0.5</span></code>, <code class="docutils literal notranslate"><span class="pre">z:</span> <span class="pre">0.0</span></code>.</p>
 <p>Now launch <code class="docutils literal notranslate"><span class="pre">building_robot.sdf</span></code> then add the Key Publisher plugin and our robot should move forward as we press the Up arrow key ↑ (make sure you start the simulation by pressing the play button to see the robot move forward after pressing the Up arrow key).</p>
-<p>There is a demo explaining how the <a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/gz-sim7/tutorials/triggered_publisher.md">Triggered Publisher</a> works.</p>
+<p>There is a demo explaining how the <a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/gz-sim9/tutorials/triggered_publisher.md">Triggered Publisher</a> works.</p>
 </section>
 <section id="moving-using-arrow-keys">
 <h3>Moving using arrow keys<a class="headerlink" href="#moving-using-arrow-keys" title="Link to this heading">#</a></h3>
