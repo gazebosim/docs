@@ -88,7 +88,26 @@ The last command will display all messages sent on `/keyboard/keypress` topic.
 
 In the Gazebo window press different keys and you should see data (numbers) on the terminal where you run the `gz topic -e -t /keyboard/keypress` command.
 
-![KeyPublisher](tutorials/moving_robot/keypublisher_data.png)
+```
+$ gz topic -e -t /keyboard/keypress
+data: 68
+
+data: 85
+
+data: 72
+
+data: 74
+
+data: 81
+
+data: 16777235
+
+data: 16777234
+
+data: 16777237
+
+data: 16777236
+```
 
 We want to map these keystrokes into messages of type `Twist` and publish them to the `/cmd_vel` topic which our model listens to.
 The `TriggeredPublisher` plugin will do this.
@@ -116,7 +135,7 @@ It accepts messages of type `gz.msgs.Int32` on the `/keyboard/keypress` topic an
 
 Now launch `building_robot.sdf` then add the Key Publisher plugin and our robot should move forward as we press the Up arrow key &#8593; (make sure you start the simulation by pressing the play button to see the robot move forward after pressing the Up arrow key).
 
-There is a demo explaining how the [Triggered Publisher](https://github.com/gazebosim/gz-sim/blob/gz-sim7/tutorials/triggered_publisher.md) works.
+There is a demo explaining how the [Triggered Publisher](https://github.com/gazebosim/gz-sim/blob/gz-sim9/tutorials/triggered_publisher.md) works.
 
 ### Moving using arrow keys
 
