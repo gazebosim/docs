@@ -516,25 +516,15 @@ cases where the default option cannot be easily changed.</p>
 </section>
 <section id="vcstool-and-colcon-from-pip">
 <h2>vcstool and colcon from pip<a class="headerlink" href="#vcstool-and-colcon-from-pip" title="Link to this heading">#</a></h2>
-<p>PIP is available on all platforms:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>vcstool<span class="w"> </span><span class="o">||</span><span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>vcstool
+<p>PIP is available on all platforms. Using a PIP workspace to install the tools:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span><span class="nv">$HOME</span>/vcs_colcon_installation
+.<span class="w"> </span><span class="nv">$HOME</span>/vcs_colcon_installation/bin/activate
+pip3<span class="w"> </span>install<span class="w"> </span>vcstool<span class="w"> </span>colcon-common-extensions
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>colcon-common-extensions<span class="w"> </span><span class="o">||</span><span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>colcon-common-extensions
-</pre></div>
-</div>
-<p>Check that no errors were printed while installing with PIP. If your system is not recognising the commands, and you’re using a system that is compatible with Debian or Ubuntu packages, see the instructions below to install using <code class="docutils literal notranslate"><span class="pre">apt</span></code>.</p>
-<p>After installing <code class="docutils literal notranslate"><span class="pre">vcstool</span></code> and <code class="docutils literal notranslate"><span class="pre">colcon</span></code> with PIP, you may need to add their executables to your <code class="docutils literal notranslate"><span class="pre">$PATH</span></code>.
-Check where the installation of these packages took place:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>show<span class="w"> </span>vcstool<span class="w"> </span><span class="o">||</span><span class="w"> </span>pip3<span class="w"> </span>show<span class="w"> </span>vcstool<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Location
-
-pip<span class="w"> </span>show<span class="w"> </span>colcon-common-extensions<span class="w"> </span><span class="o">||</span><span class="w"> </span>pip3<span class="w"> </span>show<span class="w"> </span>colcon-common-extensions<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Location
-</pre></div>
-</div>
-<p>If your install path is prefixed with <code class="docutils literal notranslate"><span class="pre">$HOME/.local</span></code>, you’ll probably need to add the executables within this directory to your <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> in order to avoid “command not found” errors when using <code class="docutils literal notranslate"><span class="pre">vcstool</span></code> and <code class="docutils literal notranslate"><span class="pre">colcon</span></code> later on:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/.local/bin/
-</pre></div>
-</div>
+<p><code class="docutils literal notranslate"><span class="pre">vcs</span></code> and <code class="docutils literal notranslate"><span class="pre">colcon</span></code> are now available from the PIP workspace in the current
+terminal. For using them in other terminals run the <code class="docutils literal notranslate"><span class="pre">activate</span></code> script as
+done above.</p>
 </section>
 <section id="vcstool-and-colcon-from-apt">
 <h2>vcstool and colcon from apt<a class="headerlink" href="#vcstool-and-colcon-from-apt" title="Link to this heading">#</a></h2>

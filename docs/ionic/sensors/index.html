@@ -562,7 +562,7 @@ according to the update rate.</p></li>
 <p><code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">topic</span> <span class="pre">-e</span> <span class="pre">-t</span> <span class="pre">/imu</span></code></p>
 <p>The last command listens to the messages sent over the <code class="docutils literal notranslate"><span class="pre">/imu</span></code> topic. The IMU data are <code class="docutils literal notranslate"><span class="pre">orientation</span></code>, <code class="docutils literal notranslate"><span class="pre">angular_velocity</span></code> and <code class="docutils literal notranslate"><span class="pre">linear_acceleration</span></code> as described above. It should look like this:</p>
 <p><img alt="Imu_message" src="../_images/imu_msgs.png" /></p>
-<p>Move your robot forward using the keyboard up key. You should see the sensor values changing.</p>
+<p>Move your robot forward using the keyboard up key. To do so, don’t forget to enable the Key Publisher Plugin. You should see the sensor values changing.</p>
 </section>
 </section>
 <section id="contact-sensor">
@@ -763,20 +763,21 @@ To do that, we’ll write a short C++ program that listens to
 the sensor data and sends velocity commands to the robot.
 This program is called a node. We will build a node that subscribes
 to the <code class="docutils literal notranslate"><span class="pre">/lidar</span></code> topic and reads its data.
-Have a look at this <a class="reference external" href="https://gazebosim.org/api/transport/9.0/messages.html">tutorial</a>
+Have a look at this <a class="reference external" href="https://gazebosim.org/api/transport/14/messages.html">tutorial</a>
 to learn how to build a <code class="docutils literal notranslate"><span class="pre">publisher</span></code> and a <code class="docutils literal notranslate"><span class="pre">subscriber</span></code> node.
 You can download the finished node for this demo from <a class="reference external" href="https://github.com/gazebosim/docs/blob/master/ionic/tutorials/sensors/lidar_node.cc">here</a>.</p>
 <section id="the-lidar-node">
 <h4>The lidar_node<a class="headerlink" href="#the-lidar-node" title="Link to this heading">#</a></h4>
-<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">gz</span><span class="o">::</span><span class="n">transport</span><span class="o">::</span><span class="n">Node</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">topic_pub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/cmd_vel&quot;</span><span class="p">;</span>
-<span class="n">gz</span><span class="o">::</span><span class="n">msgs</span><span class="o">::</span><span class="n">Twist</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">topic_pub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/cmd_vel&quot;</span><span class="p">;</span>
+<span class="n">gz</span><span class="o">::</span><span class="n">transport</span><span class="o">::</span><span class="n">Node</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
 <span class="k">auto</span><span class="w"> </span><span class="n">pub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">Advertise</span><span class="o">&lt;</span><span class="n">gz</span><span class="o">::</span><span class="n">msgs</span><span class="o">::</span><span class="n">Twist</span><span class="o">&gt;</span><span class="p">(</span><span class="n">topic_pub</span><span class="p">);</span>
 </pre></div>
 </div>
-<p>We declare a <code class="docutils literal notranslate"><span class="pre">node</span></code> which will publish to <code class="docutils literal notranslate"><span class="pre">cmd_vel</span></code> topic and defined the message type <code class="docutils literal notranslate"><span class="pre">Twist</span></code>. Then advertise our node.</p>
+<p>We declare a <code class="docutils literal notranslate"><span class="pre">node</span></code> which will publish to <code class="docutils literal notranslate"><span class="pre">cmd_vel</span></code> topic. Then advertise our node.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">cb</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">gz</span><span class="o">::</span><span class="n">msgs</span><span class="o">::</span><span class="n">LaserScan</span><span class="w"> </span><span class="o">&amp;</span><span class="n">_msg</span><span class="p">)</span>
 <span class="p">{</span>
+<span class="w">  </span><span class="n">gz</span><span class="o">::</span><span class="n">msgs</span><span class="o">::</span><span class="n">Twist</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
+
 <span class="w">  </span><span class="kt">bool</span><span class="w"> </span><span class="n">allMore</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">true</span><span class="p">;</span>
 <span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">_msg</span><span class="p">.</span><span class="n">ranges_size</span><span class="p">();</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
 <span class="w">  </span><span class="p">{</span>
@@ -804,11 +805,11 @@ You can download the finished node for this demo from <a class="reference extern
 If so we publish a message to our car to move forward. Otherwise we make the robot rotate.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/lidar&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">topic_sub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/lidar&quot;</span><span class="p">;</span>
 <span class="w">    </span><span class="c1">// Subscribe to a topic by registering a callback.</span>
-<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">node</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">cb</span><span class="p">))</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">node</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">topic_sub</span><span class="p">,</span><span class="w"> </span><span class="n">cb</span><span class="p">))</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Error subscribing to topic [&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Error subscribing to topic [&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">topic_sub</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 

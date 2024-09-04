@@ -5,13 +5,14 @@ Additionally, it's possible to spawn new models at any time. To do so using ROS
 we have provided the following mechanisms:
 
 ## Spawn a model using the launch file included in `ros_gz_sim`.
+*Currently only available in Rolling.*
 
 The package `ros_gz_sim` contains a launch file named
 `ros_gz_spawn_model.launch.py`. You can use it to spawn a new model into an
 existing simulation. Here's an example:
 
 ```bash
-ros2 launch ros_gz_sim gz_spawn_model.launch.py world:=empty file:=$(ros2 pkg prefix --share ros_gz_sim_demos)/models/vehicle/model.sdf name:=my_vehicle x:=5.0 y:=5.0 z:=0.5
+ros2 launch ros_gz_sim ros_gz_spawn_model.launch.py world:=empty file:=$(ros2 pkg prefix --share ros_gz_sim_demos)/models/vehicle/model.sdf name:=my_vehicle x:=5.0 y:=5.0 z:=0.5
 ```
 
 Check [this block](https://github.com/gazebosim/ros_gz/blob/cadae1c8323a74395c09a37e3de4c669c8c09d4f/ros_gz_sim/launch/ros_gz_spawn_model.launch.py#L33-L44)
