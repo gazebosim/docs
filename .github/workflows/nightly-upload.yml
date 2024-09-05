@@ -38,7 +38,7 @@ jobs:
           required-gazebo-distributions: ${{ matrix.gazebo_distribution }}
           use-gazebo-nightly: ${{ matrix.gazebo_distribution == 'ionic'}}
       - name: 'Add Doxygen'
-        run: sudo apt-get install -y doxygen graphviz
+        run: sudo apt-get install -y doxygen graphviz texlive-latex-extra
       - name: 'Add missing dependencies'
         run: sudo apt-get install -y libopengl-dev
       - name: 'Build Docs'
@@ -46,8 +46,6 @@ jobs:
           mkdir -p ws/src
           cd ws/src
           vcs import --input https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-${{ matrix.gazebo_distribution}}.yaml
-          rm -rf sdformat
-          rm -rf gz-tools
           sudo DEBIAN_FRONTEND=noninteractive apt-get -y install $(sort -u $(find . -iname 'packages-'${{ matrix.ubuntu_distribution}}'.apt' -o -iname 'packages.apt' | grep -v '/\.git/') | tr '\n' ' ')
           cd ..
           colcon build --merge-install --event-handlers console_cohesion+ --cmake-args -DBUILD_DOCS=ON -DBUILD_TESTING=OFF --cmake-target doc
@@ -56,6 +54,8 @@ jobs:
         with:
           name: api-docs-${{ matrix.gazebo_distribution }}
           path: ws/build/**/doxygen/html
+          if-no-files-found: 'error'
+          include-hidden-files: 'true'
 
   upload:
     name: Upload docs to production
@@ -82,7 +82,12 @@ jobs:
       with:
         name: api-docs
         path: .api-out/*
+        if-no-files-found: 'error'
+        include-hidden-files: 'true'
     - name: Commit
+      # The workflow upto this point is good for generating a preview,
+      # but only commit to deploy if we are on the master branch (not a pull request).
+      if: github.ref == 'refs/heads/master'
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}

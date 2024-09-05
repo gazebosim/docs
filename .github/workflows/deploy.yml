@@ -39,6 +39,8 @@ jobs:
         with:
           name: website
           path: dist
+          if-no-files-found: 'error'
+          include-hidden-files: 'true'
 
       # Build Docs
   build_docs:
@@ -67,6 +69,8 @@ jobs:
         with:
           name: docs
           path: .build
+          if-no-files-found: 'error'
+          include-hidden-files: 'true'
 
   deploy:
     runs-on: ubuntu-latest
