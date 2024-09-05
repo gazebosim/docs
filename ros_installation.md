@@ -130,14 +130,14 @@ to get the Gazebo binary packages, as it can be installed from the ROS
 repository.
 
 ## Installing Non-Default Gazebo/ROS 2 Pairings
-<div class="warning">
-<strong>Warning:</strong> Only use this approach if you absolutely need to run a
+::: warning
+Only use this approach if you absolutely need to run a
 version of Gazebo that is not officially supported by your ROS distro. Using
 this approach will make it impossible to use the official ROS Ubuntu packages
 that depend on Gazebo.
 
 We do not recommend this approach for beginners!
-</div>
+:::
 
 To select a different release of Gazebo than the one officially supported by
 your ROS distribution you must either **use non ROS official Gazebo binary packages** or
@@ -278,6 +278,13 @@ other ROS packages that depend on Gazebo-classic.
 |------------------------ |-----------------------------  | --------------------------  |
 | **ROS 2 Iron**          | `ros-iron-ros-gzgarden`       | `ros-iron-ros-gzharmonic`   |
 | **ROS 2 Humble (LTS)**  | `ros-humble-ros-gzgarden`     | `ros-humble-ros-gzharmonic` |
+
+
+#### What is the difference between a ROS vendor package and other packages listed in this  page?
+
+The ROS vendor packages are (indeed) ROS packages (built by the ROS buildfarm and hosted in the ROS repository) that provide the
+installation of the Gazebo librariess. In this page, unless mentioned the vendor in the name, the rest of packages are standard
+debian packages the ones installed by the package manager (usually apt).
 
 #### Where I can find the different features implemented on each Gazebo version?
 
