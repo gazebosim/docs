@@ -54,6 +54,8 @@ jobs:
         with:
           name: api-docs-${{ matrix.gazebo_distribution }}
           path: ws/build/**/doxygen/html
+          if-no-files-found: 'error'
+          include-hidden-files: 'true'
 
   upload:
     name: Upload docs to production
@@ -80,6 +82,8 @@ jobs:
       with:
         name: api-docs
         path: .api-out/*
+        if-no-files-found: 'error'
+        include-hidden-files: 'true'
     - name: Commit
       # The workflow upto this point is good for generating a preview,
       # but only commit to deploy if we are on the master branch (not a pull request).
