@@ -81,6 +81,9 @@ jobs:
         name: api-docs
         path: .api-out/*
     - name: Commit
+      # The workflow upto this point is good for generating a preview,
+      # but only commit to deploy if we are on the master branch (not a pull request).
+      if: github.ref == 'refs/heads/master'
       uses: peaceiris/actions-gh-pages@v4
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
