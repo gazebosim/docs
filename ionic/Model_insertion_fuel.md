@@ -56,7 +56,7 @@ There are a few different ways to spawn a model into the simulation.
 
 3. **Copying the SDF snippet and adding it to your custom world SDF file.**
 
-    With the `<>` button you can directly copy a SDF snippet to paste into your world SDF file. 
+    With the `<>` button you can directly copy an SDF snippet to paste into your world SDF file. 
     The SDF snippet will look something like this: 
 
     ```
