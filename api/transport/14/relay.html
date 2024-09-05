@@ -148,13 +148,9 @@ Overview</h2>
 Setup</h2>
 <p>We'll use Docker to configure the environment for this example. Feel free to install Docker following any of the existing guides available (<a href="https://docs.docker.com/get-docker/">here</a>'s one).</p>
 <p>We're going to build a Docker image and run it inside your host computer. Download the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport14/docker/build.bash">build.bash</a>, <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport14/docker/run.bash">run.bash</a> and <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport14/docker/gz-transport/Dockerfile">Dockerfile</a> files.</p>
-<div class="fragment"><div class="line">wget https://github.com/gazebosim/gz-transport/raw/gz-transport14/docker/build.bash</div>
-<div class="line">wget https://github.com/gazebosim/gz-transport/raw/gz-transport14/docker/run.bash</div>
-<div class="line">mkdir gz-transport &amp;&amp; wget https://github.com/gazebosim/gz-transport/raw/gz-transport14/docker/gz-transport/Dockerfile -O gz-transport/Dockerfile</div>
-<div class="line">chmod +x build.bash run.bash</div>
-</div><!-- fragment --><p>Now, it's time to build the Docker image: </p><div class="fragment"><div class="line">./build.bash gz-transport</div>
-</div><!-- fragment --><p>Run your Docker container: </p><div class="fragment"><div class="line">./run.bash gz-transport</div>
-</div><!-- fragment --><p>Inside the docker instance, go to the <code>example</code> directory: </p><div class="fragment"><div class="line">cd gz-transport/example/build</div>
+<div class="fragment"><div class="line">wget https://github.com/gazebosim/gz-transport/raw/gz-transport14/docker/gz-transport/Dockerfile -O Dockerfile</div>
+</div><!-- fragment --><p>Now, it's time to build the Docker image: </p><div class="fragment"><div class="line">docker build -t gz-transport-relay - &lt; Dockerfile</div>
+</div><!-- fragment --><p>Run your Docker container: </p><div class="fragment"><div class="line">docker run -it --rm gz-transport-relay /bin/bash</div>
 </div><!-- fragment --><p>Back on your host, make sure that you have Gazebo Tools and net-tools installed: </p><div class="fragment"><div class="line">sudo apt install gz-tools2 net-tools</div>
 </div><!-- fragment --><p>Now, let's configure Gazebo Transport to block all multicast traffic going into your Docker instance. Run the command <code>ifconfig</code> to list your network interfaces: </p><div class="fragment"><div class="line">caguero@bb9:~/gz_transport_tutorial/docker$ ifconfig</div>
 <div class="line">docker0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500</div>

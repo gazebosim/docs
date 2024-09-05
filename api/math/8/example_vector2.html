@@ -152,7 +152,7 @@ Compile the code</h3>
 <div class="line">make</div>
 </div><!-- fragment --><p>When the code is compiled, run:</p>
 <div class="fragment"><div class="line">./vector2_example</div>
-</div><!-- fragment --><p>The ouput of the program:</p>
+</div><!-- fragment --><p>The output of the program:</p>
 <div class="fragment"><div class="line">Vec2: 2 4</div>
 <div class="line">Vec2a: 1 2</div>
 <div class="line">Vec2b: 1.2 3.4</div>
@@ -167,7 +167,7 @@ Compile the code</h3>
 <div class="line">2.23607</div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md16"></a>
 Code</h3>
-<p>Create a <code>Vector2</code> called <code>vec2</code> of doubles using the typedef <code>Vector2d</code>. <b>The initial x and y values are zero</b>. The x and y component of <code>vec2</code> can be set at anytime.</p>
+<p>Create a <code>Vector2</code> called <code>vec2</code> of doubles using the typedef <code>Vector2d</code>. <b>The initial x and y values are zero</b>. The x and y components of <code>vec2</code> can be set at anytime.</p>
 <div class="fragment"><div class="line">  <a class="code hl_class" href="classgz_1_1math_1_1Matrix6.html" title="A 6x6 matrix class.">gz::math::Vector2d</a> vec2;</div>
 <div class="line">  vec2.<a class="code hl_function" href="classgz_1_1math_1_1Matrix6.html#afc54eacbc1d4df677171fdbdfa47689e" title="Change the values.">Set</a>(2.0, 4.0);</div>
 </div><!-- fragment --><p>The <code>Vector2</code> class is a template, so you can also create a <code>Vector2</code> using <code><a class="el" href="classgz_1_1math_1_1Vector2.html" title="Two dimensional (x, y) vector.">gz::math::Vector2</a>&lt;double&gt;</code>:</p>
@@ -189,23 +189,37 @@ Code</h3>
 <div class="line">            &lt;&lt; vec2 + vec2a &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
 <div class="line">            &lt;&lt; vec2 - vec2a &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span></div>
 <div class="line">            &lt;&lt; vec2 / vec2a &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-</div><!-- fragment --><p>There are also many useful function such as finding the distance between two vectors.</p>
+</div><!-- fragment --><p>There are also many useful functions, such as finding the distance between two vectors.</p>
 <div class="fragment"><div class="line">  <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; vec2.Distance(vec2a) &lt;&lt; <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 </div><!-- fragment --><p><b>There are more functions in Vector2. Take a look at the <a href="https://gazebosim.org/libs/math">API</a></b></p>
 <h2><a class="anchor" id="autotoc_md17"></a>
 Ruby examples</h2>
 <p>This example will only work if the Ruby interface library was compiled and installed. For example, on Ubuntu:</p>
 <div class="fragment"><div class="line">sudo apt install ruby-gz-math&lt;#&gt;</div>
-</div><!-- fragment --><p>Modify the <code>RUBYLIB</code> environment variable to include the Gazebo Math library install path. For example, if you install to <code>/usr</code>:</p>
+</div><!-- fragment --><p>Be sure to replace &lt;#&gt; with a number value, such as 8 or 7, depending on which version you need.&lt;#&gt;.</p>
+<p>Modify the <code>RUBYLIB</code> environment variable to include the Gazebo Math library install path. For example, if you install to <code>/usr</code>:</p>
 <div class="fragment"><div class="line">export RUBYLIB=/usr/lib/ruby:$RUBYLIB</div>
 </div><!-- fragment --><p>Move to the examples folder:</p>
 <div class="fragment"><div class="line">cd examples</div>
-</div><!-- fragment --><p>Execute the examples:</p>
+</div><!-- fragment --><p>Execute the example:</p>
 <div class="fragment"><div class="line">ruby vector2_example.rb</div>
-<div class="line">ruby vector3_example.rb</div>
+</div><!-- fragment --><p>The output of the program:</p>
+<div class="fragment"><div class="line">va = 1.000000 2.000000</div>
+<div class="line">vb = 3.000000 4.000000</div>
+<div class="line">vc = 3.000000 4.000000</div>
+<div class="line">vb += va: 4.000000 6.000000</div>
+<div class="line">vb.Normalize = 0.554700 0.832050</div>
+<div class="line">vb.Distance(va) = 1.249959</div>
+</div><!-- fragment --><p>Execute the example:</p>
+<div class="fragment"><div class="line">ruby vector3_example.rb</div>
+</div><!-- fragment --><p>The output of the program:</p>
+<div class="fragment"><div class="line">v1 = 0.000000 0.000000 0.000000</div>
+<div class="line">v2 = 1.000000 0.000000 0.000000</div>
+<div class="line">v1 + v2 = 1.000000 0.000000 0.000000</div>
+<div class="line">v1.Distance(v2) = 1.000000</div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md18"></a>
 Code</h3>
-<p>Create a <code>Vector2</code> of doubles using the typedef <code>Vector2d</code>. It's possible to set initial values or use another object to create a identical copy.</p>
+<p>Create a <code>Vector2</code> of doubles using the typedef <code>Vector2d</code>. It's possible to set initial values or use another object to create an identical copy.</p>
 <div class="fragment"><div class="line">va = Gz::Math::Vector2d.new(1, 2)</div>
 </div><!-- fragment --><p>You can get access to each component in the vector using the <code>X()</code>, <code>Y()</code> accessors.</p>
 <div class="fragment"><div class="line">printf(&quot;va = %f %f\n&quot;, va.X(), va.Y())</div>
@@ -221,7 +235,7 @@ Code</h3>
 </div><!-- fragment --><p>You can create vectors with 3 dimensions using the typedef <code>Vector3d</code>:</p>
 <div class="fragment"><div class="line">v1 = Gz::Math::Vector3d.new(0, 0, 0)</div>
 </div><!-- fragment --><p>You can also get access to each component in the vector using the <code>X()</code>, <code>Y()</code> and <code>Z()</code> accessors:</p>
-<div class="fragment"><div class="line">printf(&quot;v =: %f %f %f\n&quot;, v1.X(), v1.Y(), v1.Z())</div>
+<div class="fragment"><div class="line">printf(&quot;v1 =: %f %f %f\n&quot;, v1.X(), v1.Y(), v1.Z())</div>
 </div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
       </div>

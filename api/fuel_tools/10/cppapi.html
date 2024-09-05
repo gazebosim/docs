@@ -143,6 +143,8 @@ Overview</h2>
 <p>Gazebo Fuel Tools lets you perform a set of operations over the resources hosted in any Gazebo Fuel server. These operations allow you to list all resources of a particular server, get the details of a resource or download it.</p>
 <p>We're going to run a few examples, so let's start by creating a directory for this tutorial:</p>
 <div class="fragment"><div class="line">mkdir /tmp/fuel_tutorial &amp;&amp; cd /tmp/fuel_tutorial</div>
+</div><!-- fragment --><p>Install compilation prerequisites:</p>
+<div class="fragment"><div class="line">sudo apt-get install libgflags-dev</div>
 </div><!-- fragment --><p>Download the files <code>list.cc</code>, <code>details.cc</code>, <code>download.cc</code>, <code>CMakeLists.txt</code>, and save them under <code>/tmp/fuel_tutorial</code>:</p>
 <div class="fragment"><div class="line"># Ubuntu or MacOS</div>
 <div class="line">wget https://github.com/gazebosim/gz-fuel-tools/raw/gz-fuel-tools10/example/list.cc</div>
@@ -251,7 +253,7 @@ Walkthrough</h3>
 <div class="line">    <span class="keywordtype">id</span>.SetServer(server);</div>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_class" href="classgz_1_1fuel__tools_1_1ModelIdentifier.html" title="Defines how to identify a model.">gz::fuel_tools::ModelIdentifier</a> model;</div>
-<div class="line">    <span class="keywordflow">if</span> (!client.ModelDetails(server, <span class="keywordtype">id</span>, model))</div>
+<div class="line">    <span class="keywordflow">if</span> (!client.ModelDetails(<span class="keywordtype">id</span>, model))</div>
 <div class="line">      <span class="keywordflow">continue</span>;</div>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; model.<a class="code hl_function" href="classgz_1_1fuel__tools_1_1ModelIdentifier.html#a01779fc6b9f8475b2bd7f08b31820e4d" title="Returns all the available model information as a string using colors for better human parsing.">AsPrettyString</a>() &lt;&lt; <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
