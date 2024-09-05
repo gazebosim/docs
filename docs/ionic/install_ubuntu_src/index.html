@@ -597,11 +597,17 @@ colcon<span class="w"> </span>graph
 <a class="reference external" href="https://colcon.readthedocs.io/en/released/reference/verb/graph.html#example-output">interdependency diagram</a>.
 If that is the case, then you are ready
 to build the whole set of libraries:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Compilation can take up to 16Gb of RAM memory. Use MAKEFLAGS with
+colcon as detailed in its instructions to reduce the number of
+compilation threads if needed.</p>
+</div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--merge-install
 </pre></div>
 </div>
 <p>To speed up the build process, you could also disable tests by using</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DBUILD_TESTING<span class="o">=</span>OFF<span class="w"> </span>--merge-install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span><span class="s1">&#39; -DBUILD_TESTING=OFF&#39;</span><span class="w"> </span>--merge-install
 </pre></div>
 </div>
 <p>To use debuggers activate debug symbols. Gazebo will run slower, but you’ll be able to use GDB:</p>
@@ -664,7 +670,7 @@ free up space, you can delete the entire workspace directory with:</p>
 <li><p>QtCreator</p></li>
 </ul>
 <p>You will need to build Gazebo with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DQT_QML_DEBUG<span class="w"> </span>--merge-install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span><span class="s1">&#39; -DQT_QML_DEBUG&#39;</span><span class="w"> </span>--merge-install
 </pre></div>
 </div>
 <blockquote>
