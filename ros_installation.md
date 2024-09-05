@@ -37,14 +37,14 @@ other ROS and Gazebo releases are end of life and we do not recommend their
 continued use.
 
 
-|                           | **GZ Citadel (LTS)**  | **GZ Fortress (LTS)**   | **GZ Garden**   | **GZ Harmonic (LTS)**   |
-|---------------------------|---------------------- |-----------------------  |---------------  | ----------------------  |
-| **ROS 2 Jazzy (LTS)**     | ❌                    | ❌                      | ⚡               | ✅                      |
-| **ROS 2 Rolling**         | ❌                    | ❌                      | ⚡               | ✅                      |
-| **ROS 2 Iron**            | ❌                    | ✅                      | ⚡               | ⚡                       |
-| **ROS 2 Humble (LTS)**    | ❌                    | ✅                      | ⚡               | ⚡                       |
-| **ROS 2 Foxy (LTS)**      | ✅                    | ❌                      | ❌              | ❌                      |
-| **ROS 1 Noetic (LTS)**    | ✅                    | ⚡                       | ❌              | ❌                      |
+|                           | **GZ Citadel (LTS)**  | **GZ Fortress (LTS)**   | **GZ Garden**   | **GZ Harmonic (LTS)**   | **Gz Ionic**
+|---------------------------|---------------------- |-----------------------  |---------------  | ----------------------  | ------------
+| **ROS 2 Rolling**         | ❌                    | ❌                      | ⚡              | ⚡                      | ✅
+| **ROS 2 Jazzy (LTS)**     | ❌                    | ❌                      | ⚡              | ✅                      | ❌
+| **ROS 2 Iron**            | ❌                    | ✅                      | ⚡              | ⚡                      | ❌
+| **ROS 2 Humble (LTS)**    | ❌                    | ✅                      | ⚡              | ⚡                      | ❌
+| **ROS 2 Foxy (LTS)**      | ✅                    | ❌                      | ❌              | ❌                      | ❌
+| **ROS 1 Noetic (LTS)**    | ✅                    | ⚡                      | ❌              | ❌                      | ❌
 
 
 * ✅ - Recommended combination
@@ -115,13 +115,15 @@ of writing the following packages are available on the following hosts:
    * ROS2 Foxy: Gazebo Citadel
    * ROS2 Humble: Gazebo Fortress
    * ROS2 Iron: Gazebo Fortress
-   * ROS2 Rolling: Gazebo Fortress (changing frequently)
+   * ROS2 Jazzy: Gazebo Harmonic (ROS vendor packages)
+   * ROS2 Rolling: Gazebo Ionic (ROS vendor packages, changing frequently)
 
  * **packages.osrfoundation.org**
    * Gazebo Citadel
    * Gazebo Fortress
    * Gazebo Garden
    * Gazebo Harmonic
+   * Gazebo Ionic
 
 This means that including the `osrfoundation.org` repository is not strictly needed
 to get the Gazebo binary packages, as it can be installed from the ROS
