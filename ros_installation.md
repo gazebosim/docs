@@ -26,9 +26,9 @@ mistakes.
 
 At the time of writing, our recommendation is that new users install:
 
-* [Ubuntu Jammy 22.04](https://www.releases.ubuntu.com/jammy/)
-* [ROS 2 Humble Hawksbill](https://www.ros.org/reps/rep-2000.html#humble-hawksbill-may-2022-may-2027)
-* [Gazebo Fortress](https://gazebosim.org/docs/fortress/install)
+* [Ubuntu Noble 24.04](https://www.releases.ubuntu.com/noble/)
+* [ROS 2 Jazzy Jalisco](https://www.ros.org/reps/rep-2000.html#jazzy-jalisco-may-2024-may-2029)
+* [Gazebo Harmonic](https://gazebosim.org/docs/harmonic/install)
 
 ## Summary of Compatible ROS and Gazebo Combinations
 
