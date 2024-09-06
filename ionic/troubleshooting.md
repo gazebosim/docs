@@ -19,6 +19,23 @@ GZ_CONFIG_PATH=<path_to_install_dir>/share/gz/
 
 ## macOS
 
+###  Maximum number of open files reached `ulimit` error
+When installing using homebrew, you may see the following error message:
+
+```bash
+Error: The maximum number of open files on this system has been reached. Use ulimit -n to increase this limit."`
+```
+
+As suggested in the error message, run the command below and check the output. The default value is set to `256` which is too low.
+```bash
+ulimit -n
+```
+
+Run the following command to increase the open files `ulimit` and then proceed with the homebrew install:
+```bash
+ulimit -n 10240
+```
+
 ### Unable to find `urdf_model.h` error
 After installing all the dependencies and starting the build process, you may encounter an error that looks like this:
 
