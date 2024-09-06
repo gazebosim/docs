@@ -18,8 +18,7 @@ In this guide, you will learn how to use the `ros_gz_project_template` to create
    Or start by cloning the template repository:
 
    ```bash
-   wget https://raw.githubusercontent.com/gazebosim/ros_gz_project_template/main/template_workspace.yaml
-   vcs import < template_workspace.yaml
+   vcs import --input https://raw.githubusercontent.com/gazebosim/ros_gz_project_template/main/template_workspace.yaml
    ```
 
 3. Rename the cloned repository folder to your desired project name:
