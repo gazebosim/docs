@@ -509,6 +509,21 @@ document.write(`
 </section>
 <section id="macos">
 <h2>macOS<a class="headerlink" href="#macos" title="Link to this heading">#</a></h2>
+<section id="maximum-number-of-open-files-reached-ulimit-error">
+<h3>Maximum number of open files reached <code class="docutils literal notranslate"><span class="pre">ulimit</span></code> error<a class="headerlink" href="#maximum-number-of-open-files-reached-ulimit-error" title="Link to this heading">#</a></h3>
+<p>When installing using homebrew, you may see the following error message:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>Error:<span class="w"> </span>The<span class="w"> </span>maximum<span class="w"> </span>number<span class="w"> </span>of<span class="w"> </span>open<span class="w"> </span>files<span class="w"> </span>on<span class="w"> </span>this<span class="w"> </span>system<span class="w"> </span>has<span class="w"> </span>been<span class="w"> </span>reached.<span class="w"> </span>Use<span class="w"> </span><span class="s1">&#39;ulimit -n&#39;</span><span class="w"> </span>to<span class="w"> </span>increase<span class="w"> </span>this<span class="w"> </span>limit.
+</pre></div>
+</div>
+<p>As suggested in the error message, run the command below and check the output. The default value is set to <code class="docutils literal notranslate"><span class="pre">256</span></code> which is too low.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">ulimit</span><span class="w"> </span>-n
+</pre></div>
+</div>
+<p>Run the following command to increase the open files <code class="docutils literal notranslate"><span class="pre">ulimit</span></code> and then proceed with the homebrew install:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">ulimit</span><span class="w"> </span>-n<span class="w"> </span><span class="m">10240</span>
+</pre></div>
+</div>
+</section>
 <section id="unable-to-find-urdf-model-h-error">
 <h3>Unable to find <code class="docutils literal notranslate"><span class="pre">urdf_model.h</span></code> error<a class="headerlink" href="#unable-to-find-urdf-model-h-error" title="Link to this heading">#</a></h3>
 <p>After installing all the dependencies and starting the build process, you may encounter an error that looks like this:</p>
@@ -736,6 +751,7 @@ foreach<span class="w"> </span><span class="o">{</span>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gazebo-libraries-are-not-found">Gazebo libraries are not found</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#macos">macOS</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-number-of-open-files-reached-ulimit-error">Maximum number of open files reached <code class="docutils literal notranslate"><span class="pre">ulimit</span></code> error</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unable-to-find-urdf-model-h-error">Unable to find <code class="docutils literal notranslate"><span class="pre">urdf_model.h</span></code> error</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#unable-to-load-dylib-file">Unable to load .dylib file</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#no-rule-to-make-target-usr-lib-libm-dylib-needed-by-lib-libgz-physics6-dartsim-plugin-6-1-0-dylib-stop">No rule to make target <code class="docutils literal notranslate"><span class="pre">'/usr/lib/libm.dylib',</span> <span class="pre">needed</span> <span class="pre">by</span> <span class="pre">'lib/libgz-physics6-dartsim-plugin.6.1.0.dylib'.</span> <span class="pre">Stop.</span></code></a></li>
