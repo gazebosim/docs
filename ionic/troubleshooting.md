@@ -23,7 +23,7 @@ GZ_CONFIG_PATH=<path_to_install_dir>/share/gz/
 When installing using homebrew, you may see the following error message:
 
 ```bash
-Error: The maximum number of open files on this system has been reached. Use 'ulimit -n' to increase this limit."
+Error: The maximum number of open files on this system has been reached. Use 'ulimit -n' to increase this limit.
 ```
 
 As suggested in the error message, run the command below and check the output. The default value is set to `256` which is too low.
