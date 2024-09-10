@@ -7267,13 +7267,13 @@ Particle FX simulation is moved forward after this call</dd></dl>
 <div class="line">scene-&gt;PostRender();</div>
 </div><!-- fragment --><p>Now... <a class="el" href="classgz_1_1rendering_1_1Camera.html" title="Posable camera used for rendering the scene graph.">Camera</a> Render calls MUST happen between <a class="el" href="classgz_1_1rendering_1_1Scene.html#adffb56e0e545fefebf96b36f295396e9" title="Prepare scene for rendering. The scene will flushing any scene changes by traversing scene-graph,...">Scene::PreRender</a> and <a class="el" href="classgz_1_1rendering_1_1Scene.html#aee73a4d9fd3bca2a941038e4a5a3879d" title="Call this function after you&#39;re done updating ALL cameras.">Scene::PostRender</a>.</p>
 <p>The scene must not be modified (e.g. add/remove objects, lights, etc) while inside <a class="el" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a> PreRender/PostRender</p>
-<h1><a class="anchor" id="autotoc_md62"></a>
+<h1><a class="anchor" id="autotoc_md63"></a>
 Legacy mode: Set this value to 0.</h1>
 <p>Old projects migrating to newer gz versions may break these rules (e.g. not calling Render between <a class="el" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>'s Pre/PostRender).</p>
 <p>Setting this value to 0 forces Gazebo to flush commands for every camera; thus avoiding the need to call PostRender at all</p>
 <p>This is much slower but will ease porting, specially if it's not easy to adapt your code to call PostRender for some reason (in non-legacy mode each call <em>must</em> correspond to a previous PreRender call)</p>
 <p>Legacy mode forces Particle FX simulations to move forward after each camera render, which can cause inconsistencies when Cameras are supposed to be rendering the same frame from different angles</p>
-<h1><a class="anchor" id="autotoc_md63"></a>
+<h1><a class="anchor" id="autotoc_md64"></a>
 New mode i.e. values greater than 0:</h1>
 <p>The CPU normally queues up of rendering commands from each <a class="el" href="classgz_1_1rendering_1_1Camera.html" title="Posable camera used for rendering the scene graph.">Camera</a> and then waits for the GPU to finish up.</p>
 <ol type="1">
@@ -7285,12 +7285,12 @@ New mode i.e. values greater than 0:</h1>
 <p>A sensible value in the range of [2; 6] is probably the best ratio between parallel performance / RAM cost.</p>
 <p>Actual value depends on scene complexity and number of shadow casting lights</p>
 <p>If you're too tight on RAM consumption, try setting this value to 1.</p>
-<h2><a class="anchor" id="autotoc_md64"></a>
+<h2><a class="anchor" id="autotoc_md65"></a>
 Example:</h2>
 <p>Cubemap rendering w/ 3 probes and 5 shadowmaps can cause a blow up of passes:</p>
 <p>(5 shadow maps per face + 1 regular render) x 6 faces x 3 probes = 108 render_scene passes. 108 is way too much, causing out of memory situations;</p>
 <p>so setting the value to 6 (1 cubemap face = 1 pass) will force one flush per cubemap face, flushing a total of 3 times (one per cubemap).</p>
-<h2><a class="anchor" id="autotoc_md65"></a>
+<h2><a class="anchor" id="autotoc_md66"></a>
 Upper bound</h2>
 <p>Once <a class="el" href="classgz_1_1rendering_1_1Scene.html#aee73a4d9fd3bca2a941038e4a5a3879d" title="Call this function after you&#39;re done updating ALL cameras.">Scene::PostRender</a> is called, a flush is always forced.</p>
 <p>If you set a value of e.g. 6, but you have a single camera, it will be flushed after <a class="el" href="classgz_1_1rendering_1_1Scene.html#aee73a4d9fd3bca2a941038e4a5a3879d" title="Call this function after you&#39;re done updating ALL cameras.">Scene::PostRender</a>, thus having a value of 1 or 6 won't matter as the result will be exactly the same (in every term: performance, memory consumption)</p>

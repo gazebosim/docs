@@ -141,7 +141,7 @@
 <div class="textblock"><p>It is often desirable to run simulation on a remote computer, such as a computer managed by cloud provider, in order to paralellize work or access specific compute resources. Simulated sensors that require GPU access have historically been difficult to use on a remote computer due to OpenGL's X server requirement on linux systems. This issue can be resolved through installation and proper configuration of X, but the steps can be complex and error prone.</p>
 <p>An easier solution is through the use of <a href="https://www.khronos.org/egl">EGL</a>, which allows for the the creation of rendering surfaces without an X server. Gazebo has added support for EGL via the <code>--headless-rendering</code> command line option. Use of EGL is only available with OGRE2.</p>
 <p>Example usage:</p>
-<div class="fragment"><div class="line">gz sim -v 4 -s --headless-rendering sensors_demo.sdf</div>
+<div class="fragment"><div class="line">DISPLAY= gz sim -v 4 -s -r --headless-rendering sensors_demo.sdf</div>
 </div><!-- fragment --><p>If you are using Gazebo as a library, then you can configure the server to use headless rendering through the <code>ServerConfig::SetHeadlessRendering(bool)</code> function. Make sure your SDF world uses OGRE2.</p>
 <h2><a class="anchor" id="autotoc_md118"></a>
 AWS Example</h2>
@@ -169,13 +169,15 @@ AWS Example</h2>
 </div><!-- fragment --></li>
 <li>Reboot the machine and log back in. <div class="fragment"><div class="line">sudo reboot</div>
 </div><!-- fragment --></li>
-</ol>
-<ol type="1">
 <li><a href="https://gazebosim.org/docs/latest/install">Install Gazebo</a>.</li>
-<li>Run a Gazebo world that uses OGRE2 with camera sensors using headless rendering. This will enable EGL. <div class="fragment"><div class="line">gz sim -v 4 -s -r --headless-rendering sensors_demo.sdf</div>
+<li>Run a Gazebo world that uses OGRE2 with camera sensors using headless rendering. This will enable EGL. <div class="fragment"><div class="line">DISPLAY= gz sim -v 4 -s -r --headless-rendering sensors_demo.sdf</div>
 </div><!-- fragment --></li>
-<li>Check that simulation is producing sensor data by ssh'ing into the EC2 instance from a new terminal and echoing a sensor topic. <div class="fragment"><div class="line">ssh -i SSH_PEM_FILE_USED_DURING_LAUNCH ubuntu@EC_INSTANCE_PUBLIC_IP</div>
-<div class="line">gz topic -et /thermal_camera</div>
+<li>Check that simulation is producing sensor data by ssh'ing into the EC2 instance from a new terminal and testing the frequency of a sensor topic. <div class="fragment"><div class="line">ssh -i SSH_PEM_FILE_USED_DURING_LAUNCH ubuntu@EC_INSTANCE_PUBLIC_IP</div>
+<div class="line">gz topic -ft /thermal_camera</div>
+</div><!-- fragment --></li>
+<li>To verify that the EGL backend was used, try the following command: <div class="fragment"><div class="line">grep -R &quot;EGL Subsystem&quot; ~/.gz/rendering/ogre2.log</div>
+</div><!-- fragment --> Its output should not be empty, e.g.: <div class="fragment"><div class="line">*** Starting EGL Subsystem ***</div>
+<div class="line">*** Stopping EGL Subsystem ***</div>
 </div><!-- fragment --> </li>
 </ol>
 </div></div><!-- contents -->

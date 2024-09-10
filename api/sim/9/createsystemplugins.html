@@ -145,7 +145,7 @@
 <li>Sensor</li>
 <li>Actor</li>
 </ul>
-<p>To create a system plugin for use in the simulation environment, follow the steps below.</p>
+<p>To create a system plugin for use in the simulation environment, follow the steps below. The fully working example is available <a href="https://github.com/gazebosim/gz-sim/tree/gz-sim9/examples/plugin/system_plugin">here</a>.</p>
 <h2><a class="anchor" id="autotoc_md76"></a>
 Decide on interfaces to implement</h2>
 <p>The first step of implementing a system plugin is to determine the subset of available interfaces to implement. Aside from the base <code>System</code> object, there are currently four additional available interfaces:</p>
@@ -273,16 +273,15 @@ Implement Source</h2>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md80"></a>
 Setup the build</h2>
 <p>In your <code>CMakeLists.txt</code> add the following</p>
-<div class="fragment"><div class="line">gz_find_package(gz-plugin3 REQUIRED COMPONENTS register)</div>
+<div class="fragment"><div class="line">find_package(gz-plugin3 REQUIRED COMPONENTS register)</div>
 <div class="line">set(GZ_PLUGIN_VER ${gz-plugin3_VERSION_MAJOR})</div>
 <div class="line"> </div>
 <div class="line"># Add sources for each plugin to be registered.</div>
-<div class="line">add_library(SampleSystem SampleSystem.cc SampleSystem2.cc)</div>
+<div class="line">add_library(SampleSystem SHARED SampleSystem.cc SampleSystem2.cc)</div>
 <div class="line">set_property(TARGET SampleSystem PROPERTY CXX_STANDARD 17)</div>
 <div class="line">target_link_libraries(SampleSystem</div>
-<div class="line">  gz-common${GZ_COMMON_VER}::gz-common${GZ_COMMON_VER}</div>
-<div class="line">  gz-plugin${GZ_PLUGIN_VER}::gz-plugin${GZ_PLUGIN_VER}</div>
-<div class="line">)</div>
+<div class="line">  PRIVATE gz-plugin${GZ_PLUGIN_VER}::gz-plugin${GZ_PLUGIN_VER}</div>
+<div class="line">  PRIVATE gz-sim9::gz-sim9)</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md81"></a>
 Loading your plugin</h2>
 <p>In the SDF file representing your simulation, add the plugin to the <code>world</code> section:</p>

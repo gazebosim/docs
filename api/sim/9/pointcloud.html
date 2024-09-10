@@ -142,7 +142,7 @@
 <h2><a class="anchor" id="autotoc_md326"></a>
 Prerequisites</h2>
 <p>First, you’ll need to have a point cloud already imported. You can download the tunnel point cloud used in this tutorial by clicking <a href="https://ignition-tutorials.s3-us-west-1.amazonaws.com/ign-gazebo/point_cloud_to_mesh/TutorialExample.zip">this direct download link</a>. The file is around 100MB; unzip it after downloading.</p>
-<p>Next, you’ll need to download CloudCompare. This is the software we will be using to convert our point cloud to a mesh. CloudCompare is free and open source. You can download it <a href="http://www.danielgm.net/cc/release/">here</a>.</p>
+<p>Next, you’ll need to download CloudCompare. This is the software we will be using to convert our point cloud to a mesh. CloudCompare is free and open source. You can download it <a href="http://www.danielgm.net/cc/release/">here</a>. This tutorial was created using CloudCompare 1.13.2.</p>
 <h2><a class="anchor" id="autotoc_md327"></a>
 Converting with CloudCompare</h2>
 <p>After installing, open CloudCompare and import your point cloud file by going to <code>File</code> &gt; <code>Open</code>. Depending on the number of points in your point cloud, this could take several minutes. Once loaded, you should see the following tunnel section:</p>
@@ -153,7 +153,7 @@ Converting with CloudCompare</h2>
 <h3><a class="anchor" id="autotoc_md328"></a>
 Reduce Points</h3>
 <p>To reduce the number of points in your cloud, click on the tunnel so a yellow cube outline appears around it, then go to <code>Edit</code> &gt; <code>Subsample</code>.</p>
-<p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/min_space.png" alt="Min. space between points" class="inline"/></p>
+<p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/min_space.jpg" alt="Min. space between points" class="inline"/></p>
 <p>The number you will need to enter in the <code>min. space between points</code> field will vary depending on your point cloud. A value of .01 was sufficient to bring our point cloud to an easy-to-manage 1 million points. Point count is visible in the <code>Properties</code> window on the lower left side of the screen.</p>
 <p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/properties.png" alt="Point count of subsample" class="inline"/></p>
 <p>How many points you reduce down to will largely depend on how long you are willing to wait for the point cloud to be converted into a mesh. The more points you start with, the longer it will take to compute the normals and create the mesh.</p>
@@ -172,17 +172,20 @@ Create a Polygonal Mesh</h3>
 <h3><a class="anchor" id="autotoc_md330"></a>
 Trim Excess Polygons</h3>
 <p>Our mesh has now been created. A value of 11 has given us 1.7 million faces. We have a problem however. Our tunnel has turned into a blob shape. This is because the mesh that CloudCompare creates will always be water tight even if it has to add polygons where there are no points. We just want our tunnels, though, so we need to remove those unnecessary polygons.</p>
-<p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/blob2.png" alt="The blob shape" class="inline"/></p>
+<p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/blob2.jpg" alt="The blob shape" class="inline"/></p>
 <p>This is where our scalar field comes in. In the mesh's <code>Properties</code> window go to <code>SF display params</code> and take the left handle in the graph and drag it to the right until it hits the area where the bulk of the scalar field starts.</p>
 <p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/sf_display.png" alt="Adjusting scalar filed params" class="inline"/></p>
 <p>This will display only the polygons that were created from the point cloud and hide the polygons used to make the model watertight. The polygons are only hidden however. We still need to actually remove them.</p>
-<p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/hidden_polygons2.png" alt="Display original polygons" class="inline"/></p>
+<p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/hidden_polygons2.jpg" alt="Display original polygons" class="inline"/></p>
 <p>To remove the hidden polygons go to <code>Edit</code> &gt; <code>Scalar fields</code> &gt; <code>Filter By Value</code>.</p>
 <p>A dialog box will appear with the <code>Range</code> values automatically entered based on what we entered in our <code>SF display params</code>. Hitting export will simply export the mesh within that range. Instead, we'll hit <code>Split</code> to create two meshes. One with the polygons inside our specified range and one containing polygons outside that range.</p>
 <p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/split.png" alt="Splitting the mesh" class="inline"/></p>
+<p>It is possible that you will get error "Visibility table not instantiated". This error causes only the "wanted" part of the mesh to be created when splitting, while the other ("unwanted") part will not be generated. But that is not a problem for our use-case.</p>
+<p>&lt;img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/error.jpg" alt="Error "Visibility table not instantiated""/&gt;</p>
 <h3><a class="anchor" id="autotoc_md331"></a>
 The Completed Model</h3>
 <p>By hitting <code>Split</code> we can view the model before exporting by simply going to <code>File</code> &gt; <code>Save</code>. Remember to have the correct mesh selected (<code>&lt;mesh_name&gt;.part</code>) since choosing <code>Split</code> will give you two new meshes, plus you will still have your original, complete mesh. Your file format will depend on the software you want to use but <code>.obj</code> is a widely supported format that should work in most 3D applications.</p>
+<p>Before exporting, check your mesh for holes. If still checked, disable display of the pointcloud, so that only your output mesh is shown. Inspect ground parts of the mesh (or any other parts you are most interested in) and check if there aren't holes in it. If there are some, you can try to repeat the trimming step with more relaxed threshold.</p>
 <p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/complete2.png" alt="The completed mesh" class="inline"/></p>
 <p>You can find more information on CloudCompare and a more in depth look at the tools we used in this tutorial on <a href="https://www.cloudcompare.org/">the CloudCompare website</a> and the <a href="https://www.cloudcompare.org/doc/wiki/index.php?title=Main_Page">CloudCompare wiki</a>. </p>
 </div></div><!-- contents -->
