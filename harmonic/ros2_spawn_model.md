@@ -59,4 +59,4 @@ within this tag. Here's an example:
 
 In this case the `<gz_spawn_model>` parameters are read from the command line.
 That's an option but not strictly necessary as you could decide to hardcode some
-of the values.
+of the values or not even use all of the parameters.
