@@ -80,15 +80,15 @@ within this tag. Here's an example:
 
 ```xml
 <launch>
-  <arg name="name" default="ros_gz_bridge" />
-  <arg name="config_file" default="" />
+  <arg name="bridge_name" />
+  <arg name="config_file" />
   <arg name="container_name" default="ros_gz_container" />
   <arg name="namespace" default="" />
   <arg name="use_composition" default="True" />
   <arg name="use_respawn" default="False" />
   <arg name="log_level" default="info" />
-  <ros_gz_bridge 
-    name="$(var name)"
+  <ros_gz_bridge
+    bridge_name="$(var bridge_name)"
     config_file="$(var config_file)"
     container_name="$(var container_name)"
     namespace="$(var namespace)"
@@ -97,11 +97,12 @@ within this tag. Here's an example:
     log_level="$(var log_level)">
   </ros_gz_bridge>
 </launch>
+
 ```
 
 In this case the `<ros_gz_bridge>` parameters are read from the command line.
 That's an option but not strictly necessary as you could decide to hardcode some
-of the values.
+of the values or not even use all the parameters.
 
 ## Publish key strokes to ROS
 

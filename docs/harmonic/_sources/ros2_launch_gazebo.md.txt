@@ -49,7 +49,7 @@ within this tag. Here's an example for launching Gazebo server:
 
 In this case the `<gz_server>` parameters are read from the command line. That's
 an option but not strictly necessary as you could decide to hardcode some of the
-values.
+values or not even use all the parameters.
 
 ### Python
 Python launch files provide more low-level customization and logic compared to XML launch files. 

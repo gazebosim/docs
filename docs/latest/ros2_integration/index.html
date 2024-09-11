@@ -549,15 +549,15 @@ purpose we have created the <code class="docutils literal notranslate"><span cla
 XML or YAML launch file. In this case, the arguments are passed as attributes
 within this tag. Here’s an example:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;launch&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;ros_gz_bridge&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;config_file&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;bridge_name&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;config_file&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;container_name&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;ros_gz_container&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;namespace&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;use_composition&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;True&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;use_respawn&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;False&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;log_level&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;info&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;ros_gz_bridge</span><span class="w"> </span>
-<span class="w">    </span><span class="na">name=</span><span class="s">&quot;$(var name)&quot;</span>
+<span class="w">  </span><span class="nt">&lt;ros_gz_bridge</span>
+<span class="w">    </span><span class="na">bridge_name=</span><span class="s">&quot;$(var bridge_name)&quot;</span>
 <span class="w">    </span><span class="na">config_file=</span><span class="s">&quot;$(var config_file)&quot;</span>
 <span class="w">    </span><span class="na">container_name=</span><span class="s">&quot;$(var container_name)&quot;</span>
 <span class="w">    </span><span class="na">namespace=</span><span class="s">&quot;$(var namespace)&quot;</span>
@@ -570,7 +570,7 @@ within this tag. Here’s an example:</p>
 </div>
 <p>In this case the <code class="docutils literal notranslate"><span class="pre">&lt;ros_gz_bridge&gt;</span></code> parameters are read from the command line.
 That’s an option but not strictly necessary as you could decide to hardcode some
-of the values.</p>
+of the values or not even use all the parameters.</p>
 </section>
 <section id="publish-key-strokes-to-ros">
 <h2>Publish key strokes to ROS<a class="headerlink" href="#publish-key-strokes-to-ros" title="Link to this heading">#</a></h2>
