@@ -30,9 +30,9 @@ within this tag. Here's an example:
 <launch>
   <arg name="world" default="" />
   <arg name="file" default="" />
-  <arg name="xml_string" default="" />
+  <arg name="world_string" default="" />
   <arg name="topic" default="" />
-  <arg name="name" default="" />
+  <arg name="entity_name" default="" />
   <arg name="allow_renaming" default="False" />
   <arg name="x" default="" />
   <arg name="y" default="" />
@@ -43,9 +43,9 @@ within this tag. Here's an example:
   <gz_spawn_model 
     world="$(var world)"
     file="$(var file)"
-    xml_string="$(var xml_string)"
+    world_string="$(var world_string)"
     topic="$(var topic)"
-    name="$(var name)"
+    entity_name="$(var entity_name)"
     allow_renaming="$(var allow_renaming)"
     x="$(var x)"
     y="$(var y)"
