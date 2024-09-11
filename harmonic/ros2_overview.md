@@ -26,6 +26,9 @@ Please follow the [Install Gazebo and ROS document](ros_installation)
 before starting this tutorial. A working installation of ROS 2 and Gazebo is
 required to go further.
 
+Important: Most of this functionality is only available in ROS 2 Rolling.
+We'll backport it to ROS 2 Jazzy soon.
+
 ## Composition
 
 If you inspect the parameters of the launch files mentioned in the next
@@ -41,3 +44,13 @@ launched with the `container_node_name` parameter matching the container name
 including Gazebo and the bridge.
 
 You can learn more about ROS composition in [this tutorial](https://docs.ros.org/en/galactic/Tutorials/Intermediate/Composition.html).
+
+## What's next?
+
+Here are the next follow-up tutorials that you can check to learn more about
+Gazebo/ROS integration.
+
+* [How to launch Gazebo from ROS 2](ros2_launch_gazebo).
+* [How to use ROS 2 to interact with Gazebo](ros2_integration).
+* [Example of using ROS 2 to load a model and interact with it in Gazebo](ros2_interop).
+* [How to spawn a Gazebo model from ROS 2](ros2_spawn_model).
