@@ -139,7 +139,7 @@
 <div class="title">Spacecraft thrusters </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2><a class="anchor" id="autotoc_md359"></a>
+<div class="textblock"><h2><a class="anchor" id="autotoc_md368"></a>
 Spacecraft Thrusters Model</h2>
 <p>To enable a seamless transition of space robotics control and planning schemes from simulation to real, we introduce a spacecraft thrusters model in Gazebo. The model provides a very simple interface to a solenoid valve that controls the flow of gas to the thruster. The thruster model is as follows:</p>
 <ul>
@@ -148,7 +148,7 @@ Spacecraft Thrusters Model</h2>
 <li>force output is modeled according to a duty cycle with a given frequency, and thrust output is maximum at the ON state of the duty cycle</li>
 </ul>
 <p>In short, if the duty cycle signal is high, the solenoid valve behaves as a fully-opened thruster, providing maximum thrust. If the duty cycle signal is low, the solenoid valve behaves as a fully-closed thruster, providing no thrust.</p>
-<h2><a class="anchor" id="autotoc_md360"></a>
+<h2><a class="anchor" id="autotoc_md369"></a>
 Setting up the SpacecraftThrusterModel plugin</h2>
 <p>Here follows an example instance of the <code>SpacecraftThrusterModel</code> plugin in an SDF file: </p><div class="fragment"><div class="line">&lt;<span class="keywordtype">plugin</span> <span class="keyword">filename</span>=<span class="stringliteral">&quot;gz-sim-spacecraft-thruster-model-system&quot;</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;gz::sim::systems::SpacecraftThrusterModel&quot;</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">link_name</span>&gt;<span class="keyword">thruster_0</span>&lt;/<span class="keywordtype">link_name</span>&gt;</div>
@@ -197,13 +197,13 @@ Setting up the SpacecraftThrusterModel plugin</h2>
 <div class="line">        &lt;/<span class="keywordtype">inertia</span>&gt;</div>
 <div class="line">      &lt;/<span class="keywordtype">inertial</span>&gt;</div>
 <div class="line">    &lt;/<span class="keywordtype">link</span>&gt;</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md361"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md370"></a>
 Testing an implementation of a Spacecraft model</h2>
 <p>An example of a spacecraft with thrusters is implemented in the <a href="https://app.gazebosim.org/proque/fuel/models/dart">DART spacecraft model</a>. To run the example, run the following command: </p><div class="fragment"><div class="line">gz sim spacecraft.sdf</div>
 </div><!-- fragment --><p>This spacecraft has 12 thrusters. To send inputs to <code>thruster_0</code>, run the following command: </p><div class="fragment"><div class="line">gz topic -p &#39;normalized:[1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]&#39; -t /dart/command/duty_cycle --msgtype gz.msgs.Actuators</div>
 </div><!-- fragment --><p>This command will send the maximum force of a thruster over one sampling time.</p>
 <p>Below, an image of the spacecraft: <img src="dart.png" alt="" class="inline" title="Spacecraft"/></p>
-<h2><a class="anchor" id="autotoc_md362"></a>
+<h2><a class="anchor" id="autotoc_md371"></a>
 2D Spacecraft Simulator - Ground Space Robotics testbed</h2>
 <p>An example of a ground testbed for spacecrafts is also available, where the spacecraft moves a 2D plane using thrusters. The testbed spacecraft model has 8 thrusters, and the thrusters are controlled by the <code>SpacecraftThrusterModel</code> plugin. This replicates the real <a href="https://www.discower.io/">DISCOWER</a> testbed at KTH Space Robotics Laboratory in Stockholm Sweden.</p>
 <p>To run this example, run the following command: </p><div class="fragment"><div class="line">gz sim ground_spacecraft_testbed.sdf</div>

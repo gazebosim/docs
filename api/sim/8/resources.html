@@ -140,11 +140,11 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Setting up and running a simulation can involve loading various kinds of resources, such as robot models and plugins, from different locations, which can include a local filesystem and online servers. Gazebo offers a few different mechanisms for locating required resources.</p>
-<h2><a class="anchor" id="autotoc_md345"></a>
+<h2><a class="anchor" id="autotoc_md354"></a>
 Plugins</h2>
 <p>A plugin is a shared library that adheres to a specific API and is loaded at runtime. Typically, plugins are scoped to perform a narrow set of features. For example, the <code>diff_drive</code> plugin, provided by Gazebo, implements a differential drive controller for mobile robots.</p>
 <p>Gazebo relies on plugins for rendering, physics simulation, sensor data generation, and many of the capabilities. The following sections describe how Gazebo finds and loads different types of plugins.</p>
-<h3><a class="anchor" id="autotoc_md346"></a>
+<h3><a class="anchor" id="autotoc_md355"></a>
 System Plugins</h3>
 <p>A system plugin is used by Gazebo, and provides an entry point for simulation customization and control. Refer to the <a class="el" href="createsystemplugins.html">Create System Plugins</a> tutorial for information about creating your own system plugin.</p>
 <p>System plugins may be loaded through:</p>
@@ -163,7 +163,7 @@ System Plugins</h3>
 <li><code>$HOME/.gz/sim/plugins</code></li>
 <li><a class="el" href="namespacegz_1_1sim_1_1systems.html">Systems that are installed with Gazebo</a></li>
 </ol>
-<h3><a class="anchor" id="autotoc_md347"></a>
+<h3><a class="anchor" id="autotoc_md356"></a>
 Gazebo GUI plugins</h3>
 <p>Each <a href="https://gazebosim.org/libs/rendering">Gazebo GUI</a> plugin defines a widget.</p>
 <p>GUI plugins may be loaded through:</p>
@@ -186,19 +186,19 @@ Gazebo GUI plugins</h3>
 <li><code>~/.gz/gui/plugins</code></li>
 <li><a class="elRef" href="https://gazebosim.org/api/gui/8/namespacegz_1_1gui_1_1plugins.html">Plugins which are installed with Gazebo GUI</a></li>
 </ol>
-<h3><a class="anchor" id="autotoc_md348"></a>
+<h3><a class="anchor" id="autotoc_md357"></a>
 Physics engines</h3>
 <p><a href="https://gazebosim.org/libs/physics">Gazebo Physics</a> uses a plugin architecture and its physics engines are built as plugins that are loaded at run time using <a href="https://gazebosim.org/libs/plugin">Gazebo Plugin</a>.</p>
 <p>See the <a href="physics.html">Physics engines</a> tutorial for more details.</p>
-<h3><a class="anchor" id="autotoc_md349"></a>
+<h3><a class="anchor" id="autotoc_md358"></a>
 Rendering engines</h3>
 <p><a href="https://gazebosim.org/libs/rendering">Gazebo Rendering</a> uses a plugin architecture and its render engines are built as plugins that are loaded at run time using <a href="https://gazebosim.org/libs/plugin">Gazebo Plugin</a>.</p>
 <p>At the moment, Gazebo Rendering will only look for render engine plugin shared libraries installed within its <code>&lt;install_prefix&gt;/lib</code> directory. Likewise, the resources used by these engines are located in Gazebo Rendering's <code>&lt;install_prefix&gt;/share</code> directory.</p>
-<h3><a class="anchor" id="autotoc_md350"></a>
+<h3><a class="anchor" id="autotoc_md359"></a>
 Sensors</h3>
 <p>Each unique type of sensor in <a href="https://gazebosim.org/libs/sensors">Gazebo Sensors</a> is a plugin. When a particular sensor type is requested, the relevant plugin is loaded by <a href="https://gazebosim.org/libs/plugin">Gazebo Plugin</a> and a sensor object is instantiated from it.</p>
 <p>At the moment, Gazebo Sensors will only look for sensor plugin shared libraries installed within its <code>&lt;install_prefix&gt;/lib</code> directory.</p>
-<h2><a class="anchor" id="autotoc_md351"></a>
+<h2><a class="anchor" id="autotoc_md360"></a>
 Models, lights, actors</h2>
 <p>Top-level entities such as models, lights and actors may be loaded through:</p>
 <ul>
@@ -230,7 +230,7 @@ Models, lights, actors</h2>
 <ul>
 <li>The <code>SDF_PATH</code> environment variable also works in some scenarios, but it's not recommended when using Gazebo.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md352"></a>
+<h2><a class="anchor" id="autotoc_md361"></a>
 Meshes</h2>
 <p>Mesh files may be loaded through:</p>
 <ul>
@@ -250,7 +250,7 @@ Meshes</h2>
 <li>The <code>GZ_FILE_PATH</code> environment variable also works in some scenarios, but it's not recommended when using Gazebo.</li>
 </ul>
 <p>If a &lt;geometry&gt;&lt;mesh&gt;&lt;uri&gt;<code>starts with the</code>name://<code>scheme, e.g.</code>name://my_mesh_name`, Gazebo will check to see if a mesh with the specified name exists in the Mesh Manager and load that mesh if it exists. This can happen when a <code>common::Mesh</code> object is created in memory and registered with the Mesh Manager via the <a href="https://gazebosim.org/api/common/5/classgz_1_1common_1_1MeshManager.html#a2eaddabc3a3109bd8757b2a8b2dd2d01">common::MeshManager::Instance()-&gt;AddMesh</a> call.</p>
-<h3><a class="anchor" id="autotoc_md353"></a>
+<h3><a class="anchor" id="autotoc_md362"></a>
 GUI configuration</h3>
 <p>Gazebo Sim's <a href="https://gazebosim.org/api/gui/8/config.html">GUI configuration</a> can come from the following, in order:</p>
 <ol type="1">

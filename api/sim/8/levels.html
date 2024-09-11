@@ -146,7 +146,7 @@
 <p>To enable levels, it is necessary to add appropriate tags in the SDF file as described below, and to launch Gazebo with the <code>--levels</code> flag.</p>
 <p>All the situations described here refer to simulation running in a single server.</p>
 <dl class="section note"><dt>Note</dt><dd>Take a look at the <a href="terminology.html">terminology</a> tutorial to get familiar with concepts used in this tutorial.</dd></dl>
-<h2><a class="anchor" id="autotoc_md144"></a>
+<h2><a class="anchor" id="autotoc_md153"></a>
 Try it out</h2>
 <p>Gazebo ships with an example world that demos the levels feature. Try it as follows:</p>
 <ol type="1">
@@ -161,11 +161,11 @@ Try it out</h2>
 </li>
 <li>Press play on Gazebo. You'll see that the tunnels will be loaded as the vehicles move forward.</li>
 </ol>
-<h3><a class="anchor" id="autotoc_md145"></a>
+<h3><a class="anchor" id="autotoc_md154"></a>
 No levels</h3>
 <p>The simplest case is a world without levels or performers. This is essentially the same as a world with a single level.</p>
 <p>This is the situation when the world file doesn't have <code>&lt;level&gt;</code> tags or when Gazebo is launched without the <code>--levels</code> flag.</p>
-<h3><a class="anchor" id="autotoc_md146"></a>
+<h3><a class="anchor" id="autotoc_md155"></a>
 Multiple levels, one server</h3>
 <p>If a world has a single performer, which may be moving across several levels, only the level which contains the performer, and the default level, will be initially loaded. As the performer moves in the world, the runner will load / unload levels as needed.</p>
 <ul>
@@ -209,7 +209,7 @@ Multiple levels, one server</h3>
 <p class="startli"><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/d62080da95edbb172c47eac883ec4b707b59bb38/doc/architecture_design/05.png" alt="" class="inline"/></p>
 </li>
 </ol>
-<h2><a class="anchor" id="autotoc_md147"></a>
+<h2><a class="anchor" id="autotoc_md156"></a>
 SDF elements</h2>
 <p>Two new SDF elements are introduced for distributed simulation:</p>
 <ul>
@@ -217,7 +217,7 @@ SDF elements</h2>
 <li><code>&lt;performer&gt;</code></li>
 </ul>
 <p>The concepts of levels and performers are specific to Gazebo, thus, putting them directly under the <code>&lt;world&gt;</code> tag would diminish the generality of SDF. A new tag, <code>&lt;extension&gt;</code>, has been proposed for such circumstances but has not been implemented yet. Therefore, for now, the <code>&lt;level&gt;</code> and <code>&lt;performer&gt;</code> tags will be added to a <code>&lt;plugin name="gz::sim" filename="dummy"&gt;</code> tag. The plugin name <code><a class="el" href="namespacegz_1_1sim.html" title="Gazebo is a leading open source robotics simulator, that provides high fidelity physics,...">gz::sim</a></code> will be fixed so that a simulation runner would know to check for that name in each plugin tag.</p>
-<h3><a class="anchor" id="autotoc_md148"></a>
+<h3><a class="anchor" id="autotoc_md157"></a>
 &lt;level&gt;</h3>
 <p>The <code>&lt;level&gt;</code> tag contains information about the volume occupied by the level and the entities inside the level. The volume is given by a <code>&lt;box&gt;</code> geometry (more shapes may be supported in the future) and it is used to determine whether a performer is inside the level. Currently, the box shape is internally converted into an axis aligned box to speed up intersection calculations. The position of the volume is specified with respect to the world frame using the <code>&lt;pose&gt;</code> tag. Although we are using the <code>&lt;pose&gt;</code> tag, the orientation part is ignored. The <code>&lt;buffer&gt;</code> tag is used to express the <b>buffer zone</b> of the volume.</p>
 <p>Entities associated with the level are specified using the <code>&lt;ref&gt;</code> tag. The value of this tag is the name of the entity. A level can contain one or more <code>&lt;ref&gt;</code> tags. Note that it is this tag that determines whether an entity is considered to be in the level or not. That is, an entity specified by a <code>&lt;ref&gt;</code> would be considered part of a level even if its position is outside the level's volume. It is up to the user to ensure that all entities specified by the level's <code>&lt;ref&gt;</code> tags are contained within the level's volume.</p>
@@ -233,7 +233,7 @@ SDF elements</h2>
 <div class="line">  &lt;<span class="keywordtype">ref</span>&gt;<span class="keyword">model1</span>&lt;/<span class="keywordtype">ref</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">ref</span>&gt;<span class="keyword">model2</span>&lt;/<span class="keywordtype">ref</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">level</span>&gt;</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md149"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md158"></a>
 &lt;performer&gt;</h3>
 <dl class="section note"><dt>Note</dt><dd>See Runtime performers, the next section, for information about specifying performers without using the SDF <code>&lt;performer&gt;</code> tag.</dd></dl>
 <p>The <code>&lt;performer&gt;</code> tag contains a reference to the performer entity (most likely a model). The <code>&lt;ref&gt;</code> tag designates the name of the performer entity. It is a required tag and there can only be one inside a <code>&lt;performer&gt;</code>. Multiple <code>&lt;performer&gt;</code>s cannot point to the same entity.</p>
@@ -248,11 +248,11 @@ SDF elements</h2>
 <div class="line">    &lt;/<span class="keywordtype">box</span>&gt;</div>
 <div class="line">  &lt;/<span class="keywordtype">geometry</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">performer</span>&gt;</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md150"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md159"></a>
 Runtime performers</h3>
 <p>Performers can be specified at runtime using a Gazebo Transport service. This functionality can be used when a performer is not known at load time. For example, you may need to start simulation with an empty world and spawn models (performers) into simulation at a later time.</p>
 <p>The name of the add performer service is <code>/world/&lt;world_name&gt;/level/set_performer</code>. Make sure to replace <code>&lt;world_name&gt;</code> with the name of simulated world. The service request is an gz:msgs::StringMsg message, and the response is an gz::msgs::Boolean message. The response is true when the peformer was successfuly added.</p>
-<h4><a class="anchor" id="autotoc_md151"></a>
+<h4><a class="anchor" id="autotoc_md160"></a>
 Example</h4>
 <ol type="1">
 <li>Run the <code>levels_no_performer.sdf</code> world in a terminal.</li>
@@ -263,7 +263,7 @@ Example</h4>
 <li>In another terminal call the add performer service for the blue vehicle.</li>
 </ol>
 <div class="fragment"><div class="line">gz service -s /world/levels/level/set_performer --reqtype gz.msgs.StringMsg --reptype gz.msgs.Boolean --timeout 2000 --req &#39;data: &quot;vehicle_blue&quot;&#39;</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md152"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md161"></a>
 Example</h3>
 <p>The following is a world file that could be an instance of the world shown in the figure</p>
 <p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/d62080da95edbb172c47eac883ec4b707b59bb38/doc/architecture_design/06.png" alt="" class="inline"/></p>

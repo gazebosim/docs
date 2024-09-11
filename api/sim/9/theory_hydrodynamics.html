@@ -138,16 +138,16 @@
   <div class="headertitle"><div class="title">Hydrodynamics</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md389"></a>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md393"></a>
 Overview</h1>
 <p>This tutorial describes the theory of operation of the hydrodynamics plugin. It's heavily based on [3], and we recommend to read the full paper for a deeper understanding of its theory.</p>
-<h1><a class="anchor" id="autotoc_md390"></a>
+<h1><a class="anchor" id="autotoc_md394"></a>
 Understanding Hydrodynamic Forces</h1>
 <p>The behavior of a moving body through water is different from the behavior of a ground based vehicle. In particular bodies moving underwater experience much more forces derived from drag, buoyancy and lift. The way these forces act on a body can be seen in the following diagram:</p>
 <div class="image">
 <img src="MBARI forces.png" alt=""/>
 </div>
-<h1><a class="anchor" id="autotoc_md391"></a>
+<h1><a class="anchor" id="autotoc_md395"></a>
 The hydrodynamics plugin</h1>
 <p>To approximate the motion of the vehicle in the ocean environment, we adapt Fossen’s six degree-of-freedom robot-like vectorial model for marine craft [2] expressed as</p>
 <p>$$M ẍ + D(ẋ)ẋ + C(ẋ)ẋ = F$$</p>
@@ -199,7 +199,7 @@ The hydrodynamics plugin</h1>
 <td class="markdownTableBodyNone">&lt;default_current&gt;   </td><td class="markdownTableBodyNone">Default ocean current vector   </td></tr>
 </table>
 <p><b>Note about added mass</b>: SDFormat also supports added mass natively. Until we deprecate the added mass parameters of this plugin, do not set the added mass parameters in both places, choose one (either in this plugin or under <code>&lt;inertial&gt;</code> of your link).</p>
-<h1><a class="anchor" id="autotoc_md392"></a>
+<h1><a class="anchor" id="autotoc_md396"></a>
 A simple example</h1>
 <p>Let's download the provided <code>buoyant_cylinder.sdf</code> world and run to see an example of a cylinder with three plugins attached:</p>
 <ul>
@@ -223,18 +223,18 @@ A simple example</h1>
 </div><!-- fragment --><p>And run Gazebo:</p>
 <div class="fragment"><div class="line">gz sim -r ~/gazebo_maritime/worlds/buoyant_cylinder.sdf</div>
 </div><!-- fragment --><p>See how slow the cylinder moves. With these set of parameters we increased the damping in the surge axis, causing the vehicle to slowly move towards its goal.</p>
-<h1><a class="anchor" id="autotoc_md393"></a>
+<h1><a class="anchor" id="autotoc_md397"></a>
 Experimental - How to tune the parameters</h1>
 <p>The hydrodynamics plugin requires a large number of parameters to model the added mass and drag behaviors of underwater vehicles. This section describes a method to generate an initial set of parameters for the hydrodynamics plugin. Note these parameters need to be tested and possibly tweaked to guarantee model stability.</p>
-<h2><a class="anchor" id="autotoc_md394"></a>
+<h2><a class="anchor" id="autotoc_md398"></a>
 Added mass</h2>
 <p>A python library called <a href="https://github.com/capytaine/capytaine">Capytaine</a> can be used to determine the added mass matrix of your vehicle. Capytaine enables the user to import a mesh (.stl), define a set of linear potential flow problems and solve these using the included Boundary Element Method (BEM) solver.</p>
 <p>Capytaine is typically used to model the interaction between floating bodies and waves, however it can be applied to ROVs by setting the wave frequency and free surface both to infinity (this assumes that the added mass is approximately constant since the ROV does not operate near the wave zone and that it operates in infinitely deep water respectively) [1] (p.14), [2] (p.18).</p>
 <p>Furthermore, it is recommended to use a simplified mesh when computing the added mass with Capytaine, since a complex mesh is computationally prohibitive.</p>
-<h2><a class="anchor" id="autotoc_md395"></a>
+<h2><a class="anchor" id="autotoc_md399"></a>
 Linear and quadratic damping</h2>
 <p>Computing the linear and quadratic damping coefficients is generally not possible using computational analysis and is usually done experimentally [1] (p.28). If determining the damping coefficients experimentally is not feasible, the same method described by Berg2012 can be used to estimate these values from a similar ROV [1] (p.28-31).</p>
-<h1><a class="anchor" id="autotoc_md396"></a>
+<h1><a class="anchor" id="autotoc_md400"></a>
 References</h1>
 <p>[1] BERG, V. Development and Commissioning of a DP system for ROV SF 30k, 2012.</p>
 <p>[2] FOSSEN , T. I. Lecture notes: Ttk 4190 guidance, navigation and control of vehicles, February 2021.</p>
