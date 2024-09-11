@@ -26,7 +26,7 @@ Please follow the [Install Gazebo and ROS document](ros_installation)
 before starting this tutorial. A working installation of ROS 2 and Gazebo is
 required to go further.
 
-Important: Most of this functionality is only available in ROS2 Rolling.
+Important: Most of this functionality is only available in ROS 2 Rolling.
 We'll backport it to ROS 2 Jazzy soon.
 
 ## Composition
