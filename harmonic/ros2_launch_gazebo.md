@@ -100,3 +100,22 @@ def generate_launch_description():
         ),
     ])
 ```
+
+Here's another example using a higher level action from Python to launch `gzserver`:
+```python
+from launch import LaunchDescription
+from ros_gz_sim.actions import GzServer
+
+
+def generate_launch_description():
+
+    # Create the launch description and populate
+    ld = LaunchDescription([
+        GzServer(
+            world_sdf_file='shapes.sdf'
+        ),
+    ])
+
+    return ld
+
+```
