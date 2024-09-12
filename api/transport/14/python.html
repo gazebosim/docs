@@ -354,17 +354,16 @@ Advertise Options</h2>
 <div class="line"><span class="comment"># Setting the throttling option</span></div>
 <div class="line">opts = AdvertiseMessageOptions()</div>
 <div class="line">opts.msgs_per_sec = 1</div>
-<div class="line">pub = node.advertise(topic_name, StringMsg, opts);</div>
-<div class="line"><span class="keywordflow">if</span> (!pub):</div>
+<div class="line">pub = node.advertise(topic_name, StringMsg, opts)</div>
+<div class="line"><span class="keywordflow">if</span> <span class="keywordflow">not</span> pub:</div>
 <div class="line">  print(<span class="stringliteral">&quot;Error advertising topic&quot;</span> + topic_name)</div>
-<div class="line">  <span class="keywordflow">return</span> <span class="keyword">False</span></div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md65"></a>
 Walkthrough</h3>
 <div class="fragment"><div class="line"><span class="comment"># Setting the throttling option</span></div>
 <div class="line">opts = AdvertiseMessageOptions()</div>
 <div class="line">opts.msgs_per_sec = 1</div>
 </div><!-- fragment --><p>In this section of code, we declare an <em>AdvertiseMessageOptions</em> object and use it to set the publishing rate (the member <code>msgs_per_sec</code>), In our case, the rate specified is 1 msg/sec.</p>
-<div class="fragment"><div class="line">pub = node.advertise(topic_name, StringMsg, opts);</div>
+<div class="fragment"><div class="line">pub = node.advertise(topic_name, StringMsg, opts)</div>
 </div><!-- fragment --><p>Next, we advertise the topic with message throttling enabled. To do it, we pass opts as an argument to the <em>advertise()</em> method.</p>
 <h2><a class="anchor" id="autotoc_md66"></a>
 Subscribe Options</h2>
@@ -396,8 +395,8 @@ Topic remapping</h2>
 <div class="line"> </div>
 <div class="line"><span class="comment"># Create a transport node and remap a topic.</span></div>
 <div class="line">nodeOpts = NodeOptions()</div>
-<div class="line">nodeOptions.add_topic_remap(<span class="stringliteral">&quot;/foo&quot;</span>, <span class="stringliteral">&quot;/bar&quot;</span>);</div>
-<div class="line">node = Node(nodeOptions);</div>
+<div class="line">nodeOpts.add_topic_remap(<span class="stringliteral">&quot;/foo&quot;</span>, <span class="stringliteral">&quot;/bar&quot;</span>)</div>
+<div class="line">node = Node(nodeOpts)</div>
 </div><!-- fragment --><p>You can modify the publisher example to add this option.</p>
 <p>From terminal 1:</p>
 <div class="fragment"><div class="line">python3 ./publisher.py</div>
