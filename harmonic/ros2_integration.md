@@ -71,7 +71,7 @@ Here's an example:
 ros2 launch ros_gz_bridge ros_gz_bridge.launch.py bridge_name:=ros_gz_bridge config_file:=<path_to_your_YAML_file>
 ```
 
-Check [this block](https://github.com/gazebosim/ros_gz/blob/66c7a4a5b41bc2466f2334e216f0434a10303fdc/ros_gz_bridge/launch/ros_gz_bridge.launch.py#L27-L33)
+Check [this block](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/launch/ros_gz_bridge.launch.py#L27-L33)
 from the source code to know all the different parameters accepted by this
 launch file.
 
