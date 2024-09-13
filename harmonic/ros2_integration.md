@@ -67,7 +67,7 @@ The package `ros_gz_bridge` contains a launch file named
 `ros_gz_bridge.launch.py`. You can use it to start a ROS 2 and Gazebo bridge.
 Here's an example:
 
-Note: If you run the bridge as a standalone node with composition enabled (default configutation),
+Note: If you run the bridge as a standalone node with composition enabled (default configuration),
 you'll need to create a container first.
 ```bash
 ros2 run rclcpp_components component_container --ros-args -r __node:=ros_gz_container
