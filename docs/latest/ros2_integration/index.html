@@ -538,12 +538,18 @@ for a valid configuration file.</p>
 <p>The package <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> contains a launch file named
 <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge.launch.py</span></code>. You can use it to start a ROS 2 and Gazebo bridge.
 Here’s an example:</p>
+<p>Note: If you run the bridge as a standalone node with composition enabled (default configuration),
+you’ll need to create a container first.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>rclcpp_components<span class="w"> </span>component_container<span class="w"> </span>--ros-args<span class="w"> </span>-r<span class="w"> </span>__node:<span class="o">=</span>ros_gz_container
+</pre></div>
+</div>
+<p>And now, the container will load your bridge with:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>ros_gz_bridge<span class="w"> </span>ros_gz_bridge.launch.py<span class="w"> </span>name:<span class="o">=</span>ros_gz_bridge<span class="w"> </span>config_file:<span class="o">=</span>&lt;path_to_your_YAML_file&gt;
 </pre></div>
 </div>
 </section>
-<section id="launching-the-bridge-from-a-custom-launch-file">
-<h2>Launching the bridge from a custom launch file.<a class="headerlink" href="#launching-the-bridge-from-a-custom-launch-file" title="Link to this heading">#</a></h2>
+<section id="launching-the-bridge-from-a-custom-launch-file-in-xml">
+<h2>Launching the bridge from a custom launch file in XML.<a class="headerlink" href="#launching-the-bridge-from-a-custom-launch-file-in-xml" title="Link to this heading">#</a></h2>
 <p>It’s also possible to trigger the bridge from your custom launch file. For that
 purpose we have created the <code class="docutils literal notranslate"><span class="pre">&lt;ros_gz_bridge/&gt;</span></code> tag that can be used from you
 XML or YAML launch file. In this case, the arguments are passed as attributes
@@ -571,6 +577,45 @@ within this tag. Here’s an example:</p>
 <p>In this case the <code class="docutils literal notranslate"><span class="pre">&lt;ros_gz_bridge&gt;</span></code> parameters are read from the command line.
 That’s an option but not strictly necessary as you could decide to hardcode some
 of the values or not even use all the parameters.</p>
+</section>
+<section id="launching-the-bridge-from-a-custom-launch-file-in-python">
+<h2>Launching the bridge from a custom launch file in Python.<a class="headerlink" href="#launching-the-bridge-from-a-custom-launch-file-in-python" title="Link to this heading">#</a></h2>
+<p>Here’s a simplified example of a Python launch file used to load a bridge from
+Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">launch</span> <span class="kn">import</span> <span class="n">LaunchDescription</span>
+<span class="kn">from</span> <span class="nn">launch.actions</span> <span class="kn">import</span> <span class="n">DeclareLaunchArgument</span>
+<span class="kn">from</span> <span class="nn">launch.substitutions</span> <span class="kn">import</span> <span class="n">LaunchConfiguration</span><span class="p">,</span> <span class="n">TextSubstitution</span>
+<span class="kn">from</span> <span class="nn">ros_gz_bridge.actions</span> <span class="kn">import</span> <span class="n">RosGzBridge</span>
+
+
+<span class="k">def</span> <span class="nf">generate_launch_description</span><span class="p">():</span>
+
+    <span class="n">bridge_name</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">&#39;bridge_name&#39;</span><span class="p">)</span>
+    <span class="n">config_file</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">&#39;config_file&#39;</span><span class="p">)</span>
+
+    <span class="n">declare_bridge_name_cmd</span> <span class="o">=</span> <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
+        <span class="s1">&#39;bridge_name&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Name of ros_gz_bridge node&#39;</span>
+    <span class="p">)</span>
+
+    <span class="n">declare_config_file_cmd</span> <span class="o">=</span> <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
+        <span class="s1">&#39;config_file&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;YAML config file&#39;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Create the launch description and populate</span>
+    <span class="n">ld</span> <span class="o">=</span> <span class="n">LaunchDescription</span><span class="p">([</span>
+        <span class="n">RosGzBridge</span><span class="p">(</span>
+            <span class="n">bridge_name</span><span class="o">=</span><span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">&#39;bridge_name&#39;</span><span class="p">),</span>
+            <span class="n">config_file</span><span class="o">=</span><span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">&#39;config_file&#39;</span><span class="p">),</span>
+        <span class="p">),</span>
+    <span class="p">])</span>
+
+    <span class="c1"># Declare the launch options</span>
+    <span class="n">ld</span><span class="o">.</span><span class="n">add_action</span><span class="p">(</span><span class="n">declare_bridge_name_cmd</span><span class="p">)</span>
+    <span class="n">ld</span><span class="o">.</span><span class="n">add_action</span><span class="p">(</span><span class="n">declare_config_file_cmd</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ld</span>
+</pre></div>
+</div>
 </section>
 <section id="publish-key-strokes-to-ros">
 <h2>Publish key strokes to ROS<a class="headerlink" href="#publish-key-strokes-to-ros" title="Link to this heading">#</a></h2>
@@ -650,7 +695,8 @@ ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </s
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ros-gz-bridge">ros_gz_bridge</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-the-bridge-manually">Launching the bridge manually</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-the-bridge-using-the-launch-files-included-in-ros-gz-bridge-package">Launching the bridge using the launch files included in <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> package.</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-the-bridge-from-a-custom-launch-file">Launching the bridge from a custom launch file.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-the-bridge-from-a-custom-launch-file-in-xml">Launching the bridge from a custom launch file in XML.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-the-bridge-from-a-custom-launch-file-in-python">Launching the bridge from a custom launch file in Python.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#publish-key-strokes-to-ros">Publish key strokes to ROS</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video-walk-through">Video walk-through</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize-in-rviz">Visualize in RViz</a></li>
