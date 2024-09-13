@@ -105,14 +105,14 @@ Here's another example using a higher level action from Python to launch `gzserv
 ```python
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
-from launch.substitutions import LaunchConfiguration, TextSubstitution
+from launch.substitutions import LaunchConfiguration
 from ros_gz_sim.actions import GzServer
 
 
 def generate_launch_description():
 
     declare_world_sdf_file_cmd = DeclareLaunchArgument(
-        'world_sdf_file', default_value=TextSubstitution(text=''),
+        'world_sdf_file', default_value='',
         description='Path to the SDF world file')
 
     # Create the launch description and populate
