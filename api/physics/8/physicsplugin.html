@@ -139,11 +139,11 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>This is an introduction to different physics engines and how they are integrated into the Gazebo Physics library.</p>
-<h2><a class="anchor" id="autotoc_md22"></a>
+<h2><a class="anchor" id="autotoc_md19"></a>
 Gazebo Physics</h2>
 <p>The <a class="el" href="namespacegz_1_1physics.html">Gazebo Physics</a> library integrates external physics engines into the Gazebo Simulation eco-system. It allows users to select from multiple supported physics engines based on their simulation needs. Its plugin interface loads physics engines with requested features at runtime. It is also possible to integrate your own selected physics engine by writing a compatible plugin interface.</p>
 <p>To get a more in-depth understanding of how the physics plugin works in Gazebo, we will start with some high level concepts and definitions.</p>
-<h3><a class="anchor" id="autotoc_md23"></a>
+<h3><a class="anchor" id="autotoc_md20"></a>
 High Level Concept</h3>
 <p>Conceptually, the physics plugin can be viewed from two sides of its interface: user vs. implementation.</p>
 <p>Each physics engine provides access to different features implemented by the Gazebo Physics engine. The interface is made possible through the <a class="elRef" href="https://gazebosim.org/api/plugin/3/namespacegz_1_1plugin.html">Gazebo Plugin</a> library, which instantiates <a class="el" href="classgz_1_1physics_1_1Feature.html">Features</a> in <a class="el" href="structgz_1_1physics_1_1FeatureList.html">FeatureLists</a> and supplies pointers to the selected engine. This "user side interface" makes the Gazebo Physics library "callable" from other Gazebo libraries.</p>
@@ -163,7 +163,7 @@ High Level Concept</h3>
 <p class="startli">This is the class that aggregates a list of features. FeatureLists can be constructed in hierarchies, e.g. a <code>FeatureList</code> can be passed into another <code>FeatureList</code>, and the set of all features in the new list will be the sum.</p>
 </li>
 </ol>
-<h3><a class="anchor" id="autotoc_md24"></a>
+<h3><a class="anchor" id="autotoc_md21"></a>
 FeatureList Definitions</h3>
 <p>This list of <code>FeatureLists</code> is specific to the implementation of <code>Dartsim</code> and <code>TPE-plugin</code>. Users do not need to organize their own plugin implementations this way.</p>
 <table class="markdownTable">
@@ -192,12 +192,12 @@ FeatureList Definitions</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">WorldFeatures   </td><td class="markdownTableBodyNone">sets options like solver and collision detector   </td></tr>
 </table>
-<h3><a class="anchor" id="autotoc_md25"></a>
+<h3><a class="anchor" id="autotoc_md22"></a>
 Dart vs. TPE</h3>
 <p>Dart (<a href="https://dartsim.github.io/">Dynamic Animation and Robotics Toolkit</a>) is an open source library that provides data structures and algorithms for kinematic and dynamic applications in robotics and computer animation. It is the default physics engine used in Gazebo Simulation. The source code for Dartsim plugin can be found in <a href="https://github.com/gazebosim/gz-physics/tree/main">Gazebo Physics repository</a> under <code>dartsim</code> directory.</p>
 <p>TPE (<a href="https://github.com/gazebosim/gz-physics/tree/main/tpe">Trivial Physics Engine</a>) is an open source library created by Open Robotics that enables fast, inexpensive kinematics simulation for entities at large scale. It supports higher-order fleet dynamics without real physics (eg. gravity, force, constraint etc.) and multi-machine synchronization. Gazebo support for TPE targets <a href="https://gazebosim.org/docs/citadel">Citadel</a> and onward releases. The source code for TPE plugin can be found in <a href="https://github.com/gazebosim/gz-physics/tree/main">Gazebo Physics repository</a> under the <code>tpe/plugin</code> directory.</p>
 <p>The following is a list of features supported by each physics engine to help users select one that fits their needs.</p>
-<h4><a class="anchor" id="autotoc_md26"></a>
+<h4><a class="anchor" id="autotoc_md23"></a>
 Entity Comparison</h4>
 <p>The following is a table of <code>Entity</code> names used in Gazebo Physics plugin interface, Dart and TPE. Entities are arranged in top-down hierarchical order.</p>
 <table class="markdownTable">
@@ -220,7 +220,7 @@ Entity Comparison</h4>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyCenter">Box/Sphere/Cylinder etc.   </td><td class="markdownTableBodyCenter">Box/Sphere/Cylinder etc.   </td><td class="markdownTableBodyCenter">Box/Sphere/Cylinder/Mesh etc.   </td></tr>
 </table>
-<h4><a class="anchor" id="autotoc_md27"></a>
+<h4><a class="anchor" id="autotoc_md24"></a>
 Feature Comparison</h4>
 <p>The following is a table of implemented <code>Features</code> of Dartsim and TPE-Plugin.</p>
 <table class="markdownTable">

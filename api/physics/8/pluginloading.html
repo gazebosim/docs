@@ -139,16 +139,16 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>This tutorial shows how to create an executable that loads physics engine plugins on Ubuntu, according to the desired feature list.</p>
-<h2><a class="anchor" id="autotoc_md34"></a>
+<h2><a class="anchor" id="autotoc_md25"></a>
 Overview</h2>
 <p>Physics Plugin integrates external physics engines into the Gazebo Physics. It allows users to select from multiple supported physics engines based on their simulation needs. This tutorial will describe how to load a compiled physics plugin using <a class="el" href="namespacegz_1_1physics.html">Gazebo Physics</a> API.</p>
-<h2><a class="anchor" id="autotoc_md35"></a>
+<h2><a class="anchor" id="autotoc_md26"></a>
 Prerequisites</h2>
 <ul>
 <li><a class="el" href="installation.html">Installation</a></li>
 <li><a class="el" href="physicsplugin.html">Understanding the physics plugin</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md36"></a>
+<h2><a class="anchor" id="autotoc_md27"></a>
 Write a simple loader</h2>
 <p>We will use a simplified physics plugin example for this tutorial. Source code can be found at <a href="https://github.com/gazebosim/gz-physics/tree/main/examples/hello_world_loader">gz-physics/examples</a> folder.</p>
 <p>First, create a workspace for the example plugin loader.</p>
@@ -157,7 +157,7 @@ Write a simple loader</h2>
 <div class="line">cd hello_world_loader</div>
 </div><!-- fragment --><p>Then download the example loader into your current directory by:</p>
 <div class="fragment"><div class="line">wget https://raw.githubusercontent.com/gazebosim/gz-physics/main/examples/hello_world_loader/hello_world_loader.cc</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md37"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md28"></a>
 Examine the code</h3>
 <p>At the top of the file <code>hello_world_loader.cc</code>, we include the headers that will be used in our code. After the <code>std</code> C++ libraries are the <code><a class="elRef" href="https://gazebosim.org/api/plugin/3/Loader_8hh.html">Loader.hh</a></code> and <code><a class="elRef" href="https://gazebosim.org/api/plugin/3/PluginPtr_8hh.html">PluginPtr.hh</a></code>, which provides main functionalities for loading physics plugins and plugin pointers. Next includes from <a class="el" href="namespacegz_1_1physics.html">gz::physics</a> are the tools for retrieving <a class="el" href="classgz_1_1physics_1_1Feature.html">Feature</a> and <a class="el" href="classgz_1_1physics_1_1Entity.html">Entity</a> from physics plugins (please refer to <a class="el" href="physicsplugin.html">Understanding the physics plugin</a> tutorial for their design concepts).</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
@@ -208,7 +208,7 @@ Examine the code</h3>
 <div class="line">    <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;  engine name: &quot;</span> &lt;&lt; engine-&gt;GetName() &lt;&lt; <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md38"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md29"></a>
 Setup CMakeLists.txt for CMake build</h3>
 <p>Now create a file named <code>CMakeLists.txt</code> with your favorite editor and add these lines for finding <code>gz-plugin</code> and <code>gz-physics</code> dependencies in Citadel release. After that, add the executable pointing to our file and add linking library so that <code>cmake</code> can compile it.</p>
 <div class="fragment"><div class="line">cmake_minimum_required(VERSION 3.22.1 FATAL_ERROR)</div>
@@ -226,9 +226,9 @@ Setup CMakeLists.txt for CMake build</h3>
 <div class="line">  <a class="code hl_namespaceRef" href="https://gazebosim.org/api/common/6/namespacegz.html">gz</a>-plugin${GZ_PLUGIN_VER}::loader</div>
 <div class="line">  <a class="code hl_namespaceRef" href="https://gazebosim.org/api/common/6/namespacegz.html">gz</a>-physics${GZ_PHYSICS_VER}::gz-physics${GZ_PHYSICS_VER})</div>
 </div><!-- fragment --><p>If you find CMake syntax difficult to understand, take a look at the official tutorial <a href="https://cmake.org/cmake/help/latest/guide/tutorial/index.html">here</a>.</p>
-<h2><a class="anchor" id="autotoc_md39"></a>
+<h2><a class="anchor" id="autotoc_md30"></a>
 Build and run</h2>
-<h3><a class="anchor" id="autotoc_md40"></a>
+<h3><a class="anchor" id="autotoc_md31"></a>
 Compile the loader</h3>
 <p>Your current loader folder should look like this</p>
 <div class="fragment"><div class="line">$ ls ~/hello_world_loader</div>
@@ -238,7 +238,7 @@ Compile the loader</h3>
 <div class="line">cmake ..</div>
 <div class="line">make</div>
 </div><!-- fragment --><p>This will generate the <code>hello_world_loader</code> executable under <code>build</code> folder. This loader will load any plugin that implements the <code>GetEngineInfo</code> feature, and print the engine name.</p>
-<h3><a class="anchor" id="autotoc_md41"></a>
+<h3><a class="anchor" id="autotoc_md32"></a>
 Load existing plugins</h3>
 <p>For example, if you have the Gazebo Physics plugin for <a href="https://dartsim.github.io/">DART</a> compiled, find where it is installed with (you may need administrative rights: <code>sudo</code> on Linux platform):</p>
 <div class="fragment"><div class="line">find / | grep libgz-physics-dartsim-plugin.so</div>
