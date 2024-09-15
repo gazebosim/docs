@@ -136,22 +136,17 @@ If there are no errors, all the binaries should be ready to use.
 ## Using the workspace
 
 The workspace needs to be sourced every time a new terminal is used (
-and Conda environment activated before that). Also, remember that Gazebo
-can only run inside a Visual Studio Command Prompt and it will fail to
-load from a normal (CMD or PowerShell) prompt with errors like
-`Library Error`, `can't load` and similar.
+and Conda environment activated before that).
 
 The overall instructions for setting up a new terminal to use the built
 workspace are:
 
 ```bash
 # CMD
-# Run a Visual Studio Command Prompt
 conda activate gz-ws
 call install\setup.bat
 
 # PowerShell
-# Run a Developer PowerShell for VS 2019/2022
 conda activate gz-ws
 .\install\setup.ps1
 ```
