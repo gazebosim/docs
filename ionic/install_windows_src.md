@@ -27,7 +27,8 @@ without any failures when using their functionalities.
    cmake via Conda. All other checkboxes can be left unchecked.
 
 3. Open a Visual Studio Command Prompt (search for "x64 Native Tools Command Prompt
-   for VS" in the Windows search field near the Windows button). Optionally,
+   for VS" in the Windows search field near the Windows button) or Developer PowerShell
+   for VS (search for "developer powershell"). Optionally,
    right-click and pin to the task bar for quick access in the future.
 
    If you did not add Conda to your `PATH` environment variable during Conda installation,
@@ -35,7 +36,15 @@ without any failures when using their functionalities.
    To find `condabin`, search for "Anaconda Prompt" in the Windows search field near the
    Windows button, open it, run `where conda`, and look for a line containing the directory `condabin`.
 
-4. Navigate to your `condabin`, if necessary, and then create and activate a Conda environment:
+   If you chose PowerShell, you need to do a few steps to be able to use Conda and Gazebo in it:
+   ```bash
+   # Navigate to your condabin directory if needed
+   conda init powershell
+   # Restart the PowerShell
+   Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
+   ```
+
+5. Navigate to your `condabin`, if necessary, and then create and activate a Conda environment:
    ```bash
    conda create -n gz-ws
    conda activate gz-ws
@@ -60,7 +69,7 @@ without any failures when using their functionalities.
      to a subdirectory of the current directory, you have to prepend `.\` so that Conda
      knows it is a path and not a name.
 
-5. Install dependencies:
+6. Install dependencies:
    ```bash
    conda install cmake git vcstool curl pkg-config ^
    colcon-common-extensions dartsim eigen freeimage gdal gts ^
@@ -70,7 +79,7 @@ without any failures when using their functionalities.
    ```
    This can take tens of minutes (or less when using libmamba solver).
 
-6. Navigate to where you would like to build the library, create and enter your workspace directory,
+7. Navigate to where you would like to build the library, create and enter your workspace directory,
    create the `src` directory which will contain the Gazebo source code.
    ```bash
    mkdir gz-ws
@@ -78,7 +87,7 @@ without any failures when using their functionalities.
    mkdir src
    ```
 
-7. Then clone the repositories
+8. Then clone the repositories
    ```bash
    # CMD
    curl -sk https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-ionic.yaml -o collection-ionic
@@ -127,15 +136,23 @@ If there are no errors, all the binaries should be ready to use.
 ## Using the workspace
 
 The workspace needs to be sourced every time a new terminal is used (
-and Conda environment activated before that).
+and Conda environment activated before that). Also, remember that Gazebo
+can only run inside a Visual Studio Command Prompt and it will fail to
+load from a normal (CMD or PowerShell) prompt with errors like
+`Library Error`, `can't load` and similar.
 
-Run the following command to source the workspace:
+The overall instructions for setting up a new terminal to use the built
+workspace are:
 
 ```bash
 # CMD
+# Run a Visual Studio Command Prompt
+conda activate gz-ws
 call install\setup.bat
 
 # PowerShell
+# Run a Developer PowerShell for VS 2019/2022
+conda activate gz-ws
 .\install\setup.ps1
 ```
 
