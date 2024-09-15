@@ -44,7 +44,7 @@ without any failures when using their functionalities.
    Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
    ```
 
-5. Navigate to your `condabin`, if necessary, and then create and activate a Conda environment:
+4. Navigate to your `condabin`, if necessary, and then create and activate a Conda environment:
    ```bash
    conda create -n gz-ws
    conda activate gz-ws
@@ -69,7 +69,7 @@ without any failures when using their functionalities.
      to a subdirectory of the current directory, you have to prepend `.\` so that Conda
      knows it is a path and not a name.
 
-6. Install dependencies:
+5. Install dependencies:
    ```bash
    conda install cmake git vcstool curl pkg-config ^
    colcon-common-extensions dartsim eigen freeimage gdal gts ^
@@ -79,7 +79,7 @@ without any failures when using their functionalities.
    ```
    This can take tens of minutes (or less when using libmamba solver).
 
-7. Navigate to where you would like to build the library, create and enter your workspace directory,
+6. Navigate to where you would like to build the library, create and enter your workspace directory,
    create the `src` directory which will contain the Gazebo source code.
    ```bash
    mkdir gz-ws
@@ -87,7 +87,7 @@ without any failures when using their functionalities.
    mkdir src
    ```
 
-8. Then clone the repositories
+7. Then clone the repositories
    ```bash
    # CMD
    curl -sk https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-ionic.yaml -o collection-ionic
