@@ -12,10 +12,10 @@ The package `ros_gz_sim` contains a launch file named
 existing simulation. Here's an example:
 
 ```bash
-ros2 launch ros_gz_sim ros_gz_spawn_model.launch.py world:=empty file:=$(ros2 pkg prefix --share ros_gz_sim_demos)/models/vehicle/model.sdf name:=my_vehicle x:=5.0 y:=5.0 z:=0.5
+ros2 launch ros_gz_sim ros_gz_spawn_model.launch.py world:=empty file:=$(ros2 pkg prefix --share ros_gz_sim_demos)/models/vehicle/model.sdf entity_name:=my_vehicle x:=5.0 y:=5.0 z:=0.5
 ```
 
-Check [this block](https://github.com/gazebosim/ros_gz/blob/cadae1c8323a74395c09a37e3de4c669c8c09d4f/ros_gz_sim/launch/ros_gz_spawn_model.launch.py#L33-L44)
+Check [this block](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_sim/launch/ros_gz_spawn_model.launch.py#L26-L45)
 from the source code to know all the different parameters accepted by this
 launch file.
 
