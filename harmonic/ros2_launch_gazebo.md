@@ -49,7 +49,7 @@ within this tag. Here's an example for launching Gazebo server:
 
 In this case the `<gz_server>` parameters are read from the command line. That's
 an option but not strictly necessary as you could decide to hardcode some of the
-values.
+values or not even use all the parameters.
 
 ### Python
 Python launch files provide more low-level customization and logic compared to XML launch files. 
@@ -99,4 +99,31 @@ def generate_launch_description():
             output='screen'
         ),
     ])
+```
+
+Here's another example using a higher level action from Python to launch `gzserver`:
+```python
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
+from ros_gz_sim.actions import GzServer
+
+
+def generate_launch_description():
+
+    declare_world_sdf_file_cmd = DeclareLaunchArgument(
+        'world_sdf_file', default_value='',
+        description='Path to the SDF world file')
+
+    # Create the launch description and populate
+    ld = LaunchDescription([
+        GzServer(
+            world_sdf_file=LaunchConfiguration('world_sdf_file')
+        ),
+    ])
+
+    # Declare the launch options
+    ld.add_action(declare_world_sdf_file_cmd)
+
+    return ld
 ```

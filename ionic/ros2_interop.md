@@ -95,7 +95,7 @@ Learn more about the bridge from [ROS 2 Integration](ros2_integration).
 The main pain point of using existing simulation assets with ROS 2 tools was updating URDF files into a Gazebo-readable format. This is no longer required. If you are maintaining a URDF and an SDF file in a project, you can now drop the URDF and just use the SDF for both ROS and Gazebo.
 
 This is made possible by `sdformat_urdf`, a parser plugin library that converts an SDF file to URDF C++ DOM structures, making it understandle by the ROS 2 ecosystem.
-Although, there are some limitations of the plugin, like not all SDFormat tags are compatible. For example, if you have any sensors attached to a joint, it won't be parsed. More details [here](https://github.com/ros/sdformat_urdf/tree/ros2/sdformat_urdf).
+Although, there are some limitations of the plugin, like not all SDFormat tags are compatible. For example, if you have any sensors attached to a joint, it won't be parsed. More details [here](https://github.com/ros/sdformat_urdf/tree/rolling/sdformat_urdf).
 
 To embed this functionality, we simply need to print the SDFormat file to the `/robot_description` ROS topic, and internally ROS will find a suitable parser, `sdformat_urdf` in this case, to read the file. This is already done while configuring the `robot_state_publisher` earlier.
 

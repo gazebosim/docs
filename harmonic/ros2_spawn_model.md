@@ -30,9 +30,9 @@ within this tag. Here's an example:
 <launch>
   <arg name="world" default="" />
   <arg name="file" default="" />
-  <arg name="xml_string" default="" />
+  <arg name="model_string" default="" />
   <arg name="topic" default="" />
-  <arg name="name" default="" />
+  <arg name="entity_name" default="" />
   <arg name="allow_renaming" default="False" />
   <arg name="x" default="" />
   <arg name="y" default="" />
@@ -43,9 +43,9 @@ within this tag. Here's an example:
   <gz_spawn_model 
     world="$(var world)"
     file="$(var file)"
-    xml_string="$(var xml_string)"
+    model_string="$(var model_string)"
     topic="$(var topic)"
-    name="$(var name)"
+    entity_name="$(var entity_name)"
     allow_renaming="$(var allow_renaming)"
     x="$(var x)"
     y="$(var y)"
@@ -59,4 +59,4 @@ within this tag. Here's an example:
 
 In this case the `<gz_spawn_model>` parameters are read from the command line.
 That's an option but not strictly necessary as you could decide to hardcode some
-of the values.
+of the values or not even use all of the parameters.

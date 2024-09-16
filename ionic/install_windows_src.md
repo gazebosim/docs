@@ -15,10 +15,22 @@ without any failures when using their functionalities.
 
 ## Install dependencies
 
-1. Install a conda distribution. As Gazebo uses all dependencies from the conda-forge channel,
-   we suggest to install miniforge following [the official miniforge installation docs](https://github.com/conda-forge/miniforge#windows)
-   You will likely want to check the box to add `conda` to your `PATH`
-   during the installation process so that you won't have to do this step manually.
+1. If you do not have the conda package manager installed in your system, install a conda distribution.
+   As Gazebo uses all dependencies from the conda-forge channel, we suggest to install miniforge following [the official miniforge installation docs](https://github.com/conda-forge/miniforge#windows) by executing the following commands in a "Command Prompt" terminal:
+   ```cmd
+   curl.exe -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Windows-x86_64.exe
+   start /wait "" Miniforge3-Windows-x86_64.exe /InstallationType=JustMe /RegisterPython=0 /S /D=%UserProfile%\Miniforge3
+   %UserProfile%\Miniforge3\condabin\conda init
+   %UserProfile%\Miniforge3\condabin\conda config --set auto_activate_base false
+   del Miniforge3-Windows-x86_64.exe
+   ```
+   If you followed this step correctly, you should be able to access `conda` in any new "Command Prompt" terminal you open.
+   To verify that, check that if you open a new terminal and execute `conda info`, the output begins with:
+   ```cmd
+     active environment : None
+            shell level : 0
+     [..]
+   ```
 
 2. Install [Visual Studio 2019 or 2022](https://visualstudio.microsoft.com/downloads/).
    The Community version is free for students, open-source developers, and personal
@@ -30,18 +42,13 @@ without any failures when using their functionalities.
    for VS" in the Windows search field near the Windows button). Optionally,
    right-click and pin to the task bar for quick access in the future.
 
-   If you did not add Conda to your `PATH` environment variable during Conda installation,
-   you may need to navigate to the location of `condabin` in order to use the `conda` command.
-   To find `condabin`, search for "Anaconda Prompt" in the Windows search field near the
-   Windows button, open it, run `where conda`, and look for a line containing the directory `condabin`.
-
-4. Navigate to your `condabin`, if necessary, and then create and activate a Conda environment:
+4. Create and activate a Conda environment:
    ```bash
    conda create -n gz-ws
    conda activate gz-ws
    ```
    Once you have activated an environment, a prefix like `(gz-ws)` will be prepended to
-   your prompt, and you can use the `conda` command outside of the `condabin` directory.
+   your prompt.
 
    You can use `conda info --envs` to see all of your environments.
 
@@ -104,7 +111,7 @@ colcon graph
 If that is the case, then you are ready to build the whole set of libraries:
 
 ```bash
-colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install --packages-up-to gz-sim9 gz-tools2
+colcon build --cmake-args -DBUILD_TESTING=OFF -DSKIP_SWIG=ON --merge-install --packages-up-to gz-sim9 gz-tools2
 ```
 Tests are turned off as they are not currently supported on Windows.
 

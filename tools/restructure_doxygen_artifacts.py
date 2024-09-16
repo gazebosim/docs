@@ -35,7 +35,8 @@ input_dir = pathlib.Path(sys.argv[1])
 output_dir = pathlib.Path(sys.argv[2])
 output_dir.mkdir(exist_ok=True)
 
-re_expr = R"(ignition|gz)-([a-z_]*)(\d*)"
+re_expr = R"(?:ignition|gz)-([a-z_]*)(\d*)"
+sdf_re_expr = R"(sdformat)(\d*)"
 
 
 def copy_library(lib_html, lib_name, lib_version):
@@ -47,8 +48,11 @@ def copy_library(lib_html, lib_name, lib_version):
 
 for lib in input_dir.iterdir():
     m = re.match(re_expr, lib.name)
+    if not m:
+        m = re.match(sdf_re_expr, lib.name)
+
     if m:
-        _, lib_name, lib_version = m.groups()
+        lib_name, lib_version = m.groups()
         lib_html = lib/"doxygen"/"html"
         copy_library(lib_html, lib_name, lib_version)
         # Handle gazebo->sim rename by making a copy into the sim directory

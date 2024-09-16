@@ -32,31 +32,31 @@ Check that the file size on the right is reasonable for your application before 
 
 There are a few different ways to spawn a model into the simulation. 
 
-1. **Spawn from 'Fuel Resource' using the Resource Spawner plugin.**
+1. **Spawn from 'Fuel resources' using the Resource Spawner plugin.**
 
     Select the Resource Spawner plugin from the plugin menu (top right corner).
     The plugin will appear in the right panel, you might need to scroll down to be able to see the plugin. 
-    Wait until the resource are loaded under the 'Fuel Resource' panel. 
+    Wait until the resources are loaded under the 'Fuel resources' panel. 
     Select a resource owner (e.g. openrobotics), you can now search for the model name in the right panel. 
     Click on the cloud icon to download the model. 
     When the model has been downloaded, you can click on the model and insert it into your simulation scene. 
 
-    ![Resource Spawner - Fuel Resource](tutorials/fuel_insert/resource_spawner_cloud.png)
+    ![Resource Spawner - Fuel resources](tutorials/fuel_insert/resource_spawner_cloud.png)
 
 
 2. **Download model files from Fuel and spawn from local sources using the Resource Spawner plugin.**
 
     - Download the model files from [app.gazebosim.org/fuel/models](https://app.gazebosim.org/fuel/models).
-    - Extract the files and places them under your local model directory (e.g. `~/my-local-models/model-name`). 
+    - Extract the files and place them under your local model directory (e.g. `~/my-local-models/model-name`). 
     The folder should contain `materials`, `meshes` as well as the `model.config` and the `model.sdf` files. 
-    - Add your model directory as a resource with `export GZ_SIM_RESOURCE_PATH=~/my-local/models/`
+    - Add your model directory as a resource with `export GZ_SIM_RESOURCE_PATH=~/my-local-models/model-name`
     - Open the Gazebo Simulator and add the Resource Spawner Plugin, the model should now show up under your local resources. 
 
-    ![Resource Spawner - Fuel Resource](tutorials/fuel_insert/resource_spawner_local.png)
+    ![Resource Spawner - Fuel resources](tutorials/fuel_insert/resource_spawner_local.png)
 
 3. **Copying the SDF snippet and adding it to your custom world SDF file.**
 
-    With the `<>` button you can directly copy a SDF snippet to paste into your world SDF file. 
+    With the `<>` button you can directly copy an SDF snippet to paste into your world SDF file. 
     The SDF snippet will look something like this: 
 
     ```
@@ -72,10 +72,10 @@ There are a few different ways to spawn a model into the simulation.
     
     ![spawn](tutorials/fuel_insert/husky.gif)
 
-4. **Downloading the code to permanently add a Fuel model to your custum SDF file.**
+4. **Downloading the code to permanently add a Fuel model to your custom SDF file.**
 
     If you prefer to add a Fuel model permanently to an `sdf` file, you can just as easily download the code by clicking the download-arrow icon to the right of the model's image.
-    Kook at the tutorial on [SDF Worlds](sdf_worlds) for more information on how to construct a custom world SDF file.
+    Look at the tutorial on [SDF Worlds](sdf_worlds) for more information on how to construct a custom world SDF file.
 
 Now you can add more models, or even load in any one of the plugins you learned about to interact with the model the same way you could with the shapes in the previous tutorial.
 
