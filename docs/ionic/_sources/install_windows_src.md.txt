@@ -39,8 +39,16 @@ without any failures when using their functionalities.
    cmake via Conda. All other checkboxes can be left unchecked.
 
 3. Open a Visual Studio Command Prompt (search for "x64 Native Tools Command Prompt
-   for VS" in the Windows search field near the Windows button). Optionally,
+   for VS" in the Windows search field near the Windows button) or Developer PowerShell
+   for VS (search for "developer powershell"). Optionally,
    right-click and pin to the task bar for quick access in the future.
+
+   If you chose PowerShell, you need to do a few steps to be able to use Conda and Gazebo in it:
+   ```bash
+   conda init powershell
+   # Restart the PowerShell
+   Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
+   ```
 
 4. Create and activate a Conda environment:
    ```bash
@@ -136,13 +144,16 @@ If there are no errors, all the binaries should be ready to use.
 The workspace needs to be sourced every time a new terminal is used (
 and Conda environment activated before that).
 
-Run the following command to source the workspace:
+The overall instructions for setting up a new terminal to use the built
+workspace are:
 
 ```bash
 # CMD
+conda activate gz-ws
 call install\setup.bat
 
 # PowerShell
+conda activate gz-ws
 .\install\setup.ps1
 ```
 

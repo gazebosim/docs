@@ -530,8 +530,16 @@ development. Check “Desktop development with C++” in the Workloads tab,
 check “MFC and ATL support”, and uncheck “C++ Cmake Tools.” We will install
 cmake via Conda. All other checkboxes can be left unchecked.</p></li>
 <li><p>Open a Visual Studio Command Prompt (search for “x64 Native Tools Command Prompt
-for VS” in the Windows search field near the Windows button). Optionally,
-right-click and pin to the task bar for quick access in the future.</p></li>
+for VS” in the Windows search field near the Windows button) or Developer PowerShell
+for VS (search for “developer powershell”). Optionally,
+right-click and pin to the task bar for quick access in the future.</p>
+<p>If you chose PowerShell, you need to do a few steps to be able to use Conda and Gazebo in it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>init<span class="w"> </span>powershell
+<span class="c1"># Restart the PowerShell</span>
+Set-ExecutionPolicy<span class="w"> </span>-ExecutionPolicy<span class="w"> </span>Unrestricted<span class="w"> </span>-Scope<span class="w"> </span>CurrentUser
+</pre></div>
+</div>
+</li>
 <li><p>Create and activate a Conda environment:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>gz-ws
 conda<span class="w"> </span>activate<span class="w"> </span>gz-ws
@@ -617,11 +625,14 @@ If that is the case, then you are ready to build the whole set of libraries:</p>
 <h2>Using the workspace<a class="headerlink" href="#using-the-workspace" title="Link to this heading">#</a></h2>
 <p>The workspace needs to be sourced every time a new terminal is used (
 and Conda environment activated before that).</p>
-<p>Run the following command to source the workspace:</p>
+<p>The overall instructions for setting up a new terminal to use the built
+workspace are:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># CMD</span>
+conda<span class="w"> </span>activate<span class="w"> </span>gz-ws
 call<span class="w"> </span>install<span class="se">\s</span>etup.bat
 
 <span class="c1"># PowerShell</span>
+conda<span class="w"> </span>activate<span class="w"> </span>gz-ws
 .<span class="se">\i</span>nstall<span class="se">\s</span>etup.ps1
 </pre></div>
 </div>
