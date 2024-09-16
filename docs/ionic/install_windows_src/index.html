@@ -507,10 +507,23 @@ Just append <code class="docutils literal notranslate"><span class="pre">--rende
 <section id="install-dependencies">
 <h2>Install dependencies<a class="headerlink" href="#install-dependencies" title="Link to this heading">#</a></h2>
 <ol class="arabic">
-<li><p>Install a conda distribution. As Gazebo uses all dependencies from the conda-forge channel,
-we suggest to install miniforge following <a class="reference external" href="https://github.com/conda-forge/miniforge#windows">the official miniforge installation docs</a>
-You will likely want to check the box to add <code class="docutils literal notranslate"><span class="pre">conda</span></code> to your <code class="docutils literal notranslate"><span class="pre">PATH</span></code>
-during the installation process so that you won’t have to do this step manually.</p></li>
+<li><p>If you do not have the conda package manager installed in your system, install a conda distribution.
+As Gazebo uses all dependencies from the conda-forge channel, we suggest to install miniforge following <a class="reference external" href="https://github.com/conda-forge/miniforge#windows">the official miniforge installation docs</a> by executing the following commands in a “Command Prompt” terminal:</p>
+<div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>curl.exe -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Windows-x86_64.exe
+start /wait &quot;&quot; Miniforge3-Windows-x86_64.exe /InstallationType=JustMe /RegisterPython=0 /S /D=%UserProfile%\Miniforge3
+%UserProfile%\Miniforge3\condabin\conda init
+%UserProfile%\Miniforge3\condabin\conda config --set auto_activate_base false
+del Miniforge3-Windows-x86_64.exe
+</pre></div>
+</div>
+<p>If you followed this step correctly, you should be able to access <code class="docutils literal notranslate"><span class="pre">conda</span></code> in any new “Command Prompt” terminal you open.
+To verify that, check that if you open a new terminal and execute <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span></code>, the output begins with:</p>
+<div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>  active environment : None
+         shell level : 0
+  [..]
+</pre></div>
+</div>
+</li>
 <li><p>Install <a class="reference external" href="https://visualstudio.microsoft.com/downloads/">Visual Studio 2019 or 2022</a>.
 The Community version is free for students, open-source developers, and personal
 development. Check “Desktop development with C++” in the Workloads tab,
@@ -518,19 +531,14 @@ check “MFC and ATL support”, and uncheck “C++ Cmake Tools.” We will inst
 cmake via Conda. All other checkboxes can be left unchecked.</p></li>
 <li><p>Open a Visual Studio Command Prompt (search for “x64 Native Tools Command Prompt
 for VS” in the Windows search field near the Windows button). Optionally,
-right-click and pin to the task bar for quick access in the future.</p>
-<p>If you did not add Conda to your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment variable during Conda installation,
-you may need to navigate to the location of <code class="docutils literal notranslate"><span class="pre">condabin</span></code> in order to use the <code class="docutils literal notranslate"><span class="pre">conda</span></code> command.
-To find <code class="docutils literal notranslate"><span class="pre">condabin</span></code>, search for “Anaconda Prompt” in the Windows search field near the
-Windows button, open it, run <code class="docutils literal notranslate"><span class="pre">where</span> <span class="pre">conda</span></code>, and look for a line containing the directory <code class="docutils literal notranslate"><span class="pre">condabin</span></code>.</p>
-</li>
-<li><p>Navigate to your <code class="docutils literal notranslate"><span class="pre">condabin</span></code>, if necessary, and then create and activate a Conda environment:</p>
+right-click and pin to the task bar for quick access in the future.</p></li>
+<li><p>Create and activate a Conda environment:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>gz-ws
 conda<span class="w"> </span>activate<span class="w"> </span>gz-ws
 </pre></div>
 </div>
 <p>Once you have activated an environment, a prefix like <code class="docutils literal notranslate"><span class="pre">(gz-ws)</span></code> will be prepended to
-your prompt, and you can use the <code class="docutils literal notranslate"><span class="pre">conda</span></code> command outside of the <code class="docutils literal notranslate"><span class="pre">condabin</span></code> directory.</p>
+your prompt.</p>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span> <span class="pre">--envs</span></code> to see all of your environments.</p>
 <p>To speed up conda installations, also set the following to use libmamba solver.
 Older conda installations may need to do <a class="reference external" href="https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community">additional steps</a>.</p>
