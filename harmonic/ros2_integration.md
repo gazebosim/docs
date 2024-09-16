@@ -75,8 +75,12 @@ ros2 run rclcpp_components component_container --ros-args -r __node:=ros_gz_cont
 
 And now, the container will load your bridge with:
 ```bash
-ros2 launch ros_gz_bridge ros_gz_bridge.launch.py name:=ros_gz_bridge config_file:=<path_to_your_YAML_file>
+ros2 launch ros_gz_bridge ros_gz_bridge.launch.py bridge_name:=ros_gz_bridge config_file:=<path_to_your_YAML_file>
 ```
+
+Check [this block](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/launch/ros_gz_bridge.launch.py#L27-L33)
+from the source code to know all the different parameters accepted by this
+launch file.
 
 ## Launching the bridge from a custom launch file in XML.
 
