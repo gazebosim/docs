@@ -73,7 +73,7 @@ without any failures when using their functionalities.
    colcon-common-extensions dartsim eigen freeimage gdal gts ^
    glib dlfcn-win32 ffmpeg ruby tinyxml2 tinyxml ^
    libprotobuf urdfdom zeromq cppzmq ogre=1.10 ogre-next jsoncpp ^
-   libzip qt pybind11 --channel conda-forge
+   libzip qt pybind11 boost --channel conda-forge
    ```
    This can take tens of minutes (or less when using libmamba solver).
 
