@@ -293,14 +293,38 @@ Implement features with physics engine's API</h3>
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>To get a more comprehensive view of how <code>EntityManagementFeatures</code> are constructed in TPE and Dartsim, feel free to take a look here:</p><ul>
-<li>Dartsim: <a href="https://github.com/gazebosim/gz-physics/blob/ign-physics2/dartsim/src/EntityManagementFeatures.hh">EntityManagementFeatures.hh</a> and <a href="https://github.com/gazebosim/gz-physics/blob/ign-physics2/dartsim/src/EntityManagementFeatures.cc">EntityManagementFeatures.cc</a></li>
-<li>TPE: <a href="https://github.com/gazebosim/gz-physics/blob/ign-physics2/tpe/plugin/src/EntityManagementFeatures.hh">EntityManagementFeatures.hh</a> and <a href="https://github.com/gazebosim/gz-physics/blob/ign-physics2/tpe/plugin/src/EntityManagementFeatures.cc">EntityManagementFeatures.cc</a></li>
+<li>Dartsim: <a href="https://github.com/gazebosim/gz-physics/blob/main/dartsim/src/EntityManagementFeatures.hh">EntityManagementFeatures.hh</a> and <a href="https://github.com/gazebosim/gz-physics/blob/main/dartsim/src/EntityManagementFeatures.cc">EntityManagementFeatures.cc</a></li>
+<li>TPE: <a href="https://github.com/gazebosim/gz-physics/blob/main/tpe/plugin/src/EntityManagementFeatures.hh">EntityManagementFeatures.hh</a> and <a href="https://github.com/gazebosim/gz-physics/blob/main/tpe/plugin/src/EntityManagementFeatures.cc">EntityManagementFeatures.cc</a></li>
 </ul>
 <h2><a class="anchor" id="autotoc_md61"></a>
-Load and test</h2>
-<p>Please follow the previous tutorial <a class="el" href="installation.html">Installation</a> to build <code>gz-physics</code> from source again for our new feature to be compiled.</p>
-<p>Now we can load the new physics plugin named <code>gz-physics-tpe-plugin</code> to test it on Gazebo by following this <a class="el" href="physicsengine.html">Use different physics engines</a> tutorial. </p>
-</div></div><!-- contents -->
+Compile and run the example</h2>
+<p>Clone the source code, create a build directory and use <code>cmake</code> to compile the code:</p>
+<div class="fragment"><div class="line">git clone https://github.com/gazebosim/gz-physics</div>
+<div class="line">cd gz-physics/examples/simple_plugin</div>
+<div class="line">mkdir build</div>
+<div class="line">cd build</div>
+<div class="line">cmake ..</div>
+<div class="line"># Linux</div>
+<div class="line">cmake --build . --target PluginTest</div>
+<div class="line"># Windows</div>
+<div class="line">cmake --build . --target PluginTest --config Release</div>
+</div><!-- fragment --><p>Run the test to verify the new physis plugin:</p>
+<div class="fragment"><div class="line"># Linux</div>
+<div class="line">./PluginTest</div>
+<div class="line"> </div>
+<div class="line"># Windows</div>
+<div class="line">.\Release\PluginTest.exe</div>
+</div><!-- fragment --><p>You'll see:</p>
+<div class="fragment"><div class="line">$ ./PluginTest</div>
+<div class="line">Created empty world!</div>
+</div><!-- fragment --><p>Once you implement more features, you could try passing <code>SimplePlugin</code> as the physics engine to Gazebo Sim following <a class="el" href="physicsengine.html">Use different physics engines</a> tutorial, e.g. setting </p><pre class="fragment"># Linux
+export GZ_SIM_PHYSICS_ENGINE_PATH=$GZ_SIM_PHYSICS_ENGINE_PATH:$(pwd)/build
+# Windows
+set GZ_SIM_PHYSICS_ENGINE_PATH=&lt;PATH_TO_THE_EXAMPLE_DIR&gt;\build\Release
+</pre><p> And run Gazebo sim with </p><pre class="fragment">gz sim -v4 -s --physics-engine SimplePlugin
+</pre><p> However, with the poor one feature we have implemented in this tutorial, you will only see an error, because Gazebo Sim needs much more features: </p><pre class="fragment">[error] [Physics.cc:854] No physics plugins implementing required interface found in library
+[D:\programming\gz9-ws\gz-ws\src\gz-physics\examples\simple_plugin\build\Release\SimplePlugin.dll].
+</pre> </div></div><!-- contents -->
 </div><!-- PageDoc -->
       </div>
     </main>

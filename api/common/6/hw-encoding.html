@@ -310,6 +310,9 @@ Linux NVidia Multi-GPU machine</h2>
 </pre> <h1><a class="anchor" id="autotoc_md18"></a>
 Caveats</h1>
 <h2><a class="anchor" id="autotoc_md19"></a>
+FFMpeg on Windows via Conda</h2>
+<p>The current distribution of FFMpeg via Conda for Windows does not include the h264_qsv encoder. It only has h264_nvenc. This means that using Intel GPUs for HW acceleration is not possible out of the box. A possible solution would be to build a custom build of ffmpeg in the workspace with gz-common. Pull requests with the relevant tutorial are welcome.</p>
+<h2><a class="anchor" id="autotoc_md20"></a>
 NVEnc per-machine limit</h2>
 <p>If you have a multi-GPU station with desktop-class (not server-class) GPUs, you will run into an artificial limitation from NVidia. You can only run 3 concurrent encoding sessions on one computer, no matter how many GPUs you have. The computer can even have 8 GPUs, but you will only be able to encode 3 videos at a time. The exact maxima of encoding sessions are described in <a href="https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new">this NVidia support page</a>.</p>
 <p>To make things worse, there is no API that would tell you the number of currently running NVEnc sessions. The only way to find out you're launching the fourth is trying to start encoding and getting a memory allocation error. This library catches this error and writes a lengthy description of what might have just happened (either really low memory or this artificial limit). Unfortunately, when you start the doomed fourth encoding session, all the three "legal" sessions will crash. This might be really troublesome on e.g. multi-user systems when you don't even know which jobs of the other users are using NVEnc.</p>

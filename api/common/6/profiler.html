@@ -139,15 +139,15 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Next Tutorial: <a class="el" href="hw-encoding.html">Hardware-accelerated Video Encoding</a></p>
-<h2><a class="anchor" id="autotoc_md33"></a>
+<h2><a class="anchor" id="autotoc_md34"></a>
 Overview</h2>
 <p>This tutorial describes how to get started using the Gazebo Common profiler to measure and visualize run-time performance of your software.</p>
 <p>The <code><a class="el" href="classgz_1_1common_1_1Profiler.html" title="Used to perform application-wide performance profiling.">gz::common::Profiler</a></code> provides a common interface that can allow for multiple underlying profiler implementations. Currently, the only available implementation is <a href="https://github.com/Celtoys/Remotery">Remotery</a>.</p>
 <p>The goal of the profiler is to provide introspection and analysis when enabled at compile time, but to introduce no overhead when it is disabled at compile-time.</p>
 <p>To control if the profiler is enabled, set the <code>GZ_PROFILER_ENABLE</code> flag using cmake on the targets or sources that you are interested in (described below).</p>
-<h2><a class="anchor" id="autotoc_md34"></a>
+<h2><a class="anchor" id="autotoc_md35"></a>
 Enabling the Profiler</h2>
-<h3><a class="anchor" id="autotoc_md35"></a>
+<h3><a class="anchor" id="autotoc_md36"></a>
 On custom example</h3>
 <p>In order to use the profiler, inspection points must be added to the source code, and the application or library must be linked to the <code>gz-common::profiler</code> component.</p>
 <p>To start, download the <a href="https://github.com/gazebosim/gz-common/raw/main/examples/profiler.cc">profiler.cc</a> example.</p>
@@ -213,7 +213,7 @@ On custom example</h3>
 <div class="line"># 2. Start a basic web server:</div>
 <div class="line">python3 -m http.server $SOURCE_DIR/gz-common/profiler/src/Remotery/vis/index.html</div>
 <div class="line"># 3. Open URL &quot;http://&lt;container IP&gt;:8000/&quot; with a browser on the host.</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md36"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md37"></a>
 On Gazebo library</h3>
 <p>If you want to use profiler on any other Gazebo library, enable the profiler at compile time with <code>ENABLE_PROFILER</code> cmake argument.</p>
 <p>When compiling with <code>CMake</code>: </p><div class="fragment"><div class="line">cmake .. -DENABLE_PROFILER=1</div>
@@ -221,7 +221,7 @@ On Gazebo library</h3>
 </div><!-- fragment --><p>Run your Gazebo library then go to your Gazebo installation path and open the profiler browser using: </p><div class="fragment"><div class="line">&lt;workspace&gt;/install/libexec/gz/gz-common&lt;N&gt;/gz_remotery_vis</div>
 </div><!-- fragment --><p>If the profiler is run successfully, you should see output in a browser. Similar to this</p>
 <p><img src="https://raw.githubusercontent.com/gazebosim/gz-common/main/tutorials/imgs/profiler_tutorial_example.png" alt="" class="inline"/></p>
-<h3><a class="anchor" id="autotoc_md37"></a>
+<h3><a class="anchor" id="autotoc_md38"></a>
 Troubleshoot the web viewer</h3>
 <p>If you see <code>connection error</code>, there are a couple of things to double check</p><ol type="1">
 <li>Was the profiler enabled when the project you're trying to run was compiled? Note that this isn't the case if you installed Gazebo libraries from binaries, for example. You need to compile the project from source with the <code>ENABLE_PROFILER</code> variable set.</li>
@@ -231,7 +231,7 @@ Troubleshoot the web viewer</h3>
 <li>If you want to use a different port, configure the environment variable <code>RMT_PORT</code> by running the following in terminal, and update the web viewer port in your browser accordingly (see 2 above) <div class="fragment"><div class="line">export RMT_PORT=1500</div>
 </div><!-- fragment --></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md38"></a>
+<h2><a class="anchor" id="autotoc_md39"></a>
 Using the Profiler</h2>
 <p>The profiler is used through a series of macros.</p>
 <p>The two primary ways of profiling a section of code are to either use a matched pair of <code>GZ_PROFILE_BEGIN</code> and <code>GZ_PROFILE_END</code> macros, or to use a single RAII-style macro <code>GZ_PROFILE</code>. The RAII style will stop measuring once the scope that the macro was invoked in is left.</p>
@@ -250,10 +250,10 @@ Using the Profiler</h2>
 <div class="fragment"><div class="line"><a class="code hl_define" href="Profiler_8hh.html#a969e457aa69134b1852732ad1b7695b3">GZ_PROFILE_THREAD_NAME</a>(<span class="stringliteral">&quot;main&quot;</span>);</div>
 <div class="line"><a class="code hl_define" href="Profiler_8hh.html#a969e457aa69134b1852732ad1b7695b3">GZ_PROFILE_THREAD_NAME</a>(<span class="stringliteral">&quot;physics&quot;</span>);</div>
 <div class="line"><a class="code hl_define" href="Profiler_8hh.html#a969e457aa69134b1852732ad1b7695b3">GZ_PROFILE_THREAD_NAME</a>(<span class="stringliteral">&quot;gui&quot;</span>);</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md39"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md40"></a>
 Configuring the Profiler</h2>
 <p>Specific profiler implementations may have further configuration options available.</p>
-<h3><a class="anchor" id="autotoc_md40"></a>
+<h3><a class="anchor" id="autotoc_md41"></a>
 Configuring Remotery</h3>
 <p>Remotery can additionally be configured via environment variables. Most users should not need to change these for their applications.</p>
 <ul>

@@ -174,9 +174,8 @@ Folder structure of the plugins</h3>
 <div class="fragment"><div class="line">dartsim</div>
 <div class="line">├── worlds                            Example SDF files for testing dartsim plugin functionalities.</div>
 <div class="line">├── src                               Main implementation files of the plugin features interfacing the physics engines API</div>
-<div class="line">├── include/gz/physics/dartsim  Header files for the plugin features.</div>
 <div class="line">└── CMakeLists.txt                    CMake plugin build script.</div>
-</div><!-- fragment --><p>Basically, new implementation of <a class="el" href="classgz_1_1physics_1_1Feature.html">Feature</a> or <a class="el" href="structgz_1_1physics_1_1FeatureList.html">FeatureList</a>, which is corresponded to a functionality of the external physics engine can be defined as a header in <code>include/gz/physics/&lt;plugin_name&gt;</code> folder. The custom feature could be added in a <a class="el" href="structgz_1_1physics_1_1FeatureList.html">FeatureList</a> and implemented its functionalities in <code>src</code> folder.</p>
+</div><!-- fragment --><p>Basically, new implementation of <a class="el" href="classgz_1_1physics_1_1Feature.html">Feature</a> or <a class="el" href="structgz_1_1physics_1_1FeatureList.html">FeatureList</a>, which is corresponded to a functionality of the external physics engine can be defined as a header in <code>src</code> folder. The custom feature could be added in a <a class="el" href="structgz_1_1physics_1_1FeatureList.html">FeatureList</a> and implemented its functionalities in <code>src</code> folder.</p>
 <p>See the <a class="el" href="physicsplugin.html">Understanding the physics plugin</a> tutorial for details on physics engines.</p>
 <h3><a class="anchor" id="autotoc_md53"></a>
 Plugin and feature requirements</h3>
@@ -193,7 +192,7 @@ Plugin and feature requirements</h3>
 </ul>
 <p>This list defines the minimum requirements for the simulation capability of a physics engine plugin and also maintains backward compatibility with downstream physics plugins.</p>
 <p>For custom feature requirements, there are two main component classes in the general structure of a custom feature:</p><ul>
-<li><p class="startli"><a class="el" href="classgz_1_1physics_1_1Entity.html">Entity</a> corresponds to the "proxy object" that the <a class="el" href="classgz_1_1physics_1_1Feature.html">Feature</a> is implemented. These are the most common "proxy objects" that are inherited from <code>Entity</code> class:</p><ul>
+<li><p class="startli"><a class="el" href="classgz_1_1physics_1_1Entity.html">Entity</a> corresponds to the "proxy object" where the <a class="el" href="classgz_1_1physics_1_1Feature.html">Feature</a> is implemented. These are the most common "proxy objects" that are inherited from <code>Entity</code> class:</p><ul>
 <li><a class="el" href="classgz_1_1physics_1_1Feature_1_1Engine.html">Engine</a>: Placeholder class for the Engine API. This class serves metadata for the physics engine (for example the <a class="el" href="classgz_1_1physics_1_1GetEngineInfo.html">GetEngineInfo</a> feature). Every Engine feature <b>must</b> inherit this class.</li>
 <li><a class="el" href="classgz_1_1physics_1_1Feature_1_1Joint.html">Joint</a>: defines physics concept <code>Joint</code> behaviors (for example the <a class="el" href="classgz_1_1physics_1_1GetBasicJointState.html">GetBasicJointState</a> feature).</li>
 <li><a class="el" href="classgz_1_1physics_1_1Feature_1_1Link.html">Link</a>: defines physics concept <code>Link</code> structure.</li>
@@ -211,8 +210,15 @@ Plugin and feature requirements</h3>
 </ul>
 <h3><a class="anchor" id="autotoc_md54"></a>
 Define custom feature template</h3>
-<p>With the requirements and restrictions above, we first need to define a feature template for the custom feature. In this case, this feature will be responsible for retrieving world pointer from the physics engine. The template is placed in <a href="https://github.com/gazebosim/gz-physics/blob/main/dartsim/include/gz/physics/dartsim/World.hh">World.hh</a>:</p>
-<div class="fragment"></div><!-- fragment --><p>The <code>RetrieveWorld</code> feature retrieves world pointer from physics engine, so we will use the <code>World</code> entity inherited from <a class="el" href="classgz_1_1physics_1_1Feature_1_1World.html">Feature::World</a> and declare the member function <code>GetDartsimWorld</code>. Then we substantiate the virtual <code>Implementation</code> member function by overriding in the actual implementation of the custom feature <code>RetrieveWorld</code> later.</p>
+<p>With the requirements and restrictions above, we first need to define a feature template for the custom feature. In this case, this feature will be responsible for retrieving world pointer from the physics engine. The template is placed in <a href="https://github.com/gazebosim/gz-physics/blob/gz-physics8/dartsim/src/World.hh">World.hh</a>:</p>
+<div class="fragment"><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> PolicyT, <span class="keyword">typename</span> FeaturesT&gt;</div>
+<div class="line">dart::simulation::WorldPtr RetrieveWorld::World&lt;PolicyT, FeaturesT&gt;</div>
+<div class="line">::GetDartsimWorld()</div>
+<div class="line">{</div>
+<div class="line">  <span class="keywordflow">return</span> this-&gt;<span class="keyword">template</span> Interface&lt;RetrieveWorld&gt;()</div>
+<div class="line">      -&gt;GetDartsimWorld(this-&gt;identity);</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>The <code>RetrieveWorld</code> feature retrieves world pointer from physics engine, so we will use the <code>World</code> entity inherited from <a class="el" href="classgz_1_1physics_1_1Feature_1_1World.html">Feature::World</a> and declare the member function <code>GetDartsimWorld</code>. Then we substantiate the virtual <code>Implementation</code> member function by overriding in the actual implementation of the custom feature <code>RetrieveWorld</code> later.</p>
 <p>Finally, we implement the <code>World</code> entity's member function <code>GetDartsimWorld</code> to call the <code>Implementation</code> class's member function <code>GetDartsimWorld</code> via Entity::Interface convenience function for querying the feature <code>Implementation</code> object.</p>
 <p>The newly defined feature template is placed in an <code>/include</code> folder shown in the following structure:</p>
 <div class="fragment"><div class="line">dartsim</div>
@@ -220,9 +226,8 @@ Define custom feature template</h3>
 <div class="line">├── src</div>
 <div class="line">│    ├── CustomFeatures.hh</div>
 <div class="line">│    ├── CustomFeatures.cc</div>
+<div class="line">|    ├──  World.hh</div>
 <div class="line">│    └── ...</div>
-<div class="line">├── include/gz/physics/dartsim</div>
-<div class="line">│    └──  World.hh</div>
 <div class="line">└── CMakeLists.txt</div>
 </div><!-- fragment --><p>We put this custom feature template in <code>dartsim</code>, and the next step is to implement the <code>RetrieveWorld</code> feature function using Dartsim API.</p>
 <h3><a class="anchor" id="autotoc_md55"></a>
@@ -232,17 +237,17 @@ Implement the custom feature</h3>
 <div class="line">  RetrieveWorld</div>
 <div class="line">&gt;;</div>
 </div><!-- fragment --><p>The custom feature <code>RetrieveWorld</code> is added to <code>CustomFeatureList</code>, other custom features could also be added here. The <code>CustomFeatures</code> "FeatureList" here uses data structures and classes from:</p><ul>
-<li><a href="https://github.com/gazebosim/gz-physics/blob/ign-physics2/dartsim/src/Base.hh">Base.hh</a>, which defines structures that contain information to create <code>Model</code>, <code>Joint</code>, <code>Link</code>, and <code>Shape</code> objects in Dartsim API. They act as an interface between Gazebo Physics Library and the actual physics engine.</li>
+<li><a href="https://github.com/gazebosim/gz-physics/blob/gz-physics8/dartsim/src/Base.hh">Base.hh</a>, which defines structures that contain information to create <code>Model</code>, <code>Joint</code>, <code>Link</code>, and <code>Shape</code> objects in Dartsim API. They act as an interface between Gazebo Physics Library and the actual physics engine.</li>
 <li><a class="el" href="namespacegz_1_1physics.html#a6d38e59cc9ee7d1edeb9af2205aac83d">Implements3d</a> for implementing the custom feature with <a class="el" href="namespacegz_1_1physics.html#a7f245b484b6675dbb78f5b1aa68790b2">FeaturePolicy3d</a> ("FeaturePolicy" of 3 dimensions and scalar type <code>double</code>).</li>
 </ul>
-<p>We will then implement the actual function with Dartsim API in <a href="https://github.com/gazebosim/gz-physics/blob/ign-physics2/dartsim/src/CustomFeatures.cc">CustomFeatures.cc</a> to override the member function declared in the custom feature header file:</p>
+<p>We will then implement the actual function with Dartsim API in <a href="https://github.com/gazebosim/gz-physics/blob/gz-physics8/dartsim/src/CustomFeatures.cc">CustomFeatures.cc</a> to override the member function declared in the custom feature header file:</p>
 <div class="fragment"><div class="line">dart::simulation::WorldPtr CustomFeatures::GetDartsimWorld(</div>
 <div class="line">    <span class="keyword">const</span> Identity &amp;_worldID)</div>
 <div class="line">{</div>
 <div class="line">  <span class="keywordflow">return</span> this-&gt;worlds.at(_worldID);</div>
 <div class="line">}</div>
-</div><!-- fragment --><p>Here, we implement the behavior of <code>GetDartsimWorld</code> with Dartsim API to return the world pointer from <code>EntityStorage</code> object storing world pointers of <code>dartsim</code> in <a href="https://github.com/gazebosim/gz-physics/blob/ign-physics2/dartsim/src/Base.hh">Base</a> class.</p>
-<p>In the end, we add the implemented <code>CustomFeatures</code> "FeatureList" together with other <a class="el" href="structgz_1_1physics_1_1FeatureList.html">FeatureList</a> to final <code>DartsimFeatures</code> "FeatureList" as in <a href="https://github.com/gazebosim/gz-physics/blob/ign-physics2/dartsim/src/plugin.cc">dartsim/src/plugin.cc</a> (please see the <a class="el" href="createphysicsplugin.html">Implement a physics feature</a> tutorial for registering the plugin to Gazebo Physics).</p>
+</div><!-- fragment --><p>Here, we implement the behavior of <code>GetDartsimWorld</code> with Dartsim API to return the world pointer from <code>EntityStorage</code> object storing world pointers of <code>dartsim</code> in <a href="https://github.com/gazebosim/gz-physics/blob/gz-physics8/dartsim/src/Base.hh">Base</a> class.</p>
+<p>In the end, we add the implemented <code>CustomFeatures</code> "FeatureList" together with other <a class="el" href="structgz_1_1physics_1_1FeatureList.html">FeatureList</a> to final <code>DartsimFeatures</code> "FeatureList" as in <a href="https://github.com/gazebosim/gz-physics/blob/gz-physics8/dartsim/src/plugin.cc">dartsim/src/plugin.cc</a> (please see the <a class="el" href="createphysicsplugin.html">Implement a physics feature</a> tutorial for registering the plugin to Gazebo Physics).</p>
 <p>The folder structure is shown below:</p>
 <div class="fragment"><div class="line">dartsim</div>
 <div class="line">├── worlds</div>
@@ -250,7 +255,6 @@ Implement the custom feature</h3>
 <div class="line">│    ├── CustomFeatures.hh</div>
 <div class="line">│    ├── CustomFeatures.cc</div>
 <div class="line">│    ├── ...</div>
-<div class="line">├── include/gz/physics/dartsim</div>
 <div class="line">└── CMakeLists.txt</div>
 </div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->

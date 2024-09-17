@@ -458,9 +458,9 @@ Visualize the segmentation dataset via Python</h2>
 <p>For panoptic/instance segmentation, to parse the <code>labels_map</code>, click on any pixel on the <code>labels_map</code> window to see the <code>label</code> and <code>instance count</code> of that pixel.</p>
 <h2><a class="anchor" id="autotoc_md38"></a>
 Processing the segmentation sensor via gz-transport</h2>
-<p>It's possible to process the segmentation data in real time via <code>gz-transport</code>. You will need to which topics to subscribe to in order to receive this information.</p>
-<p>Consider the following SDF snippet from the segmentation camera: </p><div class="fragment"><div class="line">&lt;<span class="keywordtype">topic</span>&gt;<span class="keyword">segmentation</span>&lt;/<span class="keywordtype">topic</span>&gt;</div>
-</div><!-- fragment --><p>In this scenario, the sensor data will publish the label map data to <code>segmentation/labels_map</code>, and the colored map data to <code>segmentation/colored_map</code>. We can write some c++ code that subscribes to these topics:</p>
+<p>It's possible to process the segmentation data in real time via <code>gz-transport</code>. You will need to know which topics to subscribe to in order to receive this information.</p>
+<p>Consider the following SDF snippet from the segmentation camera: </p><div class="fragment"><div class="line">&lt;<span class="keywordtype">topic</span>&gt;<span class="keyword">semantic</span>&lt;/<span class="keywordtype">topic</span>&gt;</div>
+</div><!-- fragment --><p>In this scenario, the sensor data will publish the label map data to <code>semantic/labels_map</code>, and the colored map data to <code>semantic/colored_map</code>. We can write some c++ code that subscribes to these topics:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &lt;gz/msgs.hh&gt;</span></div>
@@ -517,10 +517,10 @@ Processing the segmentation sensor via gz-transport</h2>
 <div class="line">{</div>
 <div class="line">  gz::transport::Node node;</div>
 <div class="line"> </div>
-<div class="line">  <span class="keywordflow">if</span> (!node.Subscribe(<span class="stringliteral">&quot;/segmentation/colored_map&quot;</span>, &amp;OnNewColoredMap) ||</div>
-<div class="line">    !node.Subscribe(<span class="stringliteral">&quot;/segmentation/labels_map&quot;</span>, &amp;OnNewLabelMap))</div>
+<div class="line">  <span class="keywordflow">if</span> (!node.Subscribe(<span class="stringliteral">&quot;/semantic/colored_map&quot;</span>, &amp;OnNewColoredMap) ||</div>
+<div class="line">    !node.Subscribe(<span class="stringliteral">&quot;/semantic/labels_map&quot;</span>, &amp;OnNewLabelMap))</div>
 <div class="line">  {</div>
-<div class="line">    <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cerr</a> &lt;&lt; <span class="stringliteral">&quot;Error subscribing to the boundingbox camera topic&quot;</span></div>
+<div class="line">    <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cerr</a> &lt;&lt; <span class="stringliteral">&quot;Error subscribing to the semantic camera topic&quot;</span></div>
 <div class="line">              &lt;&lt; <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 <div class="line">    <span class="keywordflow">return</span> -1;</div>
 <div class="line">  }</div>
@@ -528,7 +528,7 @@ Processing the segmentation sensor via gz-transport</h2>
 <div class="line">  gz::transport::waitForShutdown();</div>
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --><p>If you'd like to gain a better understanding of how the subscriber code works, you can go through the <a href="https://gazebosim.org/api/transport/11.0/tutorials.html">gz-transport tutorials</a>. </p>
+</div><!-- fragment --><p>If you'd like to gain a better understanding of how the subscriber code works, you can go through the <a href="https://gazebosim.org/api/transport/14.0/tutorials.html">gz-transport tutorials</a>. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
       </div>

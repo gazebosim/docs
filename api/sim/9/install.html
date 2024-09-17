@@ -138,7 +138,7 @@
   <div class="headertitle"><div class="title">Installation</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>These instructions are for installing only Gazebo. If you're interested in using all the Gazebo libraries, not only Igniton Gazebo, check out this <a href="https://gazebosim.org/docs/latest/install">Gazebo installation</a>.</p>
+<div class="textblock"><p>These instructions are for installing only Gazebo Sim. If you're interested in using all the Gazebo libraries including gz-launch, or to install all libraries from source, check out <a href="https://gazebosim.org/docs/latest/install">Gazebo installation</a>.</p>
 <p>We recommend following the binary install instructions to get up and running as quickly and painlessly as possible.</p>
 <p>The source install instructions should be used if you need the very latest software improvements, if you need to modify the code, or if you plan to make a contribution.</p>
 <p>Throughout this tutorial, be sure to replace <code>&lt;#&gt;</code> with a number value, such as 5 or 6, depending on which version you need.</p>
@@ -164,10 +164,22 @@ macOS</h3>
 <li>Install Gazebo: <div class="fragment"><div class="line">brew install gz-sim&lt;#&gt;</div>
 </div><!-- fragment --></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md122"></a>
+<h3><a class="anchor" id="autotoc_md122"></a>
+Windows</h3>
+<ol type="1">
+<li><p class="startli">First, follow the steps 1-4 of <a href="https://gazebosim.org/docs/ionic/install_windows_src/#install-dependencies">Gazebo source install</a> tutorial to install Conda, Visual Studio and set up a Conda environment (we'll call it <code>gz-ws</code>).</p>
+<p class="startli">Do not forget to activate the Conda env (if not already activated) inside the Visual Studio Command Prompt:</p>
+<div class="fragment"><div class="line">conda activate gz-ws</div>
+</div><!-- fragment --></li>
+<li><p class="startli">Now install Gazebo.</p>
+<div class="fragment"><div class="line">conda install gz-sim&lt;#&gt; --channel conda-forge</div>
+</div><!-- fragment --><p class="startli">Be sure to replace <code>&lt;#&gt;</code> with a number value, such as 8 or 9, depending on which version you need.</p>
+</li>
+</ol>
+<h2><a class="anchor" id="autotoc_md123"></a>
 Source Install</h2>
 <p>Install from source if you're interested in changing the source code or need a feature which hasn't been released yet.</p>
-<h3><a class="anchor" id="autotoc_md123"></a>
+<h3><a class="anchor" id="autotoc_md124"></a>
 Ubuntu 20.04 or above</h3>
 <ol type="1">
 <li>Install tools <div class="fragment"><div class="line">sudo apt install -y build-essential cmake git gnupg lsb-release wget</div>
@@ -188,7 +200,7 @@ Ubuntu 20.04 or above</h3>
 <div class="line">make</div>
 </div><!-- fragment --></li>
 </ol>
-<h3><a class="anchor" id="autotoc_md124"></a>
+<h3><a class="anchor" id="autotoc_md125"></a>
 macOS</h3>
 <ol type="1">
 <li>Clone the repository <div class="fragment"><div class="line">git clone https://github.com/gazebosim/gz-sim -b gz-sim&lt;#&gt;</div>
@@ -204,12 +216,38 @@ macOS</h3>
 <li>Optionally, install <div class="fragment"><div class="line">sudo make install</div>
 </div><!-- fragment --></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md125"></a>
+<h3><a class="anchor" id="autotoc_md126"></a>
+Windows</h3>
+<ol type="1">
+<li><p class="startli">First, follow the steps 1-4 of <a href="https://gazebosim.org/docs/ionic/install_windows_src/#install-dependencies">Gazebo source install</a> tutorial to install Conda, Visual Studio and set up a Conda environment (we'll call it <code>gz-ws</code>).</p>
+<p class="startli">Do not forget to activate the Conda env (if not already activated) inside the Visual Studio Command Prompt:</p>
+<div class="fragment"><div class="line">conda activate gz-ws</div>
+</div><!-- fragment --></li>
+<li><p class="startli">Install Gazebo dependencies:</p>
+<p class="startli">You can view available versions and their dependencies: </p><div class="fragment"><div class="line">conda search libgz-sim* --channel conda-forge --info</div>
+</div><!-- fragment --><p class="startli">Install the dependencies, replacing <code>&lt;#&gt;</code> with the required versions: </p><div class="fragment"><div class="line">conda install gz-cmake&lt;#&gt; gz-common&lt;#&gt; gz-fuel-tools&lt;#&gt; gz-gui&lt;#&gt; gz-math&lt;#&gt; gz-msgs&lt;#&gt; gz-physics&lt;#&gt; gz-plugin&lt;#&gt; gz-rendering&lt;#&gt; gz-sensors&lt;#&gt; gz-tools&lt;#&gt; gz-transport&lt;#&gt; gz-utils&lt;#&gt; sdformat&lt;#&gt; --channel conda-forge</div>
+</div><!-- fragment --></li>
+<li>Navigate to where you would like to build the library, and clone the repository. <div class="fragment"><div class="line"># Optionally, append `-b gz-sim#` (replace # with a number) to check out a specific version</div>
+<div class="line">git clone https://github.com/gazebosim/gz-sim.git</div>
+</div><!-- fragment --></li>
+<li>Configure and build <div class="fragment"><div class="line">cd gz-sim</div>
+<div class="line">mkdir build</div>
+<div class="line">cd build</div>
+<div class="line">cmake .. -DBUILD_TESTING=OFF  # Optionally, -DCMAKE_INSTALL_PREFIX=path\to\install</div>
+<div class="line">cmake --build . --config Release</div>
+</div><!-- fragment --></li>
+<li>Optionally, install <div class="fragment"><div class="line">cmake --install . --config Release</div>
+</div><!-- fragment --></li>
+</ol>
+<h2><a class="anchor" id="autotoc_md127"></a>
 Documentation</h2>
 <p>API documentation and tutorials can be accessed at <a href="https://gazebosim.org/libs/gazebo">https://gazebosim.org/libs/gazebo</a></p>
 <p>You can also generate the documentation from a clone of this repository by following these steps.</p>
 <ol type="1">
-<li>You will need <a href="http://www.doxygen.org/">Doxygen</a>. On Ubuntu Doxygen can be installed using <div class="fragment"><div class="line">sudo apt-get install doxygen</div>
+<li>You will need <a href="http://www.doxygen.org/">Doxygen</a>. On Ubuntu Doxygen can be installed using <div class="fragment"><div class="line"># Linux</div>
+<div class="line">sudo apt-get install doxygen</div>
+<div class="line"># Windows</div>
+<div class="line">conda install doxygen --channel conda-forge</div>
 </div><!-- fragment --></li>
 <li>Clone the repository <div class="fragment"><div class="line">git clone https://github.com/gazebosim/gz-sim</div>
 </div><!-- fragment --></li>
@@ -217,12 +255,12 @@ Documentation</h2>
 <div class="line">mkdir build</div>
 <div class="line">cd build</div>
 <div class="line">cmake ../</div>
-<div class="line">make doc</div>
+<div class="line">cmake --build . --target doc</div>
 </div><!-- fragment --></li>
 <li>View the documentation by running the following command from the <code>build</code> directory. <div class="fragment"><div class="line">firefox doxygen/html/index.html</div>
 </div><!-- fragment --></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md126"></a>
+<h2><a class="anchor" id="autotoc_md128"></a>
 Testing</h2>
 <p>Follow these steps to run tests and static code analysis in your clone of this repository.</p>
 <ol type="1">

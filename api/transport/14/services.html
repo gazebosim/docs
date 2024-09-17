@@ -527,6 +527,15 @@ Building the code</h2>
 <div class="line">cmake --build . --config Release</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md55"></a>
 Running the examples</h2>
+<blockquote class="doxtable">
+<p>&zwj;<b>NOTE</b> It is essential to have a valid value of <code>GZ_PARTITION</code> environment variable and to have it set to the same value in all open terminals. As <code>GZ_PARTITION</code> is based on hostname and username, especially Windows and Mac users might have problems due to spaces in their username, which are not a valid character in <code>GZ_PARTITION</code>. gz-transport prints error <code>Invalid partition name</code> in such case. To resolve that, set <code>GZ_PARTITION</code> explicitly to a valid value: </p><div class="fragment"><div class="line"># Linux and Mac</div>
+<div class="line">export GZ_PARTITION=test</div>
+<div class="line"># Windows</div>
+<div class="line">set GZ_PARTITION=test</div>
+</div><!-- fragment --> </blockquote>
+<blockquote class="doxtable">
+<p>&zwj;<b>NOTE</b> On Windows, you can see firewall or antivirus prompts when running the examples. For them to work properly, you should allow all communication to the example programs. </p>
+</blockquote>
 <p>Open three new terminals and from your <code>build/</code> directory run the executables.</p>
 <p>From terminal 1:</p>
 <div class="fragment"><div class="line"># Linux and MacOS</div>
@@ -554,7 +563,11 @@ Running the examples</h2>
 <div class="line">Response: [HELLO]</div>
 </div><!-- fragment --><p>For running the oneway examples, open two terminals and from your <code>build/</code> directory run the executables.</p>
 <p>From terminal 1:</p>
-<div class="fragment"><div class="line">./responser_oneway</div>
+<div class="fragment"><div class="line"># Linux and MacOS</div>
+<div class="line">./responser_oneway</div>
+<div class="line"> </div>
+<div class="line"># Windows</div>
+<div class="line">.\Release\responser_oneway.exe</div>
 </div><!-- fragment --><p>From terminal 2:</p>
 <div class="fragment"><div class="line"># Linux and MacOS</div>
 <div class="line">./requester_oneway</div>
@@ -562,11 +575,7 @@ Running the examples</h2>
 <div class="line"># Windows</div>
 <div class="line">.\Release\requester_oneway.exe</div>
 </div><!-- fragment --><p>In your responser terminal, you should expect an output similar to this one, showing that your service provider has received a request:</p>
-<div class="fragment"><div class="line"># Linux and MacOS</div>
-<div class="line">./responser_oneway</div>
-<div class="line"> </div>
-<div class="line"># Windows</div>
-<div class="line">.\Release\responser_oneway.exe</div>
+<div class="fragment"><div class="line">./responser_oneway</div>
 <div class="line">Request received: [HELLO]</div>
 </div><!-- fragment --><p>For running the examples without input, open three terminals and from your <code>build/</code> directory run the executables.</p>
 <p>From terminal 1:</p>
@@ -588,11 +597,7 @@ Running the examples</h2>
 <div class="line"># Windows</div>
 <div class="line">.\Release\requester_async_no_input.exe</div>
 </div><!-- fragment --><p>In your requesters' terminals, you should expect an output similar to this one, showing that you have received a response:</p>
-<div class="fragment"><div class="line"># Linux and MacOS</div>
-<div class="line">./requester_no_input</div>
-<div class="line"> </div>
-<div class="line"># Windows</div>
-<div class="line">.\Release\requester_no_input.exe</div>
+<div class="fragment"><div class="line">./requester_no_input</div>
 <div class="line"> </div>
 <div class="line">Press &lt;CTRL-C&gt; to exit</div>
 <div class="line">Response: [This is it! This is the answer. It says here...that a bolt of</div>

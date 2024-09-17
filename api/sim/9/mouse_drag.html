@@ -141,18 +141,18 @@
 <div class="textblock"><p>The Mouse Drag plugin allows the user to exert forces and/or torques by dragging objects in the scene with the mouse cursor. It has two modes: rotation and translation.</p>
 <p>To use it, open any world (such as <code>shapes.sdf</code>) and select <code>Mouse Drag</code> from the plugin dropdown to load the plugin.</p>
 <p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/mouse_drag/Interface.png" alt="Interface" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md311"></a>
+<h2><a class="anchor" id="autotoc_md313"></a>
 Rotation mode</h2>
 <p>The rotation mode is activated by Ctrl+Left-clicking and holding a link in the scene. Dragging the mouse causes a pure torque to be applied, contained in a plane parallel to the camera. The transparent red bounding box displays the desired orientation of the link corresponding to the current mouse position.</p>
 <p>The magnitude of the torque is calculated by a spring-damper system with a constant stiffness and critical damping. It is also proportional to the link's inertia, so that the same stiffness causes similar effects on different links. The rotational stiffness can be modified through the interface.</p>
 <p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/mouse_drag/Rotation.png" alt="Rotation mode" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md312"></a>
+<h2><a class="anchor" id="autotoc_md314"></a>
 Translation mode</h2>
 <p>The translation mode is activated by Ctrl+Right-clicking and holding a link in the scene. Dragging the mouse will then move the link towards the mouse position. On the interface, you may select whether the force should be applied to the link's center of mass or to the point where the mouse click occured.</p>
 <p>If center of mass is selected, only a force is applied, with a magnitude given by a constant stiffness and critical damping, scaled by the mass of the link. The force is always contained in a plane parallel to the camera and passing through the application point, represented by a transparent gray plane. The visualization also shows an arrow from the application point to the target position under the mouse cursor.</p>
 <p>If center of mass is not selected, an additional torque is applied to account for the offset in the force application point. In this case, the rotation of the object is also slightly damped (according to the rotational stiffness). The position stiffness can be modified through the interface.</p>
 <p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/mouse_drag/Translation.png" alt="Translation mode" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md313"></a>
+<h2><a class="anchor" id="autotoc_md315"></a>
 SDF configuration</h2>
 <p>The rotation and position stiffness may also be configured in the SDF file. To do this, add the <code>&lt;rotation_stiffness&gt;</code> and/or <code>&lt;position_stiffness&gt;</code> to the plugin element under <code>&lt;gui&gt;</code>.</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">sdf</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.6&quot;</span>&gt;</div>

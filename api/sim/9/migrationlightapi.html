@@ -141,7 +141,7 @@
 <div class="textblock"><p>When migrating plugins from Gazebo-classic to Gazebo, developers will notice that the C++ APIs for both simulators are quite different. Be sure to check the <a href="migrationplugins.html">plugin migration tutorial</a> to get a high-level view of the architecture differences before using this guide.</p>
 <p>This tutorial is meant to serve as a reference guide for developers migrating functions from the <a href="http://osrf-distributions.s3.amazonaws.com/gazebo/api/11.0.0/rendering_1_1Light.html">gazebo::rendering::Light</a> class.</p>
 <p>If you're trying to use some API which doesn't have an equivalent on Gazebo yet, feel free to <a href="https://github.com/gazebosim/gz-sim/issues/">ticket an issue</a>.</p>
-<h2><a class="anchor" id="autotoc_md224"></a>
+<h2><a class="anchor" id="autotoc_md226"></a>
 Light API</h2>
 <p>Gazebo-classic has 2 Light classes:</p><ul>
 <li><a href="http://osrf-distributions.s3.amazonaws.com/gazebo/api/11.0.0/classgazebo_1_1rendering_1_1Light.html"><code>gazebo::rendering::Light</code></a> - responsible for accessing and setting light properties.<ul>
@@ -165,7 +165,7 @@ Light API</h2>
 <p>As an example the <code>Light::Pose()</code> is a convienient function for querying the <code>Pose</code> component from the <code>EntityComponentManager</code>, i.e.</p>
 <div class="fragment"><div class="line">math::Pose3d pose = _ecm.Component&lt;components::Pose&gt;(lightEntityId)-&gt;Data();</div>
 </div><!-- fragment --><p>The functions presented in the sections below exist for convenience and readability. The items marked as <code>TODO</code> means that the equivalent API is not implemented yet in Gazebo.</p>
-<h3><a class="anchor" id="autotoc_md225"></a>
+<h3><a class="anchor" id="autotoc_md227"></a>
 Properties</h3>
 <p>Most of Gazebo-classic's Light API is related to setting and getting properties. These functions are great candidates to have equivalents on Gazebo because the Entity-Component-System architecture is perfect for setting components (properties) into entities such as lights. This section focuses on migrating from APIs provided through the <code>gazebo::rendering::Light</code> class.</p>
 <hr  />
@@ -236,7 +236,7 @@ Properties</h3>
 <td class="markdownTableBodyNone">WorldPose   </td><td class="markdownTableBodyNone">TODO   </td></tr>
 </table>
 <hr  />
-<h2><a class="anchor" id="autotoc_md227"></a>
+<h2><a class="anchor" id="autotoc_md229"></a>
 Read family</h2>
 <p>These APIs deal with reading information related to child / parent relationships. As mentioned earlier, these APIs in Gazebo classic are provided by the <code>gazebo::physics::Light</code> class. Most of the APIs are inherited from the base <code>gazebo::physics::Entity</code> class in classic. We will only list the relevant ones here.</p>
 <p>The main difference in these APIs across Gazebo generations is that on classic, they deal with shared pointers to entities, while on Gazebo, they deal with entity IDs.</p>
@@ -252,7 +252,7 @@ Read family</h2>
 <td class="markdownTableBodyNone">GetWorld   </td><td class="markdownTableBodyNone"><code><a class="el" href="namespacegz_1_1sim.html#a5223699c52340908dcda38f39e77198c" title="Get the world to which the given entity belongs.">gz::sim::worldEntity</a></code>   </td></tr>
 </table>
 <hr  />
-<h2><a class="anchor" id="autotoc_md230"></a>
+<h2><a class="anchor" id="autotoc_md232"></a>
 Write family</h2>
 <p>These functions deal with modifying the entity tree, attaching children to new parents. As mentioned earlier, these APIs in Gazebo classic are provided by the <code>gazebo::physics::Light</code> class. Most of the APIs are inherited from the base <code>gazebo::physics::Entity</code> class in classic. We will only list the relevant ones here. As seen below, APIs for changing a Light's entity tree structure are currently not implemented yet.</p>
 <hr  />
@@ -271,7 +271,7 @@ Write family</h2>
 <td class="markdownTableBodyNone">SetWorld   </td><td class="markdownTableBodyNone">TODO   </td></tr>
 </table>
 <hr  />
-<h2><a class="anchor" id="autotoc_md233"></a>
+<h2><a class="anchor" id="autotoc_md235"></a>
 Lifecycle</h2>
 <p>These functions are related to the light's lifecycle, like loading and updating its properties.</p>
 <hr  />

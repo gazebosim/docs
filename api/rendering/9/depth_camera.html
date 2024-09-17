@@ -142,7 +142,11 @@
 <h2><a class="anchor" id="autotoc_md57"></a>
 Install prerequisites</h2>
 <p>In order to compile this tutorial, you need to install some prerequisites :</p>
-<div class="fragment"><div class="line">sudo apt-get install build-essential freeglut3-dev libglew-dev</div>
+<div class="fragment"><div class="line"># Linux</div>
+<div class="line">sudo apt-get install build-essential freeglut3-dev libglew-dev</div>
+<div class="line"> </div>
+<div class="line"># Windows (via conda)</div>
+<div class="line">conda install glew --channel conda-forge</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md58"></a>
 Compile and run the example</h2>
 <p>Clone the source code, create a build directory and use <code>cmake</code> and <code>make</code> to compile the code:</p>
@@ -151,9 +155,16 @@ Compile and run the example</h2>
 <div class="line">mkdir build</div>
 <div class="line">cd build</div>
 <div class="line">cmake ..</div>
-<div class="line">make</div>
+<div class="line"># On Linux</div>
+<div class="line">cmake --build .</div>
+<div class="line"># On Windows</div>
+<div class="line">cmake --build . --config Release</div>
 </div><!-- fragment --><p>Execute the example:</p>
-<div class="fragment"><div class="line">./depth_camera ogre</div>
+<div class="fragment"><div class="line"># Linux</div>
+<div class="line">./depth_camera ogre</div>
+<div class="line"> </div>
+<div class="line"># Windows</div>
+<div class="line">.\Release\depth_camera.exe ogre</div>
 </div><!-- fragment --><p>You'll see:</p>
 <div class="fragment"><div class="line">[Msg] Loading plugin [gz-rendering-ogre]</div>
 <div class="line">===============================</div>

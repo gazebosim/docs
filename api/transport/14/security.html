@@ -156,6 +156,12 @@ Authentication</h2>
 <p>When both <code>GZ_TRANSPORT_USERNAME</code> and <code>GZ_TRANSPORT_PASSWORD</code> are set, the authentication is enabled for a process. Every publisher in a secure process will require subscribers to provide the correct username and password. Also, every subscriber will only connect to secure publishers.</p>
 <h3><a class="anchor" id="autotoc_md75"></a>
 Example</h3>
+<blockquote class="doxtable">
+<p>&zwj;<b>NOTE</b> It is essential to have a valid value of <code>GZ_PARTITION</code> environment variable and to have it set to the same value in all open terminals. As <code>GZ_PARTITION</code> is based on hostname and username, especially Windows and Mac users might have problems due to spaces in their username, which are not a valid character in <code>GZ_PARTITION</code>. gz-transport prints error <code>Invalid partition name</code> in such case. To resolve that, set <code>GZ_PARTITION</code> explicitly to a valid value: </p><div class="fragment"><div class="line"># Linux and Mac</div>
+<div class="line">export GZ_PARTITION=test</div>
+<div class="line"># Windows</div>
+<div class="line">set GZ_PARTITION=test</div>
+</div><!-- fragment --> </blockquote>
 <p>First, let's test unsecure communication. This example requires <a href="https://github.com/gazebosim/gz-tools">gz-tools</a>.</p>
 <ol type="1">
 <li>Open a terminal, and echo topic <code>/foo</code>. <div class="fragment"><div class="line">gz topic -t /foo -e</div>

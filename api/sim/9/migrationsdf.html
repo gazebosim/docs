@@ -145,7 +145,7 @@
 <li>Gazebo 11.2.0</li>
 <li>Igniton Citadel</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md271"></a>
+<h2><a class="anchor" id="autotoc_md273"></a>
 URIs</h2>
 <p>SDF files use URIs to refer to resources from other files, such as meshes and nested models. These are some of the SDF tags that take URIs:</p>
 <ul>
@@ -156,7 +156,7 @@ URIs</h2>
 <li><code>&lt;actor&gt;&lt;animation&gt;&lt;filename&gt;</code></li>
 </ul>
 <p>Here are the recommended ways to use URIs from most recommended to least:</p>
-<h3><a class="anchor" id="autotoc_md272"></a>
+<h3><a class="anchor" id="autotoc_md274"></a>
 Gazebo Fuel URL</h3>
 <p>It's possible to use URLs of resources on <a href="https://app.gazebosim.org">Gazebo Fuel</a> within any of the tags above and both simulators will be able to load it.</p>
 <p>For example, this world can be loaded into both simulators:</p>
@@ -223,7 +223,7 @@ Gazebo Fuel URL</h3>
 <div class="line">  &lt;/world&gt;</div>
 <div class="line">&lt;/sdf&gt;</div>
 </div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>The actor's vertical pose will be different on both simulators. That's because a hardcoded offset was removed on Gazebo and maintained on Gazebo classic for backwards compatibility.</dd></dl>
-<h3><a class="anchor" id="autotoc_md273"></a>
+<h3><a class="anchor" id="autotoc_md275"></a>
 Path relative to the SDF file</h3>
 <p>It's possible to use relative paths within SDF files to refer to other files in the same directory. This is recommended when creating files that work together and need to be relocatable.</p>
 <p>For example, consider the following directory structure:</p>
@@ -238,7 +238,7 @@ Path relative to the SDF file</h3>
 <p><code>&lt;include&gt;models/model1&lt;/include&gt;</code></p>
 <p>And <code>model.sdf</code> can refer to <code>mesh.dae</code> as:</p>
 <p><code>&lt;uri&gt;meshes/mesh.dae&lt;/uri&gt;</code></p>
-<h3><a class="anchor" id="autotoc_md274"></a>
+<h3><a class="anchor" id="autotoc_md276"></a>
 Path relative to an environment variable</h3>
 <p>This method is useful if you don't know where the files will be located with respect to each other, and you have some control over the simulation's runtime environment. On either simulator, you can refer to resources relative to paths set on an environment variable.</p>
 <p>Each simulator uses a different environment variable:</p>
@@ -264,16 +264,16 @@ Path relative to an environment variable</h3>
 <p>On both situations, the <code>model://</code> prefix will be substituted by <code>/home/username/models</code>.</p>
 <p>You can also set several lookup paths separating them with <code>:</code>, for example:</p>
 <p><code>export GZ_SIM_RESOURCE_PATH=/home/username/models:/home/username/another_project/models</code></p>
-<h3><a class="anchor" id="autotoc_md275"></a>
+<h3><a class="anchor" id="autotoc_md277"></a>
 Absolute paths</h3>
 <p>Finally, both simulators will accept absolute paths, for example:</p>
 <p><code>&lt;include&gt;/home/username/models/model1&lt;/include&gt;</code></p>
 <p>This method is not recommended, because the file most likely won't work if copied to a different computer. It also becomes inconvenient to move files to different directories.</p>
-<h2><a class="anchor" id="autotoc_md276"></a>
+<h2><a class="anchor" id="autotoc_md278"></a>
 Plugins</h2>
 <p>Plugins are binary files compiled to use with a specific simulator. Plugins for Gazebo classic and Gazebo aren't usually compatible, so plugins will need to be specified for each simulator separately.</p>
 <p>It's important to note that for both simulators, plugins compiled against a major version of the simulator can't be loaded by other major versions. The shared libraries will usually have the same name, so it's important to make sure you're loading the correct plugins.</p>
-<h3><a class="anchor" id="autotoc_md277"></a>
+<h3><a class="anchor" id="autotoc_md279"></a>
 Official plugins</h3>
 <p>Both simulators are installed with several built-in plugins. <a href="https://github.com/osrf/gazebo/tree/gazebo11/plugins">Gazebo classic's plugins</a> and <a href="https://github.com/gazebosim/gz-sim/tree/main/src/systems">Gazebo Sim's plugins</a> have different file names. For example, to use Gazebo classic's differential drive plugin, the user can refer to it as follows:</p>
 <div class="fragment"><div class="line">&lt;model ...&gt;</div>
@@ -290,7 +290,7 @@ Official plugins</h3>
 <div class="line">&lt;/model&gt;</div>
 </div><!-- fragment --><p>Note that besides the different file name, Gazebo also requires the C++ class to be defined in the <code>name</code> attribute.</p>
 <p>Also keep in mind that plugins that offer similar functionality may accept different parameters for each simulator. Be sure to check the documentation of each plugin before using it.</p>
-<h3><a class="anchor" id="autotoc_md278"></a>
+<h3><a class="anchor" id="autotoc_md280"></a>
 Custom plugins</h3>
 <p>To load custom plugins, users need to set environment variables to the directory where that plugin is located. The variables are different for each simulator:</p>
 <ul>
@@ -304,7 +304,7 @@ Custom plugins</h3>
 </ul>
 </li>
 </ul>
-<h3><a class="anchor" id="autotoc_md279"></a>
+<h3><a class="anchor" id="autotoc_md281"></a>
 Keeping plugins separate</h3>
 <p>Trying to load a plugin from one simulator into the other will:</p>
 <ul>
@@ -313,11 +313,11 @@ Keeping plugins separate</h3>
 </ul>
 <p>That's why it's recommended not to specify plugins for both simulators side-by-side on the same file. Instead, keep separate files and inject the plugins as needed.</p>
 <p>There isn't a built-in mechanism on SDFormat to inject plugins into files yet, but users can make use of templating tools like <a href="https://github.com/gazebosim/gz-sim/blob/gz-sim9/tutorials/erb_template.md">ERB</a> and <a href="http://wiki.ros.org/xacro">xacro</a> to generate SDF files with the correct plugins.</p>
-<h3><a class="anchor" id="autotoc_md280"></a>
+<h3><a class="anchor" id="autotoc_md282"></a>
 Default plugins</h3>
 <p>Gazebo is more modular than Gazebo classic, so most features are optional. For example, by default, Gazebo will load all the system plugins defined on the <code>~/.gz/sim/&lt;#&gt;/server.config</code> file and all GUI plugins defined on the <code>~/.gz/sim/&lt;#&gt;/gui.config</code> file. But the user can always remove plugins from those files, or choose different ones by adding <code>&lt;plugin&gt;</code> tags to the SDF file. (For more details, see the <a href="https://github.com/gazebosim/gz-sim/blob/gz-sim9/tutorials/server_config.md">Server configuration tutorial</a> and the <a href="https://github.com/gazebosim/gz-sim/blob/gz-sim9/tutorials/gui_config.md">GUI configuration tutorial</a>).</p>
 <p>This is important to keep in mind when migrating your SDF files, because files that worked on Gazebo classic may need more plugins on Gazebo.</p>
-<h2><a class="anchor" id="autotoc_md281"></a>
+<h2><a class="anchor" id="autotoc_md283"></a>
 Materials</h2>
 <p>Gazebo does not support Ogre material files like Classic does, because Gazebo can be used with multiple rendering engines. Though, there is limited support for pre-defined materials, but arbitrary materials defined (below) within a <code>&lt;script&gt;</code> aren't supported:</p>
 <div class="fragment"><div class="line">&lt;material&gt;</div>
@@ -327,7 +327,7 @@ Materials</h2>
 <div class="line">    &lt;name&gt;Number/One&lt;/name&gt;</div>
 <div class="line">  &lt;/script&gt;</div>
 <div class="line">&lt;/material&gt;</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md282"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md284"></a>
 Plain colors</h3>
 <p>To ease migration, Gazebo automatically parses plain solid colors defined in this material file <a href="https://github.com/osrf/gazebo/blob/gazebo11/media/materials/scripts/gazebo.material">gazebo.material</a>, if encountered like:</p>
 <div class="fragment"><div class="line">&lt;material&gt;</div>
@@ -342,7 +342,7 @@ Plain colors</h3>
 <div class="line">  &lt;diffuse&gt;1 0 0 1&lt;/diffuse&gt;</div>
 <div class="line">  &lt;specular&gt;0.1 0.1 0.1 1&lt;/specular&gt;</div>
 <div class="line">&lt;/material&gt;</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md283"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md285"></a>
 Textures</h3>
 <p>If an Ogre material script is being used to define a texture, there are a couple alternatives.</p>
 <p>If using mesh files, the texture can be embedded into it. The advantage is that this works for both simulators. Some examples:</p>

@@ -140,22 +140,31 @@
 <div class="contents">
 <div class="textblock"><p>Gazebo supports choosing what physics engine to use at runtime. This is made possible by <a href="https://gazebosim.org/libs/physics">Gazebo Physics</a>' abstraction layer.</p>
 <p>Gazebo uses the <a href="https://dartsim.github.io/">DART</a> physics engine by default.</p>
-<p>Downstream developers may also integrate other physics engines by creating new Gazebo Physics engine plugins. See <a href="https://gazebosim.org/api/physics/7/tutorials.html">Gazebo Physics</a>'s tutorials to learn how to integrate a new engine.</p>
-<h2><a class="anchor" id="autotoc_md319"></a>
+<p>Downstream developers may also integrate other physics engines by creating new Gazebo Physics engine plugins. See <a href="https://gazebosim.org/api/physics/8/tutorials.html">Gazebo Physics</a>'s tutorials to learn how to integrate a new engine.</p>
+<h2><a class="anchor" id="autotoc_md321"></a>
 How Gazebo finds engines</h2>
 <p>Gazebo automatically looks for all physics engine plugins that are installed with Gazebo Physics. At the moment, the primary implementation is DART (<code>gz-physics-dartsim-plugin</code>). There is also preliminary support for Bullet (<code>gz-physics-bullet-plugin</code>) and the Bullet Featherstone implementation (<code>gz-physics-bullet-featherstone-plugin</code>)</p>
 <p>If you've created a custom engine plugin, you can tell Gazebo where to find it by setting the <code>GZ_SIM_PHYSICS_ENGINE_PATH</code> environment variable to the directory where the plugin's shared library can be found.</p>
-<p>For example, if you've created the following physics engine shared library on Linux:</p>
-<div class="fragment"><div class="line">/home/physics_engines/libCustomEngine.so</div>
+<p>For example, if you've created the following physics engine shared library:</p>
+<div class="fragment"><div class="line"># Linux</div>
+<div class="line">/home/physics_engines/libCustomEngine.so</div>
+<div class="line"># Windows</div>
+<div class="line">C:\Users\Robot\physics_engines\CustomEngine.dll</div>
 </div><!-- fragment --><p>You should set the variable as follows:</p>
-<div class="fragment"><div class="line">export GZ_SIM_PHYSICS_ENGINE_PATH=/home/physics_engines</div>
+<div class="fragment"><div class="line"># Linux</div>
+<div class="line">export GZ_SIM_PHYSICS_ENGINE_PATH=/home/physics_engines</div>
+<div class="line"># Windows</div>
+<div class="line">set GZ_SIM_PHYSICS_ENGINE_PATH=C:\Users\Robot\physics_engines</div>
 </div><!-- fragment --><p>If you have several libraries installed in different paths, you can add more paths, for example:</p>
-<div class="fragment"><div class="line">export GZ_SIM_PHYSICS_ENGINE_PATH=/home/physics_engines:/home/more_engines</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md320"></a>
+<div class="fragment"><div class="line"># Linux, separate with :</div>
+<div class="line">export GZ_SIM_PHYSICS_ENGINE_PATH=/home/physics_engines:/home/more_engines</div>
+<div class="line"># Windows, separate with ;</div>
+<div class="line">set GZ_SIM_PHYSICS_ENGINE_PATH=C:\Users\Robot\physics_engines;C:\MoreEngines</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md322"></a>
 Tell Gazebo what engine to load</h2>
 <p>There are a few different ways of telling Gazebo which engine to load.</p>
-<p>For any method, you should provide the name of your plugin's shared library, but the <code>lib</code> prefix and the file extension are optional. So in this example, the file is <code>libCustomEngine.so</code> but it's enough to set <code>CustomEngine</code>.</p>
-<h3><a class="anchor" id="autotoc_md321"></a>
+<p>For any method, you should provide the name of your plugin's shared library, but the <code>lib</code> prefix and the file extension are optional. So in this example, the file is <code>libCustomEngine.so</code> but it's enough to set <code>CustomEngine</code>. That is also prefered to support multiple operating systems.</p>
+<h3><a class="anchor" id="autotoc_md323"></a>
 From SDF</h3>
 <p>You can tell Gazebo what engine to load from the SDF world file by giving the shared library name to the <code>Physics</code> plugin tag.</p>
 <p>For the example above, you can load it like this:</p>
@@ -166,40 +175,40 @@ From SDF</h3>
 <div class="line">    &lt;<span class="keywordtype">filename</span>&gt;<span class="keyword">CustomEngine</span>&lt;/<span class="keywordtype">filename</span>&gt;</div>
 <div class="line">  &lt;/<span class="keywordtype">engine</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md322"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md324"></a>
 From the command line</h3>
 <p>Alternatively, you can choose a plugin from the command line using the <code>--physics-engine</code> option, for example:</p>
 <div class="fragment"><div class="line">gz sim --physics-engine CustomEngine</div>
 </div><!-- fragment --><p>To use an existing alternative engine (e.g. Bullet Featherstone)</p>
 <p><code>gz sim --physics-engine gz-physics-bullet-featherstone-plugin</code></p>
-<h3><a class="anchor" id="autotoc_md323"></a>
+<h3><a class="anchor" id="autotoc_md325"></a>
 From C++ API</h3>
 <p>All features available through the command line are also available through <a class="el" href="classgz_1_1sim_1_1ServerConfig.html">gz::sim::ServerConfig</a>. When instantiating a server programmatically, a physics engine can be passed to the constructor, for example:</p>
 <div class="fragment"><div class="line">gz::sim::ServerConfig serverConfig;</div>
 <div class="line">serverConfig.SetPhysicsEngine(&quot;CustomEngine&quot;);</div>
 <div class="line"> </div>
 <div class="line">gz::sim::Server server(serverConfig);</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md324"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md326"></a>
 Engine configuration</h2>
 <p>Gazebo supports the following physics engine configurations through SDF. These options are available to all physics engines, but not all engines may support them. The default physics engine, DART, supports all these options.</p>
 <ul>
-<li><a href="http://sdformat.org/spec?ver=1.8&amp;elem=physics#dart_collision_detector">//physics/dart/collision_detector</a><ul>
+<li><a href="http://sdformat.org/spec?ver=1.11&amp;elem=physics#dart_collision_detector">//physics/dart/collision_detector</a><ul>
 <li>Options supported by DART: <code>ode</code> (default), <code>bullet</code>, <code>fcl</code>, <code>dart</code>.</li>
 </ul>
 </li>
-<li><a href="http://sdformat.org/spec?ver=1.8&amp;elem=physics#solver_solver_type">//physics/dart/solver/solver_type</a><ul>
+<li><a href="http://sdformat.org/spec?ver=1.11&amp;elem=physics#solver_solver_type">//physics/dart/solver/solver_type</a><ul>
 <li>Options supported by DART: <code>dantzig</code> (default), <code>pgs</code></li>
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md325"></a>
+<h2><a class="anchor" id="autotoc_md327"></a>
 Troubleshooting</h2>
 <blockquote class="doxtable">
 <p>&zwj;Failed to find plugin [libCustomEngine.so]. Have you checked the GZ_SIM_PHYSICS_ENGINE_PATH environment variable? </p>
 </blockquote>
-<p>Gazebo can't find out where <code>libCustomEngine.so</code> is located.</p>
+<p>Gazebo can't find out where <code>libCustomEngine.so</code> or <code>CustomEngine.dll</code> is located.</p>
 <p>If that's an engine you believe should be installed with Gazebo Physics, check if the relevant plugin is installed.</p>
-<p>If that's a 3rd party engine, find where the <code>.so</code> file is installed and add that path to the environment variable as described above.</p>
+<p>If that's a 3rd party engine, find where the <code>.so</code> or <code>.dll</code> file is installed and add that path to the environment variable as described above.</p>
 <blockquote class="doxtable">
 <p>&zwj;Unable to load the [/home/physics_engines/libCustomEngine.so] library. </p>
 </blockquote>

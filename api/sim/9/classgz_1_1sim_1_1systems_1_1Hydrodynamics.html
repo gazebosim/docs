@@ -194,10 +194,10 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class provides hydrodynamic behaviour for underwater vehicles It is shamelessly based off Brian Bingham's <a href="https://github.com/osrf/vrx">plugin for VRX</a>. which in turn is based of Fossen's equations described in "Guidance and
 Control of Ocean Vehicles" [1]. The class should be used together with the buoyancy plugin to help simulate behaviour of maritime vehicles. <a class="el" href="classgz_1_1sim_1_1systems_1_1Hydrodynamics.html" title="This class provides hydrodynamic behaviour for underwater vehicles It is shamelessly based off Brian ...">Hydrodynamics</a> refers to the behaviour of bodies in water. It includes forces like linear and quadratic drag, buoyancy (not provided by this plugin), etc. </p>
-<h2><a class="anchor" id="autotoc_md457"></a>
+<h2><a class="anchor" id="autotoc_md459"></a>
 System Parameters</h2>
 <p>The exact description of these parameters can be found on p. 37 and p. 43 of Fossen's book. They are used to calculate added mass, linear and quadratic drag and coriolis force.</p>
-<h3><a class="anchor" id="autotoc_md458"></a>
+<h3><a class="anchor" id="autotoc_md460"></a>
 Diagonal terms:</h3>
 <ul>
 <li>&lt;xDotU&gt; - (Deprecated) Added mass in x direction [kg]</li>
@@ -219,7 +219,7 @@ Diagonal terms:</h3>
 <li>&lt;nRabsR&gt; - Quadratic damping, 2nd order, yaw component [kg/m^2]</li>
 <li>&lt;nR&gt; - Linear damping, 1st order, yaw component [kg/m]</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md459"></a>
+<h3><a class="anchor" id="autotoc_md461"></a>
 Cross terms</h3>
 <p>In general we support cross terms as well. These are terms which act on non-diagonal sides. We use the SNAMe convention of naming search terms. (x, y, z) correspond to the respective axis. (k, m, n) correspond to roll, pitch and yaw. Similarly U, V, W represent velocity vectors in X, Y and Z axis while P, Q, R represent angular velocity in roll, pitch and yaw axis respectively.</p><ul>
 <li>Added Mass: &lt;{x|y|z|k|m|n}Dot{U|V|W|P|Q|R}&gt; e.g. &lt;xDotR&gt; (Deprecated) Units are either kg or kgm^2 depending on the choice of terms. You should use the sdf method based spec <a href="http://sdformat.org/spec?ver=1.11&elem=link#inertial_fluid_added_mass">http://sdformat.org/spec?ver=1.11&amp;elem=link#inertial_fluid_added_mass</a></li>
@@ -233,14 +233,14 @@ Cross terms</h3>
 <li>&lt;disable_coriolis&gt; - Disable Coriolis force [Boolean, Default: false]</li>
 <li>&lt;disable_added_mass&gt; - Disable Added Mass [Boolean, Default: false]. To be deprecated in Garden.</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md460"></a>
+<h3><a class="anchor" id="autotoc_md462"></a>
 Loading external currents</h3>
 <p>One can use the <a class="el" href="classgz_1_1sim_1_1systems_1_1EnvironmentPreload.html" title="A plugin to preload an Environment component into the ECM upon simulation start-up.">EnvironmentPreload</a> system to preload currents into the plugin using data files. To use the data you may give CSV column names by using <code>lookup_current_*</code> tags listed below:</p><ul>
 <li>&lt;lookup_current_x&gt; - X axis to use for lookup current</li>
 <li>&lt;lookup_current_y&gt; - Y axis to use for lookup current</li>
 <li>&lt;lookup_current_z&gt; - Z axis to use for lookup current If any one of the fields is present, it is assumed current is to be loaded by a data file and the topic will be ignored. If one or two fields are present, the missing fields are assumed to default to zero.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md461"></a>
+<h1><a class="anchor" id="autotoc_md463"></a>
 Example</h1>
 <p>An example configuration is provided in the examples folder. The example uses the <a class="el" href="classgz_1_1sim_1_1systems_1_1LiftDrag.html" title="The LiftDrag system computes lift and drag forces enabling simulation of aerodynamic robots.">LiftDrag</a> plugin to apply steering controls. It also uses the thruster plugin to propel the craft and the buoyancy plugin for buoyant force. To run the example run. </p><div class="fragment"><div class="line"><a class="code hl_namespace" href="namespacegz.html" title="This library is part of the Gazebo project.">gz</a> sim auv_controls.sdf</div>
 </div><!-- fragment --><p> To control the rudder of the craft run the following </p><div class="fragment"><div class="line"><a class="code hl_namespace" href="namespacegz.html" title="This library is part of the Gazebo project.">gz</a> topic -t /model/tethys/joint/vertical_fins_joint/0/cmd_pos</div>
@@ -248,11 +248,11 @@ Example</h1>
 </div><!-- fragment --><p> To apply a thrust you may run the following command </p><div class="fragment"><div class="line"><a class="code hl_namespace" href="namespacegz.html" title="This library is part of the Gazebo project.">gz</a> topic -t /model/tethys/joint/propeller_joint/cmd_pos</div>
 <div class="line">-m <a class="code hl_namespace" href="namespacegz.html" title="This library is part of the Gazebo project.">gz</a>.<a class="code hl_namespaceRef" href="https://gazebosim.org/api/msgs/11/namespacegz_1_1msgs.html">msgs</a>.Double -p <span class="stringliteral">&#39;data: -31&#39;</span></div>
 </div><!-- fragment --><p> The vehicle should move in a circle.</p>
-<h2><a class="anchor" id="autotoc_md462"></a>
+<h2><a class="anchor" id="autotoc_md464"></a>
 Ocean Currents</h2>
 <p>When underwater, vehicles are often subject to ocean currents. The hydrodynamics plugin allows simulation of such currents. We can add a current simply by publishing the following: </p><div class="fragment"><div class="line"><a class="code hl_namespace" href="namespacegz.html" title="This library is part of the Gazebo project.">gz</a> topic -t /ocean_current -m <a class="code hl_namespace" href="namespacegz.html" title="This library is part of the Gazebo project.">gz</a>.<a class="code hl_namespaceRef" href="https://gazebosim.org/api/msgs/11/namespacegz_1_1msgs.html">msgs</a>.Vector3d -p <span class="stringliteral">&#39;x: 1, y:0, z:0&#39;</span></div>
 </div><!-- fragment --><p> You should observe your vehicle slowly drift to the side.</p>
-<h1><a class="anchor" id="autotoc_md463"></a>
+<h1><a class="anchor" id="autotoc_md465"></a>
 Citations</h1>
 <p>[1] Fossen, Thor I. <em>Guidance and Control of Ocean Vehicles</em>. United Kingdom: Wiley, 1994. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>

@@ -141,19 +141,19 @@
 <div class="textblock"><p>This tutorial will go over how to write Gazebo plugins that alter the 3D scene's visual appearance using Gazebo Rendering APIs.</p>
 <p>This is not to be confused with integrating a new rendering engine. See <a href="https://gazebosim.org/api/rendering/8/renderingplugin.html">How to write your own rendering engine plugin</a> for that.</p>
 <p>This tutorial will go over a couple of example plugins that are located at <a href="https://github.com/gazebosim/gz-sim/tree/main/examples/plugin/rendering_plugins">https://github.com/gazebosim/gz-sim/tree/main/examples/plugin/rendering_plugins</a>.</p>
-<h2><a class="anchor" id="autotoc_md335"></a>
+<h2><a class="anchor" id="autotoc_md337"></a>
 Scenes</h2>
 <p>During simulation, there are up to two 3D scenes being rendered by Gazebo, one on the server process and one on the client process.</p>
 <p>The server-side scene will only be created when using the <code><a class="el" href="classgz_1_1sim_1_1systems_1_1Sensors.html" title="A system that manages sensors.">gz::sim::systems::Sensors</a></code> system plugin on the server. This is the scene that shows what the sensors see.</p>
 <p>The client-side scene will only be created when using the <code>gz::gui::plugins::MinimalScene</code> GUI system plugin on the client. This is the scene that shows what the user sees.</p>
 <p>For the user to see what the sensors see, they need to use other GUI plugins that display sensor data, such as <code>gz::gui::plugins::ImageDisplay</code> for camera images or <code><a class="el" href="classgz_1_1sim_1_1GZ__SIM__VERSION__NAMESPACE_1_1VisualizeLidar.html" title="Visualize the LaserScan message returned by the sensors. Use the checkbox to turn visualization of no...">gz::sim::VisualizeLidar</a></code> for lidar point clouds.</p>
 <p>Gazebo keeps these scenes in sync by sending periodic state messages from the server to the client that contain entity and component data with the <code><a class="el" href="classgz_1_1sim_1_1systems_1_1SceneBroadcaster.html" title="System which periodically publishes a gz::msgs::Scene message with updated information.">gz::sim::systems::SceneBroadcaster</a></code> plugin. Any changes done to these scenes using Gazebo Rendering APIs directly, as described in this tutorial, will only affect one of the scenes and will not be synchronized. The examples below will show how to change the ambient light for each scene separately.</p>
-<h2><a class="anchor" id="autotoc_md336"></a>
+<h2><a class="anchor" id="autotoc_md338"></a>
 Plugin types</h2>
 <p>Depending on the scene that you want to affect, you'll need to write a different plugin.</p>
 <p>To interact with the server-side scene, you'll need to write an <code><a class="el" href="classgz_1_1sim_1_1System.html" title="Base class for a System.">gz::sim::System</a></code>. See <a href="createsystemplugins.html">Create System Plugins</a>.</p>
 <p>To interact with the client-side scene, you'll need to write an <a class="elRef" href="https://gazebosim.org/api/gui/9/classgz_1_1gui_1_1Plugin.html">gz::gui::Plugin</a>, or a more specialized <code><a class="el" href="classgz_1_1sim_1_1GuiSystem.html" title="Base class for a GUI System.">gz::sim::GuiSystem</a></code> if you need to access entities and components. See the <a href="https://github.com/gazebosim/gz-sim/tree/main/examples/plugin/gui_system_plugin">GUI system plugin example</a>.</p>
-<h2><a class="anchor" id="autotoc_md337"></a>
+<h2><a class="anchor" id="autotoc_md339"></a>
 Getting the scene</h2>
 <p>When writing either plugin type, the <code>gz::rendering::Scene</code> pointer can be conveniently found using the rendering engine's singleton. Both example plugins use the exact same logic to get the scene:</p>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> RenderingServerPlugin::FindScene()</div>
@@ -208,10 +208,10 @@ Getting the scene</h2>
 <div class="line">  this-&gt;scene = scenePtr;</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>The function above works for most cases, but you're welcome to customize it for your use case.</p>
-<h2><a class="anchor" id="autotoc_md338"></a>
+<h2><a class="anchor" id="autotoc_md340"></a>
 Render thread</h2>
 <p>Rendering operations aren't thread-safe. To make sure there are no race conditions, all rendering operations should happen in the same thread, the "render thread". In order to access that thread from a custom plugin, it's necessary to listen to events that the 3D scene is emitting. These are different for each plugin type.</p>
-<h3><a class="anchor" id="autotoc_md339"></a>
+<h3><a class="anchor" id="autotoc_md341"></a>
 Render events on the GUI</h3>
 <p>The GUI plugin will need to listen to gz::gui::events::Render events. Here's how to do it:</p>
 <ol type="1">
@@ -262,7 +262,7 @@ Render events on the GUI</h3>
 <div class="line">}</div>
 </div><!-- fragment --></li>
 </ol>
-<h3><a class="anchor" id="autotoc_md340"></a>
+<h3><a class="anchor" id="autotoc_md342"></a>
 Render events on the server</h3>
 <p>The server plugin will need to listen <code><a class="el" href="namespacegz_1_1sim_1_1events.html#a051bf7c281935b87ac35a5b8ea69ffa8" title="The pre render event is emitted before rendering updates. The event is emitted in the rendering threa...">gz::sim::events::PreRender</a></code>, <code><a class="el" href="namespacegz_1_1sim_1_1events.html#af83ef380b3f14573f0c1c456e24b03ee" title="The render event is emitted during rendering updates. The event is emitted in the rendering thread so...">gz::sim::events::Render</a></code> or <code><a class="el" href="namespacegz_1_1sim_1_1events.html#aba8a4232e1e60007e01af781e0f20da1" title="The post render event is emitted after rendering updates. The event is emitted in the rendering threa...">gz::sim::events::PostRender</a></code> events.</p>
 <p>Here's how to do it:</p>
@@ -298,7 +298,7 @@ Render events on the server</h3>
 <div class="line">}</div>
 </div><!-- fragment --></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md341"></a>
+<h2><a class="anchor" id="autotoc_md343"></a>
 Running examples</h2>
 <p>Follow the build instructions on the rendering plugins <a href="https://github.com/gazebosim/gz-sim/blob/main/examples/plugin/rendering_plugins">README</a> and you'll generate both plugins:</p>
 <ul>

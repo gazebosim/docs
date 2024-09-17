@@ -139,18 +139,18 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>In this tutorial, you will learn how to convert a point cloud to a 3D model using the open source software CloudCompare. This skill will allow you to turn raw point cloud data into mesh files you can then use in your Gazebo simulations.</p>
-<h2><a class="anchor" id="autotoc_md326"></a>
+<h2><a class="anchor" id="autotoc_md328"></a>
 Prerequisites</h2>
 <p>First, you’ll need to have a point cloud already imported. You can download the tunnel point cloud used in this tutorial by clicking <a href="https://ignition-tutorials.s3-us-west-1.amazonaws.com/ign-gazebo/point_cloud_to_mesh/TutorialExample.zip">this direct download link</a>. The file is around 100MB; unzip it after downloading.</p>
 <p>Next, you’ll need to download CloudCompare. This is the software we will be using to convert our point cloud to a mesh. CloudCompare is free and open source. You can download it <a href="http://www.danielgm.net/cc/release/">here</a>. This tutorial was created using CloudCompare 1.13.2.</p>
-<h2><a class="anchor" id="autotoc_md327"></a>
+<h2><a class="anchor" id="autotoc_md329"></a>
 Converting with CloudCompare</h2>
 <p>After installing, open CloudCompare and import your point cloud file by going to <code>File</code> &gt; <code>Open</code>. Depending on the number of points in your point cloud, this could take several minutes. Once loaded, you should see the following tunnel section:</p>
 <p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/cloudcompare2.png" alt="Opening the point cloud" class="inline"/></p>
 <p>Many 3D scans will be composed of millions, sometimes hundreds of millions of points. Converting a scan to a 3D model with that many points would be very difficult due to the number of polygons that would be created and the long processing time necessary to compute the normals.</p>
 <p>To solve this, you would need to reduce the number of points to something that will be easier for the software to convert and give us a 3D model with a polygon count that will be able to be loaded into other software.</p>
 <p>Our sample is a relatively small 7.9 million points, which is manageable. We'll still walk through reducing points, however, to make the process quicker.</p>
-<h3><a class="anchor" id="autotoc_md328"></a>
+<h3><a class="anchor" id="autotoc_md330"></a>
 Reduce Points</h3>
 <p>To reduce the number of points in your cloud, click on the tunnel so a yellow cube outline appears around it, then go to <code>Edit</code> &gt; <code>Subsample</code>.</p>
 <p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/min_space.jpg" alt="Min. space between points" class="inline"/></p>
@@ -159,7 +159,7 @@ Reduce Points</h3>
 <p>How many points you reduce down to will largely depend on how long you are willing to wait for the point cloud to be converted into a mesh. The more points you start with, the longer it will take to compute the normals and create the mesh.</p>
 <p>After the operation is complete you’ll have two clouds in your scene: the original point cloud and your subsampled point cloud. Most operations in CloudCompare will create new point clouds and keep the original, so make sure that you have the new point cloud selected before running an operation.</p>
 <p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/secondcloud.png" alt="Selecting the new point cloud" class="inline"/></p>
-<h3><a class="anchor" id="autotoc_md329"></a>
+<h3><a class="anchor" id="autotoc_md331"></a>
 Create a Polygonal Mesh</h3>
 <p>Now we have a point cloud with nearly 1 million points instead of 7 million. However, right now our point cloud is just a bunch of points in space. In order to create a polygonal mesh from this point cloud we will need to compute the normals. A normal is essentially the direction a polygon is facing. To do this, go to <code>Edit</code> &gt; <code>Normals</code> &gt; <code>Compute</code>. You'll see this dialog box:</p>
 <p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/compute_normals.png" alt="Choose Triangulation surface model" class="inline"/></p>
@@ -169,7 +169,7 @@ Create a Polygonal Mesh</h3>
 <p>The value you enter in the <code>Octree depth</code> field will determine the polygon count of the created model. You may have to run the surface reconstruction a couple times with varying values before you land on a polygon count that is suitable for your needs. The “right” polygon count will be determined by how the object will be used in a scene. Environments will likely be over a million polygons while individual objects should be a few thousand.</p>
 <p>We’ll also want to make sure we check the box for <code>output density as SF</code>. This will create a scalar field for us which will be useful in the next step.</p>
 <p>After reconstruction, you can see polygon count (<code>Faces</code>) in the mesh's <code>Properties</code> window.</p>
-<h3><a class="anchor" id="autotoc_md330"></a>
+<h3><a class="anchor" id="autotoc_md332"></a>
 Trim Excess Polygons</h3>
 <p>Our mesh has now been created. A value of 11 has given us 1.7 million faces. We have a problem however. Our tunnel has turned into a blob shape. This is because the mesh that CloudCompare creates will always be water tight even if it has to add polygons where there are no points. We just want our tunnels, though, so we need to remove those unnecessary polygons.</p>
 <p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/blob2.jpg" alt="The blob shape" class="inline"/></p>
@@ -182,7 +182,7 @@ Trim Excess Polygons</h3>
 <p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/split.png" alt="Splitting the mesh" class="inline"/></p>
 <p>It is possible that you will get error "Visibility table not instantiated". This error causes only the "wanted" part of the mesh to be created when splitting, while the other ("unwanted") part will not be generated. But that is not a problem for our use-case.</p>
 <p>&lt;img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/point_cloud_to_mesh/error.jpg" alt="Error "Visibility table not instantiated""/&gt;</p>
-<h3><a class="anchor" id="autotoc_md331"></a>
+<h3><a class="anchor" id="autotoc_md333"></a>
 The Completed Model</h3>
 <p>By hitting <code>Split</code> we can view the model before exporting by simply going to <code>File</code> &gt; <code>Save</code>. Remember to have the correct mesh selected (<code>&lt;mesh_name&gt;.part</code>) since choosing <code>Split</code> will give you two new meshes, plus you will still have your original, complete mesh. Your file format will depend on the software you want to use but <code>.obj</code> is a widely supported format that should work in most 3D applications.</p>
 <p>Before exporting, check your mesh for holes. If still checked, disable display of the pointcloud, so that only your output mesh is shown. Inspect ground parts of the mesh (or any other parts you are most interested in) and check if there aren't holes in it. If there are some, you can try to repeat the trimming step with more relaxed threshold.</p>
