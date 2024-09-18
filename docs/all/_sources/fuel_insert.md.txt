@@ -49,7 +49,7 @@ There are a few different ways to spawn a model into the simulation.
     - Download the model files from [app.gazebosim.org/fuel/models](https://app.gazebosim.org/fuel/models).
     - Extract the files and places them under your local model directory (e.g. `~/my-local-models/model-name`). 
     The folder should contain `materials`, `meshes` as well as the `model.config` and the `model.sdf` files. 
-    - Add your model directory as a resource with `export GZ_SIM_RESOURCE_PATH=~/my-local/models/`
+    - Add your model directory as a resource with `export GZ_SIM_RESOURCE_PATH=~/my-local-models/`
     - Open the Gazebo Simulator and add the Resource Spawner Plugin, the model should now show up under your local resources. 
 
     ![Resource Spawner - Fuel Resource](tutorials/fuel_insert/resource_spawner_local.png)
