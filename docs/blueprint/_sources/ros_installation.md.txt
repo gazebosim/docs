@@ -26,9 +26,9 @@ mistakes.
 
 At the time of writing, our recommendation is that new users install:
 
-* [Ubuntu Jammy 22.04](https://www.releases.ubuntu.com/jammy/)
-* [ROS 2 Humble Hawksbill](https://www.ros.org/reps/rep-2000.html#humble-hawksbill-may-2022-may-2027)
-* [Gazebo Fortress](https://gazebosim.org/docs/fortress/install)
+* [Ubuntu Noble 24.04](https://www.releases.ubuntu.com/noble/)
+* [ROS 2 Jazzy Jalisco](https://www.ros.org/reps/rep-2000.html#jazzy-jalisco-may-2024-may-2029)
+* [Gazebo Harmonic](https://gazebosim.org/docs/harmonic/install)
 
 ## Summary of Compatible ROS and Gazebo Combinations
 
@@ -37,14 +37,14 @@ other ROS and Gazebo releases are end of life and we do not recommend their
 continued use.
 
 
-|                           | **GZ Citadel (LTS)**  | **GZ Fortress (LTS)**   | **GZ Garden**   | **GZ Harmonic (LTS)**   |
-|---------------------------|---------------------- |-----------------------  |---------------  | ----------------------  |
-| **ROS 2 Jazzy (LTS)**     | ❌                    | ❌                      | ⚡               | ✅                      |
-| **ROS 2 Rolling**         | ❌                    | ❌                      | ⚡               | ✅                      |
-| **ROS 2 Iron**            | ❌                    | ✅                      | ⚡               | ⚡                       |
-| **ROS 2 Humble (LTS)**    | ❌                    | ✅                      | ⚡               | ⚡                       |
-| **ROS 2 Foxy (LTS)**      | ✅                    | ❌                      | ❌              | ❌                      |
-| **ROS 1 Noetic (LTS)**    | ✅                    | ⚡                       | ❌              | ❌                      |
+|                           | **GZ Citadel (LTS)**  | **GZ Fortress (LTS)**   | **GZ Garden**   | **GZ Harmonic (LTS)**   | **Gz Ionic**
+|---------------------------|---------------------- |-----------------------  |---------------  | ----------------------  | ------------
+| **ROS 2 Rolling**         | ❌                    | ❌                      | ⚡              | ⚡                      | ✅
+| **ROS 2 Jazzy (LTS)**     | ❌                    | ❌                      | ⚡              | ✅                      | ❌
+| **ROS 2 Iron**            | ❌                    | ✅                      | ⚡              | ⚡                      | ❌
+| **ROS 2 Humble (LTS)**    | ❌                    | ✅                      | ⚡              | ⚡                      | ❌
+| **ROS 2 Foxy (LTS)**      | ✅                    | ❌                      | ❌              | ❌                      | ❌
+| **ROS 1 Noetic (LTS)**    | ✅                    | ⚡                      | ❌              | ❌                      | ❌
 
 
 * ✅ - Recommended combination
@@ -115,27 +115,29 @@ of writing the following packages are available on the following hosts:
    * ROS2 Foxy: Gazebo Citadel
    * ROS2 Humble: Gazebo Fortress
    * ROS2 Iron: Gazebo Fortress
-   * ROS2 Rolling: Gazebo Fortress (changing frequently)
+   * ROS2 Jazzy: Gazebo Harmonic (ROS vendor packages)
+   * ROS2 Rolling: Gazebo Ionic (ROS vendor packages, changing frequently)
 
  * **packages.osrfoundation.org**
    * Gazebo Citadel
    * Gazebo Fortress
    * Gazebo Garden
    * Gazebo Harmonic
+   * Gazebo Ionic
 
 This means that including the `osrfoundation.org` repository is not strictly needed
 to get the Gazebo binary packages, as it can be installed from the ROS
 repository.
 
 ## Installing Non-Default Gazebo/ROS 2 Pairings
-<div class="warning">
-<strong>Warning:</strong> Only use this approach if you absolutely need to run a
+::: warning
+Only use this approach if you absolutely need to run a
 version of Gazebo that is not officially supported by your ROS distro. Using
 this approach will make it impossible to use the official ROS Ubuntu packages
 that depend on Gazebo.
 
 We do not recommend this approach for beginners!
-</div>
+:::
 
 To select a different release of Gazebo than the one officially supported by
 your ROS distribution you must either **use non ROS official Gazebo binary packages** or
@@ -276,6 +278,13 @@ other ROS packages that depend on Gazebo-classic.
 |------------------------ |-----------------------------  | --------------------------  |
 | **ROS 2 Iron**          | `ros-iron-ros-gzgarden`       | `ros-iron-ros-gzharmonic`   |
 | **ROS 2 Humble (LTS)**  | `ros-humble-ros-gzgarden`     | `ros-humble-ros-gzharmonic` |
+
+
+#### What is the difference between a ROS vendor package and other packages listed in this  page?
+
+The ROS vendor packages are (indeed) ROS packages (built by the ROS buildfarm and hosted in the ROS repository) that provide the
+installation of the Gazebo librariess. In this page, unless mentioned the vendor in the name, the rest of packages are standard
+debian packages the ones installed by the package manager (usually apt).
 
 #### Where I can find the different features implemented on each Gazebo version?
 

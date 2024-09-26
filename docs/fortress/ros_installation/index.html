@@ -514,9 +514,9 @@ benefit of not modifying your host OS and allowing you to roll back your
 mistakes.</p>
 <p>At the time of writing, our recommendation is that new users install:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.releases.ubuntu.com/jammy/">Ubuntu Jammy 22.04</a></p></li>
-<li><p><a class="reference external" href="https://www.ros.org/reps/rep-2000.html#humble-hawksbill-may-2022-may-2027">ROS 2 Humble Hawksbill</a></p></li>
-<li><p><a class="reference external" href="https://gazebosim.org/docs/fortress/install">Gazebo Fortress</a></p></li>
+<li><p><a class="reference external" href="https://www.releases.ubuntu.com/noble/">Ubuntu Noble 24.04</a></p></li>
+<li><p><a class="reference external" href="https://www.ros.org/reps/rep-2000.html#jazzy-jalisco-may-2024-may-2029">ROS 2 Jazzy Jalisco</a></p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/docs/harmonic/install">Gazebo Harmonic</a></p></li>
 </ul>
 </section>
 <section id="summary-of-compatible-ros-and-gazebo-combinations">
@@ -531,35 +531,41 @@ continued use.</p>
 <th class="head"><p><strong>GZ Fortress (LTS)</strong></p></th>
 <th class="head"><p><strong>GZ Garden</strong></p></th>
 <th class="head"><p><strong>GZ Harmonic (LTS)</strong></p></th>
+<th class="head"><p><strong>Gz Ionic</strong></p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><strong>ROS 2 Jazzy (LTS)</strong></p></td>
+<tr class="row-even"><td><p><strong>ROS 2 Rolling</strong></p></td>
 <td><p>❌</p></td>
 <td><p>❌</p></td>
+<td><p>⚡</p></td>
 <td><p>⚡</p></td>
 <td><p>✅</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>ROS 2 Rolling</strong></p></td>
+<tr class="row-odd"><td><p><strong>ROS 2 Jazzy (LTS)</strong></p></td>
 <td><p>❌</p></td>
 <td><p>❌</p></td>
 <td><p>⚡</p></td>
 <td><p>✅</p></td>
+<td><p>❌</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>ROS 2 Iron</strong></p></td>
 <td><p>❌</p></td>
 <td><p>✅</p></td>
 <td><p>⚡</p></td>
 <td><p>⚡</p></td>
+<td><p>❌</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>ROS 2 Humble (LTS)</strong></p></td>
 <td><p>❌</p></td>
 <td><p>✅</p></td>
 <td><p>⚡</p></td>
 <td><p>⚡</p></td>
+<td><p>❌</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>ROS 2 Foxy (LTS)</strong></p></td>
 <td><p>✅</p></td>
+<td><p>❌</p></td>
 <td><p>❌</p></td>
 <td><p>❌</p></td>
 <td><p>❌</p></td>
@@ -567,6 +573,7 @@ continued use.</p>
 <tr class="row-odd"><td><p><strong>ROS 1 Noetic (LTS)</strong></p></td>
 <td><p>✅</p></td>
 <td><p>⚡</p></td>
+<td><p>❌</p></td>
 <td><p>❌</p></td>
 <td><p>❌</p></td>
 </tr>
@@ -638,7 +645,8 @@ of writing the following packages are available on the following hosts:</p>
 <li><p>ROS2 Foxy: Gazebo Citadel</p></li>
 <li><p>ROS2 Humble: Gazebo Fortress</p></li>
 <li><p>ROS2 Iron: Gazebo Fortress</p></li>
-<li><p>ROS2 Rolling: Gazebo Fortress (changing frequently)</p></li>
+<li><p>ROS2 Jazzy: Gazebo Harmonic (ROS vendor packages)</p></li>
+<li><p>ROS2 Rolling: Gazebo Ionic (ROS vendor packages, changing frequently)</p></li>
 </ul>
 </li>
 <li><p><strong><a class="reference external" href="http://packages.osrfoundation.org">packages.osrfoundation.org</a></strong></p>
@@ -647,6 +655,7 @@ of writing the following packages are available on the following hosts:</p>
 <li><p>Gazebo Fortress</p></li>
 <li><p>Gazebo Garden</p></li>
 <li><p>Gazebo Harmonic</p></li>
+<li><p>Gazebo Ionic</p></li>
 </ul>
 </li>
 </ul>
@@ -658,11 +667,11 @@ repository.</p>
 </section>
 <section id="installing-non-default-gazebo-ros-2-pairings">
 <h2>Installing Non-Default Gazebo/ROS 2 Pairings<a class="headerlink" href="#installing-non-default-gazebo-ros-2-pairings" title="Link to this heading">#</a></h2>
-<div class="warning">
-<strong>Warning:</strong> Only use this approach if you absolutely need to run a
+<div class="warning docutils">
+<p>Only use this approach if you absolutely need to run a
 version of Gazebo that is not officially supported by your ROS distro. Using
 this approach will make it impossible to use the official ROS Ubuntu packages
-that depend on Gazebo.
+that depend on Gazebo.</p>
 <p>We do not recommend this approach for beginners!</p>
 </div>
 <p>To select a different release of Gazebo than the one officially supported by
@@ -847,6 +856,12 @@ other ROS packages that depend on Gazebo-classic.</p>
 </table>
 </div>
 </section>
+<section id="what-is-the-difference-between-a-ros-vendor-package-and-other-packages-listed-in-this-page">
+<h4>What is the difference between a ROS vendor package and other packages listed in this  page?<a class="headerlink" href="#what-is-the-difference-between-a-ros-vendor-package-and-other-packages-listed-in-this-page" title="Link to this heading">#</a></h4>
+<p>The ROS vendor packages are (indeed) ROS packages (built by the ROS buildfarm and hosted in the ROS repository) that provide the
+installation of the Gazebo librariess. In this page, unless mentioned the vendor in the name, the rest of packages are standard
+debian packages the ones installed by the package manager (usually apt).</p>
+</section>
 <section id="where-i-can-find-the-different-features-implemented-on-each-gazebo-version">
 <h4>Where I can find the different features implemented on each Gazebo version?<a class="headerlink" href="#where-i-can-find-the-different-features-implemented-on-each-gazebo-version" title="Link to this heading">#</a></h4>
 <p>The best place is the Gazebo web page that hosts a list of the
@@ -914,6 +929,7 @@ In the top right corner of the <a class="reference external" href="https://gazeb
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#faq">FAQ</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#i-am-not-using-ros-at-all-which-version-should-i-use">I am not using ROS at all, which version should I use?</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#i-want-to-use-gazebo-harmonic-or-gazebo-garden-with-ros-2-where-are-the-packages">I want to use Gazebo Harmonic or Gazebo Garden with ROS 2. Where are the packages?</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-the-difference-between-a-ros-vendor-package-and-other-packages-listed-in-this-page">What is the difference between a ROS vendor package and other packages listed in this  page?</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#where-i-can-find-the-different-features-implemented-on-each-gazebo-version">Where I can find the different features implemented on each Gazebo version?</a></li>
 </ul>
 </li>
