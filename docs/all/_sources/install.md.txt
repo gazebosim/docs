@@ -1,8 +1,6 @@
 # Gazebo Harmonic
 
-Up to Harmonic's release date, the collection should be considered unstable.
-
-Gazebo Harmonic will be the 8th major release of Gazebo. It will be a
+Gazebo Harmonic is the 8th major release of Gazebo. It is a
 long-term release.
 
 ## Binary installation instructions
@@ -48,9 +46,6 @@ This list of library versions may change up to the release date.
 |   sdformat         |      14.x     |
 
 ## Supported platforms
-
-Harmonic is planned to be [supported](releases) on the platforms below.
-This list may change up to the release date.
 
 These are the **officially** supported platforms:
 

@@ -7,7 +7,7 @@ simulatenously simulated by a Gazebo world.
 
 ## ros_gz_bridge
 
-[`ros_gz_bridge`](https://github.com/gazebosim/ros_gz) provides a network bridge which enables the exchange of messages between ROS 2 and [Gazebo Transport](https://github.com/gazebosim/gz-transport). Its support is limited to only certain message types. Please, check this [README](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md) to verify if your message type is supported by the bridge.
+[`ros_gz_bridge`](https://github.com/gazebosim/ros_gz) provides a network bridge which enables the exchange of messages between ROS 2 and [Gazebo Transport](https://github.com/gazebosim/gz-transport). Its support is limited to only certain message types. Please, check this [README](https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_bridge/README.md) to verify if your message type is supported by the bridge.
 
 Example uses of the bridge can be found in [`ros_gz_sim_demos`](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_sim_demos), including demo launch files with bridging of all major actuation and sensor types.
 
@@ -29,7 +29,7 @@ The ROS message type is followed by an `@`, `[`, or `]` symbol where:
 * `[`  is a bridge from Gazebo to ROS.
 * `]`  is a bridge from ROS to Gazebo.
 
-Have a look at these [examples]( https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md#example-1a-gazebo-transport-talker-and-ros-2-listener)
+Have a look at these [examples]( https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_bridge/README.md#example-1a-gazebo-transport-talker-and-ros-2-listener)
 explaining how to make communication connections from ROS to Gazebo and vice versa.
 
 It is also possible to use ROS Launch with the `ros_gz_bridge` and represent the topics in yaml format to be given to the bridge at launch time.
@@ -58,7 +58,7 @@ speedup performance.
 * `direction`: It's possible to specify `GZ_TO_ROS`, `ROS_TO_GZ` and
 `BIDIRECTIONAL`.
 
-See [this example](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/test/config/full.yaml)
+See [this example](https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_bridge/test/config/full.yaml)
 for a valid configuration file.
 
 ## Launching the bridge using the launch files included in `ros_gz_bridge` package.
@@ -78,7 +78,7 @@ And now, the container will load your bridge with:
 ros2 launch ros_gz_bridge ros_gz_bridge.launch.py bridge_name:=ros_gz_bridge config_file:=<path_to_your_YAML_file>
 ```
 
-Check [this block](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/launch/ros_gz_bridge.launch.py#L27-L33)
+Check [this block](https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_bridge/launch/ros_gz_bridge.launch.py#L27-L33)
 from the source code to know all the different parameters accepted by this
 launch file.
 
@@ -203,10 +203,10 @@ A video walk-through of this tutorial is available from our YouTube channel: [Ga
 
 ## Visualize in RViz
 
-Take a step further and try out demos from [`ros_gz_sim_demos`](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_sim_demos).
+Take a step further and try out demos from [`ros_gz_sim_demos`](https://github.com/gazebosim/ros_gz/tree/jazzy/ros_gz_sim_demos).
 
-For the `sdf_parser` demo, install [`ros_gz`](https://github.com/gazebosim/ros_gz/tree/ros2) and the parser plugin `sdformat_urdf` from source in a colcon workspace.
-Read more about `sdformat_urdf` [here](https://github.com/ros/sdformat_urdf/blob/ros2/sdformat_urdf/README.md).
+For the `sdf_parser` demo, install [`ros_gz`](https://github.com/gazebosim/ros_gz/tree/jazzy) and the parser plugin `sdformat_urdf` from source in a colcon workspace.
+Read more about `sdformat_urdf` [here](https://github.com/ros/sdformat_urdf/blob/jazzy/sdformat_urdf/README.md).
 
 Run the demo launch file with the rviz launch argument set:
 

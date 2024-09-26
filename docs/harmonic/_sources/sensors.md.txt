@@ -11,7 +11,7 @@ learn how to launch multiple tasks with just one file using `gz launch`.
 You can find the final world of this tutorial showing all these plugins in use [here](https://github.com/gazebosim/docs/blob/master/harmonic/tutorials/sensors/sensor_tutorial.sdf).
 You may also find an extensive set of world examples with many possible sensors and actuation capabilities in [`gz-sim/examples/worlds`](https://github.com/gazebosim/gz-sim/tree/gz-sim8/examples/worlds) for individual examples.
 The full set of sensors can be found in the [`gz-sensors` library](https://github.com/gazebosim/gz-sensors).
-If using ROS, you can see demo launches and bridging configuration for these examples [here](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_sim_demos/launch).
+If using ROS, you can see demo launches and bridging configuration for these examples [here](https://github.com/gazebosim/ros_gz/tree/jazzy/ros_gz_sim_demos/launch).
 
 ## Preliminaries
 
