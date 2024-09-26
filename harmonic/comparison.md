@@ -284,14 +284,10 @@ ROS integration through the
 
 Supported versions:
 
-* ROS 2 Iron (from source) / Rolling (from source)
-
-Note: binaries for ROS2 might be available sometime after the Harmonic release.
+* ROS 2 Jazzy (from binary) / Rolling (from source)
 
 For **ROS 2 Rolling**, the Rolling distribution moves with the next future release
-of ROS 2 defined in [REP-2000](https://www.ros.org/reps/rep-2000.html). For the Gz
-Harmonic release this means that it will be adopted when ROS 2 Jazzy goes into the
-[REP-2000](https://www.ros.org/reps/rep-2000.html).
+of ROS 2 defined in [REP-2000](https://www.ros.org/reps/rep-2000.html).
 
 ## Platforms
 
