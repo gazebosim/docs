@@ -5,6 +5,7 @@ Additionally, it's possible to spawn new models at any time. To do so using ROS
 we have provided the following mechanisms:
 
 ## Spawn a model using the launch file included in `ros_gz_sim`.
+*Currently only available in Rolling.*
 
 The package `ros_gz_sim` contains a launch file named
 `ros_gz_spawn_model.launch.py`. You can use it to spawn a new model into an
