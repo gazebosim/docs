@@ -16,7 +16,7 @@ packages available for the platform to use:
 
 |Platform|Gazebo Versions|
 |---|---|
-| Ubuntu 24.04 Noble | [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended), (recommended if using ROS 2 Jazzy)
+| Ubuntu 24.04 Noble | [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended), (recommended if using ROS 2 Jazzy) and [Gazebo Ionic](/docs/ionic/install_ubuntu){.external}
 | Ubuntu 22.04 Jammy | [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended), [Gazebo Garden](/docs/garden/install_ubuntu){.external} and [Gazebo Fortress](/docs/fortress/install_ubuntu){.external} (recommended if using ROS 2 Humble or Iron)
 | Ubuntu 20.04 Focal | [Gazebo Garden](/docs/garden/install_ubuntu){.external} (recommended), [Gazebo Fortress](/docs/fortress/install_ubuntu){.external} and [Gazebo Citadel](/docs/citadel/install_ubuntu){.external}
 | Ubuntu 18.04 Bionic | [Gazebo Citadel](/docs/citadel/install_ubuntu){.external}
@@ -29,7 +29,8 @@ given [Gazebo release](releases) is needed,
 there is an installation package per release available with all the
 installation options:
 
-* [Gazebo Harmonic installation](/docs/harmonic/install){.external} options (EOL 2028 Sep)
+* [Gazebo Ionic installation](/docs/ionic/install){.external} options (EOL 2026 Sep)
+* [Gazebo Harmonic (LTS) installation](/docs/harmonic/install){.external} options (EOL 2028 Sep)
 * [Gazebo Garden installation](/docs/garden/install){.external} options (EOL 2024 Sep)
 * [Gazebo Fortress (LTS) installation](/docs/fortress/install){.external} options (EOL 2026 Sep)
 * [Gazebo Citadel (LTS) installation](/docs/citadel/install){.external} options (EOL 2024 Dec)
