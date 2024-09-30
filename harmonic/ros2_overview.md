@@ -5,7 +5,7 @@ different types of integrations that you can achieve between Gazebo and ROS.
 
 * Use ROS to launch Gazebo: ROS prescribes a specific way to launch all
 the pieces needed in your system. There's a dedicated
-[launch mechanism](https://docs.ros.org/en/rolling/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
+[launch mechanism](https://docs.ros.org/en/jazzy/Tutorials/Intermediate/Launch/Creating-Launch-Files.html)
 to orchestrate the launch of all your components and many tooling around it.
 Gazebo can be launched in this way.
 
