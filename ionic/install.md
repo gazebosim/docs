@@ -1,9 +1,7 @@
 # Gazebo Ionic
 
-Up to Ionic's release date, the collection should be considered unstable.
-
-Gazebo Ionic will be the 8th major release of Gazebo. It will be a
-long-term release.
+Gazebo Ionic is the 9th major release of Gazebo. It is a
+short-term release.
 
 ## Binary installation instructions
 
