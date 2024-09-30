@@ -8,10 +8,10 @@ to other models in our world. We will use three different sensors:
 an IMU sensor, a Contact sensor and a Lidar sensor. We will also
 learn how to launch multiple tasks with just one file using `gz launch`.
 
-You can find the final world of this tutorial showing all these plugins in use [here](https://github.com/gazebosim/docs/blob/master/harmonic/tutorials/sensors/sensor_tutorial.sdf).
+You can find the final world of this tutorial showing all these plugins in use [here](https://github.com/gazebosim/docs/blob/master/ionic/tutorials/sensors/sensor_tutorial.sdf).
 You may also find an extensive set of world examples with many possible sensors and actuation capabilities in [`gz-sim/examples/worlds`](https://github.com/gazebosim/gz-sim/tree/gz-sim8/examples/worlds) for individual examples.
 The full set of sensors can be found in the [`gz-sensors` library](https://github.com/gazebosim/gz-sensors).
-If using ROS, you can see demo launches and bridging configuration for these examples [here](https://github.com/gazebosim/ros_gz/tree/jazzy/ros_gz_sim_demos/launch).
+If using ROS, you can see demo launches and bridging configuration for these examples [here](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_sim_demos/launch).
 
 ## Preliminaries
 
@@ -37,7 +37,7 @@ When adding a `plugin` to an SDF file which does not currently contain one, the 
 The inertial measurement unit (IMU) outputs the `orientation` of our
 robot in quaternions, the `angular_velocity` in the three axes (X, Y, Z),
 and the `linear_acceleration` in the three axes. Let's use our
-[moving_robot.sdf](https://github.com/gazebosim/docs/blob/master/harmonic/tutorials/moving_robot/moving_robot.sdf) world and modify it. Create a new file
+[moving_robot.sdf](https://github.com/gazebosim/docs/blob/master/ionic/tutorials/moving_robot/moving_robot.sdf) world and modify it. Create a new file
 `sensor_tutorial.sdf` and add the code from `moving_robot.sdf` to it.
 To define the `IMU` sensor add this code under the `<world>` tag:
 
@@ -86,7 +86,7 @@ The last command listens to the messages sent over the `/imu` topic. The IMU dat
 
 ![Imu_message](tutorials/sensors/imu_msgs.png)
 
-Move your robot forward using the keyboard up key. You should see the sensor values changing.
+Move your robot forward using the keyboard up key. To do so, don't forget to enable the Key Publisher Plugin. You should see the sensor values changing.
 
 ## Contact sensor
 
@@ -315,24 +315,25 @@ To do that, we'll write a short C++ program that listens to
 the sensor data and sends velocity commands to the robot.
 This program is called a node. We will build a node that subscribes
 to the `/lidar` topic and reads its data.
-Have a look at this [tutorial](https://gazebosim.org/api/transport/9.0/messages.html)
+Have a look at this [tutorial](https://gazebosim.org/api/transport/14/messages.html)
 to learn how to build a `publisher` and a `subscriber` node.
-You can download the finished node for this demo from [here](https://github.com/gazebosim/docs/blob/master/harmonic/tutorials/sensors/lidar_node.cc).
+You can download the finished node for this demo from [here](https://github.com/gazebosim/docs/blob/master/ionic/tutorials/sensors/lidar_node.cc).
 
 #### The lidar_node
 
 ```cpp
-gz::transport::Node node;
 std::string topic_pub = "/cmd_vel";
-gz::msgs::Twist data;
+gz::transport::Node node;
 auto pub = node.Advertise<gz::msgs::Twist>(topic_pub);
 ```
 
-We declare a `node` which will publish to `cmd_vel` topic and defined the message type `Twist`. Then advertise our node.
+We declare a `node` which will publish to `cmd_vel` topic. Then advertise our node.
 
 ```cpp
 void cb(const gz::msgs::LaserScan &_msg)
 {
+  gz::msgs::Twist data;
+
   bool allMore = true;
   for (int i = 0; i < _msg.ranges_size(); i++)
   {
@@ -362,11 +363,11 @@ If so we publish a message to our car to move forward. Otherwise we make the rob
 ```cpp
 int main(int argc, char **argv)
 {
-    std::string topic = "/lidar";
+    std::string topic_sub = "/lidar";
     // Subscribe to a topic by registering a callback.
-    if (!node.Subscribe(topic, cb))
+    if (!node.Subscribe(topic_sub, cb))
     {
-        std::cerr << "Error subscribing to topic [" << topic << "]" << std::endl;
+        std::cerr << "Error subscribing to topic [" << topic_sub << "]" << std::endl;
         return -1;
     }
 
@@ -381,7 +382,7 @@ Inside the main we subscribe to the `lidar` topic, and wait until the node is sh
 
 #### Build the node
 
-Download the [CMakeLists.txt](https://github.com/gazebosim/docs/blob/master/harmonic/tutorials/sensors/CMakeLists.txt), and in the same folder of `lidar_node` create `build/` directory:
+Download the [CMakeLists.txt](https://github.com/gazebosim/docs/blob/master/ionic/tutorials/sensors/CMakeLists.txt), and in the same folder of `lidar_node` create `build/` directory:
 
 ```sh
 mkdir build

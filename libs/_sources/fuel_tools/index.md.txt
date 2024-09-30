@@ -2,7 +2,7 @@
 
 {.gz-libs-lists}
 - [{material-regular}`code;2em` Source Code](https://github.com/gazebosim/gz-fuel-tools)
-- [{material-regular}`description;2em` API & Tutorials](https://gazebosim.org/api/fuel_tools/9)
+- [{material-regular}`description;2em` API & Tutorials](https://gazebosim.org/api/fuel_tools/10)
 
 ::::{tab-set}
 
@@ -18,10 +18,10 @@
 
 Build | Status
 -- | --
-Test coverage | [![codecov](https://codecov.io/gh/gazebosim/gz-fuel-tools/tree/gz-fuel-tools9/graph/badge.svg)](https://codecov.io/gh/gazebosim/gz-fuel-tools/tree/gz-fuel-tools9)
-Ubuntu Jammy  | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_fuel_tools-ci-gz-fuel-tools9-jammy-amd64)](https://build.osrfoundation.org/job/gz_fuel_tools-ci-gz-fuel-tools9-jammy-amd64)
-Homebrew      | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_fuel_tools-ci-gz-fuel-tools9-homebrew-amd64)](https://build.osrfoundation.org/job/gz_fuel_tools-ci-gz-fuel-tools9-homebrew-amd64)
-Windows       | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_fuel_tools-9-win)](https://build.osrfoundation.org/job/gz_fuel_tools-9-win/)
+Test coverage | [![codecov](https://codecov.io/gh/gazebosim/gz-fuel-tools/tree/gz-fuel-tools10/graph/badge.svg)](https://codecov.io/gh/gazebosim/gz-fuel-tools/tree/gz-fuel-tools10)
+Ubuntu Noble  | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_fuel_tools-ci-fuel-tools10-noble-amd64)](https://build.osrfoundation.org/job/gz_fuel_tools-ci-gz-fuel-tools10-noble-amd64)
+Homebrew      | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_fuel_tools-ci-gz-fuel-tools10-homebrew-amd64)](https://build.osrfoundation.org/job/gz_fuel_tools-ci-gz-fuel-tools10-homebrew-amd64)
+Windows       | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_fuel_tools-10-win)](https://build.osrfoundation.org/job/gz_fuel_tools-10-win/)
 
 Gazebo Fuel Tools is composed by a client library and command line tools for
 interacting with Gazebo Fuel servers.
@@ -30,7 +30,7 @@ interacting with Gazebo Fuel servers.
 
 # Building and installing
 
-See the [installation tutorial](https://gazebosim.org/api/fuel_tools/9/install.html).
+See the [installation tutorial](https://gazebosim.org/api/fuel_tools/10/install.html).
 
 Make sure `GZ_CONFIG_PATH` is set to the right install location so that `gz fuel` will work.
 Default is `/usr/local/share/gz`.
@@ -40,7 +40,8 @@ Default is `/usr/local/share/gz`.
 For a complete list of commands run `gz fuel -h` on the command line.
 
 **List all models**
-```{.sh}
+
+```bash
 $ gz fuel list -t model -r | head
 https://fuel.gazebosim.org/anonymous/test_model_595389531
 https://fuel.gazebosim.org/anonymous/test_model_122023392
@@ -55,7 +56,8 @@ https://fuel.gazebosim.org/anonymous/test_model_380348669
 ```
 
 **Download a model**
-```{.sh}
+
+```bash
 $ gz fuel download -u https://fuel.gazebosim.org/1.0/OpenRobotics/models/Ambulance -v 4
 Downloading model:
   Name: Ambulance
@@ -107,14 +109,15 @@ in.
 Create a private token at
 [https://app.gazebosim.org/settings#access_tokens](https://app.gazebosim.org/settings#access_tokens). Store the generated token someplace safe.
 
-The private token can then used to upload a model:
-```{.sh}
+The private token can then be used to upload a model:
+```bash
 gz fuel upload -m ~/path_to_model --header 'Private-token: <TOKEN>'
 ```
 
 ## Dependencies
 On ubuntu run
-```{.sh}
+
+```bash
 sudo apt install ruby-ffi libzip-dev libcurl-dev libjsoncpp-dev
 ```
 
@@ -168,6 +171,49 @@ sudo apt install ruby-ffi libzip-dev libcurl-dev libjsoncpp-dev
 :::
 
 :::{tab-item} Changelog
+## Gazebo Fuel Tools 10.x
+
+### Gazebo Fuel Tools 10.0.0 (2024-09-25)
+
+1. **Baseline:** this includes all changes from 9.1.0 and earlier.
+
+1. Miscellaneous documentation fixes
+    * [Pull request #445](https://github.com/gazebosim/gz-fuel-tools/pull/445)
+    * [Pull request #444](https://github.com/gazebosim/gz-fuel-tools/pull/444)
+    * [Pull request #443](https://github.com/gazebosim/gz-fuel-tools/pull/443)
+    * [Pull request #442](https://github.com/gazebosim/gz-fuel-tools/pull/442)
+
+1. Update badges to point to gz-fuel-tools10
+    * [Pull request #439](https://github.com/gazebosim/gz-fuel-tools/pull/439)
+
+1. Ionic changelog
+    * [Pull request #438](https://github.com/gazebosim/gz-fuel-tools/pull/438)
+
+1. Require cmake 3.22.1
+    * [Pull request #436](https://github.com/gazebosim/gz-fuel-tools/pull/436)
+
+1. Add missing URI header files
+    * [Pull request #435](https://github.com/gazebosim/gz-fuel-tools/pull/435)
+
+1. Use Ubuntu 24.04 in Github Actions CI workflow
+    * [Pull request #427](https://github.com/gazebosim/gz-fuel-tools/pull/427)
+
+1. Remove HIDE_SYMBOLS_BY_DEFAULT: replace by a default configuration in gz-cmake.
+    * [Pull request #399](https://github.com/gazebosim/gz-fuel-tools/pull/399)
+
+1. Use HIDE_SYMBOLS_BY_DEFAULT
+    * [Pull request #389](https://github.com/gazebosim/gz-fuel-tools/pull/389)
+
+1. Split ServerConfig and ClientConfig across multiple files
+    * [Pull request #380](https://github.com/gazebosim/gz-fuel-tools/pull/380)
+
+1. Bumps in Ionic: gz-fuel-tools10
+    * [Pull request #385](https://github.com/gazebosim/gz-fuel-tools/pull/385)
+    * [Pull request #386](https://github.com/gazebosim/gz-fuel-tools/pull/386)
+
+1. Remove deprecated ignition files
+    * [Pull request #379](https://github.com/gazebosim/gz-fuel-tools/pull/379)
+
 ## Gazebo Fuel Tools 9.x
 
 ### Gazebo Fuel Tools 9.1.0 (2024-08-06)
@@ -282,7 +328,7 @@ sudo apt install ruby-ffi libzip-dev libcurl-dev libjsoncpp-dev
 1. Add bash completion
     * [Pull request #329](https://github.com/gazebosim/gz-fuel-tools/pull/329)
 
-1. Reflect pagination of RESTful requests in iterator API 
+1. Reflect pagination of RESTful requests in iterator API
     * [Pull request #350](https://github.com/gazebosim/gz-fuel-tools/pull/350)
 
 1. Disable all LocalCache Tests for Windows
@@ -309,7 +355,7 @@ sudo apt install ruby-ffi libzip-dev libcurl-dev libjsoncpp-dev
 1. Fix model downloads for ignitionrobotics.org URIs.
     * [Pull request #318](https://github.com/gazebosim/gz-fuel-tools/pull/318)
 
-1. Fix build when `JSON_USE_EXCEPTION == 0` 
+1. Fix build when `JSON_USE_EXCEPTION == 0`
     * [Pull request #332](https: //github.com/gazebosim/gz-fuel-tools/pull/332)
 
 ### Gazebo Fuel Tools 8.0.1

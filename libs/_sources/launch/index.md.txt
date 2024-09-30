@@ -2,7 +2,7 @@
 
 {.gz-libs-lists}
 - [{material-regular}`code;2em` Source Code](https://github.com/gazebosim/gz-launch)
-- [{material-regular}`description;2em` API & Tutorials](https://gazebosim.org/api/launch/7)
+- [{material-regular}`description;2em` API & Tutorials](https://gazebosim.org/api/launch/8)
 
 ::::{tab-set}
 
@@ -18,13 +18,13 @@
 
 Build | Status
 -- | --
-Test coverage | [![codecov](https://codecov.io/gh/gazebosim/gz-launch/tree/gz-launch7/graph/badge.svg)](https://codecov.io/gh/gazebosim/gz-launch/tree/gz-launch7)
-Ubuntu Jammy  | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_launch-ci-gz-launch7-jammy-amd64)](https://build.osrfoundation.org/job/gz_launch-ci-gz-launch7-jammy-amd64)
-Homebrew      | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_launch-ci-gz-launch7-homebrew-amd64)](https://build.osrfoundation.org/job/gz_launch-ci-gz-launch7-homebrew-amd64)
-Windows       | [![Build Status](https://build.osrfoundation.org/job/gz_launch-7-win/badge/icon)](https://build.osrfoundation.org/job/gz_launch-7-win/)
+Test coverage | [![codecov](https://codecov.io/gh/gazebosim/gz-launch/tree/gz-launch8/graph/badge.svg)](https://codecov.io/gh/gazebosim/gz-launch/branch/gz-launch8)
+Ubuntu Noble  | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_launch-ci-gz-launch8-noble-amd64)](https://build.osrfoundation.org/job/gz_launch-ci-gz-launch8-noble-amd64)
+Homebrew      | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_launch-ci-gz-launch8-homebrew-amd64)](https://build.osrfoundation.org/job/gz_launch-ci-gz-launch8-homebrew-amd64)
+Windows       | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_launch-8-win)](https://build.osrfoundation.org/job/gz_launch-8-win)
 
 Gazebo Launch, a component of [Gazebo](https://gazebosim.org), provides a command line interface
-to run and manager application and plugins.
+to run and manage application and plugins.
 
 # Table of Contents
 
@@ -35,8 +35,6 @@ to run and manager application and plugins.
 [Usage](#usage)
 
 [Documentation](#documentation)
-
-[Testing](#testing)
 
 [Folder Structure](#folder-structure)
 
@@ -63,15 +61,15 @@ directory.
 
 # Install
 
-See the [installation tutorial](https://gazebosim.org/api/launch/7/install.html).
+See the [installation tutorial](https://gazebosim.org/api/launch/8/install.html).
 
 # Usage
 
-Sample launch configuration files are in the [examples directory](https://github.com/gazebosim/gz-launch/blob/main/examples/).
+Sample launch configuration files are in the [examples directory](https://github.com/gazebosim/gz-launch/blob/gz-launch8/examples/).
 
 **Example**
 
-1. Run a configuration that launches [Gazebo](https://gazebosim.org/libs/gazebo).
+1. Run a configuration that launches [Gazebo](https://gazebosim.org/libs/sim/).
 
     ```
     gz launch sim.gzlaunch
@@ -82,33 +80,18 @@ Sample launch configuration files are in the [examples directory](https://github
 In the event that the installation is a mix of Debian and from source, command
 line tools from `gz-tools` may not work correctly.
 
-A workaround for a single package is to define the environment variable
-`GZ_CONFIG_PATH` to point to the location of the Gazebo library installation,
-where the YAML file for the package is found, such as
+A workaround is to define the environment variable
+`GZ_CONFIG_PATH` to point to the different locations of the Gazebo libraries installations,
+where the YAML files for the packages are found, such as
 ```
-export GZ_CONFIG_PATH=/usr/local/share/gz
-```
-
-However, that environment variable only takes a single path, which means if the
-installations from source are in different locations, only one can be specified.
-
-Another workaround for working with multiple Gazebo libraries on the command
-line is using symbolic links to each library's YAML file.
-```
-mkdir ~/.gz/tools/configs -p
-cd ~/.gz/tools/configs/
-ln -s /usr/local/share/gz/fuel4.yaml .
-ln -s /usr/local/share/gz/transport7.yaml .
-ln -s /usr/local/share/gz/transportlog7.yaml .
-...
-export GZ_CONFIG_PATH=$HOME/.gz/tools/configs
+export GZ_CONFIG_PATH=/usr/local/share/gz:$HOME/ws/install/share/gz
 ```
 
-This issue is tracked [here](https://github.com/gazebosim/gz-tools/issues/8).
+where `$HOME/ws` is an example colcon workspace used to build Gazebo
 
 # Documentation
 
-See the [installation tutorial](https://gazebosim.org/api/launch/7/install.html).
+See the [installation tutorial](https://gazebosim.org/api/launch/8/install.html).
 
 # Folder Structure
 
@@ -150,6 +133,58 @@ This library is licensed under [Apache 2.0](https://www.apache.org/licenses/LICE
 :::
 
 :::{tab-item} Changelog
+## Gazebo Launch 8.x
+
+### Gazebo Launch 8.0.0 (2024-09-25)
+
+1. **Baseline:** this includes all changes from 7.1.0 and earlier.
+
+1. Fix crash and update launch file
+    * [Pull request #277](https://github.com/gazebosim/gz-launch/pull/277)
+
+1. Miscellaneous documentation fixes
+    * [Pull request #276](https://github.com/gazebosim/gz-launch/pull/276)
+    * [Pull request #275](https://github.com/gazebosim/gz-launch/pull/275)
+    * [Pull request #274](https://github.com/gazebosim/gz-launch/pull/274)
+
+1. Enable ubuntu noble on github actions, require cmake 3.22.1
+    * [Pull request #272](https://github.com/gazebosim/gz-launch/pull/272)
+
+1. Remove deprecations
+    * [Pull request #271](https://github.com/gazebosim/gz-launch/pull/271)
+
+1. Fix libwebsocket shutdown behavior
+    * [Pull request #267](https://github.com/gazebosim/gz-launch/pull/267)
+
+1. Fix msvc loss of data warning
+    * [Pull request #266](https://github.com/gazebosim/gz-launch/pull/266)
+
+1. Remove indirect dependencies
+    * [Pull request #265](https://github.com/gazebosim/gz-launch/pull/265)
+
+1. Supress msvc dll exported interface warning
+    * [Pull request #263](https://github.com/gazebosim/gz-launch/pull/263)
+
+1. Fix windows warnings
+    * [Pull request #199](https://github.com/gazebosim/gz-launch/pull/199)
+    * [Pull request #250](https://github.com/gazebosim/gz-launch/pull/250)
+
+1. Disable failing Manager_Test on windows
+    * [Pull request #264](https://github.com/gazebosim/gz-launch/pull/264)
+
+1. Disable failing windows tests
+    * [Pull request #255](https://github.com/gazebosim/gz-launch/pull/255)
+
+1. Add package.xml, remove dependency on python3-yaml, and disable failing windows tests
+    * [Pull request #249](https://github.com/gazebosim/gz-launch/pull/249)
+
+1. Define GZ_LAUNCH_VERSION_NAMESPACE in config.hh
+    * [Pull request #247](https://github.com/gazebosim/gz-launch/pull/247)
+
+1. Bumps in Ionic: gz-launch8
+    * [Pull request #236](https://github.com/gazebosim/gz-launch/pull/236)
+    * [Pull request #237](https://github.com/gazebosim/gz-launch/pull/237)
+
 ## Gazebo Launch 7.x
 
 ### Gazebo Launch 7.1.0 (2024-04-11)

@@ -2,7 +2,7 @@
 
 {.gz-libs-lists}
 - [{material-regular}`code;2em` Source Code](https://github.com/gazebosim/gz-msgs)
-- [{material-regular}`description;2em` API & Tutorials](https://gazebosim.org/api/msgs/10)
+- [{material-regular}`description;2em` API & Tutorials](https://gazebosim.org/api/msgs/11)
 
 ::::{tab-set}
 
@@ -18,57 +18,84 @@
 
 Build | Status
 -- | --
-Test coverage | [![codecov](https://codecov.io/gh/gazebosim/gz-msgs/tree/gz-msgs10/graph/badge.svg)](https://codecov.io/gh/gazebosim/gz-msgs/tree/gz-msgs10)
-Ubuntu Jammy  | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_msgs-ci-gz-msgs10-jammy-amd64)](https://build.osrfoundation.org/job/gz_msgs-ci-gz-msgs10-jammy-amd64)
-Homebrew      | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_msgs-ci-gz-msgs10-homebrew-amd64)](https://build.osrfoundation.org/job/gz_msgs-ci-gz-msgs10-homebrew-amd64)
-Windows       | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_msgs-10-win)](https://build.osrfoundation.org/job/gz_msgs-10-win)
+Test coverage | [![codecov](https://codecov.io/gh/gazebosim/gz-msgs/tree/gz-msgs11/graph/badge.svg)](https://codecov.io/gh/gazebosim/gz-msgs/tree/gz-msgs11)
+Ubuntu Noble  | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_msgs-ci-gz-msgs11-noble-amd64)](https://build.osrfoundation.org/job/gz_msgs-ci-gz-msgs11-noble-amd64)
+Homebrew      | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_msgs-ci-gz-msgs11-homebrew-amd64)](https://build.osrfoundation.org/job/gz_msgs-ci-gz-msgs11-homebrew-amd64)
+Windows       | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_msgs-11-win)](https://build.osrfoundation.org/job/gz_msgs-11-win)
 
 Gazebo Messages is a component in the [Gazebo](http://gazebosim.org)
 framework, a set of libraries designed to rapidly develop robot applications.
 
 ## Installation
 
-See the [installation tutorial](https://gazebosim.org/api/msgs/10/install.html).
+See the [installation tutorial](https://gazebosim.org/api/msgs/11/install.html).
 
 ## Known issue of command line tools
 
 In the event that the installation is a mix of Debian and from source, command
 line tools from `gz-tools` may not work correctly.
 
-A workaround for a single package is to define the environment variable
-`GZ_CONFIG_PATH` to point to the location of the Gazebo library installation,
-where the YAML file for the package is found, such as
-```{.sh}
-export GZ_CONFIG_PATH=/usr/local/share/gz
+A workaround is to define the environment variable
+`GZ_CONFIG_PATH` to point to the different locations of the Gazebo libraries installations,
+where the YAML files for the packages are found, such as
+```
+export GZ_CONFIG_PATH=/usr/local/share/gz:$HOME/ws/install/share/gz
 ```
 
-However, that environment variable only takes a single path, which means if the
-installations from source are in different locations, only one can be specified.
-
-Another workaround for working with multiple Gazebo libraries on the command
-line is using symbolic links to each library's YAML file.
-```{.sh}
-mkdir ~/.gz/tools/configs -p
-cd ~/.gz/tools/configs/
-ln -s /usr/local/share/gz/fuel8.yaml .
-ln -s /usr/local/share/gz/transport13.yaml .
-ln -s /usr/local/share/gz/transportlog13.yaml .
-...
-export GZ_CONFIG_PATH=$HOME/.gz/tools/configs
-```
-
-This issue is tracked [here](https://github.com/gazebosim/gz-tools/issues/8).
+where `$HOME/ws` is an example colcon workspace used to build Gazebo
 
 
 :::
 
 :::{tab-item} Changelog
-## Gazebo Msgs 10.x
+## Gazebo Msgs 11.x
 
-### Gazebo Msgs 10.3.0 (2024-06-18)
+### Gazebo Msgs 11.0.0 (2024-09-25)
 
-1. Backport: Adding cone primitives.
+1. **Baseline:** this includes all changes from 10.3.0 and earlier.
+
+1. Miscellaneous documentation fixes
+    * [Pull request #458](https://github.com/gazebosim/gz-msgs/pull/458)
+    * [Pull request #461](https://github.com/gazebosim/gz-msgs/pull/461)
+    * [Pull request #459](https://github.com/gazebosim/gz-msgs/pull/459)
+    * [Pull request #457](https://github.com/gazebosim/gz-msgs/pull/457)
+
+1. Update gz-msgs11 badge URLs
+    * [Pull request #455](https://github.com/gazebosim/gz-msgs/pull/455)
+
+1. Improve migration note on SphericalCoordinates
+    * [Pull request #452](https://github.com/gazebosim/gz-msgs/pull/452)
+    * [Pull request #451](https://github.com/gazebosim/gz-msgs/pull/451)
+
+1. Adding cone primitives.
     * [Pull request #442](https://github.com/gazebosim/gz-msgs/pull/442)
+
+1. Remove cone shape from particle emitter
+    * [Pull request #446](https://github.com/gazebosim/gz-msgs/pull/446)
+
+1. Enable 24.04 CI, require cmake 3.22.1
+    * [Pull request #444](https://github.com/gazebosim/gz-msgs/pull/444)
+
+1. Include config.hh to get needed macros
+    * [Pull request #426](https://github.com/gazebosim/gz-msgs/pull/426)
+
+1. Remove HIDE_SYMBOLS_BY_DEFAULT: replace by a default configuration in gz-cmake.
+    * [Pull request #413](https://github.com/gazebosim/gz-msgs/pull/413)
+
+1. Support standalone executable in gz-msgs11
+    * [Pull request #357](https://github.com/gazebosim/gz-msgs/pull/357)
+
+1. Added motion duration to gui_camera.proto
+    * [Pull request #408](https://github.com/gazebosim/gz-msgs/pull/408)
+
+1. Use HIDE_SYMBOLS_BY_DEFAULT
+    * [Pull request #407](https://github.com/gazebosim/gz-msgs/pull/407)
+
+1. Bumps in ionic : ci_matching_branch/bump_ionic_gz-msgs11
+    * [Pull request #401](https://github.com/gazebosim/gz-msgs/pull/401)
+
+
+## Gazebo Msgs 10.x
 
 ### Gazebo Msgs 10.2.0 (2024-05-17)
 

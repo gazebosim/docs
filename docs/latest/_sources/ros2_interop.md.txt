@@ -54,7 +54,7 @@ For publishing and controlling the robot pose, we need joint states of the robot
 
    ![jsp_gui](tutorials/ros2_integration/jsp_gui.png)
 
-   See [documentation](http://docs.ros.org/en/jazzy/p/joint_state_publisher_gui/) for node API.
+   See [documentation](http://docs.ros.org/en/rolling/p/joint_state_publisher_gui/) for node API.
    This functionality is useful during initial development of the model.
    At this point we have achieved the first aim defined in [Setup](#setup). 
 
@@ -95,7 +95,7 @@ Learn more about the bridge from [ROS 2 Integration](ros2_integration).
 The main pain point of using existing simulation assets with ROS 2 tools was updating URDF files into a Gazebo-readable format. This is no longer required. If you are maintaining a URDF and an SDF file in a project, you can now drop the URDF and just use the SDF for both ROS and Gazebo.
 
 This is made possible by `sdformat_urdf`, a parser plugin library that converts an SDF file to URDF C++ DOM structures, making it understandle by the ROS 2 ecosystem.
-Although, there are some limitations of the plugin, like not all SDFormat tags are compatible. For example, if you have any sensors attached to a joint, it won't be parsed. More details [here](https://github.com/ros/sdformat_urdf/tree/jazzy/sdformat_urdf).
+Although, there are some limitations of the plugin, like not all SDFormat tags are compatible. For example, if you have any sensors attached to a joint, it won't be parsed. More details [here](https://github.com/ros/sdformat_urdf/tree/rolling/sdformat_urdf).
 
 To embed this functionality, we simply need to print the SDFormat file to the `/robot_description` ROS topic, and internally ROS will find a suitable parser, `sdformat_urdf` in this case, to read the file. This is already done while configuring the `robot_state_publisher` earlier.
 

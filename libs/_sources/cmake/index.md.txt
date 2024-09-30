@@ -2,7 +2,7 @@
 
 {.gz-libs-lists}
 - [{material-regular}`code;2em` Source Code](https://github.com/gazebosim/gz-cmake)
-- [{material-regular}`description;2em` API & Tutorials](https://gazebosim.org/api/cmake/3)
+- [{material-regular}`description;2em` API & Tutorials](https://gazebosim.org/api/cmake/4)
 
 ::::{tab-set}
 
@@ -18,9 +18,9 @@
 
 Build | Status
 -- | --
-Ubuntu Jammy  | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_cmake-ci-gz-cmake3-jammy-amd64)](https://build.osrfoundation.org/job/gz_cmake-ci-gz-cmake3-jammy-amd64)
-Homebrew      | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_cmake-ci-gz-cmake3-homebrew-amd64)](https://build.osrfoundation.org/job/gz_cmake-ci-gz-cmake3-homebrew-amd64)
-Windows       | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_cmake-3-win)](https://build.osrfoundation.org/job/gz_cmake-3-win)
+Ubuntu Noble  | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_cmake-ci-gz-cmake4-noble-amd64)](https://build.osrfoundation.org/job/gz_cmake-ci-gz-cmake4-noble-amd64)
+Homebrew      | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_cmake-ci-gz-cmake4-homebrew-amd64)](https://build.osrfoundation.org/job/gz_cmake-ci-gz-cmake4-homebrew-amd64)
+Windows       | [![Build Status](https://build.osrfoundation.org/buildStatus/icon?job=gz_cmake-4-win)](https://build.osrfoundation.org/job/gz_cmake-4-win)
 
 # Table of Contents
 
@@ -44,9 +44,9 @@ Windows       | [![Build Status](https://build.osrfoundation.org/buildStatus/ico
 
 [Folder Structure](#folder-structure)
 
-[Code of Conduct](#code-of-conduct)
+[Contributing](#contributing)
 
-[Contributing](#code-of-contributing)
+[Code of Conduct](#code-of-conduct)
 
 [Versioning](#versioning)
 
@@ -54,7 +54,7 @@ Windows       | [![Build Status](https://build.osrfoundation.org/buildStatus/ico
 
 # Features
 
-gz-cmake provides a set of cmake modules that are used by the C++-based Gazebo projects. These modules help to control the quality and consistency of the Gazebo projects' build systems.
+gz-cmake provides a set of cmake modules that are used by the C++ based Gazebo projects. These modules help to control the quality and consistency of the Gazebo projects build systems.
 
 These modules are tailored to the Gazebo projects, so their use for non-Gazebo projects might be limited, but they may serve as a useful reference for setting up a modern cmake build system using good practices.
 
@@ -103,12 +103,14 @@ Replace `/path/to/install/dir` to whatever directory you want to install this pa
 # Usage
 
 Documentation can be accessed at https://gazebosim.org/libs/cmake
-[Examples](examples/) are available in this repository.
-[Tutorials](tutorials/) are also available in this repository.
+
+[Examples](https://github.com/gazebosim/gz-cmake/tree/gz-cmake4/examples) are available in this repository.
+
+[Tutorials](https://github.com/gazebosim/gz-cmake/tree/gz-cmake4/tutorials) are also available in this repository.
 
 # Documentation
 
-Documentation for `gz-cmake` can be found within the source code, and also in the [MIGRATION.md guide](https://github.com/gazebosim/gz-cmake/blob/master/MIGRATION.md).
+Documentation for `gz-cmake` can be found within the source code, and also in the [MIGRATION.md guide](https://github.com/gazebosim/gz-cmake/blob/gz-cmake4/Migration.md).
 
 # Testing
 
@@ -133,8 +135,8 @@ $ make test
 
 # Contributing
 
-Please see
-[CONTRIBUTING.md](https://gazebosim.org/docs/all/contributing).
+Please see the
+[contribution guide](https://gazebosim.org/docs/all/contributing).
 
 # Code of Conduct
 
@@ -152,6 +154,58 @@ This library is licensed under [Apache 2.0](https://www.apache.org/licenses/LICE
 :::
 
 :::{tab-item} Changelog
+## Gazebo CMake 4.x
+
+### Gazebo CMake 4.0.0 (2024-09-25)
+
+1. Miscellaneous documentation fixes
+    * [Pull request #433](https://github.com/gazebosim/gz-cmake/pull/433)
+    * [Pull request #449](https://github.com/gazebosim/gz-cmake/pull/449)
+    * [Pull request #452](https://github.com/gazebosim/gz-cmake/pull/452)
+
+1. Use relative paths for pkg-config install directory
+    * [Pull request #443](https://github.com/gazebosim/gz-cmake/pull/443)
+
+1. Deprecate `BUILD_DOCS`: generate always the doc target but exclude from default make
+    * [Pull request #434](https://github.com/gazebosim/gz-cmake/pull/434)
+
+1. Accept arbitrary capitalization for coverage build type
+    * [Pull request #435](https://github.com/gazebosim/gz-cmake/pull/435)
+
+1. Deprecate GzPython.cmake in favor of `find_package(Python3)`
+    * [Pull request #431](https://github.com/gazebosim/gz-cmake/pull/431)
+
+1. Use default flags for RelWithDebInfo
+    * [Pull request #418](https://github.com/gazebosim/gz-cmake/pull/418)
+
+1. Use visibility hidden by default
+    * [Pull request #392](https://github.com/gazebosim/gz-cmake/pull/392)
+
+1. Replace `exec_program` with `execute_process`
+    * [Pull request #402](https://github.com/gazebosim/gz-cmake/pull/402)
+
+1. Doxygen: exclude C++ `__attribute__`
+    * [Pull request #397](https://github.com/gazebosim/gz-cmake/pull/397)
+
+1. Require cmake version 3.22.1
+    * [Pull request #396](https://github.com/gazebosim/gz-cmake/pull/396)
+
+1. CI: disable 20.04, enable 24.04
+    * [Pull request #389](https://github.com/gazebosim/gz-cmake/pull/389)
+    * [Pull request #424](https://github.com/gazebosim/gz-cmake/pull/424)
+
+1. Deprecate SuppressWarning.hh with `#warning`
+    * [Pull request #367](https://github.com/gazebosim/gz-cmake/pull/367)
+
+1. Remove ignition
+    * [Pull request #326](https://github.com/gazebosim/gz-cmake/pull/326)
+    * [Pull request #369](https://github.com/gazebosim/gz-cmake/pull/369)
+
+1. Bump major version to 4
+    * [Pull request #296](https://github.com/gazebosim/gz-cmake/pull/296)
+    * [Pull request #298](https://github.com/gazebosim/gz-cmake/pull/298)
+    * [Pull request #390](https://github.com/gazebosim/gz-cmake/pull/390)
+
 ## Gazebo CMake 3.x
 
 ### Gazebo CMake 3.5.3 (2024-05-02)
