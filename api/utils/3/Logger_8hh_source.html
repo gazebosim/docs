@@ -161,47 +161,51 @@
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#ifndef GZ_UTILS_LOG_LOGGER_HH_</span></div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#define GZ_UTILS_LOG_LOGGER_HH_</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;gz/utils/config.hh&gt;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;<a class="code" href="ImplPtr_8hh.html">gz/utils/ImplPtr.hh</a>&gt;</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;gz/utils/log/Export.hh&gt;</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacegz.html">gz</a></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">namespace </span>utils</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
-<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="namespacegz_1_1utils_1_1log.html">   31</a></span><span class="keyword">namespace </span>log</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#if !defined(SPDLOG_ACTIVE_LEVEL)</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="Logger_8hh.html#ae4fda6f71f35120e2ff48157fca961b5">   21</a></span><span class="preprocessor">  #define SPDLOG_ACTIVE_LEVEL SPDLOG_LEVEL_TRACE</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;spdlog/spdlog.h&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;gz/utils/config.hh&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;<a class="code" href="ImplPtr_8hh.html">gz/utils/ImplPtr.hh</a>&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;gz/utils/log/Export.hh&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacegz.html">gz</a></div>
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">inline</span> <span class="keyword">namespace </span>GZ_UTILS_VERSION_NAMESPACE {</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="foldopen" id="foldopen00038" data-start="{" data-end="};">
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classgz_1_1utils_1_1log_1_1Logger.html">   38</a></span><span class="keyword">class </span>GZ_UTILS_LOG_VISIBLE <a class="code hl_class" href="classgz_1_1utils_1_1log_1_1Logger.html" title="Gazebo console and file logging class. This will configure spdlog with a sane set of defaults for log...">Logger</a></div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classgz_1_1utils_1_1log_1_1Logger.html#ae87f67902b47669c11f391bc2905cb42">   42</a></span>  <span class="keyword">public</span>: <span class="keyword">explicit</span> <a class="code hl_function" href="classgz_1_1utils_1_1log_1_1Logger.html#ae87f67902b47669c11f391bc2905cb42" title="Class constructor.">Logger</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_loggerName);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classgz_1_1utils_1_1log_1_1Logger.html#ae470c406b62907784b8981fcae694af6">   46</a></span>  <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1utils_1_1log_1_1Logger.html#ae470c406b62907784b8981fcae694af6" title="Set the log destination filename.">SetLogDestination</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_filename);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">namespace </span>utils</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
+<div class="foldopen" id="foldopen00035" data-start="{" data-end="}">
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespacegz_1_1utils_1_1log.html">   35</a></span><span class="keyword">namespace </span>log</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">inline</span> <span class="keyword">namespace </span>GZ_UTILS_VERSION_NAMESPACE {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="};">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classgz_1_1utils_1_1log_1_1Logger.html">   42</a></span><span class="keyword">class </span>GZ_UTILS_LOG_VISIBLE <a class="code hl_class" href="classgz_1_1utils_1_1log_1_1Logger.html" title="Gazebo console and file logging class. This will configure spdlog with a sane set of defaults for log...">Logger</a></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>{</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classgz_1_1utils_1_1log_1_1Logger.html#ae87f67902b47669c11f391bc2905cb42">   46</a></span>  <span class="keyword">public</span>: <span class="keyword">explicit</span> <a class="code hl_function" href="classgz_1_1utils_1_1log_1_1Logger.html#ae87f67902b47669c11f391bc2905cb42" title="Class constructor.">Logger</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_loggerName);</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classgz_1_1utils_1_1log_1_1Logger.html#af6e449ac6b8f5e4a64fe5fafbfc6e776">   50</a></span>  <span class="keyword">public</span>: <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> <a class="code hl_function" href="classgz_1_1utils_1_1log_1_1Logger.html#af6e449ac6b8f5e4a64fe5fafbfc6e776" title="Get the log destination filename.">LogDestination</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classgz_1_1utils_1_1log_1_1Logger.html#ae470c406b62907784b8981fcae694af6">   50</a></span>  <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1utils_1_1log_1_1Logger.html#ae470c406b62907784b8981fcae694af6" title="Set the log destination filename.">SetLogDestination</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_filename);</div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classgz_1_1utils_1_1log_1_1Logger.html#abca94a0d19bd56c86ce9b87c1444fe0e">   54</a></span>  <span class="keyword">public</span>: [[nodiscard]] spdlog::logger &amp;<a class="code hl_function" href="classgz_1_1utils_1_1log_1_1Logger.html#abca94a0d19bd56c86ce9b87c1444fe0e" title="Access the underlying spdlog logger.">RawLogger</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classgz_1_1utils_1_1log_1_1Logger.html#af6e449ac6b8f5e4a64fe5fafbfc6e776">   54</a></span>  <span class="keyword">public</span>: <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> <a class="code hl_function" href="classgz_1_1utils_1_1log_1_1Logger.html#af6e449ac6b8f5e4a64fe5fafbfc6e776" title="Get the log destination filename.">LogDestination</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classgz_1_1utils_1_1log_1_1Logger.html#a68a90b82e58d3753b3eb8e0564697b17">   58</a></span>  <span class="keyword">public</span>: [[nodiscard]] <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr&lt;spdlog::logger&gt;</a> <a class="code hl_function" href="classgz_1_1utils_1_1log_1_1Logger.html#a68a90b82e58d3753b3eb8e0564697b17" title="Access the underlying spdlog logger, with ownership.">RawLoggerPtr</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="classgz_1_1utils_1_1log_1_1Logger.html#abca94a0d19bd56c86ce9b87c1444fe0e">   58</a></span>  <span class="keyword">public</span>: [[nodiscard]] spdlog::logger &amp;<a class="code hl_function" href="classgz_1_1utils_1_1log_1_1Logger.html#abca94a0d19bd56c86ce9b87c1444fe0e" title="Access the underlying spdlog logger.">RawLogger</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classgz_1_1utils_1_1log_1_1Logger.html#af3385205ef8f3a6b2dbe54092266ac2a">   62</a></span>  <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1utils_1_1log_1_1Logger.html#af3385205ef8f3a6b2dbe54092266ac2a" title="Set the severity level of the Console sink.">SetConsoleSinkLevel</a>(spdlog::level::level_enum _level);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classgz_1_1utils_1_1log_1_1Logger.html#a68a90b82e58d3753b3eb8e0564697b17">   62</a></span>  <span class="keyword">public</span>: [[nodiscard]] <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr&lt;spdlog::logger&gt;</a> <a class="code hl_function" href="classgz_1_1utils_1_1log_1_1Logger.html#a68a90b82e58d3753b3eb8e0564697b17" title="Access the underlying spdlog logger, with ownership.">RawLoggerPtr</a>() <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>  <a class="code hl_define" href="ImplPtr_8hh.html#a4d0664cf3feb69af30ac24d15db88028" title="Add a private UniqueImplPtr to a class as dataPtr. This variant forward-declares Class::Implementatio...">GZ_UTILS_UNIQUE_IMPL_PTR</a>(dataPtr)</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>};</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classgz_1_1utils_1_1log_1_1Logger.html#af3385205ef8f3a6b2dbe54092266ac2a">   66</a></span>  <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code hl_function" href="classgz_1_1utils_1_1log_1_1Logger.html#af3385205ef8f3a6b2dbe54092266ac2a" title="Set the severity level of the Console sink.">SetConsoleSinkLevel</a>(spdlog::level::level_enum _level);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  <a class="code hl_define" href="ImplPtr_8hh.html#a4d0664cf3feb69af30ac24d15db88028" title="Add a private UniqueImplPtr to a class as dataPtr. This variant forward-declares Class::Implementatio...">GZ_UTILS_UNIQUE_IMPL_PTR</a>(dataPtr)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>};</div>
 </div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>}  <span class="comment">// namespace GZ_UTILS_LOG_VERSION_NAMESPACE</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}  <span class="comment">// namespace GZ_UTILS_LOG_VERSION_NAMESPACE</span></div>
 </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}  <span class="comment">// namespace log</span></div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>}  <span class="comment">// namespace utils</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>}  <span class="comment">// namespace gz</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#endif  </span><span class="comment">// GZ_UTILS_LOG_LOGGER_HH_</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>}  <span class="comment">// namespace log</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}  <span class="comment">// namespace utils</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}  <span class="comment">// namespace gz</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="preprocessor">#endif  </span><span class="comment">// GZ_UTILS_LOG_LOGGER_HH_</span></div>
 </div><!-- fragment --></div><!-- contents -->
       </div>
     </main>
