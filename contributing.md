@@ -163,7 +163,7 @@ get acquainted with this development process.
 1. **Choose a base branch.**
    - If your changes will break API or ABI, then base your new branch off of `main`.
    - If you are making interdependent changes to multiple repositories without
-     breaking API or ABI, it is also recommended to base your new branches of of `main`
+     breaking API or ABI, it is also recommended to base your new branches off of `main`
      to simplify automated testing of the changes and the review process. Your
      changes may be backported to an existing release once all the changes
      have been merged.
@@ -381,10 +381,22 @@ Merging strategy:
 
 Porting changes across branches:
 
-* Pull requests should target the lowest possible
-  [supported version](releases) where the
+* Pull requests should target the latest [supported version](releases) where the
   changes can be added in a backwards-compatible way (no API / ABI / behavior
   break in released branches).
+* To backport a pull request (i.e. from a higher version to a lower version),
+  use `git cherry-pick` instead of `git merge`, for example:
+
+        git checkout gz-<library>N
+        git pull
+        git checkout gz-<library>M
+        git pull
+        git checkout -b N_to_M_<date>
+        git cherry-pick <commits from verrsion N>
+        # Fix conflicts
+        git commit -sam"Backport from N to M"
+        # Open pull request
+        # Do not squash, rebase instead
 * Periodically, a maintainer will **forward-port** changes to newer release
   branches all the way up to `main`.
 * See [this list](https://github.com/gazebosim/docs/blob/master/tools/branch_comparisons.md) to check if a branch needs porting.
@@ -402,20 +414,6 @@ Porting changes across branches:
         # Open pull request
         # Do not squash or rebase, create a merge commit
 
-* In the rare event that a pull request needs to be backported (i.e. from a
-  higher version to a lower version), use `git cherry-pick` instead of `git merge`,
-  for example:
-
-        git checkout gz-<library>N
-        git pull
-        git checkout gz-<library>M
-        git pull
-        git checkout -b N_to_M_<date>
-        git cherry-pick <commits from verrsion N>
-        # Fix conflicts
-        git commit -sam"Backport from N to M"
-        # Open pull request
-        # Do not squash, rebase instead
 
 ## Writing Tests
 
