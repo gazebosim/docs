@@ -5,6 +5,29 @@ Here you will find the set of features that are available in each release.
 Take a look at the [Roadmap](roadmap) for information about upcoming
 features, some of which may land in released versions of Gazebo.
 
+## Ionic
+
+For a complete list of features included in the initial release of Ionic, please see the [highlights](https://github.com/gazebosim/gz-ionic/blob/main/highlights.md) and [release notes](https://github.com/gazebosim/gz-ionic/blob/main/release_notes.md) documentation in the Gazebo Ionic repository.
+
+| Library name       | Version         | Changelog                                                                                 |
+| ------------------ | --------------- | ---------------                                                                           |
+| gz-cmake           | 4.x             | [Changelog](https://github.com/gazebosim/gz-cmake/blob/gz-cmake4/Changelog.md)            |
+| gz-common          | 6.x             | [Changelog](https://github.com/gazebosim/gz-common/blob/gz-common6/Changelog.md)          |
+| gz-fuel-tools      | 10.x            | [Changelog](https://github.com/gazebosim/gz-fuel-tools/blob/gz-fuel-tools10/Changelog.md) |
+| gz-gui             | 9.x             | [Changelog](https://github.com/gazebosim/gz-gui/blob/gz-gui9/Changelog.md)                |
+| gz-launch          | 8.x             | [Changelog](https://github.com/gazebosim/gz-launch/blob/gz-launch8/Changelog.md)          |
+| gz-math            | 8.x             | [Changelog](https://github.com/gazebosim/gz-math/blob/gz-math8/Changelog.md)              |
+| gz-msgs            | 11.x            | [Changelog](https://github.com/gazebosim/gz-msgs/blob/gz-msgs11/Changelog.md)             |
+| gz-physics         | 8.x             | [Changelog](https://github.com/gazebosim/gz-physics/blob/gz-physics8/Changelog.md)        |
+| gz-plugin          | 3.x             | [Changelog](https://github.com/gazebosim/gz-plugin/blob/gz-plugin3/Changelog.md)          |
+| gz-rendering       | 9.x             | [Changelog](https://github.com/gazebosim/gz-rendering/blob/gz-rendering9/Changelog.md)    |
+| gz-sensors         | 9.x             | [Changelog](https://github.com/gazebosim/gz-sensors/blob/gz-sensors9/Changelog.md)        |
+| gz-sim             | 9.x             | [Changelog](https://github.com/gazebosim/gz-sim/blob/gz-sim9/Changelog.md)                |
+| gz-tools           | 2.x             | [Changelog](https://github.com/gazebosim/gz-tools/blob/gz-tools2/Changelog.md)            |
+| gz-transport       | 14.x            | [Changelog](https://github.com/gazebosim/gz-transport/blob/gz-transport14/Changelog.md)   |
+| gz-utils           | 3.x             | [Changelog](https://github.com/gazebosim/gz-utils/blob/gz-utils3/Changelog.md)            |
+| sdformat           | 15.x            | [Changelog](https://github.com/gazebosim/sdformat/blob/sdf15/Changelog.md)                |
+
 ## Harmonic
 
 For a complete list of features included in the initial release of Harmonic, please see the [highlights](https://github.com/gazebosim/gz-harmonic/blob/main/highlights.md) and [release notes](https://github.com/gazebosim/gz-harmonic/blob/main/release_notes.md) documentation in the Gazebo Harmonic repository.
@@ -15,9 +38,9 @@ For a complete list of features included in the initial release of Harmonic, ple
 |   gz-common       |       5.x     |       [Changelog](https://github.com/gazebosim/gz-common/blob/gz-common5/Changelog.md)    |
 |   gz-fuel-tools   |       9.x     |       [Changelog](https://github.com/gazebosim/gz-fuel-tools/blob/gz-fuel-tools9/Changelog.md)    |
 |   gz-gui          |       8.x     |       [Changelog](https://github.com/gazebosim/gz-gui/blob/gz-gui8/Changelog.md)       |
-|   gz-launch       |       7.x     |       [Changelog](https://github.com/gazebosim/gz-launch/blob/gz-launch7/Changelog.md)
-|   gz-math         |       7.x     |       [Changelog](https://github.com/gazebosim/gz-math/blob/gz-math7/Changelog.md)
-|   gz-msgs         |      10.x     |       [Changelog](https://github.com/gazebosim/gz-msgs/blob/gz-msgs10/Changelog.md)
+|   gz-launch       |       7.x     |       [Changelog](https://github.com/gazebosim/gz-launch/blob/gz-launch7/Changelog.md) |
+|   gz-math         |       7.x     |       [Changelog](https://github.com/gazebosim/gz-math/blob/gz-math7/Changelog.md)     |
+|   gz-msgs         |      10.x     |       [Changelog](https://github.com/gazebosim/gz-msgs/blob/gz-msgs10/Changelog.md)    |
 |   gz-physics      |       7.x     |       [Changelog](https://github.com/gazebosim/gz-physics/blob/gz-physics7/Changelog.md)
 |   gz-plugin       |       2.x     |       [Changelog](https://github.com/gazebosim/gz-plugin/blob/gz-plugin2/Changelog.md)     |
 |   gz-rendering    |       8.x     |       [Changelog](https://github.com/gazebosim/gz-rendering/blob/gz-rendering8/Changelog.md)      |
