@@ -39,7 +39,7 @@
   <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="../_static/documentation_options.js?v=173ad40a"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -550,16 +550,18 @@ for a valid configuration file.</p>
 <p>The package <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> contains a launch file named
 <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge.launch.py</span></code>. You can use it to start a ROS 2 and Gazebo bridge.
 Here’s an example:</p>
-<p>Note: If you run the bridge as a standalone node with composition enabled (default configuration),
+<p>Note: If you run the bridge as a standalone node with composition enabled,
 you’ll need to create a container first.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>rclcpp_components<span class="w"> </span>component_container<span class="w"> </span>--ros-args<span class="w"> </span>-r<span class="w"> </span>__node:<span class="o">=</span>ros_gz_container
 </pre></div>
 </div>
+<p>Alternatively, if an existing container is already running, you can pass its name
+when launching the bridge using the <code class="docutils literal notranslate"><span class="pre">container_name</span></code> parameter.</p>
 <p>And now, the container will load your bridge with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>ros_gz_bridge<span class="w"> </span>ros_gz_bridge.launch.py<span class="w"> </span>bridge_name:<span class="o">=</span>ros_gz_bridge<span class="w"> </span>config_file:<span class="o">=</span>&lt;path_to_your_YAML_file&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>ros_gz_bridge<span class="w"> </span>ros_gz_bridge.launch.py<span class="w"> </span>bridge_name:<span class="o">=</span>ros_gz_bridge<span class="w"> </span>use_composition:<span class="o">=</span>True<span class="w"> </span>config_file:<span class="o">=</span>&lt;path_to_your_YAML_file&gt;
 </pre></div>
 </div>
-<p>Check <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_bridge/launch/ros_gz_bridge.launch.py#L27-L33">this block</a>
+<p>Check <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_bridge/launch/ros_gz_bridge.launch.py#L27-L34">this block</a>
 from the source code to know all the different parameters accepted by this
 launch file.</p>
 </section>
@@ -573,14 +575,16 @@ within this tag. Here’s an example:</p>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;bridge_name&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;config_file&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;container_name&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;ros_gz_container&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;create_own_container&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;False&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;namespace&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;use_composition&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;True&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;use_composition&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;False&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;use_respawn&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;False&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;log_level&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;info&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;ros_gz_bridge</span>
 <span class="w">    </span><span class="na">bridge_name=</span><span class="s">&quot;$(var bridge_name)&quot;</span>
 <span class="w">    </span><span class="na">config_file=</span><span class="s">&quot;$(var config_file)&quot;</span>
 <span class="w">    </span><span class="na">container_name=</span><span class="s">&quot;$(var container_name)&quot;</span>
+<span class="w">    </span><span class="na">create_own_container=</span><span class="s">&quot;$(var create_own_container)&quot;</span>
 <span class="w">    </span><span class="na">namespace=</span><span class="s">&quot;$(var namespace)&quot;</span>
 <span class="w">    </span><span class="na">use_composition=</span><span class="s">&quot;$(var use_composition)&quot;</span>
 <span class="w">    </span><span class="na">use_respawn=</span><span class="s">&quot;$(var use_respawn)&quot;</span>
@@ -758,7 +762,7 @@ ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </s
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>
