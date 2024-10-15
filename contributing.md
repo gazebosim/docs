@@ -397,7 +397,16 @@ Porting changes across branches:
         git commit -sam"Backport from N to M"
         # Open pull request
         # Do not squash, rebase instead
-* Periodically, a maintainer will **forward-port** changes to newer release
+
+  Alternatively, you can use `mergify` to create backports. Go to the original
+  pull request and add a comment:
+
+        @mergifyio backport gz-<library>M
+
+  where `M` is the version to backport to.
+
+* In certain cases when a pull request is merged into an older release branch,
+  a maintainer will **forward-port** changes to newer release
   branches all the way up to `main`.
 * See [this list](https://github.com/gazebosim/docs/blob/master/tools/branch_comparisons.md) to check if a branch needs porting.
 * The merge forward can be done with `git merge` in order to keep the commit history
