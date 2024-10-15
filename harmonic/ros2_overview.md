@@ -32,16 +32,37 @@ We'll backport it to ROS 2 Jazzy soon.
 ## Composition
 
 If you inspect the parameters of the launch files mentioned in the next
-tutorials, you'll notice that we have included in most cases a parameter named
-`use_composition`. When that parameter is set to `True`, the associated ROS
-node will be included within a ROS container. When this happens all the nodes
-live within the same process and can leverage intraprocess communication.
+tutorials, you'll notice that we have included in most cases two parameters
+named `use_composition` and `create_own_container`. When the `use_composition`
+parameter is set to `True`, the associated ROS node will be loaded within a
+ROS container. When this happens, all the nodes within the same ROS container
+share the same process and can leverage intraprocess communication.
 
-Our recommendation is to always set the `use_composition` parameter to `True`.
-That way, the communication between Gazebo and the bridge will be intraprocess.
-If your ROS nodes are also written as composable nodes, make sure that they are
-launched with the `container_node_name` parameter matching the container name
-including Gazebo and the bridge.
+The parameter `create_own_container` only makes sense when `use_composition` is
+set to `True`. This parameter lets you control whether your start a ROS
+container for your composable nodes or you defer to an external ROS container.
+
+Our recommendation is to always set the `use_composition` parameter to `True`
+and decide if you need to create your own container based on your configuration.
+Typically, if you're only dealing with your own launch files you'll probably set
+`create_own_container` to `True`. On the other hand, if you're using your launch
+files as part of a more complex startup where a ROS container is already
+present, you should set `create_own_container` to `False` and, instead, set the
+parameter `container_name` to the existing container name.
+
+That way, the communication between Gazebo, the bridge, and other potential
+ROS nodes will be intraprocess.
+
+![composition_options](images/composition_options.png)
+
+This figure illustrates the concept of composition. The left diagram captures
+the idea of not using composition. All the three example nodes are standalone
+nodes, and they can talk via interprocess communication. The center diagram
+represents the scenario where we use composition and we start our own container
+from our own launch file. All communication is intraprocess here. The right
+diagram is still using composition but the launch file doesn't start the
+container directly. This setup by itself will not work until you start an
+external ROS container (manually or via a separate launch file).
 
 You can learn more about ROS composition in [this tutorial](https://docs.ros.org/en/galactic/Tutorials/Intermediate/Composition.html).
 
