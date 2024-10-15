@@ -67,18 +67,21 @@ The package `ros_gz_bridge` contains a launch file named
 `ros_gz_bridge.launch.py`. You can use it to start a ROS 2 and Gazebo bridge.
 Here's an example:
 
-Note: If you run the bridge as a standalone node with composition enabled (default configuration),
+Note: If you run the bridge as a standalone node with composition enabled,
 you'll need to create a container first.
 ```bash
 ros2 run rclcpp_components component_container --ros-args -r __node:=ros_gz_container
 ```
 
+Alternatively, if an existing container is already running, you can pass its name
+when launching the bridge using the `container_name` parameter.
+
 And now, the container will load your bridge with:
 ```bash
-ros2 launch ros_gz_bridge ros_gz_bridge.launch.py bridge_name:=ros_gz_bridge config_file:=<path_to_your_YAML_file>
+ros2 launch ros_gz_bridge ros_gz_bridge.launch.py bridge_name:=ros_gz_bridge use_composition:=True config_file:=<path_to_your_YAML_file>
 ```
 
-Check [this block](https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_bridge/launch/ros_gz_bridge.launch.py#L27-L33)
+Check [this block](https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_bridge/launch/ros_gz_bridge.launch.py#L27-L34)
 from the source code to know all the different parameters accepted by this
 launch file.
 
@@ -94,21 +97,22 @@ within this tag. Here's an example:
   <arg name="bridge_name" />
   <arg name="config_file" />
   <arg name="container_name" default="ros_gz_container" />
+  <arg name="create_own_container" default="False" />
   <arg name="namespace" default="" />
-  <arg name="use_composition" default="True" />
+  <arg name="use_composition" default="False" />
   <arg name="use_respawn" default="False" />
   <arg name="log_level" default="info" />
   <ros_gz_bridge
     bridge_name="$(var bridge_name)"
     config_file="$(var config_file)"
     container_name="$(var container_name)"
+    create_own_container="$(var create_own_container)"
     namespace="$(var namespace)"
     use_composition="$(var use_composition)"
     use_respawn="$(var use_respawn)"
     log_level="$(var log_level)">
   </ros_gz_bridge>
 </launch>
-
 ```
 
 In this case the `<ros_gz_bridge>` parameters are read from the command line.
