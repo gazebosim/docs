@@ -139,14 +139,14 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>This tutorial introduces simulation concepts that are used in Gazebo Physics.</p>
-<h2><a class="anchor" id="autotoc_md33"></a>
+<h2><a class="anchor" id="autotoc_md32"></a>
 Prerequisites</h2>
 <ul>
 <li><a class="el" href="installation.html">Installation</a></li>
 <li><a class="el" href="physicsengine.html">Use different physics engines</a></li>
 <li><a href="https://gazebosim.org/docs/fortress/gui">Understand the GUI tutorial</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md34"></a>
+<h2><a class="anchor" id="autotoc_md33"></a>
 Physics simulation features</h2>
 <p>Here is a snapshot of simulation features supported by gz-physics:</p>
 <ul>
@@ -155,11 +155,11 @@ Physics simulation features</h2>
 <li>Dynamics: joint constraints, mass matrix, gravity, forces and frictions, closed-loop structures</li>
 </ul>
 <p>Gazebo adopts SDFormat structure to describe visual elements and also the dynamic physics aspects. To get started on SDFormat 1.7, refer to this <a href="http://sdformat.org/spec?ver=1.7&amp;elem=sdf">SDFormat specification</a>. For a comprehensive tutorial for constructing your robot model from SDFormat, refer to this <a href="https://gazebosim.org/docs/fortress/building_robot">Building robot</a> tutorial.</p>
-<h2><a class="anchor" id="autotoc_md35"></a>
+<h2><a class="anchor" id="autotoc_md34"></a>
 Physics concepts in Gazebo simulation</h2>
 <p>In this tutorial, we will show how to manipulate and visualize some physics aspects using demos on Gazebo.</p>
 <p>All demos can be found in <a href="https://github.com/gazebosim/gz-sim/blob/gz-sim9/examples/worlds/">gz-sim/examples/worlds</a> folder.</p>
-<h3><a class="anchor" id="autotoc_md36"></a>
+<h3><a class="anchor" id="autotoc_md35"></a>
 Differential drive</h3>
 <p>This demo world demonstrates how we can control simulated differential drive on cars depending on physics engines and visualize the collision concept. To run the demo world, download the SDFormat file by:</p>
 <div class="fragment"><div class="line">wget https://raw.githubusercontent.com/gazebosim/gz-sim/gz-physics8/examples/worlds/diff_drive.sdf -P ~</div>
@@ -178,21 +178,21 @@ Differential drive</h3>
 </div><!-- fragment --><p>Then press the Play button to start the simulation. This command tells the car to move in its coordinate frame with velocity 1.0 meter per second in the X-axis and angular velocity of 0.5 radians per second in Z-axis.</p>
 <p>Note that the mechanism to move the car is different depending on the used physics engine, see <a class="el" href="physicsengine.html">Use different physics engines</a> for details on how to change physics engine used by simulation.</p>
 <p>Dartsim moves the car by applying force on the joints, whereas TPE directly set velocity on the model.</p>
-<h4><a class="anchor" id="autotoc_md37"></a>
+<h4><a class="anchor" id="autotoc_md36"></a>
 Monitor the model and link pose</h4>
 <p>We can monitor the model pose by selecting the moving car and then select the drop-down list <code>Pose</code>. Moreover, we could also read the model links' poses relative to their parent link by selecting the corresponding link on the model tree:</p>
 <div class="image">
 <img src="img/diff_drive_link.gif" alt="" width="100%"/>
 </div>
 <p>Note that using the model tree as shown in the above gif, we can view the parameters and properties such as <code>visual</code> or <code>collision</code> of each link or joint in the model. For more detail about the kinematics of the model tree, see this <a href="http://sdformat.org/tutorials?tut=spec_model_kinematics&amp;cat=specification&amp;">tutorial</a>.</p>
-<h4><a class="anchor" id="autotoc_md38"></a>
+<h4><a class="anchor" id="autotoc_md37"></a>
 Collision effect</h4>
 <p>Gazebo also simulates realistic collision effect. While the <code>vehicle_blue</code> car is moving in a circle, we can move the <code>vehicle_green</code> to be on <code>vehicle_blue</code>'s upcoming path. The blue car will then push the green car in the following demo.</p>
 <div class="image">
 <img src="img/diff_drive_collision.gif" alt="" width="100%"/>
 </div>
 <p>To see where these collision parameters are set in SDFormat and how it works, please see this <a href="http://sdformat.org/tutorials?tut=spec_shapes&amp;cat=specification&amp;">SDFormat tutorial</a>.</p>
-<h3><a class="anchor" id="autotoc_md39"></a>
+<h3><a class="anchor" id="autotoc_md38"></a>
 Lift Drag</h3>
 <p>The Lift Drag demo world shows how joint force, torque, and pressure are supported in Gazebo Physics. To run the demo, download by:</p>
 <div class="fragment"><div class="line">wget https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim9/examples/worlds/lift_drag.sdf -P ~</div>
@@ -207,7 +207,7 @@ Lift Drag</h3>
 <img src="img/lift_drag_torque.gif" alt="" width="100%"/>
 </div>
 <p>Several simulation features come into effect in this demo. The lift and drag force is computed by taking the wind pressure, mass of the cude, and gravity into account, and the resulting force is exerted on multiple joints. Dartsim is used to power this demo.</p>
-<h3><a class="anchor" id="autotoc_md40"></a>
+<h3><a class="anchor" id="autotoc_md39"></a>
 Buoyancy</h3>
 <p>This demo world shows how buoyancy is supported in Gazebo Physics. This world contains the following three models:</p>
 <ol type="1">
@@ -224,7 +224,7 @@ Buoyancy</h3>
 <img src="img/buoyancy.gif" alt="" width="100%"/>
 </div>
 <p>The buoyancy concept is implemented by simulating fluid density and applying the force on the object in the fluid proportional to its volume. Hence, you can change the model buoyancy by modifying its inertia, see <a href="http://sdformat.org/spec?ver=1.7&amp;elem=link">SDFormat link specification</a> on how to do that.</p>
-<h3><a class="anchor" id="autotoc_md41"></a>
+<h3><a class="anchor" id="autotoc_md40"></a>
 Pendulum</h3>
 <p>This demo world demonstrates how simulated inertia and gravity affect the object movement by showing free swing of the pendulum. Download the Pendulum demo to your home folder by:</p>
 <div class="fragment"><div class="line">wget https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim9/examples/worlds/video_record_dbl_pendulum.sdf -P ~</div>
@@ -235,7 +235,7 @@ Pendulum</h3>
 <img src="img/pendulum.gif" alt="" width="100%"/>
 </div>
 <p>The oscillation period or the max angular speed of the joint will change if we modify the inertia of the rods. According to the demo below, you will see that gravity is defined as -9.8 m/s^2 on the Z-axis. Refer to <a href="http://sdformat.org/spec?ver=1.7&amp;elem=link">link specification</a> for modifying the inertia and mass of the links.</p>
-<h3><a class="anchor" id="autotoc_md42"></a>
+<h3><a class="anchor" id="autotoc_md41"></a>
 Multicopter</h3>
 <p>This demo world shows how Gazebo Physics supports gravity, actuators and inertia to control object velocity. Download the Multicopter demo to your home folder by:</p>
 <div class="fragment"><div class="line">wget https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim9/examples/worlds/multicopter_velocity_control.sdf -P ~</div>

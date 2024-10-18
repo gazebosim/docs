@@ -138,23 +138,20 @@
   <div class="headertitle"><div class="title">Understanding the Physics Plugin</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>This is an introduction to different physics engines and how they are integrated into the Gazebo Physics library.</p>
-<h2><a class="anchor" id="autotoc_md19"></a>
-Gazebo Physics</h2>
-<p>The <a class="el" href="namespacegz_1_1physics.html">Gazebo Physics</a> library integrates external physics engines into the Gazebo Simulation eco-system. It allows users to select from multiple supported physics engines based on their simulation needs. Its plugin interface loads physics engines with requested features at runtime. It is also possible to integrate your own selected physics engine by writing a compatible plugin interface.</p>
+<div class="textblock"><p>The <a class="el" href="namespacegz_1_1physics.html">Gazebo Physics</a> library integrates physics engines into the Gazebo Simulation eco-system. Each physics engine is wrapped into a Gazebo Physics Plugin that can be loaded in a Gazebo simulation. The Physics Plugin interface loads physics engines with the requested features at runtime. It is also possible to integrate your own selected physics engine by writing a compatible plugin interface.</p>
 <p>To get a more in-depth understanding of how the physics plugin works in Gazebo, we will start with some high level concepts and definitions.</p>
-<h3><a class="anchor" id="autotoc_md20"></a>
-High Level Concept</h3>
+<h2><a class="anchor" id="autotoc_md19"></a>
+High Level Concept</h2>
 <p>Conceptually, the physics plugin can be viewed from two sides of its interface: user vs. implementation.</p>
 <p>Each physics engine provides access to different features implemented by the Gazebo Physics engine. The interface is made possible through the <a class="elRef" href="https://gazebosim.org/api/plugin/3/namespacegz_1_1plugin.html">Gazebo Plugin</a> library, which instantiates <a class="el" href="classgz_1_1physics_1_1Feature.html">Features</a> in <a class="el" href="structgz_1_1physics_1_1FeatureList.html">FeatureLists</a> and supplies pointers to the selected engine. This "user side interface" makes the Gazebo Physics library "callable" from other Gazebo libraries.</p>
-<p>The implementation side interface handles specific implementations of each <code>Feature</code>. Depending on what external physics engine we are using (DART, TPE etc.), the interface might be different. This interface is more internal facing, i.e. used mostly inside the Gazebo Physics library.</p>
+<p>The implementation side interface handles specific implementations of each <code>Feature</code>. Depending on what physics engine we are using in the plugin (DART, TPE etc.), the interface might be different. This interface is more internal facing, i.e. used mostly inside the Gazebo Physics library.</p>
 <p>The implementation of the physics plugin revolves around four key elements.</p>
 <ol type="1">
 <li><p class="startli"><a class="el" href="classgz_1_1physics_1_1Entity.html">Entity</a></p>
 <p class="startli">This is the base class of all "proxy objects". The "proxy objects" are essentially interfaces into the actual objects which exist inside of the various physics engine implementations. The proxy objects contain the minimal amount of data (e.g. a unique identifier, a reference-counter for the implementation object, and a reference to the implementation interface that it needs) necessary to interface with the object inside of the implementation that it refers to.</p>
 </li>
 <li><p class="startli"><a class="el" href="structgz_1_1physics_1_1FeaturePolicy.html">FeaturePolicy</a></p>
-<p class="startli">FeaturePolicy is a "policy class" used to provide metadata to features about what kind of simulation engine they are going to be used in. Many physics simulations software libraries model 3-dimensional systems, though some (like Box2d) only consider 2-dimensional systems. A FeaturePolicy is used to customize Gazebo Physics' APIs by the number of dimensions (2 or 3) and also the floating point scalar type (float or double). Dartsim and TPE reference implementations both use FeaturePolicy3d (3 dimensions, double).</p>
+<p class="startli">FeaturePolicy is a "policy class" used to provide metadata to features about what kind of simulation engine they are going to be used in. Many physics simulations software libraries model 3-dimensional systems, though some (like Box2d) only consider 2-dimensional systems. A FeaturePolicy is used to customize Gazebo Physics' APIs by the number of dimensions (2 or 3) and also the floating point scalar type (float or double). (All of the currently supported physics engines use FeaturePolicy3d i.e. 3 dimensions and double.)</p>
 </li>
 <li><p class="startli"><a class="el" href="classgz_1_1physics_1_1Feature.html">Feature</a></p>
 <p class="startli">This class defines the concept of a <code>Feature</code>, examples like <code>GetWorldFromEngine</code>, <a class="el" href="classgz_1_1physics_1_1GetEngineInfo.html">GetEngineInfo</a> etc. There is a pre-defined list of features in Gazebo Physics. They are implemented by using external physics engines' APIs to fulfill simulation needs requested by Gazebo.</p>
@@ -163,9 +160,9 @@ High Level Concept</h3>
 <p class="startli">This is the class that aggregates a list of features. FeatureLists can be constructed in hierarchies, e.g. a <code>FeatureList</code> can be passed into another <code>FeatureList</code>, and the set of all features in the new list will be the sum.</p>
 </li>
 </ol>
-<h3><a class="anchor" id="autotoc_md21"></a>
-FeatureList Definitions</h3>
-<p>This list of <code>FeatureLists</code> is specific to the implementation of <code>Dartsim</code> and <code>TPE-plugin</code>. Users do not need to organize their own plugin implementations this way.</p>
+<h2><a class="anchor" id="autotoc_md20"></a>
+FeatureList Organization</h2>
+<p>For example, here are the <code>FeatureLists</code> used in the implementation of the <code>Dartsim</code> physics engine. Plugin implementations for other engines may choose to organize features into <code>FeatureLists</code> differently.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Name   </th><th class="markdownTableHeadNone">Definition    </th></tr>
@@ -192,136 +189,44 @@ FeatureList Definitions</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">WorldFeatures   </td><td class="markdownTableBodyNone">sets options like solver and collision detector   </td></tr>
 </table>
-<h3><a class="anchor" id="autotoc_md22"></a>
-Dart vs. TPE</h3>
+<h2><a class="anchor" id="autotoc_md21"></a>
+Available Physics Plugins</h2>
 <p>Dart (<a href="https://dartsim.github.io/">Dynamic Animation and Robotics Toolkit</a>) is an open source library that provides data structures and algorithms for kinematic and dynamic applications in robotics and computer animation. It is the default physics engine used in Gazebo Simulation. The source code for Dartsim plugin can be found in <a href="https://github.com/gazebosim/gz-physics/tree/main">Gazebo Physics repository</a> under <code>dartsim</code> directory.</p>
-<p>TPE (<a href="https://github.com/gazebosim/gz-physics/tree/main/tpe">Trivial Physics Engine</a>) is an open source library created by Open Robotics that enables fast, inexpensive kinematics simulation for entities at large scale. It supports higher-order fleet dynamics without real physics (eg. gravity, force, constraint etc.) and multi-machine synchronization. Gazebo support for TPE targets <a href="https://gazebosim.org/docs/citadel">Citadel</a> and onward releases. The source code for TPE plugin can be found in <a href="https://github.com/gazebosim/gz-physics/tree/main">Gazebo Physics repository</a> under the <code>tpe/plugin</code> directory.</p>
-<p>The following is a list of features supported by each physics engine to help users select one that fits their needs.</p>
-<h4><a class="anchor" id="autotoc_md23"></a>
-Entity Comparison</h4>
-<p>The following is a table of <code>Entity</code> names used in Gazebo Physics plugin interface, Dart and TPE. Entities are arranged in top-down hierarchical order.</p>
+<p>TPE (<a href="https://github.com/gazebosim/gz-physics/tree/main/tpe">Trivial Physics Engine</a>) is an open source library created by Open Robotics that enables fast, inexpensive kinematics simulation for entities at large scale. It supports higher-order fleet dynamics without real physics (eg. gravity, force, constraint etc.) and multi-machine synchronization. The source code for TPE plugin can be found in <a href="https://github.com/gazebosim/gz-physics/tree/main">Gazebo Physics repository</a> under the <code>tpe/plugin</code> directory.</p>
+<p>Bullet (<a href="https://github.com/bulletphysics/bullet3">Bullet3 Physics Engine</a>) is an open source library that supports real-time collision detection and multi-physics simulation for robotics and other application domains. Since Bullet supports two different APIs - a rigid-body API and a multibody API - with different physics implementations, there are two available plugin implementations:</p><ul>
+<li>The <code>bullet</code> plugin implements the rigid-body API, and the source code can be found in <a href="https://github.com/gazebosim/gz-physics/tree/main">Gazebo Physics repository</a> under the <code>bullet</code> directory.</li>
+<li>The <code>bullet-featherstone</code> plugin implements the multibody API (based on Featherstone's algorithms), and the source code can be found in <a href="https://github.com/gazebosim/gz-physics/tree/main">Gazebo Physics repository</a> under the <code>bullet-featherstone</code> directory.</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md22"></a>
+Entity Comparison</h3>
+<p>The following is a table of <code>Entity</code> names used in the Gazebo Physics plugin interface, mapped to corresponding types in each supported physics engine. Entities are arranged in top-down hierarchical order.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadCenter">Physics Plugin   </th><th class="markdownTableHeadCenter">Dart   </th><th class="markdownTableHeadCenter">TPE    </th></tr>
+<th class="markdownTableHeadCenter">Physics Plugin   </th><th class="markdownTableHeadCenter">Dart   </th><th class="markdownTableHeadCenter">TPE   </th><th class="markdownTableHeadCenter">Bullet   </th><th class="markdownTableHeadCenter">Bullet Featherstone    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">Engine   </td><td class="markdownTableBodyCenter">Engine   </td><td class="markdownTableBodyCenter">Engine    </td></tr>
+<td class="markdownTableBodyCenter">Engine   </td><td class="markdownTableBodyCenter">Engine   </td><td class="markdownTableBodyCenter">Engine   </td><td class="markdownTableBodyCenter">Engine   </td><td class="markdownTableBodyCenter">Engine    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">World   </td><td class="markdownTableBodyCenter">World   </td><td class="markdownTableBodyCenter">World    </td></tr>
+<td class="markdownTableBodyCenter">World   </td><td class="markdownTableBodyCenter">World   </td><td class="markdownTableBodyCenter">World   </td><td class="markdownTableBodyCenter">btDiscreteDynamicsWorld   </td><td class="markdownTableBodyCenter">btMultiBodyDynamicsWorld    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">Frame   </td><td class="markdownTableBodyCenter">Frame   </td><td class="markdownTableBodyCenter">N/A    </td></tr>
+<td class="markdownTableBodyCenter">Frame   </td><td class="markdownTableBodyCenter">Frame   </td><td class="markdownTableBodyCenter">N/A   </td><td class="markdownTableBodyCenter">N/A<sup>1</sup>   </td><td class="markdownTableBodyCenter">N/A<sup>1</sup>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">Model   </td><td class="markdownTableBodyCenter">Skeleton   </td><td class="markdownTableBodyCenter">Model    </td></tr>
+<td class="markdownTableBodyCenter">Model   </td><td class="markdownTableBodyCenter">Skeleton   </td><td class="markdownTableBodyCenter">Model   </td><td class="markdownTableBodyCenter">N/A<sup>2</sup>   </td><td class="markdownTableBodyCenter">btMultiBody    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">Joint   </td><td class="markdownTableBodyCenter">Joint   </td><td class="markdownTableBodyCenter">N/A    </td></tr>
+<td class="markdownTableBodyCenter">Joint   </td><td class="markdownTableBodyCenter">Joint   </td><td class="markdownTableBodyCenter">N/A   </td><td class="markdownTableBodyCenter">btTypedConstraint   </td><td class="markdownTableBodyCenter">btMultiBodyJoint<sup>3</sup>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">Link   </td><td class="markdownTableBodyCenter">BodyNode   </td><td class="markdownTableBodyCenter">Link    </td></tr>
+<td class="markdownTableBodyCenter">Link   </td><td class="markdownTableBodyCenter">BodyNode   </td><td class="markdownTableBodyCenter">Link   </td><td class="markdownTableBodyCenter">btRigidBody   </td><td class="markdownTableBodyCenter">btMultiBodyLink    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">Shape   </td><td class="markdownTableBodyCenter">Shape   </td><td class="markdownTableBodyCenter">Collision    </td></tr>
+<td class="markdownTableBodyCenter">Shape   </td><td class="markdownTableBodyCenter">Shape   </td><td class="markdownTableBodyCenter">Collision   </td><td class="markdownTableBodyCenter">btCollisionShape   </td><td class="markdownTableBodyCenter">btCollisionShape    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">Box/Sphere/Cylinder etc.   </td><td class="markdownTableBodyCenter">Box/Sphere/Cylinder etc.   </td><td class="markdownTableBodyCenter">Box/Sphere/Cylinder/Mesh etc.   </td></tr>
+<td class="markdownTableBodyCenter">Box/Sphere/Cylinder etc.   </td><td class="markdownTableBodyCenter">Box/Sphere/Cylinder etc.   </td><td class="markdownTableBodyCenter">Box/Sphere/Cylinder etc.   </td><td class="markdownTableBodyCenter">Box/Sphere/Cylinder etc.   </td><td class="markdownTableBodyCenter">Box/Sphere/Cylinder etc.   </td></tr>
 </table>
-<h4><a class="anchor" id="autotoc_md24"></a>
-Feature Comparison</h4>
-<p>The following is a table of implemented <code>Features</code> of Dartsim and TPE-Plugin.</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadCenter">Features   </th><th class="markdownTableHeadCenter">Dartsim   </th><th class="markdownTableHeadCenter">TPE-Plugin    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">GetEntities   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓ (no joint in TPE)    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">RemoveEntities   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">ConstructEmptyWorldFeature   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">ConstructEmptyModelFeature   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">ConstructEmptyLinkFeature   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">CollisionFilterMaskFeature   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">FindFreeGroupFeature   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">SetFreeGroupWorldPose   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">SetFreeGroupWorldVelocity   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">GetBasicJointState   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">SetBasicJointState   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">GetBasicJointProperties   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">SetJointTransformFromParentFeature   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">SetJointTransformToChildFeature   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">DetachJointFeature   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">SetFreeJointRelativeTransformFeature   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">AttachFixedJointFeature   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">SetRevoluteJointProperties   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">GetRevoluteJointProperties   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">AttachRevoluteJointFeature   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">SetPrismaticJointProperties   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">GetPrismaticJointProperties   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">AttachPrismaticJointFeature   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">SetJointVelocityCommandFeature   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">LinkFrameSemantics   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">ShapeFrameSemantics   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">FreeGroupFrameSemantics   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">AddLinkExternalForceTorque   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">sdf::ConstructSdfWorld   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">sdf::ConstructSdfModel   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">sdf::ConstructSdfLink   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">sdf::ConstructSdfJoint   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">sdf::ConstructSdfCollision   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">sdf::ConstructSdfVisual   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">GetShapeKinematicProperties   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">SetShapeKinematicProperties   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">GetShapeBoundingBox   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">GetBoxShapeProperties   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">AttachBoxShapeFeature   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">GetCylinderShapeProperties   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">AttachCylinderShapeFeature   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">GetSphereShapeProperties   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">AttachSphereShapeFeature   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">mesh::GetMeshShapeProperties   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">mesh::AttachMeshShapeFeature   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyCenter">ForwardStep   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✓    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyCenter">GetContactsFromLastStepFeature   </td><td class="markdownTableBodyCenter">✓   </td><td class="markdownTableBodyCenter">✕   </td></tr>
-</table>
-<p>| CollisionDetector | ✓ | | Solver | ✓ | | heightmap::GetHeightmapShapeProperties | ✓ | | | heightmap::AttachHeightmapShapeFeature | ✓ | | </p>
+<p><sup>1</sup> Frames are implicitly attached to joints, links, collisions or models in the Bullet physics engine.</p>
+<p><sup>2</sup> The Bullet rigid-body API does not have a concept of a Model, but the plugin maintains a collection of Links and Joints in the engine associated with a Model.</p>
+<p><sup>3</sup> There are multiple types in the Bullet Featherstone API to interact with joints, such as btMultiBodyJointLimitConstraint, btMultiBodyJointMotor and btMultiBodyJointFeedback.</p>
+<h3><a class="anchor" id="autotoc_md23"></a>
+Feature Comparison</h3>
+<p>For a list of all available <code>Features</code> in the Gazebo Physics library, check the classes inherited from <code>Feature</code> in the <a href="https://gazebosim.org/api/physics/8/hierarchy.html">Gazebo Physics API</a>. To check if a physics plugin implements a particular <code>Feature</code>, check the <code>FeatureLists</code> supported by that plugin as specified in the plugin.cc file, for example, <a href="https://github.com/gazebosim/gz-physics/blob/main/dartsim/src/plugin.cc">dartsim/src/plugin.cc</a>.</p>
+<p>Next, check out the tutorial on <a class="el" href="pluginloading.html">Loading physics plugins</a> on how to load a plugin and access a specific <code>Feature</code> interface of the plugin programmatically. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
       </div>

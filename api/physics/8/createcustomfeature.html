@@ -138,7 +138,7 @@
   <div class="headertitle"><div class="title">Implement a custom feature</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2><a class="anchor" id="autotoc_md50"></a>
+<div class="textblock"><h2><a class="anchor" id="autotoc_md49"></a>
 Prerequisites</h2>
 <ul>
 <li><a class="el" href="installation.html">Installation</a></li>
@@ -146,10 +146,10 @@ Prerequisites</h2>
 <li><a class="el" href="pluginloading.html">Loading physics plugins</a></li>
 <li><a class="el" href="createphysicsplugin.html">Implement a physics feature</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md51"></a>
+<h2><a class="anchor" id="autotoc_md50"></a>
 Implement a custom feature in DART plugin</h2>
 <p>In the last <a class="el" href="createphysicsplugin.html">Implement a physics feature</a> tutorial, we know how to implement a dummy physics engine as a plugin and load it using <a class="el" href="namespacegz_1_1physics.html">Gazebo Physics API</a>. In this tutorial, we will look deeper into the structure of a physics engine plugin, for example, the available <a href="https://github.com/gazebosim/gz-physics/tree/main/dartsim">DART</a> physics engine in <code>gz-physics</code> repository and how to define a custom <a class="el" href="classgz_1_1physics_1_1Feature.html">Feature</a> for the plugin.</p>
-<h3><a class="anchor" id="autotoc_md52"></a>
+<h3><a class="anchor" id="autotoc_md51"></a>
 Folder structure of the plugins</h3>
 <p>Below is the general structure of the <code>gz-physics</code> repository:</p>
 <div class="fragment"><div class="line">gz-physics</div>
@@ -177,7 +177,7 @@ Folder structure of the plugins</h3>
 <div class="line">└── CMakeLists.txt                    CMake plugin build script.</div>
 </div><!-- fragment --><p>Basically, new implementation of <a class="el" href="classgz_1_1physics_1_1Feature.html">Feature</a> or <a class="el" href="structgz_1_1physics_1_1FeatureList.html">FeatureList</a>, which is corresponded to a functionality of the external physics engine can be defined as a header in <code>src</code> folder. The custom feature could be added in a <a class="el" href="structgz_1_1physics_1_1FeatureList.html">FeatureList</a> and implemented its functionalities in <code>src</code> folder.</p>
 <p>See the <a class="el" href="physicsplugin.html">Understanding the physics plugin</a> tutorial for details on physics engines.</p>
-<h3><a class="anchor" id="autotoc_md53"></a>
+<h3><a class="anchor" id="autotoc_md52"></a>
 Plugin and feature requirements</h3>
 <p>In general, the minimum set of features that any physics engine plugin must implement to be supported by Gazebo is as below:</p><ul>
 <li>FindFreeGroupFeature</li>
@@ -208,7 +208,7 @@ Plugin and feature requirements</h3>
 <li>By default, a blank feature will not require any other features. If the custom feature does require some other set of features, then it should be inherited from <a class="el" href="structgz_1_1physics_1_1FeatureWithRequirements.html">FeatureWithRequirements</a> class, and provided a list of the <code>Features</code> required.</li>
 <li>By default, a blank feature will not conflict with any other features. If the custom feature does conflict with some other set of features, then it should be inherited from <a class="el" href="structgz_1_1physics_1_1FeatureWithConflicts.html">FeatureWithConflicts</a> class, and provided a list of the conflicting <code>Features</code>. The conflicting <code>Features</code> will not run at the same time when requested.</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md54"></a>
+<h3><a class="anchor" id="autotoc_md53"></a>
 Define custom feature template</h3>
 <p>With the requirements and restrictions above, we first need to define a feature template for the custom feature. In this case, this feature will be responsible for retrieving world pointer from the physics engine. The template is placed in <a href="https://github.com/gazebosim/gz-physics/blob/gz-physics8/dartsim/src/World.hh">World.hh</a>:</p>
 <div class="fragment"><div class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> PolicyT, <span class="keyword">typename</span> FeaturesT&gt;</div>
@@ -230,7 +230,7 @@ Define custom feature template</h3>
 <div class="line">│    └── ...</div>
 <div class="line">└── CMakeLists.txt</div>
 </div><!-- fragment --><p>We put this custom feature template in <code>dartsim</code>, and the next step is to implement the <code>RetrieveWorld</code> feature function using Dartsim API.</p>
-<h3><a class="anchor" id="autotoc_md55"></a>
+<h3><a class="anchor" id="autotoc_md54"></a>
 Implement the custom feature</h3>
 <p>After defining the feature template, we can add it to a custom <a class="el" href="structgz_1_1physics_1_1FeatureList.html">FeatureList</a>:</p>
 <div class="fragment"><div class="line"><span class="keyword">using </span>CustomFeatureList = FeatureList&lt;</div>

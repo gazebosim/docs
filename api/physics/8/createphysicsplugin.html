@@ -139,20 +139,20 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>This tutorial shows how to develop a simple plugin that implements a <a class="el" href="namespacegz_1_1physics.html#a6d38e59cc9ee7d1edeb9af2205aac83d">3D policy</a> and includes a sample list of <a class="el" href="classgz_1_1physics_1_1Feature.html">Feature</a> Features.</p>
-<h2><a class="anchor" id="autotoc_md43"></a>
+<h2><a class="anchor" id="autotoc_md42"></a>
 Prerequisites</h2>
 <ul>
 <li><a class="el" href="installation.html">Installation</a></li>
 <li><a class="el" href="physicsplugin.html">Understanding the physics plugin</a></li>
 <li><a class="el" href="pluginloading.html">Loading physics plugins</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md44"></a>
+<h2><a class="anchor" id="autotoc_md43"></a>
 Write a simple physics plugin</h2>
 <p>First we need to create a workspace</p>
 <div class="fragment"><div class="line">cd ~</div>
 <div class="line">mkdir -p ~/hello_world_plugin/build</div>
 <div class="line">cd hello_world_plugin</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md45"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md44"></a>
 Examine the code</h3>
 <p>To set up all libraries needed to implement physics feature, we need to include the following:</p><ul>
 <li><a class="el" href="structgz_1_1physics_1_1FeatureList.html">FeatureList</a> header: to define a list of <a class="el" href="classgz_1_1physics_1_1Feature.html">Feature</a> that will be implemented for the plugin, e.g. <a class="el" href="classgz_1_1physics_1_1GetEngineInfo.html">GetEngineInfo</a>.</li>
@@ -207,7 +207,7 @@ Examine the code</h3>
 <li>The second argument is the <code>FeaturePolicy</code> for this plugin, i.e. <code>FeaturePolicy3d</code></li>
 <li>The third argument is the <code>FeatureList</code>, specifying all the features that this plugin provides, i.e. <code>HelloWorldFeatureList</code></li>
 </ul>
-<h3><a class="anchor" id="autotoc_md46"></a>
+<h3><a class="anchor" id="autotoc_md45"></a>
 Setup CMakeLists.txt for building (Version: gz-physics8)</h3>
 <p>Now create a file named <code>CMakeLists.txt</code> with your favorite editor and add these lines for finding <code>gz-plugin</code> and <code>gz-physics</code> dependencies for the Fortress release:</p>
 <div class="fragment"><div class="line">cmake_minimum_required(VERSION 3.22.1 FATAL_ERROR)</div>
@@ -224,9 +224,9 @@ Setup CMakeLists.txt for building (Version: gz-physics8)</h3>
 <div class="line">target_link_libraries(HelloWorldPlugin</div>
 <div class="line">  PRIVATE</div>
 <div class="line">    <a class="code hl_namespaceRef" href="https://gazebosim.org/api/common/6/namespacegz.html">gz</a>-physics${GZ_PHYSICS_VER}::gz-physics${GZ_PHYSICS_VER})</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md47"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md46"></a>
 Build and run</h2>
-<h3><a class="anchor" id="autotoc_md48"></a>
+<h3><a class="anchor" id="autotoc_md47"></a>
 Compile the plugin</h3>
 <p>Your current plugin folder should look like this:</p>
 <div class="fragment"><div class="line">$ ls ~/hello_world_plugin</div>
@@ -236,7 +236,7 @@ Compile the plugin</h3>
 <div class="line">cmake ..</div>
 <div class="line">make</div>
 </div><!-- fragment --><p>This will generate the <code>HelloWorldPlugin</code> library under <code>build</code>. The exact name of the library file depends on the operating system such as <code>libHelloWorldPlugin.so</code> on Linux, <code>libHelloWorldPlugin.dylib</code> on MacOS, and <code>HelloWorldPlugin.dll</code> on Windows.</p>
-<h3><a class="anchor" id="autotoc_md49"></a>
+<h3><a class="anchor" id="autotoc_md48"></a>
 Test loading the plugin on Linux</h3>
 <p>Please first follow the <a class="el" href="pluginloading.html">Loading physics plugins</a> tutorial to create a simple loader. Then we test our plugin using the loader as follow:</p>
 <div class="fragment"><div class="line">cd ~</div>
