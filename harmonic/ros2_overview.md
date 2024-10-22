@@ -39,7 +39,7 @@ ROS container. When this happens, all the nodes within the same ROS container
 share the same process and can leverage intraprocess communication.
 
 The parameter `create_own_container` only makes sense when `use_composition` is
-set to `True`. This parameter lets you control whether your start a ROS
+set to `True`. This parameter lets you control whether you start a ROS
 container for your composable nodes or you defer to an external ROS container.
 
 Our recommendation is to always set the `use_composition` parameter to `True`
