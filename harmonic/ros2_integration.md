@@ -65,21 +65,18 @@ for a valid configuration file.
 
 The package `ros_gz_bridge` contains a launch file named
 `ros_gz_bridge.launch.py`. You can use it to start a ROS 2 and Gazebo bridge.
+
 Here's an example:
-
-Note: If you run the bridge as a standalone node with composition enabled,
-you'll need to create a container first.
 ```bash
-ros2 run rclcpp_components component_container --ros-args -r __node:=ros_gz_container
+ros2 launch ros_gz_bridge ros_gz_bridge.launch.py bridge_name:=ros_gz_bridge config_file:=<path_to_your_YAML_file>
 ```
 
+Launching with composition:
+```bash
+ros2 launch ros_gz_bridge ros_gz_bridge.launch.py bridge_name:=ros_gz_bridge config_file:=<path_to_your_YAML_file> use_composition:=True create_own_container:=True
+```
 Alternatively, if an existing container is already running, you can pass its name
-when launching the bridge using the `container_name` parameter.
-
-And now, the container will load your bridge with:
-```bash
-ros2 launch ros_gz_bridge ros_gz_bridge.launch.py bridge_name:=ros_gz_bridge use_composition:=True config_file:=<path_to_your_YAML_file>
-```
+when launching the bridge using the `container_name` parameter. More info about composition can be viewed [here](ros2_overview#composition)
 
 Check [this block](https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_bridge/launch/ros_gz_bridge.launch.py#L27-L34)
 from the source code to know all the different parameters accepted by this
