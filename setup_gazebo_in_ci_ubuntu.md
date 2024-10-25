@@ -9,7 +9,6 @@ The `setup-gazebo` GitHub Action on Ubuntu runners takes in the following parame
 * `required-gazebo-distributions`: A **required** parameter that specifies the Gazebo distribution to be installed. The allowed keywords are,
   * `citadel`
   * `fortress`
-  * `garden`
   * `harmonic`
   * `ionic`
 * `use-gazebo-prerelease`: An **optional** parameter to install pre-release binaries from OSRF repository.

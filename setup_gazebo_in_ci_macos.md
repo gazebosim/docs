@@ -9,7 +9,6 @@ The `setup-gazebo` GitHub Action on macOS runners takes in the following paramet
 * `required-gazebo-distributions`: A **required** parameter that specifies the Gazebo distribution to be installed. The allowed keywords are,
   * `citadel`
   * `fortress`
-  * `garden`
   * `harmonic`
   * `ionic`
 

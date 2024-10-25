@@ -15,7 +15,6 @@ The action currently supports all the non-EOL Gazebo releases. See [releases](ht
 
 * Citadel
 * Fortress
-* Garden
 * Harmonic
 * Ionic
 
