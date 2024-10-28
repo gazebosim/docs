@@ -20,8 +20,8 @@ The action currently supports all the non-EOL Gazebo releases. See [releases](ht
 
 ## Supported Platforms
 
-The `setup-gazebo` GitHub Action works on three platforms,
+The `setup-gazebo` GitHub Action works on three platforms (Ubuntu, macOS and Windows) with the usage instructions for each described below,
 
-* [Ubuntu](setup_gazebo_in_ci_ubuntu)
-* [macOS](setup_gazebo_in_ci_macos)
-* [Windows](setup_gazebo_in_ci_windows)
+* [Ubuntu](https://github.com/marketplace/actions/setup-gazebo-environment#ubuntu)
+* [macOS](https://github.com/marketplace/actions/setup-gazebo-environment#macos)
+* [Windows](https://github.com/marketplace/actions/setup-gazebo-environment#windows)
