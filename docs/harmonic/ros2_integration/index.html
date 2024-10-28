@@ -519,19 +519,17 @@ for a valid configuration file.</p>
 <section id="launching-the-bridge-using-the-launch-files-included-in-ros-gz-bridge-package">
 <h2>Launching the bridge using the launch files included in <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> package.<a class="headerlink" href="#launching-the-bridge-using-the-launch-files-included-in-ros-gz-bridge-package" title="Link to this heading">#</a></h2>
 <p>The package <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> contains a launch file named
-<code class="docutils literal notranslate"><span class="pre">ros_gz_bridge.launch.py</span></code>. You can use it to start a ROS 2 and Gazebo bridge.
-Here’s an example:</p>
-<p>Note: If you run the bridge as a standalone node with composition enabled,
-you’ll need to create a container first.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>run<span class="w"> </span>rclcpp_components<span class="w"> </span>component_container<span class="w"> </span>--ros-args<span class="w"> </span>-r<span class="w"> </span>__node:<span class="o">=</span>ros_gz_container
+<code class="docutils literal notranslate"><span class="pre">ros_gz_bridge.launch.py</span></code>. You can use it to start a ROS 2 and Gazebo bridge.</p>
+<p>Here’s an example:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>ros_gz_bridge<span class="w"> </span>ros_gz_bridge.launch.py<span class="w"> </span>bridge_name:<span class="o">=</span>ros_gz_bridge<span class="w"> </span>config_file:<span class="o">=</span>&lt;path_to_your_YAML_file&gt;
+</pre></div>
+</div>
+<p>Launching with composition:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>ros_gz_bridge<span class="w"> </span>ros_gz_bridge.launch.py<span class="w"> </span>bridge_name:<span class="o">=</span>ros_gz_bridge<span class="w"> </span>config_file:<span class="o">=</span>&lt;path_to_your_YAML_file&gt;<span class="w"> </span>use_composition:<span class="o">=</span>True<span class="w"> </span>create_own_container:<span class="o">=</span>True
 </pre></div>
 </div>
 <p>Alternatively, if an existing container is already running, you can pass its name
-when launching the bridge using the <code class="docutils literal notranslate"><span class="pre">container_name</span></code> parameter.</p>
-<p>And now, the container will load your bridge with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>ros_gz_bridge<span class="w"> </span>ros_gz_bridge.launch.py<span class="w"> </span>bridge_name:<span class="o">=</span>ros_gz_bridge<span class="w"> </span>use_composition:<span class="o">=</span>True<span class="w"> </span>config_file:<span class="o">=</span>&lt;path_to_your_YAML_file&gt;
-</pre></div>
-</div>
+when launching the bridge using the <code class="docutils literal notranslate"><span class="pre">container_name</span></code> parameter. More info about composition can be viewed <a class="reference internal" href="#ros2_overview#composition"><span class="xref myst">here</span></a></p>
 <p>Check <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_bridge/launch/ros_gz_bridge.launch.py#L27-L34">this block</a>
 from the source code to know all the different parameters accepted by this
 launch file.</p>

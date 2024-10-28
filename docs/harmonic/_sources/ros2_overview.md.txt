@@ -64,7 +64,7 @@ diagram is still using composition but the launch file doesn't start the
 container directly. This setup by itself will not work until you start an
 external ROS container (manually or via a separate launch file).
 
-You can learn more about ROS composition in [this tutorial](https://docs.ros.org/en/galactic/Tutorials/Intermediate/Composition.html).
+You can learn more about ROS composition in [this tutorial](https://docs.ros.org/en/jazzy/Tutorials/Intermediate/Composition.html).
 
 ## What's next?
 

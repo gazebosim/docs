@@ -551,13 +551,6 @@ sets up empty arrays for topics to be bridged and remapped from Gazebo to ROS 2:
                 <span class="s1">&#39;on_exit_shutdown&#39;</span><span class="p">:</span> <span class="s1">&#39;True&#39;</span>
             <span class="p">}</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span>
         <span class="p">),</span>
-        <span class="n">Node</span><span class="p">(</span>
-            <span class="n">package</span><span class="o">=</span><span class="s1">&#39;ros_gz_bridge&#39;</span><span class="p">,</span>
-            <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;parameter_bridge&#39;</span><span class="p">,</span>
-            <span class="n">arguments</span><span class="o">=</span><span class="p">[],</span>
-            <span class="n">remappings</span><span class="o">=</span><span class="p">[],</span>
-            <span class="n">output</span><span class="o">=</span><span class="s1">&#39;screen&#39;</span>
-        <span class="p">),</span>
     <span class="p">])</span>
 </pre></div>
 </div>
@@ -588,6 +581,18 @@ sets up empty arrays for topics to be bridged and remapped from Gazebo to ROS 2:
 </pre></div>
 </div>
 </section>
+</section>
+<section id="launching-with-ros-gz-bridge">
+<h2>Launching with ros_gz_bridge<a class="headerlink" href="#launching-with-ros-gz-bridge" title="Link to this heading">#</a></h2>
+<p>An example launch file for XML can be viewed <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_sim/launch/ros_gz_sim.launch">here</a>
+An example launch file for Python can be viewed <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_sim/launch/ros_gz_sim.launch.py">here</a></p>
+<p>Example command for directly using these launch files from the terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>ros_gz_sim<span class="w"> </span>ros_gz_sim.launch.py<span class="w"> </span>world_sdf_file:<span class="o">=</span>empty.sdf<span class="w"> </span>bridge_name:<span class="o">=</span>ros_gz_bridge<span class="w"> </span>config_file:<span class="o">=</span>&lt;path_to_your_YAML_file&gt;<span class="w"> </span>use_composition:<span class="o">=</span>True<span class="w"> </span>create_own_container:<span class="o">=</span>True
+</pre></div>
+</div>
+<p>In the above launch files you may notice that the <code class="docutils literal notranslate"><span class="pre">create_own_container</span></code> argument for <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> is hardcoded to <code class="docutils literal notranslate"><span class="pre">False</span></code>. This has been done to prevent two duplicate containers from getting created (one for <code class="docutils literal notranslate"><span class="pre">gz_server</span></code> and another one for <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code>), and instead make <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> use the container created by <code class="docutils literal notranslate"><span class="pre">gz_server</span></code>. More info about this can be viewed <a class="reference external" href="https://github.com/gazebosim/ros_gz/pull/620#issue-2595570189">here</a></p>
+<p>More info about <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> can be viewed <a class="reference internal" href="../ros2_integration/"><span class="doc std std-doc">here</span></a>.
+More info about composition can be viewed <a class="reference internal" href="#ros2_overview#composition"><span class="xref myst">here</span></a>.</p>
 </section>
 </section>
 
@@ -620,6 +625,7 @@ sets up empty arrays for topics to be bridged and remapped from Gazebo to ROS 2:
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-with-ros-gz-bridge">Launching with ros_gz_bridge</a></li>
 </ul>
   </nav></div>
 

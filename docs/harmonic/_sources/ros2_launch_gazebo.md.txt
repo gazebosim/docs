@@ -93,13 +93,6 @@ def generate_launch_description():
                 'on_exit_shutdown': 'True'
             }.items(),
         ),
-        Node(
-            package='ros_gz_bridge',
-            executable='parameter_bridge',
-            arguments=[],
-            remappings=[],
-            output='screen'
-        ),
     ])
 ```
 
@@ -129,3 +122,19 @@ def generate_launch_description():
 
     return ld
 ```
+
+
+## Launching with ros_gz_bridge
+
+An example launch file for XML can be viewed [here](https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_sim/launch/ros_gz_sim.launch)
+An example launch file for Python can be viewed [here](https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_sim/launch/ros_gz_sim.launch.py)
+
+Example command for directly using these launch files from the terminal:
+```bash
+ros2 launch ros_gz_sim ros_gz_sim.launch.py world_sdf_file:=empty.sdf bridge_name:=ros_gz_bridge config_file:=<path_to_your_YAML_file> use_composition:=True create_own_container:=True
+```
+
+In the above launch files you may notice that the `create_own_container` argument for `ros_gz_bridge` is hardcoded to `False`. This has been done to prevent two duplicate containers from getting created (one for `gz_server` and another one for `ros_gz_bridge`), and instead make `ros_gz_bridge` use the container created by `gz_server`. More info about this can be viewed [here](https://github.com/gazebosim/ros_gz/pull/620#issue-2595570189)
+
+More info about `ros_gz_bridge` can be viewed [here](ros2_integration).
+More info about composition can be viewed [here](ros2_overview#composition).
