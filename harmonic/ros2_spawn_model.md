@@ -8,14 +8,14 @@ we have provided the following mechanisms:
 *Currently only available in Rolling.*
 
 The package `ros_gz_sim` contains a launch file named
-`ros_gz_spawn_model.launch.py`. You can use it to spawn a new model into an
+`gz_spawn_model.launch.py`. You can use it to spawn a new model into an
 existing simulation. Here's an example:
 
 ```bash
-ros2 launch ros_gz_sim ros_gz_spawn_model.launch.py world:=empty file:=$(ros2 pkg prefix --share ros_gz_sim_demos)/models/vehicle/model.sdf entity_name:=my_vehicle x:=5.0 y:=5.0 z:=0.5
+ros2 launch ros_gz_sim gz_spawn_model.launch.py world:=empty file:=$(ros2 pkg prefix --share ros_gz_sim_demos)/models/vehicle/model.sdf entity_name:=my_vehicle x:=5.0 y:=5.0 z:=0.5
 ```
 
-Check [this block](https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_sim/launch/ros_gz_spawn_model.launch.py#L26-L45)
+Check [this block](https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_sim/launch/gz_spawn_model.launch.py#L26-L45)
 from the source code to know all the different parameters accepted by this
 launch file.
 
@@ -60,3 +60,16 @@ within this tag. Here's an example:
 In this case the `<gz_spawn_model>` parameters are read from the command line.
 That's an option but not strictly necessary as you could decide to hardcode some
 of the values or not even use all of the parameters.
+
+
+## Spawning a model alongside launching ros_gz_bridge
+
+An example launch file for XML can be viewed [here](https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_sim/launch/ros_gz_spawn_model.launch)
+An example launch file for Python can be viewed [here](https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_sim/launch/ros_gz_spawn_model.launch.py)
+
+Example command for directly using these launch files from the terminal:
+```bash
+ros2 launch ros_gz_sim ros_gz_spawn_model.launch.py world:=empty file:=$(ros2 pkg prefix --share ros_gz_sim_demos)/models/vehicle/model.sdf entity_name:=my_vehicle x:=5.0 y:=5.0 z:=0.5 bridge_name:=ros_gz_bridge config_file:=<path_to_your_YAML_file>
+```
+
+More info about `ros_gz_bridge` can be viewed [here](ros2_integration).
