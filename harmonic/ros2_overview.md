@@ -69,7 +69,7 @@ not work until you start an external ROS container (manually or via a separate l
 container. We're using the Nav2 logo as an example of external ROS 2 consumer
 node.
 
-You can learn more about ROS composition in [this tutorial](https://docs.ros.org/en/galactic/Tutorials/Intermediate/Composition.html).
+You can learn more about ROS composition in [this tutorial](https://docs.ros.org/en/jazzy/Tutorials/Intermediate/Composition.html).
 
 ## What's next?
 
