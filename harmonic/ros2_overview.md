@@ -39,7 +39,7 @@ ROS container. When this happens, all the nodes within the same ROS container
 share the same process and can leverage intraprocess communication.
 
 The parameter `create_own_container` only makes sense when `use_composition` is
-set to `True`. This parameter lets you control whether your start a ROS
+set to `True`. This parameter lets you control whether you start a ROS
 container for your composable nodes or you defer to an external ROS container.
 
 Our recommendation is to always set the `use_composition` parameter to `True`
@@ -57,12 +57,16 @@ ROS nodes will be intraprocess.
 
 This figure illustrates the concept of composition. The left diagram captures
 the idea of not using composition. All the three example nodes are standalone
-nodes, and they can talk via interprocess communication. The center diagram
-represents the scenario where we use composition and we start our own container
-from our own launch file. All communication is intraprocess here. The right
-diagram is still using composition but the launch file doesn't start the
-container directly. This setup by itself will not work until you start an
-external ROS container (manually or via a separate launch file).
+nodes, and they can talk via interprocess communication using the bridge.
+The center diagram represents the scenario where we can use composition with a ROS container created by a `ros_gz` launch file containing both Gazebo and the bridge, and an additional
+consumer node outside that we cannot control. All communication between Gazebo
+and the bridge is intraprocess and interprocess between the external consumer
+node and the bridge.
+The diagram on the right side is using composition across all nodes but the
+`ros_gz` launch file doesn't start its own container directly. This setup by itself will
+not work until you start an external ROS container (manually or via a separate launch file). In this diagram, the external ROS consumer node starts the
+container. We're using the Nav2 logo as an example of external ROS 2 consumer
+node.
 
 You can learn more about ROS composition in [this tutorial](https://docs.ros.org/en/jazzy/Tutorials/Intermediate/Composition.html).
 
