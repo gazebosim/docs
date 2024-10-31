@@ -63,7 +63,7 @@ consumer node outside that we cannot control. All communication between Gazebo
 and the bridge is intraprocess and interprocess between the external consumer
 node and the bridge.
 The diagram on the right side is using composition across all nodes but the
-launch file doesn't start our own container directly. This setup by itself will
+`ros_gz` launch file doesn't start its own container directly. This setup by itself will
 not work until you start an external ROS container (manually or via a separate launch file). In this diagram, the external ROS consumer node starts the
 container. We're using the Nav2 logo as an example of external ROS 2 consumer
 node.
