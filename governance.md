@@ -11,7 +11,7 @@ responsibilities. For further information, please refer to
 ## Open Source Robotics Alliance (OSRA)
 
 The Open Source Robotics Foundation (OSRF) established the Open Source Robotics
-Association (OSRA) to enhance the governance of its open-source projects
+Alliance (OSRA) to enhance the governance of its open-source projects
 including Gazebo. Inspired by the success of organizations like The Linux
 Foundation and the Eclipse Foundation, OSRA aims to provide funding, encourage
 greater community involvement, and ensure the long-term stability of these
