@@ -54,7 +54,7 @@ The Gazebo PMC currently consists of the following individuals:
 
 ## Current Gazebo Committers
 
-The Gazebo Committers (who are not also PMC members) currently consists of the
+The Gazebo Committers (who are not also PMC members) currently consist of the
 following individuals:
 
 | Name              | Affiliation                            | Github Handle                     | Time Zone (optional)   |
