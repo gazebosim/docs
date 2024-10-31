@@ -58,8 +58,7 @@ ROS nodes will be intraprocess.
 This figure illustrates the concept of composition. The left diagram captures
 the idea of not using composition. All the three example nodes are standalone
 nodes, and they can talk via interprocess communication using the bridge.
-The center diagram represents the scenario where we can use composition and our
-own ROS container between Gazebo and the bridge, but there's an additional
+The center diagram represents the scenario where we can use composition with a ROS container created by a `ros_gz` launch file containing both Gazebo and the bridge, and an additional
 consumer node outside that we cannot control. All communication between Gazebo
 and the bridge is intraprocess and interprocess between the external consumer
 node and the bridge.
