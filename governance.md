@@ -59,3 +59,4 @@ following individuals:
 
 | Name              | Affiliation                            | Github Handle                     | Time Zone (optional)   |
 | ----------------- | -------------------------------------- | --------------------------------- | ---------------------- |
+| Arjo Chakravarty  | [Intrinsic](https://www.intrinsic.ai/) | [arjo129](https://github.com/arjo129)| SST (UTC+8)            |
