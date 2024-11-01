@@ -11,12 +11,12 @@ responsibilities. For further information, please refer to
 ## Open Source Robotics Alliance (OSRA)
 
 The Open Source Robotics Foundation (OSRF) established the Open Source Robotics
-Alliance (OSRA) to enhance the governance of its open-source projects
-including Gazebo. Inspired by the success of organizations like The Linux
-Foundation and the Eclipse Foundation, OSRA aims to provide funding, encourage
-greater community involvement, and ensure the long-term stability of these
-projects. The OSRA has a Technical Governance Committee that oversees the
-technical aspects of the projects.
+Alliance (OSRA) to enhance the governance of its open-source projects including
+Gazebo. Inspired by the success of organizations like The Linux Foundation and
+the Eclipse Foundation, OSRA aims to provide funding, encourage greater
+community involvement, and ensure the long-term stability of these projects. The
+OSRA has a Technical Governance Committee that oversees the technical aspects of
+the projects.
 
 ## Technical Governance Committee (TGC)
 
@@ -48,16 +48,20 @@ PMC members are required to be committers.
 
 The Gazebo PMC currently consists of the following individuals:
 
-| Name              | Affiliation                            | Github Handle                     | PMC Role       | Time Zone (optional)   |
-| ----------------- | -------------------------------------- | --------------------------------- | -------------- | ---------------------- |
-| Addisu Z. Taddese | [Intrinsic](https://www.intrinsic.ai/) | [azeey](https://github.com/azeey) | Project Leader | CST (UTC-6)/CDT(UTC-5) |
-| Benjamin Perseghetti | [Rudis Labs](https://github.com/rudislabs) | [bperseghetti](https://github.com/bperseghetti) | Project Member | EST (UTC-5)/EDT(UTC-4) |
+<!-- Alphabetized by last name -->
+
+| Name                 | Affiliation                                | Github Handle                                   | PMC Role       | Time Zone (optional)   |
+| -------------------- | ------------------------------------------ | ----------------------------------------------- | -------------- | ---------------------- |
+| Benjamin Perseghetti | [Rudis Labs](https://github.com/rudislabs) | [bperseghetti](https://github.com/bperseghetti) | Member         | EST (UTC-5)/EDT(UTC-4) |
+| Addisu Z. Taddese    | [Intrinsic](https://www.intrinsic.ai/)     | [azeey](https://github.com/azeey)               | Project Leader | CST (UTC-6)/CDT(UTC-5) |
 
 ## Current Gazebo Committers
 
 The Gazebo Committers (who are not also PMC members) currently consist of the
 following individuals:
 
-| Name              | Affiliation                            | Github Handle                     | Time Zone (optional)   |
-| ----------------- | -------------------------------------- | --------------------------------- | ---------------------- |
-| Arjo Chakravarty  | [Intrinsic](https://www.intrinsic.ai/) | [arjo129](https://github.com/arjo129)| SST (UTC+8)            |
+<!-- Alphabetized by last name -->
+
+| Name             | Affiliation                            | Github Handle                         | Time Zone (optional) |
+| ---------------- | -------------------------------------- | ------------------------------------- | -------------------- |
+| Arjo Chakravarty | [Intrinsic](https://www.intrinsic.ai/) | [arjo129](https://github.com/arjo129) | SST (UTC+8)          |
