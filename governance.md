@@ -51,6 +51,7 @@ The Gazebo PMC currently consists of the following individuals:
 | Name              | Affiliation                            | Github Handle                     | PMC Role       | Time Zone (optional)   |
 | ----------------- | -------------------------------------- | --------------------------------- | -------------- | ---------------------- |
 | Addisu Z. Taddese | [Intrinsic](https://www.intrinsic.ai/) | [azeey](https://github.com/azeey) | Project Leader | CST (UTC-6)/CDT(UTC-5) |
+| Benjamin Perseghetti | [Rudis Labs](https://github.com/rudislabs) | [bperseghetti](https://github.com/bperseghetti) | Project Member | EST (UTC-5)/EDT(UTC-4) |
 
 ## Current Gazebo Committers
 
