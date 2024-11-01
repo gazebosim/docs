@@ -54,6 +54,7 @@ The Gazebo PMC currently consists of the following individuals:
 | -------------------- | ------------------------------------------ | ----------------------------------------------- | -------------- | ---------------------- |
 | Ian Chen             | [Intrinsic](https://www.intrinsic.ai/)     | [iche033](https://github.com/iche033)           | Member         | PST (UTC-8)/PDT (UTC-7) |
 | Benjamin Perseghetti | [Rudis Labs](https://github.com/rudislabs) | [bperseghetti](https://github.com/bperseghetti) | Member         | EST (UTC-5)/EDT (UTC-4) |
+| Steve Peters         | [Intrinsic](https://www.intrinsic.ai/)     | [scpeters](https://github.com/scpeters)         | Member         | PST (UTC-8)/PDT (UTC-7) |
 | Addisu Z. Taddese    | [Intrinsic](https://www.intrinsic.ai/)     | [azeey](https://github.com/azeey)               | Project Leader | CST (UTC-6)/CDT (UTC-5) |
 
 ## Current Gazebo Committers
