@@ -65,6 +65,7 @@ following individuals:
 
 <!-- Alphabetized by last name -->
 
-| Name             | Affiliation                            | Github Handle                         | Time Zone (optional) |
-| ---------------- | -------------------------------------- | ------------------------------------- | -------------------- |
-| Arjo Chakravarty | [Intrinsic](https://www.intrinsic.ai/) | [arjo129](https://github.com/arjo129) | SST (UTC+8)          |
+| Name                | Affiliation                                    | Github Handle                         | Time Zone (optional)    |
+| ----------------    | --------------------------------------         | ------------------------------------- | --------------------    |
+| Arjo Chakravarty    | [Intrinsic](https://www.intrinsic.ai/)         | [arjo129](https://github.com/arjo129) | SST (UTC+8)             |
+| Alejandro Hernández | [Honu Robotics](https://www.honurobotics.com/) | [ahcorde](https://github.com/ahcorde) | CET (UTC+2)/CET (UTC+1) |
