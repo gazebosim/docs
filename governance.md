@@ -54,6 +54,7 @@ The Gazebo PMC currently consists of the following individuals:
 | -------------------- | ---------------------------------------------- | ----------------------------------------------- | -------------- | ----------------------- |
 | Carlos Agüero        | [Honu Robotics](https://www.honurobotics.com/) | [caguero](https://github.com/caguero)           | Member         | CET (UTC+2)/CET (UTC+1) |
 | Ian Chen             | [Intrinsic](https://www.intrinsic.ai/)         | [iche033](https://github.com/iche033)           | Member         | PST (UTC-8)/PDT (UTC-7) |
+| Alejandro Hernández  | [Honu Robotics](https://www.honurobotics.com/) | [ahcorde](https://github.com/ahcorde)           | Member         | CET (UTC+2)/CET (UTC+1) |
 | Benjamin Perseghetti | [Rudis Labs](https://github.com/rudislabs)     | [bperseghetti](https://github.com/bperseghetti) | Member         | EST (UTC-5)/EDT (UTC-4) |
 | Steve Peters         | [Intrinsic](https://www.intrinsic.ai/)         | [scpeters](https://github.com/scpeters)         | Member         | PST (UTC-8)/PDT (UTC-7) |
 | Addisu Z. Taddese    | [Intrinsic](https://www.intrinsic.ai/)         | [azeey](https://github.com/azeey)               | Project Leader | CST (UTC-6)/CDT (UTC-5) |
@@ -68,4 +69,3 @@ following individuals:
 | Name                | Affiliation                                    | Github Handle                         | Time Zone (optional)    |
 | ----------------    | --------------------------------------         | ------------------------------------- | --------------------    |
 | Arjo Chakravarty    | [Intrinsic](https://www.intrinsic.ai/)         | [arjo129](https://github.com/arjo129) | SST (UTC+8)             |
-| Alejandro Hernández | [Honu Robotics](https://www.honurobotics.com/) | [ahcorde](https://github.com/ahcorde) | CET (UTC+2)/CET (UTC+1) |
