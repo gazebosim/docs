@@ -139,7 +139,7 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Previous Tutorial: <a class="el" href="development.html">Development</a></p>
-<h2><a class="anchor" id="autotoc_md99"></a>
+<h2><a class="anchor" id="autotoc_md103"></a>
 Overview</h2>
 <p>Topic statistics provides a mechanism to quantify transport performance between a publisher and subscriber. When enabled, a subscriber on a topic can measure:</p>
 <ol type="1">
@@ -152,7 +152,7 @@ Overview</h2>
 <p>Publication statistics capture information about when messages are sent by a publisher. The average Hz rate, minimum and maximum times between publications, and standard deviation of publication times are available.</p>
 <p>Similarly, reception statistics capture information about when messages are received by a subscriber. The average Hz rate, minimum and maximum times between receptions, and standard deviation of reception times are available.</p>
 <p>Finally, message age statistics capture information between publication and reception. The age of a message is the time between publication and reception. We are ignoring clock discrepancies. The average, minimum, maximum, and standard deviation values of message age are available.</p>
-<h2><a class="anchor" id="autotoc_md100"></a>
+<h2><a class="anchor" id="autotoc_md104"></a>
 Usage</h2>
 <p>The <code>GZ_TRANSPORT_TOPIC_STATISTICS</code> environment variable must be set to <code>1</code> for both publishers and subscribers. Setting <code>GZ_TRANSPORT_TOPIC_STATISTICS</code> to <code>1</code> will change the wire protocol, which will prevent communication with nodes that have not set <code>GZ_TRANSPORT_TOPIC_STATISTICS</code> to <code>1</code>.</p>
 <p>Additionally, a node on the subscriber side of a pub/sub relationship must call <code>EnableStats</code>. For example:</p>
@@ -175,7 +175,7 @@ Usage</h2>
 <div class="line">{</div>
 <div class="line">  <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Unable to enable stats\n&quot;</span>;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md101"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md105"></a>
 Example</h3>
 <p>For running the example, build the binaries in the example directory:</p>
 <div class="fragment"><div class="line">git clone https://github.com/gazebosim/gz-transport -b gz-transport14</div>
@@ -185,13 +185,13 @@ Example</h3>
 <div class="line">cmake --build build --parallel</div>
 <div class="line"># For Windows</div>
 <div class="line">cmake --build build --config release --parallel</div>
-</div><!-- fragment --><h4><a class="anchor" id="autotoc_md102"></a>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md106"></a>
 Executing</h4>
 <blockquote class="doxtable">
 <p>&zwj;<b>NOTE</b> It is essential to have a valid value of <code>GZ_PARTITION</code> environment variable and to have it set to the same value in all open terminals. As <code>GZ_PARTITION</code> is based on hostname and username, especially Windows and Mac users might have problems due to spaces in their username, which are not a valid character in <code>GZ_PARTITION</code>. gz-transport prints error <code>Invalid partition name</code> in such case. To resolve that, set <code>GZ_PARTITION</code> explicitly to a valid value. </p>
 </blockquote>
 <p>If you have the Gazebo Transport sources with the example programs built, then you can test topic statistics by following these steps depending on the platform:</p>
-<p><a class="anchor" id="autotoc_md103"></a> </p><h5>Linux or Mac</h5>
+<p><a class="anchor" id="autotoc_md107"></a> </p><h5>Linux or Mac</h5>
 <ol type="1">
 <li>Terminal 1: <code>GZ_PARTITION=test GZ_TRANSPORT_TOPIC_STATISTICS=1 ./example/build/publisher</code></li>
 </ol>
@@ -201,7 +201,7 @@ Executing</h4>
 <ol type="1">
 <li>Terminal 3: <code>GZ_PARTITION=test GZ_TRANSPORT_TOPIC_STATISTICS=1 gz topic -et /statistics</code></li>
 </ol>
-<p><a class="anchor" id="autotoc_md104"></a> </p><h5>Windows</h5>
+<p><a class="anchor" id="autotoc_md108"></a> </p><h5>Windows</h5>
 <ol type="1">
 <li>Terminal 1: <code>set "GZ_PARTITION=test" &amp;&amp; set "GZ_TRANSPORT_TOPIC_STATISTICS=1" &amp;&amp; example\build\release\publisher.exe</code></li>
 </ol>

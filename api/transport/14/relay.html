@@ -139,12 +139,12 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Next Tutorial: <a class="el" href="logging.html">Logging</a> Previous Tutorial: <a class="el" href="security.html">Security</a></p>
-<h2><a class="anchor" id="autotoc_md77"></a>
+<h2><a class="anchor" id="autotoc_md81"></a>
 Overview</h2>
 <p>In this tutorial, we are going to create two nodes that are not able to communicate with the default configuration of Gazebo Transport. This limitation arises when the nodes are separated by a router, typically when they are part of different local networks. Routers do not propagate UDP multicast traffic and this is the reason for this limitation. We'll create a scenario to simulate this configuration, and then we'll enable the relay capabilities of Gazebo Transport to make the communication possible.</p>
 <div class="fragment"><div class="line">mkdir -p ~/gz_transport_tutorial/docker</div>
 <div class="line">cd ~/gz_transport_tutorial/docker</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md78"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md82"></a>
 Setup</h2>
 <p>We'll use Docker to configure the environment for this example. Feel free to install Docker following any of the existing guides available (<a href="https://docs.docker.com/get-docker/">here</a>'s one).</p>
 <p>We're going to build a Docker image and run it inside your host computer. Download the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport14/docker/build.bash">build.bash</a>, <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport14/docker/run.bash">run.bash</a> and <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport14/docker/gz-transport/Dockerfile">Dockerfile</a> files.</p>
@@ -181,10 +181,10 @@ Setup</h2>
 <div class="line">        TX packets 71920529  bytes 9057867879 (9.0 GB)</div>
 <div class="line">        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0</div>
 </div><!-- fragment --><p>We want to isolate Gazebo Transport to the network interface not connected to your Docker instance. Thus, try to identify the IP address of the network interface not associated with Docker or the loopback interface. In our case, the IP address is <code>172.23.1.7</code>.</p>
-<h2><a class="anchor" id="autotoc_md79"></a>
+<h2><a class="anchor" id="autotoc_md83"></a>
 Launch the publisher</h2>
 <p>Go back to the terminal inside the Docker container and run the publisher example: </p><div class="fragment"><div class="line">GZ_PARTITION=relay ./publisher</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md80"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md84"></a>
 Launch the subscriber</h2>
 <p>Open a terminal in your host and launch your subscriber, forcing Gazebo Transport to only bind to the IP address that we found in the previous step:</p>
 <div class="fragment"><div class="line">GZ_IP=172.23.1.7 GZ_PARTITION=relay gz topic -e -t /foo</div>
@@ -208,7 +208,7 @@ Launch the subscriber</h2>
 </div><!-- fragment --><p>Go back to your terminal in the host and configure the environment variable <code>GZ_RELAY</code> with the IP address used inside the container.</p>
 <div class="fragment"><div class="line">GZ_RELAY=172.17.0.3 GZ_IP=172.23.1.7 GZ_PARTITION=relay gz topic -e -t /foo</div>
 </div><!-- fragment --><p>Now, you should receive the messages, as your node in the host is directly relaying the discovery messages inside your Docker instance via unicast.</p>
-<h2><a class="anchor" id="autotoc_md81"></a>
+<h2><a class="anchor" id="autotoc_md85"></a>
 Known limitations</h2>
 <p>Keep in mind that the end points of all the nodes should be reachable both ways. The relay feature will overcome the UDP multicast limitation but remember that after the discovery phase the nodes will exchange data directly using a different set of end points. These end points should be reachable from any node, otherwise the communication will not work.</p>
 <p>Example: Imagine that you're running a publisher in your home machine. Typically, you'll be using a private IP address behind your home router doing NAT. If you try to run a subscriber node inside a computer over the internet using a public IP, things will not work even using <code>GZ_RELAY</code>. The discovery protocol will reach the subscriber and back (thanks to the NAT), but things will stop at that point. The real data exchange will not be possible, as the subscriber will not be able to communicate with the publisher's endpoint using a private IP address. A solution to this problem is to create a VPN to create the abstraction that both machines are within the same local network. </p>
