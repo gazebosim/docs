@@ -46,7 +46,7 @@ user system:
  2. The token needs to be stored in `~/.buildfarm/jenkins.ini` in the form:
     ```
     [https://build.osrfoundation.org]
-    user = <your-github-user>
+    username = <your-github-user>
     password = <token created in step 1>
     ```
 
