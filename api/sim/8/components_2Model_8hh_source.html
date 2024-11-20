@@ -216,48 +216,61 @@
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;        }</div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      }</div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      _out &lt;&lt; <span class="stringliteral">&quot;&lt;?xml version=\&quot;1.0\&quot; ?&gt;&quot;</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;&lt;sdf version=&#39;&quot;</span> &lt;&lt; SDF_PROTOCOL_VERSION &lt;&lt; <span class="stringliteral">&quot;&#39;&gt;&quot;</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;           &lt;&lt; (skip ? <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>() : modelElem-&gt;ToString(<span class="stringliteral">&quot;&quot;</span>))</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;           &lt;&lt; <span class="stringliteral">&quot;&lt;/sdf&gt;&quot;</span>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <span class="keywordflow">return</span> _out;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;      <span class="keywordflow">if</span> (!skip)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        _out &lt;&lt; <span class="stringliteral">&quot;&lt;?xml version=\&quot;1.0\&quot; ?&gt;&quot;</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;              &lt;&lt; <span class="stringliteral">&quot;&lt;sdf version=&#39;&quot;</span> &lt;&lt; SDF_PROTOCOL_VERSION &lt;&lt; <span class="stringliteral">&quot;&#39;&gt;&quot;</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;              &lt;&lt; modelElem-&gt;ToString(<span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;              &lt;&lt; <span class="stringliteral">&quot;&lt;/sdf&gt;&quot;</span>;</div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1serializers_1_1SdfModelSerializer.html#a577cdb5a49235b776ec46c5b55cb28db">   89</a></span>&#160;    <span class="keyword">public</span>: <span class="keyword">static</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_istream.html">std::istream</a> &amp;<a class="code" href="classgz_1_1sim_1_1serializers_1_1SdfModelSerializer.html#a577cdb5a49235b776ec46c5b55cb28db" title="Deserialization for sdf::Model.">Deserialize</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_istream.html">std::istream</a> &amp;_in,</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                <a class="code" href="namespacegz_1_1sim_1_1components.html#a81c45336dd134e03c5a29b34beb293db" title="A component that identifies an entity as being a model.">sdf::Model</a> &amp;_model)</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      sdf::Root root;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> sdf(<a class="codeRef" href="http://en.cppreference.com/w/cpp/iterator/istreambuf_iterator.html">std::istreambuf_iterator&lt;char&gt;</a>(_in), {});</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      sdf::Errors errors = root.LoadSdfString(sdf);</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;      <span class="keywordflow">if</span> (!root.Model())</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      {</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <a class="codeRef" href="https://gazebosim.org/api/common/5/gz_2common_2Console_8hh.html#aeaf9d2ac2ef57897410c40b1a379c543">gzwarn</a> &lt;&lt; <span class="stringliteral">&quot;Unable to deserialize sdf::Model&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;        <span class="keywordflow">return</span> _in;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      }</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      _model = *root.Model();</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <span class="keywordflow">return</span> _in;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    }</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  };</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keyword">namespace </span>components</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;{</div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="namespacegz_1_1sim_1_1components.html#a81c45336dd134e03c5a29b34beb293db">  111</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">Model</a> = <a class="code" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">Component&lt;NoData, class ModelTag&gt;</a>;</div>
-<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="namespacegz_1_1sim_1_1components.html#a3c4f421b19393fe2c84b008abee4c995">  112</a></span>&#160;  <a class="code" href="Factory_8hh.html#abf3e5e175d1e8206d83eb11e6aa324bb" title="Static component registration macro.">GZ_SIM_REGISTER_COMPONENT</a>(<span class="stringliteral">&quot;gz_sim_components.Model&quot;</span>, <a class="code" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">Model</a>)</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="keyword">using</span> ModelSdf = <a class="code" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">Component</a>&lt;<a class="code" href="namespacegz_1_1sim_1_1components.html#a81c45336dd134e03c5a29b34beb293db" title="A component that identifies an entity as being a model.">sdf::Model</a>,</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                   <span class="keyword">class </span>ModelTag,</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;                   serializers::SdfModelSerializer&gt;;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <a class="code" href="Factory_8hh.html#abf3e5e175d1e8206d83eb11e6aa324bb" title="Static component registration macro.">GZ_SIM_REGISTER_COMPONENT</a>(&quot;gz_sim_components.ModelSdf&quot;, ModelSdf)</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        _out &lt;&lt; <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;      }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <span class="keywordflow">return</span> _out;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1serializers_1_1SdfModelSerializer.html#a577cdb5a49235b776ec46c5b55cb28db">   97</a></span>&#160;    <span class="keyword">public</span>: <span class="keyword">static</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_istream.html">std::istream</a> &amp;<a class="code" href="classgz_1_1sim_1_1serializers_1_1SdfModelSerializer.html#a577cdb5a49235b776ec46c5b55cb28db" title="Deserialization for sdf::Model.">Deserialize</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_istream.html">std::istream</a> &amp;_in,</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                <a class="code" href="namespacegz_1_1sim_1_1components.html#a81c45336dd134e03c5a29b34beb293db" title="A component that identifies an entity as being a model.">sdf::Model</a> &amp;_model)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> sdf(<a class="codeRef" href="http://en.cppreference.com/w/cpp/iterator/istreambuf_iterator.html">std::istreambuf_iterator&lt;char&gt;</a>(_in), {});</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;      <span class="keywordflow">if</span> (sdf.empty())</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;        <span class="keywordflow">return</span> _in;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;      }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="comment">// Its super expensive to create an SDFElement for some reason</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      sdf::Root root;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;      sdf::Errors errors = root.LoadSdfString(sdf);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;      <span class="keywordflow">if</span> (!root.Model())</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      {</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;        <a class="codeRef" href="https://gazebosim.org/api/common/5/gz_2common_2Console_8hh.html#aeaf9d2ac2ef57897410c40b1a379c543">gzwarn</a> &lt;&lt; <span class="stringliteral">&quot;Unable to deserialize sdf::Model &quot;</span> &lt;&lt; sdf&lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;        <span class="keywordflow">return</span> _in;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;      }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;      _model = *root.Model();</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <span class="keywordflow">return</span> _in;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  };</div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;}</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;}</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;}</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;}</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">namespace </span>components</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;{</div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="namespacegz_1_1sim_1_1components.html#a81c45336dd134e03c5a29b34beb293db">  124</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">Model</a> = <a class="code" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">Component&lt;NoData, class ModelTag&gt;</a>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="namespacegz_1_1sim_1_1components.html#a3c4f421b19393fe2c84b008abee4c995">  125</a></span>&#160;  <a class="code" href="Factory_8hh.html#abf3e5e175d1e8206d83eb11e6aa324bb" title="Static component registration macro.">GZ_SIM_REGISTER_COMPONENT</a>(<span class="stringliteral">&quot;gz_sim_components.Model&quot;</span>, <a class="code" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">Model</a>)</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="keyword">using</span> ModelSdf = <a class="code" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">Component</a>&lt;<a class="code" href="namespacegz_1_1sim_1_1components.html#a81c45336dd134e03c5a29b34beb293db" title="A component that identifies an entity as being a model.">sdf::Model</a>,</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;                   <span class="keyword">class </span>ModelTag,</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                   serializers::SdfModelSerializer&gt;;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <a class="code" href="Factory_8hh.html#abf3e5e175d1e8206d83eb11e6aa324bb" title="Static component registration macro.">GZ_SIM_REGISTER_COMPONENT</a>(&quot;gz_sim_components.ModelSdf&quot;, ModelSdf)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;}</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;}</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;}</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;}</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
       </div>
     </main>
