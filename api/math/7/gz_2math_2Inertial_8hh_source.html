@@ -278,7 +278,6 @@
 <div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;      this-&gt;pose.Rot() *= this-&gt;MassMatrix().PrincipalAxesOffset(_tol) *</div>
 <div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;                          _q.<a class="code" href="classgz_1_1math_1_1Quaternion.html#a724dd60575e5faeb80563af1710c0c0e" title="Get the inverse of this quaternion.">Inverse</a>();</div>
 <div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> moments = this-&gt;MassMatrix().PrincipalMoments(_tol);</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> diag = <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a>(</div>Moments(_tol);</div>
 <div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      <span class="keyword">const</span> <span class="keyword">auto</span> diag = <a class="code" href="classgz_1_1math_1_1Matrix3.html" title="A 3x3 matrix class.">Matrix3&lt;T&gt;</a>(</div>
 <div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;          moments[0], 0, 0,</div>
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;          0, moments[1], 0,</div>
@@ -287,7 +286,7 @@
 <div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;      <span class="keywordflow">return</span> this-&gt;massMatrix.SetMoi(R * diag * R.Transposed());</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;    }</div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
-<div class="line"><a name="l00261"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#ad4e7a64892738f27850117670a51adde">  261</a></span>&#160;    <span class="keyword">public</span>: <a class="code" href="classgz_1_1math_1_1Inertial.html" title="The Inertial object provides a representation for the mass and inertia matrix of a body B....">Inertial</a> &amp;<a class="code" href="classgz_1_1math_1_1Inertial.html#ad4e7a64892738f27850117670a51adde" title="Equal operator.">operator=</a>(<span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Inertial.html" title="The Inertial object provides a representation for the mass and inertia matrix of a body B....">Inertial&lt;T&gt;</a> &amp;_inertial) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keyword">public</span>: <a class="code" href="classgz_1_1math_1_1Inertial.html" title="The Inertial object provides a representation for the mass and inertia matrix of a body B....">Inertial</a> &amp;operator=(<span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Inertial.html" title="The Inertial object provides a representation for the mass and inertia matrix of a body B....">Inertial&lt;T&gt;</a> &amp;_inertial) = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
 <div class="line"><a name="l00267"></a><span class="lineno"><a class="line" href="classgz_1_1math_1_1Inertial.html#a334f1042f4a1f01b72cc9745a74ba0f7">  267</a></span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1math_1_1Inertial.html#a334f1042f4a1f01b72cc9745a74ba0f7" title="Equality comparison operator.">operator==</a>(<span class="keyword">const</span> <a class="code" href="classgz_1_1math_1_1Inertial.html" title="The Inertial object provides a representation for the mass and inertia matrix of a body B....">Inertial&lt;T&gt;</a> &amp;_inertial)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="keyword">    </span>{</div>
@@ -428,6 +427,14 @@
 <div class="line"><a name="l00431"></a><span class="lineno"><a class="line" href="namespacegz_1_1math.html#a37a9eeb96bfbfde10aa4345c92f7fde8">  431</a></span>&#160;  <span class="keyword">typedef</span> <a class="code" href="classgz_1_1math_1_1Inertial.html" title="The Inertial object provides a representation for the mass and inertia matrix of a body B....">Inertial&lt;double&gt;</a> <a class="code" href="namespacegz_1_1math.html#a37a9eeb96bfbfde10aa4345c92f7fde8">Inertiald</a>;</div>
 <div class="line"><a name="l00432"></a><span class="lineno"><a class="line" href="namespacegz_1_1math.html#a78f2a0d12bdb9e27b9c9f5aac4c18a81">  432</a></span>&#160;  <span class="keyword">typedef</span> <a class="code" href="classgz_1_1math_1_1Inertial.html" title="The Inertial object provides a representation for the mass and inertia matrix of a body B....">Inertial&lt;float&gt;</a> <a class="code" href="namespacegz_1_1math.html#a78f2a0d12bdb9e27b9c9f5aac4c18a81">Inertialf</a>;</div>
 <div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;  }  <span class="comment">// namespace GZ_MATH_VERSION_NAMESPACE</span></div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;}  <span class="comment">// namespace gz::math</span></div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="preprocessor">#endif  // GZ_MATH_INERTIAL_HH_</span></div>
+</div><!-- fragment --></div><!-- contents -->
+      </div>
+    </main>
+  </div>
+</body>
+33"></a><span class="lineno">  433</span>&#160;  }  <span class="comment">// namespace GZ_MATH_VERSION_NAMESPACE</span></div>
 <div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;}  <span class="comment">// namespace gz::math</span></div>
 <div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="preprocessor">#endif  </span><span class="comment">// GZ_MATH_INERTIAL_HH_</span></div>
 </div><!-- fragment --></div><!-- contents -->
