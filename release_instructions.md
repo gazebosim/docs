@@ -181,6 +181,17 @@ upload some Git tags ("release tags") to the source code repository.
 You will also need the token described in the [credentials
 section](#2-access-and-credentials).
 
+There are a few external dependencies for running release.py. They can be
+esily installed using virtual enviroments and pip:
+
+```
+# you can change .releasepy_venv by any directory of your preference
+python3 -m venv ~/.releasepy_venv
+. ~/.releasepy_venv/bin/activate
+cd <release-tools-dir>
+pip install .
+```
+
 **dry-run simulation mode**
 
 The `release.py` tool supports a `--dry-run` flag that allows users to
