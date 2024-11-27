@@ -12,9 +12,9 @@ info@openrobotics.org.
   * [Make doxygen tutorials from each library accessible on the main tutorials page on gazebosim.org/docs](https://github.com/gazebosim/docs/issues/55)
   * Copy/adapt tutorials from <https://classic.gazebosim.org/tutorials>
 * [Migrate from Qt5 to Qt6](https://github.com/gazebosim/gz-gui/issues/586)
-* [Use Zenoh in gz-transport](https://github.com/gazebosim/gz-sim/issues/1995)
+* [Use Zenoh in gz-transport](https://github.com/gazebosim/gz-transport/issues/559)
 * [Create or improve interfaces for doing Reinforcement Learning using Gazebo](https://github.com/gazebosim/gz-sim/issues/2662)
-* [Create a federated third party plugin ecosystem](https://github.com/gazebosim/gz-transport/issues/559)
+* [Create a federated third party plugin ecosystem](https://github.com/gazebosim/gz-sim/issues/1995)
 * [Command line: use binaries instead of shared libraries](https://github.com/gazebosim/gz-tools/issues/7)
 * [Download Fuel models on the background](https://github.com/gazebosim/gz-sim/issues/1260)
 * [Support Bazel for all Gazebo libraries](https://github.com/gazebosim/rules_gazebo)
