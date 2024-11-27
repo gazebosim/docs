@@ -17,7 +17,7 @@ info@openrobotics.org.
 * [Create a federated third party plugin ecosystem](https://github.com/gazebosim/gz-transport/issues/559)
 * [Command line: use binaries instead of shared libraries](https://github.com/gazebosim/gz-tools/issues/7)
 * [Download Fuel models on the background](https://github.com/gazebosim/gz-sim/issues/1260)
-* [Support Bazel for all Gazebo libraries](https://github.com/gazebosim/gz-bazel)
+* [Support Bazel for all Gazebo libraries](https://github.com/gazebosim/rules_gazebo)
 
 Note that some of these roadmap items may be backported to older versions of Gazebo
 on a best-effort basis if they do not break API and ABI.
