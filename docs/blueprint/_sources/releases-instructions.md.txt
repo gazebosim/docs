@@ -35,11 +35,20 @@ Before starting the release process, make sure to ask for write access to:
 1.  The Gz library intended to be released and
 2.  `gazebo-release` repository.
 
-There are some credentials needed to interact with the release
-process:
+To interact with Jenkins an API token needs to be created and stored in the
+user system:
 
- * Release token: magic sequence of characters needed while running `release.py`
-   to interact with `build.osrfoundation.org`. This should be given to Gz developers that run releases by the Infra team.
+ 1. Creating a Jenkins API token: opening https://build.osrfoundation.org/me/configure
+    the section of "API Token" shows the "Add new Token" button (alternatively a github
+    token could also be used but the Jenkins API helps to restrict the global scope
+    of the credential).
+
+ 2. The token needs to be stored in `~/.buildfarm/jenkins.ini` in the form:
+    ```
+    [https://build.osrfoundation.org]
+    username = <your-github-user>
+    password = <token created in step 1>
+    ```
 
 ## For Each Release
 
@@ -172,6 +181,17 @@ upload some Git tags ("release tags") to the source code repository.
 You will also need the token described in the [credentials
 section](#2-access-and-credentials).
 
+There are a few external dependencies for running release.py. They can be
+esily installed using virtual enviroments and pip:
+
+```
+# you can change .releasepy_venv by any directory of your preference
+python3 -m venv ~/.releasepy_venv
+. ~/.releasepy_venv/bin/activate
+cd <release-tools-dir>
+pip install .
+```
+
 **dry-run simulation mode**
 
 The `release.py` tool supports a `--dry-run` flag that allows users to
@@ -186,7 +206,7 @@ The script needs to be run from the repository with the source code (i.e., the r
 # Example of dry-run for gz-cmake3 bumped to 3.0.1
 cd gz-cmake3
 git checkout gz-cmake3
-~/release-tools/release.py gz-cmake3 3.0.1 dry-run-fake-token --dry-run
+~/release-tools/release.py gz-cmake3 3.0.1 --dry-run
 ```
 
 **release.py for stable releases**
@@ -196,11 +216,10 @@ git checkout gz-cmake3
 cd ign/gz-fooX
 git checkout ign/gz-fooX
 
-# Example gz-cmake3 bumped to 3.0.1 with jenkins_token credential
+# Example gz-cmake3 bumped to 3.0.1
 cd gz-cmake3
 git checkout gz-cmake3
-# please replace <jenkins_token> with real release token (check crendentials section)
-~/release-tools/release.py gz-cmake3 3.0.1 <jenkins_token>
+~/release-tools/release.py gz-cmake3 3.0.1
 ```
 
 **release.py for prereleases or nightlies**
@@ -210,11 +229,10 @@ to be set. The `--upload-to-repo` argument is mandatory when running
 `release.py`, and should be set to `prerelease` or `nightly`.
 
 ```bash
-# Example gz-cmake3 bumped to prerelease 3.0.0~pre1 with jenkins_token credential
+# Example gz-cmake3 bumped to prerelease 3.0.0~pre1
 cd gz-cmake3
 git checkout gz-cmake3
-# please replace <jenkins_token> with real release token (check crendentials section)
-~/release-tools/release.py gz-cmake3 3.0.0~pre1 <jenkins_token> --upload-to-repo prerelease
+~/release-tools/release.py gz-cmake3 3.0.0~pre1 --upload-to-repo prerelease
 ```
 
 Nightly invocation is generally coded in the server. The version will be
@@ -223,10 +241,8 @@ code will be uploaded, but taken directly in the binary build from the
 branch pointed by `--nightly-src-branch`.
 
 ```bash
-# Example gz-cmake3 nightly from main branch with jenkins_token credential
-# please replace <jenkins_token> with real release token (check crendentials section)
-~/release-tools/release.py gz-cmake3 3.0.0~pre1 <jenkins_token> --upload-to-repo nightly --nightly-src-branch main
-
+# Example gz-cmake3 nightly from main branch
+~/release-tools/release.py gz-cmake3 3.0.0~pre1 --upload-to-repo nightly --nightly-src-branch main
 ```
 
 **Binary version schema for prereleases and nightlies**
@@ -247,9 +263,8 @@ or the information should appear in the parameters of the Jenkins -debbuilder bu
 the first version of the sofware.
 
 ```bash
-# Example gz-cmake3 bumped from 3.0.1-1 to 3.0.1-2 with jenkins_token credential
-# please replace <jenkins_token> with real release token (check crendentials section)
-~/release-tools/release.py gz-cmake3 3.0.1 <jenkins_token> --source-tarball-uri https://osrf-distributions.s3.amazonaws.com/gz-cmake/releases/gz-cmake-3.0.1.tar.bz2 --only-bump-revision-linux -release-version 2
+# Example gz-cmake3 bumped from 3.0.1-1 to 3.0.1-2
+~/release-tools/release.py gz-cmake3 3.0.1 --source-tarball-uri https://osrf-distributions.s3.amazonaws.com/gz-cmake/releases/gz-cmake-3.0.1.tar.bz2 --only-bump-revision-linux -release-version 2
 ```
 
 ## Checking the Building Process
