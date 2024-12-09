@@ -4,7 +4,7 @@ Gazebo Garden was the 7th major release of Gazebo. It was a
 short-term release.
 
 :::{warning}
-Blueprint has reached end-of-life on November 2024. This page exists for archival purposes.
+Garden has reached end-of-life on November 2024. This page exists for archival purposes.
 Please refer to the latest supported version.
 :::
 
