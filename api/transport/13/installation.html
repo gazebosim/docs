@@ -156,8 +156,8 @@ Ubuntu</h2>
 <h2><a class="anchor" id="autotoc_md7"></a>
 Mac OS X</h2>
 <p>Gazebo Transport and several of its dependencies can be compiled on OS X with <a href="http://brew.sh/">Homebrew</a> using the <a href="https://github.com/osrf/homebrew-simulation">osrf/simulation tap</a>. Gazebo Transport is straightforward to install on Mac OS X 10.9 (Mavericks) or higher. Installation on older versions requires changing the default standard library and rebuilding dependencies due to the use of c++11. For purposes of this documentation, Assuming OS X 10.9 or greater is in use. Here are the instructions:</p>
-<p>Install homebrew, which should also prompt you to install the XCode command-line tools: </p><div class="fragment"><div class="line">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</div>
-</div><!-- fragment --><p>Run the following commands: </p><div class="fragment"><div class="line">brew tap osrf/simulation</div>
+<p>After installing the <a href="https://brew.sh">Homebrew package manager</a>, which should also prompt you to install the XCode command-line tools add OSRF packages and run the install command:</p>
+<div class="fragment"><div class="line">brew tap osrf/simulation</div>
 <div class="line">brew install gz-transport&lt;#&gt;</div>
 </div><!-- fragment --><p>Be sure to replace <code>&lt;#&gt;</code> with a number value, such as <code>8</code> or <code>9</code>, depending on which version you need.</p>
 <h2><a class="anchor" id="autotoc_md8"></a>
@@ -170,17 +170,31 @@ Windows</h2>
 <h1><a class="anchor" id="autotoc_md9"></a>
 Source Install</h1>
 <h2><a class="anchor" id="autotoc_md10"></a>
-Ubuntu Linux</h2>
+Install Prerequisites</h2>
+<h3><a class="anchor" id="autotoc_md11"></a>
+Ubuntu Linux</h3>
 <p>For compiling the latest version of Gazebo Transport you will need an Ubuntu distribution equal to 20.04 (Focal) or newer.</p>
 <p>Make sure you have removed the Ubuntu pre-compiled binaries before installing from source: </p><div class="fragment"><div class="line">sudo apt-get remove libgz-transport.*-dev</div>
 </div><!-- fragment --><p>Install prerequisites. A clean Ubuntu system will need: </p><div class="fragment"><div class="line">sudo apt-get install git cmake pkg-config python ruby-ronn libprotoc-dev libprotobuf-dev protobuf-compiler uuid-dev libzmq3-dev libgz-msgs10-dev libgz-utils2-cli-dev</div>
-</div><!-- fragment --><p>Clone the repository </p><div class="fragment"><div class="line">git clone https://github.com/gazebosim/gz-transport</div>
-</div><!-- fragment --><p>Configure and build </p><div class="fragment"><div class="line">cd gz-transport</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md12"></a>
+macOS</h3>
+<p>After installing the <a href="https://brew.sh">Homebrew package manager</a>, which should also prompt you to install the XCode command-line tools add OSRF packages and run the command to install dependencies:</p>
+<div class="fragment"><div class="line">brew tap osrf/simulation</div>
+<div class="line">brew install --only-dependencies gz-transport&lt;#&gt;</div>
+</div><!-- fragment --><p>Be sure to replace <code>&lt;#&gt;</code> with a number value, such as 10 or 11, depending on which version you need.</p>
+<h2><a class="anchor" id="autotoc_md13"></a>
+Clone, Configure, and Build</h2>
+<p>Clone the repository </p><div class="fragment"><div class="line">git clone https://github.com/gazebosim/gz-transport -b gz-transport&lt;#&gt;</div>
+</div><!-- fragment --><p> Be sure to replace <code>&lt;#&gt;</code> with a number value, such as 10 or 11, depending on which version you need. From version 12 use <code>gz-transport&lt;#&gt;</code> for lower versions use <code>ign-transport&lt;#&gt;</code></p>
+<p>Configure and build </p><div class="fragment"><div class="line">cd gz-transport</div>
 <div class="line">mkdir build</div>
 <div class="line">cd build</div>
 <div class="line">cmake ..</div>
 <div class="line">make</div>
-</div><!-- fragment --><p>Configure Gazebo Transport (choose either method a or b below):</p>
+</div><!-- fragment --><p>Optionally, install </p><div class="fragment"><div class="line">sudo make install</div>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md14"></a>
+Configuration options</h3>
+<p>Configure Gazebo Transport (choose either method a or b below):</p>
 <p>A. Release mode (recommended): This will generate optimized code, but will not have debug symbols. Use this mode if you don't need to use <a href="https://www.gnu.org/software/gdb/">GDB</a> (advanced). </p><div class="fragment"><div class="line">cmake ..</div>
 </div><!-- fragment --><p>Note: You can use a custom install path to make it easier to switch between source and debian installs: </p><div class="fragment"><div class="line">cmake -DCMAKE_INSTALL_PREFIX=/home/$USER/local ..</div>
 </div><!-- fragment --><p>B. Debug mode: This will generate code with debug symbols. Gazebo Transport will run slower, but you'll be able to use GDB. </p><div class="fragment"><div class="line">cmake -DCMAKE_BUILD_TYPE=Debug ..</div>
@@ -189,29 +203,23 @@ Ubuntu Linux</h2>
 </div><!-- fragment --><p>Build Gazebo Transport: </p><div class="fragment"><div class="line">make -j4</div>
 </div><!-- fragment --><p>Install Gazebo Transport: </p><div class="fragment"><div class="line">sudo make install</div>
 </div><!-- fragment --><p>If you decide to install gazebo in a local directory you'll need to modify your <code>LD_LIBRARY_PATH</code>: </p><div class="fragment"><div class="line">echo &quot;export LD_LIBRARY_PATH=&lt;install_path&gt;/local/lib:$LD_LIBRARY_PATH&quot; &gt;&gt; ~/.bashrc</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md11"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md15"></a>
+Build python bindings separately from main library</h3>
+<p>If you want to build Python bindings separately from the main gz-transport library (for example if you want to build Python bindings for multiple versions of Python), you can invoke cmake on the <code>python</code> folder instead of the root folder. This requires cmake version 3.22.1 due to the use of a <code>CMAKE_REQUIRE_FIND_PACKAGE_*</code> variable, which is newer than the minimum required version of cmake for gz-transport13. Specify the path to the python executable with which you wish to build bindings in the <code>Python3_EXECUTABLE</code> cmake variable. Specify the install path for the bindings in the <code>CMAKE_INSTALL_PREFIX</code> variable, and be sure to set your <code>PYTHONPATH</code> accordingly after install.</p>
+<div class="fragment"><div class="line">cd sdformat</div>
+<div class="line">mkdir build_python3</div>
+<div class="line">cd build_python3</div>
+<div class="line">cmake ../python \</div>
+<div class="line">    -DPython3_EXECUTABLE=/usr/local/bin/python3.12 \</div>
+<div class="line">    -DCMAKE_INSTALL_PREFIX=&lt;prefix&gt;</div>
+</div><!-- fragment --><p>See the homebrew <a href="https://github.com/osrf/homebrew-simulation/blob/027d06f5be49da1e40d01180aedae7f76dc7ff47/Formula/sdformat15.rb#L12-L56">sdformat15 formula</a> for an example of building bindings for multiple versions of Python.</p>
+<h3><a class="anchor" id="autotoc_md16"></a>
 Uninstalling Source-based Install</h3>
 <p>If you need to uninstall Gazebo Transport or switch back to a debian-based install when you currently have installed the library from source, navigate to your source code directory's build folders and run <code>make uninstall</code>: </p><div class="fragment"><div class="line">cd /tmp/gz-transport/build</div>
 <div class="line">sudo make uninstall</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md12"></a>
-macOS</h3>
-<ol type="1">
-<li>Clone the repository <div class="fragment"><div class="line">git clone https://github.com/gazebosim/gz-transport -b gz-transport&lt;#&gt;</div>
-</div><!-- fragment --> Be sure to replace <code>&lt;#&gt;</code> with a number value, such as 10 or 11, depending on which version you need. From version 12 use <code>gz-transport&lt;#&gt;</code> for lower versions use <code>ign-transport&lt;#&gt;</code></li>
-<li>Install dependencies <div class="fragment"><div class="line">brew install --only-dependencies gz-transport&lt;#&gt;</div>
-</div><!-- fragment --> Be sure to replace <code>&lt;#&gt;</code> with a number value, such as 10 or 11, depending on which version you need.</li>
-<li>Configure and build <div class="fragment"><div class="line">cd gz-transport</div>
-<div class="line">mkdir build</div>
-<div class="line">cd build</div>
-<div class="line">cmake ..</div>
-<div class="line">make</div>
-</div><!-- fragment --></li>
-<li>Optionally, install <div class="fragment"><div class="line">sudo make install</div>
-</div><!-- fragment --></li>
-</ol>
-<h2><a class="anchor" id="autotoc_md13"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md17"></a>
 Windows</h2>
-<h3><a class="anchor" id="autotoc_md14"></a>
+<h3><a class="anchor" id="autotoc_md18"></a>
 Prerequisites</h3>
 <p>First, follow the <a href="https://github.com/gazebosim/gz-cmake">gz-cmake</a> tutorial for installing Conda, Visual Studio, CMake, etc., prerequisites, and creating a Conda environment.</p>
 <p>Navigate to <code>condabin</code> if necessary to use the <code>conda</code> command (i.e., if Conda is not in your <code>PATH</code> environment variable. You can find the location of <code>condabin</code> in Anaconda Prompt, <code>where conda</code>).</p>
@@ -220,7 +228,7 @@ Prerequisites</h3>
 </div><!-- fragment --><p>Install Gazebo dependencies:</p>
 <p>You can view available versions and their dependencies: </p><div class="fragment"><div class="line">conda search libgz-transport* --channel conda-forge --info</div>
 </div><!-- fragment --><p>Install dependencies, replacing <code>&lt;#&gt;</code> with the desired versions: </p><div class="fragment"><div class="line">conda install libgz-cmake&lt;#&gt; libgz-msgs&lt;#&gt; libgz-tools&lt;#&gt; --channel conda-forge</div>
-</div><!-- fragment --><h4><a class="anchor" id="autotoc_md15"></a>
+</div><!-- fragment --><h4><a class="anchor" id="autotoc_md19"></a>
 Building from Source</h4>
 <ol type="1">
 <li>Navigate to where you would like to build the library, and clone the repository. <div class="fragment"><div class="line"># Optionally, append `-b gz-transport#` (replace # with a number) to check out a specific version.</div>
@@ -245,17 +253,17 @@ Building from Source</h4>
 </div><!-- fragment --><p class="startli">In another terminal, run </p><div class="fragment"><div class="line">requester</div>
 </div><!-- fragment --></li>
 </ol>
-<h1><a class="anchor" id="autotoc_md16"></a>
+<h1><a class="anchor" id="autotoc_md20"></a>
 Documentation</h1>
 <p>Visit the <a href="https://gazebosim.org/api/transport/12.0/index.html">documentation page</a>.</p>
-<h2><a class="anchor" id="autotoc_md17"></a>
+<h2><a class="anchor" id="autotoc_md21"></a>
 Build documentation</h2>
 <div class="fragment"><div class="line">cd build</div>
 <div class="line">make doc</div>
 </div><!-- fragment --><p>Upload documentation to gazebosim.org. </p><div class="fragment"><div class="line">cd build</div>
 <div class="line">sh upload.sh</div>
 </div><!-- fragment --><p>If you're creating a new release, then tell gazebosim.org about the new version. For example: </p><div class="fragment"><div class="line">curl -k -X POST -d &#39;{&quot;libName&quot;:&quot;transport&quot;, &quot;version&quot;:&quot;1.0.0&quot;, &quot;releaseDate&quot;:&quot;2017-10-09T12:10:13+02:00&quot;,&quot;password&quot;:&quot;secret&quot;}&#39; http      s://api.gazebosim.org/1.0/versions</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md18"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md22"></a>
 Testing</h1>
 <p>Tests can be run by building the <code>test</code> target. From your build directory you can run: </p><div class="fragment"><div class="line">make test</div>
 </div><!-- fragment --><p><em>Note:</em> Python tests require running <code>sudo make install</code> before running <code>make test</code>. </p>

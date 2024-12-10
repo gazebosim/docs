@@ -140,13 +140,13 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Next Tutorial: <a class="el" href="python.html">Python Support</a> Previous Tutorial: <a class="el" href="messages.html">Messages</a></p>
-<h2><a class="anchor" id="autotoc_md39"></a>
+<h2><a class="anchor" id="autotoc_md43"></a>
 Overview</h2>
 <p>In this tutorial, we are going to create two nodes that are going to communicate via services. You can see a service as a function that is going to be executed in a different node. Services have two main components: a service provider and a service consumer. A service provider is the node that offers the service to the rest of the world. The service consumers are the nodes that request the function offered by the provider. Note that in Gazebo Transport the location of the service is hidden. The discovery layer of the library is in charge of discovering and keeping and updated list of services available.</p>
 <p>In the next tutorial, one node will be the service provider that offers an <em>echo</em> service, whereas the other node will be the service consumer requesting an <em>echo</em> call.</p>
 <div class="fragment"><div class="line">mkdir ~/gz_transport_tutorial</div>
 <div class="line">cd ~/gz_transport_tutorial</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md40"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md44"></a>
 Responser</h2>
 <p>Download the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport13/example/responser.cc">responser.cc</a> file within the <code>gz_transport_tutorial</code> folder and open it with your favorite editor:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
@@ -185,7 +185,7 @@ Responser</h2>
 <div class="line">  <span class="comment">// Zzzzzz.</span></div>
 <div class="line">  <a class="code" href="namespacegz_1_1transport.html#aa460d7dee7b4394ce7d2040a4dfc6b70" title="Block the current thread until a SIGINT or SIGTERM is received. Note that this function registers a s...">gz::transport::waitForShutdown</a>();</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md41"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md45"></a>
 Walkthrough</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;gz/msgs.hh&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;gz/transport.hh&gt;</span></div>
@@ -216,7 +216,7 @@ Walkthrough</h3>
 <div class="line"><a class="code" href="namespacegz_1_1transport.html#aa460d7dee7b4394ce7d2040a4dfc6b70" title="Block the current thread until a SIGINT or SIGTERM is received. Note that this function registers a s...">gz::transport::waitForShutdown</a>();</div>
 </div><!-- fragment --><p>We declare a <em>Node</em> that will offer all the transport functionality. In our case, we are interested in offering a service, so the first step is to announce our service name. Once a service name is advertised, we can accept service requests.</p>
 <p>If you don't have any other tasks to do besides waiting for service requests, you can use the call <code><a class="el" href="namespacegz_1_1transport.html#aa460d7dee7b4394ce7d2040a4dfc6b70" title="Block the current thread until a SIGINT or SIGTERM is received. Note that this function registers a s...">waitForShutdown()</a></code> that will block your current thread until you hit <em>CTRL-C</em>. Note that this function captures the <em>SIGINT</em> and <em>SIGTERM</em> signals.</p>
-<h2><a class="anchor" id="autotoc_md42"></a>
+<h2><a class="anchor" id="autotoc_md46"></a>
 Synchronous requester</h2>
 <p>Download the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport13/example/requester.cc">requester.cc</a> file within the <code>gz_transport_tutorial</code> folder and open it with your favorite editor:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
@@ -249,7 +249,7 @@ Synchronous requester</h2>
 <div class="line">  <span class="keywordflow">else</span></div>
 <div class="line">    <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cerr</a> &lt;&lt; <span class="stringliteral">&quot;Service call timed out&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md43"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md47"></a>
 Walkthrough</h3>
 <div class="fragment"><div class="line"><span class="comment">// Create a transport node.</span></div>
 <div class="line"><a class="code" href="classgz_1_1transport_1_1Node.html" title="A class that allows a client to communicate with other peers. There are two main communication modes:...">gz::transport::Node</a> node;</div>
@@ -276,7 +276,7 @@ Walkthrough</h3>
 <div class="line">  <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cerr</a> &lt;&lt; <span class="stringliteral">&quot;Service call timed out&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 </div><!-- fragment --><p>In this section of the code we use the method <code>Request()</code> for forwarding the service call to any service provider of the service <code>/echo</code>. Gazebo Transport will find a node, communicate the input data, capture the response and pass it to your output parameter. The return value will tell you if the request expired or the response was received. The <code>result</code> value will tell you if the service provider considered the operation valid.</p>
 <p>Imagine for example that we are using a division service, where our input message contains the numerator and denominator. If there are no nodes offering this service, our request will timeout (return value <code>false</code>). On the other hand, if there's at least one node providing the service, the request will return <code>true</code> signaling that the request was received. However, if we set our denominator to <code>0</code> in the input message, <code>result</code> will be <code>false</code> reporting that something went wrong in the request. If the input parameters are valid, we'll receive a result value of <code>true</code> and we can use our response message.</p>
-<h2><a class="anchor" id="autotoc_md44"></a>
+<h2><a class="anchor" id="autotoc_md48"></a>
 Asynchronous requester</h2>
 <p>Download the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport13/example/requester_async.cc">requester_async.cc</a> file within the <code>gz_transport_tutorial</code> folder and open it with your favorite editor:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
@@ -308,7 +308,7 @@ Asynchronous requester</h2>
 <div class="line">  <span class="comment">// Zzzzzz.</span></div>
 <div class="line">  <a class="code" href="namespacegz_1_1transport.html#aa460d7dee7b4394ce7d2040a4dfc6b70" title="Block the current thread until a SIGINT or SIGTERM is received. Note that this function registers a s...">gz::transport::waitForShutdown</a>();</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md45"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md49"></a>
 Walkthrough</h3>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> responseCb(<span class="keyword">const</span> gz::msgs::StringMsg &amp;_rep, <span class="keyword">const</span> <span class="keywordtype">bool</span> _result)</div>
 <div class="line">{</div>
@@ -328,7 +328,7 @@ Walkthrough</h3>
 <div class="line"><span class="comment">// Request the &quot;/echo&quot; service.</span></div>
 <div class="line">node.<a class="code" href="classgz_1_1transport_1_1Node.html#a027934cd5ed4802842fba02ea5cd6847" title="Request a new service using a non-blocking call. In this version the callback is a free function.">Request</a>(<span class="stringliteral">&quot;/echo&quot;</span>, req, responseCb);</div>
 </div><!-- fragment --><p>In this section of the code we declare a node and a Protobuf message that is filled with the input parameters for our request. Next, we just use the asynchronous variant of the <code>Request()</code> method that forwards a service call to any service provider of the service <code>/echo</code>. Gazebo Transport will find a node, communicate the data, capture the response and pass it to your callback, in addition of the service call result. Note that this variant of <code>Request()</code> is asynchronous, so your code will not block while your service request is handled.</p>
-<h2><a class="anchor" id="autotoc_md46"></a>
+<h2><a class="anchor" id="autotoc_md50"></a>
 Oneway responser</h2>
 <p>Not all the service requests require a response. In these cases we can use a oneway service to process service requests without sending back responses. Oneway services don't accept any output parameters nor the requests have to wait for the response.</p>
 <p>Download the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport13/example/responser_oneway.cc">responser_oneway.cc</a> file within the <code>gz_transport_tutorial</code> folder and open it with your favorite editor:</p>
@@ -358,7 +358,7 @@ Oneway responser</h2>
 <div class="line">  <span class="comment">// Zzzzzz.</span></div>
 <div class="line">  <a class="code" href="namespacegz_1_1transport.html#aa460d7dee7b4394ce7d2040a4dfc6b70" title="Block the current thread until a SIGINT or SIGTERM is received. Note that this function registers a s...">gz::transport::waitForShutdown</a>();</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md47"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md51"></a>
 Walkthrough</h3>
 <div class="fragment"><div class="line"><span class="keywordtype">void</span> srvOneway(<span class="keyword">const</span> gz::msgs::StringMsg &amp;_req)</div>
 <div class="line">{</div>
@@ -376,7 +376,7 @@ Walkthrough</h3>
 <div class="line">  <span class="keywordflow">return</span> -1;</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>We declare a <em>Node</em> that will offer all the transport functionality. In our case, we are interested in offering a oneway service, so the first step is to announce our service name. Once a service name is advertised, we can accept service requests.</p>
-<h2><a class="anchor" id="autotoc_md48"></a>
+<h2><a class="anchor" id="autotoc_md52"></a>
 Oneway requester</h2>
 <p>This case is similar to the oneway service provider. This code can be used for requesting a service that does not need a response back. We don't need any output parameters in this case nor we have to wait for the response.</p>
 <p>Download the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport13/example/requester_oneway.cc">requester_oneway.cc</a> file within the <code>gz_transport_tutorial</code> folder and open it with your favorite editor:</p>
@@ -404,7 +404,7 @@ Oneway requester</h2>
 <div class="line">  <span class="comment">// Zzzzzz.</span></div>
 <div class="line">  <a class="code" href="namespacegz_1_1transport.html#aa460d7dee7b4394ce7d2040a4dfc6b70" title="Block the current thread until a SIGINT or SIGTERM is received. Note that this function registers a s...">gz::transport::waitForShutdown</a>();</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md49"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md53"></a>
 Walkthrough</h3>
 <div class="fragment"><div class="line"><span class="comment">// Create a transport node.</span></div>
 <div class="line"><a class="code" href="classgz_1_1transport_1_1Node.html" title="A class that allows a client to communicate with other peers. There are two main communication modes:...">gz::transport::Node</a> node;</div>
@@ -419,7 +419,7 @@ Walkthrough</h3>
 <div class="line"><span class="keywordflow">if</span> (!executed)</div>
 <div class="line">  <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cerr</a> &lt;&lt; <span class="stringliteral">&quot;Service call failed&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 </div><!-- fragment --><p>First of all we declare a node and a Protobuf message that is filled with the input parameters for our <code>/oneway</code> service. Next, we just use the oneway variant of the <code>Request()</code> method that forwards a service call to any service provider of the service <code>/oneway</code>. Gazebo Transport will find a node and communicate the data without waiting for the response. The return value of <code>Request()</code> indicates if the request was successfully queued. Note that this variant of <code>Request()</code> is also asynchronous, so your code will not block while your service request is handled. In this example, we also call <code><a class="el" href="namespacegz_1_1transport.html#aa460d7dee7b4394ce7d2040a4dfc6b70" title="Block the current thread until a SIGINT or SIGTERM is received. Note that this function registers a s...">waitForShutdown()</a></code> to minimize the risk of terminating the program before the request was already published.</p>
-<h2><a class="anchor" id="autotoc_md50"></a>
+<h2><a class="anchor" id="autotoc_md54"></a>
 Service without input parameter</h2>
 <p>Sometimes we want to receive some result but don't have any input parameter to send.</p>
 <p>Download the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport13/example/responser_no_input.cc">responser_no_input.cc</a> file within the <code>gz_transport_tutorial</code> folder and open it with your favorite editor:</p>
@@ -459,7 +459,7 @@ Service without input parameter</h2>
 <div class="line">  <span class="comment">// Zzzzzz.</span></div>
 <div class="line">  <a class="code" href="namespacegz_1_1transport.html#aa460d7dee7b4394ce7d2040a4dfc6b70" title="Block the current thread until a SIGINT or SIGTERM is received. Note that this function registers a s...">gz::transport::waitForShutdown</a>();</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md51"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md55"></a>
 Walkthrough</h3>
 <div class="fragment"><div class="line"><span class="keywordtype">bool</span> srvQuote(gz::msgs::StringMsg &amp;_rep)</div>
 </div><!-- fragment --><p>Service doesn't receive anything. The signature of the callback contains the parameters <code>_rep</code> (response). In our example, we return the quote.</p>
@@ -477,7 +477,7 @@ Walkthrough</h3>
 <div class="line"><span class="comment">// Zzzzzz.</span></div>
 <div class="line"><a class="code" href="namespacegz_1_1transport.html#aa460d7dee7b4394ce7d2040a4dfc6b70" title="Block the current thread until a SIGINT or SIGTERM is received. Note that this function registers a s...">gz::transport::waitForShutdown</a>();</div>
 </div><!-- fragment --><p>We declare a <em>Node</em> that will offer all the transport functionality. In our case, we are interested in offering service without input, so the first step is to announce the service name. Once a service name is advertised, we can accept service requests.</p>
-<h2><a class="anchor" id="autotoc_md52"></a>
+<h2><a class="anchor" id="autotoc_md56"></a>
 Empty requester sync and async</h2>
 <p>This case is similar to the service without input parameter. We don't send any request.</p>
 <p>Download the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport13/example/requester_no_input.cc">requester_no_input.cc</a> file within the <code>gz_transport_tutorial</code> folder and open it with your favorite editor:</p>
@@ -507,11 +507,11 @@ Empty requester sync and async</h2>
 <div class="line">  <span class="keywordflow">else</span></div>
 <div class="line">    <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cerr</a> &lt;&lt; <span class="stringliteral">&quot;Service call timed out&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md53"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md57"></a>
 Walkthrough</h3>
 <p>First of all we declare a node and a message that will contain the response from <code>/quote</code> service. Next, we use the variant without input parameter of the <code>Request()</code> method. The return value of <code>Request()</code> indicates whether the request timed out or reached the service provider and <code>result</code> shows if the service was successfully executed.</p>
 <p>We also have the async version for service request without input. You should download <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport13/example/requester_async_no_input.cc">requester_async_no_input.cc</a> file within the <code>gz_transport_tutorial</code> folder.</p>
-<h2><a class="anchor" id="autotoc_md54"></a>
+<h2><a class="anchor" id="autotoc_md58"></a>
 Building the code</h2>
 <p>Download the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport13/example/CMakeLists.txt">CMakeLists.txt</a> file within the <code>gz_transport_tutorial</code> folder. Then, create a <code>msgs</code> directory and download <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport13/example/msgs/CMakeLists.txt">CMakeLists.txt</a> and <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport13/example/msgs/stringmsg.proto">stringmsg.proto</a> inside the <code>msgs</code> directory.</p>
 <p>Once you have all your files, go ahead and create a <code>build/</code> folder within the <code>gz_transport_tutorial</code> directory.</p>
@@ -525,7 +525,7 @@ Building the code</h2>
 <div class="line"> </div>
 <div class="line"># Windows</div>
 <div class="line">cmake --build . --config Release</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md55"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md59"></a>
 Running the examples</h2>
 <p>Open three new terminals and from your <code>build/</code> directory run the executables.</p>
 <p>From terminal 1:</p>

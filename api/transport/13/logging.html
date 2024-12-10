@@ -140,14 +140,14 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Next Tutorial: <a class="el" href="envvars.html">Environment Variables</a> Previous Tutorial: <a class="el" href="relay.html">Relay</a></p>
-<h2><a class="anchor" id="autotoc_md83"></a>
+<h2><a class="anchor" id="autotoc_md87"></a>
 Overview</h2>
 <p>In this tutorial, we are going to describe the process of recording and playing back a collection of messages.</p>
 <p>Gazebo Transport provides two mechanisms for logging: a C++ API and a set of command line utilities as part of the optional <code>gz</code> CLI tool (available via <a href="https://github.com/gazebosim/gz-tools">Gazebo Tools</a>). We use <a href="https://www.sqlite.org">SQLite3</a> to create a file containing all the messages recorded during a session. You can imagine it as a container where all the original messages have been efficiently stored and timestamped.</p>
 <p>Let's create a directory for compiling and running our examples:</p>
 <div class="fragment"><div class="line">mkdir ~/gz_transport_tutorial</div>
 <div class="line">cd ~/gz_transport_tutorial</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md84"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md88"></a>
 Record</h2>
 <p>Download the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport13/example/record.cc">record.cc</a> file within the <code>gz_transport_tutorial</code> folder and open it with your favorite editor:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
@@ -195,7 +195,7 @@ Record</h2>
 <div class="line"> </div>
 <div class="line">  <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;\nRecording finished!&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md85"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md89"></a>
 Walkthrough</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="Recorder_8hh.html">gz/transport/log/Recorder.hh</a>&gt;</span></div>
 </div><!-- fragment --><p>The <code><a class="el" href="Recorder_8hh.html">Recorder.hh</a></code> header contains all the recording functionality. Make sure that is included in your source code.</p>
@@ -218,7 +218,7 @@ Walkthrough</h3>
 <div class="line"> </div>
 <div class="line">recorder.<a class="code" href="classgz_1_1transport_1_1log_1_1Recorder.html#a17a237457e57625296e6b24feb19c60a" title="Stop recording topics. This function will block if there is any data in the internal buffer that has ...">Stop</a>();</div>
 </div><!-- fragment --><p>In our example, we are logging messages until the user hits <code>CTRL-C</code>. The function <code><a class="el" href="namespacegz_1_1transport.html#aa460d7dee7b4394ce7d2040a4dfc6b70" title="Block the current thread until a SIGINT or SIGTERM is received. Note that this function registers a s...">gz::transport::waitForShutdown()</a></code> captures the appropriate signal and blocks the execution until that event occurs. Then, <code>recorder.Stop()</code> stops the log recording as expected.</p>
-<h2><a class="anchor" id="autotoc_md86"></a>
+<h2><a class="anchor" id="autotoc_md90"></a>
 Play back</h2>
 <p>Download the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport13/example/playback.cc">playback.cc</a> file within the <code>gz_transport_tutorial</code> folder and open it with your favorite editor:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;cstdint&gt;</span></div>
@@ -262,7 +262,7 @@ Play back</h2>
 <div class="line">  <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; <span class="stringliteral">&quot;Playing all messages in the log file\n&quot;</span>;</div>
 <div class="line">  handle-&gt;WaitUntilFinished();</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md87"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md91"></a>
 Walkthrough</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="Playback_8hh.html">gz/transport/log/Playback.hh</a>&gt;</span></div>
 </div><!-- fragment --><p>The <code><a class="el" href="Playback_8hh.html">Playback.hh</a></code> header contains all the log play back functionality. Make sure that is included in your source code.</p>
@@ -276,7 +276,7 @@ Walkthrough</h3>
 </div><!-- fragment --><p>The <code>Start()</code> method starts message playback. Note that this is an asynchronous function, the messages will be published without blocking the current thread.</p>
 <div class="fragment"><div class="line">handle-&gt;WaitUntilFinished();</div>
 </div><!-- fragment --><p>In this example we are not interested in doing anything else, besides playing back messages. Therefore, we can use <code>WaitUntilFinished()</code> to block the current thread until all messages have been published.</p>
-<h2><a class="anchor" id="autotoc_md88"></a>
+<h2><a class="anchor" id="autotoc_md92"></a>
 Building the code</h2>
 <p>Download the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport13/example/CMakeLists.txt">CMakeLists.txt</a> file within the <code>gz_transport_tutorial</code> folder.</p>
 <p>Once you have all your files, go ahead and create a <code>build/</code> directory within the <code>gz_transport_tutorial</code> directory.</p>
@@ -289,7 +289,7 @@ Building the code</h2>
 <div class="line"> </div>
 <div class="line"># Windows</div>
 <div class="line">cmake --build . --config Release</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md89"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md93"></a>
 Running the examples</h2>
 <p>Open two new terminals and from your <code>build/</code> directory run the recorder.</p>
 <p>From terminal 1:</p>
@@ -314,7 +314,7 @@ Running the examples</h2>
 <div class="line">.\Release\log_playback.exe tutorial.tlog</div>
 </div><!-- fragment --><p>You should receive one message in terminal 2:</p>
 <div class="fragment"><div class="line">data: &quot;Hello log&quot;</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md90"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md94"></a>
 Using gz for recording and playing back</h2>
 <p>As an alternative to the C++ API, we could use the <code>gz</code> suite of command line tools for recording and playing back messages.</p>
 <p>Next is how you can record a set of messages using <code>gz</code>:</p>
