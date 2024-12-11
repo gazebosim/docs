@@ -119,7 +119,7 @@ Along the bottom edge of the scene, you'll notice several buttons:
 
 ![Playback buttons](tutorials/gui/playback.png)
 
-From left to right, the options are `Play`, `Steps` and `RTF` (real time factor).
+From left to right, the options are `Play`, `Steps`, `Reset`,  `RTF` (real time factor).
 
 Pressing `Play` will start the simulation.
 You can use the same button to pause the simulation as well.
@@ -128,6 +128,8 @@ The `Steps` button allows you to step through the simulation at the rate of a st
 You can customize step size by hovering over the button.
 
 ![hover steps](tutorials/gui/hover_steps.png)
+
+Pressing `Reset` will clear any unsaved modification to the scene. Clicking it will remove the newly inserted shapes `box_0`, `sphere_0` and `capsule_0`.
 
 At the furthest right end of the scene, you can expand `RTF` to see not only the percentage value that compares real time with sim time, but also those individual values themselves, as well as iteration count.
 
