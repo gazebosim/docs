@@ -34,6 +34,7 @@ extensions = [
     "myst_parser",
     "sphinx_copybutton",
     "sphinx_design",
+    "sphinxcontrib.googleanalytics",
     # 'sphinx_sitemap',
 ]
 
@@ -100,3 +101,5 @@ html_sidebars = {"**": ["gz-sidebar-nav"]}
 html_context = {
     "deploy_url":  os.environ.get("GZ_DEPLOY_URL", "")
 }
+
+googleanalytics_id = "G-JKS50SX85K"
