@@ -39,9 +39,7 @@ To interact with Jenkins an API token needs to be created and stored in the
 user system:
 
  1. Creating a Jenkins API token: opening https://build.osrfoundation.org/me/configure
-    the section of "API Token" shows the "Add new Token" button (alternatively a github
-    token could also be used but the Jenkins API helps to restrict the global scope
-    of the credential).
+    the section of "API Token" shows the "Add new Token" button
 
  2. The token needs to be stored in `~/.buildfarm/jenkins.ini` in the form:
     ```
