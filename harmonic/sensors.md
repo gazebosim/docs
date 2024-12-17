@@ -322,17 +322,18 @@ You can download the finished node for this demo from [here](https://github.com/
 #### The lidar_node
 
 ```cpp
-gz::transport::Node node;
 std::string topic_pub = "/cmd_vel";
-gz::msgs::Twist data;
+gz::transport::Node node;
 auto pub = node.Advertise<gz::msgs::Twist>(topic_pub);
 ```
 
-We declare a `node` which will publish to `cmd_vel` topic and defined the message type `Twist`. Then advertise our node.
+We declare a `node` which will publish to `cmd_vel` topic. Then advertise our node.
 
 ```cpp
 void cb(const gz::msgs::LaserScan &_msg)
 {
+  gz::msgs::Twist data;
+
   bool allMore = true;
   for (int i = 0; i < _msg.ranges_size(); i++)
   {
@@ -362,11 +363,11 @@ If so we publish a message to our car to move forward. Otherwise we make the rob
 ```cpp
 int main(int argc, char **argv)
 {
-    std::string topic = "/lidar";
+    std::string topic_sub = "/lidar";
     // Subscribe to a topic by registering a callback.
-    if (!node.Subscribe(topic, cb))
+    if (!node.Subscribe(topic_sub, cb))
     {
-        std::cerr << "Error subscribing to topic [" << topic << "]" << std::endl;
+        std::cerr << "Error subscribing to topic [" << topic_sub << "]" << std::endl;
         return -1;
     }
 

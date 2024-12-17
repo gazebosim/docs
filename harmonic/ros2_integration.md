@@ -76,7 +76,7 @@ Launching with composition:
 ros2 launch ros_gz_bridge ros_gz_bridge.launch.py bridge_name:=ros_gz_bridge config_file:=<path_to_your_YAML_file> use_composition:=True create_own_container:=True
 ```
 Alternatively, if an existing container is already running, you can pass its name
-when launching the bridge using the `container_name` parameter. More info about composition can be viewed [here](ros2_overview#composition)
+when launching the bridge using the `container_name` parameter. More info about composition can be viewed [here](ros2_overview.md#composition)
 
 Check [this block](https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_bridge/launch/ros_gz_bridge.launch.py#L27-L34)
 from the source code to know all the different parameters accepted by this
