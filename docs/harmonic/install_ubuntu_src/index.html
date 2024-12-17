@@ -25,8 +25,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -36,8 +36,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -45,10 +45,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/css/gazebo.css?v=173bdbe0" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../_static/documentation_options.js?v=173ad40a"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
@@ -58,10 +58,11 @@
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'install_ubuntu_src';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://gazebosim.org/docs/harmonic/_static/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'harmonic';
-        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
         </script>
     <link rel="canonical" href="https://gazebosim.org/docs/latest/install_ubuntu_src/" />
     <link rel="icon" href="../_static/favicon.ico"/>
@@ -425,9 +426,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -499,25 +505,15 @@ cases where the default option cannot be easily changed.</p>
 </section>
 <section id="vcstool-and-colcon-from-pip">
 <h2>vcstool and colcon from pip<a class="headerlink" href="#vcstool-and-colcon-from-pip" title="Link to this heading">#</a></h2>
-<p>PIP is available on all platforms:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>vcstool<span class="w"> </span><span class="o">||</span><span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>vcstool
+<p>PIP is available on all platforms. Using a PIP workspace to install the tools:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span><span class="nv">$HOME</span>/vcs_colcon_installation
+.<span class="w"> </span><span class="nv">$HOME</span>/vcs_colcon_installation/bin/activate
+pip3<span class="w"> </span>install<span class="w"> </span>vcstool<span class="w"> </span>colcon-common-extensions
 </pre></div>
 </div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>colcon-common-extensions<span class="w"> </span><span class="o">||</span><span class="w"> </span>pip3<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>colcon-common-extensions
-</pre></div>
-</div>
-<p>Check that no errors were printed while installing with PIP. If your system is not recognising the commands, and you’re using a system that is compatible with Debian or Ubuntu packages, see the instructions below to install using <code class="docutils literal notranslate"><span class="pre">apt</span></code>.</p>
-<p>After installing <code class="docutils literal notranslate"><span class="pre">vcstool</span></code> and <code class="docutils literal notranslate"><span class="pre">colcon</span></code> with PIP, you may need to add their executables to your <code class="docutils literal notranslate"><span class="pre">$PATH</span></code>.
-Check where the installation of these packages took place:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>show<span class="w"> </span>vcstool<span class="w"> </span><span class="o">||</span><span class="w"> </span>pip3<span class="w"> </span>show<span class="w"> </span>vcstool<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Location
-
-pip<span class="w"> </span>show<span class="w"> </span>colcon-common-extensions<span class="w"> </span><span class="o">||</span><span class="w"> </span>pip3<span class="w"> </span>show<span class="w"> </span>colcon-common-extensions<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>Location
-</pre></div>
-</div>
-<p>If your install path is prefixed with <code class="docutils literal notranslate"><span class="pre">$HOME/.local</span></code>, you’ll probably need to add the executables within this directory to your <code class="docutils literal notranslate"><span class="pre">$PATH</span></code> in order to avoid “command not found” errors when using <code class="docutils literal notranslate"><span class="pre">vcstool</span></code> and <code class="docutils literal notranslate"><span class="pre">colcon</span></code> later on:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">PATH</span><span class="o">=</span><span class="nv">$PATH</span>:<span class="nv">$HOME</span>/.local/bin/
-</pre></div>
-</div>
+<p><code class="docutils literal notranslate"><span class="pre">vcs</span></code> and <code class="docutils literal notranslate"><span class="pre">colcon</span></code> are now available from the PIP workspace in the current
+terminal. For using them in other terminals run the <code class="docutils literal notranslate"><span class="pre">activate</span></code> script as
+done above.</p>
 </section>
 <section id="vcstool-and-colcon-from-apt">
 <h2>vcstool and colcon from apt<a class="headerlink" href="#vcstool-and-colcon-from-apt" title="Link to this heading">#</a></h2>
@@ -590,11 +586,17 @@ colcon<span class="w"> </span>graph
 <a class="reference external" href="https://colcon.readthedocs.io/en/released/reference/verb/graph.html#example-output">interdependency diagram</a>.
 If that is the case, then you are ready
 to build the whole set of libraries:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Compilation can take up to 16Gb of RAM memory. Use MAKEFLAGS with
+colcon as detailed in its instructions to reduce the number of
+compilation threads if needed.</p>
+</div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--merge-install
 </pre></div>
 </div>
 <p>To speed up the build process, you could also disable tests by using</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DBUILD_TESTING<span class="o">=</span>OFF<span class="w"> </span>--merge-install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span><span class="s1">&#39; -DBUILD_TESTING=OFF&#39;</span><span class="w"> </span>--merge-install
 </pre></div>
 </div>
 <p>To use debuggers activate debug symbols. Gazebo will run slower, but you’ll be able to use GDB:</p>
@@ -657,7 +659,7 @@ free up space, you can delete the entire workspace directory with:</p>
 <li><p>QtCreator</p></li>
 </ul>
 <p>You will need to build Gazebo with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DQT_QML_DEBUG<span class="w"> </span>--merge-install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span><span class="s1">&#39; -DQT_QML_DEBUG&#39;</span><span class="w"> </span>--merge-install
 </pre></div>
 </div>
 <blockquote>
@@ -771,8 +773,8 @@ from it. E.g.</p>
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -804,7 +806,8 @@ from it. E.g.</p>
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
 </p></div>
       
     </div>

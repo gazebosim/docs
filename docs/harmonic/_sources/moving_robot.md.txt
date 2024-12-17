@@ -88,7 +88,26 @@ The last command will display all messages sent on `/keyboard/keypress` topic.
 
 In the Gazebo window press different keys and you should see data (numbers) on the terminal where you run the `gz topic -e -t /keyboard/keypress` command.
 
-![KeyPublisher](tutorials/moving_robot/keypublisher_data.png)
+```
+$ gz topic -e -t /keyboard/keypress
+data: 68
+
+data: 85
+
+data: 72
+
+data: 74
+
+data: 81
+
+data: 16777235
+
+data: 16777234
+
+data: 16777237
+
+data: 16777236
+```
 
 We want to map these keystrokes into messages of type `Twist` and publish them to the `/cmd_vel` topic which our model listens to.
 The `TriggeredPublisher` plugin will do this.

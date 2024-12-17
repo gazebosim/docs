@@ -137,4 +137,4 @@ ros2 launch ros_gz_sim ros_gz_sim.launch.py world_sdf_file:=empty.sdf bridge_nam
 In the above launch files you may notice that the `create_own_container` argument for `ros_gz_bridge` is hardcoded to `False`. This has been done to prevent two duplicate containers from getting created (one for `gz_server` and another one for `ros_gz_bridge`), and instead make `ros_gz_bridge` use the container created by `gz_server`. More info about this can be viewed [here](https://github.com/gazebosim/ros_gz/pull/620#issue-2595570189)
 
 More info about `ros_gz_bridge` can be viewed [here](ros2_integration).
-More info about composition can be viewed [here](ros2_overview#composition).
+More info about composition can be viewed [here](ros2_overview.md#composition).

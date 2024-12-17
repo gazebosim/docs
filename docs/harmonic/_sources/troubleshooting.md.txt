@@ -19,6 +19,23 @@ GZ_CONFIG_PATH=<path_to_install_dir>/share/gz/
 
 ## macOS
 
+###  Maximum number of open files reached `ulimit` error
+When installing using homebrew, you may see the following error message:
+
+```bash
+Error: The maximum number of open files on this system has been reached. Use 'ulimit -n' to increase this limit.
+```
+
+As suggested in the error message, run the command below and check the output. The default value is set to `256` which is too low.
+```bash
+ulimit -n
+```
+
+Run the following command to increase the open files `ulimit` and then proceed with the homebrew install:
+```bash
+ulimit -n 10240
+```
+
 ### Unable to find `urdf_model.h` error
 After installing all the dependencies and starting the build process, you may encounter an error that looks like this:
 
@@ -232,4 +249,37 @@ foreach {
   }
 }
 popd
+```
+
+### Many errors from setuptools when running colcon
+When calling `colcon` to build the packages, you may face a wall of Python errors similar to this one:
+
+```
+> colcon graph
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+ModuleNotFoundError: No module named 'setuptools.extern'
+[10.385s] colcon.colcon_core.package_identification ERROR Exception in package identification extension 'python_setup_py' in 'conda\Lib\site-packages\adodbapi': Command '['D:\\programovani\\gz-ws\\conda\\python.exe', '-c', "import sys;from setuptools.extern.packaging.specifiers import SpecifierSet;from distutils.core import run_setup;dist = run_setup(    'setup.py', script_args=('--dry-run',), stop_after='config');skip_keys = ('cmdclass', 'distclass', 'ext_modules', 'metadata');data = {    key: value for key, value in dist.__dict__.items()     if (        not key.startswith('_') and         not callable(value) and         key not in skip_keys and         key not in dist.display_option_names    )};data['metadata'] = {    k: v for k, v in dist.metadata.__dict__.items()     if k not in ('license_files', 'provides_extras')};sys.stdout.buffer.write(repr(data).encode('utf-8'))"]' returned non-zero exit status 1.
+```
+
+The messages are quite cryptic and do not point at the root cause. The root cause is that you have probably created a conda env directory in the same directory where you have the `src` directory containing the Gazebo sources (you have probably used `conda create --prefix ...` to create the env directory at a non-default destination).
+
+The solution is to move the conda env directory one level up.
+
+E.g., this is the problematic folder structure:
+
+```
+gz-ws\
+  conda\  # The conda env
+  src\    # The Gazebo sources
+    gz-sim\
+```
+
+To fix it, change the structure to something like this:
+
+```
+gz-ws\
+  src\
+    gz-sim\
+conda\
 ```

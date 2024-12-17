@@ -25,8 +25,8 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!-- 
-    this give us a css class that will be invisible only if js is disabled 
+  <!--
+    this give us a css class that will be invisible only if js is disabled
   -->
   <noscript>
     <style>
@@ -36,8 +36,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=26a4bc78f4c0ddb94549" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -45,10 +45,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/css/gazebo.css?v=173bdbe0" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../_static/documentation_options.js?v=173ad40a"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
@@ -58,10 +58,11 @@
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'install_windows_src';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.16.0';
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://gazebosim.org/docs/harmonic/_static/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'harmonic';
-        DOCUMENTATION_OPTIONS.show_version_warning_banner = false;
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
         </script>
     <link rel="canonical" href="https://gazebosim.org/docs/latest/install_windows_src/" />
     <link rel="icon" href="../_static/favicon.ico"/>
@@ -425,9 +426,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -490,30 +496,46 @@ Just append <code class="docutils literal notranslate"><span class="pre">--rende
 <section id="install-dependencies">
 <h2>Install dependencies<a class="headerlink" href="#install-dependencies" title="Link to this heading">#</a></h2>
 <ol class="arabic">
-<li><p>Install a conda distribution. As Gazebo uses all dependencies from the conda-forge channel,
-we suggest to install miniforge following <a class="reference external" href="https://github.com/conda-forge/miniforge#windows">the official miniforge installation docs</a>
-You will likely want to check the box to add <code class="docutils literal notranslate"><span class="pre">conda</span></code> to your <code class="docutils literal notranslate"><span class="pre">PATH</span></code>
-during the installation process so that you won’t have to do this step manually.</p></li>
+<li><p>If you do not have the conda package manager installed in your system, install a conda distribution.
+As Gazebo uses all dependencies from the conda-forge channel, we suggest to install miniforge following <a class="reference external" href="https://github.com/conda-forge/miniforge#windows">the official miniforge installation docs</a> by executing the following commands in a “Command Prompt” terminal:</p>
+<div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>curl.exe -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Windows-x86_64.exe
+start /wait &quot;&quot; Miniforge3-Windows-x86_64.exe /InstallationType=JustMe /RegisterPython=0 /S /D=%UserProfile%\Miniforge3
+%UserProfile%\Miniforge3\condabin\conda init
+%UserProfile%\Miniforge3\condabin\conda config --set auto_activate_base false
+del Miniforge3-Windows-x86_64.exe
+</pre></div>
+</div>
+<p>If you followed this step correctly, you should be able to access <code class="docutils literal notranslate"><span class="pre">conda</span></code> in any new “Command Prompt” terminal you open.
+To verify that, check that if you open a new terminal and execute <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span></code>, the output begins with:</p>
+<div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>  active environment : None
+         shell level : 0
+  [..]
+</pre></div>
+</div>
+</li>
 <li><p>Install <a class="reference external" href="https://visualstudio.microsoft.com/downloads/">Visual Studio 2019 or 2022</a>.
 The Community version is free for students, open-source developers, and personal
 development. Check “Desktop development with C++” in the Workloads tab,
 check “MFC and ATL support”, and uncheck “C++ Cmake Tools.” We will install
 cmake via Conda. All other checkboxes can be left unchecked.</p></li>
 <li><p>Open a Visual Studio Command Prompt (search for “x64 Native Tools Command Prompt
-for VS” in the Windows search field near the Windows button). Optionally,
+for VS” in the Windows search field near the Windows button) or Developer PowerShell
+for VS (search for “developer powershell”). Optionally,
 right-click and pin to the task bar for quick access in the future.</p>
-<p>If you did not add Conda to your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment variable during Conda installation,
-you may need to navigate to the location of <code class="docutils literal notranslate"><span class="pre">condabin</span></code> in order to use the <code class="docutils literal notranslate"><span class="pre">conda</span></code> command.
-To find <code class="docutils literal notranslate"><span class="pre">condabin</span></code>, search for “Anaconda Prompt” in the Windows search field near the
-Windows button, open it, run <code class="docutils literal notranslate"><span class="pre">where</span> <span class="pre">conda</span></code>, and look for a line containing the directory <code class="docutils literal notranslate"><span class="pre">condabin</span></code>.</p>
+<p>If you chose PowerShell, you need to do a few steps to be able to use Conda and Gazebo in it:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>init<span class="w"> </span>powershell
+<span class="c1"># Restart the PowerShell</span>
+Set-ExecutionPolicy<span class="w"> </span>-ExecutionPolicy<span class="w"> </span>Unrestricted<span class="w"> </span>-Scope<span class="w"> </span>CurrentUser
+</pre></div>
+</div>
 </li>
-<li><p>Navigate to your <code class="docutils literal notranslate"><span class="pre">condabin</span></code>, if necessary, and then create and activate a Conda environment:</p>
+<li><p>Create and activate a Conda environment:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>gz-ws
 conda<span class="w"> </span>activate<span class="w"> </span>gz-ws
 </pre></div>
 </div>
 <p>Once you have activated an environment, a prefix like <code class="docutils literal notranslate"><span class="pre">(gz-ws)</span></code> will be prepended to
-your prompt, and you can use the <code class="docutils literal notranslate"><span class="pre">conda</span></code> command outside of the <code class="docutils literal notranslate"><span class="pre">condabin</span></code> directory.</p>
+your prompt.</p>
 <p>You can use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span> <span class="pre">--envs</span></code> to see all of your environments.</p>
 <p>To speed up conda installations, also set the following to use libmamba solver.
 Older conda installations may need to do <a class="reference external" href="https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community">additional steps</a>.</p>
@@ -535,8 +557,8 @@ knows it is a path and not a name.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>cmake<span class="w"> </span>git<span class="w"> </span>vcstool<span class="w"> </span>curl<span class="w"> </span>pkg-config<span class="w"> </span>^
 colcon-common-extensions<span class="w"> </span>dartsim<span class="w"> </span>eigen<span class="w"> </span>freeimage<span class="w"> </span>gdal<span class="w"> </span>gts<span class="w"> </span>^
 glib<span class="w"> </span>dlfcn-win32<span class="w"> </span>ffmpeg<span class="w"> </span>ruby<span class="w"> </span>tinyxml2<span class="w"> </span>tinyxml<span class="w"> </span>^
-libprotobuf<span class="w"> </span>urdfdom<span class="w"> </span>zeromq<span class="w"> </span>cppzmq<span class="w"> </span><span class="nv">ogre</span><span class="o">=</span><span class="m">1</span>.10<span class="w"> </span>ogre-next<span class="w"> </span>jsoncpp<span class="w"> </span>^
-libzip<span class="w"> </span>qt<span class="w"> </span>pybind11<span class="w"> </span>--channel<span class="w"> </span>conda-forge
+protobuf<span class="w"> </span>urdfdom<span class="w"> </span>zeromq<span class="w"> </span>cppzmq<span class="w"> </span><span class="nv">ogre</span><span class="o">=</span><span class="m">1</span>.10<span class="w"> </span>ogre-next<span class="w"> </span>jsoncpp<span class="w"> </span>^
+libzip<span class="w"> </span>qt<span class="w"> </span>pybind11<span class="w"> </span>boost<span class="w"> </span>--channel<span class="w"> </span>conda-forge
 </pre></div>
 </div>
 <p>This can take tens of minutes (or less when using libmamba solver).</p>
@@ -573,7 +595,7 @@ recognized by <code class="docutils literal notranslate"><span class="pre">colco
 <p><code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">graph</span></code> should list the Gazebo libraries with an
 <a class="reference external" href="https://colcon.readthedocs.io/en/released/reference/verb/graph.html#example-output">interdependency diagram</a>.
 If that is the case, then you are ready to build the whole set of libraries:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DBUILD_TESTING<span class="o">=</span>OFF<span class="w"> </span>--merge-install<span class="w"> </span>--packages-up-to<span class="w"> </span>gz-sim8<span class="w"> </span>gz-tools2
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DBUILD_TESTING<span class="o">=</span>OFF<span class="w"> </span>-DSKIP_SWIG<span class="o">=</span>ON<span class="w"> </span>--merge-install<span class="w"> </span>--packages-up-to<span class="w"> </span>gz-sim8<span class="w"> </span>gz-tools2
 </pre></div>
 </div>
 <p>Tests are turned off as they are not currently supported on Windows.</p>
@@ -592,11 +614,14 @@ If that is the case, then you are ready to build the whole set of libraries:</p>
 <h2>Using the workspace<a class="headerlink" href="#using-the-workspace" title="Link to this heading">#</a></h2>
 <p>The workspace needs to be sourced every time a new terminal is used (
 and Conda environment activated before that).</p>
-<p>Run the following command to source the workspace:</p>
+<p>The overall instructions for setting up a new terminal to use the built
+workspace are:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># CMD</span>
+conda<span class="w"> </span>activate<span class="w"> </span>gz-ws
 call<span class="w"> </span>install<span class="se">\s</span>etup.bat
 
 <span class="c1"># PowerShell</span>
+conda<span class="w"> </span>activate<span class="w"> </span>gz-ws
 .<span class="se">\i</span>nstall<span class="se">\s</span>etup.ps1
 </pre></div>
 </div>
@@ -723,8 +748,8 @@ conda<span class="w"> </span>remove<span class="w"> </span>--all<span class="w">
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=26a4bc78f4c0ddb94549"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=26a4bc78f4c0ddb94549"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -756,7 +781,8 @@ conda<span class="w"> </span>remove<span class="w"> </span>--all<span class="w">
       
         <div class="footer-item">
 <p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.0.
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
 </p></div>
       
     </div>

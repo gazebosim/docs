@@ -5,13 +5,14 @@ Additionally, it's possible to spawn new models at any time. To do so using ROS
 we have provided the following mechanisms:
 
 ## Spawn a model using the launch file included in `ros_gz_sim`.
+*Currently only available in Rolling.*
 
 The package `ros_gz_sim` contains a launch file named
-`ros_gz_spawn_model.launch.py`. You can use it to spawn a new model into an
+`gz_spawn_model.launch.py`. You can use it to spawn a new model into an
 existing simulation. Here's an example:
 
 ```bash
-ros2 launch ros_gz_sim gz_spawn_model.launch.py world:=empty file:=$(ros2 pkg prefix --share ros_gz_sim_demos)/models/vehicle/model.sdf name:=my_vehicle x:=5.0 y:=5.0 z:=0.5
+ros2 launch ros_gz_sim gz_spawn_model.launch.py world:=empty file:=$(ros2 pkg prefix --share ros_gz_sim_demos)/models/vehicle/model.sdf entity_name:=my_vehicle x:=5.0 y:=5.0 z:=0.5
 ```
 
 Check [this block](https://github.com/gazebosim/ros_gz/blob/cadae1c8323a74395c09a37e3de4c669c8c09d4f/ros_gz_sim/launch/ros_gz_spawn_model.launch.py#L33-L44)
@@ -29,9 +30,9 @@ within this tag. Here's an example:
 <launch>
   <arg name="world" default="" />
   <arg name="file" default="" />
-  <arg name="xml_string" default="" />
+  <arg name="model_string" default="" />
   <arg name="topic" default="" />
-  <arg name="name" default="" />
+  <arg name="entity_name" default="" />
   <arg name="allow_renaming" default="False" />
   <arg name="x" default="" />
   <arg name="y" default="" />
@@ -42,9 +43,9 @@ within this tag. Here's an example:
   <gz_spawn_model 
     world="$(var world)"
     file="$(var file)"
-    xml_string="$(var xml_string)"
+    model_string="$(var model_string)"
     topic="$(var topic)"
-    name="$(var name)"
+    entity_name="$(var entity_name)"
     allow_renaming="$(var allow_renaming)"
     x="$(var x)"
     y="$(var y)"
@@ -58,4 +59,17 @@ within this tag. Here's an example:
 
 In this case the `<gz_spawn_model>` parameters are read from the command line.
 That's an option but not strictly necessary as you could decide to hardcode some
-of the values.
+of the values or not even use all of the parameters.
+
+
+## Spawning a model alongside launching ros_gz_bridge
+
+An example launch file for XML can be viewed [here](https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_sim/launch/ros_gz_spawn_model.launch)
+An example launch file for Python can be viewed [here](https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_sim/launch/ros_gz_spawn_model.launch.py)
+
+Example command for directly using these launch files from the terminal:
+```bash
+ros2 launch ros_gz_sim ros_gz_spawn_model.launch.py world:=empty file:=$(ros2 pkg prefix --share ros_gz_sim_demos)/models/vehicle/model.sdf entity_name:=my_vehicle x:=5.0 y:=5.0 z:=0.5 bridge_name:=ros_gz_bridge config_file:=<path_to_your_YAML_file>
+```
+
+More info about `ros_gz_bridge` can be viewed [here](ros2_integration).
