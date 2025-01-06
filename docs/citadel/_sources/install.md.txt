@@ -2,6 +2,10 @@
 
 Ignition Citadel is the 3rd major release of Ignition, and its 1st 5-year-LTS.
 
+**Citadel has reached end-of-life on December 2024.
+This page exists for archival purposes.
+Please refer to the latest supported version.**
+
 ## Binary installation instructions
 
 Binary installation is the recommended method of installing Ignition.
