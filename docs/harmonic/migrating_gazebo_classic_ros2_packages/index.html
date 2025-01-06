@@ -756,10 +756,9 @@ You can reference the Waffle
 <a class="reference external" href="https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf">model SDF file before editing here</a>,
 and
 <a class="reference external" href="https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf">after editing here</a>.
-For each <code class="docutils literal notranslate"><span class="pre">&lt;plugin&gt;</span></code> in the original model, The following is a list of all the
-plugins in the original model. For each plugin, we will either remove the plugin
-if it’s no longer necessary, or use the equivalent plugin from the new Gazebo.
-You can use the Feature comparison page
+The following is a list of all the plugins in the original model.
+For each plugin, we will either remove the plugin if it’s no longer necessary,
+or use the equivalent plugin from the new Gazebo. You can use the Feature comparison page
 (<a class="reference external" href="https://gazebosim.org/docs/fortress/comparison">Fortress</a>,
 <a class="reference external" href="https://gazebosim.org/docs/harmonic/comparison">Harmonic</a>) to find out of a
 Gazebo Classic feature (e.g. a Sensor type) is available in Gazebo. If an
@@ -797,7 +796,7 @@ bridge later. The entire <code class="docutils literal notranslate"><span class=
 </div></blockquote>
 <p>Similar to the IMU, we will use a generic plugin loaded into the world for
 handling all rendering sensors, which includes Lidar sensors. Currently the
-<code class="docutils literal notranslate"><span class="pre">ray</span></code> sensor type, which meant to use the physics engine for generator the
+<code class="docutils literal notranslate"><span class="pre">ray</span></code> sensor type, which meant to use the physics engine for generating the
 sensor data, is not supported in the new Gazebo, we will need to update it to
 <code class="docutils literal notranslate"><span class="pre">gpu_lidar</span></code>. We’ll also need to change the <code class="docutils literal notranslate"><span class="pre">&lt;ray&gt;</span></code> tag inside <code class="docutils literal notranslate"><span class="pre">&lt;sensor&gt;</span></code> to
 <code class="docutils literal notranslate"><span class="pre">&lt;lidar&gt;</span></code>. The <code class="docutils literal notranslate"><span class="pre">frame_name</span></code> parameter of the plugin will be handled by setting
@@ -824,8 +823,8 @@ should look like:</p>
 <div><p><a class="reference external" href="https://github.com/ROBOTIS-GIT/turtlebot3_simulations//blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf#L393-L402">Plugin in the original model</a></p>
 </div></blockquote>
 <p>The Camera sensor will also use a generic plugin that handles all rendering
-sensors loaded into the world. In the SDF file, we will set the <code class="docutils literal notranslate"><span class="pre">&lt;topic&gt;</span></code> and
-tag inside <code class="docutils literal notranslate"><span class="pre">&lt;sensor&gt;</span></code>, and the <code class="docutils literal notranslate"><span class="pre">&lt;camera_info_topic&gt;</span></code> inside <code class="docutils literal notranslate"><span class="pre">&lt;camera&gt;</span></code>, both of
+sensors loaded into the world. In the SDF file, we will set the <code class="docutils literal notranslate"><span class="pre">&lt;topic&gt;</span></code> tag
+inside <code class="docutils literal notranslate"><span class="pre">&lt;sensor&gt;</span></code>, and the <code class="docutils literal notranslate"><span class="pre">&lt;camera_info_topic&gt;</span></code> inside <code class="docutils literal notranslate"><span class="pre">&lt;camera&gt;</span></code>, both of
 which will be used in the ROS bridge later. We will also set the <code class="docutils literal notranslate"><span class="pre">&lt;gz_frame_id&gt;</span></code>
 since the default frame id used by the generic plugin in the new Gazebo is
 different from the default used by <code class="docutils literal notranslate"><span class="pre">libgazebo_ros_camera</span></code> in Gazebo Classic. The
@@ -1074,7 +1073,7 @@ following snippet to <code class="docutils literal notranslate"><span class="pre
 <span class="p">)</span>
 </pre></div>
 </div>
-<p>Finally, we will add all new the actions to the list of <code class="docutils literal notranslate"><span class="pre">LaunchDescription</span></code>s
+<p>Finally, we will add all the new actions to the list of <code class="docutils literal notranslate"><span class="pre">LaunchDescription</span></code>s
 returned by the <code class="docutils literal notranslate"><span class="pre">generate_launch_description</span></code> function</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ...</span>
 

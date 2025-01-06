@@ -324,10 +324,9 @@ You can reference the Waffle
 [model SDF file before editing here](https://github.com/ROBOTIS-GIT/turtlebot3_simulations/blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf),
 and
 [after editing here](https://github.com/azeey/turtlebot3_simulations/blob/new_gazebo/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf).
-For each `<plugin>` in the original model, The following is a list of all the
-plugins in the original model. For each plugin, we will either remove the plugin
-if it's no longer necessary, or use the equivalent plugin from the new Gazebo.
-You can use the Feature comparison page
+The following is a list of all the plugins in the original model.
+For each plugin, we will either remove the plugin if it's no longer necessary,
+or use the equivalent plugin from the new Gazebo. You can use the Feature comparison page
 ([Fortress](https://gazebosim.org/docs/fortress/comparison),
 [Harmonic](https://gazebosim.org/docs/harmonic/comparison)) to find out of a
 Gazebo Classic feature (e.g. a Sensor type) is available in Gazebo. If an
@@ -365,7 +364,7 @@ bridge later. The entire `<sensor>` tag should now look like:
 
 Similar to the IMU, we will use a generic plugin loaded into the world for
 handling all rendering sensors, which includes Lidar sensors. Currently the
-`ray` sensor type, which meant to use the physics engine for generator the
+`ray` sensor type, which meant to use the physics engine for generating the
 sensor data, is not supported in the new Gazebo, we will need to update it to
 `gpu_lidar`. We'll also need to change the `<ray>` tag inside `<sensor>` to
 `<lidar>`. The `frame_name` parameter of the plugin will be handled by setting
@@ -392,8 +391,8 @@ should look like:
 > [Plugin in the original model](https://github.com/ROBOTIS-GIT/turtlebot3_simulations//blob/d16cdbe7ecd601ccad48f87f77b6d89079ec5ac1/turtlebot3_gazebo/models/turtlebot3_waffle/model.sdf#L393-L402)
 
 The Camera sensor will also use a generic plugin that handles all rendering
-sensors loaded into the world. In the SDF file, we will set the `<topic>` and
-tag inside `<sensor>`, and the `<camera_info_topic>` inside `<camera>`, both of
+sensors loaded into the world. In the SDF file, we will set the `<topic>` tag
+inside `<sensor>`, and the `<camera_info_topic>` inside `<camera>`, both of
 which will be used in the ROS bridge later. We will also set the `<gz_frame_id>`
 since the default frame id used by the generic plugin in the new Gazebo is
 different from the default used by `libgazebo_ros_camera` in Gazebo Classic. The
@@ -657,7 +656,7 @@ start_gazebo_ros_image_bridge_cmd = Node(
 )
 ```
 
-Finally, we will add all new the actions to the list of `LaunchDescription`s
+Finally, we will add all the new actions to the list of `LaunchDescription`s
 returned by the `generate_launch_description` function
 
 ```python
