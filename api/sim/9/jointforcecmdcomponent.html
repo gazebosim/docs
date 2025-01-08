@@ -139,8 +139,8 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>We will show how to use one of the components, <a class="el" href="namespacegz_1_1sim_1_1components.html#acb1fa80d3ae07408b4bd1efbeedaef15">gz::sim::components::JointForceCmd</a>, in a system. This component allows us to set the force command on a joint.</p>
-<p>Programmatic usage of this component can be found in the source code for systems and integration tests, such as the <a href="https://github.com/gazebosim/gz-sim/blob/gz-sim8/test/integration/joint.cc">joint integration test</a>, the <a class="el" href="classgz_1_1sim_1_1systems_1_1ApplyJointForce.html">gz::sim::systems::ApplyJointForce</a> system (<a href="https://github.com/gazebosim/gz-sim/tree/gz-sim8/src/systems/apply_joint_force">source code</a>), and others.</p>
-<p>The corresponding world SDF is <a href="https://github.com/gazebosim/gz-sim/blob/gz-sim8/examples/worlds/apply_joint_force.sdf"><code>apply_joint_force.sdf</code></a>, which you can look at in Gazebo:</p>
+<p>Programmatic usage of this component can be found in the source code for systems and integration tests, such as the <a href="https://github.com/gazebosim/gz-sim/blob/gz-sim9/test/integration/joint.cc">joint integration test</a>, the <a class="el" href="classgz_1_1sim_1_1systems_1_1ApplyJointForce.html">gz::sim::systems::ApplyJointForce</a> system (<a href="https://github.com/gazebosim/gz-sim/tree/gz-sim9/src/systems/apply_joint_force">source code</a>), and others.</p>
+<p>The corresponding world SDF is <a href="https://github.com/gazebosim/gz-sim/blob/gz-sim9/examples/worlds/apply_joint_force.sdf"><code>apply_joint_force.sdf</code></a>, which you can look at in Gazebo:</p>
 <div class="fragment"><div class="line">gz sim apply_joint_force.sdf</div>
 </div><!-- fragment --><p>We will walk through the relevant lines of source code in <code>ApplyJointForce</code> that interact with <code>JointForceCmd</code>.</p>
 <h3><a class="anchor" id="autotoc_md70"></a>
@@ -166,20 +166,11 @@ Find the entity of interest</h3>
 Modify the component</h3>
 <p>Once we have the handle to an entity, we can modify components associated with it. A component may have been created at the time the world is loaded, or you may create a component at runtime if it does not exist yet.</p>
 <p>In this case, we use the joint entity found above to look for and modify its <code>JointForceCmd</code> component. This will apply a force command to the joint.</p>
-<p>In <code>PreUpdate()</code>, look for the component:</p>
-<div class="fragment"><div class="line">  <span class="keyword">auto</span> force = _ecm.Component&lt;components::JointForceCmd&gt;(</div>
-<div class="line">      this-&gt;dataPtr-&gt;jointEntity);</div>
-</div><!-- fragment --><p>Create it if it does not exist yet, and modify it:</p>
-<div class="fragment"><div class="line">  <span class="keywordflow">if</span> (force == <span class="keyword">nullptr</span>)</div>
-<div class="line">  {</div>
-<div class="line">    _ecm.CreateComponent(</div>
-<div class="line">        this-&gt;dataPtr-&gt;jointEntity,</div>
-<div class="line">        components::JointForceCmd({this-&gt;dataPtr-&gt;jointForceCmd}));</div>
-<div class="line">  }</div>
-<div class="line">  <span class="keywordflow">else</span></div>
-<div class="line">  {</div>
-<div class="line">    force-&gt;Data()[0] += this-&gt;dataPtr-&gt;jointForceCmd;</div>
-<div class="line">  }</div>
+<p>In <code>PreUpdate()</code>, look for the component. If it does not exist yet, create it, setting its default value to <code>{0.0}</code> (which means, in this particular case, a 1-element <code><a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt;double&gt;</code> with value 0.0 in its only element):</p>
+<div class="fragment"><div class="line">  <span class="keyword">auto</span> force = _ecm.ComponentDefault&lt;components::JointForceCmd&gt;(</div>
+<div class="line">      this-&gt;dataPtr-&gt;jointEntity, {0.0});</div>
+</div><!-- fragment --><p>Now modify the value stored in the component:</p>
+<div class="fragment"><div class="line">  force-&gt;Data()[0] += this-&gt;dataPtr-&gt;jointForceCmd;</div>
 </div><!-- fragment --><p>where the scalar joint force command is declared as a member variable:</p>
 <div class="fragment"><div class="line">  <span class="keyword">public</span>: <span class="keywordtype">double</span> jointForceCmd;</div>
 </div><!-- fragment --><p>and a callback function allows the user to specify a force on a topic:</p>
