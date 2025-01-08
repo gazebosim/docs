@@ -93,7 +93,8 @@ def generate_launch_description():
             package='ros_gz_bridge',
             executable='parameter_bridge',
             arguments=['/example_imu_topic@sensor_msgs/msg/Imu@gz.msgs.IMU',],
-            remappings=[('/remapped_imu_topic'),],
+            remappings=[('/example_imu_topic',
+                         '/remapped_imu_topic'),],
             output='screen'
         ),
     ])
