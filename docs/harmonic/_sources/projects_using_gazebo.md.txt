@@ -27,3 +27,4 @@ please open a pull request by clicking on the "Edit on Github" link.
 - **PX4**: PX4 is the Professional Autopilot. It powers all kinds of vehicles from racing and cargo drones through to ground vehicles and submersibles. [{octicon}`globe` link](https://docs.px4.io/v1.13/en/simulation/ignition_gazebo.html)
 - **PhantomX Pincher Robot Arm**: Manipulation packages in ROS 2, MoveIt 2, and new Gazebo for a class at the University of Luxembourg. [{octicon}`globe` link](https://github.com/snt-spacer/phantomx_pincher/tree/ros2)
 - **Open-RMF**: Warehouse robot fleet sharing and interoperability between multiple fleets of robots and physical infrastructure. [{octicon}`globe` link](https://www.open-rmf.org/)
+- **heightmap_spawner**: A ROS 2 package that converts occupancy grids from nav2_map_server into 3D heightmap models for use in Gazebo simulations. [{octicon}`globe` link](https://github.com/damanikjosh/heightmap_spawner)
