@@ -46,7 +46,7 @@ How to read the columns:
 ||10|stable||N|||I|2024-09-26|TBD|
 |gz-sim|1|EOL ❌||B|||A|2019-03-02|2019-09 with Acropolis|
 ||2|EOL ❌||B|||B|2019-05-21|2020-12 with Blueprint|
-||3|stable||B F|F||C|2019-12-10|2024-12 with Citadel|
+||3|EOL ❌||B F|F||C|2019-12-10|2024-12 with Citadel|
 ||4|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
 ||5|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||6|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
@@ -56,7 +56,7 @@ How to read the columns:
 |gz-gui|0|EOL ❌||B||||2019-03-06|-|
 ||1|EOL ❌||B|||A|2019-03-01|2019-09 with Acropolis|
 ||2|EOL ❌||B|||B|2019-05-21|2020-12 with Blueprint|
-||3|stable||B F|F||C|2019-12-10|2024-12 with Citadel|
+||3|EOL ❌||B F|F||C|2019-12-10|2024-12 with Citadel|
 ||4|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
 ||5|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||6|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
@@ -65,7 +65,7 @@ How to read the columns:
 ||9|stable||N|||I|2024-09-26|TBD|
 |gz-launch|0|EOL ❌||B|||A|2019-03-18|2019-09 with Acropolis|
 ||1|EOL ❌||B|||B|2019-05-21|2020-12 with Blueprint|
-||2|stable||B F|F||C|2019-12-10|2024-12 with Citadel|
+||2|EOL ❌||B F|F||C|2019-12-10|2024-12 with Citadel|
 ||3|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
 ||4|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||5|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
@@ -94,7 +94,7 @@ How to read the columns:
 ||10|stable||J N|||H|2023-09-29|2028-09 with Harmonic|
 ||11|stable||N|||I|2024-09-26|TBD|
 |gz-physics|1|EOL ❌||B|||A B|2019-03-01|2020-12 with Blueprint|
-||2|stable||B F|F||C|2019-12-10|2024-12 with Citadel|
+||2|EOL ❌||B F|F||C|2019-12-10|2024-12 with Citadel|
 ||3|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
 ||4|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||5|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
@@ -106,7 +106,7 @@ How to read the columns:
 ||3|stable||N|||I|2024-09-26|TBD|
 |gz-rendering|1|EOL ❌||B|||A|2019-02-28|2019-09 with Acropolis|
 ||2|EOL ❌||B|||B|2019-05-20|2020-12 with Blueprint|
-||3|stable||B F|F||C|2019-12-10|2024-12 with Citadel|
+||3|EOL ❌||B F|F||C|2019-12-10|2024-12 with Citadel|
 ||4|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
 ||5|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||6|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
@@ -115,7 +115,7 @@ How to read the columns:
 ||9|stable||N|||I|2024-09-26|TBD|
 |gz-sensors|1|EOL ❌||B|||A|2019-03-01|2019-09 with Acropolis|
 ||2|EOL ❌||B|||B|2019-05-21|2020-12 with Blueprint|
-||3|stable||B F|F||C|2019-12-10|2024-12 with Citadel|
+||3|EOL ❌||B F|F||C|2019-12-10|2024-12 with Citadel|
 ||4|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
 ||5|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||6|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
