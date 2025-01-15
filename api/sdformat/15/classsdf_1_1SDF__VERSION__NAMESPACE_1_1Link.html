@@ -1607,7 +1607,7 @@ Public Member Functions</h2></td></tr>
 
 <p>Calculate &amp; set inertial values(mass, mass matrix
 &amp; inertial pose) for the link. </p>
-<p>Inertial values can be provided by the user through the <a class="el" href="classsdf_1_1SDF__VERSION__NAMESPACE_1_1SDF.html" title="Base SDF class.">SDF</a> or can be calculated automatically by setting the auto attribute to true. </p><dl class="params"><dt>Parameters</dt><dd>
+<p>This function will calculate the inertial values if the auto attribute is set to true. If mass is not provided by the user, the inertial values will be determined based on either link density or collision density if explicitly set. Otherwise, if mass is specified, the inertia matrix will be scaled to match the desired mass, while respecting the ratio of density values between collisions. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[out]</td><td class="paramname">_errors</td><td>A vector of Errors object. Each object would contain an error code and an error message. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">_config</td><td>Custom parser configuration </td></tr>
