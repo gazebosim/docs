@@ -112,6 +112,19 @@ sudo apt -y install \
   $(sort -u $(find . -iname 'packages-'`lsb_release -cs`'.apt' -o -iname 'packages.apt' | grep -v '/\.git/') | sed '/gz\|sdf/d' | tr '\n' ' ')
 ```
 
+Alternatively, if you want to install dependencies using
+[rosdep](https://docs.ros.org/en/humble/Tutorials/Intermediate/Rosdep.html),
+ensure that [rosdep is installed](https://docs.ros.org/en/humble/Tutorials/Intermediate/Rosdep.html#how-do-i-use-the-rosdep-tool)
+and use the following command:
+
+```bash
+cd ~/workspace/src
+# gz-tools2 can build from source against both gz-cmake3 and gz-cmake4
+# this workspace has only gz-cmake4
+# the gz-tools2 package.xml only lists gz-cmake3, so use --skip-keys gz-cmake3
+rosdep install -i --from-path . --skip-keys gz-cmake3
+```
+
 ## Building the Gazebo Libraries
 
 Once the compiler and all the sources are in place it is time to compile them.
