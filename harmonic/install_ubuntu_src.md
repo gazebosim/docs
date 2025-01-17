@@ -24,7 +24,7 @@ cases where the default option cannot be easily changed.
 Install tools needed by this tutorial:
 
 ```bash
-sudo apt install python3-pip lsb-release gnupg curl
+sudo apt install python3-pip python3-venv lsb-release gnupg curl
 ```
 
 ## vcstool and colcon from pip
