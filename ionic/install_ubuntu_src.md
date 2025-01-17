@@ -119,11 +119,30 @@ and use the following command:
 
 ```bash
 cd ~/workspace/src
-# gz-tools2 can build from source against both gz-cmake3 and gz-cmake4
-# this workspace has only gz-cmake4
-# the gz-tools2 package.xml only lists gz-cmake3, so use --skip-keys gz-cmake3
-rosdep install -i --from-path . --skip-keys gz-cmake3
+rosdep install -i --from-path . -y \
+    --skip-keys "gz-cmake3 DART libogre-dev libogre-next-2.3-dev"
 ```
+
+The `rosdep` command attempts to install dependencies listed in `package.xml`
+files, but when problems arise the `--skip-keys` argument is used. Explanations
+for its use in the previous line are given below:
+
+* `gz-cmake3`: `gz-tools2` can build from source against
+  [both `gz-cmake3` and `gz-cmake4`](https://github.com/gazebosim/gz-tools/pull/128),
+  and this workspace only contains `gz-cmake4`. The `gz-tools2` `package.xml`
+  file only [depends on gz-cmake3](https://github.com/gazebosim/gz-tools/blob/2b228e5b956/package.xml#L13)
+  and since that package is not present, use `--skip-keys gz-cmake3`.
+* `DART`: `gz-physics8` can build against [dartsim](http://dartsim.github.io),
+  which is listed as DART in the [gz-physics package.xml file](https://github.com/gazebosim/gz-physics/blob/gz-physics8_8.0.0/package.xml#L16).
+  This package is not in the workspace, so `DART` is added to the `--skip-keys`
+  string.
+  See the discussion in [gz-physics#608](https://github.com/gazebosim/gz-physics/pull/608#discussion_r1589512231)
+  for more background on the package name used for `DART`.
+* `libogre-dev` and `libogre-next-2.3-dev`: `gz-rendering9` can build against
+  ogre 1.9 and ogre-next 2.3. The debian package names are listed as
+  dependencies in the [gz-rendering package.xml](https://github.com/gazebosim/gz-rendering/blob/gz-rendering9_9.0.0/package.xml#L22-L23)
+  but they are not available on all Linux versions, so work around with
+  `--skip-keys "libogre-dev libogre-next-2.3-dev"`.
 
 ## Building the Gazebo Libraries
 
