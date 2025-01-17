@@ -24,7 +24,7 @@ cases where the default option cannot be easily changed.
 Install tools needed by this tutorial:
 
 ```bash
-sudo apt install python3-pip lsb-release gnupg curl
+sudo apt install python3-pip lsb-release gnupg curl git
 ```
 
 ## vcstool and colcon from pip
@@ -65,15 +65,6 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros2/ubuntu $(lsb_release -sc) mai
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install python3-vcstool python3-colcon-common-extensions
-```
-
-## Git
-
-Ignition libraries use `git` for version control, so it must be available
-in the system for `vcstool` to work properly.
-
-```bash
-sudo apt-get install git
 ```
 
 ## Getting the sources
