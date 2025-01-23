@@ -31,9 +31,9 @@ This list of library versions may change up to the release date.
 |   gz-cmake         |       4.x     |
 |   gz-common        |       6.x     |
 |   gz-fuel-tools    |       10.x     |
-|   gz-sim           |       9.x     |
-|   gz-gui           |       9.x     |
-|   gz-launch        |       8.x     |
+|   gz-sim           |       10.x     |
+|   gz-gui           |       10.x     |
+|   gz-launch        |       9.x     |
 |   gz-math          |       8.x     |
 |   gz-msgs          |      11.x     |
 |   gz-physics       |       8.x     |
