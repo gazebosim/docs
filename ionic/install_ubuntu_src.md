@@ -104,8 +104,8 @@ sudo apt -y install \
 ```
 
 Alternatively, if you want to install dependencies using
-[rosdep](https://docs.ros.org/en/humble/Tutorials/Intermediate/Rosdep.html),
-ensure that [rosdep is installed](https://docs.ros.org/en/humble/Tutorials/Intermediate/Rosdep.html#how-do-i-use-the-rosdep-tool)
+[rosdep](https://docs.ros.org/en/rolling/Tutorials/Intermediate/Rosdep.html),
+ensure that [rosdep is installed](https://docs.ros.org/en/rolling/Tutorials/Intermediate/Rosdep.html#how-do-i-use-the-rosdep-tool)
 and use the following command:
 
 ```bash
