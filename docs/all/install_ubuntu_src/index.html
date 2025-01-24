@@ -551,6 +551,36 @@ sudo<span class="w"> </span>apt<span class="w"> </span>-y<span class="w"> </span
 <span class="w">  </span><span class="k">$(</span>sort<span class="w"> </span>-u<span class="w"> </span><span class="k">$(</span>find<span class="w"> </span>.<span class="w"> </span>-iname<span class="w"> </span><span class="s1">&#39;packages-&#39;</span><span class="sb">`</span>lsb_release<span class="w"> </span>-cs<span class="sb">`</span><span class="s1">&#39;.apt&#39;</span><span class="w"> </span>-o<span class="w"> </span>-iname<span class="w"> </span><span class="s1">&#39;packages.apt&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">&#39;/\.git/&#39;</span><span class="k">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;/gz\|sdf/d&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="k">)</span>
 </pre></div>
 </div>
+<p>Alternatively, if you want to install dependencies using
+<a class="reference external" href="https://docs.ros.org/en/rolling/Tutorials/Intermediate/Rosdep.html">rosdep</a>,
+ensure that <a class="reference external" href="https://docs.ros.org/en/rolling/Tutorials/Intermediate/Rosdep.html#how-do-i-use-the-rosdep-tool">rosdep is installed</a>
+and use the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/workspace/src
+rosdep<span class="w"> </span>install<span class="w"> </span>-i<span class="w"> </span>--from-path<span class="w"> </span>.<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--skip-keys<span class="w"> </span><span class="s2">&quot;gz-cmake3 DART libogre-dev libogre-next-2.3-dev&quot;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">rosdep</span></code> command attempts to install dependencies listed in <code class="docutils literal notranslate"><span class="pre">package.xml</span></code>
+files, but when problems arise the <code class="docutils literal notranslate"><span class="pre">--skip-keys</span></code> argument is used. Explanations
+for its use in the previous line are given below:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gz-cmake3</span></code>: <code class="docutils literal notranslate"><span class="pre">gz-tools2</span></code> can build from source against
+<a class="reference external" href="https://github.com/gazebosim/gz-tools/pull/128">both <code class="docutils literal notranslate"><span class="pre">gz-cmake3</span></code> and <code class="docutils literal notranslate"><span class="pre">gz-cmake4</span></code></a>,
+and this workspace only contains <code class="docutils literal notranslate"><span class="pre">gz-cmake4</span></code>. The <code class="docutils literal notranslate"><span class="pre">gz-tools2</span></code> <code class="docutils literal notranslate"><span class="pre">package.xml</span></code>
+file only <a class="reference external" href="https://github.com/gazebosim/gz-tools/blob/2b228e5b956/package.xml#L13">depends on gz-cmake3</a>
+and since that package is not present, use <code class="docutils literal notranslate"><span class="pre">--skip-keys</span> <span class="pre">gz-cmake3</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DART</span></code>: <code class="docutils literal notranslate"><span class="pre">gz-physics8</span></code> can build against <a class="reference external" href="http://dartsim.github.io">dartsim</a>,
+which is listed as DART in the <a class="reference external" href="https://github.com/gazebosim/gz-physics/blob/gz-physics8_8.0.0/package.xml#L16">gz-physics package.xml file</a>.
+This package is not in the workspace, so <code class="docutils literal notranslate"><span class="pre">DART</span></code> is added to the <code class="docutils literal notranslate"><span class="pre">--skip-keys</span></code>
+string.
+See the discussion in <a class="reference external" href="https://github.com/gazebosim/gz-physics/pull/608#discussion_r1589512231">gz-physics#608</a>
+for more background on the package name used for <code class="docutils literal notranslate"><span class="pre">DART</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">libogre-dev</span></code> and <code class="docutils literal notranslate"><span class="pre">libogre-next-2.3-dev</span></code>: <code class="docutils literal notranslate"><span class="pre">gz-rendering9</span></code> can build against
+ogre 1.9 and ogre-next 2.3. The debian package names are listed as
+dependencies in the <a class="reference external" href="https://github.com/gazebosim/gz-rendering/blob/gz-rendering9_9.0.0/package.xml#L22-L23">gz-rendering package.xml</a>
+but they are not available on all Linux versions, so work around with
+<code class="docutils literal notranslate"><span class="pre">--skip-keys</span> <span class="pre">&quot;libogre-dev</span> <span class="pre">libogre-next-2.3-dev&quot;</span></code>.</p></li>
+</ul>
 </section>
 <section id="building-the-gazebo-libraries">
 <h2>Building the Gazebo Libraries<a class="headerlink" href="#building-the-gazebo-libraries" title="Link to this heading">#</a></h2>
