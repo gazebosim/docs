@@ -162,47 +162,47 @@
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#ifndef GZ_GUI_PLUGINS_IMAGEDISPLAY_HH_</span></div>
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#define GZ_GUI_PLUGINS_IMAGEDISPLAY_HH_</span></div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;QQuickImageProvider&gt;</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &lt;gz/msgs/image.pb.h&gt;</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#ifndef _WIN32</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="ImageDisplay_8hh.html#a33ce21ac801d55e2368e4f6d70d0f7b0">   28</a></span><span class="preprocessor">#  define ImageDisplay_EXPORTS_API __attribute__ ((visibility (&quot;default&quot;)))</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#else</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#  if (defined(ImageDisplay_EXPORTS))</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#    define ImageDisplay_EXPORTS_API __declspec(dllexport)</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#  else</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#    define ImageDisplay_EXPORTS_API __declspec(dllimport)</span></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#  endif</span></div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#endif</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &quot;<a class="code" href="Plugin_8hh.html">gz/gui/Plugin.hh</a>&quot;</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &lt;gz/utils/ImplPtr.hh&gt;</span></div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacegz_1_1gui_1_1plugins.html" title="Namespace for all plugins.">gz::gui::plugins</a></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>{</div>
-<div class="foldopen" id="foldopen00043" data-start="{" data-end="};">
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classplugins_1_1ImageProvider.html">   43</a></span>  <span class="keyword">class </span><a class="code hl_class" href="classplugins_1_1ImageProvider.html">ImageProvider</a> : <span class="keyword">public</span> QQuickImageProvider</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  {</div>
-<div class="foldopen" id="foldopen00045" data-start="{" data-end="}">
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="classplugins_1_1ImageProvider.html#a165f9e771266b2a6a0c55976cd85ddc4">   45</a></span>    <span class="keyword">public</span>: <a class="code hl_function" href="classplugins_1_1ImageProvider.html#a165f9e771266b2a6a0c55976cd85ddc4">ImageProvider</a>()</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>       : QQuickImageProvider(QQuickImageProvider::Image)</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    {</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    }</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &lt;QImage&gt;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &lt;QString&gt;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &lt;QStringList&gt;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &lt;QQuickImageProvider&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;gz/msgs/image.pb.h&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#ifndef _WIN32</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="ImageDisplay_8hh.html#a33ce21ac801d55e2368e4f6d70d0f7b0">   29</a></span><span class="preprocessor">#  define ImageDisplay_EXPORTS_API __attribute__ ((visibility (&quot;default&quot;)))</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#  if (defined(ImageDisplay_EXPORTS))</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#    define ImageDisplay_EXPORTS_API __declspec(dllexport)</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#  else</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#    define ImageDisplay_EXPORTS_API __declspec(dllimport)</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#  endif</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &quot;<a class="code" href="Plugin_8hh.html">gz/gui/Plugin.hh</a>&quot;</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">#include &lt;gz/utils/ImplPtr.hh&gt;</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacegz_1_1gui_1_1plugins.html" title="Namespace for all plugins.">gz::gui::plugins</a></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>{</div>
+<div class="foldopen" id="foldopen00044" data-start="{" data-end="};">
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classplugins_1_1ImageProvider.html">   44</a></span>  <span class="keyword">class </span><a class="code hl_class" href="classplugins_1_1ImageProvider.html">ImageProvider</a> : <span class="keyword">public</span> QQuickImageProvider</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  {</div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="}">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classplugins_1_1ImageProvider.html#a165f9e771266b2a6a0c55976cd85ddc4">   46</a></span>    <span class="keyword">public</span>: <a class="code hl_function" href="classplugins_1_1ImageProvider.html#a165f9e771266b2a6a0c55976cd85ddc4">ImageProvider</a>()</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>       : QQuickImageProvider(QQuickImageProvider::Image)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    }</div>
 </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="classplugins_1_1ImageProvider.html#a3c22ffcbdf116e396a4d2f6b6b24385a">   50</a></span>    <span class="keyword">public</span>: <a class="code hl_classRef" href="http://doc.qt.io/qt-5/qimage.html">QImage</a> <a class="code hl_function" href="classplugins_1_1ImageProvider.html#a3c22ffcbdf116e396a4d2f6b6b24385a">requestImage</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="http://doc.qt.io/qt-5/qstring.html">QString</a> &amp;, <a class="code hl_classRef" href="http://doc.qt.io/qt-5/qsize.html">QSize</a> *,</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keyword">const</span> <a class="code hl_classRef" href="http://doc.qt.io/qt-5/qsize.html">QSize</a> &amp;)<span class="keyword"> override</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>      <span class="keywordflow">if</span> (!this-&gt;img.isNull())</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>      {</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="comment">// Must return a copy</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <a class="code hl_classRef" href="http://doc.qt.io/qt-5/qimage.html">QImage</a> copy(this-&gt;img);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span> copy;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="}">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classplugins_1_1ImageProvider.html#a3c22ffcbdf116e396a4d2f6b6b24385a">   51</a></span>    <span class="keyword">public</span>: <a class="code hl_classRef" href="http://doc.qt.io/qt-5/qimage.html">QImage</a> <a class="code hl_function" href="classplugins_1_1ImageProvider.html#a3c22ffcbdf116e396a4d2f6b6b24385a">requestImage</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="http://doc.qt.io/qt-5/qstring.html">QString</a> &amp;, <a class="code hl_classRef" href="http://doc.qt.io/qt-5/qsize.html">QSize</a> *,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <span class="keyword">const</span> <a class="code hl_classRef" href="http://doc.qt.io/qt-5/qsize.html">QSize</a> &amp;)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>      <span class="keywordflow">if</span> (!this-&gt;img.isNull())</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>      {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        <span class="comment">// Must return a copy</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span> this-&gt;img;</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>      }</div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>      <span class="comment">// Placeholder in case we have no image yet</span></div>
@@ -251,20 +251,24 @@
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="classplugins_1_1ImageDisplay.html#a9925a8fe7dba96c0f69b75464d8659d2">  116</a></span>    public: Q_INVOKABLE <span class="keywordtype">void</span> SetTopicList(const <a class="code hl_classRef" href="http://doc.qt.io/qt-5/qstringlist.html">QStringList</a> &amp;_topicList);</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno"><a class="line" href="classplugins_1_1ImageDisplay.html#a06c415f45108503c6c34762fb8796fb2">  119</a></span>    signals: <span class="keywordtype">void</span> TopicListChanged();</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="classplugins_1_1ImageDisplay.html#aac99f437f3d2de424c658644da197cbb">  122</a></span>    signals: <span class="keywordtype">void</span> newImage();</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    private slots: <span class="keywordtype">void</span> ProcessImage();</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    private: <span class="keywordtype">void</span> OnImageMsg(const <a class="code hl_namespaceRef" href="https://gazebosim.org/api/math/8/namespacegz.html">gz</a>::msgs::Image &amp;_msg);</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    GZ_UTILS_UNIQUE_IMPL_PTR(dataPtr)</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>  };</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="classplugins_1_1ImageDisplay.html#aa00b9454b7e89c3aee21e1e96e0a3bd5">  120</a></span>    public: Q_INVOKABLE <span class="keywordtype">void</span> RegisterImageProvider(const <a class="code hl_classRef" href="http://doc.qt.io/qt-5/qstring.html">QString</a> &amp;_uniqueName);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="classplugins_1_1ImageDisplay.html#af666bc031da362771adbf06f56d18d16">  123</a></span>    public: Q_INVOKABLE <a class="code hl_classRef" href="http://doc.qt.io/qt-5/qstring.html">QString</a> ImageProviderName();</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="classplugins_1_1ImageDisplay.html#a06c415f45108503c6c34762fb8796fb2">  126</a></span>    signals: <span class="keywordtype">void</span> TopicListChanged();</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="classplugins_1_1ImageDisplay.html#aac99f437f3d2de424c658644da197cbb">  129</a></span>    signals: <span class="keywordtype">void</span> newImage();</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    private slots: <span class="keywordtype">void</span> ProcessImage();</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    private: <span class="keywordtype">void</span> OnImageMsg(const <a class="code hl_namespaceRef" href="https://gazebosim.org/api/math/8/namespacegz.html">gz</a>::msgs::Image &amp;_msg);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    GZ_UTILS_UNIQUE_IMPL_PTR(dataPtr)</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>  };</div>
 </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>}  <span class="comment">// namespace gz::gui::plugins</span></div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="preprocessor">#endif  </span><span class="comment">// GZ_GUI_PLUGINS_IMAGEDISPLAY_HH_</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>}  <span class="comment">// namespace gz::gui::plugins</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span> </div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span><span class="preprocessor">#endif  </span><span class="comment">// GZ_GUI_PLUGINS_IMAGEDISPLAY_HH_</span></div>
 </div><!-- fragment --></div><!-- contents -->
       </div>
     </main>
