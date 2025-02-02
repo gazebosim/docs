@@ -24,37 +24,22 @@ cases where the default option cannot be easily changed.
 Install tools needed by this tutorial:
 
 ```bash
-sudo apt install python3-pip lsb-release gnupg curl
+sudo apt install python3-pip python3-venv lsb-release gnupg curl git
 ```
 
 ## vcstool and colcon from pip
 
-PIP is available on all platforms:
+PIP is available on all platforms. Using a PIP workspace to install the tools:
 
 ```bash
-pip install vcstool || pip3 install vcstool
+python3 -m venv $HOME/vcs_colcon_installation
+. $HOME/vcs_colcon_installation/bin/activate
+pip3 install vcstool colcon-common-extensions
 ```
 
-```bash
-pip install -U colcon-common-extensions || pip3 install -U colcon-common-extensions
-```
-
-Check that no errors were printed while installing with PIP. If your system is not recognising the commands, and you're using a system that is compatible with Debian or Ubuntu packages, see the instructions below to install using `apt`.
-
-After installing `vcstool` and `colcon` with PIP, you may need to add their executables to your `$PATH`.
-Check where the installation of these packages took place:
-
-```bash
-pip show vcstool || pip3 show vcstool | grep Location
-
-pip show colcon-common-extensions || pip3 show colcon-common-extensions | grep Location
-```
-
-If your install path is prefixed with `$HOME/.local`, you'll probably need to add the executables within this directory to your `$PATH` in order to avoid "command not found" errors when using `vcstool` and `colcon` later on:
-
-```bash
-export PATH=$PATH:$HOME/.local/bin/
-```
+`vcs` and `colcon` are now available from the PIP workspace in the current
+terminal. For using them in other terminals run the `activate` script as
+done above.
 
 ## vcstool and colcon from apt
 
@@ -65,15 +50,6 @@ sudo sh -c 'echo "deb http://packages.ros.org/ros2/ubuntu $(lsb_release -sc) mai
 curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install python3-vcstool python3-colcon-common-extensions
-```
-
-## Git
-
-Gazebo libraries use `git` for version control, so it must be available
-in the system for `vcstool` to work properly.
-
-```bash
-sudo apt-get install git
 ```
 
 ## Getting the sources
@@ -143,6 +119,15 @@ colcon graph
 If that is the case, then you are ready
 to build the whole set of libraries:
 
+:::{warning}
+
+Compilation can take up to 16Gb of RAM memory. Use MAKEFLAGS with
+colcon as detailed in its instructions to reduce the number of
+compilation threads if needed.
+
+:::
+
+
 ```bash
 colcon build --merge-install
 ```
@@ -150,7 +135,7 @@ colcon build --merge-install
 To speed up the build process, you could also disable tests by using
 
 ```bash
-colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install
+colcon build --cmake-args ' -DBUILD_TESTING=OFF' --merge-install
 ```
 
 To use debuggers activate debug symbols. Gazebo will run slower, but you'll be able to use GDB:
@@ -228,7 +213,7 @@ To perform QML debugging you'll need:
 You will need to build Gazebo with:
 
 ```bash
-colcon build --cmake-args -DQT_QML_DEBUG --merge-install
+colcon build --cmake-args ' -DQT_QML_DEBUG' --merge-install
 ```
 
 > **Note:** Advanced users may note that only the `gz-sim` project needs this flag.
