@@ -167,7 +167,8 @@ get acquainted with this development process.
      to the next collection.
      For example, at the time this documentation is being written the upcoming Jetty
      collection is [using the gz-cmake4 branch](https://github.com/gazebo-tooling/gazebodistro/blob/bc0de6a86d6ab84106f208395969353d43b18dac/collection-jetty.yaml#L6)
-     rather than `main`.
+     rather than `main`, which means gz-cmake's `main` branch is actually not part
+     of a collection yet.
    - If you are making interdependent changes to multiple repositories without
      breaking API or ABI, it is recommended to base your new branches off of
      the branch used in the upcoming collection
