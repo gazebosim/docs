@@ -162,10 +162,20 @@ get acquainted with this development process.
 
 1. **Choose a base branch.**
    - If your changes will break API or ABI, then base your new branch off of `main`.
+     If this package's `main` branch is not part of the upcoming Gazebo collection,
+     create an issue on the package repository asking its `main` branch to be added
+     to the next collection.
+     For example, at the time this documentation is being written the upcoming Jetty
+     collection is [using the gz-cmake4 branch](https://github.com/gazebo-tooling/gazebodistro/blob/bc0de6a86d6ab84106f208395969353d43b18dac/collection-jetty.yaml#L6)
+     rather than `main`.
    - If you are making interdependent changes to multiple repositories without
-     breaking API or ABI, it is also recommended to base your new branches off of `main`
-     to simplify automated testing of the changes and the review process. Your
-     changes may be backported to an existing release once all the changes
+     breaking API or ABI, it is recommended to base your new branches off of
+     the branch used in the upcoming collection
+     to simplify automated testing of the changes and the review process.
+     For example, at the time this documentation is being written the upcoming Jetty
+     collection branches are documented in
+     [gazebodistro](https://github.com/gazebo-tooling/gazebodistro/blob/master/collection-jetty.yaml).
+     Your changes may be backported to an existing release once all the changes
      have been merged.
    - If your changes don't break
    API/ABI and you would like them to be released to an existing release
