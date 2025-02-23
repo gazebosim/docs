@@ -17,11 +17,9 @@ packages available for the platform to use:
 |Platform|Gazebo Versions|
 |---|---|
 | Ubuntu 24.04 Noble | [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended), (recommended if using ROS 2 Jazzy) and [Gazebo Ionic](/docs/ionic/install_ubuntu){.external}
-| Ubuntu 22.04 Jammy | [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended), [Gazebo Garden](/docs/garden/install_ubuntu){.external} and [Gazebo Fortress](/docs/fortress/install_ubuntu){.external} (recommended if using ROS 2 Humble or Iron)
-| Ubuntu 20.04 Focal | [Gazebo Garden](/docs/garden/install_ubuntu){.external} (recommended), [Gazebo Fortress](/docs/fortress/install_ubuntu){.external} and [Gazebo Citadel](/docs/citadel/install_ubuntu){.external}
-| Ubuntu 18.04 Bionic | [Gazebo Citadel](/docs/citadel/install_ubuntu){.external}
-| Mac Ventura | [Gazebo Harmonic](/docs/harmonic/install_osx){.external} (recommended), [Gazebo Garden](/docs/garden/install_osx){.external}, [Gazebo Fortress](/docs/fortress/install_osx){.external} and [Gazebo Citadel](/docs/citadel/install_osx){.external}
-| Mac Monterey | [Gazebo Harmonic](/docs/harmonic/install_osx){.external} (recommended), [Gazebo Garden](/docs/garden/install_osx){.external}, [Gazebo Fortress](/docs/fortress/install_osx){.external} and [Gazebo Citadel](/docs/citadel/install_osx){.external}
+| Ubuntu 22.04 Jammy | [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended) and [Gazebo Fortress](/docs/fortress/install_ubuntu){.external} (recommended if using ROS 2 Humble)
+| Mac Ventura | [Gazebo Harmonic](/docs/harmonic/install_osx){.external} (recommended) and [Gazebo Fortress](/docs/fortress/install_osx){.external}
+| Mac Monterey | [Gazebo Harmonic](/docs/harmonic/install_osx){.external} (recommended) and [Gazebo Fortress](/docs/fortress/install_osx){.external}
 | Windows | Support via Conda-Forge is not fully functional, as there are known runtime issues [see this issue for details](https://github.com/gazebosim/gz-sim/issues/168).
 
 If the desired platform is not listed above or if a particular feature in a
@@ -31,9 +29,7 @@ installation options:
 
 * [Gazebo Ionic installation](/docs/ionic/install){.external} options (EOL 2026 Sep)
 * [Gazebo Harmonic (LTS) installation](/docs/harmonic/install){.external} options (EOL 2028 Sep)
-* [Gazebo Garden installation](/docs/garden/install){.external} options (EOL 2024 Sep)
 * [Gazebo Fortress (LTS) installation](/docs/fortress/install){.external} options (EOL 2026 Sep)
-* [Gazebo Citadel (LTS) installation](/docs/citadel/install){.external} options (EOL 2024 Dec)
 
 ## Step 2: Run
 
@@ -45,7 +41,7 @@ simulator, from a terminal.
 Launch Gazebo by running:
 
 ```
-gz sim shapes.sdf  # Fortress and Citadel use "ign gazebo" instead of "gz sim"
+gz sim shapes.sdf  # Fortress uses "ign gazebo" instead of "gz sim"
 ```
 
 This command will launch both the Sim server and Sim GUI with a world
@@ -55,13 +51,13 @@ Add the `-v 4` command line argument to generate error, warning,
 informational, and debugging messages on the console.
 
 ```
-gz sim shapes.sdf -v 4  # Fortress and Citadel use "ign gazebo" instead of "gz sim"
+gz sim shapes.sdf -v 4  # Fortress uses "ign gazebo" instead of "gz sim"
 ```
 
 Gazebo Sim can also be run headless, i.e. without the GUI, by using the `-s` (server only) flag.
 
 ```
-gz sim -s shapes.sdf -v 4  # Fortress and Citadel use "ign gazebo" instead of "gz sim"
+gz sim -s shapes.sdf -v 4  # Fortress uses "ign gazebo" instead of "gz sim"
 ```
 
 Similarly, the GUI can be run independently using the `-g` (gui only) flag.
@@ -96,7 +92,7 @@ custom SDF file.
 ## Step 4: Explore and learn
 
 This tutorial has covered the basics of getting started with Gazebo.
-Starting with Citadel, there are more [versioned tutorials](/docs/citadel/tutorials){.external}
+There are more [versioned tutorials](/docs/citadel/tutorials){.external}
 covering the basics of the GUI, creating worlds and robots, and more.
 
 Each [Gazebo library](/libs){.external} also has a set of tutorials and
@@ -110,12 +106,12 @@ and another for the GUI:
 
 ```sh
 # launch server in one terminal
-gz sim -v 4 shapes.sdf -s  # Fortress and Citadel use "ign gazebo" instead of "gz sim"
+gz sim -v 4 shapes.sdf -s  # Fortress uses "ign gazebo" instead of "gz sim"
 ```
 
 ```sh
 # launch gui in a separate terminal
-gz sim -v 4 -g  # Fortress and Citadel use "ign gazebo" instead of "gz sim"
+gz sim -v 4 -g  # Fortress uses "ign gazebo" instead of "gz sim"
 ```
 
 The GUI on macOS is currently known to be unstable. Basic interaction with
