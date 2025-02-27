@@ -164,7 +164,10 @@ Basic Overview</h2>
 <div class="line">  &lt;/<span class="keywordtype">geometry</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">collision</span>&gt;</div>
 </div><!-- fragment --><p>In case of multiple collision geometries in a link, a user is free to provide different density values for each and the inertia values from each would be aggregated to calculate the final inertia of the link. However, if there are no collisions present, an <code>ELEMENT_MISSING</code> error would be thrown.</p>
-<p>It is <b>important</b> to note here that if <code>auto</code> is set to <code>true</code> and the user has still provided values through the <code>&lt;mass&gt;</code>, <code>&lt;pose&gt;</code> and <code>&lt;inertia&gt;</code> tags, they would be <b>overwritten</b> by the automatically computed values.</p>
+<p><b>Important Notes</b></p><ul>
+<li>If <code>auto</code> is set to <code>true</code> and the user has still provided values through the <code>&lt;pose&gt;</code> and <code>&lt;inertia&gt;</code> tags, they would be <b>overwritten</b> by the automatically computed values.</li>
+<li>In libSDFormat versions equal to or newer than 14.7.0 and 15.2.0, if <code>&lt;mass&gt;</code> is specified, it takes precedence over the <code>&lt;density&gt;</code> property. The link's inertial parameters will be scaled to match the specified mass while respecting the ratio of collision density values.</li>
+</ul>
 <blockquote class="doxtable">
 <p>&zwj;<b>Note:</b> Use SDF Spec version 1.11 or greater to utilize the new tags and attributes of this feature. </p>
 </blockquote>
@@ -228,10 +231,12 @@ Rolling</div></div>
     <p>Here the right most shapes is a hollow cylinder (yellow). This model is loaded from <a href="https://app.gazebosim.org/jasmeetsingh/fuel/models/Hollow%20Cylinder">Gazebo Fuel</a> and is made using a collada mesh of a hollow cylinder. Apart from this, we can see there is a solid cylinder, a solid sphere and a solid capsule. All of these are made using the <code>&lt;geometry&gt;</code> tag and have automatic inertia calculations enabled. Here, the moments of inertia for the hollow cylinder (which is a non-convex mesh shape) is calculated and from the simulation we can see that it reaches the bottom of the incline last. This is physically accurate as the mass distribution for the hollow cylinder is concentrated at a distance from the axis of rotation (which passes through the center of mass in this case).</p>
 <h2><a class="anchor" id="autotoc_md25"></a>
 Key Points on Mesh Inertia Calculator</h2>
+<p>The mesh inertia calculator is implemented based on the method described in this <a href="https://www.geometrictools.com/Documentation/PolyhedralMassProperties.pdf">document</a>(pdf). The method is suited for solid, simple polyhedrons of constant mass density.</p>
 <p>Here are some key points to consider when using automatic inertia calculation with 3D Meshes:</p><ul>
 <li>Water-tight triangle meshes are required for the Mesh Inertia Calculator.</li>
 <li>Since the vertex data is used for inertia calculations, high vertex count would be needed for near ideal values. However, it is recommended to use basic shapes with the geometry tag (Box, Capsule, Cylinder, Ellipsoid and Sphere) as collision geometries get a better overall simulation performance or RTF.</li>
-<li>Currently, the mesh inertia calculator does not work well with meshes having submeshes. Therefore, they are not recommended for automatic computation. </li>
+<li>In the case that the mesh inertia calculator fails to produce valid inertia, it will attempt to correct the auto-calculated mass matrix if it is strictly positive and within a certain tolerance of satisfying the triangle inequality. If that fails, an error will be logged.</li>
+<li>For complex, non-water-tight meshes, it is recommended to enable <a href="http://sdformat.org/spec?ver=1.12&amp;elem=geometry#mesh_optimization">mesh optimization</a> for the mesh collision in SDF by setting it to <code>convex_hull</code> or <code>convex_decomposition</code>. The mesh inertia calculator will then compute inertia based on the decomposed convex hull submeshes. </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
