@@ -319,25 +319,36 @@ For checking that the build process is ongoing as expected:
             (`gz_cmake_vendor`, `gz_utils_vendor`, and `gz_math_vendor`), start
             additional CI tests using ci.ros2.org to build and test all ROS core
             packages that depend on these Gazebo vendor packages.
-            * To do so, start a new
-                [`ci_launcher`](https://ci.ros2.org/job/ci_launcher/) build with the
-                following parameters:
+            * To do so, start a new [`ci_launcher`](https://ci.ros2.org/job/ci_launcher/) build with the
+              following parameters:
 
-                  - `CI_BRANCH_TO_TEST`: branch name of the PR (e.g. `releasepy/rolling/3.1.1`)
-                  - `CI_ROS2_REPOS_URL`: If the vendor package is going to `rolling`, this can be skipped, otherwise use `https://raw.githubusercontent.com/ros2/ros2/$ROSDISTRO/ros2.repos` where `$ROSDISTRO` is replaced by the target ROS distribution.
-                  - `CI_UBUNTU_DISTRO`: Pick the Ubuntu distro that matches the target ROS distribution
-                  - `CI_ROS_DISTRO`: The target ROS distribution. For Harmonic this is `jazzy`, for Ionic this is `rolling` until `kilted` is released.
-                  - `CI_BUILD_ARGS`: `--event-handlers console_cohesion+ console_package_list+ --cmake-args -DINSTALL_EXAMPLES=OFF -DSECURITY=ON -DAPPEND_PROJECT_NAME_TO_INCLUDEDIR=ON  --packages-above-and-dependencies $VENDOR_PACKAGE` where `$VENDOR_PACKAGE` is the name of the Gazebo vendor package.
-                  - `CI_TEST_ARGS`: `--event-handlers console_cohesion+ --retest-until-pass 2 --ctest-args -LE xfail --pytest-args -m 'not xfail' --executor sequential --packages-above $VENDOR_PACKAGE` where `$VENDOR_PACKAGE` is the name of the Gazebo vendor package.
+                * `CI_BRANCH_TO_TEST`: branch name of the PR (e.g. `releasepy/rolling/3.1.1`)
+                * `CI_ROS2_REPOS_URL`: If the vendor package is going to `rolling`,
+                  this can be skipped, otherwise use `https://raw.githubusercontent.com/ros2/ros2/$ROSDISTRO/ros2.repos`
+                  where `$ROSDISTRO` is replaced by the target ROS distribution.
+                * `CI_UBUNTU_DISTRO`: Pick the Ubuntu distro that matches the target ROS distribution
+                * `CI_ROS_DISTRO`: The target ROS distribution. For Harmonic this is `jazzy`, for Ionic this is `rolling` until `kilted` is released.
+                * `CI_BUILD_ARGS`: `--event-handlers console_cohesion+ console_package_list+ --cmake-args -DINSTALL_EXAMPLES=OFF -DSECURITY=ON -DAPPEND_PROJECT_NAME_TO_INCLUDEDIR=ON  --packages-above-and-dependencies $VENDOR_PACKAGE` where `$VENDOR_PACKAGE` is the name of the Gazebo vendor package.
+                * `CI_TEST_ARGS`: `--event-handlers console_cohesion+ --retest-until-pass 2 --ctest-args -LE xfail --pytest-args -m 'not xfail' --executor sequential --packages-above $VENDOR_PACKAGE` where `$VENDOR_PACKAGE` is the name of the Gazebo vendor package.
+
+            * Note: you might have to ask the Infrastructure team to get
+              permission to run builds on ci.ros2.org.
 
         1. Once all of CI builds are successful, merge the PR
         1. Make sure you have the required permission by checking
             <https://github.com/ros2-gbp/ros2-gbp-github-org/blob/latest/gazebo.tf>.
-            If you're username is not there, follow
+            If your username is not there, follow
             [these instructions](https://docs.ros.org/en/rolling/How-To-Guides/Releasing/Release-Team-Repository.html#join-a-release-team)
             to get added to the release team.
         1. Follow the steps of releasing a ROS package to release the vendor
             package
             <https://docs.ros.org/en/rolling/How-To-Guides/Releasing/Subsequent-Releases.html>
-            * Bump patch versions if the package has already been released for the target ROS distribution.
-            * Bump minor version only if the package is being released into a new ROS distribution.
+            * Bump patch versions if the package has already been released for
+              the target ROS distribution. This is almost always what you want
+              to do.
+            * Bump minor version only if the package is being released into
+              `rolling` and if the release happens immediately after a new ROS
+              distribution has been branched off of `rolling`. The intention
+              here is that all release branches (e.g. `jazzy`, `kilted`,
+              `rolling`, etc.) have distinct minor version numbers.
+            * Never bump the major version number.
