@@ -782,6 +782,59 @@ and <a class="reference external" href="https://github.com/gazebo-release/gz-too
 For further details, see the <a class="reference external" href="https://github.com/osrf/homebrew-simulation#to-build-bottles">README at osrf/homebrew-simulation</a>.</p></li>
 </ol>
 </li>
+<li><p>A pull request was opened to
+<a class="github reference external" href="https://github.com/gazebo-release/$VENDOR_PACKAGE/">gazebo-release/$VENDOR_PACKAGE</a>, where
+<code class="docutils literal notranslate"><span class="pre">$VENDOR_PACKAGE</span></code> is the name of the Gazebo vendor package for ROS (see
+<a class="reference external" href="https://gazebosim.org/docs/latest/ros2_gz_vendor_pkgs/">https://gazebosim.org/docs/latest/ros2_gz_vendor_pkgs/</a>)</p>
+<ol class="arabic simple">
+<li><p>Ensure that the ROS CI build passes. Note that some builds have
+warnings which show up as failures on the Github UI while the build
+actually succeeded.</p></li>
+<li><p>For packages that are considered to be part of ROS core
+(<code class="docutils literal notranslate"><span class="pre">gz_cmake_vendor</span></code>, <code class="docutils literal notranslate"><span class="pre">gz_utils_vendor</span></code>, and <code class="docutils literal notranslate"><span class="pre">gz_math_vendor</span></code>), start
+additional CI tests using <a class="reference external" href="http://ci.ros2.org">ci.ros2.org</a> to build and test all ROS core
+packages that depend on these Gazebo vendor packages.</p>
+<ul class="simple">
+<li><p>To do so, start a new <a class="reference external" href="https://ci.ros2.org/job/ci_launcher/"><code class="docutils literal notranslate"><span class="pre">ci_launcher</span></code></a> build with the
+following parameters:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">CI_BRANCH_TO_TEST</span></code>: branch name of the PR (e.g. <code class="docutils literal notranslate"><span class="pre">releasepy/rolling/3.1.1</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CI_ROS2_REPOS_URL</span></code>: If the vendor package is going to <code class="docutils literal notranslate"><span class="pre">rolling</span></code>,
+this can be skipped, otherwise use <code class="docutils literal notranslate"><span class="pre">https://raw.githubusercontent.com/ros2/ros2/$ROSDISTRO/ros2.repos</span></code>
+where <code class="docutils literal notranslate"><span class="pre">$ROSDISTRO</span></code> is replaced by the target ROS distribution.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CI_UBUNTU_DISTRO</span></code>: Pick the Ubuntu distro that matches the target ROS distribution</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CI_ROS_DISTRO</span></code>: The target ROS distribution. For Harmonic this is <code class="docutils literal notranslate"><span class="pre">jazzy</span></code>, for Ionic this is <code class="docutils literal notranslate"><span class="pre">rolling</span></code> until <code class="docutils literal notranslate"><span class="pre">kilted</span></code> is released.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CI_BUILD_ARGS</span></code>: <code class="docutils literal notranslate"><span class="pre">--event-handlers</span> <span class="pre">console_cohesion+</span> <span class="pre">console_package_list+</span> <span class="pre">--cmake-args</span> <span class="pre">-DINSTALL_EXAMPLES=OFF</span> <span class="pre">-DSECURITY=ON</span> <span class="pre">-DAPPEND_PROJECT_NAME_TO_INCLUDEDIR=ON</span>&#160; <span class="pre">--packages-above-and-dependencies</span> <span class="pre">$VENDOR_PACKAGE</span></code> where <code class="docutils literal notranslate"><span class="pre">$VENDOR_PACKAGE</span></code> is the name of the Gazebo vendor package.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CI_TEST_ARGS</span></code>: <code class="docutils literal notranslate"><span class="pre">--event-handlers</span> <span class="pre">console_cohesion+</span> <span class="pre">--retest-until-pass</span> <span class="pre">2</span> <span class="pre">--ctest-args</span> <span class="pre">-LE</span> <span class="pre">xfail</span> <span class="pre">--pytest-args</span> <span class="pre">-m</span> <span class="pre">'not</span> <span class="pre">xfail'</span> <span class="pre">--executor</span> <span class="pre">sequential</span> <span class="pre">--packages-above</span> <span class="pre">$VENDOR_PACKAGE</span></code> where <code class="docutils literal notranslate"><span class="pre">$VENDOR_PACKAGE</span></code> is the name of the Gazebo vendor package.</p></li>
+</ul>
+</li>
+<li><p>Note: you might have to ask the Infrastructure team to get
+permission to run builds on <a class="reference external" href="http://ci.ros2.org">ci.ros2.org</a>.</p></li>
+</ul>
+</li>
+<li><p>Once all of CI builds are successful, merge the PR</p></li>
+<li><p>Make sure you have the required permission by checking
+<a class="github reference external" href="https://github.com/ros2-gbp/ros2-gbp-github-org/blob/latest/gazebo.tf">ros2-gbp/ros2-gbp-github-org</a>.
+If your username is not there, follow
+<a class="reference external" href="https://docs.ros.org/en/rolling/How-To-Guides/Releasing/Release-Team-Repository.html#join-a-release-team">these instructions</a>
+to get added to the release team.</p></li>
+<li><p>Follow the steps of releasing a ROS package to release the vendor
+package
+<a class="reference external" href="https://docs.ros.org/en/rolling/How-To-Guides/Releasing/Subsequent-Releases.html">https://docs.ros.org/en/rolling/How-To-Guides/Releasing/Subsequent-Releases.html</a></p>
+<ul class="simple">
+<li><p>Bump patch versions if the package has already been released for
+the target ROS distribution. This is almost always what you want
+to do.</p></li>
+<li><p>Bump minor version only if the package is being released into
+<code class="docutils literal notranslate"><span class="pre">rolling</span></code> and if the release happens immediately after a new ROS
+distribution has been branched off of <code class="docutils literal notranslate"><span class="pre">rolling</span></code>. The intention
+here is that all release branches (e.g. <code class="docutils literal notranslate"><span class="pre">jazzy</span></code>, <code class="docutils literal notranslate"><span class="pre">kilted</span></code>,
+<code class="docutils literal notranslate"><span class="pre">rolling</span></code>, etc.) have distinct minor version numbers.</p></li>
+<li><p>Never bump the major version number.</p></li>
+</ul>
+</li>
+</ol>
+</li>
 </ol>
 </li>
 </ol>
