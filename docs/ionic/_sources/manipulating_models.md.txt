@@ -149,6 +149,14 @@ other.  Notice the difference in alignment when the Reverse button is pressed in
 You can align more than two models as well, simply select more models with `Ctrl` + click. You can select `First` or `Last` in the `Relative to:` drop down menu to
 choose which entity to align to.
 
+## Plot 3D
+
+You can plot 3D points of a model as it moves within the scene using the Plot 3D plugin. It also allows you to lock in the model whose 3D plot you want to generate.
+
+To use this plugin, select the Plot 3D from the plugins menu, choose a model from the scene, lock the model using the lock icon on the Plot 3D plugin, and move the model in the scene to see a 3D plot of the waypoint generated.
+
+![Plot 3D Plugin](img/plot3d_plugin_locked.gif)
+
 ## Next Up
 
 So far you've interacted with basic shape models to learn about Gazebo's GUI.
