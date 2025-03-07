@@ -141,7 +141,7 @@
 <div class="textblock"><p>Next Tutorial: <a class="el" href="relay.html">Relay</a> Previous Tutorial: <a class="el" href="python.html">Python Support</a></p>
 <h2><a class="anchor" id="autotoc_md78"></a>
 Overview</h2>
-<p>Gazebo Transport's default mode of communication is unsecure, which means no authentication or encryption is used. Unsecure communication is the default because it is simple to implement and use, supports introspection, and reduces third-party development effort.</p>
+<p>Gazebo Transport's default mode of communication is insecure, which means no authentication or encryption is used. Insecure communication is the default because it is simple to implement and use, supports introspection, and reduces third-party development effort.</p>
 <p>There are many cases when security is required by an application. For example, authentication may be needed to verify participants in a network. Gazebo Transport relies on security features available in ZeroMQ. The available security features include authentication, and encryption. <br  />
 </p>
 <p>The remainder of the this tutorial describes how to setup and use security with Gazebo Transport.</p>
@@ -162,16 +162,16 @@ Example</h3>
 <div class="line"># Windows</div>
 <div class="line">set GZ_PARTITION=test</div>
 </div><!-- fragment --> </blockquote>
-<p>First, let's test unsecure communication. This example requires <a href="https://github.com/gazebosim/gz-tools">gz-tools</a>.</p>
+<p>First, let's test insecure communication. This example requires <a href="https://github.com/gazebosim/gz-tools">gz-tools</a>.</p>
 <ol type="1">
 <li>Open a terminal, and echo topic <code>/foo</code>. <div class="fragment"><div class="line">gz topic -t /foo -e</div>
 </div><!-- fragment --></li>
-<li>Open a second terminal and publish a message on topic <code>/foo</code>. <div class="fragment"><div class="line">gz topic -t /foo -m gz.msgs.StringMsg -p &#39;data:&quot;Unsecure message&quot;&#39;</div>
+<li>Open a second terminal and publish a message on topic <code>/foo</code>. <div class="fragment"><div class="line">gz topic -t /foo -m gz.msgs.StringMsg -p &#39;data:&quot;Insecure message&quot;&#39;</div>
 </div><!-- fragment --></li>
-<li>The first terminal should see the following output. <div class="fragment"><div class="line">data: &quot;Unsecure message&quot;</div>
+<li>The first terminal should see the following output. <div class="fragment"><div class="line">data: &quot;Insecure message&quot;</div>
 </div><!-- fragment --></li>
 </ol>
-<p>Now let's try a secure publisher and an unsecure subscriber.</p>
+<p>Now let's try a secure publisher and an insecure subscriber.</p>
 <ol type="1">
 <li>Leave the first terminal running <code>gz topic -t /foo -e</code>.</li>
 <li>Setup authentication in the second terminal: <div class="fragment"><div class="line"># Linux and MacOS</div>
@@ -202,7 +202,7 @@ Example</h3>
 </div><!-- fragment --></li>
 <li>The third terminal, running the secure subscriber, should output the following. <div class="fragment"><div class="line">data: &quot;Secure message&quot;</div>
 </div><!-- fragment --></li>
-<li>The unsecure subscriber in the first terminal should not change.</li>
+<li>The insecure subscriber in the first terminal should not change.</li>
 </ol>
 <h2><a class="anchor" id="autotoc_md81"></a>
 Encryption</h2>

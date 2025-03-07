@@ -315,9 +315,9 @@ Walkthrough</h3>
 Updating PYTHONPATH</h2>
 <p>If you made the binary installation of Gazebo Transport, you can skip this step and go directly to the next section. Otherwise, if you built the package from source it is needed to update the PYTHONPATH in order for Python to recognize the library by doing the following:</p>
 <ol type="1">
-<li>If you builded from source using <code>colcon</code>: <div class="fragment"><div class="line">export PYTHONPATH=$PYTHONPATH:&lt;path to ws&gt;/install/lib/python</div>
+<li>If you built from source using <code>colcon</code>: <div class="fragment"><div class="line">export PYTHONPATH=$PYTHONPATH:&lt;path to ws&gt;/install/lib/python</div>
 </div><!-- fragment --></li>
-<li>If you builded from source using <code>cmake</code>: <div class="fragment"><div class="line">export PYTHONPATH=$PYTHONPATH:&lt;path_install_prefix&gt;/lib/python</div>
+<li>If you built from source using <code>cmake</code>: <div class="fragment"><div class="line">export PYTHONPATH=$PYTHONPATH:&lt;path_install_prefix&gt;/lib/python</div>
 </div><!-- fragment --></li>
 </ol>
 <h2><a class="anchor" id="autotoc_md67"></a>
@@ -350,7 +350,7 @@ Running the examples</h2>
 </div><!-- fragment --> <h2><a class="anchor" id="autotoc_md68"></a>
 Threading in Gazebo Transport</h2>
 <p>The way Gazebo Transport is implemented, it creates several threads each time a node, publisher, subscriber, etc is created. While this allows us to have a better parallelization in processes, a downside is possible race conditions that might occur if the ownership/access of variables is shared across multiple threads. Even though Python has its <a href="https://wiki.python.org/moin/GlobalInterpreterLock">GIL</a>, all the available features are bindings created for its C++ implementation, in other words, the downsides mentioned before are still an issue to be careful about. We recommend to always use threading locks when working with object that are used in several places (publisher and subscribers).</p>
-<p>We developed a couple of examples that demonstrate this particular issue. Take a look at a publisher and subscriber (whithin the same node) that have race conditions triggered in the <a href="https://github.com/gazebosim/gz-transport/blob/gz-transport14/python/examples/data_race_without_mutex.py">data_race_without_mutex.py</a> file. The proposed solution to this issue is to use the <code>threading</code> library, you can see the same example with a mutex in the <a href="https://github.com/gazebosim/gz-transport/blob/gz-transport14/python/examples/data_race_with_mutex.py">data_race_with_mutex.py</a> file.</p>
+<p>We developed a couple of examples that demonstrate this particular issue. Take a look at a publisher and subscriber (within the same node) that have race conditions triggered in the <a href="https://github.com/gazebosim/gz-transport/blob/gz-transport14/python/examples/data_race_without_mutex.py">data_race_without_mutex.py</a> file. The proposed solution to this issue is to use the <code>threading</code> library, you can see the same example with a mutex in the <a href="https://github.com/gazebosim/gz-transport/blob/gz-transport14/python/examples/data_race_with_mutex.py">data_race_with_mutex.py</a> file.</p>
 <p>You can run any of those examples by just doing the following in a terminal: </p><div class="fragment"><div class="line">python3 ./data_race_without_mutex.py</div>
 </div><!-- fragment --><p>or</p>
 <div class="fragment"><div class="line">python3 ./data_race_with_mutex.py</div>

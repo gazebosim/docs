@@ -362,7 +362,7 @@
 <div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;      <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr&lt;Req&gt;</a> CreateMsg(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_data)<span class="keyword"> const</span></div>
 <div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="keyword">      </span>{</div>
 <div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        <span class="comment">// Instantiate a specific protobuf message</span></div>
-<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr&lt;Req&gt;</a> msgPtr(<span class="keyword">new</span> Req());</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;        <span class="keyword">auto</span> msgPtr = std::make_shared&lt;Req&gt;();</div>
 <div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
 <div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;        <span class="comment">// Create the message using some serialized data</span></div>
 <div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;        <span class="keywordflow">if</span> (!msgPtr-&gt;ParseFromString(_data))</div>
