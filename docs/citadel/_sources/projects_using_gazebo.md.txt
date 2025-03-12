@@ -18,6 +18,7 @@ please open a pull request by clicking on the "Edit on Github" link.
 - **gz_ros2_control**: ROS 2 package for integrating `ros2_control` and Gazebo.
   [{octicon}`globe` link](https://control.ros.org/jazzy/doc/gz_ros2_control/doc/index.html)
   | <https://github.com/ros-controls/gz_ros2_control>
+- **gz-sim-yarp-plugins**: Integration of Gazebo with YARP devices, used for simulation of iCub and ergoCub humanoid robots. [{octicon}`globe` link](https://github.com/robotology/gz-sim-yarp-plugins)
 - **heightmap_spawner**: A ROS 2 package that converts occupancy grids from nav2_map_server into 3D heightmap models for use in Gazebo simulations. [{octicon}`globe` link](https://github.com/damanikjosh/heightmap_spawner)
 - **MBARI Buoy Sim**: Wave simulation for energy buoy control. [{octicon}`globe` link](https://github.com/osrf/buoy_sim)
 - **MBARI LRAUV**: Underwater simulation for glider science missions. [{octicon}`globe` link](https://github.com/osrf/lrauv)
