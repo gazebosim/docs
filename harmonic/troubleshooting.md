@@ -168,10 +168,10 @@ or force software rendering
 
 If you are using MESA drivers, you can also try overriding the OpenGL version
 
-    # Select (non-Core) compatibility profile with GL version 3.3
+    # Override GL version to 3.3
     export MESA_GL_VERSION_OVERRIDE=3.3
 
-    # Alterinative, select Forward + Core compatibility profile
+    # Alterinative, select Core + Forward compatible profile with 3.3
     export MESA_GL_VERSION_OVERRIDE=3.3FC
 
 See the [MESA environment variable documentation](https://docs.mesa3d.org/envvars.html#envvar-MESA_GL_VERSION_OVERRIDE)
