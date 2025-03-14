@@ -149,7 +149,14 @@ or force software rendering
 
 If you are using MESA drivers, you can also try overriding the OpenGL version
 
+    # Override GL version to 3.3
     export MESA_GL_VERSION_OVERRIDE=3.3
+
+    # Alternatively, select Core + Forward compatible profile with 3.3
+    export MESA_GL_VERSION_OVERRIDE=3.3FC
+
+See the [MESA environment variable documentation](https://docs.mesa3d.org/envvars.html#envvar-MESA_GL_VERSION_OVERRIDE)
+for more information.
 
 The Ogre 2 debs from the osrfoundation repository are built from a fork of
 Ogre's `v2-2` branch with changes needed for deb packaging and allowing it to
