@@ -548,34 +548,29 @@ for a valid configuration file.</p>
 </div>
 <p>Alternatively, if an existing container is already running, you can pass its name
 when launching the bridge using the <code class="docutils literal notranslate"><span class="pre">container_name</span></code> parameter. More info about composition can be viewed <a class="reference internal" href="../ros2_overview/#composition"><span class="std std-ref">here</span></a></p>
-<p>Check <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_bridge/launch/ros_gz_bridge.launch.py#L27-L34">this block</a>
+<p>Check <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_bridge/launch/ros_gz_bridge.launch.py#L25-L68">this block</a>
 from the source code to know all the different parameters accepted by this
 launch file.</p>
+<p>QOS Overrides:</p>
+<p>QOS overrides can be passed as extra parameters to the bridge using the <code class="docutils literal notranslate"><span class="pre">bridge_params</span></code> argument of the launch file. An example of this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>ros_gz_bridge<span class="w"> </span>ros_gz_bridge.launch.py<span class="w"> </span>bridge_name:<span class="o">=</span>ros_gz_bridge<span class="w"> </span>config_file:<span class="o">=</span>&lt;path_to_your_YAML_file&gt;<span class="w"> </span>bridge_params:<span class="o">={</span><span class="s1">&#39;qos_overrides./topic_name.publisher.durability&#39;</span>:<span class="w"> </span><span class="s1">&#39;transient_local&#39;</span>,<span class="w"> </span><span class="s1">&#39;qos_overrides./another_topic_name.publisher.durability&#39;</span>:<span class="w"> </span><span class="s1">&#39;transient_local&#39;</span><span class="o">}</span>
+</pre></div>
+</div>
+<p>You can omit the following from what you pass to <code class="docutils literal notranslate"><span class="pre">bridge_params</span></code>: <code class="docutils literal notranslate"><span class="pre">{}</span></code>, <code class="docutils literal notranslate"> </code>, <code class="docutils literal notranslate"><span class="pre">&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">'</span></code>.</p>
+<p>More info about using QOS overrides can be found <a class="reference external" href="https://docs.ros.org/en/jazzy/How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback.html#using-qos-overrides">here</a></p>
 </section>
 <section id="launching-the-bridge-from-a-custom-launch-file-in-xml">
 <h2>Launching the bridge from a custom launch file in XML.<a class="headerlink" href="#launching-the-bridge-from-a-custom-launch-file-in-xml" title="Link to this heading">#</a></h2>
 <p>It’s also possible to trigger the bridge from your custom launch file. For that
 purpose we have created the <code class="docutils literal notranslate"><span class="pre">&lt;ros_gz_bridge/&gt;</span></code> tag that can be used from you
 XML or YAML launch file. In this case, the arguments are passed as attributes
-within this tag. Here’s an example:</p>
+within this tag. Here’s a simplified example, a more comprehensive example can be viewed <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/launch/ros_gz_bridge.launch">here</a>:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;launch&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;bridge_name&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;config_file&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;container_name&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;ros_gz_container&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;create_own_container&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;False&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;namespace&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;use_composition&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;False&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;use_respawn&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;False&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;log_level&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;info&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;ros_gz_bridge</span>
 <span class="w">    </span><span class="na">bridge_name=</span><span class="s">&quot;$(var bridge_name)&quot;</span>
-<span class="w">    </span><span class="na">config_file=</span><span class="s">&quot;$(var config_file)&quot;</span>
-<span class="w">    </span><span class="na">container_name=</span><span class="s">&quot;$(var container_name)&quot;</span>
-<span class="w">    </span><span class="na">create_own_container=</span><span class="s">&quot;$(var create_own_container)&quot;</span>
-<span class="w">    </span><span class="na">namespace=</span><span class="s">&quot;$(var namespace)&quot;</span>
-<span class="w">    </span><span class="na">use_composition=</span><span class="s">&quot;$(var use_composition)&quot;</span>
-<span class="w">    </span><span class="na">use_respawn=</span><span class="s">&quot;$(var use_respawn)&quot;</span>
-<span class="w">    </span><span class="na">log_level=</span><span class="s">&quot;$(var log_level)&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="na">config_file=</span><span class="s">&quot;$(var config_file)&quot;</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/ros_gz_bridge&gt;</span>
 <span class="nt">&lt;/launch&gt;</span>
 </pre></div>
@@ -587,7 +582,7 @@ of the values or not even use all the parameters.</p>
 <section id="launching-the-bridge-from-a-custom-launch-file-in-python">
 <h2>Launching the bridge from a custom launch file in Python.<a class="headerlink" href="#launching-the-bridge-from-a-custom-launch-file-in-python" title="Link to this heading">#</a></h2>
 <p>Here’s a simplified example of a Python launch file used to load a bridge from
-Python:</p>
+Python, a more comprehensive example can be viewed <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/launch/ros_gz_bridge.launch.py">here</a>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">launch</span><span class="w"> </span><span class="kn">import</span> <span class="n">LaunchDescription</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">launch.actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeclareLaunchArgument</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">launch.substitutions</span><span class="w"> </span><span class="kn">import</span> <span class="n">LaunchConfiguration</span><span class="p">,</span> <span class="n">TextSubstitution</span>
