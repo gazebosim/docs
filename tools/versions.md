@@ -14,7 +14,7 @@ How to read the columns:
     * **Ubuntu**: https://packages.ubuntu.com/ (official Ubuntu archive packages)
     * **OSRF**: https://packages.osrfoundation.org/ (offical repository of the Gazebo project)
     * **ROS**: https://packages.ros.org/ (package imported from OSRF repository into ROS)
-* **Gazebo Classic**: What Gazebo classic version requires as depedency that specific version (i.e. 9 for Gazebo 9).
+* **Gazebo Classic**: What Gazebo classic version requires as dependency that specific version (i.e. 9 for Gazebo 9).
 * **Gazebo**: What Gazebo version uses that specific version (i.e. B for Blueprint).
 * **Release date**: Release date for that specific version. TBD, to be decided, means that there aren't any current plans to release that version.
 * **EOL date**: Date of end of support. In general, each library's version is released as part of an [Gazebo release](releases) and EOLs either with that Gazebo release, or with a later one. Libraries that are planned to be supported in the upcoming Gazebo release have a TBD EOL date because they may also be included in future releases. All EOL dates may be moved to a later date, but never to an earlier date.
@@ -29,7 +29,7 @@ How to read the columns:
 |gz-common|0|EOL ❌||T X Y Z A||||2016-07-27|-|
 ||1|EOL ❌|B C D E F|X Z A B||9 10||2018-01-05|2023-01-25 with Gazebo 9|
 ||2|EOL ❌||X B||||2019-02-11|-|
-||3|stable|G H I J K L|B F|F|11|A B C D|2019-02-28|2025-01-25 with Gazebo 11|
+||3|EOL ❌|G H I J K L|B F|F|11|A B C D|2019-02-28|2025-01-25 with Gazebo 11|
 ||4|stable|J K L|B F J|F J| |E F|2020-03-31|2026-09 with Fortress|
 ||5|stable||F J N|||G H|2022-09-22|2028-09 with Harmonic|
 ||6|stable||N|||I|2024-09-26|TBD|
@@ -37,7 +37,7 @@ How to read the columns:
 ||1|EOL ❌|B C D E F|X A B||9 10||2018-01-25|2023-01-25 with Gazebo 9|
 ||2|EOL ❌||X B||||2019-01-29|2019-01-29|
 ||3|EOL ❌||B|||A B|2019-01-30|2020-12 with Blueprint|
-||4|stable|G H I J K L|B F|F|11|C|2019-12-10|2025-01-25 with Gazebo 11|
+||4|EOL ❌|G H I J K L|B F|F|11|C|2019-12-10|2025-01-25 with Gazebo 11|
 ||5|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
 ||6|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||7|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
@@ -86,7 +86,7 @@ How to read the columns:
 ||2|EOL ❌||X B||||2019-02-11||
 ||3|EOL ❌||B|||A|2019-02-27|2019-09 with Acropolis|
 ||4|EOL ❌||B|||B|2019-05-20|2020-12 with Blueprint|
-||5|stable|G H I J K L|B F|F|11|C|2019-12-10|2025-01-25 with Gazebo 11|
+||5|EOL ❌|G H I J K L|B F|F|11|C|2019-12-10|2025-01-25 with Gazebo 11|
 ||6|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
 ||7|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||8|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
@@ -133,7 +133,7 @@ How to read the columns:
 ||5|EOL ❌||X B||||2019-02-11||
 ||6|EOL ❌||B|||A|2019-02-28|2019-09 with Acropolis|
 ||7|EOL ❌||B|||B|2019-05-20|2020-12 with Blueprint|
-||8|stable|J K L|B F|F|11|C|2019-12-10|2025-01-25 with Gazebo 11|
+||8|EOL ❌|J K L|B F|F|11|C|2019-12-10|2025-01-25 with Gazebo 11|
 ||9|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
 ||10|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||11|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
@@ -151,7 +151,7 @@ How to read the columns:
 ||6|EOL ❌|B C D E F J K L|X A B F||9 10||2018-01-25|2023-01-25 with Gazebo 9|
 ||7|EOL ❌||||||||
 ||8|EOL ❌||B|||A B|2019-03-01|2020-12 with Blueprint|
-||9|stable|J K L|B F|F|11|C|2019-12-10|2025-01-25 with Gazebo 11|
+||9|EOL ❌|J K L|B F|F|11|C|2019-12-10|2025-01-25 with Gazebo 11|
 ||10|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
 ||11|EOL ❌|||F||E|2020-03-31|2022-03 with Edifice|
 ||12|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
@@ -168,4 +168,4 @@ How to read the columns:
 ||8|EOL ❌||X Y Z ||||2017-01-26|2019-01-25|
 ||9|EOL ❌|B C E F|X A B F|B|||2018-01-25|2023-01-25|
 ||10|EOL ❌||X B||||2019-01-31|2021-01-25|
-||11|stable|J|B F|F|||2020-01-30|2025-01-25|
+||11|EOL ❌|J|B F|F|||2020-01-30|2025-01-25|
