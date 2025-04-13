@@ -142,3 +142,41 @@ In the above launch files you may notice that the `create_own_container` argumen
 
 More info about `ros_gz_bridge` can be viewed [here](ros2_integration).
 More info about composition can be viewed [here](ros2_overview.md#composition).
+
+## Further Considerations for ROS2 Control
+ 
+ If you're planning to use ros2_control with Gazebo, please take a look at the [example launch files](https://github.com/ros-controls/gz_ros2_control/tree/rolling/gz_ros2_control_demos/launch) in the `gz_ros2_control` repository
+ 
+ It is essential to publish the `/clock` topic for the `controller_manager` to function correctly:
+ 
+     gz_bridge = Node(
+         package="ros_gz_bridge",
+         executable="parameter_bridge",
+         arguments=['/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock'],
+         parameters=[{
+             "qos_overrides./tf_static.publisher.durability": "transient_local"
+         }],
+         output="screen",
+     )
+ 
+ 
+    If you **do not** publish the `/clock` topic, the `controller_manager` will issue warnings or errors such as:
+ 
+       [gazebo-1] [WARN] [1744219953.983130822] [controller_manager]: No clock received, using time argument instead! Check your node's clock configuration (use_sim_time parameter) and if a valid clock source is available.
+ 
+ Timing Issues
+ -------------
+ 
+ By default, the `controller_manager` launched by `gz_ros2_control` has ``use_sim_time=true``. If for any reason this is set to ``false``, it will fall back to the system clock.
+ 
+ This results in logs like:
+ 
+     [gazebo-1] [INFO] [1744209678.974210234] [gz_ros_control]: Loading controller_manager
+     [gazebo-1] [INFO] [1744209679.000651931] [controller_manager]: Using Steady (Monotonic) clock for triggering controller manager cycles.
+ 
+ Eventually leading to a fatal error:
+ 
+     [gazebo-1] terminate called after throwing an instance of 'std::runtime_error'
+     [gazebo-1]   what():  can't compare times with different time sources
+ 
+ Ensure `use_sim_time` is correctly set to `true` when working with simulation time to avoid such mismatches.
