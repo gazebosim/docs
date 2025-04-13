@@ -75,7 +75,7 @@ create a new branch in which we'll make the changes to migrate to the new
 Gazebo.
 
 ```bash
-git checkout -b new_gazebo
+git checkout -b feature-gazebo-sim-migration
 ```
 
 The changes we need to make are:
