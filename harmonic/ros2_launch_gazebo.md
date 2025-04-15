@@ -160,7 +160,7 @@ More info about composition can be viewed [here](ros2_overview.md#composition).
      )
  
  
-    If you **do not** publish the `/clock` topic, the `controller_manager` will issue warnings or errors such as:
+If you **do not** publish the `/clock` topic, the `controller_manager` will issue warnings or errors such as:
  
        [gazebo-1] [WARN] [1744219953.983130822] [controller_manager]: No clock received, using time argument instead! Check your node's clock configuration (use_sim_time parameter) and if a valid clock source is available.
  
