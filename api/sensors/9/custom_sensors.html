@@ -140,12 +140,12 @@
 <div class="contents">
 <div class="textblock"><p>Next Tutorial: <a class="el" href="thermalcameraigngazebo.html">Thermal Camera in Gazebo</a></p>
 <p>Gazebo Sensors comes with various built-in sensor types ready to be used. Users aren't limited to those sensor types though. This tutorial will go over the process of implementing a custom sensor that leverages Gazebo Sensors and can be used with downstream applications such as Gazebo.</p>
-<h2><a class="anchor" id="autotoc_md10"></a>
+<h2><a class="anchor" id="why-custom-sensors"></a>
 Why custom sensors</h2>
 <p>The set of built-in sensors provided by Gazebo Sensors is tied to the SDFormat specification. SDFormat is meant to be as general-purpose as possible, so adding lots of exotic sensors to the specification may become a maintenance burden and counter-productive. Therefore, sensors that are very specific to certain applications are better implemented closer to the applications that need them, than added to the general-purpose specification.</p>
 <p>It may also be interesting for downstream projects to implement very specific versions of sensors which are not generally useful for other projects.</p>
 <p>Finally, another reason to develop custom sensors is for projects that need to implement proprietary sensors that can't be shared publicly.</p>
-<h2><a class="anchor" id="autotoc_md11"></a>
+<h2><a class="anchor" id="do-i-need-to-use-gazebo-sensors"></a>
 Do I need to use Gazebo Sensors?</h2>
 <p>A simulated sensor consists of code that can be used to extract specific data from a running simulation. A camera extracts pixels, an IMU extracts accelerations, etc. This doesn't necessarily need to be done though Gazebo Sensors. On Gazebo, for example, it's possible to implement functionality similar to a sensor just using a system plugin without any connection to Gazebo Sensors.</p>
 <p>With that in mind, it's worth going over some of the features that Gazebo Sensors provides that make it easier to implement sensors, instead of writing everything from scratch:</p>
@@ -155,12 +155,12 @@ Do I need to use Gazebo Sensors?</h2>
 <li>A standard way for loading custom sensors from an SDF <code>&lt;sensor&gt;</code> tag;</li>
 <li>Efficient updates for various rendering sensors using the same scene.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md12"></a>
+<h2><a class="anchor" id="lets-get-started"></a>
 Let's get started!</h2>
 <p>Let's go over the creation of a custom <a href="https://en.wikipedia.org/wiki/Odometer">odometer</a> sensor which will measure the total distance travelled by a robot.</p>
 <p>This example is located at <a href="https://github.com/gazebosim/gz-sensors/tree/main/examples/custom_sensor">gz-sensors/examples/custom_sensor</a>, and the integration with Gazebo is at <a href="https://github.com/gazebosim/gz-sim/tree/main/examples/plugin/custom_sensor_system">gz-sim/examples/plugins/custom_sensor_system</a>.</p>
 <p>Wherever "odometer" is used, that can be substituted for any other custom sensor type. Seismometer? Breathalyzer? Just adapt the logic to your needs.</p>
-<h3><a class="anchor" id="autotoc_md13"></a>
+<h3><a class="anchor" id="sdf"></a>
 SDF</h3>
 <p>Custom sensors follow these rules to be loaded from SDFormat:</p>
 <ul>
@@ -180,7 +180,7 @@ SDF</h3>
 <div class="line">    &lt;/<span class="keywordtype">noise</span>&gt;</div>
 <div class="line">  &lt;/<span class="keywordtype">gz:odometer</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">sensor</span>&gt;</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md14"></a>
+</div><!-- fragment --><h3><a class="anchor" id="sensor-implementation"></a>
 Sensor implementation</h3>
 <p>The sensor consists of a class, <code>Odometer</code>, which inherits from <code><a class="el" href="classgz_1_1sensors_1_1Sensor.html" title="a base sensor class">gz::sensors::Sensor</a></code>.</p>
 <p>Take a look at <a href="https://github.com/gazebosim/gz-sensors/tree/main/examples/custom_sensor">gz-sensors/examples/custom_sensor</a> for the full code. Here are some important pointers:</p>
@@ -192,7 +192,7 @@ Sensor implementation</h3>
 <li>It's recommended that the sensor publishes its data using Gazebo Transport</li>
 </ul>
 <p>You may choose to compile your sensor as a shared library, or to embed it directly into other application code.</p>
-<h3><a class="anchor" id="autotoc_md15"></a>
+<h3><a class="anchor" id="loading-into-gazebo"></a>
 Loading into Gazebo</h3>
 <p>In order to use the sensor on Gazebo, one needs to write a system plugin that instantiates the sensor and updates it periodically with data from simulation.</p>
 <p>Take a look at <a href="https://github.com/gazebosim/gz-sim/tree/main/examples/plugin/custom_sensor_system">gz-sim/examples/plugins/custom_sensor_system</a>. for the full code. Here are some important pointers:</p>

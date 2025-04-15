@@ -139,11 +139,11 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>This tutorial will explain how to import a mesh to the <a href="https://app.gazebosim.org">Gazebo Fuel</a> web application. Adding models and/or worlds to Fuel will make your content readily available to the open source robotics simulation community, and easier to use with the Gazebo GUI.</p>
-<h2><a class="anchor" id="autotoc_md170"></a>
+<h2><a class="anchor" id="prerequisites-2"></a>
 Prerequisites</h2>
 <p>To import meshes to Fuel, you need to have a user account. Go to <a href="https://app.gazebosim.org">app.gazebosim.org</a> and click Login in the top right corner of the screen, then click Sign Up. Once you verify your email address, your account will be ready.</p>
 <p>You'll need a mesh ready before trying to import to Fuel. There are several ways to acquire a mesh. To save time, we'll use this <a href="https://app.gazebosim.org/openrobotics/fuel/models/Electrical%20Box">Electrical Box model</a> that you can download from Fuel.</p>
-<h2><a class="anchor" id="autotoc_md171"></a>
+<h2><a class="anchor" id="model-directory-structure-1"></a>
 Model Directory Structure</h2>
 <p>Fuel expects meshes to be contained inside model directories that follow a specific structure and format. Download and unzip the Electrical Box model mentioned above, and you should see the structure of its contents as follows:</p>
 <div class="fragment"><div class="line">Electrical Box</div>
@@ -154,18 +154,18 @@ Model Directory Structure</h2>
 <div class="line">├── model.config            Meta data about the model</div>
 <div class="line">└── model.sdf               SDF description of the model</div>
 </div><!-- fragment --><p>A model directory needs to adhere to this file structure to successfully import to Fuel. The contents of each directory and file are equally as important; each part is covered below.</p>
-<h3><a class="anchor" id="autotoc_md172"></a>
+<h3><a class="anchor" id="materials"></a>
 Materials</h3>
 <p>The <code>materials</code> directory is for textures. Textures are optional; they provide color or detail to a mesh. If you download a mesh online, the texture files should come with it. Otherwise, you would have to use a 3D modeling tool to correctly design a texture.</p>
 <p>The Electrical Box's texture is under <code>materials</code> &gt; <code>textures</code> &gt; <code>Electrical Box.png</code>.</p>
-<h3><a class="anchor" id="autotoc_md173"></a>
+<h3><a class="anchor" id="meshes"></a>
 Meshes</h3>
 <p>The <code>meshes</code> directory is where the actual mesh files go. The mesh could be one of several 3D model file types: <code>.dae</code>, <code>.stl</code>, <code>.obj</code>, etc. This file is produced with a 3D modeling tool.</p>
 <p>The Electrical Box's mesh is under <code>meshes</code> &gt; <code>Electrical Box.dae</code></p>
-<h3><a class="anchor" id="autotoc_md174"></a>
+<h3><a class="anchor" id="thumbnails"></a>
 Thumbnails</h3>
 <p>Thumbnails are <code>.png</code> files named <code>1</code> through <code>5</code>. Each contains a view of the model from a different angle to be displayed on the image carousel on its "Fuel Model Info" page.</p>
-<h3><a class="anchor" id="autotoc_md175"></a>
+<h3><a class="anchor" id="modelconfig"></a>
 model.config</h3>
 <p>The <code>model.config</code> file is required in the root of the model directory. It contains meta data about the model in XML format. You have to create this file and add it to the model directory.</p>
 <p>Here is the Electrical Box's <code>model.config</code>:</p>
@@ -181,7 +181,7 @@ model.config</h3>
 <div class="line">  &lt;/<span class="keywordtype">description</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">model</span>&gt;</div>
 </div><!-- fragment --><p>Customize the <code>name</code> and <code>description</code> tags to fit your model. The <code>sdf version</code> should ideally be the latest version. Inside the <code>sdf</code> tags is the name of the SDF file describing your model.</p>
-<h3><a class="anchor" id="autotoc_md176"></a>
+<h3><a class="anchor" id="modelsdf"></a>
 model.sdf</h3>
 <p>The Electrical Box's <code>model.sdf</code> file is as follows:</p>
 <div class="fragment"><div class="line">&lt;?<span class="keyword">xml</span> <span class="keyword">version</span>=<span class="stringliteral">&#39;1.0&#39;</span> ?&gt;</div>
@@ -208,7 +208,7 @@ model.sdf</h3>
 <div class="line">  &lt;/<span class="keywordtype">model</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">sdf</span>&gt;</div>
 </div><!-- fragment --><p>You can learn more about SDF <a href="http://sdformat.org/">here</a>. For this tutorial, it's mostly only important to take note of the <code>&lt;uri&gt;</code> tags. Following <code>model://</code> is the path within the model directory to the mesh.</p>
-<h2><a class="anchor" id="autotoc_md177"></a>
+<h2><a class="anchor" id="upload-to-fuel"></a>
 Upload to Fuel</h2>
 <p>Once you have all your content accumulated in a model directory, you're ready to upload to Fuel. Click on the <code>+</code> button at the top right corner of the page, next to your account button, and then select <code>Model</code>.</p>
 <p>Typically, you would try to ensure that the <code>Model name</code> field matches the <code>name</code> tags in both <code>model.config</code> and <code>model.sdf</code>, and the <code>Description</code> field matches its corresponding tag in <code>model.config</code>.</p>
@@ -217,7 +217,7 @@ Upload to Fuel</h2>
 <p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/mesh_to_fuel/model_info2.png" alt="Electrical Box Test" class="inline"/></p>
 <p>You can always delete a model by clicking the "Edit model" button and then selecting "Delete model" at the bottom of the page</p>
 <p><img src="https://raw.githubusercontent.com/gazebosim/gz-sim/main/tutorials/files/mesh_to_fuel/delete2.png" alt="Delete model" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md178"></a>
+<h2><a class="anchor" id="include-the-model-in-a-world"></a>
 Include the Model in a World</h2>
 <p>With your mesh successfully uploaded to Fuel, you can now easily include it in a world SDF file.</p>
 <p>Copy <a href="https://github.com/gazebosim/gz-sim/raw/main/examples/worlds/import_mesh.sdf">this example world code</a> into a text editor and save it as <code>import_mesh.sdf</code>. This is a simple world SDF file, which you can learn more about on the <a href="http://sdformat.org/">SDF website</a>.</p>
@@ -244,7 +244,7 @@ Include the Model in a World</h2>
 </div><!-- fragment --><p>The address between the <code>uri</code> tags is how you include your Fuel model in the world. To include <em>your</em> model, not the original, change <code>openrobotics</code> to your Fuel username. You also need to customize the last section of the URI to match your model's name on Fuel. Change <code>Electrical Box</code> to <code>Electrical Box Test</code>.</p>
 <p>The syntax for including any model from Fuel is:</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">uri</span>&gt;<span class="keyword">https:</span>//<span class="keyword">fuel.gazebosim.org</span>/1.0/&lt;<span class="keywordtype">user</span> <span class="keyword">account</span> <span class="keyword">name</span>&gt;/<span class="keyword">models</span>/&lt;<span class="keywordtype">model</span> <span class="keyword">name</span>&gt;&lt;/<span class="keywordtype">uri</span>&gt;</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md179"></a>
+</div><!-- fragment --><h3><a class="anchor" id="launch-world"></a>
 Launch World</h3>
 <p>To launch the world and see your mesh, run Gazebo from inside the directory where you saved <code>import_mesh.sdf</code>:</p>
 <div class="fragment"><div class="line">gz sim import_mesh.sdf</div>

@@ -140,17 +140,17 @@
 <div class="contents">
 <div class="textblock"><p>The Reset Gazebo transport API is exposed to allow resetting simulation to time zero. It's possible to call this API using the command line or through the GUI. In addition to the API, we have also expanded the simulation system API with a Reset interface.</p>
 <p>To repeat this demo, run the <code>rolling_shapes.sdf</code> file: </p><div class="fragment"><div class="line">gz sim rolling_shapes.sdf</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md344"></a>
+</div><!-- fragment --><h2><a class="anchor" id="reset-interface"></a>
 Reset interface</h2>
 <p>System authors may now choose to implement the Reset interface to have a more intelligent reset process (avoiding reloading assets or regenerating scene graphs being the motivating examples). Since this interface is opt-in, systems that don't implement the API will still be reset via destruction and reconstruction. The <a href="https://github.com/gazebosim/gz-sim/blob/23881936d93d335a2ad1086008416f1f36c3fdcc/src/systems/physics/Physics.cc#L919-L928">physics</a> and <a href="https://github.com/gazebosim/gz-sim/blob/23881936d93d335a2ad1086008416f1f36c3fdcc/src/systems/scene_broadcaster/SceneBroadcaster.cc#L489-L495">scene_broadcaster</a> systems are the first two to implement this optimized reset functionality, with more to come as it makes sense.</p>
 <p>Follow the tutorial <a class="el" href="createsystemplugins.html">Create System Plugins</a> to see how to support Reset by implementng the <code>ISystemReset</code> interface.</p>
-<h2><a class="anchor" id="autotoc_md345"></a>
+<h2><a class="anchor" id="transport-api-1"></a>
 Transport API</h2>
 <p>To invoke reset over transport API, we should call the service <code>/world/&lt;world_name&gt;/control</code> and fill the request message type <code>gz.msgs.WorldControl</code>. This service returns a <code>gz.msgs.Boolean</code> with the status of the reset (true means everything was fine, false otherwise).</p>
 <p>The <code>WorldControl</code> message now contains a <code>reset</code> field for resetting the world:</p>
 <div class="fragment"><div class="line"># the world name is `default` in this example</div>
 <div class="line">gz service -s /world/default/control --reqtype gz.msgs.WorldControl --reptype gz.msgs.Boolean --timeout 3000 --req &#39;reset: {all: true}&#39;</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md346"></a>
+</div><!-- fragment --><h2><a class="anchor" id="gui-1"></a>
 GUI</h2>
 <p>We included a new button in the <code>World Control</code> plugin allowing to reset the simulation from the GUI</p>
 <div class="image">

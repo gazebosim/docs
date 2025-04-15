@@ -138,7 +138,7 @@
   <div class="headertitle"><div class="title">Use a custom engine with Gazebo Physics</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2><a class="anchor" id="autotoc_md55"></a>
+<div class="textblock"><h2><a class="anchor" id="prerequisites-7"></a>
 Prerequisites</h2>
 <ul>
 <li><a class="el" href="installation.html">Installation</a></li>
@@ -147,10 +147,10 @@ Prerequisites</h2>
 <li><a class="el" href="pluginloading.html">Load physics plugin</a></li>
 <li><a class="el" href="createcustomfeature.html">Implement custom feature</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md56"></a>
+<h2><a class="anchor" id="how-to-interface-with-physics-engine"></a>
 How to interface with physics engine</h2>
 <p>In the previous Implement custom feature tutorial, we walked through how to define and implement a custom feature using an already supported physics engine. This tutorial will explain step-by-step how to interface with any physics engine using Gazebo Physics. We will use <a href="https://github.com/gazebosim/gz-physics/tree/main/tpe">TPE</a> as an example in this tutorial.</p>
-<h3><a class="anchor" id="autotoc_md57"></a>
+<h3><a class="anchor" id="structure-of-a-physics-plugin"></a>
 Structure of a physics plugin</h3>
 <p>Depending on what physics engine you would like to use, the folder structure could be slightly different from what's shown below. Here's the plugin folder structure of TPE, within the Gazebo Physics library.</p>
 <div class="fragment"><div class="line">gz-physics</div>
@@ -178,7 +178,7 @@ Structure of a physics plugin</h3>
 <div class="line">├── EntityManagementFeatures.hh</div>
 <div class="line">├── EntityManagementFeatures.cc</div>
 <div class="line">└── EntityManagementFeatures_TEST.cc</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md58"></a>
+</div><!-- fragment --><h3><a class="anchor" id="plugincc"></a>
 plugin.cc</h3>
 <p>In this tutorial, we will show how to construct a simple simulation world using <a href="https://github.com/gazebosim/gz-physics/tree/main/tpe">TPE</a> physics engine. For this purpose, we will implement the pre-defined <a class="el" href="classgz_1_1physics_1_1ConstructEmptyWorldFeature.html">ConstructEmptyWorldFeature</a> and include this feature into an empty <a class="el" href="structgz_1_1physics_1_1FeatureList.html">FeatureList</a> named <code>EntityManagementFeatureList</code> defined in <code>EntityManagementFeatures.hh</code>. We first include the <code>EntityManagementFeatureList</code> in <code>plugin.cc</code> main file and register the example TPE physics plugin as follow:</p>
 <div class="fragment"><div class="line"><span class="keyword">namespace </span><a class="code hl_namespaceRef" href="https://gazebosim.org/api/common/6/namespacegz.html">gz</a> {</div>
@@ -210,7 +210,7 @@ plugin.cc</h3>
 <li>Define the dimension of the simulation, ex. <a class="el" href="namespacegz_1_1physics.html#a2d96f4e9c1426d8a61da147434b61d66">Implements</a> class implementing <a class="el" href="structgz_1_1physics_1_1FeaturePolicy.html">FeaturePolicy</a> 2D or 3D and different scalar type.</li>
 <li>Register the physics plugin using <code>GZ_PHYSICS_ADD_PLUGIN</code> macro (See Implement physics plugin for more detail).</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md59"></a>
+<h3><a class="anchor" id="implement-features-with-physics-engines-api"></a>
 Implement features with physics engine's API</h3>
 <p>Now we would like to implement the <code>EntityManagementFeatures</code>. In the <code>simple_plugin</code> folder, we will create two files <code>EntityManagementFeatures.hh</code> and <code>EntityManagementFeatures.cc</code> to implement a single feature <a class="el" href="classgz_1_1physics_1_1ConstructEmptyWorldFeature.html">ConstructEmptyWorldFeature</a> in <code>EntityManagementFeatures</code> "FeatureList" using TPE API from <code>tpe/lib</code> in Gazebo Physics library.</p>
 <p>Before we dive into the feature implementation, we need to understand how the features are defined.</p>
@@ -296,7 +296,7 @@ Implement features with physics engine's API</h3>
 <li>Dartsim: <a href="https://github.com/gazebosim/gz-physics/blob/main/dartsim/src/EntityManagementFeatures.hh">EntityManagementFeatures.hh</a> and <a href="https://github.com/gazebosim/gz-physics/blob/main/dartsim/src/EntityManagementFeatures.cc">EntityManagementFeatures.cc</a></li>
 <li>TPE: <a href="https://github.com/gazebosim/gz-physics/blob/main/tpe/plugin/src/EntityManagementFeatures.hh">EntityManagementFeatures.hh</a> and <a href="https://github.com/gazebosim/gz-physics/blob/main/tpe/plugin/src/EntityManagementFeatures.cc">EntityManagementFeatures.cc</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md60"></a>
+<h2><a class="anchor" id="compile-and-run-the-example"></a>
 Compile and run the example</h2>
 <p>Clone the source code, create a build directory and use <code>cmake</code> to compile the code:</p>
 <div class="fragment"><div class="line">git clone https://github.com/gazebosim/gz-physics</div>

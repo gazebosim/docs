@@ -147,22 +147,22 @@
 </ul>
 <p>To run a script use</p>
 <p><code>gz launch LAUNCH_FILE_NAME</code></p>
-<h2><a class="anchor" id="autotoc_md13"></a>
+<h2><a class="anchor" id="launch-files"></a>
 Launch files</h2>
 <p>Every script starts with these two tags, which specify the <code>xml</code> version and <code>gz</code> version.</p>
 <div class="fragment"><div class="line">&lt;?<span class="keyword">xml</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.0&quot;</span>?&gt;</div>
 <div class="line">&lt;<span class="keywordtype">gz</span> <span class="keyword">version</span>=<span class="stringliteral">&#39;1.0&#39;</span>&gt;</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md14"></a>
+</div><!-- fragment --><h2><a class="anchor" id="multiple-executable-commands"></a>
 Multiple executable commands</h2>
 <p>We can run multiple commands from one file.</p>
 <p>Take a look at the <a href="https://github.com/gazebosim/gz-launch/blob/gz-launch8/examples/sim.gzlaunch">sim.gzlaunch</a> launch file. This script runs the Gazebo <code>server</code> and Gazebo <code>client</code>. We need to just write the command in the <code>command</code> tag.</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">executable</span> <span class="keyword">name</span>=<span class="stringliteral">&#39;sim-server&#39;</span>&gt;</div>
 <div class="line">    &lt;<span class="keywordtype">command</span>&gt;<span class="keyword">gz</span> <span class="keyword">sim</span> -<span class="keyword">s</span>&lt;/<span class="keywordtype">command</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">executable</span>&gt;</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md15"></a>
+</div><!-- fragment --><h2><a class="anchor" id="spawn-a-robot-into-simulation-with-plugins"></a>
 Spawn a robot into simulation with plugins</h2>
 <p>Now take a look at the <a href="https://github.com/gazebosim/gz-launch/blob/gz-launch8/examples/factory.gzlaunch">factory.gzlaunch</a> launch file. We defined a <code>SimFactory</code> plugin under which we included an <code>X2 UGV</code> robot and added the <code>DiffDrive</code> plugin to control the robot. We also added the <code>StatePublisher</code> plugin which publishes the robot state information.</p>
-<h2><a class="anchor" id="autotoc_md16"></a>
+<h2><a class="anchor" id="launch-simulation-with-plugins-in-separate-processes"></a>
 Launch simulation with plugins in separate processes</h2>
 <p>The <a href="https://github.com/gazebosim/gz-launch/blob/gz-launch8/examples/sim_plugins.gzlaunch">sim_plugins.gzlaunch</a> launch file loads some plugins and also starts simulation. The <code>joystick</code> plugin will be launched in its own process and will read from a joystick device and output data onto a topic. The <code>JoyToTwist</code> plugin also launches into a separate process and transforms a <code>joystick</code> message to a <code>twist</code> message. Finally, The <code>SimServer</code> plugin launches the Gazebo server.</p>
 <p>The script can take a world as an argument. To run this script.</p>
@@ -170,7 +170,7 @@ Launch simulation with plugins in separate processes</h2>
 <p>The [worldName] command line argument is optional. If left blank, or not specified, then "diff_drive" is used for the world name.</p>
 <p>Example to load <code>the shapes.sdf</code>:</p>
 <p><code>gz launch sim_plugins.gzlaunch worldName:=shapes</code></p>
-<h2><a class="anchor" id="autotoc_md17"></a>
+<h2><a class="anchor" id="launch-file-lookup"></a>
 Launch file lookup</h2>
 <p>There is a lookup process happening if the specified file is not an absolute path. It searches for a file with the given name in paths as follows:</p>
 <ol type="1">

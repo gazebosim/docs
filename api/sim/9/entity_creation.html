@@ -176,10 +176,10 @@
 <div class="line">/world/world_name/set_pose</div>
 <div class="line">/world/world_name/state</div>
 <div class="line">/world/world_name/state_async</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md99"></a>
+</div><!-- fragment --><h2><a class="anchor" id="factory-message"></a>
 Factory message</h2>
 <p>To create new entities in the world we need to use the <a href="https://gazebosim.org/api/msgs/9/classgz_1_1msgs_1_1EntityFactory.html">gz::msgs::EntityFactory</a> message to send a request to the create service. This message allows us to create entities from strings, files, <a href="https://gazebosim.org/api/msgs/9/classgz_1_1msgs_1_1Model.html">Models</a>, <a href="https://gazebosim.org/api/msgs/9/classgz_1_1msgs_1_1Light.html">Lights</a> or even clone models. This tutorial introduces how to create entities from SDF strings and light messages.</p>
-<h3><a class="anchor" id="autotoc_md100"></a>
+<h3><a class="anchor" id="insert-an-entity-based-on-a-string"></a>
 Insert an entity based on a string</h3>
 <p>We will open an empty Gazebo world, let's start creating a sphere in the world. In the next snippet you can see how to create models based on strings.</p>
 <div class="fragment"><div class="line">  <span class="keyword">auto</span> sphereStr = R<span class="stringliteral">&quot;(</span></div>
@@ -220,7 +220,7 @@ Insert an entity based on a string</h3>
 <div class="line">  <span class="keywordflow">else</span></div>
 <div class="line">    <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cerr</a> &lt;&lt; <span class="stringliteral">&quot;Service call timed out&quot;</span> &lt;&lt; <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 </div><!-- fragment --><p><b>NOTE</b>: By default, if the entity name does not exist then the entity will be created in the world. On the other hand, if that entity name already exists, then nothing will happen. You may see some traces in the console showing this information. There is an option to create a new entity every time that the message is sent by setting <code>allow_renaming</code> to true (you can use the method <code>set_allow_renaming()</code>).</p>
-<h3><a class="anchor" id="autotoc_md101"></a>
+<h3><a class="anchor" id="insert-a-light"></a>
 Insert a light</h3>
 <p>To insert a light in the world we have two options:</p>
 <ul>

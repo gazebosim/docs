@@ -140,7 +140,7 @@
 <div class="contents">
 <div class="textblock"><p>A variety of changes are required when migrating a plugin from Gazebo classic to Gazebo. In this tutorial we offer as a case study the migration of one particular <code>ModelPlugin</code>, <a href="https://github.com/khancyr/ardupilot_gazebo">ardupilot_gazebo</a>. We hope that this example provides useful tips to others who are migrating their existing plugins from classic to Gazebo.</p>
 <p>The complete, migrated version of the <code>ardupilot_gazebo</code> plugin covered in this tutorial can be found in <a href="https://github.com/gerkey/ardupilot_gazebo/tree/ignition">this fork</a>.</p>
-<h2><a class="anchor" id="autotoc_md180"></a>
+<h2><a class="anchor" id="background"></a>
 Background</h2>
 <p>The <code>ardupilot_gazebo</code> plugin is used with Gazebo to assist with simulating aerial vehicles (aka drones). For more information on how to use it, check the <a href="https://ardupilot.org/dev/docs/using-gazebo-simulator-with-sitl.html">ArduPilot documentation</a>.</p>
 <p>As context to understand what we're migrating, here's a system diagram for how the ArduPilot Gazebo plugin works is used:</p>
@@ -148,7 +148,7 @@ Background</h2>
 <p><em>UAV icon credit: By Julian Herzog, CC BY 4.0, <a href="https://commons.wikimedia.org/w/index.php?curid=60965475">https://commons.wikimedia.org/w/index.php?curid=60965475</a></em></p>
 <p>For each UAV model in simulation, there is one instance of ArduPilotPlugin loaded into the simulation process. That plugin uses internal simulation APIs to retrieve the UAV's current state, which it sends to an external ArduPilot process via a custom UDP protocol (it's called Flight Dynamics Model, or FDM). The ArduPilot process in turn makes the vehicle state available via the MAVLink protocol to other processes, such as QGroundControl (QGC). The user can issue commands in QGC like "take off" or "goto waypoint", which are sent via MAVLink to ArduPilot, which computes motor commands and sends them to the plugin, which passes them onto the vehicle via internal simulation APIs.</p>
 <p>To be clear, this structure is pre-existing and widely used in UAV simulation. Our contribution in this tutorial is port the plugin from Gazebo classic to Gazebo, preserving the rest of the setup.</p>
-<h2><a class="anchor" id="autotoc_md181"></a>
+<h2><a class="anchor" id="structure-of-the-migration"></a>
 Structure of the migration</h2>
 <p>Migration of this plugin involves modifications to multiple parts of the associated code:</p>
 <ol type="1">
@@ -158,9 +158,9 @@ Structure of the migration</h2>
 <li>The custom model in which the plugin is used</li>
 </ol>
 <p>We'll take them each in turn in the following sections.</p>
-<h2><a class="anchor" id="autotoc_md182"></a>
+<h2><a class="anchor" id="plugin-header-file-ardupilotpluginhh"></a>
 Plugin header file (ArduPilotPlugin.hh)</h2>
-<h3><a class="anchor" id="autotoc_md183"></a>
+<h3><a class="anchor" id="headers"></a>
 Headers</h3>
 <p>The old code includes these Gazebo classic headers:</p>
 <div class="fragment"><div class="line"><span class="comment">// OLD</span></div>
@@ -171,7 +171,7 @@ Headers</h3>
 <div class="fragment"><div class="line"><span class="comment">// NEW</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="System_8hh.html">gz/sim/System.hh</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;sdf/sdf.hh&gt;</span></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md184"></a>
+</div><!-- fragment --><h3><a class="anchor" id="class-declaration"></a>
 Class declaration</h3>
 <p>In the old code, the plugin class <code>ArduPilotPlugin</code> is declared in the <code>gazebo</code> namespace: </p><div class="fragment"><div class="line"><span class="comment">// OLD</span></div>
 <div class="line"><span class="keyword">namespace </span>sim</div>
@@ -227,9 +227,9 @@ Class declaration</h3>
 <div class="line"><span class="keywordtype">void</span> SendState(<span class="keywordtype">double</span> _simTime,</div>
 <div class="line">  <span class="keyword">const</span> <a class="code hl_class" href="classgz_1_1sim_1_1EntityComponentManager.html" title="The EntityComponentManager constructs, deletes, and returns components and entities....">gz::sim::EntityComponentManager</a> &amp;_ecm);</div>
 <div class="line"><span class="keywordtype">bool</span> InitArduPilotSockets(<span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr&lt;const sdf::Element&gt;</a> &amp;_sdf);</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md185"></a>
+</div><!-- fragment --><h2><a class="anchor" id="plugin-source-file-ardupilotplugincc"></a>
 Plugin source file (ArduPilotPlugin.cc)</h2>
-<h3><a class="anchor" id="autotoc_md186"></a>
+<h3><a class="anchor" id="headers-1"></a>
 Headers</h3>
 <p>The old code includes these Gazebo-related headers:</p>
 <div class="fragment"><div class="line"><span class="comment">// OLD</span></div>
@@ -271,7 +271,7 @@ Headers</h3>
 </div><!-- fragment --><p>And we keep the SDFormat header:</p>
 <div class="fragment"><div class="line"><span class="comment">// NEW</span></div>
 <div class="line"><span class="preprocessor">#include &lt;sdf/sdf.hh&gt;</span></div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md187"></a>
+</div><!-- fragment --><h3><a class="anchor" id="class-members"></a>
 Class members</h3>
 <p>Now let's get into the class member declarations. The <code>PID</code> class has moved from <code>common</code>:</p>
 <div class="fragment"><div class="line"><span class="comment">// OLD</span></div>
@@ -322,7 +322,7 @@ Class members</h3>
 <div class="line">  imuMsg = _msg;</div>
 <div class="line">  imuMsgValid = <span class="keyword">true</span>;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md188"></a>
+</div><!-- fragment --><h3><a class="anchor" id="plugin-interface-configure"></a>
 Plugin interface: Configure()</h3>
 <p>Recall that <code>Configure()</code> replaces <code>Load()</code>.</p>
 <p>In the old code, we store the model pointer and name:</p>
@@ -368,7 +368,7 @@ Plugin interface: Configure()</h3>
 <div class="fragment"><div class="line"><span class="comment">// NEW</span></div>
 <div class="line">this-&gt;dataPtr-&gt;imuName = _sdf-&gt;Get(<span class="stringliteral">&quot;imuName&quot;</span>, <span class="keyword">static_cast&lt;</span><a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a><span class="keyword">&gt;</span>(<span class="stringliteral">&quot;imu_sensor&quot;</span>)).first;</div>
 </div><!-- fragment --><p>and we do the equivalent lookup later, in <code>PreUpdate()</code>, which we'll cover next.</p>
-<h3><a class="anchor" id="autotoc_md189"></a>
+<h3><a class="anchor" id="plugin-interface-onupdate---preupdate--postupdate"></a>
 Plugin interface: OnUpdate() -&gt; PreUpdate() + PostUpdate()</h3>
 <p>The old code does the following each time step in its <code>OnUpdate()</code> method:</p>
 <div class="fragment"><div class="line"><span class="comment">// OLD</span></div>
@@ -411,7 +411,7 @@ Plugin interface: OnUpdate() -&gt; PreUpdate() + PostUpdate()</h3>
 <div class="line"> </div>
 <div class="line">this-&gt;dataPtr-&gt;lastControllerUpdateTime = _info.simTime;</div>
 </div><!-- fragment --><p>Note the differences in both methods with regard to time-handling: (i) the current simulation time is passed in as part of an <code><a class="el" href="structgz_1_1sim_1_1UpdateInfo.html" title="Information passed to systems on the update callback.">gz::sim::UpdateInfo</a></code> object; and (ii) we operate on time values using <code><a class="elRef" href="http://en.cppreference.com/w/namespacestd_1_1chrono.html">std::chrono</a></code>.</p>
-<h4><a class="anchor" id="autotoc_md190"></a>
+<h4><a class="anchor" id="one-time-initialization-in-preupdate-subscribing-to-sensor-data"></a>
 One-time initialization in PreUpdate(): subscribing to sensor data</h4>
 <p>Though it's not part of the regular update loop, we subscribe to the IMU sensor data in <code>PreUpdate()</code> because the information that we need for that subscription isn't available when we're in <code>Configure()</code>.</p>
 <p>That one-time subscription logic looks like this, starting with determination of the right topic name and ending with registering our previously defined <code>imuCb()</code> method as the callback to receive new IMU data:</p>
@@ -437,7 +437,7 @@ One-time initialization in PreUpdate(): subscribing to sensor data</h4>
 <div class="line"> </div>
 <div class="line">  this-&gt;dataPtr-&gt;node.Subscribe(imuTopicName, &amp;gz::sim::systems::ArduPilotPluginPrivate::imuCb, this-&gt;dataPtr.get());</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md191"></a>
+</div><!-- fragment --><h3><a class="anchor" id="writing-to-simulation"></a>
 Writing to simulation</h3>
 <p>Based on commands received from ArduPilot, new forces are applied to the propeller joints in <code>ApplyMotorForces()</code>, using the joints' current velocities as feedback. In the old code that's done by calling <code>GetVelocity()</code> and <code>SetForce()</code> on each joint <code>i</code>:</p>
 <div class="fragment"><div class="line"><span class="comment">// OLD</span></div>
@@ -452,7 +452,7 @@ Writing to simulation</h3>
 <div class="line">_ecm.SetComponentData(this-&gt;dataPtr-&gt;controls[i].joint,</div>
 <div class="line">    <a class="code hl_class" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">gz::sim::components::JointForceCmd</a>({force}));</div>
 </div><!-- fragment --><p>A similar pattern is used for the case of setting a velocity on a joint; instead of calling <code>SetVelocity()</code> on the joint, we write to the <code>JointVelocityCmd</code> component of the joint entity.</p>
-<h3><a class="anchor" id="autotoc_md192"></a>
+<h3><a class="anchor" id="reading-from-simulation"></a>
 Reading from simulation</h3>
 <p>To prepare the data that will be sent to ArduPilot, in <code>SendState()</code> we need to read some information from simulation, specifically: linear acceleration and angular velocity from the IMU, and the UAV's pose and linear velocity in the world frame.</p>
 <p>In the old code, we get the IMU data by calling methods on the sensor object and copying the result into the packet that we're going to send to ArduPilot:</p>
@@ -506,7 +506,7 @@ Reading from simulation</h3>
 <div class="line"><span class="keyword">const</span> gz::sim::components::WorldLinearVelocity* vComp =</div>
 <div class="line">  _ecm.Component&lt;gz::sim::components::WorldLinearVelocity&gt;(this-&gt;dataPtr-&gt;modelLink);</div>
 <div class="line"><span class="keyword">const</span> <a class="code hl_classRef" href="https://gazebosim.org/api/math/8/classgz_1_1math_1_1Vector3.html">gz::math::Vector3d</a> velGazeboWorldFrame = vComp-&gt;Data();</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md193"></a>
+</div><!-- fragment --><h3><a class="anchor" id="registering-the-plugin"></a>
 Registering the plugin</h3>
 <p>In the old code we register our plugin via the macro <code>GZ_REGISTER_PLUGIN()</code>:</p>
 <div class="fragment"><div class="line"><span class="comment">// OLD</span></div>
@@ -519,7 +519,7 @@ Registering the plugin</h3>
 <div class="line">                    gz::sim::systems::ArduPilotPlugin::ISystemPostUpdate,</div>
 <div class="line">                    gz::sim::systems::ArduPilotPlugin::ISystemPreUpdate)</div>
 <div class="line"><a class="code hl_defineRef" href="https://gazebosim.org/api/plugin/3/Register_8hh.html#a899a1e669cb535c9fe01012cff323b49">GZ_ADD_PLUGIN_ALIAS</a>(gz::sim::systems::ArduPilotPlugin,<span class="stringliteral">&quot;ArduPilotPlugin&quot;</span>)</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md194"></a>
+</div><!-- fragment --><h2><a class="anchor" id="build-recipe-cmakeliststxt"></a>
 Build recipe: &lt;tt&gt;CMakeLists.txt&lt;/tt&gt;</h2>
 <p>Compared to the code changes, the updates in the CMake configuration are pretty minor and primarily result from the fact that the formerly monolithic Gazebo project is now a set of Gazebo libraries.</p>
 <p>In the old code we retrieve all the required build configuration by finding the Gazebo package:</p>
@@ -564,7 +564,7 @@ Build recipe: &lt;tt&gt;CMakeLists.txt&lt;/tt&gt;</h2>
 <div class="line">        ${GZ-MSGS_LIBRARIES}</div>
 <div class="line">        ${GZ-TRANSPORT_LIBRARIES}</div>
 <div class="line">        )</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md195"></a>
+</div><!-- fragment --><h2><a class="anchor" id="the-model"></a>
 The model</h2>
 <p>The old UAV is defined in two parts: (i) the <code>iris_with_standoffs</code> model, which defines the vehicle structure; and (ii) the <code>iris_with_ardupilot</code> model, which includes the extends the <code>iris_with_standoffs</code> model by adding plugins needed to fly it.</p>
 <p>Because model inclusion is not (yet?) supported, the new model just combines the additional plugin configuration from <code>iris_with_ardupilot</code> into <code>iris_with_standoffs</code>. Along the way a few changes are made, as follows.</p>
@@ -610,7 +610,7 @@ The model</h2>
 <div class="line">  <span class="keyword">name</span>=<span class="stringliteral">&quot;gz::sim::systems::ApplyJointForce&quot;</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">joint_name</span>&gt;<span class="keyword">rotor_3_joint</span>&lt;/<span class="keywordtype">joint_name</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md196"></a>
+</div><!-- fragment --><h2><a class="anchor" id="whats-next"></a>
 What's next</h2>
 <p>You should be able to apply the same general changes covered in this tutorial to your Gazebo plugins to migrate them to Gazebo.</p>
 <p>Check out <a href="https://github.com/gerkey/ardupilot_gazebo/tree/ignition#using-with-ignition">these instructions</a> if you'd like to learn more about using ardupilot_gazebo with Gazebo. </p>

@@ -141,9 +141,9 @@
 <div class="textblock"><p>When recording video using the <code><a class="el" href="classgz_1_1common_1_1VideoEncoder.html" title="The VideoEncoder class supports encoding a series of images to a video format, and then writing the v...">gz::common::VideoEncoder</a></code> class, you can opt-in to use hardware (HW) acceleration for the encoding process. By default, only software encoders are used. This tutorial will show how to configure the encoder for HW acceleration and will present ready-made commandlines for some typical use-cases.</p>
 <p>You can either use the <code>VideoEncoder</code> class directly, or you can "meet it" in the video recorder plugin in Gazebo. In both cases, HW-accelerated encoding can be set up.</p>
 <p>HW acceleration should provide you with higher encoding performance, potentially leaving more CPU power to the rest of your program/simulation, while taking a bit of GPU memory (video encoding uses different chips than 3D graphics or CUDA computations, so performance-wise, the rest of the GPU should be unaffected).</p>
-<h1><a class="anchor" id="autotoc_md2"></a>
+<h1><a class="anchor" id="configuring-hardware-acceleration"></a>
 Configuring hardware acceleration</h1>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="what-needs-to-be-configured"></a>
 What needs to be configured</h2>
 <p>In order to get HW accelerated encoding working, you need to get 3 things right:</p>
 <ol type="1">
@@ -151,7 +151,7 @@ What needs to be configured</h2>
 <li>The HW device to be used</li>
 <li>Whether to use a specialized HW surface</li>
 </ol>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md1-encoder-types"></a>
 1. Encoder types</h2>
 <p>The support for HW-accelerated encoding is based on what the local installation of <code>libavcodec</code> (and your hardware) offers. If the libavcodec/FFMpeg your system has doesn't support HW acceleration, you're out of luck until you get a version that supports some. Some information about various aspects of the acceleration support by FFMpeg can be found on their <a href="https://trac.ffmpeg.org/wiki/HWAccelIntro">HWAccelIntro wiki page</a>.</p>
 <p>If FFMpeg is correctly installed, you can see the available HW encoders by calling <code>ffmpeg -hide_banner -encoders | grep 264</code>.</p>
@@ -191,7 +191,7 @@ What needs to be configured</h2>
 <li>VA-API: <code>libva-glx2</code>, <code>libva-drm2</code>, maybe also <code>libglvnd0</code></li>
 <li>QSV: Unclear, usually works out of the box</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md2-device-names"></a>
 2. Device names</h2>
 <p>If your computer has more GPUs, it is important to specify which one to use. Here are some basic naming rules:</p>
 <ul>
@@ -214,22 +214,22 @@ What needs to be configured</h2>
 </ul>
 </li>
 </ul>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<h2><a class="anchor" id="autotoc_md3-using-hw-surface"></a>
 3. Using HW surface</h2>
 <p>The last thing you need to decide is whether the selected encoder should use a HW surface (pixel buffer) or the default CPU-located one. With most encoders, this is just a performance issue and they will work both with CPU and GPU surfaces.</p>
 <p>It is best if you perform experiments with HW surface used and not used and compare the performance. Select the one that suits your use case better.</p>
-<h2><a class="anchor" id="autotoc_md7"></a>
+<h2><a class="anchor" id="putting-it-together---configuration-via-environment-variables"></a>
 Putting it together - configuration via environment variables</h2>
 <p>To ease configuration of the HW-accelerated encoding, there doesn't have to be explicit support for it in the code using <code>VideoEncoder</code>. The code may concentrate on implementing the recording procedure itself, and completely ignore any HW acceleration of the recording process. Users of the code can then enable the HW acceleration just using these 3 environment variables:</p>
-<h3><a class="anchor" id="autotoc_md8"></a>
+<h3><a class="anchor" id="gz_video_allowed_encoders"></a>
 GZ_VIDEO_ALLOWED_ENCODERS</h3>
 <p>This is the main variable that allows the <code>VideoEncoder</code> to probe for supported HW-accelerated encoders. It is a colon-separated list of names described in the table above. Example: <code>GZ_VIDEO_ALLOWED_ENCODERS=NVENC:QSV</code>. Special value <code>ALL</code> means that all encoders should be tried. Special value <code>NONE</code> (or empty value) means that a SW encoder should be used.</p>
 <p>If more values are specified, the system will probe all the allowed encoders trying to start them up (if device is specified, then only with the given device). The first allowed encoder that successfully finishes the probe will be used.</p>
 <p>The probing mechanism isn't 100% reliable. But it does what's reasonable to do in such an autodetection loop - it checks whether the required/supported device files exist, and if they do (or if there are no device files, as on Windows), the library tries to create an encoding context. If the context is successfully created, the encoder is considered working. Sometimes, something can go wrong in a later stage (e.g. insufficient GPU memory), and that is a kind of thing you have to handle yourself.</p>
-<h3><a class="anchor" id="autotoc_md9"></a>
+<h3><a class="anchor" id="gz_video_encoder_device"></a>
 GZ_VIDEO_ENCODER_DEVICE</h3>
 <p>This is a name of the encoder device as specified in the "Device Names" section. If empty, first working device will be used. This auto detection should suffice on single-GPU systems or if you don't care which GPU will be used. If a device is specified, only encoders accepting this device name as an argument will be probed.</p>
-<h3><a class="anchor" id="autotoc_md10"></a>
+<h3><a class="anchor" id="gz_video_use_hw_surface"></a>
 GZ_VIDEO_USE_HW_SURFACE</h3>
 <p>This variable has three possible values:</p>
 <ul>
@@ -238,7 +238,7 @@ GZ_VIDEO_USE_HW_SURFACE</h3>
 <li>empty: Let the library guess based on some pre-compiled hints.</li>
 </ul>
 <p>Refer to section "Using HW surface" for more in-depth description of the meaning of this variable. Usually, leaving it empty should be just fine.</p>
-<h2><a class="anchor" id="autotoc_md11"></a>
+<h2><a class="anchor" id="configuration-in-code"></a>
 Configuration in code</h2>
 <p>These values can also be configured in code.</p>
 <p>As stated earlier, if you use the standard 6-argument signature of <code>VideoEncoder::Start()</code>, configuration via the above described environment variables will be performed.</p>
@@ -253,7 +253,7 @@ Configuration in code</h2>
 <div class="line">                   std::optional&lt;bool&gt; _useHwSurface = {})</div>
 </div><!-- fragment --><p>The three added arguments correspond to the environment variables, but with this signature you can set their values from code (and environment variables will have no effect then). This would be useful if you want to e.g. implement a GUI chooser for the acceleration.</p>
 <p>The <code>FlagSet&lt;HWEncoderType&gt;</code> captures a set of allowed encoders. Its value may be e.g. <code>gz::Common::HWEncoderType::QSV | gz::common::HWEncoderType::NVENC</code>.</p>
-<h2><a class="anchor" id="autotoc_md12"></a>
+<h2><a class="anchor" id="how-do-i-know-its-working"></a>
 How do I know it's working</h2>
 <p>To make sure you configured the HW acceleration right, you may look at info-level messages where <code>VideoEncoder</code> documents the detected encoder. It may look like:</p>
 <div class="fragment"><div class="line">[Msg] Recording started: 3078s (sim time), 42088s (real time)</div>
@@ -292,27 +292,27 @@ How do I know it's working</h2>
 <div class="line">[GUI] [Wrn] [HWEncoder.cc:384] No hardware-accelerated encoder found, falling back to software encoders</div>
 <div class="line">[GUI] [Msg] Compatible SW encoder: libx264</div>
 <div class="line">[GUI] [Msg] Using encoder libx264</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md13"></a>
+</div><!-- fragment --><h1><a class="anchor" id="examples"></a>
 Examples</h1>
 <p>Here are a few ready-made examples which might or might not work for you right-away. Just give them a try and dig deeper in the configuration if something is wrong.</p>
-<h2><a class="anchor" id="autotoc_md14"></a>
+<h2><a class="anchor" id="linuxwin--intel-gpu"></a>
 Linux/Win + Intel GPU</h2>
 <pre class="fragment">GZ_VIDEO_ALLOWED_ENCODERS=QSV
-</pre> <h2><a class="anchor" id="autotoc_md15"></a>
+</pre> <h2><a class="anchor" id="linuxwin--nvidia-gpu"></a>
 Linux/Win + NVidia GPU</h2>
 <pre class="fragment">GZ_VIDEO_ALLOWED_ENCODERS=NVENC
-</pre> <h2><a class="anchor" id="autotoc_md16"></a>
+</pre> <h2><a class="anchor" id="linux--intelnvidia-gpu"></a>
 Linux + Intel/NVidia GPU</h2>
 <pre class="fragment">GZ_VIDEO_ALLOWED_ENCODERS=VAAPI
-</pre> <h2><a class="anchor" id="autotoc_md17"></a>
+</pre> <h2><a class="anchor" id="linux-nvidia-multi-gpu-machine"></a>
 Linux NVidia Multi-GPU machine</h2>
 <pre class="fragment">GZ_VIDEO_ALLOWED_ENCODERS=NVENC GZ_VIDEO_ENCODER_DEVICE=/dev/nvidia2
-</pre> <h1><a class="anchor" id="autotoc_md18"></a>
+</pre> <h1><a class="anchor" id="caveats"></a>
 Caveats</h1>
-<h2><a class="anchor" id="autotoc_md19"></a>
+<h2><a class="anchor" id="ffmpeg-on-windows-via-conda"></a>
 FFMpeg on Windows via Conda</h2>
 <p>The current distribution of FFMpeg via Conda for Windows does not include the h264_qsv encoder. It only has h264_nvenc. This means that using Intel GPUs for HW acceleration is not possible out of the box. A possible solution would be to build a custom build of ffmpeg in the workspace with gz-common. Pull requests with the relevant tutorial are welcome.</p>
-<h2><a class="anchor" id="autotoc_md20"></a>
+<h2><a class="anchor" id="nvenc-per-machine-limit"></a>
 NVEnc per-machine limit</h2>
 <p>If you have a multi-GPU station with desktop-class (not server-class) GPUs, you will run into an artificial limitation from NVidia. You can only run 3 concurrent encoding sessions on one computer, no matter how many GPUs you have. The computer can even have 8 GPUs, but you will only be able to encode 3 videos at a time. The exact maxima of encoding sessions are described in <a href="https://developer.nvidia.com/video-encode-and-decode-gpu-support-matrix-new">this NVidia support page</a>.</p>
 <p>To make things worse, there is no API that would tell you the number of currently running NVEnc sessions. The only way to find out you're launching the fourth is trying to start encoding and getting a memory allocation error. This library catches this error and writes a lengthy description of what might have just happened (either really low memory or this artificial limit). Unfortunately, when you start the doomed fourth encoding session, all the three "legal" sessions will crash. This might be really troublesome on e.g. multi-user systems when you don't even know which jobs of the other users are using NVEnc.</p>

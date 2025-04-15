@@ -141,7 +141,7 @@
 <div class="textblock"><p>We will show how to use the <a class="el" href="namespacegz_1_1sim_1_1components.html#a92422623ef91bf733c54454995d18bd7" title="A component type that contains pose, gz::math::Pose3d, information.">gz::sim::components::Pose</a> component in a system.</p>
 <p>An example usage of the component can be found in the <a class="el" href="classgz_1_1sim_1_1systems_1_1OdometryPublisher.html" title="Odometry Publisher which can be attached to any entity in order to periodically publish 2D or 3D odom...">gz::sim::systems::OdometryPublisher</a> system (<a href="https://github.com/gazebosim/gz-sim/tree/gz-sim8/src/systems/odometry_publisher">source code</a>), which reads the pose component of a model through the Model entity, uses the pose for some calculations, and then publishes the result as a message.</p>
 <p>More usage can be found in the <a href="https://github.com/gazebosim/gz-sim/blob/gz-sim8/test/integration/odometry_publisher.cc">integration test</a> for the system, with test worlds <code>odometry*.sdf</code> <a href="https://github.com/gazebosim/gz-sim/tree/main/test/worlds">here</a>.</p>
-<h3><a class="anchor" id="autotoc_md72"></a>
+<h3><a class="anchor" id="objects-of-interest"></a>
 Objects of interest</h3>
 <ul>
 <li><a class="el" href="namespacegz_1_1sim_1_1components.html#a92422623ef91bf733c54454995d18bd7" title="A component type that contains pose, gz::math::Pose3d, information.">gz::sim::components::Pose</a>: A component containing pose information</li>
@@ -149,7 +149,7 @@ Objects of interest</h3>
 <li><a class="el" href="classgz_1_1sim_1_1systems_1_1OdometryPublisher.html" title="Odometry Publisher which can be attached to any entity in order to periodically publish 2D or 3D odom...">gz::sim::systems::OdometryPublisher</a>: A system that reads the pose component of a model</li>
 <li><a class="el" href="classgz_1_1sim_1_1Model.html" title="This class provides wrappers around entities and components which are more convenient and straight-fo...">gz::sim::Model</a>: The type underlying a model entity (<a class="el" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">gz::sim::Entity</a>)</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md73"></a>
+<h3><a class="anchor" id="find-the-model-entity"></a>
 Find the model entity</h3>
 <p>First, we will need access to an entity, the <a class="el" href="classgz_1_1sim_1_1Model.html">gz::sim::Model</a> entity in this case. <code>OdometryPublisher</code> happens to be a system meant to be specified under <code>&lt;model&gt;</code> in the SDF, so at the time <code>Configure()</code> is called, it has access to a model entity from which we can extract a gz::sim::Model:</p>
 <div class="fragment"><div class="line">  <span class="keyword">public</span>: Model model{kNullEntity};</div>
@@ -159,14 +159,14 @@ Find the model entity</h3>
 <div class="line">    EventManager &amp;<span class="comment">/*_eventMgr*/</span>)</div>
 <div class="line">{</div>
 <div class="line">  this-&gt;dataPtr-&gt;model = Model(_entity);</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md74"></a>
+</div><!-- fragment --><h3><a class="anchor" id="read-the-pose-component"></a>
 Read the pose component</h3>
 <p>Once we have the handle to an entity, we can access components associated with it. A component may have been created at the time the world is loaded, or you may create a component at runtime if it does not exist yet.</p>
 <p>In this case, we use the model entity found above to access its pose component, which is created by default on every model entity.</p>
 <p>In <code>PostUpdate()</code>, which happens after physics has updated, we can get the world pose of a model through <a class="el" href="namespacegz_1_1sim.html#a70e179ba8b8a7f2501a64a164b96e94d" title="Helper function to compute world pose of an entity.">gz::sim::worldPose</a>, by passing in the model entity and the entity component manager.</p>
 <div class="fragment"><div class="line">  <span class="keyword">const</span> math::Pose3d rawPose = worldPose(this-&gt;model.Entity(), _ecm);</div>
 </div><!-- fragment --><p>It returns the raw data to us in the <a class="elRef" href="https://gazebosim.org/api/math/8/namespacegz_1_1math.html#a507d73d4a494a03691fb87691dd07215">gz::math::Pose3d</a> type, which is also the data type underlying a pose component. We can perform calculations on the <a class="elRef" href="https://gazebosim.org/api/math/8/namespacegz_1_1math.html#a507d73d4a494a03691fb87691dd07215">gz::math::Pose3d</a> type, not the <a class="el" href="namespacegz_1_1sim_1_1components.html#a92422623ef91bf733c54454995d18bd7" title="A component type that contains pose, gz::math::Pose3d, information.">gz::sim::components::Pose</a> type, which is just a wrapper.</p>
-<h3><a class="anchor" id="autotoc_md75"></a>
+<h3><a class="anchor" id="use-the-pose-component"></a>
 Use the pose component</h3>
 <p>Now we can use the pose data as we like.</p>
 <p>Here, we manipulate the pose and package the result into a gz::msgs::Odometry message to be published:</p>

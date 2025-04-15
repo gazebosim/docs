@@ -139,25 +139,25 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Next Tutorial: <a class="el" href="configuration.html">Configuration</a></p>
-<h2><a class="anchor" id="autotoc_md2"></a>
+<h2><a class="anchor" id="overview"></a>
 Overview</h2>
 <p>Instructions to install Gazebo Fuel Tools on all the platforms supported.</p>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="binary-install"></a>
 Binary Install</h2>
-<h3><a class="anchor" id="autotoc_md4"></a>
+<h3><a class="anchor" id="ubuntu-linux"></a>
 Ubuntu Linux</h3>
 <p>Setup your computer to accept software from <em>packages.osrfoundation.org</em>: </p><div class="fragment"><div class="line">sudo sh -c &#39;echo &quot;deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/gazebo-stable.list&#39;</div>
 </div><!-- fragment --><p>Setup keys: </p><div class="fragment"><div class="line">wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -</div>
 </div><!-- fragment --><p>Install Gazebo Fuel Tools: </p><div class="fragment"><div class="line">sudo apt-get update</div>
 <div class="line">sudo apt-get install libgz-fuel-tools&lt;#&gt;-dev</div>
 </div><!-- fragment --><p>Be sure to replace <code>&lt;#&gt;</code> with a number value, such as 6 or 7, depending on which version you need.</p>
-<h3><a class="anchor" id="autotoc_md5"></a>
+<h3><a class="anchor" id="mac-os-x"></a>
 Mac OS X</h3>
 <p>Gazebo Fuel Tools and several of its dependencies can be compiled on OS X with <a href="http://brew.sh/">Homebrew</a> using the <a href="https://github.com/osrf/homebrew-simulation">osrf/simulation tap</a>. Gazebo Fuel Tools can be installed on Mac OS X 10.11 (El Capitan) or higher. Installation on older versions requires changing the default standard library and rebuilding dependencies due to the use of c++11. For purposes of this documentation, I will assume OS X 10.11 or greater is in use. Here are the instructions:</p>
 <p>Install Homebrew, which should also prompt you to install the XCode command-line tools: </p><div class="fragment"><div class="line">/bin/bash -c &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)&quot;</div>
 </div><!-- fragment --><p>Run the following commands: </p><div class="fragment"><div class="line">brew tap osrf/simulation</div>
 <div class="line">brew install gz-fuel-tools&lt;#&gt;</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md6"></a>
+</div><!-- fragment --><h3><a class="anchor" id="windows"></a>
 Windows</h3>
 <p>Install <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html">Conda package management system</a>. Miniconda suffices.</p>
 <p>Create if necessary, and activate a Conda environment: </p><div class="fragment"><div class="line">conda create -n gz-ws</div>
@@ -165,9 +165,9 @@ Windows</h3>
 </div><!-- fragment --><p>Install:</p>
 <div class="fragment"><div class="line">conda install libgz-fuel-tools&lt;#&gt; --channel conda-forge</div>
 </div><!-- fragment --><p>Be sure to replace <code>&lt;#&gt;</code> with a number value, such as 4 or 5, depending on which version you need.</p>
-<h2><a class="anchor" id="autotoc_md7"></a>
+<h2><a class="anchor" id="source-install"></a>
 Source Install</h2>
-<h3><a class="anchor" id="autotoc_md8"></a>
+<h3><a class="anchor" id="ubuntu-linux-1"></a>
 Ubuntu Linux</h3>
 <p>For compiling the latest version of Gazebo Fuel Tools you will need an Ubuntu distribution equal to 16.04 (Xenial) or newer.</p>
 <p>Make sure you have removed the Ubuntu pre-compiled binaries before installing from source:</p>
@@ -193,11 +193,11 @@ Ubuntu Linux</h3>
 </div><!-- fragment --><p>Build Gazebo Fuel Tools: </p><div class="fragment"><div class="line">make -j4</div>
 </div><!-- fragment --><p>Install Gazebo Fuel Tools: </p><div class="fragment"><div class="line">sudo make install</div>
 </div><!-- fragment --><p>If you decide to install the library in a local directory you'll need to modify your <code>LD_LIBRARY_PATH</code>: </p><div class="fragment"><div class="line">echo &quot;export LD_LIBRARY_PATH=&lt;install_path&gt;/local/lib:$LD_LIBRARY_PATH&quot; &gt;&gt; ~/.bashrc</div>
-</div><!-- fragment --><h4><a class="anchor" id="autotoc_md9"></a>
+</div><!-- fragment --><h4><a class="anchor" id="uninstalling-source-install"></a>
 Uninstalling Source Install</h4>
 <p>If you need to uninstall Gazebo Fuel Tools or switch back to a Debian-based install when you currently have installed the library from source, navigate to your source code directory's build folders and run <code>make uninstall</code>: </p><div class="fragment"><div class="line">cd /tmp/gz-fuel-tools/build</div>
 <div class="line">sudo make uninstall</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md10"></a>
+</div><!-- fragment --><h3><a class="anchor" id="macos"></a>
 macOS</h3>
 <ol type="1">
 <li><p class="startli">Clone the repository </p><div class="fragment"><div class="line">git clone https://github.com/gazebosim/gz-fuel-tools -b gz-fuel-tools&lt;#&gt;</div>
@@ -213,9 +213,9 @@ macOS</h3>
 <div class="line">make</div>
 </div><!-- fragment --></li>
 </ol>
-<h3><a class="anchor" id="autotoc_md11"></a>
+<h3><a class="anchor" id="windows-1"></a>
 Windows</h3>
-<h4><a class="anchor" id="autotoc_md12"></a>
+<h4><a class="anchor" id="prerequisites"></a>
 Prerequisites</h4>
 <p>First, follow the <a href="https://github.com/gazebosim/gz-cmake">gz-cmake</a> tutorial for installing Conda, Visual Studio, CMake, etc., prerequisites, and creating a Conda environment.</p>
 <p>Navigate to <code>condabin</code> if necessary to use the <code>conda</code> command (i.e., if Conda is not in your <code>PATH</code> environment variable. You can find the location of <code>condabin</code> in Anaconda Prompt, <code>where conda</code>).</p>
@@ -225,7 +225,7 @@ Prerequisites</h4>
 </div><!-- fragment --><p>Install Gazebo dependencies:</p>
 <p>You can view available versions and their dependencies: </p><div class="fragment"><div class="line">conda search libgz-fuel-tools* --channel conda-forge --info</div>
 </div><!-- fragment --><p>Install Gazebo dependencies, replacing <code>&lt;#&gt;</code> with the desired versions: </p><div class="fragment"><div class="line">conda install libgz-cmake&lt;#&gt; libgz-common&lt;#&gt; libgz-msgs&lt;#&gt; libgz-tools&lt;#&gt; --channel conda-forge</div>
-</div><!-- fragment --><h4><a class="anchor" id="autotoc_md13"></a>
+</div><!-- fragment --><h4><a class="anchor" id="building-from-source"></a>
 Building from source</h4>
 <ol type="1">
 <li>Activate the Conda environment created in the prerequisites: <div class="fragment"><div class="line">conda activate gz-ws</div>

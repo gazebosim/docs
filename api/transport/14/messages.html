@@ -139,12 +139,12 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Next Tutorial: <a class="el" href="services.html">Services</a> Previous Tutorial: <a class="el" href="nodestopics.html">Nodes and Topics</a></p>
-<h2><a class="anchor" id="autotoc_md27"></a>
+<h2><a class="anchor" id="overview-1"></a>
 Overview</h2>
 <p>In this tutorial, we are going to create two nodes that are going to communicate via messages. One node will be a publisher that generates the information, whereas the other node will be the subscriber consuming the information. Our nodes will be running on different processes within the same machine.</p>
 <div class="fragment"><div class="line">mkdir ~/gz_transport_tutorial</div>
 <div class="line">cd ~/gz_transport_tutorial</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md28"></a>
+</div><!-- fragment --><h2><a class="anchor" id="publisher"></a>
 Publisher</h2>
 <p>Download the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport14/example/publisher.cc">publisher.cc</a> file within the <code>gz_transport_tutorial</code> folder and open it with your favorite editor:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;atomic&gt;</span></div>
@@ -197,7 +197,7 @@ Publisher</h2>
 <div class="line"> </div>
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md29"></a>
+</div><!-- fragment --><h3><a class="anchor" id="walkthrough"></a>
 Walkthrough</h3>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;gz/msgs.hh&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;gz/transport.hh&gt;</span></div>
@@ -228,7 +228,7 @@ Walkthrough</h3>
 <div class="line">  <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/thread/sleep_for.html">std::this_thread::sleep_for</a>(<a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::milliseconds</a>(1000));</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>In this section of the code we create a protobuf message and fill it with content. Next, we iterate in a loop that publishes one message every second. The method <em>Publish()</em> sends a message to all the subscribers.</p>
-<h2><a class="anchor" id="autotoc_md30"></a>
+<h2><a class="anchor" id="subscriber"></a>
 Subscriber</h2>
 <p>Download the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport14/example/subscriber.cc">subscriber.cc</a> file into the <code>gz_transport_tutorial</code> folder and open it with your favorite editor:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;iostream&gt;</span></div>
@@ -258,7 +258,7 @@ Subscriber</h2>
 <div class="line"> </div>
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md31"></a>
+</div><!-- fragment --><h3><a class="anchor" id="walkthrough-1"></a>
 Walkthrough</h3>
 <div class="fragment"><div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> cb(<span class="keyword">const</span> gz::msgs::StringMsg &amp;_msg)</div>
@@ -279,7 +279,7 @@ Walkthrough</h3>
 <div class="fragment"><div class="line"><span class="comment">// Zzzzzz.</span></div>
 <div class="line"><a class="code hl_function" href="namespacegz_1_1transport.html#a5ce095f75195272da1dee933c773a4f7" title="Block the current thread until a SIGINT or SIGTERM is received. Note that this function registers a s...">gz::transport::waitForShutdown</a>();</div>
 </div><!-- fragment --><p>If you don't have any other tasks to do besides waiting for incoming messages, you can use the call <code>waitForShutdown()</code> that will block your current thread until you hit <em>CTRL-C</em>. Note that this function captures the <em>SIGINT</em> and <em>SIGTERM</em> signals.</p>
-<h2><a class="anchor" id="autotoc_md32"></a>
+<h2><a class="anchor" id="building-the-code"></a>
 Building the code</h2>
 <p>Download the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport14/example/CMakeLists.txt">CMakeLists.txt</a> file within the <code>gz_transport_tutorial</code> folder.</p>
 <p>Once you have all your files, go ahead and create a <code>build/</code> directory within the <code>gz_transport_tutorial</code> directory.</p>
@@ -292,7 +292,7 @@ Building the code</h2>
 <div class="line"> </div>
 <div class="line"># Windows</div>
 <div class="line">cmake --build . --config Release</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md33"></a>
+</div><!-- fragment --><h2><a class="anchor" id="running-the-examples"></a>
 Running the examples</h2>
 <blockquote class="doxtable">
 <p>&zwj;<b>NOTE</b> It is essential to have a valid value of <code>GZ_PARTITION</code> environment variable and to have it set to the same value in all open terminals. As <code>GZ_PARTITION</code> is based on hostname and username, especially Windows and Mac users might have problems due to spaces in their username, which are not a valid character in <code>GZ_PARTITION</code>. gz-transport prints error <code>Invalid partition name</code> in such case. To resolve that, set <code>GZ_PARTITION</code> explicitly to a valid value: </p><div class="fragment"><div class="line"># Linux and Mac</div>
@@ -324,7 +324,7 @@ Running the examples</h2>
 <div class="line">Msg: HELLO</div>
 <div class="line"> </div>
 <div class="line">Msg: HELLO</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md34"></a>
+</div><!-- fragment --><h2><a class="anchor" id="advertise-options"></a>
 Advertise Options</h2>
 <p>We can specify some options before we publish the messages. One such option is to specify the number of messages published per topic per second. It is optional to use but it can be handy in situations like when we want to control the rate of messages published per topic.</p>
 <p>We can declare the throttling option using the following code :</p>
@@ -342,14 +342,14 @@ Advertise Options</h2>
 <div class="line">  <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cerr</a> &lt;&lt; <span class="stringliteral">&quot;Error advertising topic [&quot;</span> &lt;&lt; topic &lt;&lt; <span class="stringliteral">&quot;]&quot;</span> &lt;&lt; <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 <div class="line">  <span class="keywordflow">return</span> -1;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md35"></a>
+</div><!-- fragment --><h3><a class="anchor" id="walkthrough-2"></a>
 Walkthrough</h3>
 <div class="fragment"><div class="line"><a class="code hl_class" href="classgz_1_1transport_1_1AdvertiseMessageOptions.html" title="A class for customizing the publication options for a topic advertised. E.g.: Set the rate of message...">gz::transport::AdvertiseMessageOptions</a> opts;</div>
 <div class="line">opts.<a class="code hl_function" href="classgz_1_1transport_1_1AdvertiseMessageOptions.html#a6683dc4d1f7a04455b584d5c174a130b" title="Set the maximum number of messages per second to be published. Note that we calculate the minimum per...">SetMsgsPerSec</a>(1u);</div>
 </div><!-- fragment --><p>In this section of code, we declare an <em>AdvertiseMessageOptions</em> object and use it to pass message rate as an argument to <em>SetMsgsPerSec()</em> method. In our case, the object name is opts and the message rate specified is 1 msg/sec.</p>
 <div class="fragment"><div class="line"><span class="keyword">auto</span> pub = node.<a class="code hl_function" href="classgz_1_1transport_1_1Node.html#a48c80e1b3823d9071045da3adfe6f8d0" title="Advertise a new topic. If a topic is currently advertised, you cannot advertise it a second time (reg...">Advertise</a>&lt;gz::msgs::StringMsg&gt;(topic, opts);</div>
 </div><!-- fragment --><p>Next, we advertise the topic with message throttling enabled. To do it, we pass opts as an argument to the <em>Advertise()</em> method.</p>
-<h2><a class="anchor" id="autotoc_md36"></a>
+<h2><a class="anchor" id="subscribe-options"></a>
 Subscribe Options</h2>
 <p>A similar option is also available for the Subscriber node which enables it to control the rate of incoming messages from a specific topic. While subscribing to a topic, we can use this option to control the number of messages received per second from that particular topic.</p>
 <p>We can declare the throttling option using the following code :</p>
@@ -359,13 +359,13 @@ Subscribe Options</h2>
 <div class="line"><a class="code hl_class" href="classgz_1_1transport_1_1SubscribeOptions.html" title="A class to provide different options for a subscription.">gz::transport::SubscribeOptions</a> opts;</div>
 <div class="line">opts.<a class="code hl_function" href="classgz_1_1transport_1_1SubscribeOptions.html#a6683dc4d1f7a04455b584d5c174a130b" title="Set the maximum number of messages per second received per topic. Note that we calculate the minimum ...">SetMsgsPerSec</a>(1u);</div>
 <div class="line">node.<a class="code hl_function" href="classgz_1_1transport_1_1Node.html#a07053a1894f5c860d62b3b9256fc6355" title="Subscribe to a topic registering a callback. Note that this callback does not include any message inf...">Subscribe</a>(topic, cb, opts);</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md37"></a>
+</div><!-- fragment --><h3><a class="anchor" id="walkthrough-3"></a>
 Walkthrough</h3>
 <div class="fragment"><div class="line"><a class="code hl_class" href="classgz_1_1transport_1_1SubscribeOptions.html" title="A class to provide different options for a subscription.">gz::transport::SubscribeOptions</a> opts;</div>
 <div class="line">opts.<a class="code hl_function" href="classgz_1_1transport_1_1SubscribeOptions.html#a6683dc4d1f7a04455b584d5c174a130b" title="Set the maximum number of messages per second received per topic. Note that we calculate the minimum ...">SetMsgsPerSec</a>(1u);</div>
 <div class="line">node.<a class="code hl_function" href="classgz_1_1transport_1_1Node.html#a07053a1894f5c860d62b3b9256fc6355" title="Subscribe to a topic registering a callback. Note that this callback does not include any message inf...">Subscribe</a>(topic, cb, opts);</div>
 </div><!-- fragment --><p>In this section of code, we declare a <em>SubscribeOptions</em> object and use it to pass message rate as an argument to the <em>SetMsgsPerSec()</em> method. In our case, the object name is opts and the message rate specified is 1 msg/sec. Then, we subscribe to the topic using the <em>Subscribe()</em> method with opts passed as an argument to it.</p>
-<h2><a class="anchor" id="autotoc_md38"></a>
+<h2><a class="anchor" id="generic-subscribers"></a>
 Generic subscribers</h2>
 <p>As you have seen in the examples so far, the callbacks used by the subscribers contain a specific protobuf parameter, such as <code>gz::msgs::StringMsg</code>. As the name of this section suggests, it is also possible to create a generic subscriber callback that can receive messages of different types. This use case might be interesting if you are building a bridge between Gazebo Transport and another protocol or if you want to just print the content of a generic protobuf message using <code>DebugString()</code>, among other use cases.</p>
 <p>Download the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport14/example/subscriber_generic.cc">subscriber_generic.cc</a> file within the <code>gz_transport_tutorial</code> folder and open it with your favorite editor:</p>
@@ -397,7 +397,7 @@ Generic subscribers</h2>
 <div class="line"> </div>
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md39"></a>
+</div><!-- fragment --><h3><a class="anchor" id="walkthrough-4"></a>
 Walkthrough</h3>
 <div class="fragment"><div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> cb(<span class="keyword">const</span> google::protobuf::Message &amp;_msg,</div>
@@ -446,11 +446,11 @@ Walkthrough</h3>
 <div class="line"> </div>
 <div class="line"># Windows</div>
 <div class="line">.\Release\subscriber_generic.exe</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md40"></a>
+</div><!-- fragment --><h2><a class="anchor" id="using-custom-protobuf-messages"></a>
 Using custom Protobuf messages</h2>
 <p>We use Gazebo Msgs in most of our examples and tests. This decision was made just for convenience but Gazebo Transport supports the use of Protobuf messages directly. The most common problem with custom Protobuf messages is often the integration of the message generation into the build system of your project. Next, you can find an example of a publisher and subscriber using a custom Protobuf message integrated with CMake.</p>
 <p>Download the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport14/example/publisher_custom_msg.cc">publisher_custom_msg.cc</a> and the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport14/example/subscriber_custom_msg.cc">subscriber_custom_msg.cc</a> files within the <code>gz_transport_tutorial</code>. Then, create a <code>msgs</code> folder and download the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport14/example/msgs/stringmsg.proto">stringmsg.proto</a> and the <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport14/example/msgs/CMakeLists.txt">CMakeLists.txt</a> files within the <code>msgs</code> folder. Finally, we'll need the main <a href="https://github.com/gazebosim/gz-transport/raw/gz-transport14/example/CMakeLists.txt">CMakeLists.txt</a> file. You should have this file from the previous examples. Otherwise, download and place it within the <code>gz_transport_tutorial</code> folder.</p>
-<h3><a class="anchor" id="autotoc_md41"></a>
+<h3><a class="anchor" id="walkthrough-5"></a>
 Walkthrough</h3>
 <p>There's nothing new to show in the <code>publisher_custom_msg.cc</code> or <code>subscriber_custom_msg.cc</code> besides the use of your custom Protobuf message instead of Gazebo Msgs. The only relevant parts are in the <code>CMakeLists.txt</code> files.</p>
 <div class="fragment"><div class="line"><span class="preprocessor"># Message generation. Only required when using custom Protobuf messages.</span></div>
@@ -512,7 +512,7 @@ Walkthrough</h3>
 <div class="line"> </div>
 <div class="line"># Windows</div>
 <div class="line">.\Release\subscriber_custom_msg.exe</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md42"></a>
+</div><!-- fragment --><h2><a class="anchor" id="topic-remapping"></a>
 Topic remapping</h2>
 <p>It's possible to set some global node options that will affect both publishers and subscribers. One of these options is topic remapping. A topic remap consists of a pair of topic names. The first name is the original topic name to be replaced. The second name is the new topic name to use instead. As an example, imagine that you recorded a collection of messages published over topic <code>/foo</code>. Maybe in the future, you want to play back the log file but remapping the topic <code>/foo</code> to <code>/bar</code>. This way, all messages will be published over the <code>/bar</code> topic without having to modify the publisher and create a new log.</p>
 <p>We can declare the topic remapping option using the following code:</p>

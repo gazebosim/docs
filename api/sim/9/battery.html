@@ -141,7 +141,7 @@
 <div class="textblock"><p>The battery system keeps track of the battery charge on a robot model.</p>
 <p>Currently, one battery per model is supported. When the battery drains completely, all joints of the corresponding model are turned off, meaning joint forces are set to 0.</p>
 <p>All logic for battery consumption are encapsulated in a plugin.</p>
-<h2><a class="anchor" id="autotoc_md26"></a>
+<h2><a class="anchor" id="a-perfect-battery"></a>
 A perfect battery</h2>
 <p>An ideal battery has a constant voltage while discharging and no internal resistance. Here's a minimum example of a perfect battery that can be added to a model:</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">model</span>&gt;</div>
@@ -182,11 +182,11 @@ A perfect battery</h2>
 </ul>
 <p>When setting the <code>&lt;capacity&gt;</code>, <code>&lt;voltage&gt;</code> of the battery and its <code>&lt;power_load&gt;</code>, keep in mind the following formula:</p>
 <p><code>battery_runtime</code> (hours) = <code>&lt;capacity&gt;</code> * <code>&lt;voltage&gt;</code> / <code>&lt;power_load&gt;</code></p>
-<h3><a class="anchor" id="autotoc_md27"></a>
+<h3><a class="anchor" id="known-limitations"></a>
 Known limitations</h3>
 <p>If <code>&lt;fix_issue_225&gt;</code> is not set, the battery drains at a faster (100x) rate. In this case, the battery runtime should be calculated as follows:</p>
 <p><code>battery_runtime</code> (hours) = <code>&lt;capacity&gt;</code> * <code>&lt;voltage&gt;</code> / (<code>&lt;power_load&gt;</code> * 100)</p>
-<h2><a class="anchor" id="autotoc_md28"></a>
+<h2><a class="anchor" id="try-a-more-realistic-battery"></a>
 Try a more realistic battery</h2>
 <p>If you need to model a more realistic battery, you can use the following advanced SDF parameters:</p>
 <ul>
@@ -196,7 +196,7 @@ Try a more realistic battery</h2>
 <li><code>&lt;smooth_current_tau&gt;</code>: Coefficient for smoothing current.</li>
 </ul>
 <p>Please, refer to the battery specification to set the advanced values.</p>
-<h2><a class="anchor" id="autotoc_md29"></a>
+<h2><a class="anchor" id="charging"></a>
 Charging</h2>
 <p>A battery can be charged if the SDF parameter <code>&lt;enable_recharge&gt;</code> is set to true. Here are the relevant SDF parameters related with charging:</p>
 <ul>
@@ -210,7 +210,7 @@ Charging</h2>
 <li><code>/model/&lt;model_name&gt;/battery/&lt;battery_name&gt;/recharge/stop</code>: Disable recharging.</li>
 </ul>
 <p>Both services accept an <code>gz::msgs::Boolean</code> parameter.</p>
-<h2><a class="anchor" id="autotoc_md30"></a>
+<h2><a class="anchor" id="try-out-an-example"></a>
 Try out an example</h2>
 <p>A battery has been added to a demo world, which can be run using:</p>
 <div class="fragment"><div class="line">gz sim -v 4 linear_battery_demo.sdf -z 1000000</div>
@@ -221,14 +221,14 @@ Try out an example</h2>
 <div class="line">cmake .. &amp;&amp; make</div>
 <div class="line">./keyboard ../keyboard.sdf</div>
 </div><!-- fragment --><p> See more about the usage of the keyboard plugin in <code>examples/standalone/keyboard/README.md</code>.</p>
-<h2><a class="anchor" id="autotoc_md31"></a>
+<h2><a class="anchor" id="creating-battery-consumers-from-other-systems"></a>
 Creating battery consumers from other systems</h2>
 <p>You can easily create battery consumers from other systems by creating a consumer entity that holds a <code>BatteryPowerLoad</code> component.</p>
-<h3><a class="anchor" id="autotoc_md32"></a>
+<h3><a class="anchor" id="example-of-the-thruster-system-as-a-battery-consumer"></a>
 Example of the Thruster system as a battery consumer</h3>
 <p>It is entirely up to the developer to set the means and ways to calculate the power load of the system and the options for future users of the system. Basically all the system needs to do is to set up an entity and add the <code>BatteryPowerLoad</code> component with the corresponding information, the rest is up to the developer. However the <code>Thruster</code> system is a good example of how to make a system consume power from a certain battery.</p>
 <p>The way the <code>Thruster</code> system allows users to set it as a battery consumer is through the options <code>&lt;power_load&gt;</code> and <code>&lt;battery_name&gt;</code>. Through these options the system user can set how much power load should the system consume and which battery should it use. Take note that, with this approach of identifying batteries the user would have to ensure that the battery names are unique within the system.</p>
-<h4><a class="anchor" id="autotoc_md33"></a>
+<h4><a class="anchor" id="configure-step"></a>
 Configure step</h4>
 <p>At the configure step the parameters are read and saved:</p>
 <div class="fragment"><div class="line">if (_sdf-&gt;HasElement(&quot;power_load&quot;))</div>
@@ -246,7 +246,7 @@ Configure step</h4>
 <div class="line">  }</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>Note that both are required, if no <code>power_load</code> present then <code>battery_name</code> is ignored and if no <code>battery_name</code> is there when a <code>power_load</code> is set an error will be thrown asking for this parameter.</p>
-<h4><a class="anchor" id="autotoc_md34"></a>
+<h4><a class="anchor" id="preupdate-step"></a>
 PreUpdate step</h4>
 <p>During this step and only for one time the battery consumer will be set. This is done in this step instead of doing it in the configure step to avoid race conditions and make sure all the batteries are ready. The <code>batteryInitialized</code> makes sure the initialization only happens once.</p>
 <div class="fragment"><div class="line">// Intit battery consumption if it was set</div>
@@ -299,7 +299,7 @@ PreUpdate step</h4>
 <div class="line">}</div>
 </div><!-- fragment --><p>The <code>consumerEntity</code> is saved in case it has to be modified or even deleted in the future. If a developer wants to change the power load they just need to modify the component, setting it to 0 will stop the consumer effect on the battery. Another option is to entirely delete the consumer entity.</p>
 <p>The battery plugin basically checks for entities with a <code>BatteryPowerLoad</code> component and uses that information to calculate the total battery consumption before the draining step happens. By modifying the values and quantities of entities with <code>BatteryPowerLoad</code> components developers can add, modify and remove battery consumers from the different batteries available in a system.</p>
-<h2><a class="anchor" id="autotoc_md35"></a>
+<h2><a class="anchor" id="known-issues"></a>
 Known Issues</h2>
 <ul>
 <li>The rate of consumption should be affected by torque. For example, going uphill should consume more power than going downhill. </li>

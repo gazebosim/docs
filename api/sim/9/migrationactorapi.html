@@ -141,7 +141,7 @@
 <div class="textblock"><p>When migrating plugins from Gazebo-classic to Gazebo, developers will notice that the C++ APIs for both simulators are quite different. Be sure to check the <a href="migrationplugins.html">plugin migration tutorial</a> to get a high-level view of the architecture differences before using this guide.</p>
 <p>This tutorial is meant to serve as a reference guide for developers migrating functions from the <a href="http://osrf-distributions.s3.amazonaws.com/gazebo/api/11.0.0/classgazebo_1_1physics_1_1Actor.html">gazebo::phyiscs::Actor</a> class.</p>
 <p>If you're trying to use some API which doesn't have an equivalent on Gazebo yet, feel free to <a href="https://github.com/gazebosim/gz-sim/issues/">ticket an issue</a>.</p>
-<h2><a class="anchor" id="autotoc_md197"></a>
+<h2><a class="anchor" id="actor-api"></a>
 Actor API</h2>
 <p>Gazebo-classic's <code>gazebo::physics::Actor</code> provides lots of functionality, which can be divided in these categories:</p>
 <ul>
@@ -177,7 +177,7 @@ Actor API</h2>
 <p>As an example the <code>Actor::Pose()</code> is a convienient function for querying the <code>Pose</code> component from the <code>EntityComponentManager</code>, i.e.</p>
 <div class="fragment"><div class="line">math::Pose3d pose = _ecm.Component&lt;components::Pose&gt;(actorEntityId)-&gt;Data();</div>
 </div><!-- fragment --><p>The functions presented in the sections below exist for convenience and readability. The items marked as <code>TODO</code> means that the equivalent API is not implemented yet in Gazebo.</p>
-<h3><a class="anchor" id="autotoc_md198"></a>
+<h3><a class="anchor" id="properties"></a>
 Properties</h3>
 <p>Most of Gazebo-classic's Actor API is related to setting and getting properties that are done via the Entity-Component-System by setting components (properties) into entities such as actors. Note that a number of the public APIs in Classic are inherited from the base Model / Entity class and they may not have equivalents in Gazebo.</p>
 <hr  />
@@ -346,7 +346,7 @@ Properties</h3>
 <td class="markdownTableBodyNone">WorldPose   </td><td class="markdownTableBodyNone"><code><a class="el" href="classgz_1_1sim_1_1Actor.html#accab998b67cb7ad83538cf43c628152d" title="Get the world pose of the actor. This returns the current world pose of the actor computed by gazebo....">gz::sim::Actor::WorldPose</a></code>   </td></tr>
 </table>
 <hr  />
-<h2><a class="anchor" id="autotoc_md201"></a>
+<h2><a class="anchor" id="read-family"></a>
 Read family</h2>
 <p>These APIs deal with reading information related to child / parent relationships.</p>
 <p>The main difference in these APIs across Gazebo generations is that on classic, they deal with shared pointers to entities, while on Gazebo, they deal with entity IDs.</p>
@@ -394,7 +394,7 @@ Read family</h2>
 <td class="markdownTableBodyNone">NestedModels   </td><td class="markdownTableBodyNone">TODO   </td></tr>
 </table>
 <hr  />
-<h2><a class="anchor" id="autotoc_md204"></a>
+<h2><a class="anchor" id="write-family"></a>
 Write family</h2>
 <p>These functions deal with modifying the entity tree, attaching children to new parents. Note that APIs for changing an Actor's entity tree structure are currently not implemented yet.</p>
 <hr  />
@@ -421,7 +421,7 @@ Write family</h2>
 <td class="markdownTableBodyNone">SetWorld   </td><td class="markdownTableBodyNone">TODO   </td></tr>
 </table>
 <hr  />
-<h2><a class="anchor" id="autotoc_md207"></a>
+<h2><a class="anchor" id="lifecycle"></a>
 Lifecycle</h2>
 <p>These functions aren't related to the state of a actor, but perform some processing related to the actor's lifecycle, like initializing, updating or terminating it.</p>
 <hr  />
@@ -448,7 +448,7 @@ Lifecycle</h2>
 <td class="markdownTableBodyNone">Update   </td><td class="markdownTableBodyNone">Entities are updated by systems   </td></tr>
 </table>
 <hr  />
-<h2><a class="anchor" id="autotoc_md210"></a>
+<h2><a class="anchor" id="others"></a>
 Others</h2>
 <p>Miscelaneous functions that don't fit the other categories. Most of them involve logic that should be performed from within a system.</p>
 <hr  />

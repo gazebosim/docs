@@ -139,15 +139,15 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Next Tutorial: <a class="el" href="commandline.html">Command Line</a></p>
-<h1><a class="anchor" id="autotoc_md2"></a>
+<h1><a class="anchor" id="install"></a>
 Install</h1>
 <p>These instructions are for installing only Gazebo GUI. If you're interested in using all the Gazebo libraries, not only Gazebo GUI, check out this <a href="https://gazebosim.org/docs/latest/install">Gazebo installation</a>.</p>
 <p>We recommend following the binary install instructions to get up and running as quickly and painlessly as possible.</p>
 <p>The source install instructions should be used if you need the very latest software improvements, if you need to modify the code, or if you plan to make a contribution.</p>
 <p><b>Note:</b> If the version is 6 or downwards replace <code>gz-gui&lt;#&gt;</code> for <code>ign-gui&lt;#&gt;</code> in the command line. For more information take a look <a href="https://community.gazebosim.org/t/a-new-era-for-gazebo/1356">here</a>.</p>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="binary-install"></a>
 Binary Install</h2>
-<h3><a class="anchor" id="autotoc_md4"></a>
+<h3><a class="anchor" id="ubuntu"></a>
 Ubuntu</h3>
 <p>On Ubuntu, it's possible to install Gazebo GUI as follows:</p>
 <p>Add OSRF packages: </p><div class="fragment"><div class="line">echo &quot;deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/gazebo-stable.list</div>
@@ -155,20 +155,20 @@ Ubuntu</h3>
 <div class="line">sudo apt update</div>
 </div><!-- fragment --><p>Install Gazebo GUI: </p><div class="fragment"><div class="line">sudo apt install libgz-gui&lt;#&gt;-dev</div>
 </div><!-- fragment --><p>Be sure to replace <code>&lt;#&gt;</code> with a number value, such as 1 or 2, depending on which version you need.</p>
-<h3><a class="anchor" id="autotoc_md5"></a>
+<h3><a class="anchor" id="macos"></a>
 macOS</h3>
 <p>On macOS, add OSRF packages: </p><div class="fragment"><div class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div>
 <div class="line">brew tap osrf/simulation</div>
 </div><!-- fragment --><p>Install Gazebo GUI: </p><div class="fragment"><div class="line">brew install gz-gui&lt;#&gt;</div>
 </div><!-- fragment --><p>Be sure to replace <code>&lt;#&gt;</code> with a number value, such as 1 or 2, depending on which version you need.</p>
-<h3><a class="anchor" id="autotoc_md6"></a>
+<h3><a class="anchor" id="windows"></a>
 Windows</h3>
 <p>Binary install is pending <code>gz-rendering</code> and <code>gz-gui</code> being added to conda-forge.</p>
-<h2><a class="anchor" id="autotoc_md7"></a>
+<h2><a class="anchor" id="source-install"></a>
 Source Install</h2>
-<h3><a class="anchor" id="autotoc_md8"></a>
+<h3><a class="anchor" id="ubuntu-noble-2404-or-above"></a>
 Ubuntu Noble 24.04 or above</h3>
-<h4><a class="anchor" id="autotoc_md9"></a>
+<h4><a class="anchor" id="install-prerequisites"></a>
 Install Prerequisites</h4>
 <p>Add OSRF packages: </p><div class="fragment"><div class="line">sudo apt update</div>
 <div class="line">sudo apt -y install wget lsb-release gnupg</div>
@@ -178,7 +178,7 @@ Install Prerequisites</h4>
 </div><!-- fragment --><p>Clone source code: </p><div class="fragment"><div class="line"># This checks out the default branch. You can append `-b gz-gui&lt;#&gt;` (replace # with a number) to checkout a specific version</div>
 <div class="line">git clone http://github.com/gazebosim/gz-gui</div>
 </div><!-- fragment --><p>Install dependencies </p><div class="fragment"><div class="line">sudo apt -y install $(sort -u $(find . -iname &#39;packages.apt&#39;) | tr &#39;\n&#39; &#39; &#39;)</div>
-</div><!-- fragment --><h4><a class="anchor" id="autotoc_md10"></a>
+</div><!-- fragment --><h4><a class="anchor" id="build-from-source"></a>
 Build from source</h4>
 <p>Build and install as follows: </p><div class="fragment"><div class="line">cd gz-gui</div>
 <div class="line">mkdir build</div>
@@ -186,7 +186,7 @@ Build from source</h4>
 <div class="line">cmake ..</div>
 <div class="line">make -j4</div>
 <div class="line">sudo make install</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md11"></a>
+</div><!-- fragment --><h3><a class="anchor" id="macos-1"></a>
 macOS</h3>
 <ol type="1">
 <li>Clone the repository <div class="fragment"><div class="line">git clone https://github.com/gazebosim/gz-gui -b gz-gui&lt;#&gt;</div>
@@ -202,9 +202,9 @@ macOS</h3>
 <li>Optionally, install <div class="fragment"><div class="line">sudo make install</div>
 </div><!-- fragment --></li>
 </ol>
-<h3><a class="anchor" id="autotoc_md12"></a>
+<h3><a class="anchor" id="windows-1"></a>
 Windows</h3>
-<h4><a class="anchor" id="autotoc_md13"></a>
+<h4><a class="anchor" id="install-prerequisites-1"></a>
 Install Prerequisites</h4>
 <p>First, follow the <a href="https://github.com/gazebosim/gz-cmake">gz-cmake</a> tutorial for installing Conda, Visual Studio, CMake, etc., prerequisites, and creating a Conda environment.</p>
 <p>Navigate to <code>condabin</code> if necessary to use the <code>conda</code> command (i.e., if Conda is not in your <code>PATH</code> environment variable. You can find the location of <code>condabin</code> in Anaconda Prompt, <code>where conda</code>).</p>
@@ -213,7 +213,7 @@ Install Prerequisites</h4>
 </div><!-- fragment --><p>Install dependencies: </p><div class="fragment"><div class="line">conda install qt --channel conda-forge</div>
 </div><!-- fragment --><p>Install Gazebo dependencies, replacing <code>&lt;#&gt;</code> with the desired versions: </p><div class="fragment"><div class="line">conda install libgz-cmake&lt;#&gt; libgz-common&lt;#&gt; libgz-math&lt;#&gt; libgz-transport&lt;#&gt; libgz-msgs&lt;#&gt; libgz-plugin&lt;#&gt; libgz-tools&lt;#&gt; --channel conda-forge</div>
 </div><!-- fragment --><p>Before <a href="https://github.com/gazebosim/gz-rendering">gz-rendering</a> becomes available on conda-forge, follow its tutorial to build it from source.</p>
-<h4><a class="anchor" id="autotoc_md14"></a>
+<h4><a class="anchor" id="build-from-source-1"></a>
 Build from source</h4>
 <ol type="1">
 <li>Activate the Conda environment created in the prerequisites: <div class="fragment"><div class="line">conda activate gz-ws</div>
@@ -236,7 +236,7 @@ Build from source</h4>
 <li>Optionally, install. You will likely need to run a terminal with admin privileges for this call to succeed. <div class="fragment"><div class="line">cmake --install . --config Release</div>
 </div><!-- fragment --></li>
 </ol>
-<h1><a class="anchor" id="autotoc_md15"></a>
+<h1><a class="anchor" id="documentation"></a>
 Documentation</h1>
 <p>API documentation and tutorials can be accessed at <a href="https://gazebosim.org/libs/gui">https://gazebosim.org/libs/gui</a></p>
 <p>You can also generate the documentation from a clone of this repository by following these steps.</p>
@@ -254,11 +254,11 @@ Documentation</h1>
 <li>View the documentation by running the following command from the <code>build</code> directory. <div class="fragment"><div class="line">firefox doxygen/html/index.html</div>
 </div><!-- fragment --></li>
 </ol>
-<h1><a class="anchor" id="autotoc_md16"></a>
+<h1><a class="anchor" id="testing"></a>
 Testing</h1>
 <p>Follow these steps to run tests and static code analysis in your clone of this repository.</p>
 <ol type="1">
-<li>Follow the source install instruction.</li>
+<li>Follow the <a class="el" href="install.html#source-install">source install instruction</a>.</li>
 <li>Run tests. <div class="fragment"><div class="line">make test</div>
 </div><!-- fragment --></li>
 <li>Static code checker. <div class="fragment"><div class="line">make codecheck</div>

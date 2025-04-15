@@ -139,7 +139,7 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>This tutorial shows how to use ERB to generate simulation world files. <a href="https://docs.ruby-lang.org/en/2.3.0/ERB.html">ERB</a> is the commonly used templating language to generate structured text files with Ruby code. In this case, since most simulation world used in gazebo is defined with <a href="http://sdformat.org/">SDFormat</a>, ERB works conveniently.</p>
-<h2><a class="anchor" id="autotoc_md102"></a>
+<h2><a class="anchor" id="why-erb"></a>
 Why ERB</h2>
 <p>There are many use cases and advantages of using ERB in your SDF file. Some of them are listed below and demonstrated in this <a href="https://github.com/osrf/srcsim/blob/master/worlds/unique.world.erb">example ERB file</a>:</p>
 <ol type="1">
@@ -148,12 +148,12 @@ Why ERB</h2>
 <li>Breaking the SDF into multiple smaller files for better organization</li>
 <li>Placing multiple instances of the same model into simulation world without manually copy-pasting every tag</li>
 </ol>
-<h2><a class="anchor" id="autotoc_md103"></a>
+<h2><a class="anchor" id="set-up-ruby"></a>
 Set up Ruby</h2>
 <p>Firstly, Ruby needs to be installed. If you have gone through <a href="https://gazebosim.org/docs/latest/install">Gazebo Sim's installation guide</a>, it's most likely you already have Ruby installed. To check if Ruby is installed, use </p><div class="fragment"><div class="line">ruby --version</div>
 </div><!-- fragment --><p> If it is not found, run the following to install Ruby</p>
 <div class="fragment"><div class="line">sudo apt-get install -y ruby</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md104"></a>
+</div><!-- fragment --><h2><a class="anchor" id="create-an-erb-template"></a>
 Create an ERB template</h2>
 <p>To make a distinction between ERB templates and normal sdformat files, <code>.erb</code> is commonly used as file suffix. ERB language is usually embedded in the SDF file. Below is a step-by-step tutorial to generate 1000 box shapes in a simulation world using ERB template. You can copy-and-paste the code block into an editor to try it out.</p>
 <p>First is to create a world using SDFormat syntax. You need to specify both the <code>xml</code> and <code>sdf</code> versions you are using. And don't forget to give your simulation world a name.</p>
@@ -248,12 +248,12 @@ Create an ERB template</h2>
 <div class="line">    end</div>
 <div class="line">  end</div>
 <div class="line">%&gt;</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md105"></a>
+</div><!-- fragment --><h2><a class="anchor" id="generate-sdf-from-erb-template"></a>
 Generate SDF from ERB template</h2>
 <p>Now that an ERB template file is ready and saved as <code>my_first_erb.erb</code>, you can run the following terminal command to generate the corresponding SDF file.</p>
 <div class="fragment"><div class="line"># generate SDF with the ERB template</div>
 <div class="line">erb my_first_erb.erb &gt; my_first_erb.sdf</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md106"></a>
+</div><!-- fragment --><h2><a class="anchor" id="run-simulation-world"></a>
 Run simulation world</h2>
 <p>To test if the ERB template works, run the SDF file with the <code>gz sim</code> command</p>
 <div class="fragment"><div class="line"># run with Gazebo</div>

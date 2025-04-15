@@ -140,10 +140,10 @@
 <div class="contents">
 <div class="textblock"><p>Next Tutorial: <a class="el" href="boundingbox_camera.html">Bounding Box Camera in Gazebo</a></p>
 <p>In this tutorial, we will discuss how to use a segmentation camera sensor in Gazebo.</p>
-<h2><a class="anchor" id="autotoc_md30"></a>
+<h2><a class="anchor" id="requirements-1"></a>
 Requirements</h2>
 <p>Since this tutorial will show how to use a segmentation camera sensor in Gazebo, you'll need to have Gazebo installed. We recommend installing all Gazebo libraries, using version Fortress or newer (the segmentation camera is not available in Gazebo versions prior to Fortress). If you need to install Gazebo, <a href="https://gazebosim.org/docs">pick the version you'd like to use</a> and then follow the installation instructions.</p>
-<h2><a class="anchor" id="autotoc_md31"></a>
+<h2><a class="anchor" id="setting-up-the-segmentation-camera"></a>
 Setting up the segmentation camera</h2>
 <p>Here's an example of how to attach a segmentation camera sensor to a model in a SDF file:</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">model</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;segmentation_model&quot;</span>&gt;</div>
@@ -225,14 +225,14 @@ Setting up the segmentation camera</h2>
 <li><code>&lt;visualize&gt;</code>: Whether the sensor should be visualized in the GUI (indicated by true) or not (indicated by false). This is currently unused by Gazebo.</li>
 <li><code>&lt;topic&gt;</code>: The name of the topic which will be used to publish the sensor data.</li>
 </ul>
-<h4><a class="anchor" id="autotoc_md32"></a>
+<h4><a class="anchor" id="label-map--colored-map"></a>
 Label map &amp; Colored map</h4>
 <p>The segmentation sensor creates 2 maps (or images):</p>
 <ul>
 <li>The <code>label map</code>: For semantic segmentation, each pixel contains the object's label. For panoptic segmentation, each pixel contains the label and object's instance count.</li>
 <li>The <code>colored map</code>: A colored version of the label map. In semantic segmentation, all items of the same label will have the same color. In panoptic segmentation, each pixel contains a unique color for each instance in the scene (so, for panoptic segmentation, items of the same label will not have the same color).</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md33"></a>
+<h2><a class="anchor" id="assigning-a-label-to-a-model-1"></a>
 Assigning a label to a model</h2>
 <p>Only models with labels (annotated classes) will be visible by the segmentation camera sensor. Unlabeled models will be considered as background.</p>
 <p>To assign a label to a model we use the label plugin in the SDF file:</p>
@@ -301,7 +301,7 @@ Assigning a label to a model</h2>
 <div class="line">     &lt;<span class="keywordtype">label</span>&gt;30&lt;/<span class="keywordtype">label</span>&gt;</div>
 <div class="line">   &lt;/<span class="keywordtype">plugin</span>&gt;</div>
 <div class="line"> &lt;/<span class="keywordtype">include</span>&gt;</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md34"></a>
+</div><!-- fragment --><h2><a class="anchor" id="running-an-example-1"></a>
 Running an example:</h2>
 <p>Now that we've discussed how a segmentation camera and models with labels can be specified, let's run an example world that uses the segmentation camera. Run the following command: </p><div class="fragment"><div class="line">gz sim segmentation_camera.sdf</div>
 </div><!-- fragment --><p>You should see something similar to this: </p><div class="image">
@@ -352,7 +352,7 @@ Running an example:</h2>
 <div class="line">  &lt;<span class="keywordtype">update_rate</span>&gt;30&lt;/<span class="keywordtype">update_rate</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">visualize</span>&gt;<span class="keyword">true</span>&lt;/<span class="keywordtype">visualize</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">sensor</span>&gt;</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md35"></a>
+</div><!-- fragment --><h2><a class="anchor" id="segmentation-dataset-generation"></a>
 Segmentation Dataset Generation</h2>
 <p>To save the output of the sensor as segmentation dataset samples, we add the <code>&lt;save&gt;</code> tag to the <code>&lt;camera&gt;</code> tag, and we specify the path to save the dataset in.</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">sensor</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;segmentation_camera&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;segmentation&quot;</span>&gt;</div>
@@ -365,14 +365,14 @@ Segmentation Dataset Generation</h2>
 <div class="line">  &lt;/<span class="keywordtype">camera</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">sensor</span>&gt;</div>
 </div><!-- fragment --><p>In the example world we just ran (<code>segmentation_camera.sdf</code>), you'll notice that the panoptic camera is saving data to <code>segmentation_data/instance_camera</code>, while the semenatic camera is saving data to <code>segmentation_data/semantic_camera</code> (these are relative paths).</p>
-<h4><a class="anchor" id="autotoc_md36"></a>
+<h4><a class="anchor" id="dataset-demo-1"></a>
 Dataset Demo</h4>
 <p>Up to this point, we have left simulation paused. Go ahead and start simulation by pressing the play button at the bottom-left part of the GUI. You'll see the camera drop, capturing updated segmentation images along the way:</p>
 <div class="image">
 <img src="segmentation_dataset.gif" alt=""/>
 </div>
 <p>Once the camera has reached the ground plane, you can go ahead and close Gazebo. We will now discuss how to visualize the segmentation data that was just generated by Gazebo.</p>
-<h2><a class="anchor" id="autotoc_md37"></a>
+<h2><a class="anchor" id="visualize-the-segmentation-dataset-via-python"></a>
 Visualize the segmentation dataset via Python</h2>
 <p>Put the following code in a Python script called <code>segmentation_visualizer.py</code>:</p>
 <div class="fragment"><div class="line"><span class="keyword">import</span> cv2</div>
@@ -456,7 +456,7 @@ Visualize the segmentation dataset via Python</h2>
 <img src="segmentation_images.png" alt="" width="900px"/>
 </div>
 <p>For panoptic/instance segmentation, to parse the <code>labels_map</code>, click on any pixel on the <code>labels_map</code> window to see the <code>label</code> and <code>instance count</code> of that pixel.</p>
-<h2><a class="anchor" id="autotoc_md38"></a>
+<h2><a class="anchor" id="processing-the-segmentation-sensor-via-gz-transport"></a>
 Processing the segmentation sensor via gz-transport</h2>
 <p>It's possible to process the segmentation data in real time via <code>gz-transport</code>. You will need to know which topics to subscribe to in order to receive this information.</p>
 <p>Consider the following SDF snippet from the segmentation camera: </p><div class="fragment"><div class="line">&lt;<span class="keywordtype">topic</span>&gt;<span class="keyword">semantic</span>&lt;/<span class="keywordtype">topic</span>&gt;</div>

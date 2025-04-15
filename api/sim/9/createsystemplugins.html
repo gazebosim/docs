@@ -146,7 +146,7 @@
 <li>Actor</li>
 </ul>
 <p>To create a system plugin for use in the simulation environment, follow the steps below. The fully working example is available <a href="https://github.com/gazebosim/gz-sim/tree/gz-sim9/examples/plugin/system_plugin">here</a>.</p>
-<h2><a class="anchor" id="autotoc_md76"></a>
+<h2><a class="anchor" id="decide-on-interfaces-to-implement"></a>
 Decide on interfaces to implement</h2>
 <p>The first step of implementing a system plugin is to determine the subset of available interfaces to implement. Aside from the base <code>System</code> object, there are currently four additional available interfaces:</p>
 <ol type="1">
@@ -183,7 +183,7 @@ Decide on interfaces to implement</h2>
 <p>Systems that are only used to read the current state of the world (sensors, graphics, and rendering) should implement <code>ISystemPostUpdate</code>.</p>
 <p>Generally, systems that do not manage physics stepping will not need to implement the <code>ISystemUpdate</code> interface.</p>
 <p>Controllers and systems that provide feedback based on the state of the world will need to implement <code>ISystemPostUpdate</code> to read the state at the end of an update frame, as well as <code>ISystemPreUpdate</code> to provide feedback at the beginning of the next frame.</p>
-<h2><a class="anchor" id="autotoc_md77"></a>
+<h2><a class="anchor" id="implement-header"></a>
 Implement Header</h2>
 <p>The header should include the <code>System</code> header:</p>
 <p>Your System object should inherit from the <code>System</code> object as well as from any interfaces that it provides. It should then implement the corresponding methods from the inherited interfaces.</p>
@@ -232,7 +232,7 @@ Implement Header</h2>
 <div class="line">                 <a class="code hl_class" href="classgz_1_1sim_1_1EntityComponentManager.html" title="The EntityComponentManager constructs, deletes, and returns components and entities....">gz::sim::EntityComponentManager</a> &amp;_ecm) <span class="keyword">override</span>;</div>
 <div class="line">  };</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md78"></a>
+</div><!-- fragment --><h2><a class="anchor" id="register-plugin"></a>
 Register Plugin</h2>
 <p>If the library will only contain one plugin:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="codeRef" href="https://gazebosim.org/api/plugin/3/Register_8hh.html">gz/plugin/Register.hh</a>&gt;</span></div>
@@ -252,7 +252,7 @@ Register Plugin</h2>
 <div class="line">    sample_system::SampleSystem2::ISystemUpdate,</div>
 <div class="line">    sample_system::SampleSystem2::ISystemPostUpdate,</div>
 <div class="line">    sample_system::SampleSystem2::ISystemReset)</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md79"></a>
+</div><!-- fragment --><h2><a class="anchor" id="implement-source"></a>
 Implement Source</h2>
 <p>Implement the system class as usual, for example:</p>
 <div class="fragment"><div class="line"><span class="keyword">using namespace </span>sample_system;</div>
@@ -270,7 +270,7 @@ Implement Source</h2>
 <div class="line">{</div>
 <div class="line">  <a class="code hl_defineRef" href="https://gazebosim.org/api/common/6/Console_8hh.html#a4477f82c7273e73b91daf71766bcfda6">gzmsg</a> &lt;&lt; <span class="stringliteral">&quot;SampleSystem::PostUpdate&quot;</span> &lt;&lt; <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md80"></a>
+</div><!-- fragment --><h2><a class="anchor" id="setup-the-build"></a>
 Setup the build</h2>
 <p>In your <code>CMakeLists.txt</code> add the following</p>
 <div class="fragment"><div class="line">find_package(gz-plugin3 REQUIRED COMPONENTS register)</div>
@@ -282,7 +282,7 @@ Setup the build</h2>
 <div class="line">target_link_libraries(SampleSystem</div>
 <div class="line">  PRIVATE gz-plugin${GZ_PLUGIN_VER}::gz-plugin${GZ_PLUGIN_VER}</div>
 <div class="line">  PRIVATE gz-sim9::gz-sim9)</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md81"></a>
+</div><!-- fragment --><h2><a class="anchor" id="loading-your-plugin"></a>
 Loading your plugin</h2>
 <p>In the SDF file representing your simulation, add the plugin to the <code>world</code> section:</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">sdf</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.6&quot;</span>&gt;</div>

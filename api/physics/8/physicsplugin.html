@@ -140,7 +140,7 @@
 <div class="contents">
 <div class="textblock"><p>The <a class="el" href="namespacegz_1_1physics.html">Gazebo Physics</a> library integrates physics engines into the Gazebo Simulation eco-system. Each physics engine is wrapped into a Gazebo Physics Plugin that can be loaded in a Gazebo simulation. The Physics Plugin interface loads physics engines with the requested features at runtime. It is also possible to integrate your own selected physics engine by writing a compatible plugin interface.</p>
 <p>To get a more in-depth understanding of how the physics plugin works in Gazebo, we will start with some high level concepts and definitions.</p>
-<h2><a class="anchor" id="autotoc_md19"></a>
+<h2><a class="anchor" id="high-level-concept"></a>
 High Level Concept</h2>
 <p>Conceptually, the physics plugin can be viewed from two sides of its interface: user vs. implementation.</p>
 <p>Each physics engine provides access to different features implemented by the Gazebo Physics engine. The interface is made possible through the <a class="elRef" href="https://gazebosim.org/api/plugin/3/namespacegz_1_1plugin.html">Gazebo Plugin</a> library, which instantiates <a class="el" href="classgz_1_1physics_1_1Feature.html">Features</a> in <a class="el" href="structgz_1_1physics_1_1FeatureList.html">FeatureLists</a> and supplies pointers to the selected engine. This "user side interface" makes the Gazebo Physics library "callable" from other Gazebo libraries.</p>
@@ -160,7 +160,7 @@ High Level Concept</h2>
 <p class="startli">This is the class that aggregates a list of features. FeatureLists can be constructed in hierarchies, e.g. a <code>FeatureList</code> can be passed into another <code>FeatureList</code>, and the set of all features in the new list will be the sum.</p>
 </li>
 </ol>
-<h2><a class="anchor" id="autotoc_md20"></a>
+<h2><a class="anchor" id="featurelist-organization"></a>
 FeatureList Organization</h2>
 <p>For example, here are the <code>FeatureLists</code> used in the implementation of the <code>Dartsim</code> physics engine. Plugin implementations for other engines may choose to organize features into <code>FeatureLists</code> differently.</p>
 <table class="markdownTable">
@@ -189,7 +189,7 @@ FeatureList Organization</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">WorldFeatures   </td><td class="markdownTableBodyNone">sets options like solver and collision detector   </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md21"></a>
+<h2><a class="anchor" id="available-physics-plugins"></a>
 Available Physics Plugins</h2>
 <p>Dart (<a href="https://dartsim.github.io/">Dynamic Animation and Robotics Toolkit</a>) is an open source library that provides data structures and algorithms for kinematic and dynamic applications in robotics and computer animation. It is the default physics engine used in Gazebo Simulation. The source code for Dartsim plugin can be found in <a href="https://github.com/gazebosim/gz-physics/tree/main">Gazebo Physics repository</a> under <code>dartsim</code> directory.</p>
 <p>TPE (<a href="https://github.com/gazebosim/gz-physics/tree/main/tpe">Trivial Physics Engine</a>) is an open source library created by Open Robotics that enables fast, inexpensive kinematics simulation for entities at large scale. It supports higher-order fleet dynamics without real physics (eg. gravity, force, constraint etc.) and multi-machine synchronization. The source code for TPE plugin can be found in <a href="https://github.com/gazebosim/gz-physics/tree/main">Gazebo Physics repository</a> under the <code>tpe/plugin</code> directory.</p>
@@ -197,7 +197,7 @@ Available Physics Plugins</h2>
 <li>The <code>bullet</code> plugin implements the rigid-body API, and the source code can be found in <a href="https://github.com/gazebosim/gz-physics/tree/main">Gazebo Physics repository</a> under the <code>bullet</code> directory.</li>
 <li>The <code>bullet-featherstone</code> plugin implements the multibody API (based on Featherstone's algorithms), and the source code can be found in <a href="https://github.com/gazebosim/gz-physics/tree/main">Gazebo Physics repository</a> under the <code>bullet-featherstone</code> directory.</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md22"></a>
+<h3><a class="anchor" id="entity-comparison"></a>
 Entity Comparison</h3>
 <p>The following is a table of <code>Entity</code> names used in the Gazebo Physics plugin interface, mapped to corresponding types in each supported physics engine. Entities are arranged in top-down hierarchical order.</p>
 <table class="markdownTable">
@@ -223,7 +223,7 @@ Entity Comparison</h3>
 <p><sup>1</sup> Frames are implicitly attached to joints, links, collisions or models in the Bullet physics engine.</p>
 <p><sup>2</sup> The Bullet rigid-body API does not have a concept of a Model, but the plugin maintains a collection of Links and Joints in the engine associated with a Model.</p>
 <p><sup>3</sup> There are multiple types in the Bullet Featherstone API to interact with joints, such as btMultiBodyJointLimitConstraint, btMultiBodyJointMotor and btMultiBodyJointFeedback.</p>
-<h3><a class="anchor" id="autotoc_md23"></a>
+<h3><a class="anchor" id="feature-comparison"></a>
 Feature Comparison</h3>
 <p>For a list of all available <code>Features</code> in the Gazebo Physics library, check the classes inherited from <code>Feature</code> in the <a href="https://gazebosim.org/api/physics/8/hierarchy.html">Gazebo Physics API</a>. To check if a physics plugin implements a particular <code>Feature</code>, check the <code>FeatureLists</code> supported by that plugin as specified in the plugin.cc file, for example, <a href="https://github.com/gazebosim/gz-physics/blob/main/dartsim/src/plugin.cc">dartsim/src/plugin.cc</a>.</p>
 <p>Next, check out the tutorial on <a class="el" href="pluginloading.html">Loading physics plugins</a> on how to load a plugin and access a specific <code>Feature</code> interface of the plugin programmatically. </p>

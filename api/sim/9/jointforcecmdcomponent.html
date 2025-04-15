@@ -143,7 +143,7 @@
 <p>The corresponding world SDF is <a href="https://github.com/gazebosim/gz-sim/blob/gz-sim9/examples/worlds/apply_joint_force.sdf"><code>apply_joint_force.sdf</code></a>, which you can look at in Gazebo:</p>
 <div class="fragment"><div class="line">gz sim apply_joint_force.sdf</div>
 </div><!-- fragment --><p>We will walk through the relevant lines of source code in <code>ApplyJointForce</code> that interact with <code>JointForceCmd</code>.</p>
-<h3><a class="anchor" id="autotoc_md70"></a>
+<h3><a class="anchor" id="find-the-entity-of-interest"></a>
 Find the entity of interest</h3>
 <p>First, we will need access to an entity, the <a class="el" href="classgz_1_1sim_1_1Joint.html">gz::sim::Joint</a> entity in this case. It is declared as a member variable:</p>
 <div class="fragment"><div class="line">  <span class="keyword">public</span>: Entity jointEntity;</div>
@@ -162,7 +162,7 @@ Find the entity of interest</h3>
 <div class="line">    this-&gt;dataPtr-&gt;jointEntity =</div>
 <div class="line">        this-&gt;dataPtr-&gt;model.JointByName(_ecm, this-&gt;dataPtr-&gt;jointName);</div>
 <div class="line">  }</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md71"></a>
+</div><!-- fragment --><h3><a class="anchor" id="modify-the-component"></a>
 Modify the component</h3>
 <p>Once we have the handle to an entity, we can modify components associated with it. A component may have been created at the time the world is loaded, or you may create a component at runtime if it does not exist yet.</p>
 <p>In this case, we use the joint entity found above to look for and modify its <code>JointForceCmd</code> component. This will apply a force command to the joint.</p>

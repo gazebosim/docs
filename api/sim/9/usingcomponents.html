@@ -142,14 +142,14 @@
 <p>System plugins can modify the simulation world by manipulating components. The basic structure of a system plugin is outlined in the <a href="./createsystemplugins.html">tutorial on creating system plugins</a>.</p>
 <p>Here, we will explain how a system can use components to modify the world. You can view the list of <a class="el" href="namespacegz_1_1sim_1_1components.html">gz::sim::components</a> in the API.</p>
 <p>Programmatic usage of components can be found in <a href="https://github.com/gazebosim/gz-sim/tree/gz-sim8/src/systems">built-in systems</a> and <a href="https://github.com/gazebosim/gz-sim/blob/gz-sim8/test/integration">integration tests</a> in the source code. Most of the built-in systems have a corresponding example SDF world. You can find all the example worlds <a href="https://github.com/gazebosim/gz-sim/tree/gz-sim8/examples/worlds">here</a>.</p>
-<h2><a class="anchor" id="autotoc_md410"></a>
+<h2><a class="anchor" id="prerequisites-4"></a>
 Prerequisites</h2>
 <p>This is a tutorial for developers or advanced users. It assumes that you are familiar with basic usage of Gazebo.</p>
 <p>Prior to starting this tutorial, these other tutorials will help with understanding:</p><ul>
 <li><a href="./terminology.html">Terminology</a></li>
 <li><a href="./createsystemplugins.html">Create system plugins</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md411"></a>
+<h2><a class="anchor" id="resources"></a>
 Resources</h2>
 <p>Quick access to resources mentioned in this tutorial:</p><ul>
 <li>List of <a class="el" href="namespacegz_1_1sim_1_1components.html">gz::sim::components</a> in the API</li>
@@ -158,12 +158,12 @@ Resources</h2>
 <li>Source code of <a href="https://github.com/gazebosim/gz-sim/tree/gz-sim8/examples/worlds">example worlds</a></li>
 <li>Source code of <a href="https://github.com/gazebosim/gz-sim/blob/gz-sim8/test/integration">integration tests</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md412"></a>
+<h2><a class="anchor" id="entity-component-manager-ecm"></a>
 Entity Component Manager (ECM)</h2>
 <p>The gateway to interact with entities is through the <a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html">gz::sim::EntityComponentManager</a> (<a href="https://github.com/gazebosim/gz-sim/blob/gz-sim8/include/gz/sim/EntityComponentManager.hh">source code</a>), ECM for short. The ECM gives us access to all the entities, each of which gives us access to its associated components.</p>
 <p>An ECM object is passed into all of the interfaces in a system, including <code>ISystemConfigure()</code> and <code>ISystem*Update()</code>. The signatures of those interfaces are specified in <a class="el" href="System_8hh.html">gz/sim/System.hh</a> and explained in the <a href="./createsystemplugins.html">tutorial on creating system plugins</a>. We will assume that these interfaces are implemented in functions called <code>Configure()</code> and <code>*Update()</code> in a system.</p>
 <p>Note that when <code>Configure()</code> is called, all the elements in the parent element of the plugin have been loaded. For example, if the plugin is attached to a <code>&lt;model&gt;</code>, all the elements in that <code>&lt;model&gt;</code> would have been loaded. Similarly for <code>&lt;world&gt;</code>. However, if you need to access entities outside the plugin's parent element, they may not have finished loading at the time the plugin's <code>Configure()</code> is called. Then you may need to access those entities later, in <code>*Update()</code>.</p>
-<h2><a class="anchor" id="autotoc_md413"></a>
+<h2><a class="anchor" id="case-studies"></a>
 Case studies</h2>
 <p>The rest of the tutorial is case studies that walk through the usage of specific components.</p>
 <ul>

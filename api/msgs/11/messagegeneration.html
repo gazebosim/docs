@@ -138,17 +138,17 @@
   <div class="headertitle"><div class="title">Message Generation</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2><a class="anchor" id="autotoc_md20"></a>
+<div class="textblock"><h2><a class="anchor" id="overview-1"></a>
 Overview</h2>
 <p>This tutorial describes how Gazebo messages are generated and you can create custom messages that can be used with the simulator and command line tools.</p>
 <p>Gazebo messages use <a href="https://protobuf.dev">Protobuf</a> to define the structures that can be easily serialized for use in communication through the Gazebo software stack. Protobuf is a language-neutral framework for serializing structured data, with the advantage of generating native language bindings so that messages are easily used from your language of choice.</p>
-<h2><a class="anchor" id="autotoc_md21"></a>
+<h2><a class="anchor" id="message-definitions"></a>
 Message Definitions</h2>
-<h3><a class="anchor" id="autotoc_md22"></a>
+<h3><a class="anchor" id="file-structure"></a>
 File structure</h3>
 <p>Gazebo message definitions are stored in the <a href="https://github.com/gazebosim/gz-msgs/tree/main/proto">proto</a> folder.</p>
 <p>Messages may additionally belong to a <code>package</code>, which allows for convenient namespacing or grouping of common messages. Currently, all <code>gz-msgs</code> definitions reside in the <code><a class="el" href="namespacegz_1_1msgs.html">gz.msgs</a></code> package, which generates the corresponding <code><a class="el" href="namespacegz_1_1msgs.html">gz::msgs</a></code> namespace in C++ and <code>gz․msgs</code> in Python.</p>
-<h3><a class="anchor" id="autotoc_md23"></a>
+<h3><a class="anchor" id="proto-files"></a>
 Proto files</h3>
 <p>Messages are defined in files with the extension <code>.proto</code>.</p>
 <p>The definitions use the <code>proto</code> language, which has two major version, of which Gazebo uses the <code>proto3</code> version.</p>
@@ -183,7 +183,7 @@ Proto files</h3>
 <li>Field numbers <code>19,000</code> to <code>19,999</code> are reserved for the Protocol Buffers implementation. The protocol buffer compiler will complain if you use one of these reserved field numbers in your message.</li>
 <li>You cannot use any previously reserved field numbers or any field numbers that have been allocated to extensions.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md24"></a>
+<h2><a class="anchor" id="the-message-generation-pipeline"></a>
 The Message Generation Pipeline</h2>
 <p>Once the proto messages have been defined, there are several steps that take place to make the messages usable across the Gazebo stack.</p>
 <p>To begin with, each message definition is passed through the <code>gz_msgs_protoc</code> function:</p>
@@ -213,7 +213,7 @@ The Message Generation Pipeline</h2>
 <li>A <code>MessageTypes.hh</code> file that enumerates all messages available in the collection.</li>
 <li>A <code>.gz_desc</code> file that allows the messages to be dynamically loaded by the various Gazebo tools.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md25"></a>
+<h2><a class="anchor" id="custom-message-generation"></a>
 Custom Message Generation</h2>
 <p>Now that we understand the components of the message generation pipeline, we can use them in our own custom package.</p>
 <p>The code for this example can be found in the <code>gz-msgs</code> <a href="https://github.com/gazebosim/gz-msgs/tree/main">repository</a>, in the <a href="https://github.com/gazebosim/gz-msgs/tree/main/examples/generating_custom_msgs"><code>examples/generating_custom_msgs</code></a> folder.</p>
@@ -294,10 +294,10 @@ Custom Message Generation</h2>
 <li>And change the dependency line in above code block to: <div class="fragment"><div class="line">DEPENDENCIES gz-msgs${GZ_MSGS_VER}::gz-msgs${GZ_MSGS_VER}</div>
 </div><!-- fragment --></li>
 </ul>
-<h3><a class="anchor" id="autotoc_md26"></a>
+<h3><a class="anchor" id="using-custom-messages"></a>
 Using Custom messages</h3>
 <p>There are two primary ways that Gazebo messages are used as part of an application. Messages are either known at compile time and linked into the application, or they are loaded dynamically at runtime.</p>
-<h4><a class="anchor" id="autotoc_md27"></a>
+<h4><a class="anchor" id="compile-time-message-use"></a>
 Compile time message use</h4>
 <p>When messages are known at compile-time, they can be directly used. This allow for the messages to be used without any sort of reflection/introspection.</p>
 <p>Include the headers and interact with the messages using the generated bindings according to the <a href="https://protobuf.dev/reference/cpp/cpp-generated/">language guide</a></p>
@@ -315,7 +315,7 @@ Compile time message use</h4>
 </div><!-- fragment --><p>The corresponding CMake for this:</p>
 <div class="fragment"><div class="line">add_executable(${PROJECT_NAME} main.cc)</div>
 <div class="line">target_link_libraries(${PROJECT_NAME} PUBLIC ${PROJECT_NAME}-msgs)</div>
-</div><!-- fragment --><h4><a class="anchor" id="autotoc_md28"></a>
+</div><!-- fragment --><h4><a class="anchor" id="run-time-message-use"></a>
 Run time message use</h4>
 <p>Alternatively, there may be cases where all message definitions are not known at the time that the executable/library of interest is being built. A common case for this is with command line tools, where only a limited set of messages are available at the time the tool is built, and more user-defined messages are generated later.</p>
 <p>For example, when custom messages are generated, they aren't initially visible to the <code>gz msgs</code> or <code>gz topic</code> command line tools:</p>

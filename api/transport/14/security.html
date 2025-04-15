@@ -139,13 +139,13 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>Next Tutorial: <a class="el" href="relay.html">Relay</a> Previous Tutorial: <a class="el" href="python.html">Python Support</a></p>
-<h2><a class="anchor" id="autotoc_md78"></a>
+<h2><a class="anchor" id="overview-4"></a>
 Overview</h2>
 <p>Gazebo Transport's default mode of communication is insecure, which means no authentication or encryption is used. Insecure communication is the default because it is simple to implement and use, supports introspection, and reduces third-party development effort.</p>
 <p>There are many cases when security is required by an application. For example, authentication may be needed to verify participants in a network. Gazebo Transport relies on security features available in ZeroMQ. The available security features include authentication, and encryption. <br  />
 </p>
 <p>The remainder of the this tutorial describes how to setup and use security with Gazebo Transport.</p>
-<h2><a class="anchor" id="autotoc_md79"></a>
+<h2><a class="anchor" id="authentication"></a>
 Authentication</h2>
 <p>Authentication relies on a username and password to limit access to communication topics. Currently, authentication in Gazebo Transport operates at the process level. This means all topics within a process will either use, or not use, authentication.</p>
 <p>Two environment variables are used to enable authentications:</p>
@@ -154,7 +154,7 @@ Authentication</h2>
 <li><code>GZ_TRANSPORT_PASSWORD</code> : The password</li>
 </ol>
 <p>When both <code>GZ_TRANSPORT_USERNAME</code> and <code>GZ_TRANSPORT_PASSWORD</code> are set, the authentication is enabled for a process. Every publisher in a secure process will require subscribers to provide the correct username and password. Also, every subscriber will only connect to secure publishers.</p>
-<h3><a class="anchor" id="autotoc_md80"></a>
+<h3><a class="anchor" id="example"></a>
 Example</h3>
 <blockquote class="doxtable">
 <p>&zwj;<b>NOTE</b> It is essential to have a valid value of <code>GZ_PARTITION</code> environment variable and to have it set to the same value in all open terminals. As <code>GZ_PARTITION</code> is based on hostname and username, especially Windows and Mac users might have problems due to spaces in their username, which are not a valid character in <code>GZ_PARTITION</code>. gz-transport prints error <code>Invalid partition name</code> in such case. To resolve that, set <code>GZ_PARTITION</code> explicitly to a valid value: </p><div class="fragment"><div class="line"># Linux and Mac</div>
@@ -204,7 +204,7 @@ Example</h3>
 </div><!-- fragment --></li>
 <li>The insecure subscriber in the first terminal should not change.</li>
 </ol>
-<h2><a class="anchor" id="autotoc_md81"></a>
+<h2><a class="anchor" id="encryption"></a>
 Encryption</h2>
 <p>Coming soon. </p>
 </div></div><!-- contents -->

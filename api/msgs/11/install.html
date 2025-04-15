@@ -142,43 +142,43 @@
 <p>These instructions are for installing only Gazebo Messages. If you're interested in using all the Gazebo libraries, check out this <a href="https://gazebosim.org/docs/latest/install">Gazebo installation</a>.</p>
 <p>We recommend following the Binary Installation instructions to get up and running as quickly and painlessly as possible.</p>
 <p>The Source Installation instructions should be used if you need the very latest software improvements, you need to modify the code, or you plan to make a contribution.</p>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="binary-installation"></a>
 Binary Installation</h1>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="ubuntu"></a>
 Ubuntu</h2>
 <p>On Ubuntu systems, <code>apt-get</code> can be used to install <code>gz-msgs</code>: </p><div class="fragment"><div class="line">sudo apt install libgz-msgs&lt;#&gt;-dev</div>
 </div><!-- fragment --><p>Be sure to replace <code>&lt;#&gt;</code> with a number value, such as 2 or 3, depending on which version you need.</p>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="macos"></a>
 macOS</h2>
 <p>On macOS, add OSRF packages: </p><div class="fragment"><div class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div>
 <div class="line">brew tap osrf/simulation</div>
 </div><!-- fragment --><p>Install Gazebo Msgs: </p><div class="fragment"><div class="line">brew install gz-msgs&lt;#&gt;</div>
 </div><!-- fragment --><p>Be sure to replace <code>&lt;#&gt;</code> with a number value, such as 1 or 2, depending on which version you need.</p>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<h2><a class="anchor" id="windows"></a>
 Windows</h2>
 <p>Install <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html">Conda package management system</a>. Miniconda suffices.</p>
 <p>Create if necessary, and activate a Conda environment: </p><div class="fragment"><div class="line">conda create -n gz-ws</div>
 <div class="line">conda activate gz-ws</div>
 </div><!-- fragment --><p>Install <code>gz-msgs</code>: </p><div class="fragment"><div class="line">conda install libgz-msgs&lt;#&gt; --channel conda-forge</div>
 </div><!-- fragment --><p>Be sure to replace <code>&lt;#&gt;</code> with a number value, such as 2 or 3, depending on which version you need.</p>
-<h1><a class="anchor" id="autotoc_md7"></a>
+<h1><a class="anchor" id="source-installation"></a>
 Source Installation</h1>
-<h2><a class="anchor" id="autotoc_md8"></a>
+<h2><a class="anchor" id="ubuntu-1"></a>
 Ubuntu</h2>
-<h3><a class="anchor" id="autotoc_md9"></a>
+<h3><a class="anchor" id="prerequisites"></a>
 Prerequisites</h3>
 <p>Install required dependencies as follows: </p><div class="fragment"><div class="line">sudo apt-get install libprotobuf-dev protobuf-compiler libprotoc-dev libgz-math8-dev</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md10"></a>
+</div><!-- fragment --><h3><a class="anchor" id="building-from-source"></a>
 Building from Source</h3>
 <p>Standard installation can be performed in UNIX systems using the following steps: </p><div class="fragment"><div class="line">mkdir build/</div>
 <div class="line">cd build/</div>
 <div class="line">cmake ..</div>
 <div class="line">sudo make install</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md11"></a>
+</div><!-- fragment --><h3><a class="anchor" id="uninstallation"></a>
 Uninstallation</h3>
 <p>To uninstall the software installed with the previous steps: </p><div class="fragment"><div class="line">cd build/</div>
 <div class="line">sudo make uninstall</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md12"></a>
+</div><!-- fragment --><h2><a class="anchor" id="macos-1"></a>
 macOS</h2>
 <ol type="1">
 <li>Clone the repository <div class="fragment"><div class="line">git clone https://github.com/gazebosim/gz-msgs -b ign-msgs&lt;#&gt;</div>
@@ -196,9 +196,9 @@ macOS</h2>
 <div class="line">sudo make uninstall</div>
 </div><!-- fragment --></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md13"></a>
+<h2><a class="anchor" id="windows-1"></a>
 Windows</h2>
-<h3><a class="anchor" id="autotoc_md14"></a>
+<h3><a class="anchor" id="prerequisites-1"></a>
 Prerequisites</h3>
 <p>First, follow the <a href="https://github.com/gazebosim/gz-cmake">gz-cmake</a> tutorial for installing Conda, Visual Studio, CMake, etc., prerequisites, and creating a Conda environment.</p>
 <p>Navigate to <code>condabin</code> if necessary to use the <code>conda</code> command (i.e., if Conda is not in your <code>PATH</code> environment variable. You can find the location of <code>condabin</code> in Anaconda Prompt, <code>where conda</code>).</p>
@@ -207,7 +207,7 @@ Prerequisites</h3>
 </div><!-- fragment --><p>Install Gazebo dependencies:</p>
 <p>You can view lists of dependencies: </p><div class="fragment"><div class="line">conda search libgz-msgs* --channel conda-forge --info</div>
 </div><!-- fragment --><p>Install dependencies, replacing <code>&lt;#&gt;</code> with the desired versions: </p><div class="fragment"><div class="line">conda install libgz-cmake&lt;#&gt; libgz-math&lt;#&gt; libgz-tools&lt;#&gt; --channel conda-forge</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md15"></a>
+</div><!-- fragment --><h3><a class="anchor" id="building-from-source-1"></a>
 Building from Source</h3>
 <p>This assumes you have created and activated a Conda environment while installing the Prerequisites.</p>
 <ol type="1">
@@ -223,7 +223,7 @@ Building from Source</h3>
 <li>Optionally, install <div class="fragment"><div class="line">cmake --install . --config Release</div>
 </div><!-- fragment --></li>
 </ol>
-<h1><a class="anchor" id="autotoc_md16"></a>
+<h1><a class="anchor" id="documentation"></a>
 Documentation</h1>
 <p>API documentation and tutorials can be accessed at <a href="https://gazebosim.org/libs/cmake">https://gazebosim.org/libs/cmake</a></p>
 <p>You can also generate the documentation from a clone of this repository by following these steps.</p>
@@ -241,7 +241,7 @@ Documentation</h1>
 <li>View the documentation by running the following command from the <code>build</code> directory. <div class="fragment"><div class="line">firefox doxygen/html/index.html</div>
 </div><!-- fragment --></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md17"></a>
+<h2><a class="anchor" id="documentation-release"></a>
 Documentation Release</h2>
 <ol type="1">
 <li>Upload documentation to gazebosim.org. <div class="fragment"><div class="line">cd build</div>
@@ -250,11 +250,11 @@ Documentation Release</h2>
 <li>If you're creating a new release, then tell gazebosim.org about the new version. For example: <div class="fragment"><div class="line">curl -k -X POST -d &#39;{&quot;libName&quot;:&quot;msgs&quot;, &quot;version&quot;:&quot;1.0.0&quot;, &quot;releaseDate&quot;:&quot;2017-10-09T12:10:13+02:00&quot;,&quot;password&quot;:&quot;secret&quot;}&#39; https://api    .gazebosim.org/1.0/versions</div>
 </div><!-- fragment --></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md18"></a>
+<h2><a class="anchor" id="testing"></a>
 Testing</h2>
 <p>Run tests as follows: </p><div class="fragment"><div class="line">make test</div>
 </div><!-- fragment --><p>Tests are automatically built. To disable them, run <code>cmake</code> as follows: </p><div class="fragment"><div class="line">cmake .. -DENABLE_TESTS_COMPILATION=false</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md19"></a>
+</div><!-- fragment --><h3><a class="anchor" id="test-coverage"></a>
 Test coverage</h3>
 <p>To run test coverage:</p>
 <ol type="1">

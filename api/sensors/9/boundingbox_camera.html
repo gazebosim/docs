@@ -139,10 +139,10 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>In this tutorial, we will discuss how to use a bounding box camera sensor in Gazebo Sim.</p>
-<h2><a class="anchor" id="autotoc_md2"></a>
+<h2><a class="anchor" id="requirements"></a>
 Requirements</h2>
 <p>Since this tutorial will show how to use a bounding box camera sensor in Gazebo Sim, you'll need to have Gazebo Sim installed. We recommend installing all Gazebo libraries, using version Fortress or newer (the bounding box camera is not available in Gazebo versions prior to Fortress). If you need to install Gazebo, pick the version you'd like to use and then follow the installation instructions.</p>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="setting-up-the-bounding-box-camera"></a>
 Setting up the bounding box camera</h2>
 <p>Here's an example of how to attach a bounding box camera sensor to a model in a SDF file:</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">model</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;boundingbox_camera&quot;</span>&gt;</div>
@@ -234,7 +234,7 @@ Setting up the bounding box camera</h2>
 </ul>
 <p><br  />
 </p>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="assigning-a-label-to-a-model"></a>
 Assigning a label to a model</h2>
 <p>Only models with labels (annotated classes) will be visible by the bounding box camera sensor, and unlabeled models will be considered as a background</p>
 <p>To assign a label to a model we use the label plugin in the SDF file</p>
@@ -304,7 +304,7 @@ Assigning a label to a model</h2>
 <div class="line">     &lt;<span class="keywordtype">label</span>&gt;30&lt;/<span class="keywordtype">label</span>&gt;</div>
 <div class="line">   &lt;/<span class="keywordtype">plugin</span>&gt;</div>
 <div class="line"> &lt;/<span class="keywordtype">include</span>&gt;</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md5"></a>
+</div><!-- fragment --><h2><a class="anchor" id="running-an-example"></a>
 Running an example:</h2>
 <p>Now that we've discussed how a bounding box camera and models with labels can be specified, let's start with an example world that uses the bounding box camera. Run the following command: </p><div class="fragment"><div class="line">gz sim boundingbox_camera.sdf</div>
 </div><!-- fragment --><p>You should see something similar to this:</p>
@@ -321,7 +321,7 @@ visible_boxes</div></div>
 full_boxes</div></div>
     <p>To visualize the output from different SDF file, you can include the model of the sensor in any SDF file then run it via gz sim and open the <code>Image Display</code> plugin and select the topic you specified in the <code>&lt;topic&gt;</code> tag.</p>
 <p>Taking a look at the <a href="https://github.com/gazebosim/gz-sim/blob/main/examples/worlds/boundingbox_camera.sdf">SDF</a> file for this example.</p>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<h2><a class="anchor" id="object-detection-dataset-generation"></a>
 Object Detection Dataset Generation</h2>
 <p>To save the output of the sensor as an object detection dataset samples we add the <code>&lt;save&gt;</code> tag to the <code>&lt;camera&gt;</code> tag, And we specify the path to save the dataset in.</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">sensor</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;boundingbox_camera&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;boundingbox&quot;</span>&gt;</div>
@@ -335,13 +335,13 @@ Object Detection Dataset Generation</h2>
 <div class="line">&lt;/<span class="keywordtype">sensor</span>&gt;</div>
 </div><!-- fragment --><p>Set up the path of the dataset and run: </p><div class="fragment"><div class="line">gz sim boundingbox_camera.sdf</div>
 </div><!-- fragment --><p>you will find that the dataset is saved in the given path</p>
-<h4><a class="anchor" id="autotoc_md7"></a>
+<h4><a class="anchor" id="dataset-demo"></a>
 Dataset Demo</h4>
 <div class="image">
 <img src="object_detection_dataset.gif" alt=""/>
 <div class="caption">
 dataset_generation</div></div>
-    <h2><a class="anchor" id="autotoc_md8"></a>
+    <h2><a class="anchor" id="visualize-the-dataset-in-python"></a>
 Visualize the dataset in Python</h2>
 <p>To visualize the dataset after the generation, put that code in a <code>.py</code> file then run: </p><div class="fragment"><div class="line">python3 file_name.py --path DATASET_PATH</div>
 </div><!-- fragment --><p> the <code>DATASET_PATH</code> is the save path where the dataset is saved(the one you specified in the <code>&lt;save&gt;</code> tag)</p>
@@ -557,7 +557,7 @@ visualize_2d</div></div>
 <img src="visualize_3d.png" alt=""/>
 <div class="caption">
 visualize_3d</div></div>
-    <h2><a class="anchor" id="autotoc_md9"></a>
+    <h2><a class="anchor" id="processing-the-bounding-box-sensor-via-gz-transport"></a>
 Processing the bounding box sensor via gz-transport</h2>
 <p>In the example above, the bounding box cameras publish an axis aligned 2d bounding box message in case of 2d boxes mode (visible 2d or full 2d) or a oriented 3d bounding box message to the topic provided in the <code>&lt;topic&gt;</code> tag in SDF For example, in the next code we publish on the topic “boxes”</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">sensor</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;boundingbox_camera&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;boundingbox_camera&quot;</span>&gt;</div>

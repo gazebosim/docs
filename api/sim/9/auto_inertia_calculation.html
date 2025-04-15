@@ -138,7 +138,7 @@
   <div class="headertitle"><div class="title">Automatic Inertia Calculation for Links</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2><a class="anchor" id="autotoc_md21"></a>
+<div class="textblock"><h2><a class="anchor" id="automatic-inertia-calculation-for-sdformat-links"></a>
 Automatic Inertia Calculation for SDFormat Links</h2>
 <p>This feature enables automatic calculation for the Moments of Inertia, Mass, and Inertial Pose (Center of Mass pose) of a link described using SDFormat. The following geometry types are currently supported for this feature:</p><ul>
 <li>Box</li>
@@ -150,7 +150,7 @@ Automatic Inertia Calculation for SDFormat Links</h2>
 </ul>
 <p>Using this feature, a user can easily set up an accurate simulation with physically plausible inertial values for a link. This also removes the dependency on manual calculations or 3rd-party mesh processing software which can help lower the barrier of entry for beginners.</p>
 <p>This tutorial will focus on how this feature can be enabled and how the inertia values for a link can be configured. Some limitations and recommendations would also be discussed along the way that would allow users to more mindfully utilize this feature.</p>
-<h2><a class="anchor" id="autotoc_md22"></a>
+<h2><a class="anchor" id="basic-overview"></a>
 Basic Overview</h2>
 <p>This feature introduced a new <code>auto</code> attribute for the <code>&lt;inertial&gt;</code> tag which can be set to enable or disable the automatic calculations. It'll be set to false by default.</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">inertial</span> <span class="keyword">auto</span>=<span class="stringliteral">&quot;true&quot;</span> /&gt;</div>
@@ -204,7 +204,7 @@ Basic Overview</h2>
 <img src="cylinder_inertia_demo.gif" alt=""/>
 <div class="caption">
 Cylinder</div></div>
-    <h2><a class="anchor" id="autotoc_md23"></a>
+    <h2><a class="anchor" id="links-with-multiple-collisions--the-effect-of-density"></a>
 Links with Multiple Collisions &amp; the Effect of Density</h2>
 <p>To understand the inertia calculation in links with multiple collisions and the effect of setting different density values, you can launch the <code>auto_inertia_pendulum.sdf</code> example world using:</p>
 <div class="fragment"><div class="line">gz sim auto_inertia_pendulum.sdf</div>
@@ -219,7 +219,7 @@ Pendulum</div></div>
 <li>One at the end which forms the bob of the cylinder.</li>
 </ul>
 <p>Even, though they are identical, the center of mass for both are different as they use different density values for the different cylinder collisions. On one hand, the upper joint collision of the pendulum on the left has the highest density which causes the center of mass to shift closer to the axis. While on the other hand, the bob collision of the pendulum on the right has the highest density which causes the center of mass to shift towards the end of the pendulum. This difference in mass distribution about the axis of rotation results in a difference in the moment of inertia of the 2 setups and hence different angular velocities.</p>
-<h2><a class="anchor" id="autotoc_md24"></a>
+<h2><a class="anchor" id="mesh-inertia-calculation-with-rolling-shapes-demo"></a>
 Mesh Inertia Calculation with Rolling Shapes Demo</h2>
 <p>Let's try another example world, <code>auto_inertia_rolling_shapes.sdf</code>. This can be launched with <code>gz sim</code> using the following command:</p>
 <div class="fragment"><div class="line">gz sim auto_inertia_rolling_shapes.sdf</div>
@@ -229,7 +229,7 @@ Mesh Inertia Calculation with Rolling Shapes Demo</h2>
 <div class="caption">
 Rolling</div></div>
     <p>Here the right most shapes is a hollow cylinder (yellow). This model is loaded from <a href="https://app.gazebosim.org/jasmeetsingh/fuel/models/Hollow%20Cylinder">Gazebo Fuel</a> and is made using a collada mesh of a hollow cylinder. Apart from this, we can see there is a solid cylinder, a solid sphere and a solid capsule. All of these are made using the <code>&lt;geometry&gt;</code> tag and have automatic inertia calculations enabled. Here, the moments of inertia for the hollow cylinder (which is a non-convex mesh shape) is calculated and from the simulation we can see that it reaches the bottom of the incline last. This is physically accurate as the mass distribution for the hollow cylinder is concentrated at a distance from the axis of rotation (which passes through the center of mass in this case).</p>
-<h2><a class="anchor" id="autotoc_md25"></a>
+<h2><a class="anchor" id="key-points-on-mesh-inertia-calculator"></a>
 Key Points on Mesh Inertia Calculator</h2>
 <p>The mesh inertia calculator is implemented based on the method described in this <a href="https://www.geometrictools.com/Documentation/PolyhedralMassProperties.pdf">document</a>(pdf). The method is suited for solid, simple polyhedrons of constant mass density.</p>
 <p>Here are some key points to consider when using automatic inertia calculation with 3D Meshes:</p><ul>

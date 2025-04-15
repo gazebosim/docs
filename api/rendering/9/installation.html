@@ -141,9 +141,9 @@
 <div class="textblock"><p>These instructions are for installing only Gazebo Rendering. If you're interested in using all the Gazebo libraries, check out this <a href="https://gazebosim.org/docs/latest/install">Gazebo installation</a>.</p>
 <p>We recommend following the Binary Install instructions to get up and running as quickly and painlessly as possible.</p>
 <p>The Source Install instructions should be used if you need the very latest software improvements, you need to modify the code, or you plan to make a contribution.</p>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="ubuntu"></a>
 Ubuntu</h1>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="binary-installation"></a>
 Binary Installation</h2>
 <p>Install dependencies: </p><div class="fragment"><div class="line">sudo apt-get update</div>
 <div class="line">sudo apt-get -y install wget lsb-release gnupg</div>
@@ -152,9 +152,9 @@ Binary Installation</h2>
 </div><!-- fragment --><p>Install: </p><div class="fragment"><div class="line">sudo apt-get update</div>
 <div class="line">sudo apt-get install libgz-rendering&lt;#&gt;-dev</div>
 </div><!-- fragment --><p>Be sure to replace <code>&lt;#&gt;</code> with a number value, such as <code>7</code> or <code>8</code>, depending on which version you need.</p>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="source-installation"></a>
 Source Installation</h2>
-<h3><a class="anchor" id="autotoc_md6"></a>
+<h3><a class="anchor" id="prerequisites"></a>
 Prerequisites</h3>
 <p>Ubuntu Focal 20.04 or above:</p>
 <p>Install dependencies: </p><div class="fragment"><div class="line">sudo apt -y install wget lsb-release gnupg</div>
@@ -174,7 +174,7 @@ Prerequisites</h3>
 <div class="line">    libgz-math8-dev \</div>
 <div class="line">    libgz-common6-dev \</div>
 <div class="line">    libgz-plugin3-dev</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md7"></a>
+</div><!-- fragment --><h3><a class="anchor" id="supported-rendering-engines"></a>
 Supported Rendering Engines</h3>
 <p>Gazebo Rendering will look for rendering libraries installed in the system and build the relevant plugins if dependencies are found.</p>
 <p><b>OGRE 1.x</b> </p><div class="fragment"><div class="line"># this installs ogre 1.9</div>
@@ -192,7 +192,7 @@ Supported Rendering Engines</h3>
 <p>Update <code>LD_LIBRARY_PATH</code> and add an <code>OPTIX_INSTALL_DIR</code> environment variables so that gz-rendering can find Optix, e.g. if you installed version 4.0.2 in HOME/optix: </p><div class="fragment"><div class="line">export LD_LIBRARY_PATH=${HOME}/optix/NVIDIA-OptiX-SDK-4.0.2-linux64/lib64:${LD_LIBRARY_PATH}</div>
 <div class="line">export OPTIX_INSTALL_DIR=${HOME}/optix/NVIDIA-OptiX-SDK-4.0.2-linux64</div>
 </div><!-- fragment --><p>Note: If you encounter errors about different exception specifiers in optix math when building Gazebo Rendering OptiX plugin, edit <code>[optix_install_dir]/include/optixu/optixu_math_namespace.h</code> and comment out the section that defines <code>fminf</code>, fmaxf, and <code>copysignf</code> (for optix sdk 4.0.2, comment out lines 167-206).</p>
-<h3><a class="anchor" id="autotoc_md8"></a>
+<h3><a class="anchor" id="build-from-source"></a>
 Build from Source</h3>
 <ol type="1">
 <li>Clone the repository <div class="fragment"><div class="line"># Optionally, append `-b gz-rendering#` (replace # with a number) to check out a specific version</div>
@@ -207,21 +207,21 @@ Build from Source</h3>
 <li>Optionally, install <div class="fragment"><div class="line">make install</div>
 </div><!-- fragment --></li>
 </ol>
-<h1><a class="anchor" id="autotoc_md9"></a>
+<h1><a class="anchor" id="windows"></a>
 Windows</h1>
-<h2><a class="anchor" id="autotoc_md10"></a>
+<h2><a class="anchor" id="install-prerequisites"></a>
 Install Prerequisites</h2>
 <p>First, follow the <a href="https://gazebosim.org/docs/ionic/install_windows_src/">source installation</a> tutorial until step 5 included for installing Conda, Visual Studio, CMake, etc., prerequisites, and creating a Conda environment.</p>
 <p>Navigate to <code>condabin</code> if necessary to use the <code>conda</code> command (i.e., if Conda is not in your <code>PATH</code> environment variable. You can find the location of <code>condabin</code> in Anaconda Prompt, <code>where conda</code>).</p>
 <p>Create if necessary, and activate a Conda environment: </p><div class="fragment"><div class="line">conda create -n gz-ws</div>
 <div class="line">conda activate gz-ws</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md11"></a>
+</div><!-- fragment --><h2><a class="anchor" id="binary-installation-1"></a>
 Binary Installation</h2>
 <div class="fragment"><div class="line">conda install libgz-rendering&lt;#&gt; --channel conda-forge</div>
 </div><!-- fragment --><p>Be sure to replace <code>&lt;#&gt;</code> with a number value, such as 7 or 8, depending on which version you need.</p>
-<h2><a class="anchor" id="autotoc_md12"></a>
+<h2><a class="anchor" id="source-installation-1"></a>
 Source Installation</h2>
-<p>This assumes you have created and activated a Conda environment while installing the Prerequisites.</p>
+<p>This assumes you have created and activated a Conda environment while <a class="el" href="installation.html#install-prerequisites">installing the Prerequisites</a>.</p>
 <ol type="1">
 <li><p class="startli">Install Gazebo dependencies:</p>
 <p class="startli">You can view available versions and their dependencies: </p><div class="fragment"><div class="line">conda search libgz-rendering* --channel conda-forge --info</div>
@@ -239,16 +239,16 @@ Source Installation</h2>
 <li>Optionally, install <div class="fragment"><div class="line">cmake --install . --config Release</div>
 </div><!-- fragment --></li>
 </ol>
-<h1><a class="anchor" id="autotoc_md13"></a>
+<h1><a class="anchor" id="macos"></a>
 macOS</h1>
-<h2><a class="anchor" id="autotoc_md14"></a>
+<h2><a class="anchor" id="binary-installation-2"></a>
 Binary Installation</h2>
 <p>Install <a href="https://brew.sh/">Homebrew</a>.</p>
 <p>Add OSRF packages:</p>
 <div class="fragment"><div class="line">brew tap osrf/simulation</div>
 </div><!-- fragment --><p>Install Gazebo Rendering: </p><div class="fragment"><div class="line">brew install gz-rendering&lt;#&gt;</div>
 </div><!-- fragment --><p>Be sure to replace <code>&lt;#&gt;</code> with a number value, such as 8 or 9, depending on which version you need.</p>
-<h2><a class="anchor" id="autotoc_md15"></a>
+<h2><a class="anchor" id="source-installation-2"></a>
 Source Installation</h2>
 <ol type="1">
 <li>Clone the repository <div class="fragment"><div class="line">git clone https://github.com/gazebosim/gz-rendering -b gz-rendering&lt;#&gt;</div>
@@ -264,13 +264,13 @@ Source Installation</h2>
 <li>Optionally, install <div class="fragment"><div class="line">sudo make install</div>
 </div><!-- fragment --></li>
 </ol>
-<h1><a class="anchor" id="autotoc_md16"></a>
+<h1><a class="anchor" id="documentation"></a>
 Documentation</h1>
 <p>API documentation can be generated using Doxygen </p><div class="fragment"><div class="line">sudo apt install -y doxygen</div>
 </div><!-- fragment --><p>Build documentation </p><div class="fragment"><div class="line">cd build</div>
 <div class="line">make doc</div>
 </div><!-- fragment --><p>View documentation </p><div class="fragment"><div class="line">firefox doxygen/html/index.html</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md17"></a>
+</div><!-- fragment --><h1><a class="anchor" id="testing"></a>
 Testing</h1>
 <p>Tests can be run by building the <code>test</code> target: </p><div class="fragment"><div class="line">cd build</div>
 <div class="line">make test</div>

@@ -138,28 +138,28 @@
   <div class="headertitle"><div class="title">Create a surface vehicle</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md377"></a>
+<div class="textblock"><h1><a class="anchor" id="overview-8"></a>
 Overview</h1>
 <p>This tutorial explains how to create and load a maritime surface vehicle in Gazebo. This type of vehicle usually has multiple thrusters and navigate with the presence of waves and wind.</p>
-<h2><a class="anchor" id="autotoc_md378"></a>
+<h2><a class="anchor" id="related-tutorials-5"></a>
 Related tutorials</h2>
 <p><a class="el" href="create_vehicle.html">Create a maritime vehicle</a></p>
 <p><a class="el" href="adding_visuals.html">Adding visuals</a></p>
 <p><a class="el" href="frame_reference.html">Frame of reference</a></p>
 <p><a class="el" href="adding_system_plugins.html">Adding system plugins</a></p>
 <p><a class="el" href="theory_hydrodynamics.html">Hydrodynamics</a></p>
-<h1><a class="anchor" id="autotoc_md379"></a>
+<h1><a class="anchor" id="adding-an-environment"></a>
 Adding an environment</h1>
 <p>We'll start this tutorial creating a workspace with some custom models, worlds, and plugins that are not available yet on Gazebo. You could use this workspace as a template when in need of customizing Gazebo for your needs.</p>
 <p>To compile all the custom libraries in the right order <code>colcon</code> is recommended. The <code>colcon</code> tool is available on all platforms using <code>pip3</code>.</p>
 <div class="fragment"><div class="line">wget https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim8/tutorials/files/surface_vehicles/gz_maritime_ws.zip -O ~/gz_maritime_ws.zip</div>
 <div class="line">unzip ~/gz_maritime_ws.zip</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md380"></a>
+</div><!-- fragment --><h2><a class="anchor" id="generic-tools"></a>
 Generic tools</h2>
 <p>Install tools needed by this tutorial:</p>
 <div class="fragment"><div class="line">sudo apt install python3-pip wget</div>
 <div class="line">pip3 install -U colcon-common-extensions</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md381"></a>
+</div><!-- fragment --><h2><a class="anchor" id="setup-the-workspace"></a>
 Setup the workspace</h2>
 <p>Let's now build our workspace:</p>
 <div class="fragment"><div class="line">cd ~/gazebo_maritime_ws</div>
@@ -173,10 +173,10 @@ Setup the workspace</h2>
 <img src="sydney_regatta.png" alt=""/>
 </div>
 <p>Gazebo is loaded with the Sydney Regatta Center!</p>
-<h1><a class="anchor" id="autotoc_md382"></a>
+<h1><a class="anchor" id="create-your-vehicle-1"></a>
 Create your vehicle</h1>
 <p>It's time to create our maritime surface vehicle. We're going to use the Wave Adaptive Modular Vehicle (WAM-V) as the surface platform. This is the robot that we use in the <a href="https://github.com/osrf/vrx">VRX project</a> as well.</p>
-<h2><a class="anchor" id="autotoc_md383"></a>
+<h2><a class="anchor" id="basic-sdf-1"></a>
 Basic SDF</h2>
 <p>Let's start with the basic SDF of the WAM-V platform. Open with your favorite editor the file <code>~/gazebo_maritime_ws/src/gazebo_maritime/models/wam-v/model.sdf</code>.</p>
 <p>Notice how the vehicle is composed by multiple links:</p>
@@ -201,7 +201,7 @@ Basic SDF</h2>
 <img src="wamv.png" alt=""/>
 </div>
 <p>If you hit play, your WAM-V will sink (sad but expected). There's no buoyancy enabled yet.</p>
-<h2><a class="anchor" id="autotoc_md384"></a>
+<h2><a class="anchor" id="checking-frame-of-reference-1"></a>
 Checking frame of reference</h2>
 <p>Launch your world in Gazebo as we did before:</p>
 <div class="fragment"><div class="line">gz sim src/gazebo_maritime/worlds/sydney_regatta.sdf</div>
@@ -213,9 +213,9 @@ Checking frame of reference</h2>
 <div class="image">
 <img src="wamv_reference_frame.png" alt=""/>
 </div>
-<h2><a class="anchor" id="autotoc_md385"></a>
+<h2><a class="anchor" id="adding-plugins-1"></a>
 Adding plugins</h2>
-<h3><a class="anchor" id="autotoc_md386"></a>
+<h3><a class="anchor" id="the-surface-plugin"></a>
 The Surface plugin</h3>
 <p>Normally, there's a section here where we explain how to add buoyancy to our model. It's totally possible to do it that way but for stability reasons, we have created a more specific plugin to simulate buoyancy in the presence of waves, the <code>Surface</code> plugin.</p>
 <p>Open the file <code>~/gazebo_maritime_ws/src/gazebo_maritime/models/wam-v/model.sdf</code> with your favorite editor and look at the <code>Surface</code> plugin:</p>
@@ -254,7 +254,7 @@ The Surface plugin</h3>
 <div class="fragment"><div class="line">colcon build --merge-install</div>
 <div class="line">gz sim -r src/gazebo_maritime/worlds/sydney_regatta.sdf</div>
 </div><!-- fragment --><p>Now your vehicle is floating in the water!</p>
-<h3><a class="anchor" id="autotoc_md387"></a>
+<h3><a class="anchor" id="hydrodynamics-1"></a>
 Hydrodynamics</h3>
 <p>I know, I know, it looks like a dancing catamaran. The reason for that behavior is because we don't have any drag yet to oppose the forces of the <code>Surface</code> plugins. We need hydrodynamics!</p>
 <p>We will be using Fossen's equations which describe the motion of a craft through the water for this. For better understanding of the parameters here, I would refer you to <a href="https://www.wiley.com/en-sg/Guidance+and+Control+of+Ocean+Vehicles-p-9780471941132">his book</a> (check your library). Usually these parameters can be found via fluid simulation programs or experimental tests in a water tub.</p>
@@ -318,7 +318,7 @@ Hydrodynamics</h3>
 <div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
 </div><!-- fragment --><p>The gain parameter has been increased to <code>0.8</code> producing bigger waves. You should expect your WAM-V to move more agresively up and down.</p>
 <p>Both the <code>WaveVisual</code> plugin (used for rendering the waves) and the <code>Surface</code> plugin (used to simulate the physics of the waves) are updated via the same topic. The <code>PublisherPlugin</code> periodically publishes the wavefield parameters to make sure that all the wave-related plugins work with the same wavefield parameters.</p>
-<h3><a class="anchor" id="autotoc_md388"></a>
+<h3><a class="anchor" id="thruster"></a>
 Thruster</h3>
 <p>We need the vehicle to move, so we will be adding the <code>Thruster</code> plugin. In the case of the WAM-V, we need two thrusters. Each thruster plugin takes in a force and applies it along with calculating the desired rpm. Uncomment the following block from your <code>~/gazebo_maritime_ws/src/gazebo_maritime/models/wam-v/model.sdf</code> model:</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">plugin</span></div>

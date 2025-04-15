@@ -138,10 +138,10 @@
   <div class="headertitle"><div class="title">Create a lander vehicle</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md136"></a>
+<div class="textblock"><h1><a class="anchor" id="overview-5"></a>
 Overview</h1>
 <p>This tutorial explains how to create and load an underwater lander vehicle in Gazebo. This type of vehicles don't usually have control surfaces or thrusters. They typically sink until they reach the seafloor or certain depth and go back to the surface while they collect sensor measurements.</p>
-<h2><a class="anchor" id="autotoc_md137"></a>
+<h2><a class="anchor" id="related-tutorials-4"></a>
 Related tutorials</h2>
 <p><a class="el" href="create_vehicle.html">Create a maritime vehicle</a></p>
 <p><a class="el" href="adding_visuals.html">Adding visuals</a></p>
@@ -149,10 +149,10 @@ Related tutorials</h2>
 <p><a class="el" href="adding_system_plugins.html">Adding system plugins</a></p>
 <p><a class="el" href="theory_buoyancy.html">Buoyancy</a></p>
 <p><a class="el" href="theory_hydrodynamics.html">Hydrodynamics</a></p>
-<h1><a class="anchor" id="autotoc_md138"></a>
+<h1><a class="anchor" id="create-your-vehicle"></a>
 Create your vehicle</h1>
 <p>As an example, we'll go through the process of creating an Inkfish underwater lander vehicle.</p>
-<h2><a class="anchor" id="autotoc_md139"></a>
+<h2><a class="anchor" id="basic-sdf"></a>
 Basic SDF</h2>
 <p>Create a workspace to store your brand new model named <code>my_lander</code>.</p>
 <div class="fragment"><div class="line">mkdir -p ~/gazebo_maritime/models/my_lander &amp;&amp; cd ~/gazebo_maritime/models/my_lander</div>
@@ -196,7 +196,7 @@ Basic SDF</h2>
 <div class="image">
 <img src="simple_lander.png" alt=""/>
 </div>
-<h2><a class="anchor" id="autotoc_md140"></a>
+<h2><a class="anchor" id="adding-visuals"></a>
 Adding visuals</h2>
 <p>Let's now add nicer-looking visuals to our lander. Download the following <code>COLLADA</code> mesh file from here.</p>
 <div class="fragment"><div class="line">mkdir ~/gazebo_maritime/models/my_lander/meshes</div>
@@ -215,7 +215,7 @@ Adding visuals</h2>
 <div class="image">
 <img src="lander_visuals.png" alt=""/>
 </div>
-<h2><a class="anchor" id="autotoc_md141"></a>
+<h2><a class="anchor" id="checking-frame-of-reference"></a>
 Checking frame of reference</h2>
 <p>Launch your lander in Gazebo as we did before:</p>
 <div class="fragment"><div class="line">gz sim ~/gazebo_maritime/models/my_lander/model.sdf</div>
@@ -224,9 +224,9 @@ Checking frame of reference</h2>
 <img src="gui_transform_control.png" alt=""/>
 </div>
 <p>Then, click on the vehicle, and then, click on the <code>Translate mode</code> icon. You'll now visualize your lander frame of reference. As this is the expected frame of reference, we won't need to apply changes in the COLLADA mesh or add any <code>&lt;pose&gt;</code> offset to our <code>model.sdf</code>.</p>
-<h2><a class="anchor" id="autotoc_md142"></a>
+<h2><a class="anchor" id="adding-plugins"></a>
 Adding plugins</h2>
-<h3><a class="anchor" id="autotoc_md143"></a>
+<h3><a class="anchor" id="buoyancy"></a>
 Buoyancy</h3>
 <p>We are going to start extending our model adding buoyancy properties. For that, we need to do two things:</p>
 <ol type="1">
@@ -331,7 +331,7 @@ Buoyancy</h3>
 </div><!-- fragment --><p>And launch Gazebo:</p>
 <div class="fragment"><div class="line">gz sim ~/gazebo_maritime/worlds/buoyant_lander.sdf</div>
 </div><!-- fragment --><p>Hit play and the lander will slowly sink and hit the seafloor.</p>
-<h3><a class="anchor" id="autotoc_md144"></a>
+<h3><a class="anchor" id="hydrodynamics"></a>
 Hydrodynamics</h3>
 <p>As an underwater vehicle, the lander should be influenced by the water as it moves. We can do that by attaching the <code>hydrodynamics</code> plugin to our lander. Add the next SDF block to your <code>model.sdf</code>. Note that we have empirically adjusted its values. Follow the <a href="https://gazebosim.org/api/sim/8/theory_hydrodynamics.html">hydrodynamics tutorial</a> for recommendations about how to tune its values.</p>
 <div class="fragment"><div class="line"><span class="comment">&lt;!-- Hydrodynamics --&gt;</span></div>
@@ -358,7 +358,7 @@ Hydrodynamics</h3>
 <div class="line">  &lt;<span class="keywordtype">nRabsR</span>&gt;-632.698957&lt;/<span class="keywordtype">nRabsR</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">nR</span>&gt;0&lt;/<span class="keywordtype">nR</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md145"></a>
+</div><!-- fragment --><h3><a class="anchor" id="drop-weight"></a>
 Drop weight</h3>
 <p>A common feature in maritime landers is to include a drop weight device. When this device is enabled, some part of the vehicle is detached from the main chassis. At this point, the vehicle becomes positive buoyant, and starts moving up towards the water surface.</p>
 <p>In order to simulate this behavior, we'll need to make two changes to our lander model:</p>

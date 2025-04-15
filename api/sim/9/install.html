@@ -142,11 +142,11 @@
 <p>We recommend following the binary install instructions to get up and running as quickly and painlessly as possible.</p>
 <p>The source install instructions should be used if you need the very latest software improvements, if you need to modify the code, or if you plan to make a contribution.</p>
 <p>Throughout this tutorial, be sure to replace <code>&lt;#&gt;</code> with a number value, such as 5 or 6, depending on which version you need.</p>
-<h2><a class="anchor" id="autotoc_md119"></a>
+<h2><a class="anchor" id="binary-install"></a>
 Binary Install</h2>
-<h3><a class="anchor" id="autotoc_md120"></a>
+<h3><a class="anchor" id="ubuntu-2004-or-above"></a>
 Ubuntu 20.04 or above</h3>
-<p>The binary install method will use pre-built packages which are typically available through a package management utility such as <a href="https://wiki.debian.org/Apt">Apt</a>. This approach eliminates the need to download and compile source code, and dependencies are handled for you. The downside of a binary install is that you won't be able to modify the code. See Source Install for information on installing Gazebo from source.</p>
+<p>The binary install method will use pre-built packages which are typically available through a package management utility such as <a href="https://wiki.debian.org/Apt">Apt</a>. This approach eliminates the need to download and compile source code, and dependencies are handled for you. The downside of a binary install is that you won't be able to modify the code. See <a class="el" href="install.html#source-install">Source Install</a> for information on installing Gazebo from source.</p>
 <ol type="1">
 <li>Configure package repositories. <div class="fragment"><div class="line">sudo sh -c &#39;echo &quot;deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/gazebo-stable.list&#39;</div>
 <div class="line">wget http://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -</div>
@@ -155,7 +155,7 @@ Ubuntu 20.04 or above</h3>
 <li>Install Gazebo <div class="fragment"><div class="line">sudo apt-get install libgz-sim&lt;#&gt;-dev</div>
 </div><!-- fragment --></li>
 </ol>
-<h3><a class="anchor" id="autotoc_md121"></a>
+<h3><a class="anchor" id="macos"></a>
 macOS</h3>
 <ol type="1">
 <li>On macOS, add OSRF packages: <div class="fragment"><div class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div>
@@ -164,7 +164,7 @@ macOS</h3>
 <li>Install Gazebo: <div class="fragment"><div class="line">brew install gz-sim&lt;#&gt;</div>
 </div><!-- fragment --></li>
 </ol>
-<h3><a class="anchor" id="autotoc_md122"></a>
+<h3><a class="anchor" id="windows"></a>
 Windows</h3>
 <ol type="1">
 <li><p class="startli">First, follow the steps 1-4 of <a href="https://gazebosim.org/docs/ionic/install_windows_src/#install-dependencies">Gazebo source install</a> tutorial to install Conda, Visual Studio and set up a Conda environment (we'll call it <code>gz-ws</code>).</p>
@@ -176,10 +176,10 @@ Windows</h3>
 </div><!-- fragment --><p class="startli">Be sure to replace <code>&lt;#&gt;</code> with a number value, such as 8 or 9, depending on which version you need.</p>
 </li>
 </ol>
-<h2><a class="anchor" id="autotoc_md123"></a>
+<h2><a class="anchor" id="source-install"></a>
 Source Install</h2>
 <p>Install from source if you're interested in changing the source code or need a feature which hasn't been released yet.</p>
-<h3><a class="anchor" id="autotoc_md124"></a>
+<h3><a class="anchor" id="ubuntu-2004-or-above-1"></a>
 Ubuntu 20.04 or above</h3>
 <ol type="1">
 <li>Install tools <div class="fragment"><div class="line">sudo apt install -y build-essential cmake git gnupg lsb-release wget</div>
@@ -200,7 +200,7 @@ Ubuntu 20.04 or above</h3>
 <div class="line">make</div>
 </div><!-- fragment --></li>
 </ol>
-<h3><a class="anchor" id="autotoc_md125"></a>
+<h3><a class="anchor" id="macos-1"></a>
 macOS</h3>
 <ol type="1">
 <li>Clone the repository <div class="fragment"><div class="line">git clone https://github.com/gazebosim/gz-sim -b gz-sim&lt;#&gt;</div>
@@ -216,7 +216,7 @@ macOS</h3>
 <li>Optionally, install <div class="fragment"><div class="line">sudo make install</div>
 </div><!-- fragment --></li>
 </ol>
-<h3><a class="anchor" id="autotoc_md126"></a>
+<h3><a class="anchor" id="windows-1"></a>
 Windows</h3>
 <ol type="1">
 <li><p class="startli">First, follow the steps 1-4 of <a href="https://gazebosim.org/docs/ionic/install_windows_src/#install-dependencies">Gazebo source install</a> tutorial to install Conda, Visual Studio and set up a Conda environment (we'll call it <code>gz-ws</code>).</p>
@@ -239,7 +239,7 @@ Windows</h3>
 <li>Optionally, install <div class="fragment"><div class="line">cmake --install . --config Release</div>
 </div><!-- fragment --></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md127"></a>
+<h2><a class="anchor" id="documentation"></a>
 Documentation</h2>
 <p>API documentation and tutorials can be accessed at <a href="https://gazebosim.org/libs/gazebo">https://gazebosim.org/libs/gazebo</a></p>
 <p>You can also generate the documentation from a clone of this repository by following these steps.</p>
@@ -260,11 +260,11 @@ Documentation</h2>
 <li>View the documentation by running the following command from the <code>build</code> directory. <div class="fragment"><div class="line">firefox doxygen/html/index.html</div>
 </div><!-- fragment --></li>
 </ol>
-<h2><a class="anchor" id="autotoc_md128"></a>
+<h2><a class="anchor" id="testing"></a>
 Testing</h2>
 <p>Follow these steps to run tests and static code analysis in your clone of this repository.</p>
 <ol type="1">
-<li>Follow the source install instructions.</li>
+<li>Follow the <a class="el" href="install.html#source-install">source install instructions</a>.</li>
 <li>Run tests. <div class="fragment"><div class="line">make test</div>
 </div><!-- fragment --></li>
 <li>Static code checker. <div class="fragment"><div class="line">sudo apt-get update &amp;&amp; sudo apt-get -y install cppcheck</div>

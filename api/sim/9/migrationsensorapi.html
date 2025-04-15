@@ -141,7 +141,7 @@
 <div class="textblock"><p>When migrating plugins from Gazebo-classic to Gazebo, developers will notice that the C++ APIs for both simulators are quite different. Be sure to check the <a href="migrationplugins.html">plugin migration tutorial</a> to get a high-level view of the architecture differences before using this guide.</p>
 <p>This tutorial is meant to serve as a reference guide for developers migrating functions from the <a href="http://osrf-distributions.s3.amazonaws.com/gazebo/api/11.0.0/classgazebo_1_1sensors_1_1Sensor.html">gazebo::sensors::Sensor</a> class.</p>
 <p>If you're trying to use some API which doesn't have an equivalent on Gazebo yet, feel free to <a href="https://github.com/gazebosim/gz-sim/issues/">ticket an issue</a>.</p>
-<h2><a class="anchor" id="autotoc_md286"></a>
+<h2><a class="anchor" id="sensor-api"></a>
 Sensor API</h2>
 <p>Gazebo-classic's <code>gazebo::sensors::Sensor</code> provides lots of functionality, which can be divided in these categories:</p>
 <ul>
@@ -173,7 +173,7 @@ Sensor API</h2>
 <p>As an example the <code>Sensor::Pose()</code> is a convienient function for querying the <code>Pose</code> component from the <code>EntityComponentManager</code>, i.e.</p>
 <div class="fragment"><div class="line">math::Pose3d pose = _ecm.Component&lt;components::Pose&gt;(sensorEntityId)-&gt;Data();</div>
 </div><!-- fragment --><p>The functions presented in the sections below exist for convenience and readability. The items marked as <code>TODO</code> means that the equivalent API is not implemented yet in Gazebo.</p>
-<h3><a class="anchor" id="autotoc_md287"></a>
+<h3><a class="anchor" id="properties-5"></a>
 Properties</h3>
 <p>Most of Gazebo-classic's Sensor API is related to setting and getting properties. These functions are great candidates to have equivalents on Gazebo Gazebo, because the Entity-Component-System architecture is perfect for setting components (properties) into entities such as sensors.</p>
 <hr  />
@@ -222,7 +222,7 @@ Properties</h3>
 <td class="markdownTableBodyNone">WorldName   </td><td class="markdownTableBodyNone"><code><a class="el" href="namespacegz_1_1sim.html#a5223699c52340908dcda38f39e77198c" title="Get the world to which the given entity belongs.">gz::sim::worldEntity</a></code>   </td></tr>
 </table>
 <hr  />
-<h2><a class="anchor" id="autotoc_md290"></a>
+<h2><a class="anchor" id="read-family-5"></a>
 Read family</h2>
 <p>These APIs deal with reading information related to parent relationship.</p>
 <p>The main difference in these APIs across Gazebo generations is that on classic, they deal with shared pointers to entities, while on Gazebo, they deal with entity IDs.</p>
@@ -236,7 +236,7 @@ Read family</h2>
 <td class="markdownTableBodyNone">ParentName   </td><td class="markdownTableBodyNone"><code><a class="el" href="classgz_1_1sim_1_1Sensor.html#ae9deef3ebf8ce3ace3e18021532676b6" title="Get the parent entity. This can be a link or a joint.">gz::sim::Sensor::Parent</a></code>   </td></tr>
 </table>
 <hr  />
-<h2><a class="anchor" id="autotoc_md293"></a>
+<h2><a class="anchor" id="write-family-5"></a>
 Write family</h2>
 <p>These functions deal with modifying the entity tree, attaching children to new parents.</p>
 <hr  />
@@ -247,7 +247,7 @@ Write family</h2>
 <td class="markdownTableBodyNone">SetParent   </td><td class="markdownTableBodyNone">TODO   </td></tr>
 </table>
 <hr  />
-<h2><a class="anchor" id="autotoc_md295"></a>
+<h2><a class="anchor" id="lifecycle-5"></a>
 Lifecycle</h2>
 <p>These functions aren't related to the state of a sensor, but perform some processing related to the sensor's lifecycle, like initializing, updating or terminating it.</p>
 <hr  />

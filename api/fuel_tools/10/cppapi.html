@@ -138,7 +138,7 @@
   <div class="headertitle"><div class="title">C++ API</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2><a class="anchor" id="autotoc_md25"></a>
+<div class="textblock"><h2><a class="anchor" id="overview-3"></a>
 Overview</h2>
 <p>Gazebo Fuel Tools lets you perform a set of operations over the resources hosted in any Gazebo Fuel server. These operations allow you to list all resources of a particular server, get the details of a resource or download it.</p>
 <p>We're going to run a few examples, so let's start by creating a directory for this tutorial:</p>
@@ -166,19 +166,19 @@ Overview</h2>
 </div><!-- fragment --><p>Let's start by compiling the examples:</p>
 <div class="fragment"><div class="line">mkdir build &amp;&amp; cd build</div>
 <div class="line">cmake ..</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md26"></a>
+</div><!-- fragment --><h3><a class="anchor" id="ubuntu-and-macos"></a>
 Ubuntu and MacOS</h3>
 <div class="fragment"><div class="line">make</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md27"></a>
+</div><!-- fragment --><h3><a class="anchor" id="windows-2"></a>
 Windows</h3>
 <div class="fragment"><div class="line">cmake --build . --config Release</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md28"></a>
+</div><!-- fragment --><h2><a class="anchor" id="list-resources-from-a-fuel-server"></a>
 List resources from a Fuel server</h2>
 <p>Run the following example to see the list of models hosted in the default server:</p>
-<h3><a class="anchor" id="autotoc_md29"></a>
+<h3><a class="anchor" id="ubuntu-and-macos-1"></a>
 Ubuntu and MacOS</h3>
 <p><code>./list -t world</code></p>
-<h3><a class="anchor" id="autotoc_md30"></a>
+<h3><a class="anchor" id="windows-3"></a>
 Windows</h3>
 <p><code>.\Release\list.exe -t world</code></p>
 <p>You should see the name of the server followed by its list of models. Here's an example:</p>
@@ -199,7 +199,7 @@ Windows</h3>
 <div class="line">  Beer</div>
 <div class="line">  Apartment</div>
 <div class="line">  Ambulance</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md31"></a>
+</div><!-- fragment --><h3><a class="anchor" id="walkthrough-1"></a>
 Walkthrough</h3>
 <p>This example contains some boilerplate to parse command line arguments and load some configuration. Refer to the <a href="configuration.html">configuration tutorial</a> for details about this part of the code. Let's focus on the relevant code for listing resources:</p>
 <div class="fragment"><div class="line"><span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;server : client.Config().Servers())</div>
@@ -218,7 +218,7 @@ Walkthrough</h3>
 <div class="line">  <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a> &lt;&lt; <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>As you can see, we're iterating over the list of servers. For each server, we use the <code>Models()</code> or the <code>Worlds()</code> method to retrieve all the relevant resources from that server. Then, iterate over the resulting resources and print their names.</p>
-<h2><a class="anchor" id="autotoc_md32"></a>
+<h2><a class="anchor" id="get-details-of-a-resource"></a>
 Get details of a resource</h2>
 <p>Run the following example to see the details of a model hosted in the default server:</p>
 <div class="fragment"><div class="line"># Ubuntu and MacOS</div>
@@ -240,7 +240,7 @@ Get details of a resource</h2>
 <div class="line">Server:</div>
 <div class="line">  URL: https://fuel.gazebosim.org</div>
 <div class="line">  Version: 1.0</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md33"></a>
+</div><!-- fragment --><h3><a class="anchor" id="walkthrough-2"></a>
 Walkthrough</h3>
 <p>This example contains some boilerplate to parse command line arguments and load some configuration. Refer to the <a href="configuration.html">configuration tutorial</a> for details about this part of the code. Let's focus on the relevant code for getting details of a resource:</p>
 <div class="fragment"><div class="line"><span class="comment">// Fetch the details.</span></div>
@@ -272,7 +272,7 @@ Walkthrough</h3>
 <div class="line">  }</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>As usual, we're iterating over the list of servers. For each server, we use the <code>ModelDetails()</code> or <code>WorldDetails()</code> methods to retrieve most of the properties of the resource. Then if the resource is retrieved successfully, we use the <code>AsPrettyString()</code> method to print its information to the screen.</p>
-<h2><a class="anchor" id="autotoc_md34"></a>
+<h2><a class="anchor" id="download-a-resource"></a>
 Download a resource</h2>
 <p>Refer to the <a href="configuration.html">configuration tutorial</a> to see an example of how to download resources programmatically. </p>
 </div></div><!-- contents -->

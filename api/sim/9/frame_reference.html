@@ -138,24 +138,24 @@
   <div class="headertitle"><div class="title">Frame of reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md107"></a>
+<div class="textblock"><h1><a class="anchor" id="overview-4"></a>
 Overview</h1>
 <p>This tutorial explains how to decide the frame of reference for your model and the conventions used in Gazebo.</p>
-<h2><a class="anchor" id="autotoc_md108"></a>
+<h2><a class="anchor" id="related-tutorials-3"></a>
 Related tutorials</h2>
 <p><a class="el" href="spherical_coordinates.html">Spherical coordinates</a></p>
-<h1><a class="anchor" id="autotoc_md109"></a>
+<h1><a class="anchor" id="gazebo-world-frame"></a>
 Gazebo world frame</h1>
 <p>This page captures some of the reference frames and conventions that we use in Gazebo. In general, Gazebo follows <a href="https://www.ros.org/reps/rep-0103.html">REP 103: Standard Units of Measure and Coordinate Conventions</a>.</p>
 <p>Gazebo's simulation is always performed in Cartesian coordinates (good old XYZ).</p>
 <p><img src="https://user-images.githubusercontent.com/1440739/156785118-225d5973-9837-49d1-8a5b-be402e3c074c.png" alt="world_frame" class="inline"/></p>
 <p>Additionally, Gazebo supports the use of real world latitude and longitude coordinates in its simulations using the WGS84 geodetic system. The world's Cartesian coordinates correspond to a local tangent plane at a given point on the planetary surface. By default, this plane follows the ENU (East-North-Up) convention, as shown on the image below:</p>
 <p><img src="https://user-images.githubusercontent.com/1440739/156786820-f81d3871-2299-4c3d-a4c2-c1047a4e3b18.png" alt="spherical_coordinates" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md110"></a>
+<h1><a class="anchor" id="model-frame"></a>
 Model frame</h1>
 <p>Gazebo follows the right-hand rule. The robot front facing surface is in the positive x direction, left facing being in the positive y direction, top facing being in the positive z direction and so forth.</p>
 <p><img src="https://user-images.githubusercontent.com/1440739/156787618-3795012f-3a77-4048-8a16-94d6ba163f2b.jpg" alt="model_frame_sm" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md111"></a>
+<h1><a class="anchor" id="reference-frame-design-considerations"></a>
 Reference frame design considerations</h1>
 <p>If you are creating a model, besides designing its kinematic structure (links and joints) and physical properties, you need to decide where to place your model's reference frame. Next are a few examples of our turtle model with three differente choices for its reference frame.</p>
 <div class="image">
@@ -167,7 +167,7 @@ Reference frame design considerations</h1>
 <li>Follow Gazebo's convention making <code>X</code> pointing forward, <code>Y</code> pointing left, and <code>Z</code> pointing up.</li>
 <li>Try to match the <code>Z</code> value of your reference frame with the point of your model that contacts the ground or the water. That way, when you spawn your model at any point in the world, if you use <code>z</code> value of <code>0</code>, you know it will smoothly sit on a stable place.</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md112"></a>
+<h1><a class="anchor" id="how-to-set-your-model-reference-frame"></a>
 How to set your model reference frame</h1>
 <p>There are a few ways to change the reference frame of your model:</p>
 <ol type="1">

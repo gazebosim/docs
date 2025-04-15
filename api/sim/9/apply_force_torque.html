@@ -139,7 +139,7 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>The Apply Force Torque plugin allows users to apply forces and/or torques to links in the simulation through the graphical user interface.</p>
-<h2><a class="anchor" id="autotoc_md11"></a>
+<h2><a class="anchor" id="examples"></a>
 Examples</h2>
 <p>Let's go through an example of applying force and torque to simple models. Open the <code>shapes.sdf</code> world with</p>
 <div class="fragment"><div class="line">gz sim shapes.sdf</div>
@@ -147,38 +147,38 @@ Examples</h2>
 <div class="image">
 <img src="Interface.png" alt="" width="60%"/>
 </div>
-<h3><a class="anchor" id="autotoc_md12"></a>
+<h3><a class="anchor" id="apply-force-to-a-link"></a>
 Apply force to a link</h3>
 <p>We want to apply force to the <code>cylinder</code> model. Select the model, either by clicking on it in the scene or through the Entity Tree. If the model had multiple links, we could select through the interface which one to apply the force to (in this case, <code>cylinder_link</code>).</p>
 <p>On the dialog, write <code>10000</code> on the <code>X</code> field under <code>Force</code> and click on <code>Apply Force</code>. The cylinder will be pushed on the X direction. The force was applied in the link's <code>X</code> direction for a single time-step, which is in the order of milliseconds, thus the need for such a large force.</p>
 <div class="image">
 <img src="Force.png" alt="" width="60%"/>
 </div>
-<h3><a class="anchor" id="autotoc_md13"></a>
+<h3><a class="anchor" id="apply-torque-to-a-link"></a>
 Apply torque to a link</h3>
 <p>On the dialog, write <code>2000</code> on the <code>X</code> field under <code>Torque</code> and click on <code>Apply Torque</code> to see the cylinder rotate slightly.</p>
 <div class="image">
 <img src="Torque.png" alt="" width="60%"/>
 </div>
-<h3><a class="anchor" id="autotoc_md14"></a>
+<h3><a class="anchor" id="apply-force-with-an-offset"></a>
 Apply force with an offset</h3>
 <p>By default, the force is applied to the link's center of mass, but this can be modified through the <code>Offset</code> fields. On the dialog, write <code>1000</code> on the <code>X</code> field under <code>Force</code> and <code>1</code> under the <code>Z</code> field under <code>Offset</code>. Press <code>Apply Force</code> to see the model move slightly in the <code>X</code> direction while also rotating around the <code>Y</code> direction.</p>
 <div class="image">
 <img src="ForceOffset.png" alt="" width="60%"/>
 </div>
-<h3><a class="anchor" id="autotoc_md15"></a>
+<h3><a class="anchor" id="rotation-tool"></a>
 Rotation tool</h3>
 <p>On the dialog, write <code>10000</code> on the <code>X</code> field under <code>Force</code>. Click on the force vector to make the rotation tool appear. Drag the blue circle to rotate the force around the <code>Z</code> axis so that it is aligned with the <code>Y</code> direction. Notice how the XYZ fields changed, but not the magnitude. Press <code>Apply Force</code> to see the model move in the <code>Y</code> direction.</p>
 <div class="image">
 <img src="RotationTool.png" alt="" width="60%"/>
 </div>
-<h2><a class="anchor" id="autotoc_md16"></a>
+<h2><a class="anchor" id="the-interface-explained"></a>
 The interface explained</h2>
 <blockquote class="doxtable">
 <p>&zwj;<b>Note</b>: If you apply force and/or torque while the simulation is paused, </p>
 </blockquote>
 <p>they will accumulate and be applied all at once when the simulation is unpaused.</p>
-<h3><a class="anchor" id="autotoc_md17"></a>
+<h3><a class="anchor" id="force"></a>
 Force</h3>
 <ul>
 <li><b>Force X, Y, Z</b>: Each field specifies how much force will be applied on that direction, in Newtons (N). The frame is fixed to the link.</li>
@@ -189,7 +189,7 @@ Force</h3>
 </li>
 <li><b>Apply Force</b>: Click this to apply only force for one time step. Keep in mind that time steps are typically in the order of milliseconds, so relatively large forces are needed in order to apply a significant impulse.</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md18"></a>
+<h3><a class="anchor" id="torque"></a>
 Torque</h3>
 <ul>
 <li><b>X, Y, Z</b>: Each field specifies how much torque will be applied about that axis, in Newton-meters (N.m). The frame is fixed to the link.</li>
@@ -199,10 +199,10 @@ Torque</h3>
 </ul>
 </li>
 </ul>
-<h3><a class="anchor" id="autotoc_md19"></a>
+<h3><a class="anchor" id="apply-all"></a>
 Apply All</h3>
 <p>Force and torque are applied at the same time, i.e. apply a wrench.</p>
-<h3><a class="anchor" id="autotoc_md20"></a>
+<h3><a class="anchor" id="rotation-tool-1"></a>
 Rotation Tool</h3>
 <p>The vector (force or torque) directions will always match the directions specified in the dialog. From the dialog, the direction can be changed by editing the numbers on the XYZ fields.</p>
 <p>From the scene, select a vector to enable the rotation tool, then drag the handles. This changes the direction of the vector, updating the XYZ fields accordingly without modifying its magnitude. You may click again on the vector to unselect the rotation tool. </p>
