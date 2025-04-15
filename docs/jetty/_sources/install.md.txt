@@ -39,9 +39,9 @@ This list of library versions may change up to the release date.
 |   gz-physics       |       8.x     |
 |   gz-plugin        |       3.x     |
 |   gz-rendering     |       9.x     |
-|   gz-sensors       |       9.x     |
+|   gz-sensors       |       10.x     |
 |   gz-tools         |       2.x     |
-|   gz-transport     |      14.x     |
+|   gz-transport     |      15.x     |
 |   gz-utils         |       3.x     |
 |   sdformat         |      15.x     |
 
