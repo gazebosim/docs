@@ -138,14 +138,14 @@
   <div class="headertitle"><div class="title">Developing with Gazebo CMake</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h1><a class="anchor" id="autotoc_md2"></a>
+<div class="textblock"><h1><a class="anchor" id="developing-with-gazebo-cmake"></a>
 Developing with Gazebo CMake</h1>
 <p>This tutorial documents various tips and strategies for developing with Gazebo CMake.</p>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="helpful-cmake-flags"></a>
 Helpful CMake flags</h2>
 <p>There are several flags that control the results of the CMake tool. Some of these flags are built into CMake, where some are Gazebo CMake specific.</p>
 <p>All of the following flags may be set as part of an individual CMake invocation. Alternatively, the flags may be passed to <code>colcon</code> using techniques described later in this document.</p>
-<h3><a class="anchor" id="autotoc_md4"></a>
+<h3><a class="anchor" id="setting-the-build-type"></a>
 Setting the build type</h3>
 <p>The <code>CMAKE_BUILD_TYPE</code> variable controls the type of binary output from the build stage. This will have an impact on the flags passed to the compiler and linker.</p>
 <p>The available options are:</p>
@@ -161,7 +161,7 @@ Setting the build type</h3>
 <p>If left unspecified, <code>CMAKE_BUILD_TYPE</code> is set to <code>RelWithDebInfo</code></p>
 <p>To change the build type, set the CMake flag:</p>
 <div class="fragment"><div class="line">-DCMAKE_BUILD_TYPE=Debug</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md5"></a>
+</div><!-- fragment --><h3><a class="anchor" id="disabling-or-suppressing-warnings-about-optional-components"></a>
 Disabling or suppressing warnings about optional components</h3>
 <p>Many Gazebo packages come with optional component libraries. These optional components will typically have additional dependencies that the package's core library does not require. If you are missing the dependencies of any optional components, you will receive a cmake warning like</p>
 <div class="fragment"><div class="line">-- Skipping component [component_name]: Missing dependency [dependency_name].</div>
@@ -171,7 +171,7 @@ Disabling or suppressing warnings about optional components</h3>
 <p>If you do <em>not</em> want to build the optional component and you want to suppress the warning about the missing dependencies, you can set the cmake flag:</p>
 <div class="fragment"><div class="line">-DSKIP_component_name=true</div>
 </div><!-- fragment --><p>where you should replace <code>component_name</code> with the actual name of the component as specified inside the angle brackets <code>[]</code> of the warning.</p>
-<h3><a class="anchor" id="autotoc_md6"></a>
+<h3><a class="anchor" id="creating-a-compilation-database"></a>
 Creating a compilation database</h3>
 <p><code>CMake</code> can optionally generate a compilation data base that may be used with a variety of code completion tools.</p>
 <p>By default, a compilation database is <em>not generated</em></p>
@@ -183,16 +183,16 @@ Creating a compilation database</h3>
 <li><a href="https://github.com/neoclide/coc.nvim"><code>coc.vim</code></a>: Code completion for VIM</li>
 <li><a href="https://github.com/ycm-core/YouCompleteMe"><code>YouCompleteMe</code></a> Code completion for VIM</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md7"></a>
+<h3><a class="anchor" id="using-the-ninja-build-system"></a>
 Using the ninja build system</h3>
 <p>Rather than using <code>make</code>, it may be desired to use the <a href="https://ninja-build.org/">Ninja</a> build tool.</p>
 <p>By default <code>make</code> will be used.</p>
 <p>To change the build system type, set the CMake flag:</p>
 <div class="fragment"><div class="line">-GNinja</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md8"></a>
+</div><!-- fragment --><h3><a class="anchor" id="build-sanitizers"></a>
 Build sanitizers</h3>
 <p><code>GZ_SANITIZER</code> CMake parameter can be used with different compilers to support the detection of different problems in the code. <a href="https://gazebosim.org/api/cmake/4/sanitizersbuilds.html">Check the documentation for <code>GZ_SANITIZER</code> flag</a></p>
-<h3><a class="anchor" id="autotoc_md9"></a>
+<h3><a class="anchor" id="using-ccache"></a>
 Using CCache</h3>
 <p>When you are doing frequent rebuilds, you can use a program to cache intermediate compiler results.</p>
 <p>First, install <a href="https://ccache.dev/"><code>ccache</code></a> and configure it to an appropriate cache size for your system:</p>
@@ -202,35 +202,35 @@ Using CCache</h3>
 </div><!-- fragment --><p>Then set the CMake flags:</p>
 <div class="fragment"><div class="line">-DCMAKE_C_COMPILER_LAUNCHER=ccache</div>
 <div class="line">-DCMAKE_CXX_COMPILER_LAUNCHER=ccache</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md10"></a>
+</div><!-- fragment --><h3><a class="anchor" id="enablingdisabling-documentation"></a>
 Enabling/Disabling Documentation</h3>
 <p>When you are doing frequent rebuilds, it generally doesn't make sense to rebuild documentation each build.</p>
 <p>By default, building documentation is <em>enabled</em>.</p>
 <p>To disable building documentation, set the CMake flag:</p>
 <div class="fragment"><div class="line">-DBUILD_DOCS=OFF</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md11"></a>
+</div><!-- fragment --><h3><a class="anchor" id="enablingdisabling-tests"></a>
 Enabling/Disabling Tests</h3>
 <p>If your intent is to only produce libraries and executables, it is possible to disable tests.</p>
 <p>By default, building tests is <em>enabled</em>.</p>
 <p>To disable building tests, set the CMake flag:</p>
 <div class="fragment"><div class="line">-DBUILD_TESTING=OFF</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md12"></a>
+</div><!-- fragment --><h3><a class="anchor" id="enablingdisabling-buildsystem-tests"></a>
 Enabling/Disabling Buildsystem Tests</h3>
 <p>There are additional tests of the Gazebo CMake buildsystem. It is recommend to run these tests when making modifications to the Gazebo CMake codebase.</p>
 <p>By default, building buildsystem tests is <em>disabled</em>.</p>
 <p>To enable building buildsystem tests, set the CMake flags:</p>
 <div class="fragment"><div class="line">-DBUILD_TESTING=ON</div>
 <div class="line">-DBUILDSYSTEM_TESTING=ON</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md13"></a>
+</div><!-- fragment --><h2><a class="anchor" id="developing-with-colcon-and-vcstool"></a>
 Developing with Colcon and vcstool</h2>
 <p><a href="https://colcon.readthedocs.io/en/released/"><code>colcon</code></a> is a tool that improves the workflow of building and testing multiple software packages. As a Gazebo collection is composed of multiple packages that are frequently built and tested together, <code>colcon</code> eases this workflow.</p>
 <p>The basic outline of obtaining Gazebo source packages via <code>vcs</code> and building with <code>colcon</code> is available in the <a href="https://gazebosim.org/docs/latest/install_ubuntu_src">Gazebo source installation documentation</a>.</p>
-<h3><a class="anchor" id="autotoc_md14"></a>
+<h3><a class="anchor" id="passing-cmake-flags-via-command-line"></a>
 Passing CMake flags via command line</h3>
 <p>When performing <code>colcon</code> builds, flags may be passed to Gazebo CMake to configure the build.</p>
 <p>This can be done via the <code>--cmake-args</code> flag in <code>colcon</code>:</p>
 <div class="fragment"><div class="line">colcon build --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=1</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md15"></a>
+</div><!-- fragment --><h3><a class="anchor" id="passing-colcon-mixins-via-command-line"></a>
 Passing colcon mixins via command line</h3>
 <p>To ease configuration of common flags, <code>colcon</code> has a concept of <code>mixins</code>, that are flags that "shortcut" groups of behavior.</p>
 <p>The set of readily-available defaults is in the <a href="https://github.com/colcon/colcon-mixin-repository">colcon-mixin-repository</a>.</p>
@@ -245,7 +245,7 @@ Passing colcon mixins via command line</h3>
 <div class="fragment"><div class="line">colcon build --mixin ccache rel-with-deb-info</div>
 </div><!-- fragment --><p>This will build with the flags applied from the requested mixins.</p>
 <p>Colcon allows you to create your own mixins for commonly-reused command line flags. For more information about creating mixins, consult the <a href="https://colcon.readthedocs.io/en/released/reference/mixin-arguments.html"><code>colcon mixin</code> documentation</a></p>
-<h3><a class="anchor" id="autotoc_md16"></a>
+<h3><a class="anchor" id="using-a-defaults-file"></a>
 Using a defaults file</h3>
 <p>It is useful to be able to apply a consistent set of flags across an entire Gazebo collection when building. One mechanism for accomplishing this is a <code>defaults.yaml</code> file. This is a file of configuration options that <code>colcon</code> will read to customize the default behavior. More information about the <code>defaults.yaml</code> file can be found in the corresponding <a href="https://colcon.readthedocs.io/en/released/user/configuration.html#defaults-yaml"><code>colcon</code> documentation</a></p>
 <p>For the following, if you do not have <code>colcon</code> or <code>vcs</code> installed, consult the <a href="https://gazebosim.org/docs/latest/install_ubuntu_src">Gazebo source installation documentation</a>.</p>
@@ -269,7 +269,7 @@ Using a defaults file</h3>
 <div class="fragment"><div class="line">cd ~/gz_edifice</div>
 <div class="line">export COLCON_DEFAULTS_FILE=`pwd`/defaults.yaml</div>
 <div class="line">colcon build</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md17"></a>
+</div><!-- fragment --><h3><a class="anchor" id="using-a-defaults-file-with-mixins"></a>
 Using a defaults file with mixins</h3>
 <p>Mixins can also be applied via the <code>defaults.yaml</code> file:</p>
 <div class="fragment"><div class="line">{</div>
@@ -282,7 +282,7 @@ Using a defaults file with mixins</h3>
 <div class="line">    ]</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md18"></a>
+</div><!-- fragment --><h3><a class="anchor" id="setting-a-per-workspace-defaults-file-with-direnv"></a>
 Setting a per-workspace defaults file with direnv</h3>
 <p>Optionally, defaults can be applied user-wide by placing a defaults file at <code>$COLCON_HOME/defaults.yaml</code> (which is <code>~/.colcon/defaults.yaml</code> by default).</p>
 <p>In order to manage per-workspace settings, a tool like <a href="https://direnv.net/"><code>direnv</code></a> can be used to automate the application of the environment variable. Once <code>direnv</code> is installed and configured with your shell of choice, do the following:</p>
