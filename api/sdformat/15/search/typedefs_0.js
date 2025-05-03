@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['consoleptr_0',['consoleptr',['../group__sdf.html#ga758e530ea81d30a0cb3ffaba4872a220',1,'sdf::ConsolePtr'],['../group__sdf.html#ga758e530ea81d30a0cb3ffaba4872a220',1,'sdf::SDF_VERSION_NAMESPACE::ConsolePtr']]],
-  ['custominertiacalculator_1',['custominertiacalculator',['../namespacesdf_1_1SDF__VERSION__NAMESPACE.html#a94793d4829d6beb75c08f5a4a45563b1',1,'sdf::CustomInertiaCalculator'],['../namespacesdf_1_1SDF__VERSION__NAMESPACE.html#a94793d4829d6beb75c08f5a4a45563b1',1,'sdf::SDF_VERSION_NAMESPACE::CustomInertiaCalculator']]],
-  ['custommodelparser_2',['custommodelparser',['../namespacesdf_1_1SDF__VERSION__NAMESPACE.html#a6432d22e11219fa1fc79b7a816c23643',1,'sdf::CustomModelParser'],['../namespacesdf_1_1SDF__VERSION__NAMESPACE.html#a6432d22e11219fa1fc79b7a816c23643',1,'sdf::SDF_VERSION_NAMESPACE::CustomModelParser']]]
+  ['axisalignedboxcalculator_0',['AxisAlignedBoxCalculator',['../classsdf_1_1SDF__VERSION__NAMESPACE_1_1Mesh.html#a6f699c7aa73bae62df2dc5b7a68ab39f',1,'sdf::SDF_VERSION_NAMESPACE::Mesh']]]
 ];
