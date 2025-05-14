@@ -1,6 +1,6 @@
 # Building your own robot
 
-In this tutorial we will learn how to build our own robot in SDFormat. We will build a simple two wheeled robot.
+In this tutorial we will learn how to build our own robot in SDFormat. We will build a simple two wheeled robot. 
 
  You can find the finished SDF file for the tutorial [here](https://github.com/ignitionrobotics/docs/blob/master/fortress/tutorials/building_robot/building_robot.sdf).
 
@@ -114,7 +114,10 @@ Every model is a group of `links` (can be just one link) connected together with
         <pose relative_to='__model__'>0.5 0 0.4 0 0 0</pose>
 ```
 
-We define the first link, the `chassis` of our car and it's pose relative to the `model`.
+We define the first link, the `chassis` of our car and it's pose relative to the `model`. Understanding the relationship between tags like <world>, <model>, <link>, <sensor>, and others is crucial for anyone working with robot simulations. Following diagram is aimed at helping developers and researchers ensure proper nesting and usage of elements while building simulation environments.
+
+![image](https://github.com/user-attachments/assets/4c3d096e-6d89-47e5-ba5e-38dfe3e2a510)
+
 
 #### Inertial properties
 
