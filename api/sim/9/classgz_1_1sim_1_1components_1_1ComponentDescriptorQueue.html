@@ -172,7 +172,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A class to hold the queue of component descriptors registered by translation units. This queue is necessary to ensure that component creation continues to work after plugins are unloaded. The typical scenario this aims to solve is: </p>
 <ol type="1">
-<li>Plugin P1 registers component descripter for component C1.</li>
+<li>Plugin P1 registers component descriptor for component C1.</li>
 <li>Plugin P1 gets unloaded.</li>
 <li>Plugin P2 registers a component descriptor for component C1 and tries to create an instance of C1. When P1 gets unloaded, the destructor of the static component registration object calls <a class="el" href="classgz_1_1sim_1_1components_1_1Factory.html#a1107cad5543d376c4eefb0906c8ee494" title="Unregister a component so that the factory can&#39;t create instances of the component anymore.">Factory::Unregister</a> which removes the component descriptor from the queue. Without this step, P2 would attempt to use the component descriptor created by P1 in step 3 and likely segfault because the memory associated with that descriptor has been deleted when P1 was unloaded. </li>
 </ol>
