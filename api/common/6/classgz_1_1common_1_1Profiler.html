@@ -36,7 +36,7 @@
         <h1 class="project_title">Gazebo Common</h1>
         <h2>API Reference</h2>
         <div class="version">
-        6.0.2
+        6.1.0
         </div>
       </header>
       <!-- NOTE: If you add a link to a doxygen generated page, then make
@@ -166,6 +166,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a0ed7e4fa6b9a1813743faac0e287dba3" id="r_a0ed7e4fa6b9a1813743faac0e287dba3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1Profiler.html#a0ed7e4fa6b9a1813743faac0e287dba3">LogText</a> (const char *_text)</td></tr>
 <tr class="memdesc:a0ed7e4fa6b9a1813743faac0e287dba3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log text to profiler output (if supported) If the underlying profiler implementation supports additional log messages, this can be used to send.  <br /></td></tr>
 <tr class="separator:a0ed7e4fa6b9a1813743faac0e287dba3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a243116738dbeb3bb10762e734614710f" id="r_a243116738dbeb3bb10762e734614710f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1Profiler.html#a243116738dbeb3bb10762e734614710f">SetImplementation</a> (<a class="elRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr</a>&lt; <a class="el" href="classgz_1_1common_1_1ProfilerImpl.html">ProfilerImpl</a> &gt; _impl)</td></tr>
+<tr class="memdesc:a243116738dbeb3bb10762e734614710f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a profiler implementation. Takes ownership of the pointer if the call succeeds. This method will fail if a profiler implementation was previously set (i.e. if <code>Valid</code> returns <code>True</code>).  <br /></td></tr>
+<tr class="separator:a243116738dbeb3bb10762e734614710f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a3404e977139c97ad100a430b8465e8" id="r_a5a3404e977139c97ad100a430b8465e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1Profiler.html#a5a3404e977139c97ad100a430b8465e8">SetThreadName</a> (const char *_name)</td></tr>
 <tr class="memdesc:a5a3404e977139c97ad100a430b8465e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the name of the current thread.  <br /></td></tr>
 <tr class="separator:a5a3404e977139c97ad100a430b8465e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -363,6 +366,33 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="a243116738dbeb3bb10762e734614710f" name="a243116738dbeb3bb10762e734614710f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a243116738dbeb3bb10762e734614710f">&#9670;&#160;</a></span>SetImplementation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool SetImplementation </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr</a>&lt; <a class="el" href="classgz_1_1common_1_1ProfilerImpl.html">ProfilerImpl</a> &gt;&#160;</td>
+          <td class="paramname"><em>_impl</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set a profiler implementation. Takes ownership of the pointer if the call succeeds. This method will fail if a profiler implementation was previously set (i.e. if <code>Valid</code> returns <code>True</code>). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_impl</td><td><a class="el" href="classgz_1_1common_1_1Profiler.html" title="Used to perform application-wide performance profiling.">Profiler</a> implementation to set. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the new profiler implementation was accepted. </dd></dl>
 
 </div>
 </div>
