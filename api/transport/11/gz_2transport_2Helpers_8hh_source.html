@@ -189,50 +189,47 @@
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">  #endif</span></div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition.html">ignition</a></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition_1_1transport.html">ignition::transport</a></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">namespace </span>transport</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  {</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="comment">// Inline bracket to help doxygen filtering.</span></div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">inline</span> <span class="keyword">namespace </span>IGNITION_TRANSPORT_VERSION_NAMESPACE {</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="namespaceignition_1_1transport.html#acb50c547fb13f92e2aeffff83146d37f">   55</a></span>&#160;<span class="comment"></span>    <span class="keyword">static</span> <span class="keyword">const</span> uint64_t <a class="code" href="namespaceignition_1_1transport.html#acb50c547fb13f92e2aeffff83146d37f">kUnthrottled</a> = <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/numeric_limits/max.html">std::numeric_limits&lt;uint64_t&gt;::max</a>();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">bool</span> IGNITION_TRANSPORT_VISIBLE <a class="code" href="namespaceignition_1_1transport.html#a51e284b65509cff29d138fbcf57a7636">env</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name,</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;                                        <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_value);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;std::string&gt;</a> IGNITION_TRANSPORT_VISIBLE <a class="code" href="namespaceignition_1_1transport.html#a41ae494e7db83d3711c6dfccdad22aef">split</a>(</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;        <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_orig,</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;        <span class="keywordtype">char</span> _delim);</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> IGNITION_TRANSPORT_VISIBLE <a class="code" href="namespaceignition_1_1transport.html#aceeca9328e1a66c4ca948d1fc23f4178">getProcessId</a>();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">// Use safer functions on Windows</span></div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">    #ifdef _MSC_VER</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">      #define ign_strcat strcat_s</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">      #define ign_strcpy strcpy_s</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">      #define ign_sprintf sprintf_s</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">      #define ign_strdup _strdup</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">    #else</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="gz_2transport_2Helpers_8hh.html#a3084d8ec1efeaa7c48c88c7d3962c953">   83</a></span>&#160;<span class="preprocessor">      #define ign_strcat std::strcat</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="gz_2transport_2Helpers_8hh.html#ab73170bf416a1f333d46e069b6aeeda4">   84</a></span>&#160;<span class="preprocessor">      #define ign_strcpy std::strcpy</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="gz_2transport_2Helpers_8hh.html#adbf979846ef8d1474d0978f3c6789943">   85</a></span>&#160;<span class="preprocessor">      #define ign_sprintf std::sprintf</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="gz_2transport_2Helpers_8hh.html#a3b1807b20bba2aa8080c92286858d67f">   86</a></span>&#160;<span class="preprocessor">      #define ign_strdup strdup</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">    #endif</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;}</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">// IGN_TRANSPORT_HELPERS_HH_</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="comment">// Inline bracket to help doxygen filtering.</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">inline</span> <span class="keyword">namespace </span>IGNITION_TRANSPORT_VERSION_NAMESPACE {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="comment">//</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="namespaceignition_1_1transport.html#acb50c547fb13f92e2aeffff83146d37f">   53</a></span>&#160;<span class="comment"></span>  <span class="keyword">static</span> <span class="keyword">const</span> uint64_t <a class="code" href="namespaceignition_1_1transport.html#acb50c547fb13f92e2aeffff83146d37f">kUnthrottled</a> = <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/numeric_limits/max.html">std::numeric_limits&lt;uint64_t&gt;::max</a>();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordtype">bool</span> IGNITION_TRANSPORT_VISIBLE <a class="code" href="namespaceignition_1_1transport.html#a51e284b65509cff29d138fbcf57a7636">env</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name,</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;                                      <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_value);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;std::string&gt;</a> IGNITION_TRANSPORT_VISIBLE <a class="code" href="namespaceignition_1_1transport.html#a41ae494e7db83d3711c6dfccdad22aef">split</a>(</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_orig,</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keywordtype">char</span> _delim);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> IGNITION_TRANSPORT_VISIBLE <a class="code" href="namespaceignition_1_1transport.html#aceeca9328e1a66c4ca948d1fc23f4178">getProcessId</a>();</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="comment">// Use safer functions on Windows</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">  #ifdef _MSC_VER</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">    #define ign_strcat strcat_s</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">    #define ign_strcpy strcpy_s</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">    #define ign_sprintf sprintf_s</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">    #define ign_strdup _strdup</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">  #else</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="gz_2transport_2Helpers_8hh.html#a3084d8ec1efeaa7c48c88c7d3962c953">   81</a></span>&#160;<span class="preprocessor">    #define ign_strcat std::strcat</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="gz_2transport_2Helpers_8hh.html#ab73170bf416a1f333d46e069b6aeeda4">   82</a></span>&#160;<span class="preprocessor">    #define ign_strcpy std::strcpy</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="gz_2transport_2Helpers_8hh.html#adbf979846ef8d1474d0978f3c6789943">   83</a></span>&#160;<span class="preprocessor">    #define ign_sprintf std::sprintf</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="gz_2transport_2Helpers_8hh.html#a3b1807b20bba2aa8080c92286858d67f">   84</a></span>&#160;<span class="preprocessor">    #define ign_strdup strdup</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">  #endif</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">// IGN_TRANSPORT_HELPERS_HH_</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespaceignition_html"><div class="ttname"><a href="namespaceignition.html">ignition</a></div><div class="ttdef"><b>Definition:</b> gz/transport/AdvertiseOptions.hh:28</div></div>
 <div class="ttc" id="abasic_string_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a></div><div class="ttdoc">STL class.</div></div>
 <div class="ttc" id="avector_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt; std::string &gt;</a></div></div>
 <div class="ttc" id="anamespaceignition_1_1transport_html_a41ae494e7db83d3711c6dfccdad22aef"><div class="ttname"><a href="namespaceignition_1_1transport.html#a41ae494e7db83d3711c6dfccdad22aef">ignition::transport::split</a></div><div class="ttdeci">std::vector&lt; std::string &gt; split(const std::string &amp;_orig, char _delim)</div><div class="ttdoc">split at a one character delimiter to get a vector of something</div></div>
 <div class="ttc" id="anamespaceignition_1_1transport_html_aceeca9328e1a66c4ca948d1fc23f4178"><div class="ttname"><a href="namespaceignition_1_1transport.html#aceeca9328e1a66c4ca948d1fc23f4178">ignition::transport::getProcessId</a></div><div class="ttdeci">unsigned int getProcessId()</div><div class="ttdoc">Portable function to get the id of the current process.</div></div>
-<div class="ttc" id="anamespaceignition_1_1transport_html_acb50c547fb13f92e2aeffff83146d37f"><div class="ttname"><a href="namespaceignition_1_1transport.html#acb50c547fb13f92e2aeffff83146d37f">ignition::transport::kUnthrottled</a></div><div class="ttdeci">static const uint64_t kUnthrottled</div><div class="ttdoc">Constant used when not interested in throttling.</div><div class="ttdef"><b>Definition:</b> gz/transport/Helpers.hh:55</div></div>
+<div class="ttc" id="anamespaceignition_1_1transport_html_acb50c547fb13f92e2aeffff83146d37f"><div class="ttname"><a href="namespaceignition_1_1transport.html#acb50c547fb13f92e2aeffff83146d37f">ignition::transport::kUnthrottled</a></div><div class="ttdeci">static const uint64_t kUnthrottled</div><div class="ttdoc">Constant used when not interested in throttling.</div><div class="ttdef"><b>Definition:</b> gz/transport/Helpers.hh:53</div></div>
 <div class="ttc" id="anamespaceignition_1_1transport_html_a51e284b65509cff29d138fbcf57a7636"><div class="ttname"><a href="namespaceignition_1_1transport.html#a51e284b65509cff29d138fbcf57a7636">ignition::transport::env</a></div><div class="ttdeci">bool env(const std::string &amp;_name, std::string &amp;_value)</div><div class="ttdoc">Find the environment variable '_name' and return its value.</div></div>
+<div class="ttc" id="anamespaceignition_1_1transport_html"><div class="ttname"><a href="namespaceignition_1_1transport.html">ignition::transport</a></div><div class="ttdef"><b>Definition:</b> gz/transport/AdvertiseOptions.hh:28</div></div>
 <div class="ttc" id="amax_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/types/numeric_limits/max.html">std::numeric_limits::max</a></div><div class="ttdeci">T max(T... args)</div></div>
       </div>
     </main>

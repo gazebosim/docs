@@ -169,51 +169,48 @@
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;gz/transport/config.hh&quot;</span></div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;gz/transport/Export.hh&quot;</span></div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition.html">ignition</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition_1_1transport.html">ignition::transport</a></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keyword">namespace </span>transport</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  {</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="comment">// Inline bracket to help doxygen filtering.</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keyword">inline</span> <span class="keyword">namespace </span>IGNITION_TRANSPORT_VERSION_NAMESPACE {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">//</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">class </span>SubscribeOptionsPrivate;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="classignition_1_1transport_1_1SubscribeOptions.html">   39</a></span>&#160;    <span class="keyword">class </span>IGNITION_TRANSPORT_VISIBLE <a class="code" href="classignition_1_1transport_1_1SubscribeOptions.html">SubscribeOptions</a></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    {</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1transport_1_1SubscribeOptions.html">SubscribeOptions</a>();</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1transport_1_1SubscribeOptions.html">SubscribeOptions</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1transport_1_1SubscribeOptions.html">SubscribeOptions</a> &amp;_otherSubscribeOpts);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keyword">public</span>: ~<a class="code" href="classignition_1_1transport_1_1SubscribeOptions.html">SubscribeOptions</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> Throttled() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> SetMsgsPerSec(<span class="keyword">const</span> uint64_t _newMsgsPerSec);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="keyword">public</span>: uint64_t MsgsPerSec() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#ifdef _WIN32</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">// Disable warning C4251 which is triggered by</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">// std::unique_ptr</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#pragma warning(push)</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="preprocessor">#pragma warning(disable: 4251)</span></div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      <span class="keyword">protected</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;SubscribeOptionsPrivate&gt;</a> dataPtr;</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#ifdef _WIN32</span></div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">#pragma warning(pop)</span></div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    };</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="comment">// Inline bracket to help doxygen filtering.</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">inline</span> <span class="keyword">namespace </span>IGNITION_TRANSPORT_VERSION_NAMESPACE {</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="comment">//</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keyword">class </span>SubscribeOptionsPrivate;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="classignition_1_1transport_1_1SubscribeOptions.html">   37</a></span>&#160;  <span class="keyword">class </span>IGNITION_TRANSPORT_VISIBLE <a class="code" href="classignition_1_1transport_1_1SubscribeOptions.html">SubscribeOptions</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">public</span>: <a class="code" href="classignition_1_1transport_1_1SubscribeOptions.html">SubscribeOptions</a>();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keyword">public</span>: <a class="code" href="classignition_1_1transport_1_1SubscribeOptions.html">SubscribeOptions</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1transport_1_1SubscribeOptions.html">SubscribeOptions</a> &amp;_otherSubscribeOpts);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keyword">public</span>: ~<a class="code" href="classignition_1_1transport_1_1SubscribeOptions.html">SubscribeOptions</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">bool</span> Throttled() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">void</span> SetMsgsPerSec(<span class="keyword">const</span> uint64_t _newMsgsPerSec);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keyword">public</span>: uint64_t MsgsPerSec() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">// Disable warning C4251 which is triggered by</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">// std::unique_ptr</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#pragma warning(push)</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#pragma warning(disable: 4251)</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <span class="keyword">protected</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;SubscribeOptionsPrivate&gt;</a> dataPtr;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#ifdef _WIN32</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">#pragma warning(pop)</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  };</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespaceignition_html"><div class="ttname"><a href="namespaceignition.html">ignition</a></div><div class="ttdef"><b>Definition:</b> gz/transport/AdvertiseOptions.hh:28</div></div>
-<div class="ttc" id="aclassignition_1_1transport_1_1SubscribeOptions_html_a3eb89e9d877dab95d7a31b8e65d22a4d"><div class="ttname"><a href="classignition_1_1transport_1_1SubscribeOptions.html#a3eb89e9d877dab95d7a31b8e65d22a4d">ignition::transport::SubscribeOptions::dataPtr</a></div><div class="ttdeci">std::unique_ptr&lt; SubscribeOptionsPrivate &gt; dataPtr</div><div class="ttdef"><b>Definition:</b> gz/transport/SubscribeOptions.hh:77</div></div>
+<div class="ttc" id="aclassignition_1_1transport_1_1SubscribeOptions_html_a3eb89e9d877dab95d7a31b8e65d22a4d"><div class="ttname"><a href="classignition_1_1transport_1_1SubscribeOptions.html#a3eb89e9d877dab95d7a31b8e65d22a4d">ignition::transport::SubscribeOptions::dataPtr</a></div><div class="ttdeci">std::unique_ptr&lt; SubscribeOptionsPrivate &gt; dataPtr</div><div class="ttdef"><b>Definition:</b> gz/transport/SubscribeOptions.hh:75</div></div>
 <div class="ttc" id="aclassignition_1_1transport_1_1SubscribeOptions_html_a6683dc4d1f7a04455b584d5c174a130b"><div class="ttname"><a href="classignition_1_1transport_1_1SubscribeOptions.html#a6683dc4d1f7a04455b584d5c174a130b">ignition::transport::SubscribeOptions::SetMsgsPerSec</a></div><div class="ttdeci">void SetMsgsPerSec(const uint64_t _newMsgsPerSec)</div><div class="ttdoc">Set the maximum number of messages per second received per topic. Note that we calculate the minimum ...</div></div>
-<div class="ttc" id="aclassignition_1_1transport_1_1SubscribeOptions_html"><div class="ttname"><a href="classignition_1_1transport_1_1SubscribeOptions.html">ignition::transport::SubscribeOptions</a></div><div class="ttdoc">A class to provide different options for a subscription.</div><div class="ttdef"><b>Definition:</b> gz/transport/SubscribeOptions.hh:39</div></div>
+<div class="ttc" id="aclassignition_1_1transport_1_1SubscribeOptions_html"><div class="ttname"><a href="classignition_1_1transport_1_1SubscribeOptions.html">ignition::transport::SubscribeOptions</a></div><div class="ttdoc">A class to provide different options for a subscription.</div><div class="ttdef"><b>Definition:</b> gz/transport/SubscribeOptions.hh:37</div></div>
 <div class="ttc" id="aclassignition_1_1transport_1_1SubscribeOptions_html_a5e7059386d009c2fff0890fc3043708c"><div class="ttname"><a href="classignition_1_1transport_1_1SubscribeOptions.html#a5e7059386d009c2fff0890fc3043708c">ignition::transport::SubscribeOptions::~SubscribeOptions</a></div><div class="ttdeci">~SubscribeOptions()</div><div class="ttdoc">Destructor.</div></div>
 <div class="ttc" id="aclassignition_1_1transport_1_1SubscribeOptions_html_a107b04f264a2e36f7726a46352a3d83f"><div class="ttname"><a href="classignition_1_1transport_1_1SubscribeOptions.html#a107b04f264a2e36f7726a46352a3d83f">ignition::transport::SubscribeOptions::SubscribeOptions</a></div><div class="ttdeci">SubscribeOptions()</div><div class="ttdoc">Constructor.</div></div>
+<div class="ttc" id="anamespaceignition_1_1transport_html"><div class="ttname"><a href="namespaceignition_1_1transport.html">ignition::transport</a></div><div class="ttdef"><b>Definition:</b> gz/transport/AdvertiseOptions.hh:28</div></div>
 <div class="ttc" id="aunique_ptr_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt; SubscribeOptionsPrivate &gt;</a></div></div>
 <div class="ttc" id="aclassignition_1_1transport_1_1SubscribeOptions_html_adf9b77f966b11d61c4cb087e34fc7ac6"><div class="ttname"><a href="classignition_1_1transport_1_1SubscribeOptions.html#adf9b77f966b11d61c4cb087e34fc7ac6">ignition::transport::SubscribeOptions::MsgsPerSec</a></div><div class="ttdeci">uint64_t MsgsPerSec() const</div><div class="ttdoc">Get the maximum number of messages per seconds received per topic.</div></div>
 <div class="ttc" id="aclassignition_1_1transport_1_1SubscribeOptions_html_a8917980b0288ebd3ee7b70123d49d123"><div class="ttname"><a href="classignition_1_1transport_1_1SubscribeOptions.html#a8917980b0288ebd3ee7b70123d49d123">ignition::transport::SubscribeOptions::Throttled</a></div><div class="ttdeci">bool Throttled() const</div><div class="ttdoc">Whether the subscription has been throttled.</div></div>
