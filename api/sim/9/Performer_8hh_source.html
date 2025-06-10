@@ -167,27 +167,28 @@
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="Factory_8hh.html">gz/sim/components/Factory.hh</a>&quot;</span></div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="Component_8hh.html">gz/sim/components/Component.hh</a>&quot;</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacegz.html" title="This library is part of the Gazebo project.">gz</a></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">namespace </span>sim</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>{</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">// Inline bracket to help doxygen filtering.</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keyword">inline</span> <span class="keyword">namespace </span>GZ_SIM_VERSION_NAMESPACE {</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">namespace </span>components</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="namespacegz_1_1sim_1_1components.html#a27f7c38dfcdd966e9a5b742e3d474383">   36</a></span>  <span class="keyword">using </span><a class="code hl_class" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">Performer</a> = <a class="code hl_class" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">Component&lt;NoData, class PerformerTag&gt;</a>;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespacegz_1_1sim_1_1components.html#a4023100714b77dab55735f29caac318d">   37</a></span>  <a class="code hl_define" href="Factory_8hh.html#abf3e5e175d1e8206d83eb11e6aa324bb" title="Static component registration macro.">GZ_SIM_REGISTER_COMPONENT</a>(<span class="stringliteral">&quot;gz_sim_components.Performer&quot;</span>, <a class="code hl_class" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">Performer</a>)</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keyword">using </span>PerformerRef = <a class="code hl_class" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">Component</a>&lt;<a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>, <span class="keyword">class </span>PerformerRefTag,</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>      serializers::StringSerializer&gt;;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <a class="code hl_define" href="Factory_8hh.html#abf3e5e175d1e8206d83eb11e6aa324bb" title="Static component registration macro.">GZ_SIM_REGISTER_COMPONENT</a>(&quot;gz_sim_components.PerformerRef&quot;, PerformerRef)</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;<a class="code" href="Serialization_8hh.html">gz/sim/components/Serialization.hh</a>&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacegz.html" title="This library is part of the Gazebo project.">gz</a></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">namespace </span>sim</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>{</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">// Inline bracket to help doxygen filtering.</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="keyword">inline</span> <span class="keyword">namespace </span>GZ_SIM_VERSION_NAMESPACE {</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">namespace </span>components</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="namespacegz_1_1sim_1_1components.html#a27f7c38dfcdd966e9a5b742e3d474383">   37</a></span>  <span class="keyword">using </span><a class="code hl_class" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">Performer</a> = <a class="code hl_class" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">Component&lt;NoData, class PerformerTag&gt;</a>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="namespacegz_1_1sim_1_1components.html#a4023100714b77dab55735f29caac318d">   38</a></span>  <a class="code hl_define" href="Factory_8hh.html#abf3e5e175d1e8206d83eb11e6aa324bb" title="Static component registration macro.">GZ_SIM_REGISTER_COMPONENT</a>(<span class="stringliteral">&quot;gz_sim_components.Performer&quot;</span>, <a class="code hl_class" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">Performer</a>)</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>  <span class="keyword">using </span>PerformerRef = <a class="code hl_class" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">Component</a>&lt;<a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>, <span class="keyword">class </span>PerformerRefTag,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>      serializers::StringSerializer&gt;;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <a class="code hl_define" href="Factory_8hh.html#abf3e5e175d1e8206d83eb11e6aa324bb" title="Static component registration macro.">GZ_SIM_REGISTER_COMPONENT</a>(&quot;gz_sim_components.PerformerRef&quot;, PerformerRef)</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>}</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>}</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>}</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
       </div>
     </main>
