@@ -162,75 +162,74 @@
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef GZ_SENSORS_MANAGER_HH_</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define GZ_SENSORS_MANAGER_HH_</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;utility&gt;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;sdf/sdf.hh&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;gz/utils/SuppressWarning.hh&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;gz/common/Console.hh&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;gz/sensors/config.hh&gt;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;gz/sensors/Export.hh&gt;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Sensor_8hh.html">gz/sensors/Sensor.hh</a>&gt;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="SensorFactory_8hh.html">gz/sensors/SensorFactory.hh</a>&gt;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacegz.html">gz</a></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keyword">namespace </span>sensors</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  {</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="comment">// Inline bracket to help doxygen filtering.</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keyword">inline</span> <span class="keyword">namespace </span>GZ_SENSORS_VERSION_NAMESPACE {</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="comment">// Forward declarations</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keyword">class </span>ManagerPrivate;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Manager.html">   53</a></span>&#160;    <span class="keyword">class </span>GZ_SENSORS_VISIBLE <a class="code" href="classgz_1_1sensors_1_1Manager.html" title="Loads and runs sensors.">Manager</a></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {</div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Manager.html#a8fae1352a98517c1ecb0a6e7396e3f06">   56</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classgz_1_1sensors_1_1Manager.html#a8fae1352a98517c1ecb0a6e7396e3f06" title="constructor">Manager</a>();</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Manager.html#a2d267823748603d5577dc7809c0a2056">   59</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code" href="classgz_1_1sensors_1_1Manager.html#a2d267823748603d5577dc7809c0a2056" title="destructor">~Manager</a>();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Manager.html#ad19abaacb073bdef7940926f64b2aace">   63</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1sensors_1_1Manager.html#ad19abaacb073bdef7940926f64b2aace" title="Initialize the sensor library without rendering or physics.">Init</a>();</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span>&lt;<span class="keyword">typename</span> SensorType, <span class="keyword">typename</span> SdfType&gt;</div>
-<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Manager.html#a9b048a757604f30fa687b0779a6b275a">   74</a></span>&#160;              SensorType *<a class="code" href="classgz_1_1sensors_1_1Manager.html#a9b048a757604f30fa687b0779a6b275a" title="Create a sensor from an SDF ovject with a known sensor type.">CreateSensor</a>(SdfType _sdf)</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;              {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <a class="code" href="classgz_1_1sensors_1_1SensorFactory.html" title="A factory class for creating sensors This class instantiates sensor objects based on the sensor type ...">SensorFactory</a> sensorFactory;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keyword">auto</span> sensor = sensorFactory.<a class="code" href="classgz_1_1sensors_1_1SensorFactory.html#a17226844f4fc28ef16730828e4678204" title="Create a sensor from a SDF DOM object with a known sensor type.">CreateSensor</a>&lt;SensorType&gt;(_sdf);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                <span class="keywordflow">if</span> (<span class="keyword">nullptr</span> == sensor)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                {</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                  gzerr &lt;&lt; <span class="stringliteral">&quot;Failed to create sensor.&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                  <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                <span class="keyword">auto</span> result = sensor.get();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="namespacegz_1_1sensors.html#a727f2c6751765536f5c5e33d60e23c15">NO_SENSOR</a> == this-&gt;AddSensor(<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(sensor)))</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                {</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                  gzerr &lt;&lt; <span class="stringliteral">&quot;Failed to add sensor.&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                  <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                }</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;              }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;sdf/sdf.hh&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;gz/utils/SuppressWarning.hh&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;gz/common/Console.hh&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;gz/sensors/config.hh&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;gz/sensors/Export.hh&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Sensor_8hh.html">gz/sensors/Sensor.hh</a>&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="SensorFactory_8hh.html">gz/sensors/SensorFactory.hh</a>&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacegz.html">gz</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;{</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">namespace </span>sensors</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">// Inline bracket to help doxygen filtering.</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keyword">inline</span> <span class="keyword">namespace </span>GZ_SENSORS_VERSION_NAMESPACE {</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="comment">// Forward declarations</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">class </span>ManagerPrivate;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Manager.html">   52</a></span>&#160;    <span class="keyword">class </span>GZ_SENSORS_VISIBLE <a class="code" href="classgz_1_1sensors_1_1Manager.html" title="Loads and runs sensors.">Manager</a></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    {</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Manager.html#a8fae1352a98517c1ecb0a6e7396e3f06">   55</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classgz_1_1sensors_1_1Manager.html#a8fae1352a98517c1ecb0a6e7396e3f06" title="constructor">Manager</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Manager.html#a2d267823748603d5577dc7809c0a2056">   58</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <a class="code" href="classgz_1_1sensors_1_1Manager.html#a2d267823748603d5577dc7809c0a2056" title="destructor">~Manager</a>();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Manager.html#ad19abaacb073bdef7940926f64b2aace">   62</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1sensors_1_1Manager.html#ad19abaacb073bdef7940926f64b2aace" title="Initialize the sensor library without rendering or physics.">Init</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      <span class="keyword">public</span>: <span class="keyword">template</span>&lt;<span class="keyword">typename</span> SensorType, <span class="keyword">typename</span> SdfType&gt;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Manager.html#a9b048a757604f30fa687b0779a6b275a">   73</a></span>&#160;              SensorType *<a class="code" href="classgz_1_1sensors_1_1Manager.html#a9b048a757604f30fa687b0779a6b275a" title="Create a sensor from an SDF object with a known sensor type.">CreateSensor</a>(SdfType _sdf)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;              {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                <a class="code" href="classgz_1_1sensors_1_1SensorFactory.html" title="A factory class for creating sensors This class instantiates sensor objects based on the sensor type ...">SensorFactory</a> sensorFactory;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                <span class="keyword">auto</span> sensor = sensorFactory.<a class="code" href="classgz_1_1sensors_1_1SensorFactory.html#a17226844f4fc28ef16730828e4678204" title="Create a sensor from a SDF DOM object with a known sensor type.">CreateSensor</a>&lt;SensorType&gt;(_sdf);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                <span class="keywordflow">if</span> (<span class="keyword">nullptr</span> == sensor)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                  gzerr &lt;&lt; <span class="stringliteral">&quot;Failed to create sensor.&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                  <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;                }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                <span class="keyword">auto</span> result = sensor.get();</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                <span class="keywordflow">if</span> (<a class="code" href="namespacegz_1_1sensors.html#a727f2c6751765536f5c5e33d60e23c15">NO_SENSOR</a> == this-&gt;AddSensor(<a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move</a>(sensor)))</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;                  gzerr &lt;&lt; <span class="stringliteral">&quot;Failed to add sensor.&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                  <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                <span class="keywordflow">return</span> result;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;              }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Manager.html#a1ca8cfff0e9cd8dcb6e1d133a2b74881">   98</a></span>&#160;      <span class="keyword">public</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/size_t.html">SensorId</a> <a class="code" href="classgz_1_1sensors_1_1Manager.html#a1ca8cfff0e9cd8dcb6e1d133a2b74881" title="Add a sensor for this manager to manage.">AddSensor</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;Sensor&gt;</a> _sensor);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Manager.html#a309987c0183531a9ac58566a56693e0f">  103</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classgz_1_1sensors_1_1Sensor.html" title="a base sensor class">gz::sensors::Sensor</a> *<a class="code" href="classgz_1_1sensors_1_1Manager.html#a309987c0183531a9ac58566a56693e0f" title="Get an instance of a loaded sensor by sensor id.">Sensor</a>(</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;                  <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/size_t.html">gz::sensors::SensorId</a> _id);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Manager.html#a00a3040202bec506eee6aa11fa255d4b">  109</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1sensors_1_1Manager.html#a00a3040202bec506eee6aa11fa255d4b" title="Remove a sensor by ID.">Remove</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/size_t.html">gz::sensors::SensorId</a> _id);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Manager.html#a10688584f06a9a68eab21faa1e1739f1">  115</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sensors_1_1Manager.html#a10688584f06a9a68eab21faa1e1739f1" title="Run the sensor generation one step.">RunOnce</a>(<span class="keyword">const</span> std::chrono::steady_clock::duration &amp;_time,</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                  <span class="keywordtype">bool</span> _force = <span class="keyword">false</span>);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;      GZ_UTILS_WARN_IGNORE__DLL_INTERFACE_MISSING</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;ManagerPrivate&gt;</a> dataPtr;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;      GZ_UTILS_WARN_RESUME__DLL_INTERFACE_MISSING</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    };</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    }</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  }</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Manager.html#a1ca8cfff0e9cd8dcb6e1d133a2b74881">   97</a></span>&#160;      <span class="keyword">public</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/size_t.html">SensorId</a> <a class="code" href="classgz_1_1sensors_1_1Manager.html#a1ca8cfff0e9cd8dcb6e1d133a2b74881" title="Add a sensor for this manager to manage.">AddSensor</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;Sensor&gt;</a> _sensor);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Manager.html#a309987c0183531a9ac58566a56693e0f">  102</a></span>&#160;      <span class="keyword">public</span>: <a class="code" href="classgz_1_1sensors_1_1Sensor.html" title="a base sensor class">gz::sensors::Sensor</a> *<a class="code" href="classgz_1_1sensors_1_1Manager.html#a309987c0183531a9ac58566a56693e0f" title="Get an instance of a loaded sensor by sensor id.">Sensor</a>(</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;                  <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/size_t.html">gz::sensors::SensorId</a> _id);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Manager.html#a00a3040202bec506eee6aa11fa255d4b">  108</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> <a class="code" href="classgz_1_1sensors_1_1Manager.html#a00a3040202bec506eee6aa11fa255d4b" title="Remove a sensor by ID.">Remove</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/size_t.html">gz::sensors::SensorId</a> _id);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="classgz_1_1sensors_1_1Manager.html#a10688584f06a9a68eab21faa1e1739f1">  114</a></span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sensors_1_1Manager.html#a10688584f06a9a68eab21faa1e1739f1" title="Run the sensor generation one step.">RunOnce</a>(<span class="keyword">const</span> std::chrono::steady_clock::duration &amp;_time,</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                  <span class="keywordtype">bool</span> _force = <span class="keyword">false</span>);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      GZ_UTILS_WARN_IGNORE__DLL_INTERFACE_MISSING</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;      <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;ManagerPrivate&gt;</a> dataPtr;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;      GZ_UTILS_WARN_RESUME__DLL_INTERFACE_MISSING</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    };</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  }</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;}</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
       </div>
     </main>
