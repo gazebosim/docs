@@ -38,8 +38,11 @@ Before starting the release process, make sure to ask for write access to:
 To interact with Jenkins an API token needs to be created and stored in the
 user system:
 
- 1. Creating a Jenkins API token: opening https://build.osrfoundation.org/me/configure
-    the section of "API Token" shows the "Add new Token" button
+ 1. Creating a Jenkins API token: Open
+    [https://build.osrfoundation.org/user/<user\>/security/](https://build.osrfoundation.org/user/<user>/security/)
+    (Remember to change `<user>` to your username).
+    In the "API Token" section, there is an `Add new Token` button to add a new
+    Jenkins API token.
 
  2. The token needs to be stored in `~/.buildfarm/jenkins.ini` in the form:
     ```
