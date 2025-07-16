@@ -32,7 +32,8 @@ please open a pull request by clicking on the "Edit on Github" link.
 - **Space ROS**: An open-source space robotics framework for developing flight-quality robotic and autonomous space systems. [{octicon}`globe` link](https://space.ros.org/)
 - **SubT**: DARPA Subterranean Challenge. [{octicon}`globe` link](https://github.com/osrf/subt)
 - **Turtlebot 4**: Low-cost educational robot. [{octicon}`globe` link](https://clearpathrobotics.com/turtlebot-4)
-- **VRX**: Virtual RobotX, maritime surface vehicle competition. [{octicon}`globe` link](https://github.com/osrf/vrx)
+- **VRX**: Virtual RobotX, maritime surface vehicle competition. [{octicon}`globe` link](https://github.com/osrf/vrx)\
+- **gazebo_terrain_generator**: A super easy-to-use tool for generate 3D Gazebo terrain using real-world elevation and satellite data. [{octicon}`globe` link](https://github.com/saiaravind19/gazebo_terrain_generator)
 
 ## Gazebo Plugins
 
