@@ -143,7 +143,8 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
                     child_md.append(f"{child['title']} <{file_url}>")
 
                 with open(version_tmp_dir / new_file_path, "a") as ind_f:
-                    ind_f.write("```")
+                    # Include {toctree} for children below the .md text
+                    ind_f.write("\n```") 
                     ind_f.write("\n".join(toc_directives) + "\n")
                     ind_f.writelines("\n".join(child_md) + "\n")
                     ind_f.write("```\n")
