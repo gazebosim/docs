@@ -28,22 +28,22 @@ This list of library versions may change up to the release date.
 
 | Library name       | Version       |
 | ------------------ |:-------------:|
-|   gz-cmake         |       4.x     |
-|   gz-common        |       6.x     |
-|   gz-fuel-tools    |       10.x     |
+|   gz-cmake         |       5.x     |
+|   gz-common        |       7.x     |
+|   gz-fuel-tools    |       11.x     |
 |   gz-sim           |       10.x     |
 |   gz-gui           |       10.x     |
 |   gz-launch        |       9.x     |
-|   gz-math          |       8.x     |
-|   gz-msgs          |      11.x     |
-|   gz-physics       |       8.x     |
-|   gz-plugin        |       3.x     |
-|   gz-rendering     |       9.x     |
-|   gz-sensors       |       9.x     |
+|   gz-math          |       9.x     |
+|   gz-msgs          |      12.x     |
+|   gz-physics       |       9.x     |
+|   gz-plugin        |       4.x     |
+|   gz-rendering     |       10.x     |
+|   gz-sensors       |       10.x     |
 |   gz-tools         |       2.x     |
-|   gz-transport     |      14.x     |
-|   gz-utils         |       3.x     |
-|   sdformat         |      15.x     |
+|   gz-transport     |      15.x     |
+|   gz-utils         |       4.x     |
+|   sdformat         |      16.x     |
 
 ## Supported platforms
 
