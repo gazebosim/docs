@@ -65,43 +65,93 @@ for a valid configuration file.
 
 The package `ros_gz_bridge` contains a launch file named
 `ros_gz_bridge.launch.py`. You can use it to start a ROS 2 and Gazebo bridge.
-Here's an example:
 
+Here's an example:
 ```bash
-ros2 launch ros_gz_bridge ros_gz_bridge.launch.py name:=ros_gz_bridge config_file:=<path_to_your_YAML_file>
+ros2 launch ros_gz_bridge ros_gz_bridge.launch.py bridge_name:=ros_gz_bridge config_file:=<path_to_your_YAML_file>
 ```
 
-## Launching the bridge from a custom launch file.
+Launching with composition:
+```bash
+ros2 launch ros_gz_bridge ros_gz_bridge.launch.py bridge_name:=ros_gz_bridge config_file:=<path_to_your_YAML_file> use_composition:=True create_own_container:=True
+```
+Alternatively, if an existing container is already running, you can pass its name
+when launching the bridge using the `container_name` parameter. More info about composition can be viewed [here](ros2_overview.md#composition)
+
+Check [this block](https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_bridge/launch/ros_gz_bridge.launch.py#L25-L68)
+from the source code to know all the different parameters accepted by this
+launch file.
+
+QOS Overrides:
+
+QOS overrides can be passed as extra parameters to the bridge using the `bridge_params` argument of the launch file. An example of this:
+```bash
+ros2 launch ros_gz_bridge ros_gz_bridge.launch.py bridge_name:=ros_gz_bridge config_file:=<path_to_your_YAML_file> bridge_params:={'qos_overrides./topic_name.publisher.durability': 'transient_local', 'qos_overrides./another_topic_name.publisher.durability': 'transient_local'}
+```
+You can omit the following from what you pass to `bridge_params`: `{}`, ` `, `"`, `'`.
+
+More info about using QOS overrides can be found [here](https://docs.ros.org/en/jazzy/How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback.html#using-qos-overrides)
+
+## Launching the bridge from a custom launch file in XML.
 
 It's also possible to trigger the bridge from your custom launch file. For that
 purpose we have created the `<ros_gz_bridge/>` tag that can be used from you
 XML or YAML launch file. In this case, the arguments are passed as attributes
-within this tag. Here's an example:
+within this tag. Here's a simplified example, a more comprehensive example can be viewed [here](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/launch/ros_gz_bridge.launch):
 
 ```xml
 <launch>
-  <arg name="name" default="ros_gz_bridge" />
-  <arg name="config_file" default="" />
-  <arg name="container_name" default="ros_gz_container" />
-  <arg name="namespace" default="" />
-  <arg name="use_composition" default="True" />
-  <arg name="use_respawn" default="False" />
-  <arg name="log_level" default="info" />
-  <ros_gz_bridge 
-    name="$(var name)"
-    config_file="$(var config_file)"
-    container_name="$(var container_name)"
-    namespace="$(var namespace)"
-    use_composition="$(var use_composition)"
-    use_respawn="$(var use_respawn)"
-    log_level="$(var log_level)">
+  <arg name="bridge_name" />
+  <arg name="config_file" />
+  <ros_gz_bridge
+    bridge_name="$(var bridge_name)"
+    config_file="$(var config_file)">
   </ros_gz_bridge>
 </launch>
 ```
 
 In this case the `<ros_gz_bridge>` parameters are read from the command line.
 That's an option but not strictly necessary as you could decide to hardcode some
-of the values.
+of the values or not even use all the parameters.
+
+## Launching the bridge from a custom launch file in Python.
+
+Here's a simplified example of a Python launch file used to load a bridge from
+Python, a more comprehensive example can be viewed [here](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/launch/ros_gz_bridge.launch.py):
+```python
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration, TextSubstitution
+from ros_gz_bridge.actions import RosGzBridge
+
+
+def generate_launch_description():
+
+    bridge_name = LaunchConfiguration('bridge_name')
+    config_file = LaunchConfiguration('config_file')
+
+    declare_bridge_name_cmd = DeclareLaunchArgument(
+        'bridge_name', description='Name of ros_gz_bridge node'
+    )
+
+    declare_config_file_cmd = DeclareLaunchArgument(
+        'config_file', description='YAML config file'
+    )
+
+    # Create the launch description and populate
+    ld = LaunchDescription([
+        RosGzBridge(
+            bridge_name=LaunchConfiguration('bridge_name'),
+            config_file=LaunchConfiguration('config_file'),
+        ),
+    ])
+
+    # Declare the launch options
+    ld.add_action(declare_bridge_name_cmd)
+    ld.add_action(declare_config_file_cmd)
+
+    return ld
+```
 
 ## Publish key strokes to ROS
 
