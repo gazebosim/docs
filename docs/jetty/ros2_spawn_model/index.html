@@ -489,9 +489,9 @@ we have provided the following mechanisms:</p>
 <section id="spawn-a-model-using-the-launch-file-included-in-ros-gz-sim">
 <h2>Spawn a model using the launch file included in <code class="docutils literal notranslate"><span class="pre">ros_gz_sim</span></code>.<a class="headerlink" href="#spawn-a-model-using-the-launch-file-included-in-ros-gz-sim" title="Link to this heading">#</a></h2>
 <p>The package <code class="docutils literal notranslate"><span class="pre">ros_gz_sim</span></code> contains a launch file named
-<code class="docutils literal notranslate"><span class="pre">ros_gz_spawn_model.launch.py</span></code>. You can use it to spawn a new model into an
+<code class="docutils literal notranslate"><span class="pre">gz_spawn_model.launch.py</span></code>. You can use it to spawn a new model into an
 existing simulation. Here’s an example:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>ros_gz_sim<span class="w"> </span>gz_spawn_model.launch.py<span class="w"> </span>world:<span class="o">=</span>empty<span class="w"> </span>file:<span class="o">=</span><span class="k">$(</span>ros2<span class="w"> </span>pkg<span class="w"> </span>prefix<span class="w"> </span>--share<span class="w"> </span>ros_gz_sim_demos<span class="k">)</span>/models/vehicle/model.sdf<span class="w"> </span>name:<span class="o">=</span>my_vehicle<span class="w"> </span>x:<span class="o">=</span><span class="m">5</span>.0<span class="w"> </span>y:<span class="o">=</span><span class="m">5</span>.0<span class="w"> </span>z:<span class="o">=</span><span class="m">0</span>.5
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>ros_gz_sim<span class="w"> </span>gz_spawn_model.launch.py<span class="w"> </span>world:<span class="o">=</span>empty<span class="w"> </span>file:<span class="o">=</span><span class="k">$(</span>ros2<span class="w"> </span>pkg<span class="w"> </span>prefix<span class="w"> </span>--share<span class="w"> </span>ros_gz_sim_demos<span class="k">)</span>/models/vehicle/model.sdf<span class="w"> </span>entity_name:<span class="o">=</span>my_vehicle<span class="w"> </span>x:<span class="o">=</span><span class="m">5</span>.0<span class="w"> </span>y:<span class="o">=</span><span class="m">5</span>.0<span class="w"> </span>z:<span class="o">=</span><span class="m">0</span>.5
 </pre></div>
 </div>
 <p>Check <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/cadae1c8323a74395c09a37e3de4c669c8c09d4f/ros_gz_sim/launch/ros_gz_spawn_model.launch.py#L33-L44">this block</a>
@@ -507,9 +507,9 @@ within this tag. Here’s an example:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;launch&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;world&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;file&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;xml_string&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;model_string&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;topic&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;name&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;entity_name&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;allow_renaming&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;False&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;x&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;y&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
@@ -520,9 +520,9 @@ within this tag. Here’s an example:</p>
 <span class="w">  </span><span class="nt">&lt;gz_spawn_model</span><span class="w"> </span>
 <span class="w">    </span><span class="na">world=</span><span class="s">&quot;$(var world)&quot;</span>
 <span class="w">    </span><span class="na">file=</span><span class="s">&quot;$(var file)&quot;</span>
-<span class="w">    </span><span class="na">xml_string=</span><span class="s">&quot;$(var xml_string)&quot;</span>
+<span class="w">    </span><span class="na">model_string=</span><span class="s">&quot;$(var model_string)&quot;</span>
 <span class="w">    </span><span class="na">topic=</span><span class="s">&quot;$(var topic)&quot;</span>
-<span class="w">    </span><span class="na">name=</span><span class="s">&quot;$(var name)&quot;</span>
+<span class="w">    </span><span class="na">entity_name=</span><span class="s">&quot;$(var entity_name)&quot;</span>
 <span class="w">    </span><span class="na">allow_renaming=</span><span class="s">&quot;$(var allow_renaming)&quot;</span>
 <span class="w">    </span><span class="na">x=</span><span class="s">&quot;$(var x)&quot;</span>
 <span class="w">    </span><span class="na">y=</span><span class="s">&quot;$(var y)&quot;</span>
@@ -536,7 +536,17 @@ within this tag. Here’s an example:</p>
 </div>
 <p>In this case the <code class="docutils literal notranslate"><span class="pre">&lt;gz_spawn_model&gt;</span></code> parameters are read from the command line.
 That’s an option but not strictly necessary as you could decide to hardcode some
-of the values.</p>
+of the values or not even use all of the parameters.</p>
+</section>
+<section id="spawning-a-model-alongside-launching-ros-gz-bridge">
+<h2>Spawning a model alongside launching ros_gz_bridge<a class="headerlink" href="#spawning-a-model-alongside-launching-ros-gz-bridge" title="Link to this heading">#</a></h2>
+<p>An example launch file for XML can be viewed <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_sim/launch/ros_gz_spawn_model.launch">here</a>
+An example launch file for Python can be viewed <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_sim/launch/ros_gz_spawn_model.launch.py">here</a></p>
+<p>Example command for directly using these launch files from the terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>ros_gz_sim<span class="w"> </span>ros_gz_spawn_model.launch.py<span class="w"> </span>world:<span class="o">=</span>empty<span class="w"> </span>file:<span class="o">=</span><span class="k">$(</span>ros2<span class="w"> </span>pkg<span class="w"> </span>prefix<span class="w"> </span>--share<span class="w"> </span>ros_gz_sim_demos<span class="k">)</span>/models/vehicle/model.sdf<span class="w"> </span>entity_name:<span class="o">=</span>my_vehicle<span class="w"> </span>x:<span class="o">=</span><span class="m">5</span>.0<span class="w"> </span>y:<span class="o">=</span><span class="m">5</span>.0<span class="w"> </span>z:<span class="o">=</span><span class="m">0</span>.5<span class="w"> </span>bridge_name:<span class="o">=</span>ros_gz_bridge<span class="w"> </span>config_file:<span class="o">=</span>&lt;path_to_your_YAML_file&gt;
+</pre></div>
+</div>
+<p>More info about <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> can be viewed <a class="reference internal" href="../ros2_integration/"><span class="doc std std-doc">here</span></a>.</p>
 </section>
 </section>
 
@@ -565,6 +575,7 @@ of the values.</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spawn-a-model-using-the-launch-file-included-in-ros-gz-sim">Spawn a model using the launch file included in <code class="docutils literal notranslate"><span class="pre">ros_gz_sim</span></code>.</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spawn-a-model-from-a-custom-launch-file">Spawn a model from a custom launch file.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spawning-a-model-alongside-launching-ros-gz-bridge">Spawning a model alongside launching ros_gz_bridge</a></li>
 </ul>
   </nav></div>
 

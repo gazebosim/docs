@@ -517,43 +517,46 @@ values or not even use all the parameters.</p>
 </section>
 <section id="python">
 <h3>Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h3>
-<p>Python launch files provide more low-level customization and logic compared to XML launch files.
-In the following example, the user can specify a world argument to launch an environment for
-the Moon, Mars, or Enceladus. It additionally sets the resource path environment variable and
-sets up empty arrays for topics to be bridged and remapped from Gazebo to ROS 2:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ament_index_python.packages</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_package_share_directory</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">launch</span><span class="w"> </span><span class="kn">import</span> <span class="n">LaunchDescription</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">launch.actions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">DeclareLaunchArgument</span><span class="p">,</span> <span class="n">SetEnvironmentVariable</span><span class="p">,</span> 
-                            <span class="n">IncludeLaunchDescription</span><span class="p">,</span> <span class="n">SetLaunchConfiguration</span><span class="p">)</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">launch.substitutions</span><span class="w"> </span><span class="kn">import</span> <span class="n">PathJoinSubstitution</span><span class="p">,</span> <span class="n">LaunchConfiguration</span><span class="p">,</span> <span class="n">TextSubstitution</span>
+<p>Python launch files provide more low-level customization and logic compared to XML launch files. For example, you can set environment variables and include Python specific functions and logic.
+In the following example, the user can replace the example package, world, and bridged topic with their own. This is intended as a scaffolding more than something that can be run on its own.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">launch</span><span class="w"> </span><span class="kn">import</span> <span class="n">LaunchDescription</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">launch_ros.actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">launch.actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">SetEnvironmentVariable</span><span class="p">,</span> <span class="n">IncludeLaunchDescription</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">launch.launch_description_sources</span><span class="w"> </span><span class="kn">import</span> <span class="n">PythonLaunchDescriptionSource</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">launch.substitutions</span><span class="w"> </span><span class="kn">import</span> <span class="n">PathJoinSubstitution</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">launch_ros.substitutions</span><span class="w"> </span><span class="kn">import</span> <span class="n">FindPackageShare</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">generate_launch_description</span><span class="p">():</span>
-    <span class="n">pkg_ros_gz_sim</span> <span class="o">=</span> <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s1">&#39;ros_gz_sim&#39;</span><span class="p">)</span>
-    <span class="n">pkg_spaceros_gz_sim</span> <span class="o">=</span> <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s1">&#39;spaceros_gz_sim&#39;</span><span class="p">)</span>
+    <span class="n">ros_gz_sim_pkg_path</span> <span class="o">=</span> <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s1">&#39;ros_gz_sim&#39;</span><span class="p">)</span>
+    <span class="n">example_pkg_path</span> <span class="o">=</span> <span class="n">FindPackageShare</span><span class="p">(</span><span class="s1">&#39;example_package&#39;</span><span class="p">)</span>  <span class="c1"># Replace with your own package name</span>
     <span class="n">gz_launch_path</span> <span class="o">=</span> <span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">pkg_ros_gz_sim</span><span class="p">,</span> <span class="s1">&#39;launch&#39;</span><span class="p">,</span> <span class="s1">&#39;gz_sim.launch.py&#39;</span><span class="p">])</span>
-    <span class="n">gz_model_path</span> <span class="o">=</span> <span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">pkg_spaceros_gz_sim</span><span class="p">,</span> <span class="s1">&#39;models&#39;</span><span class="p">])</span>
 
     <span class="k">return</span> <span class="n">LaunchDescription</span><span class="p">([</span>
-        <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
-            <span class="s1">&#39;world&#39;</span><span class="p">,</span>
-            <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;moon&#39;</span><span class="p">,</span>
-            <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;moon&#39;</span><span class="p">,</span> <span class="s1">&#39;mars&#39;</span><span class="p">,</span> <span class="s1">&#39;enceladus&#39;</span><span class="p">],</span>
-            <span class="n">description</span><span class="o">=</span><span class="s1">&#39;World to load into Gazebo&#39;</span>
+        <span class="n">SetEnvironmentVariable</span><span class="p">(</span>
+            <span class="s1">&#39;GZ_SIM_RESOURCE_PATH&#39;</span><span class="p">,</span>
+            <span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">example_pkg_path</span><span class="p">,</span> <span class="s1">&#39;models&#39;</span><span class="p">])</span>
         <span class="p">),</span>
-        <span class="n">SetLaunchConfiguration</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;world_file&#39;</span><span class="p">,</span> 
-                               <span class="n">value</span><span class="o">=</span><span class="p">[</span><span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">),</span> 
-                                      <span class="n">TextSubstitution</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;.sdf&#39;</span><span class="p">)]),</span>
-        <span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s1">&#39;GZ_SIM_RESOURCE_PATH&#39;</span><span class="p">,</span> <span class="n">gz_model_path</span><span class="p">),</span>
+        <span class="n">SetEnvironmentVariable</span><span class="p">(</span>
+            <span class="s1">&#39;GZ_SIM_PLUGIN_PATH&#39;</span><span class="p">,</span>
+            <span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">example_pkg_path</span><span class="p">,</span> <span class="s1">&#39;plugins&#39;</span><span class="p">])</span>
+        <span class="p">),</span>
         <span class="n">IncludeLaunchDescription</span><span class="p">(</span>
             <span class="n">PythonLaunchDescriptionSource</span><span class="p">(</span><span class="n">gz_launch_path</span><span class="p">),</span>
             <span class="n">launch_arguments</span><span class="o">=</span><span class="p">{</span>
-                <span class="s1">&#39;gz_args&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">pkg_spaceros_gz_sim</span><span class="p">,</span> <span class="s1">&#39;worlds&#39;</span><span class="p">,</span>
-                                                  <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">&#39;world_file&#39;</span><span class="p">)])],</span>
+                <span class="s1">&#39;gz_args&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">example_pkg_path</span><span class="p">,</span> <span class="s1">&#39;worlds/example_world.sdf&#39;</span><span class="p">])],</span>  <span class="c1"># Replace with your own world file</span>
                 <span class="s1">&#39;on_exit_shutdown&#39;</span><span class="p">:</span> <span class="s1">&#39;True&#39;</span>
             <span class="p">}</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span>
+        <span class="p">),</span>
+
+        <span class="c1"># Bridging and remapping Gazebo topics to ROS 2 (replace with your own topics)</span>
+        <span class="n">Node</span><span class="p">(</span>
+            <span class="n">package</span><span class="o">=</span><span class="s1">&#39;ros_gz_bridge&#39;</span><span class="p">,</span>
+            <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;parameter_bridge&#39;</span><span class="p">,</span>
+            <span class="n">arguments</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;/example_imu_topic@sensor_msgs/msg/Imu@gz.msgs.IMU&#39;</span><span class="p">,],</span>
+            <span class="n">remappings</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;/example_imu_topic&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;/remapped_imu_topic&#39;</span><span class="p">),],</span>
+            <span class="n">output</span><span class="o">=</span><span class="s1">&#39;screen&#39;</span>
         <span class="p">),</span>
     <span class="p">])</span>
 </pre></div>

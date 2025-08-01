@@ -514,11 +514,13 @@ within this tag. Here’s an example for launching Gazebo server:</p>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;world_sdf_file&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;empty.sdf&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;world_sdf_string&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;container_name&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;ros_gz_container&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;use_composition&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;True&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;create_own_container&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;False&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;use_composition&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;False&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;gz_server</span><span class="w"> </span>
 <span class="w">    </span><span class="na">world_sdf_file=</span><span class="s">&quot;$(var world_sdf_file)&quot;</span>
 <span class="w">    </span><span class="na">world_sdf_string=</span><span class="s">&quot;$(var world_sdf_string)&quot;</span>
 <span class="w">    </span><span class="na">container_name=</span><span class="s">&quot;$(var container_name)&quot;</span>
+<span class="w">    </span><span class="na">create_own_container=</span><span class="s">&quot;$(var create_own_container)&quot;</span>
 <span class="w">    </span><span class="na">use_composition=</span><span class="s">&quot;$(var use_composition)&quot;</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/gz_server&gt;</span>
 <span class="nt">&lt;/launch&gt;</span>
@@ -526,59 +528,93 @@ within this tag. Here’s an example for launching Gazebo server:</p>
 </div>
 <p>In this case the <code class="docutils literal notranslate"><span class="pre">&lt;gz_server&gt;</span></code> parameters are read from the command line. That’s
 an option but not strictly necessary as you could decide to hardcode some of the
-values.</p>
+values or not even use all the parameters.</p>
 </section>
 <section id="python">
 <h3>Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h3>
-<p>Python launch files provide more low-level customization and logic compared to XML launch files.
-In the following example, the user can specify a world argument to launch an environment for
-the Moon, Mars, or Enceladus. It additionally sets the resource path environment variable and
-sets up empty arrays for topics to be bridged and remapped from Gazebo to ROS 2:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ament_index_python.packages</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_package_share_directory</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">launch</span><span class="w"> </span><span class="kn">import</span> <span class="n">LaunchDescription</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">launch.actions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span><span class="n">DeclareLaunchArgument</span><span class="p">,</span> <span class="n">SetEnvironmentVariable</span><span class="p">,</span> 
-                            <span class="n">IncludeLaunchDescription</span><span class="p">,</span> <span class="n">SetLaunchConfiguration</span><span class="p">)</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">launch.substitutions</span><span class="w"> </span><span class="kn">import</span> <span class="n">PathJoinSubstitution</span><span class="p">,</span> <span class="n">LaunchConfiguration</span><span class="p">,</span> <span class="n">TextSubstitution</span>
+<p>Python launch files provide more low-level customization and logic compared to XML launch files. For example, you can set environment variables and include Python specific functions and logic.
+In the following example, the user can replace the example package, world, and bridged topic with their own. This is intended as a scaffolding more than something that can be run on its own.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">launch</span><span class="w"> </span><span class="kn">import</span> <span class="n">LaunchDescription</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">launch_ros.actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">Node</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">launch.actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">SetEnvironmentVariable</span><span class="p">,</span> <span class="n">IncludeLaunchDescription</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">launch.launch_description_sources</span><span class="w"> </span><span class="kn">import</span> <span class="n">PythonLaunchDescriptionSource</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">launch.substitutions</span><span class="w"> </span><span class="kn">import</span> <span class="n">PathJoinSubstitution</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">launch_ros.substitutions</span><span class="w"> </span><span class="kn">import</span> <span class="n">FindPackageShare</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">generate_launch_description</span><span class="p">():</span>
-    <span class="n">pkg_ros_gz_sim</span> <span class="o">=</span> <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s1">&#39;ros_gz_sim&#39;</span><span class="p">)</span>
-    <span class="n">pkg_spaceros_gz_sim</span> <span class="o">=</span> <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s1">&#39;spaceros_gz_sim&#39;</span><span class="p">)</span>
+    <span class="n">ros_gz_sim_pkg_path</span> <span class="o">=</span> <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s1">&#39;ros_gz_sim&#39;</span><span class="p">)</span>
+    <span class="n">example_pkg_path</span> <span class="o">=</span> <span class="n">FindPackageShare</span><span class="p">(</span><span class="s1">&#39;example_package&#39;</span><span class="p">)</span>  <span class="c1"># Replace with your own package name</span>
     <span class="n">gz_launch_path</span> <span class="o">=</span> <span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">pkg_ros_gz_sim</span><span class="p">,</span> <span class="s1">&#39;launch&#39;</span><span class="p">,</span> <span class="s1">&#39;gz_sim.launch.py&#39;</span><span class="p">])</span>
-    <span class="n">gz_model_path</span> <span class="o">=</span> <span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">pkg_spaceros_gz_sim</span><span class="p">,</span> <span class="s1">&#39;models&#39;</span><span class="p">])</span>
 
     <span class="k">return</span> <span class="n">LaunchDescription</span><span class="p">([</span>
-        <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
-            <span class="s1">&#39;world&#39;</span><span class="p">,</span>
-            <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;moon&#39;</span><span class="p">,</span>
-            <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;moon&#39;</span><span class="p">,</span> <span class="s1">&#39;mars&#39;</span><span class="p">,</span> <span class="s1">&#39;enceladus&#39;</span><span class="p">],</span>
-            <span class="n">description</span><span class="o">=</span><span class="s1">&#39;World to load into Gazebo&#39;</span>
+        <span class="n">SetEnvironmentVariable</span><span class="p">(</span>
+            <span class="s1">&#39;GZ_SIM_RESOURCE_PATH&#39;</span><span class="p">,</span>
+            <span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">example_pkg_path</span><span class="p">,</span> <span class="s1">&#39;models&#39;</span><span class="p">])</span>
         <span class="p">),</span>
-        <span class="n">SetLaunchConfiguration</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;world_file&#39;</span><span class="p">,</span> 
-                               <span class="n">value</span><span class="o">=</span><span class="p">[</span><span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">&#39;world&#39;</span><span class="p">),</span> 
-                                      <span class="n">TextSubstitution</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s1">&#39;.sdf&#39;</span><span class="p">)]),</span>
-        <span class="n">SetEnvironmentVariable</span><span class="p">(</span><span class="s1">&#39;GZ_SIM_RESOURCE_PATH&#39;</span><span class="p">,</span> <span class="n">gz_model_path</span><span class="p">),</span>
+        <span class="n">SetEnvironmentVariable</span><span class="p">(</span>
+            <span class="s1">&#39;GZ_SIM_PLUGIN_PATH&#39;</span><span class="p">,</span>
+            <span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">example_pkg_path</span><span class="p">,</span> <span class="s1">&#39;plugins&#39;</span><span class="p">])</span>
+        <span class="p">),</span>
         <span class="n">IncludeLaunchDescription</span><span class="p">(</span>
             <span class="n">PythonLaunchDescriptionSource</span><span class="p">(</span><span class="n">gz_launch_path</span><span class="p">),</span>
             <span class="n">launch_arguments</span><span class="o">=</span><span class="p">{</span>
-                <span class="s1">&#39;gz_args&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">pkg_spaceros_gz_sim</span><span class="p">,</span> <span class="s1">&#39;worlds&#39;</span><span class="p">,</span>
-                                                  <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">&#39;world_file&#39;</span><span class="p">)])],</span>
+                <span class="s1">&#39;gz_args&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">example_pkg_path</span><span class="p">,</span> <span class="s1">&#39;worlds/example_world.sdf&#39;</span><span class="p">])],</span>  <span class="c1"># Replace with your own world file</span>
                 <span class="s1">&#39;on_exit_shutdown&#39;</span><span class="p">:</span> <span class="s1">&#39;True&#39;</span>
             <span class="p">}</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span>
         <span class="p">),</span>
+
+        <span class="c1"># Bridging and remapping Gazebo topics to ROS 2 (replace with your own topics)</span>
         <span class="n">Node</span><span class="p">(</span>
             <span class="n">package</span><span class="o">=</span><span class="s1">&#39;ros_gz_bridge&#39;</span><span class="p">,</span>
             <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;parameter_bridge&#39;</span><span class="p">,</span>
-            <span class="n">arguments</span><span class="o">=</span><span class="p">[],</span>
-            <span class="n">remappings</span><span class="o">=</span><span class="p">[],</span>
+            <span class="n">arguments</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;/example_imu_topic@sensor_msgs/msg/Imu@gz.msgs.IMU&#39;</span><span class="p">,],</span>
+            <span class="n">remappings</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;/example_imu_topic&#39;</span><span class="p">,</span>
+                         <span class="s1">&#39;/remapped_imu_topic&#39;</span><span class="p">),],</span>
             <span class="n">output</span><span class="o">=</span><span class="s1">&#39;screen&#39;</span>
         <span class="p">),</span>
     <span class="p">])</span>
 </pre></div>
 </div>
+<p>Here’s another example using a higher level action from Python to launch <code class="docutils literal notranslate"><span class="pre">gzserver</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">launch</span><span class="w"> </span><span class="kn">import</span> <span class="n">LaunchDescription</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">launch.actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">DeclareLaunchArgument</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">launch.substitutions</span><span class="w"> </span><span class="kn">import</span> <span class="n">LaunchConfiguration</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ros_gz_sim.actions</span><span class="w"> </span><span class="kn">import</span> <span class="n">GzServer</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">generate_launch_description</span><span class="p">():</span>
+
+    <span class="n">declare_world_sdf_file_cmd</span> <span class="o">=</span> <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
+        <span class="s1">&#39;world_sdf_file&#39;</span><span class="p">,</span> <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Path to the SDF world file&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Create the launch description and populate</span>
+    <span class="n">ld</span> <span class="o">=</span> <span class="n">LaunchDescription</span><span class="p">([</span>
+        <span class="n">GzServer</span><span class="p">(</span>
+            <span class="n">world_sdf_file</span><span class="o">=</span><span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">&#39;world_sdf_file&#39;</span><span class="p">)</span>
+        <span class="p">),</span>
+    <span class="p">])</span>
+
+    <span class="c1"># Declare the launch options</span>
+    <span class="n">ld</span><span class="o">.</span><span class="n">add_action</span><span class="p">(</span><span class="n">declare_world_sdf_file_cmd</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ld</span>
+</pre></div>
+</div>
 </section>
+</section>
+<section id="launching-with-ros-gz-bridge">
+<h2>Launching with ros_gz_bridge<a class="headerlink" href="#launching-with-ros-gz-bridge" title="Link to this heading">#</a></h2>
+<p>An example launch file for XML can be viewed <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_sim/launch/ros_gz_sim.launch">here</a>
+An example launch file for Python can be viewed <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_sim/launch/ros_gz_sim.launch.py">here</a></p>
+<p>Example command for directly using these launch files from the terminal:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>ros_gz_sim<span class="w"> </span>ros_gz_sim.launch.py<span class="w"> </span>world_sdf_file:<span class="o">=</span>empty.sdf<span class="w"> </span>bridge_name:<span class="o">=</span>ros_gz_bridge<span class="w"> </span>config_file:<span class="o">=</span>&lt;path_to_your_YAML_file&gt;<span class="w"> </span>use_composition:<span class="o">=</span>True<span class="w"> </span>create_own_container:<span class="o">=</span>True
+</pre></div>
+</div>
+<p>In the above launch files you may notice that the <code class="docutils literal notranslate"><span class="pre">create_own_container</span></code> argument for <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> is hardcoded to <code class="docutils literal notranslate"><span class="pre">False</span></code>. This has been done to prevent two duplicate containers from getting created (one for <code class="docutils literal notranslate"><span class="pre">gz_server</span></code> and another one for <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code>), and instead make <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> use the container created by <code class="docutils literal notranslate"><span class="pre">gz_server</span></code>. More info about this can be viewed <a class="reference external" href="https://github.com/gazebosim/ros_gz/pull/620#issue-2595570189">here</a></p>
+<p>More info about <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> can be viewed <a class="reference internal" href="../ros2_integration/"><span class="doc std std-doc">here</span></a>.
+More info about composition can be viewed <a class="reference internal" href="../ros2_overview/#composition"><span class="std std-ref">here</span></a>.</p>
 </section>
 </section>
 
@@ -611,6 +647,7 @@ sets up empty arrays for topics to be bridged and remapped from Gazebo to ROS 2:
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#python">Python</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-with-ros-gz-bridge">Launching with ros_gz_bridge</a></li>
 </ul>
   </nav></div>
 
