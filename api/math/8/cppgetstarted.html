@@ -178,11 +178,25 @@ Overview</h2>
 <div class="line">    distance &lt;&lt; <a class="code hl_functionRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --><p>To compile this code on UNIX with pkg-config, use the following command:</p>
-<div class="fragment"><div class="line">c++ $(pkg-config --cflags gz-math8) main.cpp -o main</div>
-</div><!-- fragment --><p>The program can then be run as:</p>
-<div class="fragment"><div class="line">$ ./main</div>
-<div class="line">Distance from 1 3 5 to 2 4 6 is 1.73205</div>
+</div><!-- fragment --><p>To compile the code create a <code>CMakeLists.txt</code>:</p>
+<div class="fragment"><div class="line">cmake_minimum_required(VERSION 3.22.1 FATAL_ERROR)</div>
+<div class="line">project(gz-math-cpp-example)</div>
+<div class="line"> </div>
+<div class="line">find_package(gz-math8 QUIET REQUIRED)</div>
+<div class="line"> </div>
+<div class="line">add_executable(gz-math-example main.cpp)</div>
+<div class="line">target_link_libraries(gz-math-example PUBLIC gz-math8::gz-math8)</div>
+</div><!-- fragment --><p>Compile the example:</p>
+<div class="fragment"><div class="line">mkdir build &amp;&amp; cd build</div>
+<div class="line">cmake ..</div>
+</div><!-- fragment --><p>For Unix systems:</p>
+<div class="fragment"><div class="line">make</div>
+<div class="line"> </div>
+<div class="line">For Windows systems:</div>
+</div><!-- fragment --><p> {.bash} cmake &ndash;build . &ndash;config Release</p>
+<p>Run the example:</p>
+<div class="fragment"><div class="line">./gz-math-example</div>
+</div><!-- fragment --><p>Output should be: </p><div class="fragment"><div class="line">Distance from 1 3 5 to 2 4 6 is 1.73205</div>
 </div><!-- fragment --><h2><a class="anchor" id="bonus-vector2-example"></a>
 Bonus: Vector2 Example</h2>
 <p>The following is an example program that uses Vector2 to perform some simple computation.</p>
