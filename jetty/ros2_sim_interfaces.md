@@ -19,7 +19,7 @@ The following services and actions are available to control the flow of simulati
 
 | Interface Name | Topic Name | Type | Description |
 |----------------|------------|------|-------------|
-| `ResetSimulation` | `/reset_simulaiton` | Service | Reset the simulation to its initial state |
+| `ResetSimulation` | `/reset_simulation` | Service | Reset the simulation to its initial state |
 | `StepSimulation` | `/step_simulation` | Service | Step the simulation forward by a specified number of steps |
 | `GetSimulationState` | `/get_simulation_state` | Service | Get the current simulation state (playing/paused/stopped) |
 | `SetSimulationState` | `/set_simulation_state` | Service | Set the simulation state (play/pause/stop) |
