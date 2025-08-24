@@ -19,18 +19,18 @@ The following services and actions are available to control the flow of simulati
 
 | Interface Name | Topic Name | Type | Description |
 |----------------|------------|------|-------------|
-| `ResetSimulation` | `/reset_simulation` | Service | Reset the simulation to its initial state |
-| `StepSimulation` | `/step_simulation` | Service | Step the simulation forward by a specified number of steps |
-| `GetSimulationState` | `/get_simulation_state` | Service | Get the current simulation state (playing/paused/stopped) |
-| `SetSimulationState` | `/set_simulation_state` | Service | Set the simulation state (play/pause/stop) |
-| `SimulateSteps` | `/simulate_steps` | Action | Step the simulation forward by a specified number of steps with feedback and cancellation support | 
+| `ResetSimulation` | `/gzserver/reset_simulation` | Service | Reset the simulation to its initial state |
+| `StepSimulation` | `/gzserver/step_simulation` | Service | Step the simulation forward by a specified number of steps |
+| `GetSimulationState` | `/gzserver/get_simulation_state` | Service | Get the current simulation state (playing/paused/stopped) |
+| `SetSimulationState` | `/gzserver/set_simulation_state` | Service | Set the simulation state (play/pause/stop) |
+| `SimulateSteps` | `/gzserver/simulate_steps` | Action | Step the simulation forward by a specified number of steps with feedback and cancellation support | 
 
 **ResetSimulation Service**
 
 Reset the simulation to its initial state.
 
 ```bash
-ros2 service call /reset_simulation simulation_interfaces/srv/ResetSimulation "{}"
+ros2 service call /gzserver/reset_simulation simulation_interfaces/srv/ResetSimulation "{}"
 ```
 
 **StepSimulation Service**
@@ -38,7 +38,7 @@ ros2 service call /reset_simulation simulation_interfaces/srv/ResetSimulation "{
 Step the simulation forward by a specified number of steps.
 
 ```bash
-ros2 service call /step_simulation simulation_interfaces/srv/StepSimulation "{steps: 10}"
+ros2 service call /gzserver/step_simulation simulation_interfaces/srv/StepSimulation "{steps: 10}"
 ```
 
 **GetSimulationState Service**
@@ -46,7 +46,7 @@ ros2 service call /step_simulation simulation_interfaces/srv/StepSimulation "{st
 Get the current simulation state (playing/paused/stopped).
 
 ```bash
-ros2 service call /get_simulation_state simulation_interfaces/srv/GetSimulationState "{}"
+ros2 service call /gzserver/get_simulation_state simulation_interfaces/srv/GetSimulationState "{}"
 ```
 
 **SetSimulationState Service**
@@ -56,25 +56,25 @@ Set the simulation state (play/pause/stop).
 - Set simulation state to stop.
 
   ```bash
-  ros2 service call /set_simulation_state simulation_interfaces/srv/SetSimulationState "{state: {state: 0}}"
+  ros2 service call /gzserver/set_simulation_state simulation_interfaces/srv/SetSimulationState "{state: {state: 0}}"
   ```
 
 - Set simulation state to playing.
 
   ```bash
-  ros2 service call /set_simulation_state simulation_interfaces/srv/SetSimulationState "{state: {state: 1}}"
+  ros2 service call /gzserver/set_simulation_state simulation_interfaces/srv/SetSimulationState "{state: {state: 1}}"
   ```
 
 - Set simulation state to paused.
 
   ```bash
-  ros2 service call /set_simulation_state simulation_interfaces/srv/SetSimulationState "{state: {state: 2}}"
+  ros2 service call /gzserver/set_simulation_state simulation_interfaces/srv/SetSimulationState "{state: {state: 2}}"
   ```
 
 - Set simulation state to quitting.
 
   ```bash
-  ros2 service call /set_simulation_state simulation_interfaces/srv/SetSimulationState "{state: {state: 3}}"
+  ros2 service call /gzserver/set_simulation_state simulation_interfaces/srv/SetSimulationState "{state: {state: 3}}"
   ```
 
 **SimulateSteps Action**
@@ -82,7 +82,7 @@ Set the simulation state (play/pause/stop).
 Step the simulation forward by a specified number of steps with feedback and cancellation support.
 
 ```bash
-ros2 action send_goal /simulate_steps simulation_interfaces/action/SimulateSteps "{steps: 10}" --feedback
+ros2 action send_goal /gzserver/simulate_steps simulation_interfaces/action/SimulateSteps "{steps: 10}" --feedback
 ```
 
 ## Entity Management
@@ -91,15 +91,15 @@ The following interfaces are used to create or remove entities in the simulation
 
 | Interface Name | Topic Name | Type | Description |
 |----------------|------------|------|-------------|
-| `SpawnEntity` | `/spawn_entity` | Service | Spawn a new entity in the simulation at a specific location |
-| `DeleteEntity` | `/delete_entity` | Service | Delete an existing entity by name |
+| `SpawnEntity` | `/gzserver/spawn_entity` | Service | Spawn a new entity in the simulation at a specific location |
+| `DeleteEntity` | `/gzserver/delete_entity` | Service | Delete an existing entity by name |
 
 **SpawnEntity Service**
 
 Spawn a new entity in the simulation at a specific location.
 
 ```bash
-ros2 service call /spawn_entity simulation_interfaces/srv/SpawnEntity "{
+ros2 service call /gzserver/spawn_entity simulation_interfaces/srv/SpawnEntity "{
   name: 'my_model',
   uri: '/path/to/model.sdf',
   allow_renaming: false,
@@ -117,7 +117,7 @@ ros2 service call /spawn_entity simulation_interfaces/srv/SpawnEntity "{
 Delete an existing entity by name.
 
 ```bash
-ros2 service call /delete_entity simulation_interfaces/srv/DeleteEntity "{entity: 'my_model'}"
+ros2 service call /gzserver/delete_entity simulation_interfaces/srv/DeleteEntity "{entity: 'my_model'}"
 ```
 
 ## State Query
@@ -126,16 +126,16 @@ The following interfaces are used to introspect simulation world and entity stat
 
 | Interface Name | Topic Name | Type | Description |
 |----------------|------------|------|-------------|
-| `GetEntityState` | `/get_entity_state` | Service | Get the pose and twist of a specific entity |
-| `GetEntitiesStates` | `/get_entities_states` | Service | Get the state for multiple entities (optionally filtered) |
-| `GetEntities` | `/get_entities` | Service | Get a list of entities (optionally filtered) |
+| `GetEntityState` | `/gzserver/get_entity_state` | Service | Get the pose and twist of a specific entity |
+| `GetEntitiesStates` | `/gzserver/get_entities_states` | Service | Get the state for multiple entities (optionally filtered) |
+| `GetEntities` | `/gzserver/get_entities` | Service | Get a list of entities (optionally filtered) |
 
 **GetEntityState Service**
 
 Get the pose and twist of a specific entity.
 
 ```bash
-ros2 service call /get_entity_state simulation_interfaces/srv/GetEntityState "{entity: 'my_model'}"
+ros2 service call /gzserver/get_entity_state simulation_interfaces/srv/GetEntityState "{entity: 'my_model'}"
 ```
 
 **GetEntitiesStates Service**
@@ -143,7 +143,7 @@ ros2 service call /get_entity_state simulation_interfaces/srv/GetEntityState "{e
 Get the state of multiple entities (optionally filtered).
 
 ```bash
-ros2 service call /get_entities_states simulation_interfaces/srv/GetEntitiesStates "{filters: {filter: ''}}"
+ros2 service call /gzserver/get_entities_states simulation_interfaces/srv/GetEntitiesStates "{filters: {filter: ''}}"
 ```
 
 **GetEntites Service**
@@ -151,7 +151,7 @@ ros2 service call /get_entities_states simulation_interfaces/srv/GetEntitiesStat
 Get the list of entities (optionally filtered).
 
 ```bash
-ros2 service call /get_entities simulation_interfaces/src/GetEntities "{filters: {filter: ''}}"
+ros2 service call /gzserver/get_entities simulation_interfaces/src/GetEntities "{filters: {filter: ''}}"
 ```
 
 ## Simulator Information
@@ -161,12 +161,12 @@ supported features.
 
 | Interface Name | Topic Name | Type | Description |
 |----------------|------------|------|-------------|
-| `GetSimulatorFeatures` | `/get_simulator_features` | Service | Query which interface features are supported |
+| `GetSimulatorFeatures` | `/gzserver/get_simulator_features` | Service | Query which interface features are supported |
 
 **GetSimulatorFeatures Service**
 
 Query which interface features are supported.
 
 ```bash
-ros2 service call /get_simulator_features simulation_interfaces/srv/GetSimulationFeatures "{}"
+ros2 service call /gzserver/get_simulator_features simulation_interfaces/srv/GetSimulationFeatures "{}"
 ```
