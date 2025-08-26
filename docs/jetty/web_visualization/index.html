@@ -485,75 +485,9 @@ Gazebo simulations. You may find web visualization useful
 when interacting with remote or headless Gazebo Sim simulations. No
 additionally dependencies, other than a browser and internet connection, are
 required.</p>
-<section id="how-to-use-web-visualization">
-<h2>How to use web visualization<a class="headerlink" href="#how-to-use-web-visualization" title="Link to this heading">#</a></h2>
-<p>The following steps will guide you through the process of running
-Gazebo with a websocket server and connecting to the websocket for
-visualization.</p>
-<ol class="arabic simple">
-<li><p>Start an Gazebo Sim instance as usual. We will use the <code class="docutils literal notranslate"><span class="pre">fuel.sdf</span></code>
-world and run it headless.</p></li>
-</ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gz</span> <span class="n">sim</span> <span class="o">-</span><span class="n">v</span> <span class="mi">4</span> <span class="o">-</span><span class="n">s</span> <span class="o">-</span><span class="n">r</span> <span class="n">fuel</span><span class="o">.</span><span class="n">sdf</span>
-</pre></div>
-</div>
-<ol class="arabic simple">
-<li><p>Create an Gazebo Launch file with the websocket server plugin.</p></li>
-</ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="s2">&quot;&lt;?xml version=&#39;1.0&#39;?&gt;</span>
-<span class="o">&lt;</span><span class="n">gz</span> <span class="n">version</span><span class="o">=</span><span class="s1">&#39;1.0&#39;</span><span class="o">&gt;</span>
-  <span class="o">&lt;</span><span class="n">plugin</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;gz::launch::WebsocketServer&#39;</span>
-          <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;gz-launch-websocket-server&#39;</span><span class="o">&gt;</span>
-    <span class="o">&lt;</span><span class="n">port</span><span class="o">&gt;</span><span class="mi">9002</span><span class="o">&lt;/</span><span class="n">port</span><span class="o">&gt;</span>
-  <span class="o">&lt;/</span><span class="n">plugin</span><span class="o">&gt;</span>
-<span class="o">&lt;/</span><span class="n">gz</span><span class="o">&gt;</span><span class="s2">&quot; &gt; websocket.gzlaunch</span>
-</pre></div>
-</div>
-<ol class="arabic simple">
-<li><p>Run the websocket server using</p></li>
-</ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gz</span> <span class="n">launch</span> <span class="o">-</span><span class="n">v</span> <span class="mi">4</span> <span class="n">websocket</span><span class="o">.</span><span class="n">gzlaunch</span>
-</pre></div>
-</div>
-<ol class="arabic simple">
-<li><p>Visualize the simulation by going to
-<a class="reference external" href="https://app.gazebosim.org/visualization">https://app.gazebosim.org/visualization</a> and pressing the Connect button.</p></li>
-<li><p>It may take a few seconds for the scene to load. Your browser needs to
-fetch all of the models in the world.</p></li>
-</ol>
-</section>
-<section id="websocket-server-customization">
-<h2>Websocket server customization<a class="headerlink" href="#websocket-server-customization" title="Link to this heading">#</a></h2>
-<p>The following parameters are available in the websocket server plugin.</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;admin_authorization_key&gt;</span></code> : If this is set, then a connection must provide the matching key using an “auth” call on the websocket. If the <code class="docutils literal notranslate"><span class="pre">&lt;authorization_key&gt;</span></code> is set, then the connection can provide that key.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;authorization_key&gt;</span></code> : If this is set, then a connection must provide the
-matching key using an “auth” call on the websocket. If the <code class="docutils literal notranslate"><span class="pre">&lt;admin_authorization_key&gt;</span></code> is set, then the connection can provide that key.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;max_connections&gt;</span></code> : An integer that is the maximum number of simultaneous connections.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;port&gt;</span></code> : An integer that is websocket port.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;publication_hz&gt;</span></code> : An integer that is the maximum publication hertz rate.</p></li>
-</ul>
-</section>
-<section id="code-and-support">
-<h2>Code and Support<a class="headerlink" href="#code-and-support" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>The code for the web application,
-<a class="reference external" href="https://app.gazebosim.org">app.gazebosim.org</a>, lives at
-<a class="github reference external" href="https://github.com/gazebo-web/gazebosim-app">gazebo-web/gazebosim-app</a>.</p></li>
-<li><p>The javascript library used to render the 3D scene lives at
-<a class="github reference external" href="https://github.com/gazebo-web/gzweb">gazebo-web/gzweb</a>.</p></li>
-<li><p>Is you notice an issue with web visualization, then please
-file a ticket at
-<a class="github reference external" href="https://github.com/gazebo-web/gzweb/issues">gazebo-web/gzweb#issues</a>.</p></li>
-</ol>
-</section>
-<section id="troubleshooting">
-<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">#</a></h2>
-<ol class="arabic simple">
-<li><p>If you are running Gazebo Sim in a docker container, make sure to
-use the <a class="reference external" href="https://docs.docker.com/network/network-tutorial-host/">–network host</a> Docker commandline option. Without <code class="docutils literal notranslate"><span class="pre">--network</span> <span class="pre">host</span></code> the web application won’t be able to connect to the websocket server.</p></li>
-</ol>
-</section>
+<p>Instructions for setting up a websocket server and gzweb visualization can
+be found in the
+<a class="reference external" href="https://gazebosim.org/api/sim/10/websocket_server.html">gz-sim websocket server tutorial</a>.</p>
 </section>
 
 
@@ -570,21 +504,6 @@ use the <a class="reference external" href="https://docs.docker.com/network/netw
                 <dialog id="pst-secondary-sidebar-modal"></dialog>
                 <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-
-  <div class="sidebar-secondary-item">
-<div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> On this page
-  </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-to-use-web-visualization">How to use web visualization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#websocket-server-customization">Websocket server customization</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#code-and-support">Code and Support</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">Troubleshooting</a></li>
-</ul>
-  </nav></div>
 
   <div class="sidebar-secondary-item">
 
