@@ -27,6 +27,9 @@ jobs:
 
           - ubuntu_distribution: noble
             gazebo_distribution: ionic
+
+          - ubuntu_distribution: noble
+            gazebo_distribution: jetty
     steps:
       - uses: ros-tooling/setup-ros@v0.7
       - name: 'Set up Gazebo'
@@ -34,6 +37,7 @@ jobs:
         with:
           required-gazebo-distributions: ${{ matrix.gazebo_distribution }}
           use-gazebo-nightly: ${{ matrix.gazebo_distribution == 'ionic'}}
+          use-gazebo-prerelease: ${{ matrix.gazebo_distribution == 'jetty'}}
       - name: 'Add Doxygen'
         run: sudo apt-get install -y doxygen graphviz texlive-latex-extra
       - name: 'Add missing dependencies'
