@@ -108,7 +108,7 @@ LiftDragPlugin | ✓ | ✓
 LinearBatteryConsumerPlugin | ✓ | ✓
 LinearBatteryPlugin | ✓ | ✓
 LinkPlot3DPlugin | ✓ | ✓ (renamed to Plot3D)
-LookupWheelSlipPlugin | ✓ | ✓
+LookupWheelSlipPlugin | ✕ | ✓
 MecanumDrive | ✕ | ✓
 MudPlugin | ✓ |
 MulticopterMotorModel | ✕ | ✓
