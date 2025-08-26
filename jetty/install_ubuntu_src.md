@@ -1,6 +1,6 @@
 # Source Installation on Ubuntu
 
-These instructions apply to Ubuntu Jammy (22.04) and Ubuntu Noble (24.04).
+These instructions apply to Ubuntu Noble (24.04).
 
 ## Install tools
 
@@ -281,7 +281,7 @@ listen to QML debugger attach requests.
 During development, you may find troublesome that `gz sim -g` won't actually start until
 QtCreator hooks to the QML Debugging port.
 
-If that's a problem, you can edit the C++ file `gz-sim/src/gz.cc` and remove `block`
+If that's a problem, you can edit the C++ file `gz-sim/src/cmd/gz.cc` and remove `block`
 from it. E.g.
 
 ```c++

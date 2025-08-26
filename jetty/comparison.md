@@ -67,9 +67,9 @@ Model plugins | ✓ | ✓ Now called System plugin
 Sensor plugins | ✓ | ✓ Now called System plugin
 Visual plugins | ✓ | ✓
 GUI plugins | ✓ | ✓ Gazebo GUI plugins and Gazebo GUI systems
-System plugins | ✓ | ✓ Through Gazebo Launch
-SDF python bindings | x | ✓ | In sdformat13
-SDF <-> Mujoco MJCF | x | ✓ | In sdformat13, [documentation](https://github.com/gazebosim/gz-mujoco/blob/main/sdformat_mjcf/README.md)
+System plugins | ✓ | ✓ Through Gazebo Launch (deprecated, see [Migration guide](https://github.com/gazebosim/gz-launch/blob/gz-launch9/Migration.md))
+SDF python bindings | x | ✓ | in versions >= sdformat13
+SDF <-> Mujoco MJCF | x | ✓ | in versions >= sdformat13, [documentation](https://github.com/gazebosim/gz-mujoco/blob/main/sdformat_mjcf/README.md)
 
 ## Plugins
 
@@ -88,9 +88,11 @@ CartDemoPlugin | ✓ | ✕
 CessnaPlugin | ✓ | ✕
 DetachableJoint | ✕ | ✓
 DiffDrivePlugin | ✓ | ✓
+DriveToPoseController | ✕ | ✓
 ElevatorPlugin | ✓ | ✓
 FlashLightPlugin | ✓ |
 FollowerPlugin | ✓ |
+FreeSpaceExplorer | ✕ | ✓
 GimbalSmall2dPlugin | ✓ |
 GravityCompensationPlugin | ✓ |
 HarnessPlugin | ✓ |
@@ -106,6 +108,7 @@ LiftDragPlugin | ✓ | ✓
 LinearBatteryConsumerPlugin | ✓ | ✓
 LinearBatteryPlugin | ✓ | ✓
 LinkPlot3DPlugin | ✓ | ✓ (renamed to Plot3D)
+LookupWheelSlipPlugin | ✓ | ✓
 MecanumDrive | ✕ | ✓
 MudPlugin | ✓ |
 MulticopterMotorModel | ✕ | ✓
@@ -132,6 +135,7 @@ Plugin | Gazebo-classic | Gazebo Sim
 -- | -- | --
 ArrangePlugin | ✓ |
 ContainPlugin | ✓ | Partial port, [Issue](https://github.com/gazebosim/gz-sim/issues/162)
+EntitySemantics | ✕ | ✓
 HydraPlugin | ✓ |
 JoyPlugin | ✓ | ✓ Migrated as an Gazebo Launch plugin
 MisalignmentPlugin | ✓ |
@@ -265,17 +269,18 @@ Feature | Gazebo-classic | Gazebo Sim
 Ogre 1.x engine | ✓ | ✓
 Ogre 2.x engine | ✕ | ✓
 Optix engine | ✕ | ✓ Partial support
-Custom engine plugins | ✕ | [✓](https://gazebosim.org/api/rendering/5.0/renderingplugin.html)
+Custom engine plugins | ✕ | [✓](https://gazebosim.org/api/rendering/10/renderingplugin.html)
 Sky | ✓ | ✓
 Fog | ✓ |
 Material scripts | ✓ (Ogre 1.x scripts) | Does not apply
 Physically Based Rendering (PBR) | ✕ | ✓ (with engines that support it, like Ogre 2)
 Normal maps | ✓ | ✓
 Environment maps | ✕  | ✓
+Global Illumination | ✕  | ✓
 Lightmaps | ✕  | ✓
 Particle effects | ✕  | ✓
 Render order | ✕  | ✓
-Projector | ✕  | ([ogre 1.x only](https://github.com/gazebosim/gz-sim/pull/1979))
+Projector | ✕  | ✓
 
 ## ROS integration
 
@@ -307,7 +312,7 @@ Feature | Gazebo-classic | Gazebo Sim
 -- | -- | --
 Nested models | ✓ | ✓
 Log / playback | ✓ | ✓
-Web client (GzWeb) | ✓ |
+Web client (GzWeb) | ✓ | ✓
 COLLADA meshes | ✓ | ✓
 OBJ meshes | ✓ | ✓
 STL meshes | ✓ | ✓
@@ -321,8 +326,8 @@ Sphere, cylinder and box primitives | ✓ | ✓
 Ellipsoid and capsule primitives | ✕ | ✓
 Hydrodynamics | ✕  | ✓
 Ocean currents | ✕  | ✓
-Test fixture | ✓ | [✓](https://gazebosim.org/api/gazebo/6.6/test_fixture.html)
+Test fixture | ✓ | [✓](https://gazebosim.org/api/sim/10/test_fixture.html)
 Spherical coordinates | ✓ | ✓
-Generic comms system | ✕ | [✓](https://github.com/gazebosim/gz-sim/blob/ign-gazebo6/examples/worlds/perfect_comms.sdf)
+Generic comms system | ✕ | [✓](https://github.com/gazebosim/gz-sim/blob/gz-sim10/examples/worlds/perfect_comms.sdf)
 Acoustic communication | ✕ | ✓
 Static linked plugins | ✕ | ✓
