@@ -17,9 +17,6 @@ jobs:
       matrix:
         include:
           - ubuntu_distribution: focal
-            gazebo_distribution: citadel
-
-          - ubuntu_distribution: focal
             gazebo_distribution: fortress
 
           - ubuntu_distribution: jammy
@@ -27,13 +24,16 @@ jobs:
 
           - ubuntu_distribution: noble
             gazebo_distribution: ionic
+
+          - ubuntu_distribution: noble
+            gazebo_distribution: jetty
     steps:
       - uses: ros-tooling/setup-ros@v0.7
       - name: 'Set up Gazebo'
-        uses: gazebo-tooling/setup-gazebo@1f55cec330de851fa373f1ade8ac6b7ddfe6f013
+        uses: gazebo-tooling/setup-gazebo@v0.3.0
         with:
           required-gazebo-distributions: ${{ matrix.gazebo_distribution }}
-          use-gazebo-nightly: ${{ matrix.gazebo_distribution == 'ionic'}}
+          use-gazebo-prerelease: ${{ matrix.gazebo_distribution == 'jetty'}}
       - name: 'Add Doxygen'
         run: sudo apt-get install -y doxygen graphviz texlive-latex-extra
       - name: 'Add missing dependencies'

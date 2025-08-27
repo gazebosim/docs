@@ -119,7 +119,7 @@ colcon graph
 If that is the case, then you are ready to build the whole set of libraries:
 
 ```bash
-colcon build --cmake-args -DBUILD_TESTING=OFF -DSKIP_SWIG=ON --merge-install --packages-up-to gz-sim9 gz-tools2
+colcon build --cmake-args -DBUILD_TESTING=OFF -DSKIP_SWIG=ON --merge-install --packages-up-to gz-sim gz-tools2
 ```
 Tests are turned off as they are not currently supported on Windows.
 
@@ -160,7 +160,7 @@ conda activate gz-ws
 You should now be able to launch gazebo:
 
 ```bash
-# Launch server in one terminal 
+# Launch server in one terminal
 gz sim -s
 
 # In separate terminal, launch gui
