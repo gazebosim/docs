@@ -73,10 +73,6 @@ jobs:
         path: .api-docs
         pattern: api-docs-*
         merge-multiple: false
-    - uses: actions/setup-python@v5
-    - name: Install dependencies
-      run: pip install PyYAML
-    - name: 'Restructure API Docs'
       run: python3 tools/restructure_doxygen_artifacts.py --input ${{steps.download.outputs.download-path}} .api-out
     - uses: actions/upload-artifact@v4
       with:
