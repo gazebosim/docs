@@ -58,6 +58,7 @@ Python launch files provide more low-level customization and logic compared to X
 In the following example, the user can replace the example package, world, and bridged topic with their own. This is intended as a scaffolding more than something that can be run on its own.
 
 ```python
+from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch_ros.actions import Node
 from launch.actions import SetEnvironmentVariable, IncludeLaunchDescription
@@ -69,7 +70,7 @@ from launch_ros.substitutions import FindPackageShare
 def generate_launch_description():
     ros_gz_sim_pkg_path = get_package_share_directory('ros_gz_sim')
     example_pkg_path = FindPackageShare('example_package')  # Replace with your own package name
-    gz_launch_path = PathJoinSubstitution([pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py'])
+    gz_launch_path = PathJoinSubstitution([ros_gz_sim_pkg_path, 'launch', 'gz_sim.launch.py'])
 
     return LaunchDescription([
         SetEnvironmentVariable(
@@ -83,7 +84,7 @@ def generate_launch_description():
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(gz_launch_path),
             launch_arguments={
-                'gz_args': [PathJoinSubstitution([example_pkg_path, 'worlds/example_world.sdf'])],  # Replace with your own world file
+                'gz_args': PathJoinSubstitution([example_pkg_path, 'worlds/example_world.sdf']),  # Replace with your own world file
                 'on_exit_shutdown': 'True'
             }.items(),
         ),
