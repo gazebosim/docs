@@ -147,8 +147,9 @@ Overview</h2>
 Binary Install</h1>
 <h2><a class="anchor" id="ubuntu"></a>
 Ubuntu</h2>
-<p>Setup your computer to accept software from <em>packages.osrfoundation.org</em>: </p><div class="fragment"><div class="line">sudo sh -c &#39;echo &quot;deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/gazebo-stable.list&#39;</div>
-</div><!-- fragment --><p>Setup keys: </p><div class="fragment"><div class="line">wget https://packages.osrfoundation.org/gazebo.key -O - | sudo apt-key add -</div>
+<p>Setup your computer to accept software from <em>packages.osrfoundation.org</em>: </p><div class="fragment"><div class="line">sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg</div>
+<div class="line"> </div>
+<div class="line">echo &quot;deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] https://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main&quot; | sudo tee /etc/apt/sources.list.d/gazebo-stable.list &gt; /dev/null</div>
 </div><!-- fragment --><p>Install Gazebo Transport: </p><div class="fragment"><div class="line">sudo apt-get update</div>
 <div class="line">sudo apt-get install libgz-transport&lt;#&gt;-dev</div>
 </div><!-- fragment --><p>Be sure to replace <code>&lt;#&gt;</code> with a number value, such as <code>8</code> or <code>9</code>, depending on which version you need.</p>
@@ -174,7 +175,7 @@ Install Prerequisites</h2>
 Ubuntu Linux</h3>
 <p>For compiling the latest version of Gazebo Transport you will need an Ubuntu distribution equal to 24.04 (Noble) or newer.</p>
 <p>Make sure you have removed the Ubuntu pre-compiled binaries before installing from source: </p><div class="fragment"><div class="line">sudo apt-get remove libgz-transport.*-dev</div>
-</div><!-- fragment --><p>Install prerequisites. A clean Ubuntu system will need: </p><div class="fragment"><div class="line">sudo apt-get install git cmake pkg-config python ruby-ronn libprotoc-dev libprotobuf-dev protobuf-compiler uuid-dev libzmq3-dev libgz-msgs12-dev libgz-utils4-cli-dev</div>
+</div><!-- fragment --><p>Install prerequisites. A clean Ubuntu system will need: </p><div class="fragment"><div class="line">sudo apt-get install git cmake pkg-config python3 python3-pybind11 python3-pytest ruby-ronn libprotoc-dev libprotobuf-dev protobuf-compiler uuid-dev libzmq3-dev libgz-msgs12-dev libgz-utils4-cli-dev libzenohc-dev libzenohcpp-dev libsqlite3-dev</div>
 </div><!-- fragment --><h3><a class="anchor" id="macos"></a>
 macOS</h3>
 <p>After installing the <a href="https://brew.sh">Homebrew package manager</a>, which should also prompt you to install the XCode command-line tools add OSRF packages and run the command to install dependencies:</p>
