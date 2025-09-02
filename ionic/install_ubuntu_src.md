@@ -24,7 +24,7 @@ cases where the default option cannot be easily changed.
 Install tools needed by this tutorial:
 
 ```bash
-sudo apt install python3-pip python3-venv lsb-release gnupg curl git
+sudo apt update && sudo apt install -y python3-pip python3-venv lsb-release gnupg curl git
 ```
 
 ## vcstool and colcon from pip
@@ -153,9 +153,9 @@ to build the whole set of libraries:
 
 :::{warning}
 
-Compilation can take up to 16Gb of RAM memory. Use MAKEFLAGS with
-colcon as detailed in its instructions to reduce the number of
-compilation threads if needed.
+Compilation can take up to 16GB of RAM memory. To disable parallel compilation threads and reduce RAM usage,
+run `export CMAKE_BUILD_PARALLEL_LEVEL=1` beforehand ([source](https://cmake.org/cmake/help/latest/envvar/CMAKE_BUILD_PARALLEL_LEVEL.html#envvar:CMAKE_BUILD_PARALLEL_LEVEL)), and add `--executor sequential` to the `colcon build` commands below
+([source](https://colcon.readthedocs.io/en/released/reference/executor-arguments.html)).
 
 :::
 
