@@ -504,7 +504,7 @@ cases where the default option cannot be easily changed.</p>
 <section id="generic-tools">
 <h2>Generic tools<a class="headerlink" href="#generic-tools" title="Link to this heading">#</a></h2>
 <p>Install tools needed by this tutorial:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3-pip<span class="w"> </span>python3-venv<span class="w"> </span>lsb-release<span class="w"> </span>gnupg<span class="w"> </span>curl<span class="w"> </span>git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>python3-pip<span class="w"> </span>python3-venv<span class="w"> </span>lsb-release<span class="w"> </span>gnupg<span class="w"> </span>curl<span class="w"> </span>git
 </pre></div>
 </div>
 </section>
@@ -615,9 +615,9 @@ If that is the case, then you are ready
 to build the whole set of libraries:</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Compilation can take up to 16Gb of RAM memory. Use MAKEFLAGS with
-colcon as detailed in its instructions to reduce the number of
-compilation threads if needed.</p>
+<p>Compilation can take up to 16GB of RAM memory. To disable parallel compilation threads and reduce RAM usage,
+run <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">CMAKE_BUILD_PARALLEL_LEVEL=1</span></code> beforehand (<a class="reference external" href="https://cmake.org/cmake/help/latest/envvar/CMAKE_BUILD_PARALLEL_LEVEL.html#envvar:CMAKE_BUILD_PARALLEL_LEVEL">source</a>), and add <code class="docutils literal notranslate"><span class="pre">--executor</span> <span class="pre">sequential</span></code> to the <code class="docutils literal notranslate"><span class="pre">colcon</span> <span class="pre">build</span></code> commands below
+(<a class="reference external" href="https://colcon.readthedocs.io/en/released/reference/executor-arguments.html">source</a>).</p>
 </div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--merge-install
 </pre></div>
