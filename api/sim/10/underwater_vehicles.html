@@ -156,15 +156,15 @@ Create your vehicle</h1>
 <div class="fragment"><div class="line">mkdir -p ~/gazebo_maritime/models/my_lrauv/materials/textures</div>
 <div class="line">mkdir -p ~/gazebo_maritime/models/my_lrauv/meshes</div>
 </div><!-- fragment --><p>Download all the files from here and copy them within that directory:</p>
-<div class="fragment"><div class="line">wget -r https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim8/tutorials/files/underwater_vehicles/my_lrauv/model.config -O ~/gazebo_maritime/models/my_lrauv/model.config</div>
-<div class="line">wget -r https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim8/tutorials/files/underwater_vehicles/my_lrauv/model.sdf -O ~/gazebo_maritime/models/my_lrauv/model.sdf</div>
-<div class="line">wget -r https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim8/tutorials/files/underwater_vehicles/my_lrauv/materials/textures/Tethys_Albedo.png -O ~/gazebo_maritime/models/my_lrauv/materials/textures/Tethys_Albedo.png</div>
-<div class="line">wget -r https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim8/tutorials/files/underwater_vehicles/my_lrauv/materials/textures/Tethys_Metalness.png -O ~/gazebo_maritime/models/my_lrauv/materials/textures/Tethys_Metalness.png</div>
-<div class="line">wget -r https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim8/tutorials/files/underwater_vehicles/my_lrauv/materials/textures/Tethys_Normal.png -O ~/gazebo_maritime/models/my_lrauv/materials/textures/Tethys_Normal.png</div>
-<div class="line">wget -r https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim8/tutorials/files/underwater_vehicles/my_lrauv/materials/textures/Tethys_Roughness.png -O ~/gazebo_maritime/models/my_lrauv/materials/textures/Tethys_Roughness.png</div>
-<div class="line">wget -r https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim8/tutorials/files/underwater_vehicles/my_lrauv/meshes/base.dae -O ~/gazebo_maritime/models/my_lrauv/meshes/base.dae</div>
-<div class="line">wget -r https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim8/tutorials/files/underwater_vehicles/my_lrauv/meshes/propeller.dae -O ~/gazebo_maritime/models/my_lrauv/meshes/propeller.dae</div>
-<div class="line">wget -r https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim8/tutorials/files/underwater_vehicles/my_lrauv/meshes/tethys.dae -O ~/gazebo_maritime/models/my_lrauv/meshes/tethys.dae</div>
+<div class="fragment"><div class="line">wget -r https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim10/tutorials/files/underwater_vehicles/my_lrauv/model.config -O ~/gazebo_maritime/models/my_lrauv/model.config</div>
+<div class="line">wget -r https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim10/tutorials/files/underwater_vehicles/my_lrauv/model.sdf -O ~/gazebo_maritime/models/my_lrauv/model.sdf</div>
+<div class="line">wget -r https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim10/tutorials/files/underwater_vehicles/my_lrauv/materials/textures/Tethys_Albedo.png -O ~/gazebo_maritime/models/my_lrauv/materials/textures/Tethys_Albedo.png</div>
+<div class="line">wget -r https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim10/tutorials/files/underwater_vehicles/my_lrauv/materials/textures/Tethys_Metalness.png -O ~/gazebo_maritime/models/my_lrauv/materials/textures/Tethys_Metalness.png</div>
+<div class="line">wget -r https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim10/tutorials/files/underwater_vehicles/my_lrauv/materials/textures/Tethys_Normal.png -O ~/gazebo_maritime/models/my_lrauv/materials/textures/Tethys_Normal.png</div>
+<div class="line">wget -r https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim10/tutorials/files/underwater_vehicles/my_lrauv/materials/textures/Tethys_Roughness.png -O ~/gazebo_maritime/models/my_lrauv/materials/textures/Tethys_Roughness.png</div>
+<div class="line">wget -r https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim10/tutorials/files/underwater_vehicles/my_lrauv/meshes/base.dae -O ~/gazebo_maritime/models/my_lrauv/meshes/base.dae</div>
+<div class="line">wget -r https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim10/tutorials/files/underwater_vehicles/my_lrauv/meshes/propeller.dae -O ~/gazebo_maritime/models/my_lrauv/meshes/propeller.dae</div>
+<div class="line">wget -r https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim10/tutorials/files/underwater_vehicles/my_lrauv/meshes/tethys.dae -O ~/gazebo_maritime/models/my_lrauv/meshes/tethys.dae</div>
 </div><!-- fragment --><p>Open with your favorite editor <code>~/gazebo_maritime/models/my_lrauv/model.sdf</code>.</p>
 <p>Notice how the vehicle has been divided into multiple links: chassis, horizontal fins, vertical fins, and a propeller. This is a very common division in vehicles that contain one or more thrusters and some control surfaces. Both the propeller and the control surfaces are movable, thus we need to create separate links for them.</p>
 <p>At the bottom of the <code>model.sdf</code> file, you'll find the three joints that connect the horizontal fins, vertical fins, and propeller to the main chassis respectively. All of them are <code>revolute</code> joints, but with different upper and lower limits. While the propeller does not have any limits (to allow infinite rotation), the fins have lower values to constraint the amount of movement of the fin. Again, this is a very common pattern that you'll need to configure based on the specs of your vehicle.</p>
@@ -184,7 +184,7 @@ Adding buoyancy</h1>
 <p>This is the volume that we were looking for to achieve neutral buoyancy. Let's test it! Uncomment the lines in <code>model.sdf:18--24</code> to restore the buoyancy and launch the simulation:</p>
 <p>Let's now download the following world that includes the buoyancy plugin:</p>
 <div class="fragment"><div class="line">mkdir -p ~/gazebo_maritime/worlds</div>
-<div class="line">wget https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim8/tutorials/files/underwater_vehicles/buoyant_lrauv.sdf -O ~/gazebo_maritime/worlds/buoyant_lrauv.sdf</div>
+<div class="line">wget https://raw.githubusercontent.com/gazebosim/gz-sim/gz-sim10/tutorials/files/underwater_vehicles/buoyant_lrauv.sdf -O ~/gazebo_maritime/worlds/buoyant_lrauv.sdf</div>
 <div class="line">export GZ_SIM_RESOURCE_PATH=:$HOME/gazebo_maritime/models</div>
 </div><!-- fragment --><p>And launch Gazebo:</p>
 <div class="fragment"><div class="line">gz sim ~/gazebo_maritime/worlds/buoyant_lrauv.sdf</div>

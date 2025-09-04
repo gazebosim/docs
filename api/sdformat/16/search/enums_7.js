@@ -1,4 +1,1 @@
-var searchData=
-[
-  ['meshoptimization_0',['meshoptimization',['../namespacesdf_1_1SDF__VERSION__NAMESPACE.html#adc20981cfed0e267b7064d995a3b44a7',1,'sdf::MeshOptimization'],['../namespacesdf_1_1SDF__VERSION__NAMESPACE.html#adc20981cfed0e267b7064d995a3b44a7',1,'sdf::SDF_VERSION_NAMESPACE::MeshOptimization']]]
-];
+../../15/search/enums_7.js
