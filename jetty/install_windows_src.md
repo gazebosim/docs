@@ -13,23 +13,19 @@ without any failures when using their functionalities.
 > You should be able to use `ogre` as a rendering engine instead of the default `ogre2`.
 > Just append `--render-engine ogre` to the command line.
 
+## Dependency distribution (conda-forge) and the package manager (Pixi)
+
+Binaries for all the dependendencies used by Gazebo can be found in the [conda-forge](https://conda-forge.org/)
+package repository. The Gazebo buildfarm and these instructions uses the [Pixi](https://pixi.sh/) package manager
+but other package managers for Conda should work like miniforge, mamba, etc.
+
 ## Install dependencies
 
-1. If you do not have the conda package manager installed in your system, install a conda distribution.
-   As Gazebo uses all dependencies from the conda-forge channel, we suggest to install miniforge following [the official miniforge installation docs](https://github.com/conda-forge/miniforge#windows) by executing the following commands in a "Command Prompt" terminal:
-   ```cmd
-   curl.exe -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Windows-x86_64.exe
-   start /wait "" Miniforge3-Windows-x86_64.exe /InstallationType=JustMe /RegisterPython=0 /S /D=%UserProfile%\Miniforge3
-   %UserProfile%\Miniforge3\condabin\conda init
-   %UserProfile%\Miniforge3\condabin\conda config --set auto_activate_base false
-   del Miniforge3-Windows-x86_64.exe
-   ```
-   If you followed this step correctly, you should be able to access `conda` in any new "Command Prompt" terminal you open.
-   To verify that, check that if you open a new terminal and execute `conda info`, the output begins with:
-   ```cmd
-     active environment : None
-            shell level : 0
-     [..]
+1. If no package manager is installed in the system to manage conda-forge dependencies, the recommended
+   option is to follow the Pixi installer instructions.
+
+   ```bash
+   powershell -ExecutionPolicy ByPass -c "irm -useb https://pixi.sh/install.ps1 | iex"
    ```
 
 2. Install [Visual Studio 2019 or 2022](https://visualstudio.microsoft.com/downloads/).
@@ -43,47 +39,29 @@ without any failures when using their functionalities.
    for VS (search for "developer powershell"). Optionally,
    right-click and pin to the task bar for quick access in the future.
 
-   If you chose PowerShell, you need to do a few steps to be able to use Conda and Gazebo in it:
+4. Create the Pixi project directory and download the configuration files
+   Pixi projects operates inside a given directory, creating one in any user system location
+   should be enough. There are two configuration files to download:
    ```bash
-   conda init powershell
-   # Restart the PowerShell
-   Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser
+   mkdir gazebo
+   cd gazebo
+   curl.exe -L -O https://raw.githubusercontent.com/gazebo-tooling/release-tools/refs/heads/master/conda/envs/noble_like/pixi.toml
+   curl.exe -L -O https://raw.githubusercontent.com/gazebo-tooling/release-tools/refs/heads/master/conda/envs/noble_like/pixi.lock
    ```
-
-4. Create and activate a Conda environment:
+5. Install dependencies using Pixi and enable the Pixi environment:
+   Once inside the Pixi project directory (i.e: `gazebo`), Pixi can install the dependencies
+   that are part of the configuration file:
    ```bash
-   conda create -n gz-ws
-   conda activate gz-ws
+   :: inside the gazebo directory
+   pixi install
    ```
-   Once you have activated an environment, a prefix like `(gz-ws)` will be prepended to
-   your prompt.
-
-   You can use `conda info --envs` to see all of your environments.
-
-   To speed up conda installations, also set the following to use libmamba solver.
-   Older conda installations may need to do [additional steps](https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community).
+   This can take some minutes. After this Pixi can make accesible all the libraries and dependencies
+   installed by providing a shell enviroment:
    ```bash
-   conda config --set solver libmamba
+   :: inside the gazebo directory
+   pixi shell
    ```
-   To remove an environment, use `conda remove --all --name <env_name>`.
-
-   > **NOTE**
-   > This way of Conda environment creation puts it into a default folder. If you need
-     to install it elsewhere, use `--prefix <env_path>` instead of `--name <env_name>`.
-     Environments in custom paths cannot be referenced by names, so even `conda activate`
-     needs to be passed a path (relative or absolute) instead of the name. If you refer
-     to a subdirectory of the current directory, you have to prepend `.\` so that Conda
-     knows it is a path and not a name.
-
-5. Install dependencies:
-   ```bash
-   conda install cmake git vcstool curl pkg-config ^
-   colcon-common-extensions dartsim eigen freeimage gdal gts ^
-   glib dlfcn-win32 ffmpeg ruby tinyxml2 tinyxml ^
-   protobuf urdfdom zeromq cppzmq ogre=1.10 ogre-next jsoncpp ^
-   libzip qt pybind11 boost --channel conda-forge
-   ```
-   This can take tens of minutes (or less when using libmamba solver).
+   With the Pixi shell environment active the Pixi environment is accesible from anywhere in the file system.
 
 6. Navigate to where you would like to build the library, create and enter your workspace directory,
    create the `src` directory which will contain the Gazebo source code.
@@ -105,6 +83,10 @@ without any failures when using their functionalities.
    ```
 
 ## Building the Gazebo Libraries
+
+> **NOTE**
+> Be sure of being under a Visual Studio Developer shell (step 3 above) and
+> after executing the pixi shell (step 5 above).
 
 Once the compiler and all the sources are in place it is time to compile them.
 Start the procedure by navigating to your workspace and listing the packages
@@ -142,18 +124,20 @@ If there are no errors, all the binaries should be ready to use.
 ## Using the workspace
 
 The workspace needs to be sourced every time a new terminal is used (
-and Conda environment activated before that).
+and the Pixi environment activated before that).
 
 The overall instructions for setting up a new terminal to use the built
 workspace are:
 
 ```bash
 # CMD
-conda activate gz-ws
+cd gazebo
+pixi shell
 call install\setup.bat
 
 # PowerShell
-conda activate gz-ws
+cd gazebo
+pixi shell
 .\install\setup.ps1
 ```
 
@@ -202,18 +186,16 @@ the results you want:
      your `conda` environment with:
 
      ```bash
-     rm -rf <workspace_name>
+     rm -rf <workspace_name>  # gz-ws was used as workspace_name in this document
      ```
 
   3. If you want to keep the source code, you can remove the
      `install` / `build` / `log` directories as desired, leaving the `src` directory.
 
-  4. Last, if you do not need the conda environment anymore, you can remove it with
+  4. Last, if you do not need the Pixi environment anymore, you can remove it with
 
      ```bash
-     conda deactivate
-     conda remove --all --name <env_name>
-     # or conda remove --all --prefix <path_to_env> if you installed to custom path
+     rm -fr <pixi_env_path>  # "gazebo" was used as pixi_env_path in this document
      ```
 
 ## Troubleshooting
