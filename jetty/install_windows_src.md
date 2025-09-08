@@ -61,7 +61,8 @@ but other package managers for Conda should work like miniforge, mamba, etc.
    :: inside the gazebo directory
    pixi shell
    ```
-   With the Pixi shell environment active the Pixi environment is accesible from anywhere in the file system.
+   With the Pixi shell environment active (there will be a "(gazebo)" label before the terminal prompt) the Pixi environment
+   is accesible from anywhere in the file system.
 
 6. Navigate to where you would like to build the library, create and enter your workspace directory,
    create the `src` directory which will contain the Gazebo source code.
@@ -73,13 +74,7 @@ but other package managers for Conda should work like miniforge, mamba, etc.
 
 7. Then clone the repositories
    ```bash
-   # CMD
-   curl -sk https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-jetty.yaml -o collection-jetty
-   vcs import src < collection-jetty
-
-   # PowerShell
-   curl https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-jetty.yaml -o collection-jetty
-   vcs import --input collection-jetty src
+   vcs import --input https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-jetty.yaml src/
    ```
 
 ## Building the Gazebo Libraries
