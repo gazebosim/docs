@@ -135,8 +135,25 @@ cd gazebo
 pixi shell
 .\install\setup.ps1
 ```
+<div class="warning">
+An issue in the conda-forge Qt6 package is requiring to set QT environment variables:
+</div>
 
-You should now be able to launch gazebo:
+```bash
+# Until https://github.com/conda-forge/qt-main-feedstock/issues/275 is resolved
+cd gazebo
+set QT_PLUGIN_PATH=%CD%\.pixi\envs\default\Library\lib\qt6\plugins
+set QML2_IMPORT_PATH=%CD%\.pixi\envs\default\Library\lib\qt6\qml
+```
+
+You should now be able to launch gazebo normally:
+
+```bash
+gz sim --verbose
+```
+
+Alternativally launching the server and the client in two different terminales (after sourcing
+in both the install scripts, the pixi shell and the QT env variables):
 
 ```bash
 # Launch server in one terminal
