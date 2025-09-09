@@ -486,7 +486,7 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="source-installation-on-macos">
 <h1>Source Installation on macOS<a class="headerlink" href="#source-installation-on-macos" title="Link to this heading">#</a></h1>
-<p>This tutorial will work for macOS BigSur 10.16 and macOS Monterey 12.0.</p>
+<p>This tutorial will work for macOS Ventura, Sonoma, and Sequoia.</p>
 <section id="install-tools">
 <h2>Install tools<a class="headerlink" href="#install-tools" title="Link to this heading">#</a></h2>
 <p>The use of some additional tools is recommended to help with the source compilation,
@@ -502,7 +502,7 @@ brew<span class="w"> </span>update
 </div>
 <section id="install-compiler-requirements">
 <h3>Install compiler requirements<a class="headerlink" href="#install-compiler-requirements" title="Link to this heading">#</a></h3>
-<p>Building Gazebo Libraries require at least Xcode 10 on MacOS Mojave. The Xcode Command Line Tools are sufficient, and can be installed with:</p>
+<p>Building Gazebo Libraries require at least Xcode 14 on MacOS Ventura. The Xcode Command Line Tools are sufficient, and can be installed with:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xcode-select<span class="w"> </span>--install
 </pre></div>
 </div>
@@ -517,7 +517,9 @@ brew<span class="w"> </span>update
 </section>
 <section id="vcstool-and-colcon-from-pypi">
 <h2>vcstool and colcon from PyPI<a class="headerlink" href="#vcstool-and-colcon-from-pypi" title="Link to this heading">#</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>colcon-common-extensions<span class="w"> </span>vcstool
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span><span class="nv">$HOME</span>/vcs_colcon_installation
+.<span class="w"> </span><span class="nv">$HOME</span>/vcs_colcon_installation/bin/activate
+pip3<span class="w"> </span>install<span class="w"> </span>vcstool<span class="w"> </span>colcon-common-extensions
 </pre></div>
 </div>
 </section>
@@ -548,16 +550,7 @@ their repositories:</p>
 </pre></div>
 </div>
 <p>General dependencies:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>assimp<span class="w"> </span>boost<span class="w"> </span>bullet<span class="w"> </span>cmake<span class="w"> </span>cppzmq<span class="w"> </span>dartsim<span class="w"> </span>doxygen<span class="w"> </span>eigen<span class="w"> </span>fcl<span class="w"> </span>ffmpeg<span class="w"> </span>flann<span class="w"> </span>freeimage<span class="w"> </span>freetype<span class="w"> </span>gdal<span class="w"> </span>gflags<span class="w"> </span>google-benchmark<span class="w"> </span>gts<span class="w"> </span>ipopt<span class="w"> </span>jsoncpp<span class="w"> </span>libccd<span class="w"> </span>libyaml<span class="w"> </span>libzzip<span class="w"> </span>libzip<span class="w"> </span>nlopt<span class="w"> </span>ode<span class="w"> </span>open-scene-graph<span class="w"> </span>ossp-uuid<span class="w"> </span>ogre1.9<span class="w"> </span>ogre2.3<span class="w"> </span>pkg-config<span class="w"> </span>protobuf<span class="w"> </span>qt@5<span class="w"> </span>qwt-qt5<span class="w"> </span>rapidjson<span class="w"> </span>ruby<span class="w"> </span>tbb<span class="w"> </span>tinyxml<span class="w"> </span>tinyxml2<span class="w"> </span>urdfdom<span class="w"> </span>zeromq
-</pre></div>
-</div>
-<p><code class="docutils literal notranslate"><span class="pre">qt&#64;5</span></code> is a “keg only” Homebrew formula and its path must be explicitly configured before building Gazebo:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># qt@5</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">CMAKE_PREFIX_PATH</span><span class="o">=</span><span class="si">${</span><span class="nv">CMAKE_PREFIX_PATH</span><span class="p">:+</span><span class="nv">$CMAKE_PREFIX_PATH</span><span class="p">:</span><span class="si">}</span><span class="sb">`</span>brew<span class="w"> </span>--prefix<span class="w"> </span>qt@5<span class="sb">`</span>
-</pre></div>
-</div>
-<p>Unlink <code class="docutils literal notranslate"><span class="pre">qt</span></code> to avoid conflicts with other versions of qt (e.g. qt6)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">brew</span> <span class="n">unlink</span> <span class="n">qt</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>assimp<span class="w"> </span>boost<span class="w"> </span>bullet<span class="w"> </span>cmake<span class="w"> </span>cppzmq<span class="w"> </span>dartsim<span class="w"> </span>doxygen<span class="w"> </span>eigen<span class="w"> </span>fcl<span class="w"> </span>ffmpeg<span class="w"> </span>flann<span class="w"> </span>freeimage<span class="w"> </span>freetype<span class="w"> </span>gdal<span class="w"> </span>gflags<span class="w"> </span>google-benchmark<span class="w"> </span>ipopt<span class="w"> </span>jsoncpp<span class="w"> </span>libccd<span class="w"> </span>libyaml<span class="w"> </span>libzzip<span class="w"> </span>libzip<span class="w"> </span>nlopt<span class="w"> </span>ode<span class="w"> </span>open-scene-graph<span class="w"> </span>ossp-uuid<span class="w"> </span>ogre1.9<span class="w"> </span>ogre2.3<span class="w"> </span>pkg-config<span class="w"> </span>protobuf<span class="w"> </span>qt@6<span class="w"> </span>qwt<span class="w"> </span>rapidjson<span class="w"> </span>ruby<span class="w"> </span>tbb<span class="w"> </span>tinyxml2<span class="w"> </span>urdfdom<span class="w"> </span>zeromq
 </pre></div>
 </div>
 </section>
