@@ -142,7 +142,7 @@ An issue in the conda-forge Qt6 package is requiring to set QT environment varia
 ```bash
 # Until https://github.com/conda-forge/qt-main-feedstock/issues/275 is resolved
 cd gazebo
-set QT_PLUGIN_PATH=%CD%\.pixi\envs\default\Library\lib\qt6\plugins
+set QT_PLUGIN_PATH=%CONDA_PREFIX%\Library\lib\qt6\plugins\platforms
 set QML2_IMPORT_PATH=%CD%\.pixi\envs\default\Library\lib\qt6\qml
 ```
 
