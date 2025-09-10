@@ -198,7 +198,7 @@ the results you want:
      your `conda` environment with:
 
      ```bash
-     rm -rf <workspace_name>  # gz-ws was used as workspace_name in this document
+     rmdir /s /q <workspace_name>  # gz-ws was used as workspace_name in this document
      ```
 
   3. If you want to keep the source code, you can remove the
