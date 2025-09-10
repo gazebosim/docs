@@ -22,12 +22,9 @@ but other package managers for Conda should work like miniforge, mamba, etc.
 ## Install dependencies
 
 1. If no package manager is installed in the system to manage conda-forge dependencies, the recommended
-   option is to follow the Pixi installer instructions by executing the following commands in a
-   "Command Prompt" terminal:
-
-   ```bash
-   powershell -ExecutionPolicy ByPass -c "irm -useb https://pixi.sh/install.ps1 | iex"
-   ```
+   option is to follow the Pixi installer instructions from https://pixi.sh/latest/ to install pixi.
+   Once pixi has been installed, close the terminal session and start it again,
+   which will ensure pixi is on the PATH.
 
 3. Install [Visual Studio 2019 or 2022](https://visualstudio.microsoft.com/downloads/).
    The Community version is free for students, open-source developers, and personal
