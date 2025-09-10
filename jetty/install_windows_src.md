@@ -207,7 +207,7 @@ the results you want:
   4. Last, if you do not need the Pixi environment anymore, you can remove it with
 
      ```bash
-     rm -fr <pixi_env_path>  # "gazebo" was used as pixi_env_path in this document
+     rmdir /s /q <pixi_env_path>  # "gazebo" was used as pixi_env_path in this document
      ```
 
 ## Troubleshooting
