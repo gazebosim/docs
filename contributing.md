@@ -100,7 +100,7 @@ Provide more context by answering these questions:
 
 Include details about your configuration and environment:
 
-* **Which version of Gazebo are you using?**?
+* **Which version of Gazebo are you using**?
 * **What's the name and version of the OS you're using**?
 * **Are you running Gazebo in a virtual machine?** If so, which VM software are you using and which operating systems and versions are used for the host and the guest?
 
@@ -392,7 +392,7 @@ Porting changes across branches:
         git checkout gz-<library>M
         git pull
         git checkout -b N_to_M_<date>
-        git cherry-pick <commits from verrsion N>
+        git cherry-pick <commits from version N>
         # Fix conflicts
         git commit -sam"Backport from N to M"
         # Open pull request
@@ -531,11 +531,11 @@ cd colcon-sanitizer-reports
 sudo python3 setup.py install
 ```
 
-You can find more details [here](https://github.com/colcon/colcon-sanitizer-reports/blob/master/README.rst) about the instalation process.
+You can find more details [here](https://github.com/colcon/colcon-sanitizer-reports/blob/master/README.rst) about the installation process.
 
 #### Compiling the code and running the tests
 
-Create a Gazebo workspace for ASAN/TSAN related tasks. Refer to the [offical documentation to get
+Create a Gazebo workspace for ASAN/TSAN related tasks. Refer to the [official documentation to get
 all the Gazebo sources](install_ubuntu_src.md#getting-the-sources).
 
 First, compile all packages:
