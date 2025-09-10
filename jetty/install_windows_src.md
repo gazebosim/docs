@@ -22,24 +22,25 @@ but other package managers for Conda should work like miniforge, mamba, etc.
 ## Install dependencies
 
 1. If no package manager is installed in the system to manage conda-forge dependencies, the recommended
-   option is to follow the Pixi installer instructions.
+   option is to follow the Pixi installer instructions by executing the following commands in a
+   "Command Prompt" terminal:
 
    ```bash
    powershell -ExecutionPolicy ByPass -c "irm -useb https://pixi.sh/install.ps1 | iex"
    ```
 
-2. Install [Visual Studio 2019 or 2022](https://visualstudio.microsoft.com/downloads/).
+3. Install [Visual Studio 2019 or 2022](https://visualstudio.microsoft.com/downloads/).
    The Community version is free for students, open-source developers, and personal
    development. Check "Desktop development with C++" in the Workloads tab,
    check "MFC and ATL support", and uncheck "C++ Cmake Tools." We will install
    cmake via Conda. All other checkboxes can be left unchecked.
 
-3. Open a Visual Studio Command Prompt (search for "x64 Native Tools Command Prompt
+4. Open a Visual Studio Command Prompt (search for "x64 Native Tools Command Prompt
    for VS" in the Windows search field near the Windows button) or Developer PowerShell
    for VS (search for "developer powershell"). Optionally,
    right-click and pin to the task bar for quick access in the future.
 
-4. Create the Pixi project directory and download the configuration files
+5. Create the Pixi project directory and download the configuration files
    Pixi projects operates inside a given directory, creating one in any user system location
    should be enough. There are two configuration files to download:
    ```bash
@@ -48,7 +49,7 @@ but other package managers for Conda should work like miniforge, mamba, etc.
    curl.exe -L -O https://raw.githubusercontent.com/gazebo-tooling/release-tools/refs/heads/master/conda/envs/noble_like/pixi.toml
    curl.exe -L -O https://raw.githubusercontent.com/gazebo-tooling/release-tools/refs/heads/master/conda/envs/noble_like/pixi.lock
    ```
-5. Install dependencies using Pixi and enable the Pixi environment:
+6. Install dependencies using Pixi and enable the Pixi environment:
    Once inside the Pixi project directory (i.e: `gazebo`), Pixi can install the dependencies
    that are part of the configuration file:
    ```bash
@@ -64,7 +65,7 @@ but other package managers for Conda should work like miniforge, mamba, etc.
    With the Pixi shell environment active (there will be a "(gazebo)" label before the terminal prompt) the Pixi environment
    is accesible from anywhere in the file system.
 
-6. Navigate to where you would like to build the library, create and enter your workspace directory,
+7. Navigate to where you would like to build the library, create and enter your workspace directory,
    create the `src` directory which will contain the Gazebo source code.
    ```bash
    mkdir gz-ws
@@ -72,7 +73,7 @@ but other package managers for Conda should work like miniforge, mamba, etc.
    mkdir src
    ```
 
-7. Then clone the repositories
+8. Then clone the repositories
    ```bash
    vcs import --input https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-jetty.yaml src/
    ```
