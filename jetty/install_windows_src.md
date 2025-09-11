@@ -77,9 +77,10 @@ but other package managers for Conda should work like miniforge, mamba, etc.
 
 ## Building the Gazebo Libraries
 
-> **NOTE**
-> Be sure of being under a Visual Studio Developer shell (step 3 above) and
-> after executing the pixi shell (step 5 above).
+:::{note}
+Be sure of being under a Visual Studio Developer shell (step 3 above) and
+after executing the pixi shell (step 5 above).
+:::
 
 Once the compiler and all the sources are in place it is time to compile them.
 Start the procedure by navigating to your workspace and listing the packages
