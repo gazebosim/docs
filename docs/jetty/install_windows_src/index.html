@@ -498,26 +498,19 @@ without any failures when using their functionalities.</p>
 You should be able to use <code class="docutils literal notranslate"><span class="pre">ogre</span></code> as a rendering engine instead of the default <code class="docutils literal notranslate"><span class="pre">ogre2</span></code>.
 Just append <code class="docutils literal notranslate"><span class="pre">--render-engine</span> <span class="pre">ogre</span></code> to the command line.</p>
 </div></blockquote>
+<section id="dependency-distribution-conda-forge-and-the-package-manager-pixi">
+<h2>Dependency distribution (conda-forge) and the package manager (Pixi)<a class="headerlink" href="#dependency-distribution-conda-forge-and-the-package-manager-pixi" title="Link to this heading">#</a></h2>
+<p>Binaries for all the dependendencies used by Gazebo can be found in the <a class="reference external" href="https://conda-forge.org/">conda-forge</a>
+package repository. The Gazebo buildfarm and these instructions uses the <a class="reference external" href="https://pixi.sh/">Pixi</a> package manager
+but other package managers for Conda should work like miniforge, mamba, etc.</p>
+</section>
 <section id="install-dependencies">
 <h2>Install dependencies<a class="headerlink" href="#install-dependencies" title="Link to this heading">#</a></h2>
 <ol class="arabic">
-<li><p>If you do not have the conda package manager installed in your system, install a conda distribution.
-As Gazebo uses all dependencies from the conda-forge channel, we suggest to install miniforge following <a class="reference external" href="https://github.com/conda-forge/miniforge#windows">the official miniforge installation docs</a> by executing the following commands in a “Command Prompt” terminal:</p>
-<div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>curl.exe -L -O https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Windows-x86_64.exe
-start /wait &quot;&quot; Miniforge3-Windows-x86_64.exe /InstallationType=JustMe /RegisterPython=0 /S /D=%UserProfile%\Miniforge3
-%UserProfile%\Miniforge3\condabin\conda init
-%UserProfile%\Miniforge3\condabin\conda config --set auto_activate_base false
-del Miniforge3-Windows-x86_64.exe
-</pre></div>
-</div>
-<p>If you followed this step correctly, you should be able to access <code class="docutils literal notranslate"><span class="pre">conda</span></code> in any new “Command Prompt” terminal you open.
-To verify that, check that if you open a new terminal and execute <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span></code>, the output begins with:</p>
-<div class="highlight-cmd notranslate"><div class="highlight"><pre><span></span>  active environment : None
-         shell level : 0
-  [..]
-</pre></div>
-</div>
-</li>
+<li><p>If no package manager is installed in the system to manage conda-forge dependencies, the recommended
+option is to follow the Pixi installer instructions from <a class="reference external" href="https://pixi.sh/latest/">https://pixi.sh/latest/</a> to install pixi.
+Once pixi has been installed, close the terminal session and start it again,
+which will ensure pixi is on the PATH.</p></li>
 <li><p>Install <a class="reference external" href="https://visualstudio.microsoft.com/downloads/">Visual Studio 2019 or 2022</a>.
 The Community version is free for students, open-source developers, and personal
 development. Check “Desktop development with C++” in the Workloads tab,
@@ -526,47 +519,32 @@ cmake via Conda. All other checkboxes can be left unchecked.</p></li>
 <li><p>Open a Visual Studio Command Prompt (search for “x64 Native Tools Command Prompt
 for VS” in the Windows search field near the Windows button) or Developer PowerShell
 for VS (search for “developer powershell”). Optionally,
-right-click and pin to the task bar for quick access in the future.</p>
-<p>If you chose PowerShell, you need to do a few steps to be able to use Conda and Gazebo in it:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>init<span class="w"> </span>powershell
-<span class="c1"># Restart the PowerShell</span>
-Set-ExecutionPolicy<span class="w"> </span>-ExecutionPolicy<span class="w"> </span>Unrestricted<span class="w"> </span>-Scope<span class="w"> </span>CurrentUser
+right-click and pin to the task bar for quick access in the future.</p></li>
+<li><p>Create the Pixi project directory and download the configuration files
+Pixi projects operates inside a given directory, creating one in any user system location
+should be enough. There are two configuration files to download:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mkdir<span class="w"> </span>gazebo
+<span class="nb">cd</span><span class="w"> </span>gazebo
+curl.exe<span class="w"> </span>-L<span class="w"> </span>-O<span class="w"> </span>https://raw.githubusercontent.com/gazebo-tooling/release-tools/refs/heads/master/conda/envs/noble_like/pixi.toml
+curl.exe<span class="w"> </span>-L<span class="w"> </span>-O<span class="w"> </span>https://raw.githubusercontent.com/gazebo-tooling/release-tools/refs/heads/master/conda/envs/noble_like/pixi.lock
 </pre></div>
 </div>
 </li>
-<li><p>Create and activate a Conda environment:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>gz-ws
-conda<span class="w"> </span>activate<span class="w"> </span>gz-ws
+<li><p>Install dependencies using Pixi and enable the Pixi environment:
+Once inside the Pixi project directory (i.e: <code class="docutils literal notranslate"><span class="pre">gazebo</span></code>), Pixi can install the dependencies
+that are part of the configuration file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>::<span class="w"> </span>inside<span class="w"> </span>the<span class="w"> </span>gazebo<span class="w"> </span>directory
+pixi<span class="w"> </span>install
 </pre></div>
 </div>
-<p>Once you have activated an environment, a prefix like <code class="docutils literal notranslate"><span class="pre">(gz-ws)</span></code> will be prepended to
-your prompt.</p>
-<p>You can use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">info</span> <span class="pre">--envs</span></code> to see all of your environments.</p>
-<p>To speed up conda installations, also set the following to use libmamba solver.
-Older conda installations may need to do <a class="reference external" href="https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community">additional steps</a>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>config<span class="w"> </span>--set<span class="w"> </span>solver<span class="w"> </span>libmamba
+<p>This can take some minutes. After this Pixi can make accesible all the libraries and dependencies
+installed by providing a shell enviroment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>::<span class="w"> </span>inside<span class="w"> </span>the<span class="w"> </span>gazebo<span class="w"> </span>directory
+pixi<span class="w"> </span>shell
 </pre></div>
 </div>
-<p>To remove an environment, use <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">remove</span> <span class="pre">--all</span> <span class="pre">--name</span> <span class="pre">&lt;env_name&gt;</span></code>.</p>
-<blockquote>
-<div><p><strong>NOTE</strong>
-This way of Conda environment creation puts it into a default folder. If you need
-to install it elsewhere, use <code class="docutils literal notranslate"><span class="pre">--prefix</span> <span class="pre">&lt;env_path&gt;</span></code> instead of <code class="docutils literal notranslate"><span class="pre">--name</span> <span class="pre">&lt;env_name&gt;</span></code>.
-Environments in custom paths cannot be referenced by names, so even <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span></code>
-needs to be passed a path (relative or absolute) instead of the name. If you refer
-to a subdirectory of the current directory, you have to prepend <code class="docutils literal notranslate"><span class="pre">.\</span></code> so that Conda
-knows it is a path and not a name.</p>
-</div></blockquote>
-</li>
-<li><p>Install dependencies:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>cmake<span class="w"> </span>git<span class="w"> </span>vcstool<span class="w"> </span>curl<span class="w"> </span>pkg-config<span class="w"> </span>^
-colcon-common-extensions<span class="w"> </span>dartsim<span class="w"> </span>eigen<span class="w"> </span>freeimage<span class="w"> </span>gdal<span class="w"> </span>gts<span class="w"> </span>^
-glib<span class="w"> </span>dlfcn-win32<span class="w"> </span>ffmpeg<span class="w"> </span>ruby<span class="w"> </span>tinyxml2<span class="w"> </span>tinyxml<span class="w"> </span>^
-protobuf<span class="w"> </span>urdfdom<span class="w"> </span>zeromq<span class="w"> </span>cppzmq<span class="w"> </span><span class="nv">ogre</span><span class="o">=</span><span class="m">1</span>.10<span class="w"> </span>ogre-next<span class="w"> </span>jsoncpp<span class="w"> </span>^
-libzip<span class="w"> </span>qt<span class="w"> </span>pybind11<span class="w"> </span>boost<span class="w"> </span>--channel<span class="w"> </span>conda-forge
-</pre></div>
-</div>
-<p>This can take tens of minutes (or less when using libmamba solver).</p>
+<p>With the Pixi shell environment active (there will be a “(gazebo)” label before the terminal prompt) the Pixi environment
+is accesible from anywhere in the file system.</p>
 </li>
 <li><p>Navigate to where you would like to build the library, create and enter your workspace directory,
 create the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory which will contain the Gazebo source code.</p>
@@ -577,13 +555,7 @@ mkdir<span class="w"> </span>src
 </div>
 </li>
 <li><p>Then clone the repositories</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># CMD</span>
-curl<span class="w"> </span>-sk<span class="w"> </span>https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-jetty.yaml<span class="w"> </span>-o<span class="w"> </span>collection-jetty
-vcs<span class="w"> </span>import<span class="w"> </span>src<span class="w"> </span>&lt;<span class="w"> </span>collection-jetty
-
-<span class="c1"># PowerShell</span>
-curl<span class="w"> </span>https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-jetty.yaml<span class="w"> </span>-o<span class="w"> </span>collection-jetty
-vcs<span class="w"> </span>import<span class="w"> </span>--input<span class="w"> </span>collection-jetty<span class="w"> </span>src
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vcs<span class="w"> </span>import<span class="w"> </span>--input<span class="w"> </span>https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-jetty.yaml<span class="w"> </span>src/
 </pre></div>
 </div>
 </li>
@@ -591,6 +563,11 @@ vcs<span class="w"> </span>import<span class="w"> </span>--input<span class="w">
 </section>
 <section id="building-the-gazebo-libraries">
 <h2>Building the Gazebo Libraries<a class="headerlink" href="#building-the-gazebo-libraries" title="Link to this heading">#</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Be sure of being under a Visual Studio Developer shell (step 3 above) and
+after executing the pixi shell (step 5 above).</p>
+</div>
 <p>Once the compiler and all the sources are in place it is time to compile them.
 Start the procedure by navigating to your workspace and listing the packages
 recognized by <code class="docutils literal notranslate"><span class="pre">colcon</span></code>:</p>
@@ -618,19 +595,36 @@ If that is the case, then you are ready to build the whole set of libraries:</p>
 <section id="using-the-workspace">
 <h2>Using the workspace<a class="headerlink" href="#using-the-workspace" title="Link to this heading">#</a></h2>
 <p>The workspace needs to be sourced every time a new terminal is used (
-and Conda environment activated before that).</p>
+and the Pixi environment activated before that).</p>
 <p>The overall instructions for setting up a new terminal to use the built
 workspace are:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># CMD</span>
-conda<span class="w"> </span>activate<span class="w"> </span>gz-ws
+<span class="nb">cd</span><span class="w"> </span>gazebo
+pixi<span class="w"> </span>shell
 call<span class="w"> </span>install<span class="se">\s</span>etup.bat
 
 <span class="c1"># PowerShell</span>
-conda<span class="w"> </span>activate<span class="w"> </span>gz-ws
+<span class="nb">cd</span><span class="w"> </span>gazebo
+pixi<span class="w"> </span>shell
 .<span class="se">\i</span>nstall<span class="se">\s</span>etup.ps1
 </pre></div>
 </div>
-<p>You should now be able to launch gazebo:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>An issue in the conda-forge Qt6 package is requiring to set QT environment variables:</p>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Until https://github.com/conda-forge/qt-main-feedstock/issues/275 is resolved</span>
+<span class="nb">cd</span><span class="w"> </span>gazebo
+<span class="nb">set</span><span class="w"> </span><span class="nv">QT_PLUGIN_PATH</span><span class="o">=</span>%CONDA_PREFIX%<span class="se">\L</span>ibrary<span class="se">\l</span>ib<span class="se">\q</span>t6<span class="se">\p</span>lugins<span class="se">\p</span>latforms
+<span class="nb">set</span><span class="w"> </span><span class="nv">QML2_IMPORT_PATH</span><span class="o">=</span>%CONDA_PREFIX%<span class="se">\L</span>ibrary<span class="se">\l</span>ib<span class="se">\q</span>t6<span class="se">\q</span>ml
+</pre></div>
+</div>
+<p>You should now be able to launch gazebo normally:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gz<span class="w"> </span>sim<span class="w"> </span>--verbose
+</pre></div>
+</div>
+<p>Alternativally launching the server and the client in two different terminales (after sourcing
+in both the install scripts, the pixi shell and the QT env variables):</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Launch server in one terminal</span>
 gz<span class="w"> </span>sim<span class="w"> </span>-s
 
@@ -669,16 +663,14 @@ Gazebo is not installed on your system.</p></li>
 <li><p>If, in addition to not wanting to use the libraries, you’re also trying to
 free up space, you can delete the entire workspace directory from within
 your <code class="docutils literal notranslate"><span class="pre">conda</span></code> environment with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rm<span class="w"> </span>-rf<span class="w"> </span>&lt;workspace_name&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rmdir<span class="w"> </span>/s<span class="w"> </span>/q<span class="w"> </span>&lt;workspace_name&gt;<span class="w">  </span><span class="c1"># gz-ws was used as workspace_name in this document</span>
 </pre></div>
 </div>
 </li>
 <li><p>If you want to keep the source code, you can remove the
 <code class="docutils literal notranslate"><span class="pre">install</span></code> / <code class="docutils literal notranslate"><span class="pre">build</span></code> / <code class="docutils literal notranslate"><span class="pre">log</span></code> directories as desired, leaving the <code class="docutils literal notranslate"><span class="pre">src</span></code> directory.</p></li>
-<li><p>Last, if you do not need the conda environment anymore, you can remove it with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>deactivate
-conda<span class="w"> </span>remove<span class="w"> </span>--all<span class="w"> </span>--name<span class="w"> </span>&lt;env_name&gt;
-<span class="c1"># or conda remove --all --prefix &lt;path_to_env&gt; if you installed to custom path</span>
+<li><p>Last, if you do not need the Pixi environment anymore, you can remove it with</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rmdir<span class="w"> </span>/s<span class="w"> </span>/q<span class="w"> </span>&lt;pixi_env_path&gt;<span class="w">  </span><span class="c1"># &quot;gazebo&quot; was used as pixi_env_path in this document</span>
 </pre></div>
 </div>
 </li>
@@ -713,6 +705,7 @@ conda<span class="w"> </span>remove<span class="w"> </span>--all<span class="w">
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependency-distribution-conda-forge-and-the-package-manager-pixi">Dependency distribution (conda-forge) and the package manager (Pixi)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dependencies">Install dependencies</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-the-gazebo-libraries">Building the Gazebo Libraries</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-workspace">Using the workspace</a><ul class="nav section-nav flex-column">
