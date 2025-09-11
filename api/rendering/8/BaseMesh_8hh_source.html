@@ -420,152 +420,166 @@
 <div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;        subMesh-&gt;SetMaterial(_material, <span class="keyword">false</span>);</div>
 <div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;      }</div>
 <div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160; </div>
-<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;      <span class="keywordflow">if</span> (this-&gt;material &amp;&amp; this-&gt;ownsMaterial)</div>
-<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;        this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a77f0ab574cc1997b7a062c73b8d78077" title="Unregister and destroy a material.">DestroyMaterial</a>(this-&gt;material);</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;      this-&gt;ownsMaterial = _unique;</div>
-<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;      this-&gt;material = _material;</div>
-<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    }</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;      <span class="comment">// If the same material is being set, return early and don&#39;t try</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;      <span class="comment">// to destroy the material. We still need call SetMaterial on the</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;      <span class="comment">// submeshes in case the user changed some material properties</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;      <span class="comment">// before setting it back.</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;      <span class="keywordflow">if</span> (!_unique &amp;&amp; _material == this-&gt;material)</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160; </div>
-<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00317"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseMesh.html#a2a062fe0fd3c5f4d771563834e4be9c6">  317</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseMesh.html#a2a062fe0fd3c5f4d771563834e4be9c6" title="Prepare this object and any of its children for rendering. This should be called for each object in a...">BaseMesh&lt;T&gt;::PreRender</a>()</div>
-<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    {</div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> count = this-&gt;SubMeshCount();</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; count; ++i)</div>
-<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;      {</div>
-<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">SubMeshPtr</a> subMesh =  this-&gt;SubMeshByIndex(i);</div>
-<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;        subMesh-&gt;PreRender();</div>
-<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;      }</div>
-<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;      T::PreRender();</div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    }</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
-<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00332"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseMesh.html#a300602d913a85496df902b50fcbe884f">  332</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> <a class="code" href="classgz_1_1rendering_1_1BaseMesh.html#a300602d913a85496df902b50fcbe884f" title="Clone the geometry.">BaseMesh&lt;T&gt;::Clone</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;      <span class="keywordflow">if</span> (!this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>())</div>
-<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;      {</div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;        <a class="codeRef" href="https://gazebosim.org/api/common/5/gz_2common_2Console_8hh.html#acf18c83e7419e002351f1eeceb6c2cf4">gzerr</a> &lt;&lt; <span class="stringliteral">&quot;Cloning a mesh failed because the mesh to be &quot;</span></div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;          &lt;&lt; <span class="stringliteral">&quot;cloned does not belong to a scene.\n&quot;</span>;</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;      }</div>
-<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (this-&gt;meshDescriptor.meshName.empty())</div>
-<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;      {</div>
-<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        <a class="codeRef" href="https://gazebosim.org/api/common/5/gz_2common_2Console_8hh.html#acf18c83e7419e002351f1eeceb6c2cf4">gzerr</a> &lt;&lt; <span class="stringliteral">&quot;Cloning a geometry failed because the name of the mesh is &quot;</span></div>
-<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;          &lt;&lt; <span class="stringliteral">&quot;missing.\n&quot;</span>;</div>
-<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;      }</div>
-<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;      <span class="keyword">auto</span> result = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#ad4b54cf1b702b4bbf78311f23b0b1c0e" title="Create new mesh geomerty. The rendering::Mesh will be created from a common::Mesh retrieved from comm...">CreateMesh</a>(this-&gt;meshDescriptor);</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      <span class="keywordflow">if</span> (result)</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;      {</div>
-<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;        <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classgz_1_1rendering_1_1Material.html" title="Represents a surface material of a Geometry.">Material</a>())</div>
-<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        {</div>
-<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;          <span class="comment">// this call will set the material for the mesh and its submeshes</span></div>
-<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;          result-&gt;SetMaterial(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Material.html" title="Represents a surface material of a Geometry.">Material</a>());</div>
-<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;        }</div>
-<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;        <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;        {</div>
-<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;          <span class="comment">// if the mesh doesn&#39;t have a material, clone any existing submesh</span></div>
-<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;          <span class="comment">// materials</span></div>
-<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; this-&gt;SubMeshCount(); ++i)</div>
-<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;          {</div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;            <span class="keyword">auto</span> existingSubMeshMaterial = this-&gt;SubMeshByIndex(i)-&gt;Material();</div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;            <span class="keywordflow">if</span> (existingSubMeshMaterial)</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;              result-&gt;SubMeshByIndex(i)-&gt;SetMaterial(existingSubMeshMaterial);</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;          }</div>
-<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;        }</div>
-<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;      }</div>
-<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; </div>
-<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;      <span class="keywordflow">return</span> result;</div>
-<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    }</div>
-<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160; </div>
-<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00373"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseMesh.html#a73e4c76f746d50039b7c8cc25999044f">  373</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="structgz_1_1rendering_1_1MeshDescriptor.html" title="Describes how a Mesh should be loaded.">MeshDescriptor</a> &amp;<a class="code" href="classgz_1_1rendering_1_1BaseMesh.html#a73e4c76f746d50039b7c8cc25999044f" title="Get the mesh&#39;s mesh descriptor.">BaseMesh&lt;T&gt;::Descriptor</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;      <span class="keywordflow">return</span> this-&gt;meshDescriptor;</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;      <span class="keywordflow">if</span> (this-&gt;material &amp;&amp; this-&gt;ownsMaterial)</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;        this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a77f0ab574cc1997b7a062c73b8d78077" title="Unregister and destroy a material.">DestroyMaterial</a>(this-&gt;material);</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      this-&gt;ownsMaterial = _unique;</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      this-&gt;material = _material;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    }</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00324"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseMesh.html#a2a062fe0fd3c5f4d771563834e4be9c6">  324</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseMesh.html#a2a062fe0fd3c5f4d771563834e4be9c6" title="Prepare this object and any of its children for rendering. This should be called for each object in a...">BaseMesh&lt;T&gt;::PreRender</a>()</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;    {</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;      <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> count = this-&gt;SubMeshCount();</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;      <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; count; ++i)</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;      {</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;        <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">SubMeshPtr</a> subMesh =  this-&gt;SubMeshByIndex(i);</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;        subMesh-&gt;PreRender();</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;      }</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;      T::PreRender();</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;    }</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160; </div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00339"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseMesh.html#a300602d913a85496df902b50fcbe884f">  339</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">GeometryPtr</a> <a class="code" href="classgz_1_1rendering_1_1BaseMesh.html#a300602d913a85496df902b50fcbe884f" title="Clone the geometry.">BaseMesh&lt;T&gt;::Clone</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;      <span class="keywordflow">if</span> (!this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>())</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;      {</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;        <a class="codeRef" href="https://gazebosim.org/api/common/5/gz_2common_2Console_8hh.html#acf18c83e7419e002351f1eeceb6c2cf4">gzerr</a> &lt;&lt; <span class="stringliteral">&quot;Cloning a mesh failed because the mesh to be &quot;</span></div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;          &lt;&lt; <span class="stringliteral">&quot;cloned does not belong to a scene.\n&quot;</span>;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;      }</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (this-&gt;meshDescriptor.meshName.empty())</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;      {</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;        <a class="codeRef" href="https://gazebosim.org/api/common/5/gz_2common_2Console_8hh.html#acf18c83e7419e002351f1eeceb6c2cf4">gzerr</a> &lt;&lt; <span class="stringliteral">&quot;Cloning a geometry failed because the name of the mesh is &quot;</span></div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;          &lt;&lt; <span class="stringliteral">&quot;missing.\n&quot;</span>;</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;      }</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160; </div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;      <span class="keyword">auto</span> result = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#ad4b54cf1b702b4bbf78311f23b0b1c0e" title="Create new mesh geomerty. The rendering::Mesh will be created from a common::Mesh retrieved from comm...">CreateMesh</a>(this-&gt;meshDescriptor);</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;      <span class="keywordflow">if</span> (result)</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;      {</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;        <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classgz_1_1rendering_1_1Material.html" title="Represents a surface material of a Geometry.">Material</a>())</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;        {</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;          <span class="comment">// this call will set the material for the mesh and its submeshes</span></div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;          result-&gt;SetMaterial(this-&gt;<a class="code" href="classgz_1_1rendering_1_1Material.html" title="Represents a surface material of a Geometry.">Material</a>());</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;        }</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;        {</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;          <span class="comment">// if the mesh doesn&#39;t have a material, clone any existing submesh</span></div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;          <span class="comment">// materials</span></div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;          <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; this-&gt;SubMeshCount(); ++i)</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;          {</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;            <span class="keyword">auto</span> existingSubMeshMaterial = this-&gt;SubMeshByIndex(i)-&gt;Material();</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;            <span class="keywordflow">if</span> (existingSubMeshMaterial)</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;              result-&gt;SubMeshByIndex(i)-&gt;SetMaterial(existingSubMeshMaterial);</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;          }</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;        }</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;      }</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160; </div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;      <span class="keywordflow">return</span> result;</div>
 <div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;    }</div>
 <div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160; </div>
 <div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00380"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseMesh.html#ab0322ddbbbb029df2215c99077c7c95a">  380</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseMesh.html#ab0322ddbbbb029df2215c99077c7c95a" title="Set the mesh&#39;s descriptor.">BaseMesh&lt;T&gt;::SetDescriptor</a>(<span class="keyword">const</span> <a class="code" href="structgz_1_1rendering_1_1MeshDescriptor.html" title="Describes how a Mesh should be loaded.">MeshDescriptor</a> &amp;_desc)</div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;    {</div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;      this-&gt;meshDescriptor = _desc;</div>
+<div class="line"><a name="l00380"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseMesh.html#a73e4c76f746d50039b7c8cc25999044f">  380</a></span>&#160;    <span class="keyword">const</span> <a class="code" href="structgz_1_1rendering_1_1MeshDescriptor.html" title="Describes how a Mesh should be loaded.">MeshDescriptor</a> &amp;<a class="code" href="classgz_1_1rendering_1_1BaseMesh.html#a73e4c76f746d50039b7c8cc25999044f" title="Get the mesh&#39;s mesh descriptor.">BaseMesh&lt;T&gt;::Descriptor</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;      <span class="keywordflow">return</span> this-&gt;meshDescriptor;</div>
 <div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;    }</div>
 <div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160; </div>
 <div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00387"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseMesh.html#a9138802bd505003fa7224b0dc0413fb4">  387</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseMesh.html#a9138802bd505003fa7224b0dc0413fb4" title="Destroy any resources associated with this object. Invoking any other functions after destroying an o...">BaseMesh&lt;T&gt;::Destroy</a>()</div>
+<div class="line"><a name="l00387"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseMesh.html#ab0322ddbbbb029df2215c99077c7c95a">  387</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseMesh.html#ab0322ddbbbb029df2215c99077c7c95a" title="Set the mesh&#39;s descriptor.">BaseMesh&lt;T&gt;::SetDescriptor</a>(<span class="keyword">const</span> <a class="code" href="structgz_1_1rendering_1_1MeshDescriptor.html" title="Describes how a Mesh should be loaded.">MeshDescriptor</a> &amp;_desc)</div>
 <div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;    {</div>
-<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;      T::Destroy();</div>
-<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;      this-&gt;SubMeshes()-&gt;DestroyAll();</div>
-<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;      <span class="keywordflow">if</span> (this-&gt;material &amp;&amp; this-&gt;ownsMaterial)</div>
-<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;        this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a77f0ab574cc1997b7a062c73b8d78077" title="Unregister and destroy a material.">DestroyMaterial</a>(this-&gt;material);</div>
-<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;      this-&gt;material.reset();</div>
-<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;      this-&gt;meshDescriptor = <a class="code" href="structgz_1_1rendering_1_1MeshDescriptor.html" title="Describes how a Mesh should be loaded.">MeshDescriptor</a>();</div>
-<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    }</div>
-<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160; </div>
-<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <span class="comment">// BaseSubMesh</span></div>
-<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="comment"></span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00401"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseSubMesh.html#aa0eabdc0a0ebc98d9a702af7e7dc2a41">  401</a></span>&#160;    <a class="code" href="classgz_1_1rendering_1_1BaseSubMesh.html#aa0eabdc0a0ebc98d9a702af7e7dc2a41">BaseSubMesh&lt;T&gt;::BaseSubMesh</a>()</div>
-<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    {</div>
-<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;    }</div>
-<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; </div>
-<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00407"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseSubMesh.html#a85d5c1f848d84b00f34179b976bfc573">  407</a></span>&#160;    <a class="code" href="classgz_1_1rendering_1_1BaseSubMesh.html#a85d5c1f848d84b00f34179b976bfc573">BaseSubMesh&lt;T&gt;::~BaseSubMesh</a>()</div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    {</div>
-<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    }</div>
-<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160; </div>
-<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00413"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseSubMesh.html#a9138802bd505003fa7224b0dc0413fb4">  413</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseSubMesh.html#a9138802bd505003fa7224b0dc0413fb4" title="Destroy any resources associated with this object. Invoking any other functions after destroying an o...">BaseSubMesh&lt;T&gt;::Destroy</a>()</div>
-<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;    {</div>
-<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;      T::Destroy();</div>
-<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;      <span class="keywordflow">if</span> (this-&gt;material &amp;&amp; this-&gt;ownsMaterial)</div>
-<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;        this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a77f0ab574cc1997b7a062c73b8d78077" title="Unregister and destroy a material.">DestroyMaterial</a>(this-&gt;material);</div>
-<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;      this-&gt;material.reset();</div>
-<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    }</div>
-<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160; </div>
-<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160; </div>
-<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00424"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseSubMesh.html#a8fa6cc908e8753da060b76f09dd2f4d6">  424</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseSubMesh.html#a8fa6cc908e8753da060b76f09dd2f4d6" title="Set the materials of this SubMesh. The specified material will be retrieved from the parent Scene....">BaseSubMesh&lt;T&gt;::SetMaterial</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name, <span class="keywordtype">bool</span> _unique)</div>
-<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;    {</div>
-<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> mat = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a2832fb86f24ded5d2291acfcbd2e513f" title="Get material registered under the given name. If no material is registered under the given name,...">Material</a>(_name);</div>
-<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;      <span class="keywordflow">if</span> (mat) this-&gt;SetMaterial(mat, _unique);</div>
-<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    }</div>
-<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160; </div>
-<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00432"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseSubMesh.html#ae94b60291dde1c96e8dd261713454e0e">  432</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseSubMesh.html#a8fa6cc908e8753da060b76f09dd2f4d6" title="Set the materials of this SubMesh. The specified material will be retrieved from the parent Scene....">BaseSubMesh&lt;T&gt;::SetMaterial</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> _material, <span class="keywordtype">bool</span> _unique)</div>
-<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    {</div>
-<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;      _material = (_unique) ? _material-&gt;Clone() : _material;</div>
-<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160; </div>
-<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> origMaterial = this-&gt;material;</div>
-<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;      <span class="keywordtype">bool</span> origUnique = this-&gt;ownsMaterial;</div>
-<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160; </div>
-<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;      this-&gt;SetMaterialImpl(_material);</div>
-<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160; </div>
-<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;      <span class="keywordflow">if</span> (origMaterial &amp;&amp; origUnique)</div>
-<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;        this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a77f0ab574cc1997b7a062c73b8d78077" title="Unregister and destroy a material.">DestroyMaterial</a>(origMaterial);</div>
-<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160; </div>
-<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;      this-&gt;material = _material;</div>
-<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;      this-&gt;ownsMaterial = _unique;</div>
-<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    }</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;      this-&gt;meshDescriptor = _desc;</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;    }</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; </div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00394"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseMesh.html#a9138802bd505003fa7224b0dc0413fb4">  394</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseMesh.html#a9138802bd505003fa7224b0dc0413fb4" title="Destroy any resources associated with this object. Invoking any other functions after destroying an o...">BaseMesh&lt;T&gt;::Destroy</a>()</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    {</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;      T::Destroy();</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;      this-&gt;SubMeshes()-&gt;DestroyAll();</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;      <span class="keywordflow">if</span> (this-&gt;material &amp;&amp; this-&gt;ownsMaterial)</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;        this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a77f0ab574cc1997b7a062c73b8d78077" title="Unregister and destroy a material.">DestroyMaterial</a>(this-&gt;material);</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;      this-&gt;material.reset();</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;      this-&gt;meshDescriptor = <a class="code" href="structgz_1_1rendering_1_1MeshDescriptor.html" title="Describes how a Mesh should be loaded.">MeshDescriptor</a>();</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    }</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160; </div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="comment">// BaseSubMesh</span></div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;<span class="comment"></span>    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00408"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseSubMesh.html#aa0eabdc0a0ebc98d9a702af7e7dc2a41">  408</a></span>&#160;    <a class="code" href="classgz_1_1rendering_1_1BaseSubMesh.html#aa0eabdc0a0ebc98d9a702af7e7dc2a41">BaseSubMesh&lt;T&gt;::BaseSubMesh</a>()</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;    {</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    }</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160; </div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00414"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseSubMesh.html#a85d5c1f848d84b00f34179b976bfc573">  414</a></span>&#160;    <a class="code" href="classgz_1_1rendering_1_1BaseSubMesh.html#a85d5c1f848d84b00f34179b976bfc573">BaseSubMesh&lt;T&gt;::~BaseSubMesh</a>()</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    {</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;    }</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160; </div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00420"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseSubMesh.html#a9138802bd505003fa7224b0dc0413fb4">  420</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseSubMesh.html#a9138802bd505003fa7224b0dc0413fb4" title="Destroy any resources associated with this object. Invoking any other functions after destroying an o...">BaseSubMesh&lt;T&gt;::Destroy</a>()</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    {</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;      T::Destroy();</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;      <span class="keywordflow">if</span> (this-&gt;material &amp;&amp; this-&gt;ownsMaterial)</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;        this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a77f0ab574cc1997b7a062c73b8d78077" title="Unregister and destroy a material.">DestroyMaterial</a>(this-&gt;material);</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;      this-&gt;material.reset();</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    }</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160; </div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160; </div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00431"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseSubMesh.html#a8fa6cc908e8753da060b76f09dd2f4d6">  431</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseSubMesh.html#a8fa6cc908e8753da060b76f09dd2f4d6" title="Set the materials of this SubMesh. The specified material will be retrieved from the parent Scene....">BaseSubMesh&lt;T&gt;::SetMaterial</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name, <span class="keywordtype">bool</span> _unique)</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    {</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> mat = this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a2832fb86f24ded5d2291acfcbd2e513f" title="Get material registered under the given name. If no material is registered under the given name,...">Material</a>(_name);</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;      <span class="keywordflow">if</span> (mat) this-&gt;SetMaterial(mat, _unique);</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;    }</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160; </div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00439"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseSubMesh.html#ae94b60291dde1c96e8dd261713454e0e">  439</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseSubMesh.html#a8fa6cc908e8753da060b76f09dd2f4d6" title="Set the materials of this SubMesh. The specified material will be retrieved from the parent Scene....">BaseSubMesh&lt;T&gt;::SetMaterial</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> _material, <span class="keywordtype">bool</span> _unique)</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;    {</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;      _material = (_unique) ? _material-&gt;Clone() : _material;</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160; </div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;      <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> origMaterial = this-&gt;material;</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;      <span class="keywordtype">bool</span> origUnique = this-&gt;ownsMaterial;</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160; </div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;      this-&gt;SetMaterialImpl(_material);</div>
 <div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160; </div>
-<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00450"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseSubMesh.html#a1180627285223d3dcd760b581250176d">  450</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> <a class="code" href="classgz_1_1rendering_1_1BaseSubMesh.html#a1180627285223d3dcd760b581250176d" title="Get the currently assigned material.">BaseSubMesh&lt;T&gt;::Material</a>()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;<span class="keyword">    </span>{</div>
-<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;      <span class="keywordflow">return</span> this-&gt;material;</div>
-<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;    }</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;      <span class="comment">// If the same material is being set, return early and don&#39;t try</span></div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;      <span class="comment">// to destroy the material. We still need to call SetMaterialImpl</span></div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;      <span class="comment">// above in case the user changed some material properties</span></div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;      <span class="comment">// before setting it back.</span></div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;      <span class="keywordflow">if</span> (!_unique &amp;&amp; _material == origMaterial)</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160; </div>
-<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00457"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseSubMesh.html#a2a062fe0fd3c5f4d771563834e4be9c6">  457</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseSubMesh.html#a2a062fe0fd3c5f4d771563834e4be9c6" title="Prepare this object and any of its children for rendering. This should be called for each object in a...">BaseSubMesh&lt;T&gt;::PreRender</a>()</div>
-<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;    {</div>
-<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;      T::PreRender();</div>
-<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classgz_1_1rendering_1_1Material.html" title="Represents a surface material of a Geometry.">Material</a>())</div>
-<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;        this-&gt;<a class="code" href="classgz_1_1rendering_1_1Material.html" title="Represents a surface material of a Geometry.">Material</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Object.html#adffb56e0e545fefebf96b36f295396e9" title="Prepare this object and any of its children for rendering. This should be called for each object in a...">PreRender</a>();</div>
-<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;    }</div>
-<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;    }</div>
-<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;  }</div>
-<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;}</div>
-<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;      <span class="keywordflow">if</span> (origMaterial &amp;&amp; origUnique)</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;        this-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html" title="Manages a single scene-graph. This class updates scene-wide properties and holds the root scene node....">Scene</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Scene.html#a77f0ab574cc1997b7a062c73b8d78077" title="Unregister and destroy a material.">DestroyMaterial</a>(origMaterial);</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160; </div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;      this-&gt;material = _material;</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;      this-&gt;ownsMaterial = _unique;</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;    }</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160; </div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00464"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseSubMesh.html#a1180627285223d3dcd760b581250176d">  464</a></span>&#160;    <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">MaterialPtr</a> <a class="code" href="classgz_1_1rendering_1_1BaseSubMesh.html#a1180627285223d3dcd760b581250176d" title="Get the currently assigned material.">BaseSubMesh&lt;T&gt;::Material</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;      <span class="keywordflow">return</span> this-&gt;material;</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;    }</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160; </div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00471"></a><span class="lineno"><a class="line" href="classgz_1_1rendering_1_1BaseSubMesh.html#a2a062fe0fd3c5f4d771563834e4be9c6">  471</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classgz_1_1rendering_1_1BaseSubMesh.html#a2a062fe0fd3c5f4d771563834e4be9c6" title="Prepare this object and any of its children for rendering. This should be called for each object in a...">BaseSubMesh&lt;T&gt;::PreRender</a>()</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;    {</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;      T::PreRender();</div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160;      <span class="keywordflow">if</span> (this-&gt;<a class="code" href="classgz_1_1rendering_1_1Material.html" title="Represents a surface material of a Geometry.">Material</a>())</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;        this-&gt;<a class="code" href="classgz_1_1rendering_1_1Material.html" title="Represents a surface material of a Geometry.">Material</a>()-&gt;<a class="code" href="classgz_1_1rendering_1_1Object.html#adffb56e0e545fefebf96b36f295396e9" title="Prepare this object and any of its children for rendering. This should be called for each object in a...">PreRender</a>();</div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;    }</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;    }</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;  }</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;}</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
       </div>
     </main>
