@@ -134,9 +134,9 @@ cd gazebo
 pixi shell
 .\install\setup.ps1
 ```
-<div class="warning">
+:::{warning}
 An issue in the conda-forge Qt6 package is requiring to set QT environment variables:
-</div>
+:::
 
 ```bash
 # Until https://github.com/conda-forge/qt-main-feedstock/issues/275 is resolved
