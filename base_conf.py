@@ -94,7 +94,6 @@ html_theme_options = {
     "check_switcher": False,
     # We have our own version, so we disable the one from the theme.
     "show_version_warning_banner": False,
-    "announcement": "🎉 The <a href='https://discourse.openrobotics.org/t/gazebo-jetty-test-and-tutorial-party-instructions/49779'>Gazebo Jetty tutorial party</a> is happening now. Please come join us",
 }
 html_sidebars = {"**": ["gz-sidebar-nav"]}
 
