@@ -31,7 +31,8 @@ With Qt5 reaching
 [end of life](https://www.qt.io/blog/extended-security-maintenance-for-qt-5.15-begins-may-2025),
 Gazebo has been migrated to Qt6. While there are no major changes to end-users
 of the Gazebo GUI, `gz-gui` plugin authors will need to make changes to ensure
-compatibility with Qt6. Make sure to check out the
+compatibility with Qt6. Gazebo plugin maintainers should use our [migration guide](https://gazebosim.org/api/gui/10/migration_qt6.html)
+to update their plugin to QT6. 
 [migration guide](https://gazebosim.org/api/gui/10/migration_qt6.html).
 
 See the [tracking issue](https://github.com/gazebosim/gz-gui/issues/586) and the
