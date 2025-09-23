@@ -14,55 +14,6 @@ See the [tracking issue](https://github.com/gazebosim/gz-transport/issues/559)
 and the implementation pull request
 <https://github.com/gazebosim/gz-transport/pull/665> for more details.
 
-## Remove major version from package names
-
-We have refactored package naming to remove major version numbers, simplifying
-dependency management and reducing maintenance overhead. This change impacts how
-Gazebo packages are identified in CMake builds, package installations, and
-import statements.
-
-See the
-[tracking issue](https://github.com/gazebo-tooling/release-tools/issues/1244)
-for more details.
-
-## Migrate from Qt5 to Qt6
-
-With Qt5 reaching
-[end of life](https://www.qt.io/blog/extended-security-maintenance-for-qt-5.15-begins-may-2025),
-Gazebo has been migrated to Qt6. While there are no major changes to end-users
-of the Gazebo GUI, `gz-gui` plugin authors will need to make changes to ensure
-compatibility with Qt6. Gazebo plugin maintainers should use our [migration guide](https://gazebosim.org/api/gui/10/migration_qt6.html)
-to update their plugin to QT6. 
-[migration guide](https://gazebosim.org/api/gui/10/migration_qt6.html).
-
-See the [tracking issue](https://github.com/gazebosim/gz-gui/issues/586) and the
-implementation pull requests <https://github.com/gazebosim/gz-gui/pull/666> and
-<https://github.com/gazebosim/gz-sim/pull/2832> for more details
-
-## Implement ROS standard simulation interfaces
-
-Gazebo now supports the standard ROS 2
-[simulation interfaces](https://github.com/ros-simulation/simulation_interfaces),
-enabling seamless integration with ROS 2 ecosystems and providing access to
-features for controlling and querying the simulation state. Documentation has
-also been added to guide users on utilizing these new interfaces.
-
-See the [tracking issue](https://github.com/gazebosim/ros_gz/issues/732) and the
-implementation pull requests <https://github.com/gazebosim/ros_gz/pull/790> and
-<https://github.com/gazebosim/docs/pull/601> for more details
-
-## Resolve auto inertia based on input mass
-
-Inertia parameters can now be automatically set based on an object's mass specified in an SDF file. This  
-eliminates the need to manually compute and set the density of collision objects. When both mass
-and no longer requires setting the density of collision objects. When both mass
-and density are set, Gazebo now correctly scales the auto-computed inertia based
-on the specified mass, respecting the density ratios between collisions.
-
-See the [tracking issue](https://github.com/gazebosim/sdformat/issues/1482) and
-the implementation pull request
-<https://github.com/gazebosim/sdformat/pull/1513> for more details
-
 ## Improve Gazebo APIs for Reinforcement Learning
 
 Several APIs have been improved to streamline reinforcement learning pipelines.
@@ -81,6 +32,54 @@ Example of doing Reinforcement Learning in Gazebo
 See the [tracking issue](https://github.com/gazebosim/gz-sim/issues/2662) and
 the implementation pull requests <https://github.com/gazebosim/gz-sim/pull/2667>
 and <https://github.com/gazebosim/gz-sim/pull/2647> for more details
+
+## Implement ROS standard simulation interfaces
+
+Gazebo now supports the standard ROS 2
+[simulation interfaces](https://github.com/ros-simulation/simulation_interfaces),
+enabling seamless integration with ROS 2 ecosystems and providing access to
+features for controlling and querying the simulation state. Documentation has
+also been added to guide users on utilizing these new interfaces.
+
+See the [tracking issue](https://github.com/gazebosim/ros_gz/issues/732) and the
+implementation pull requests <https://github.com/gazebosim/ros_gz/pull/790> and
+<https://github.com/gazebosim/docs/pull/601> for more details
+
+## Remove major version from package names
+
+We have refactored package naming to remove major version numbers, simplifying
+dependency management and reducing maintenance overhead. This change impacts how
+Gazebo packages are identified in CMake builds, package installations, and
+import statements.
+
+See the
+[tracking issue](https://github.com/gazebo-tooling/release-tools/issues/1244)
+for more details.
+
+## Migrate from Qt5 to Qt6
+
+With Qt5 reaching
+[end of life](https://www.qt.io/blog/extended-security-maintenance-for-qt-5.15-begins-may-2025),
+Gazebo has been migrated to Qt6. While there are no major changes to end-users
+of the Gazebo GUI, `gz-gui` plugin authors will need to make changes to ensure
+compatibility with Qt6. Gazebo plugin maintainers should use our [migration guide](https://gazebosim.org/api/gui/10/migration_qt6.html)
+to update their plugin to QT6.
+
+See the [tracking issue](https://github.com/gazebosim/gz-gui/issues/586) and the
+implementation pull requests <https://github.com/gazebosim/gz-gui/pull/666> and
+<https://github.com/gazebosim/gz-sim/pull/2832> for more details
+
+## Resolve auto inertia based on input mass
+
+Inertia parameters can now be automatically set based on an object's mass specified in an SDF file. This
+eliminates the need to manually compute and set the density of collision objects. When both mass
+and no longer requires setting the density of collision objects. When both mass
+and density are set, Gazebo now correctly scales the auto-computed inertia based
+on the specified mass, respecting the density ratios between collisions.
+
+See the [tracking issue](https://github.com/gazebosim/sdformat/issues/1482) and
+the implementation pull request
+<https://github.com/gazebosim/sdformat/pull/1513> for more details
 
 ## Standalone executables for the `gz` tool
 
@@ -112,7 +111,7 @@ one of the implementation pull requests
 ## Occupancy Grid Export
 
 This enhancement adds a plugin that enables end users to directly export occupancy
-grids for use with Nav2 or other mobile robotics software. 
+grids for use with Nav2 or other mobile robotics software.
 
 See the pull request <https://github.com/gazebosim/gz-sim/pull/2958> for more details.
 
