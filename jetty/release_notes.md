@@ -66,7 +66,7 @@ the implementation pull request
 ## Improve Gazebo APIs for Reinforcement Learning
 
 Several APIs have been improved to streamline reinforcement learning pipelines.
-We have also added an [example integration with StableBaselines3](https://github.com/gazebosim/gz-sim/tree/gz-sim10/examples/scripts/reinforcement_learning/simple_cart_pole)
+We have also added an [example integration with the StableBaselines3 Python package](https://github.com/gazebosim/gz-sim/tree/gz-sim10/examples/scripts/reinforcement_learning/simple_cart_pole)
 for reinforcement learning, enabling users to experiment with RL algorithms within
 Gazebo. The example provides a starting point for developing and testing robotic
 control policies.
