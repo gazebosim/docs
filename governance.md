@@ -71,6 +71,7 @@ following individuals:
 
 <!-- Alphabetized by last name -->
 
-| Name                | Affiliation                                    | Github Handle                         | Time Zone (optional)    |
-| ----------------    | --------------------------------------         | ------------------------------------- | --------------------    |
-| Arjo Chakravarty    | [Intrinsic](https://www.intrinsic.ai/)         | [arjo129](https://github.com/arjo129) | SST (UTC+8)             |
+| Name                | Affiliation                                    | Github Handle                                       | Time Zone (optional)    |
+| ----------------    | --------------------------------------         | --------------------------------------------------- | ----------------------  |
+| Arjo Chakravarty    | [Intrinsic](https://www.intrinsic.ai/)         | [arjo129](https://github.com/arjo129)               | SST (UTC+8)             |
+| Shameek Ganguly     | [Intrinsic](https://www.intrinsic.ai/)         | [shameekganguly](https://github.com/shameekganguly) | PST (UTC-8)/PDT (UTC-7) |
