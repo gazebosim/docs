@@ -74,6 +74,10 @@ jobs:
         pattern: api-docs-*
         merge-multiple: false
     - run: python3 tools/restructure_doxygen_artifacts.py --input ${{steps.download.outputs.download-path}} .api-out
+    - name: Deduplicate files
+      run: |
+        sudo apt-get install -y rdfind symlinks
+        bash tools/deduplicate_files.sh .api-out
     - uses: actions/upload-artifact@v4
       with:
         name: api-docs
@@ -84,9 +88,8 @@ jobs:
       # The workflow upto this point is good for generating a preview,
       # but only commit to deploy if we are on the master branch (not a pull request).
       if: github.ref == 'refs/heads/master'
-      uses: peaceiris/actions-gh-pages@v4
+      uses: JamesIves/github-pages-deploy-action@v4
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./.api-out
-        destination_dir: api
-        keep_files: true
+        folder: ./.api-out
+        target-folder: api
+        clean: false
