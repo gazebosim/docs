@@ -53,7 +53,8 @@ implementation pull requests <https://github.com/gazebosim/ros_gz/pull/790> and
 
 ## Resolve auto inertia based on input mass
 
-Automatically computed inertial can now use the `mass` specified in the SDF file
+Inertia parameters can now be automatically set based on an object's mass specified in an SDF file. This  
+eliminates the need to manually compute and set the density of collision objects. When both mass
 and no longer requires setting the density of collision objects. When both mass
 and density are set, Gazebo now correctly scales the auto-computed inertia based
 on the specified mass, respecting the density ratios between collisions.
