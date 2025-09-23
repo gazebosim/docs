@@ -110,7 +110,17 @@ one of the implementation pull requests
 ## Occupancy Grid Export
 
 This enhancement adds a plugin that enables end users to directly export occupancy
-grids for use with Nav2 or other mobile robotics software. 
+grids for use with Nav2 or other mobile robotics software.
 
 See the pull request <https://github.com/gazebosim/gz-sim/pull/2958> for more details.
 
+## Lookup Wheel Slip system
+
+Introduced a new system that works in conjunction with the existing `WheelSlip`
+system to dynamically adjust wheel slip and friction parameters. Using an 8-bit
+slip- and friction-encoded lookup map representing the terrain the wheeled
+vehicle is on, the `LookupWheelSlip` system modifies lateral slip, longitudinal
+slip, and friction parameters in real time based on the wheel's position in the
+world, enabling more realistic vehicle behavior on variable surfaces.
+
+See the pull request <https://github.com/gazebosim/gz-sim/pull/3003> for more details.
