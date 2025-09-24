@@ -81,25 +81,6 @@ See the [tracking issue](https://github.com/gazebosim/sdformat/issues/1482) and
 the implementation pull request
 <https://github.com/gazebosim/sdformat/pull/1513> for more details
 
-## Improve Gazebo APIs for Reinforcement Learning
-
-Several APIs have been improved to streamline reinforcement learning pipelines.
-We have also added an [example integration with StableBaselines3](https://github.com/gazebosim/gz-sim/tree/gz-sim10/examples/scripts/reinforcement_learning/simple_cart_pole)
-for reinforcement learning, enabling users to experiment with RL algorithms within
-Gazebo. The example provides a starting point for developing and testing robotic
-control policies.
-
-```{figure} https://github.com/user-attachments/assets/f30160a3-e04f-4ec1-aab4-111739b0d349
-:width: 400
-:alt: RL_with_gazebo_simple_example
-
-Example of doing Reinforcement Learning in Gazebo
-```
-
-See the [tracking issue](https://github.com/gazebosim/gz-sim/issues/2662) and
-the implementation pull requests <https://github.com/gazebosim/gz-sim/pull/2667>
-and <https://github.com/gazebosim/gz-sim/pull/2647> for more details
-
 ## Standalone executables for the `gz` tool
 
 Previously, the `gz` tool, a Ruby-based CLI interface, offered subcommands by
