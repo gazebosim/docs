@@ -125,3 +125,14 @@ slip, and friction parameters in real time based on the wheel's position in the
 world, enabling more realistic vehicle behavior on variable surfaces.
 
 See the pull request <https://github.com/gazebosim/gz-sim/pull/3003> for more details.
+
+## Bazel Module Migration
+
+Migrated `gz` packages from the legacy Bazel workspace-based setup to the new
+Bazel module system (Bzlmod). As part of this effort, key third-party
+dependencies including DARTSim, Bullet, FreeImage, Assimp and more were
+packaged and published to the Bazel Central Registry (BCR). All Jetty and Ionic
+versions of the libraries have been uploaded to BCR.
+Note that `gz-launch` has been excluded due to deprecation, `gz-gui` is not yet
+supported, and migration of `gz-rendering` in currently in progress.
+
