@@ -53,7 +53,7 @@ Gazebo packages are identified in CMake builds, package installations, and
 import statements.
 
 See the
-[tracking issue](https://github.com/gazebo-tooling/release-tools/issues/1244)
+[announcement](https://discourse.openrobotics.org/t/version-numbers-removed-from-package-names-in-gazebo-jetty/48391)
 for more details.
 
 ## Migrate from Qt5 to Qt6
