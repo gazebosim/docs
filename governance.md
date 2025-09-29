@@ -75,3 +75,4 @@ following individuals:
 | ----------------    | --------------------------------------         | --------------------------------------------------- | ----------------------  |
 | Arjo Chakravarty    | [Intrinsic](https://www.intrinsic.ai/)         | [arjo129](https://github.com/arjo129)               | SST (UTC+8)             |
 | Shameek Ganguly     | [Intrinsic](https://www.intrinsic.ai/)         | [shameekganguly](https://github.com/shameekganguly) | PST (UTC-8)/PDT (UTC-7) |
+| Saurabh Kamat       | [ROS-Industrial](https://rosindustrial.org/)   | [sauk2](https://github.com/sauk2)                   | SST (UTC+8)             |
