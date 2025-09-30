@@ -16,7 +16,7 @@ packages available for the platform to use:
 
 |Platform|Gazebo Versions|
 |---|---|
-| Ubuntu 24.04 Noble | [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended), (recommended if using ROS 2 Jazzy) and [Gazebo Ionic](/docs/ionic/install_ubuntu){.external}
+| Ubuntu 24.04 Noble | [Gazebo Jetty](/docs/jetty/install_ubuntu){.external} (recommended), [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended if using ROS 2 Jazzy) and [Gazebo Ionic](/docs/ionic/install_ubuntu){.external}
 | Ubuntu 22.04 Jammy | [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended) and [Gazebo Fortress](/docs/fortress/install_ubuntu){.external} (recommended if using ROS 2 Humble)
 | Mac Ventura | [Gazebo Harmonic](/docs/harmonic/install_osx){.external} (recommended) and [Gazebo Fortress](/docs/fortress/install_osx){.external}
 | Mac Monterey | [Gazebo Harmonic](/docs/harmonic/install_osx){.external} (recommended) and [Gazebo Fortress](/docs/fortress/install_osx){.external}
@@ -27,6 +27,7 @@ given [Gazebo release](releases) is needed,
 there is an installation package per release available with all the
 installation options:
 
+* [Gazebo Jetty installation](/docs/jetty/install){.external} options (Expected: EOL 2030 Sep)
 * [Gazebo Ionic installation](/docs/ionic/install){.external} options (EOL 2026 Sep)
 * [Gazebo Harmonic (LTS) installation](/docs/harmonic/install){.external} options (EOL 2028 Sep)
 * [Gazebo Fortress (LTS) installation](/docs/fortress/install){.external} options (EOL 2026 Sep)
@@ -45,7 +46,7 @@ gz sim shapes.sdf  # Fortress uses "ign gazebo" instead of "gz sim"
 ```
 
 This command will launch both the Sim server and Sim GUI with a world
-that contains three simple shapes.
+that contains six simple shapes.
 
 Add the `-v 4` command line argument to generate error, warning,
 informational, and debugging messages on the console.
