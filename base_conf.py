@@ -95,7 +95,6 @@ html_theme_options = {
     # We have our own version, so we disable the one from the theme.
     "show_version_warning_banner": False,
 }
-
 html_sidebars = {"**": ["gz-sidebar-nav"]}
 
 html_context = {
