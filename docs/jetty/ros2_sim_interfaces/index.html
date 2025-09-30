@@ -17,7 +17,7 @@
         gtag('config', 'G-JKS50SX85K');
     </script>
     
-    <title>Gazebo Classic Migration &#8212; Gazebo jetty documentation</title>
+    <title>Use ROS 2 Simulation Interfaces to Interact with Gazebo &#8212; Gazebo jetty documentation</title>
   
   
   
@@ -56,7 +56,7 @@
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'gazebo_classic_migration';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ros2_sim_interfaces';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://gazebosim.org/docs/jetty/_static/switcher.json';
@@ -64,12 +64,12 @@
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
-    <link rel="canonical" href="https://gazebosim.org/docs/latest/gazebo_classic_migration/" />
+    <link rel="canonical" href="https://gazebosim.org/docs/latest/ros2_sim_interfaces/" />
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex/" />
     <link rel="search" title="Search" href="../search/" />
-    <link rel="next" title="Installing Gazebo11 side by side with new Gazebo" href="../install_gz11_side_by_side/" />
-    <link rel="prev" title="Setting up Gazebo in a Continuous Integration (CI) Pipeline" href="../setup_gazebo_in_ci/" />
+    <link rel="next" title="Spawn a Gazebo model from ROS 2" href="../ros2_spawn_model/" />
+    <link rel="prev" title="Use ROS 2 to interact with Gazebo" href="../ros2_integration/" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="jetty" />
@@ -122,7 +122,7 @@
           development.
         
         <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version"
-        href="../../ionic/gazebo_classic_migration">Switch to the latest stable version</a>
+        href="../../ionic/ros2_sim_interfaces">Switch to the latest stable version</a>
       </div>
     </div>
   </aside>
@@ -349,7 +349,7 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../migration_from_ignition/">Migration from Ignition</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../comparison/">Feature Comparison</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/">Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../tutorials/">Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../building_robot/">Building your own robot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../moving_robot/">Moving the robot</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../sdf_worlds/">SDF worlds</a></li>
@@ -363,7 +363,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../ros2_overview/">ROS 2 integration overview</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ros2_launch_gazebo/">Launch Gazebo from ROS 2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ros2_integration/">Use ROS 2 to interact with Gazebo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ros2_sim_interfaces/">Use ROS 2 Simulation Interfaces to Interact with Gazebo</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Use ROS 2 Simulation Interfaces to Interact with Gazebo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ros2_spawn_model/">Use ROS 2 to spawn a Gazebo model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ros2_interop/">ROS 2 interoperability</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../ros_gz_project_template_guide/">ROS 2 integration template</a></li>
@@ -374,7 +374,7 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../setup_gazebo_in_ci/">Continuous Integration For Gazebo Packages</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">Gazebo Classic Migration</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../gazebo_classic_migration/">Gazebo Classic Migration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../install_gz11_side_by_side/">Installing Gazebo11 side by side with new Gazebo</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../migrating_gazebo_classic_ros2_packages/">Migration from ROS 2 Gazebo Classic</a></li>
 </ul>
@@ -463,7 +463,10 @@
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Gazebo Classic Migration</span></li>
+    
+    <li class="breadcrumb-item"><a href="../tutorials/" class="nav-link">Gazebo Tutorials</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Use ROS 2 Simulation Interfaces to Interact with Gazebo</span></li>
   </ul>
 </nav>
 </div>
@@ -480,48 +483,233 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="gazebo-classic-migration">
-<h1>Gazebo Classic Migration<a class="headerlink" href="#gazebo-classic-migration" title="Link to this heading">#</a></h1>
-<p>Gazebo was started in 2002. After over 15 years of development it was time for a
-significant upgrade and modernization. This upgrade also provided the
-opportunity to move away from a monolithic architecture to a collection of
-loosely coupled libraries.</p>
-<p>These collection of libraries make up the new Gazebo. As a convention we refer
-to older versions of Gazebo, those with release numbers like Gazebo 9 and Gazebo
-11 as “Gazebo Classic”. Newer versions of Gazebo, formerly called “Ignition”,
-with lettered releases names like Harmonic, are referred to as just “Gazebo”.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Since the name of the project has gone through two major changes, we highly
-recommend you read the <a class="reference external" href="https://gazebosim.org/about">history</a> of the project as
-well as our
-<a class="reference external" href="https://community.gazebosim.org/t/a-new-era-for-gazebo/1356">community post</a> to
-have a better understanding of the terminology used on this website.</p>
-</div>
-<p>Here you’ll find guides and resources for migrating existing Gazebo Classic
-projects to the new Gazebo.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="use-ros-2-simulation-interfaces-to-interact-with-gazebo">
+<h1>Use ROS 2 Simulation Interfaces to Interact with Gazebo<a class="headerlink" href="#use-ros-2-simulation-interfaces-to-interact-with-gazebo" title="Link to this heading">#</a></h1>
+<p>The <a class="reference external" href="https://github.com/ros-simulation/simulation_interfaces">ROS 2 Simulation Interfaces</a>
+define a standard set of ROS 2 service, message and action definitions for controlling and
+interacting with simulation environments. These interfaces are simulator-agnostic and aim to
+provide a unified way to control and observe simulation using ROS 2.</p>
+<p>Gazebo has implemented these interfaces, enabling tasks like spawning entities, stepping
+simulation, querying world state, etc. through standard ROS 2 calls. In this tutorial we
+will learn how to interact with a running Gazebo simulation for the following tasks,</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="../migrating_gazebo_classic_ros2_packages/"><span class="doc std std-doc">Migrating ROS 2 packages that use Gazebo Classic</span></a></p></li>
-<li><p><a class="reference internal" href="../install_gz11_side_by_side/"><span class="doc std std-doc">Installing Gazebo11 side by side with new Gazebo</span></a></p></li>
-<li><p>Migration from Gazebo Classic: Plugins -
-<a class="reference external" href="https://gazebosim.org/api/gazebo/6/migrationplugins.html">Fortress</a> |
-<a class="reference external" href="https://gazebosim.org/api/sim/8/migrationplugins.html">Harmonic</a></p></li>
-<li><p>Migration from Gazebo classic: SDF -
-<a class="reference external" href="https://gazebosim.org/api/gazebo/6/migrationsdf.html">Fortress</a> |
-<a class="reference external" href="https://gazebosim.org/api/sim/8/migrationsdf.html">Harmonic</a></p></li>
-<li><p>Case study: migrating the ArduPilot ModelPlugin from Gazebo classic to
-Gazebo - <a class="reference external" href="https://gazebosim.org/api/gazebo/6/ardupilot.html">Fortress</a> |
-<a class="reference external" href="https://gazebosim.org/api/sim/8/ardupilot.html">Harmonic</a></p></li>
-<li><p><a class="reference internal" href="../sdf_worlds/"><span class="doc std std-doc">Basic description of SDF worlds</span></a></p></li>
-<li><p><a class="reference internal" href="../comparison/"><span class="doc std std-doc">Feature Comparison with Gazebo Classic</span></a></p></li>
-<li><p><a class="reference internal" href="../ros2_integration/"><span class="doc std std-doc">Documentation for ros_gz</span></a></p></li>
-<li><p>List of Systems (plugins):
-<a class="reference external" href="https://gazebosim.org/api/gazebo/6/namespaceignition_1_1gazebo_1_1systems.html">Fortress</a>
-|
-<a class="reference external" href="https://gazebosim.org/api/sim/8/namespacegz_1_1sim_1_1systems.html">Harmonic</a></p></li>
+<li><p><a class="reference internal" href="#simulation-control">Simulation Control</a></p></li>
+<li><p><a class="reference internal" href="#entity-management">Entity Management</a></p></li>
+<li><p><a class="reference internal" href="#state-query">State Query</a></p></li>
+<li><p><a class="reference internal" href="#simulator-information">Simulator Information</a></p></li>
 </ul>
-<div class="toctree-wrapper compound">
+<section id="simulation-control">
+<h2>Simulation Control<a class="headerlink" href="#simulation-control" title="Link to this heading">#</a></h2>
+<p>The following services and actions are available to control the flow of simulation time.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Interface Name</p></th>
+<th class="head"><p>Topic Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">ResetSimulation</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/gzserver/reset_simulation</span></code></p></td>
+<td><p>Service</p></td>
+<td><p>Reset the simulation to its initial state</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">StepSimulation</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/gzserver/step_simulation</span></code></p></td>
+<td><p>Service</p></td>
+<td><p>Step the simulation forward by a specified number of steps</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">GetSimulationState</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/gzserver/get_simulation_state</span></code></p></td>
+<td><p>Service</p></td>
+<td><p>Get the current simulation state (playing/paused/stopped)</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">SetSimulationState</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/gzserver/set_simulation_state</span></code></p></td>
+<td><p>Service</p></td>
+<td><p>Set the simulation state (play/pause/stop)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SimulateSteps</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/gzserver/simulate_steps</span></code></p></td>
+<td><p>Action</p></td>
+<td><p>Step the simulation forward by a specified number of steps with feedback and cancellation support</p></td>
+</tr>
+</tbody>
+</table>
 </div>
+<p><strong>ResetSimulation Service</strong></p>
+<p>Reset the simulation to its initial state.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/gzserver/reset_simulation<span class="w"> </span>simulation_interfaces/srv/ResetSimulation<span class="w"> </span><span class="s2">&quot;{}&quot;</span>
+</pre></div>
+</div>
+<p><strong>StepSimulation Service</strong></p>
+<p>Step the simulation forward by a specified number of steps.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/gzserver/step_simulation<span class="w"> </span>simulation_interfaces/srv/StepSimulation<span class="w"> </span><span class="s2">&quot;{steps: 10}&quot;</span>
+</pre></div>
+</div>
+<p><strong>GetSimulationState Service</strong></p>
+<p>Get the current simulation state (playing/paused/stopped).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/gzserver/get_simulation_state<span class="w"> </span>simulation_interfaces/srv/GetSimulationState<span class="w"> </span><span class="s2">&quot;{}&quot;</span>
+</pre></div>
+</div>
+<p><strong>SetSimulationState Service</strong></p>
+<p>Set the simulation state (play/pause/stop).</p>
+<ul>
+<li><p>Set simulation state to stop.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/gzserver/set_simulation_state<span class="w"> </span>simulation_interfaces/srv/SetSimulationState<span class="w"> </span><span class="s2">&quot;{state: {state: 0}}&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Set simulation state to playing.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/gzserver/set_simulation_state<span class="w"> </span>simulation_interfaces/srv/SetSimulationState<span class="w"> </span><span class="s2">&quot;{state: {state: 1}}&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Set simulation state to paused.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/gzserver/set_simulation_state<span class="w"> </span>simulation_interfaces/srv/SetSimulationState<span class="w"> </span><span class="s2">&quot;{state: {state: 2}}&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p>Set simulation state to quitting.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/gzserver/set_simulation_state<span class="w"> </span>simulation_interfaces/srv/SetSimulationState<span class="w"> </span><span class="s2">&quot;{state: {state: 3}}&quot;</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>SimulateSteps Action</strong></p>
+<p>Step the simulation forward by a specified number of steps with feedback and cancellation support.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>action<span class="w"> </span>send_goal<span class="w"> </span>/gzserver/simulate_steps<span class="w"> </span>simulation_interfaces/action/SimulateSteps<span class="w"> </span><span class="s2">&quot;{steps: 10}&quot;</span><span class="w"> </span>--feedback
+</pre></div>
+</div>
+</section>
+<section id="entity-management">
+<h2>Entity Management<a class="headerlink" href="#entity-management" title="Link to this heading">#</a></h2>
+<p>The following interfaces are used to create or remove entities in the simulation at runtime.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Interface Name</p></th>
+<th class="head"><p>Topic Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">SpawnEntity</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/gzserver/spawn_entity</span></code></p></td>
+<td><p>Service</p></td>
+<td><p>Spawn a new entity in the simulation at a specific location</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">DeleteEntity</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/gzserver/delete_entity</span></code></p></td>
+<td><p>Service</p></td>
+<td><p>Delete an existing entity by name</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>SpawnEntity Service</strong></p>
+<p>Spawn a new entity in the simulation at a specific location.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/gzserver/spawn_entity<span class="w"> </span>simulation_interfaces/srv/SpawnEntity<span class="w"> </span><span class="s2">&quot;{</span>
+<span class="s2">  name: &#39;my_model&#39;,</span>
+<span class="s2">  uri: &#39;/path/to/model.sdf&#39;,</span>
+<span class="s2">  allow_renaming: false,</span>
+<span class="s2">  initial_pose: {</span>
+<span class="s2">    pose: {</span>
+<span class="s2">      position: {x: 0.0, y: 0.0, z: 0.0},</span>
+<span class="s2">      orientation: {w: 1.0, x: 0.0, y: 0.0, z: 0.0}</span>
+<span class="s2">    }</span>
+<span class="s2">  }</span>
+<span class="s2">}&quot;</span>
+</pre></div>
+</div>
+<p><strong>DeleteEntity Service</strong></p>
+<p>Delete an existing entity by name.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/gzserver/delete_entity<span class="w"> </span>simulation_interfaces/srv/DeleteEntity<span class="w"> </span><span class="s2">&quot;{entity: &#39;my_model&#39;}&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="state-query">
+<h2>State Query<a class="headerlink" href="#state-query" title="Link to this heading">#</a></h2>
+<p>The following interfaces are used to introspect simulation world and entity state.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Interface Name</p></th>
+<th class="head"><p>Topic Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">GetEntityState</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/gzserver/get_entity_state</span></code></p></td>
+<td><p>Service</p></td>
+<td><p>Get the pose and twist of a specific entity</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="docutils literal notranslate"><span class="pre">GetEntitiesStates</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/gzserver/get_entities_states</span></code></p></td>
+<td><p>Service</p></td>
+<td><p>Get the state for multiple entities (optionally filtered)</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">GetEntities</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/gzserver/get_entities</span></code></p></td>
+<td><p>Service</p></td>
+<td><p>Get a list of entities (optionally filtered)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>GetEntityState Service</strong></p>
+<p>Get the pose and twist of a specific entity.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/gzserver/get_entity_state<span class="w"> </span>simulation_interfaces/srv/GetEntityState<span class="w"> </span><span class="s2">&quot;{entity: &#39;my_model&#39;}&quot;</span>
+</pre></div>
+</div>
+<p><strong>GetEntitiesStates Service</strong></p>
+<p>Get the state of multiple entities (optionally filtered).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/gzserver/get_entities_states<span class="w"> </span>simulation_interfaces/srv/GetEntitiesStates<span class="w"> </span><span class="s2">&quot;{filters: {filter: &#39;&#39;}}&quot;</span>
+</pre></div>
+</div>
+<p><strong>GetEntites Service</strong></p>
+<p>Get the list of entities (optionally filtered).</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/gzserver/get_entities<span class="w"> </span>simulation_interfaces/src/GetEntities<span class="w"> </span><span class="s2">&quot;{filters: {filter: &#39;&#39;}}&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="simulator-information">
+<h2>Simulator Information<a class="headerlink" href="#simulator-information" title="Link to this heading">#</a></h2>
+<p>Some simulators may only support a subset of interfaces. The following services can be used to inspect
+supported features.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Interface Name</p></th>
+<th class="head"><p>Topic Name</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><code class="docutils literal notranslate"><span class="pre">GetSimulatorFeatures</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">/gzserver/get_simulator_features</span></code></p></td>
+<td><p>Service</p></td>
+<td><p>Query which interface features are supported</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>GetSimulatorFeatures Service</strong></p>
+<p>Query which interface features are supported.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>service<span class="w"> </span>call<span class="w"> </span>/gzserver/get_simulator_features<span class="w"> </span>simulation_interfaces/srv/GetSimulationFeatures<span class="w"> </span><span class="s2">&quot;{}&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="known-limitations">
+<h2>Known Limitations<a class="headerlink" href="#known-limitations" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Only an empty string or “world” can be used in the <code class="docutils literal notranslate"><span class="pre">frame_id</span></code> field of <code class="docutils literal notranslate"><span class="pre">PoseStamped</span></code> messages. We plan to add support for using frames known to <code class="docutils literal notranslate"><span class="pre">Tf</span></code> in the future.</p></li>
+<li><p>Entity namespaces are not supported by the <code class="docutils literal notranslate"><span class="pre">SpawnEntity</span></code> service.</p></li>
+<li><p>When spawning an entity, if <code class="docutils literal notranslate"><span class="pre">SpawnEntity.allow_renaming</span></code> is set to <code class="docutils literal notranslate"><span class="pre">true</span></code> and a rename occurs in Gazebo, the new name is not returned in the <code class="docutils literal notranslate"><span class="pre">Result</span></code> object return by the <code class="docutils literal notranslate"><span class="pre">SpawnEntity</span></code> service.</p></li>
+</ul>
+</section>
 </section>
 
 
@@ -540,10 +728,26 @@ Gazebo - <a class="reference external" href="https://gazebosim.org/api/gazebo/6/
 
 
   <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-control">Simulation Control</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#entity-management">Entity Management</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#state-query">State Query</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulator-information">Simulator Information</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#known-limitations">Known Limitations</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
 
   
   <div class="tocsection editthispage">
-    <a href="https://github.com/gazebosim/docs/edit/master/gazebo_classic_migration.md">
+    <a href="https://github.com/gazebosim/docs/edit/master/jetty/ros2_sim_interfaces.md">
       <i class="fa-solid fa-pencil"></i>
       
       
