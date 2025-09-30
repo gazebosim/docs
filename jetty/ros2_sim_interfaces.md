@@ -170,3 +170,9 @@ Query which interface features are supported.
 ```bash
 ros2 service call /gzserver/get_simulator_features simulation_interfaces/srv/GetSimulationFeatures "{}"
 ```
+
+## Known Limitations
+
+- Only an empty string or "world" can be used in the `frame_id` field of `PoseStamped` messages. We plan to add support for using frames known to `Tf` in the future.
+- Entity namespaces are not supported by the `SpawnEntity` service.
+- When spawning an entity, if `SpawnEntity.allow_renaming` is set to `true` and a rename occurs in Gazebo, the new name is not returned in the `Result` object return by the `SpawnEntity` service.
