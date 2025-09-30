@@ -1,6 +1,6 @@
 # Source Installation on Ubuntu
 
-These instructions apply to Ubuntu Jammy (22.04) and Ubuntu Noble (24.04).
+These instructions apply to Ubuntu Noble (24.04).
 
 ## Install tools
 
@@ -65,18 +65,18 @@ mkdir -p ~/workspace/src
 cd ~/workspace/src
 ```
 
-All the sources of gazebo-ionic are declared in a yaml file. Download
+All the sources of gazebo-jetty are declared in a yaml file. Download
 it to the workspace:
 
 ```bash
-curl -O https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-ionic.yaml
+curl -O https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-jetty.yaml
 ```
 
 Use `vcstool` to automatically retrieve all the Gazebo libraries sources from
 their repositories:
 
 ```bash
-vcs import < collection-ionic.yaml
+vcs import < collection-jetty.yaml
 ```
 
 The src subdirectory should contain all the sources ready to be built.
@@ -84,7 +84,7 @@ The src subdirectory should contain all the sources ready to be built.
 ## Install dependencies
 
 Before compiling it is necessary to install all the dependencies of the different
-packages that compose the Ionic collection. Every platform has a different
+packages that compose the Jetty collection. Every platform has a different
 method to install software dependencies.
 
 Add `packages.osrfoundation.org` to the apt sources list:
@@ -119,19 +119,19 @@ files, but when problems arise the `--skip-keys` argument is used. Explanations
 for its use in the previous line are given below:
 
 * `gz-cmake3`: `gz-tools2` can build from source against
-  [both `gz-cmake3` and `gz-cmake4`](https://github.com/gazebosim/gz-tools/pull/128),
-  and this workspace only contains `gz-cmake4`. The `gz-tools2` `package.xml`
+  [any of `gz-cmake3`, `gz-cmake4`, and `gz-cmake` (v5)](https://github.com/gazebosim/gz-tools/pull/128),
+  and this workspace only contains `gz-cmake` (v5). The `gz-tools2` `package.xml`
   file only [depends on gz-cmake3](https://github.com/gazebosim/gz-tools/blob/2b228e5b956/package.xml#L13)
   and since that package is not present, use `--skip-keys gz-cmake3`.
-* `DART`: `gz-physics8` can build against [dartsim](http://dartsim.github.io),
-  which is listed as DART in the [gz-physics package.xml file](https://github.com/gazebosim/gz-physics/blob/gz-physics8_8.0.0/package.xml#L16).
+* `DART`: `gz-physics` can build against [dartsim](http://dartsim.github.io),
+  which is listed as DART in the [gz-physics package.xml file](https://github.com/gazebosim/gz-physics/blob/main/package.xml#L16).
   This package is not in the workspace, so `DART` is added to the `--skip-keys`
   string.
   See the discussion in [gz-physics#608](https://github.com/gazebosim/gz-physics/pull/608#discussion_r1589512231)
   for more background on the package name used for `DART`.
-* `libogre-dev` and `libogre-next-2.3-dev`: `gz-rendering9` can build against
+* `libogre-dev` and `libogre-next-2.3-dev`: `gz-rendering` can build against
   ogre 1.9 and ogre-next 2.3. The debian package names are listed as
-  dependencies in the [gz-rendering package.xml](https://github.com/gazebosim/gz-rendering/blob/gz-rendering9_9.0.0/package.xml#L22-L23)
+  dependencies in the [gz-rendering package.xml](https://github.com/gazebosim/gz-rendering/blob/main/package.xml#L22-L23)
   but they are not available on all Linux versions, so work around with
   `--skip-keys "libogre-dev libogre-next-2.3-dev"`.
 
@@ -281,7 +281,7 @@ listen to QML debugger attach requests.
 During development, you may find troublesome that `gz sim -g` won't actually start until
 QtCreator hooks to the QML Debugging port.
 
-If that's a problem, you can edit the C++ file `gz-sim/src/gz.cc` and remove `block`
+If that's a problem, you can edit the C++ file `gz-sim/src/cmd/gz.cc` and remove `block`
 from it. E.g.
 
 ```c++

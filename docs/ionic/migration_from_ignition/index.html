@@ -1,1 +1,1238 @@
-../../all/migration_from_ignition/index.html
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JKS50SX85K"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JKS50SX85K');
+    </script>
+    
+    <title>Migration Guide &#8212; Gazebo ionic documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/gazebo.css?v=1d42b338" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=0b151d4f"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'migration_from_ignition';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://gazebosim.org/docs/ionic/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'ionic';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="canonical" href="https://gazebosim.org/docs/latest/migration_from_ignition/" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Feature comparison" href="../comparison/" />
+    <link rel="prev" title="Troubleshooting" href="../troubleshooting/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="ionic" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+  
+  <aside aria-label="Version warning" class="bd-header-announcement bd-header-version-info" style="min-height: 3rem;">
+    <div class="bd-header-announcement__content">
+      <div class="sidebar-message">
+        
+          This is documentation for <strong> Gazebo Ionic</strong>,
+          an older but still supported version of Gazebo. 
+        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version"
+        href="../../jetty/migration_from_ignition">Switch to the latest stable version</a>
+      </div>
+    </div>
+  </aside>
+  
+
+
+
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/gazebo_horz_pos.svg" class="logo__image only-light" alt="Gazebo ionic documentation - Home"/>
+    <img src="../_static/gazebo_horz_neg.svg" class="logo__image only-dark pst-js-only" alt="Gazebo ionic documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.org/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.org/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.org/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.org/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.org/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+
+
+<div class="doc-header">
+  <div class="banner d-flex flex-column-reverse flex-sm-row">
+    <div>
+      <div class="d-none d-sm-block">
+        <span class="d-inline fs-2">Docs / Gazebo Ionic</span>
+        
+      </div>
+      <span>Supported Sep, 2024 to Sep, 2026</span>
+    </div><div class="gz-version-switcher">
+  <span class="fs-4 fw-light pe-2">Release:</span>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div></div>
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.org/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.org/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.org/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.org/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.org/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted/">Get Started</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../install/">Install</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install_ubuntu/">Binary Ubuntu Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_osx/">Binary macOS Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_windows/">Binary Windows Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_ubuntu_src/">Ubuntu Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_osx_src/">macOS Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_windows_src/">Windows Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Migration from Ignition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../comparison/">Feature Comparison</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../tutorials/">Tutorials</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../building_robot/">Building your own robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moving_robot/">Moving the robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdf_worlds/">SDF worlds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sensors/">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../actors/">Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gui/">Understanding the GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manipulating_models/">Manipulating Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_insert/">Model Insertion from Fuel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hotkeys/">Keyboard Shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spawn_urdf/">Spawn URDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_overview/">ROS 2 integration overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_launch_gazebo/">Launch Gazebo from ROS 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_integration/">Use ROS 2 to interact with Gazebo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_spawn_model/">Use ROS 2 to spawn a Gazebo model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_interop/">ROS 2 interoperability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros_gz_project_template_guide/">ROS 2 integration template</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ros_installation/">ROS/Gazebo Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_gz_vendor_pkgs/">ROS 2 Gazebo Vendor Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_gazebo_in_ci/">Continuous Integration For Gazebo Packages</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../gazebo_classic_migration/">Gazebo Classic Migration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install_gz11_side_by_side/">Installing Gazebo11 side by side with new Gazebo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migrating_gazebo_classic_ros2_packages/">Migration from ROS 2 Gazebo Classic</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap/">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-features/">Release Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../governance/">Governance</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../development/">Development</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ci/">Continuous Integration</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../release/">Release process</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../releasing/versioning_pre_nightly/">Debian/Ubuntu versioning in nightly and prerelease binaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases-instructions/">Release Instructions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/">Sim Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../fuel/">Fuel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_content_deletion_policy/">Content Deletion Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_model/">Contributing New Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_world/">Contributing New World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_copyright/">Copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_data_policy/">Data and Privacy Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_fair_use/">What is Fair Use</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects_using_gazebo/">Projects using Gazebo</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../library_reference_nav/">Library Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/cmake/4">cmake</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/common/6">common</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/fuel_tools/10">fuel_tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/gui/9">gui</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/launch/8">launch</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/math/8">math</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/msgs/11">msgs</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/physics/8">physics</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/plugin/3">plugin</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/rendering/9">rendering</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sensors/9">sensors</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sim/9">sim</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/tools/2">tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/transport/14">transport</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/utils/3">utils</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sdformat/15">sdformat</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Migration Guide</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="migration-guide">
+<h1>Migration Guide<a class="headerlink" href="#migration-guide" title="Link to this heading">#</a></h1>
+<p>Hello Gazebo community!!</p>
+<p>In April 2022, it was announced that <a class="reference external" href="https://community.gazebosim.org/t/a-new-era-for-gazebo/1356">we’d be retiring the “Ignition” name in favor of “Gazebo”.</a>
+This migration guide will serve you help you execute the necessary changes in your own packages, and luckily it won’t be as troublesome as the move from Gazebo Classic!</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<section id="changes">
+<h3>Changes<a class="headerlink" href="#changes" title="Link to this heading">#</a></h3>
+<p>So what’s happening in practice? In summary:</p>
+<ul class="simple">
+<li><p>Whenever the name <code class="docutils literal notranslate"><span class="pre">Ignition</span></code> or <code class="docutils literal notranslate"><span class="pre">ign</span></code> is used, the Gazebo counterpart (<code class="docutils literal notranslate"><span class="pre">Gazebo</span></code> or <code class="docutils literal notranslate"><span class="pre">gz</span></code>) is used instead, preserving case</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ign-gazebo</span></code> / <code class="docutils literal notranslate"><span class="pre">Ignition</span> <span class="pre">Gazebo</span></code> became <code class="docutils literal notranslate"><span class="pre">gz-sim</span></code> / <code class="docutils literal notranslate"><span class="pre">Gazebo</span> <span class="pre">Sim</span></code></p></li>
+<li><p>The Ignition logo has been replaced by the Gazebo logo.</p></li>
+</ul>
+<p>These changes were made in:</p>
+<ul class="simple">
+<li><p>Websites</p></li>
+<li><p>GitHub organizations and repositories</p></li>
+<li><p>Documentation</p></li>
+<li><p>UIs</p></li>
+<li><p>Namespaces, command line tools, shared libraries, directories, APIs, files</p></li>
+</ul>
+<p>This means that a bulk of the migration effort on a user’s part will involve intelligent find-and-replaces of filenames, directories, and source code.
+You may also look at the <a class="reference external" href="https://github.com/gazebo-tooling/release-tools/issues/698">tracking GitHub issue</a> if you need to trace any changes made to support the migration in the core libraries.</p>
+</section>
+<section id="tick-tocks-and-hard-tocks">
+<h3>Tick-tocks and Hard-tocks<a class="headerlink" href="#tick-tocks-and-hard-tocks" title="Link to this heading">#</a></h3>
+<p>This section provides just an overview of the different changes made, for a more detailed listing of tick-tocks, see the migration file in each of the individual core libraries’ repositories:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-cmake/blob/main/Migration.md">gz-cmake</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-common/blob/main/Migration.md">gz-common</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-fuel-tools/blob/main/Migration.md">gz-fuel-tools</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-gui/blob/main/Migration.md">gz-gui</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-launch/blob/main/Migration.md">gz-launch</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-math/blob/main/Migration.md">gz-math</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-msgs/blob/main/Migration.md">gz-msgs</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-physics/blob/main/Migration.md">gz-physics</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-plugin/blob/main/Migration.md">gz-plugin</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-rendering/blob/main/Migration.md">gz-rendering</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sensors/blob/main/Migration.md">gz-sensors</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/main/Migration.md">gz-sim</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-tools/blob/main/Migration.md">gz-tools</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-transport/blob/main/Migration.md">gz-transport</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/gz-utils/blob/main/Migration.md">gz-utils</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebosim/sdformat/blob/main/Migration.md">sdformat</a></p></li>
+</ul>
+<p>Additionally the migration pointers in a later section of this migration guide should help you get your packages ready and working with Gazebo.</p>
+<p>Generally speaking, you should still be able to use either the Ignition counterpart or Gazebo counterpart for <strong>most things</strong> if you are using Ionic, due to explicit tick-tocking logic written in the stack.
+Just note that using the Ignition counterpart will generally cause deprecation warnings to be emitted.</p>
+<section id="tick-tocks">
+<h4>Tick-tocks<a class="headerlink" href="#tick-tocks" title="Link to this heading">#</a></h4>
+<p>Tick-tocks for the following are implemented, though not all of them will emit deprecation warnings.
+These tick-tocks are implemented either as aliases, or otherwise have some sort of redirection mechanism (e.g. symlinks, directory retargets, string replacements in source) to target the Gazebo counterpart instead.</p>
+<p>Also, in the source code, most of these tick-tocks will have an associated comment calling out that they are deprecated, or have a <code class="docutils literal notranslate"><span class="pre">GZ_DEPRECATED()</span></code> macro call.</p>
+<p><strong>Namespaces</strong></p>
+<ul class="simple">
+<li><p>Python namespaces</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">ignition.math.XXX</span></code> → <code class="docutils literal notranslate"><span class="pre">gz.math.XXX</span></code></p></li>
+</ul>
+</li>
+<li><p>C++ namespaces</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">ignition::gazebo::XXX</span></code> → <code class="docutils literal notranslate"><span class="pre">gz::sim::XXX</span></code></p></li>
+</ul>
+</li>
+<li><p>Message namespaces and packages</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">ignition.msgs.XXX</span></code> → <code class="docutils literal notranslate"><span class="pre">gz.msgs.XXX</span></code>, <code class="docutils literal notranslate"><span class="pre">ignition/msgs/header.proto</span></code> → <code class="docutils literal notranslate"><span class="pre">gz/msgs/header.proto</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Source</strong></p>
+<ul class="simple">
+<li><p>Class names, members, functions, and variables in public headers</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">IgnitionFormatter</span></code> → <code class="docutils literal notranslate"><span class="pre">GzFormatter</span></code></p></li>
+</ul>
+</li>
+<li><p>Public headers</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">include/ignition</span></code> → <code class="docutils literal notranslate"><span class="pre">include/gz</span></code></p></li>
+</ul>
+</li>
+<li><p>Plugins</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">ignition::gazebo::systems::LiftDrag</span></code> → <code class="docutils literal notranslate"><span class="pre">gz::sim::systems::LiftDrag</span></code></p></li>
+</ul>
+</li>
+<li><p>Shared libraries</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">libignition-gazebo-buoyancy-engine-system.so</span></code> → <code class="docutils literal notranslate"><span class="pre">libgz-sim-buoyancy-engine-system.so</span></code></p></li>
+<li><p>You may remove the <code class="docutils literal notranslate"><span class="pre">lib</span></code> and <code class="docutils literal notranslate"><span class="pre">.so</span></code> prefix and suffixes!</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">libignition-gazebo-buoyancy-engine-system.so</span></code> → <code class="docutils literal notranslate"><span class="pre">gz-sim-buoyancy-engine-system</span></code></p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>C++ Macros in public headers</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">IGN_PARTITION</span></code> → <code class="docutils literal notranslate"><span class="pre">GZ_PARTITION</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>CMake and Packaging</strong></p>
+<ul class="simple">
+<li><p>CMake macros/functions</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">ign_find_package()</span></code> → <code class="docutils literal notranslate"><span class="pre">gz_find_package()</span></code></p></li>
+</ul>
+</li>
+<li><p>CMake macro/function arguments</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">NO_IGNITION_PREFIX</span></code> → <code class="docutils literal notranslate"><span class="pre">NO_PROJECT_PREFIX</span></code></p></li>
+</ul>
+</li>
+<li><p>CMake variables*</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">IgnOGRE2_FOUND</span></code> → <code class="docutils literal notranslate"><span class="pre">GzOGRE2_FOUND</span></code></p></li>
+<li><p>Not every CMake variable is tick-tocked, but most of the ones that are used in downstream libraries are</p></li>
+</ul>
+</li>
+<li><p>CMake packages found by <code class="docutils literal notranslate"><span class="pre">gz_find_package()</span></code></p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">gz_find_package(IgnCURL)</span></code> → <code class="docutils literal notranslate"><span class="pre">gz_find_package(GzCURL)</span></code></p></li>
+</ul>
+</li>
+<li><p>Debian packages</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">libignition-cmake3-dev</span></code> → <code class="docutils literal notranslate"><span class="pre">libgz-cmake3-dev</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Misc.</strong></p>
+<ul class="simple">
+<li><p>Environment variables (names and values)</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">IGN_GAZEBO_RESOURCE_PATH</span></code> → <code class="docutils literal notranslate"><span class="pre">GZ_SIM_RESOURCE_PATH</span></code></p></li>
+</ul>
+</li>
+<li><p>Command line</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">ign</span></code> → <code class="docutils literal notranslate"><span class="pre">gz</span></code>, <code class="docutils literal notranslate"><span class="pre">ign</span> <span class="pre">gazebo</span></code> → <code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">sim</span></code></p></li>
+</ul>
+</li>
+<li><p>GUI QML</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">IgnSpinBox</span></code> → <code class="docutils literal notranslate"><span class="pre">GzSpinBox</span></code></p></li>
+</ul>
+</li>
+<li><p>Topics* (typically in tests)</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">/ignition/XXX</span></code> → <code class="docutils literal notranslate"><span class="pre">/gz/XXX</span></code></p></li>
+<li><p><strong>Note:</strong> <code class="docutils literal notranslate"><span class="pre">/gazebo</span></code> is NOT migrated to <code class="docutils literal notranslate"><span class="pre">/sim</span></code></p></li>
+</ul>
+</li>
+<li><p>GitHub organizations and repositories</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">ignitionrobotics</span></code> → <code class="docutils literal notranslate"><span class="pre">gazebosim</span></code> , <code class="docutils literal notranslate"><span class="pre">ign-cmake</span></code> → <code class="docutils literal notranslate"><span class="pre">gz-cmake</span></code></p></li>
+</ul>
+</li>
+<li><p>GitHub actions and workflows</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">ignition-tooling</span></code> → <code class="docutils literal notranslate"><span class="pre">gazebo-tooling</span></code></p></li>
+</ul>
+</li>
+<li><p>Websites</p>
+<ul>
+<li><p>e.g. <a class="reference external" href="http://ignitionrobotics.org">ignitionrobotics.org</a> → <a class="reference external" href="http://gazebosim.org">gazebosim.org</a></p></li>
+</ul>
+</li>
+<li><p>SDF and launch tags</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">&lt;ignition-gui&gt;</span></code> → <code class="docutils literal notranslate"><span class="pre">&lt;gz-gui&gt;</span></code></p></li>
+</ul>
+</li>
+<li><p>SDF namespaces</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">ignition:type</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="hard-tocks">
+<h4>Hard-tocks<a class="headerlink" href="#hard-tocks" title="Link to this heading">#</a></h4>
+<p>There are some exceptions that have been hard-tocked instead, meaning that you <strong>MUST</strong> use the Gazebo counterpart.
+Using the Ignition counterpart will likely cause compilation or something else to break (unless it’s just a documentation change.)</p>
+<p><strong>Namespaces</strong></p>
+<ul class="simple">
+<li><p>Ruby namespaces</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">ignition/math</span></code> → <code class="docutils literal notranslate"><span class="pre">gz/math</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Source</strong></p>
+<ul class="simple">
+<li><p>Install space</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">install/share/ignition</span></code> → <code class="docutils literal notranslate"><span class="pre">install/share/gz</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>CMake and Packaging</strong></p>
+<ul class="simple">
+<li><p>Most includeable CMake files in <code class="docutils literal notranslate"><span class="pre">gz-cmake</span></code></p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">IgnUtils.cmake</span></code> → <code class="docutils literal notranslate"><span class="pre">GzUtils.cmake</span></code></p></li>
+</ul>
+</li>
+<li><p>Gazebo library CMake project names</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">ignition-utils2</span></code> → <code class="docutils literal notranslate"><span class="pre">gz-utils2</span></code></p></li>
+</ul>
+</li>
+<li><p>Internally used CMake variables</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">IGN_TRANSPORT_VER</span></code> → <code class="docutils literal notranslate"><span class="pre">GZ_TRANSPORT_VER</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Misc.</strong></p>
+<ul class="simple">
+<li><p>Gazebo launchfiles and tags</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">sim.ign</span></code> → <code class="docutils literal notranslate"><span class="pre">sim.gzlaunch</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;ign</span></code>  → <code class="docutils literal notranslate"><span class="pre">&lt;gz</span></code></p></li>
+</ul>
+</li>
+<li><p>Config and log paths (PENDING)</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">~/.ignition/gui/log</span></code> → <code class="docutils literal notranslate"><span class="pre">~/.gz/gui/log</span></code></p></li>
+<li><p>Some config paths have been tick-tocked (e.g. <code class="docutils literal notranslate"><span class="pre">~/.ignition/gazebo/plugins</span></code>)</p></li>
+</ul>
+</li>
+<li><p>Fuel URL (PENDING)</p>
+<ul>
+<li><p>e.g. <a class="reference external" href="https://fuel.ignitionrobotics.org">https://fuel.ignitionrobotics.org</a></p></li>
+</ul>
+</li>
+<li><p>Fuel cache paths (ALSO PENDING)</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">~/.ignition/fuel</span></code> → <code class="docutils literal notranslate"><span class="pre">~/.gz/fuel</span></code></p></li>
+</ul>
+</li>
+<li><p>Library names in documentation and comments</p>
+<ul>
+<li><p>e.g. Ignition Gazebo → Gazebo Sim</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gz-launch</span></code> Websocket server</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">ign.js</span></code> → <code class="docutils literal notranslate"><span class="pre">gz.js</span></code></p></li>
+</ul>
+</li>
+</ul>
+<p>Also, anything that is internal to the core Gazebo libraries and not used in downstream libraries (e.g. header guards, private headers or source, tests, documentation) is hard-tocked.</p>
+</section>
+</section>
+<section id="untocks">
+<h3>Untocks<a class="headerlink" href="#untocks" title="Link to this heading">#</a></h3>
+<p>A very small selection of things have not been migrated, mostly for backwards compatibility reasons (e.g. supporting Fortress.)</p>
+<ul class="simple">
+<li><p>Branch names for versions of Gazebo libraries targeting releases before Ionic</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">ign-cmake2</span></code></p></li>
+</ul>
+</li>
+<li><p>Some links</p>
+<ul>
+<li><p>e.g. <a class="reference external" href="https://osrf-migration.github.io/ignition-gh-pages">https://osrf-migration.github.io/ignition-gh-pages</a></p></li>
+</ul>
+</li>
+<li><p>Fuel user agent related</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">X-Ign-Resource-Version</span></code>, <code class="docutils literal notranslate"><span class="pre">IgnitionFuelTools</span></code></p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
+<section id="migration">
+<h2>Migration<a class="headerlink" href="#migration" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Overview<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>The following migration guidelines are just that—guidelines and suggestions for how to get your package migrated, that should cover most general cases.</p>
+<p>Just keep in mind the overarching goal of replacing every Ignition counterpart (<code class="docutils literal notranslate"><span class="pre">IGN</span></code>, <code class="docutils literal notranslate"><span class="pre">Ign</span></code>, <code class="docutils literal notranslate"><span class="pre">Ignition</span></code>, <code class="docutils literal notranslate"><span class="pre">ign</span></code>, <code class="docutils literal notranslate"><span class="pre">ignition</span></code>) to the Gazebo counterpart (<code class="docutils literal notranslate"><span class="pre">GZ</span></code>, <code class="docutils literal notranslate"><span class="pre">Gz</span></code>, <code class="docutils literal notranslate"><span class="pre">gz</span></code>).</p>
+<section id="recommendations">
+<h4>Recommendations<a class="headerlink" href="#recommendations" title="Link to this heading">#</a></h4>
+<p>What might help greatly is to:</p>
+<ul class="simple">
+<li><p>Make ample use of regex and <code class="docutils literal notranslate"><span class="pre">sed</span></code></p>
+<ul>
+<li><p>The migration guide will be giving suggestions for what regex expressions to use, but <strong>always review before executing the replace</strong></p></li>
+</ul>
+</li>
+<li><p>Pay attention to case!!</p></li>
+<li><p>Use an editor to review changes, and source control to allow for easy rollbacks</p></li>
+<li><p>Pay attention to compilation warnings/errors, which usually (but not always) give suggestions for what to replace!</p></li>
+<li><p>If in doubt, trace the change to changes listed in the <a class="reference external" href="https://github.com/gazebo-tooling/release-tools/issues/698">tracking issue</a></p></li>
+</ul>
+<p>Also, if you are building the Gazebo stack from source, you should do a clean, fresh rebuild and install.
+Delete your <code class="docutils literal notranslate"><span class="pre">build</span></code> and <code class="docutils literal notranslate"><span class="pre">install</span></code> directories, and run the build with <code class="docutils literal notranslate"><span class="pre">--merge-install</span></code>.</p>
+</section>
+<section id="gotchas">
+<h4>Gotchas<a class="headerlink" href="#gotchas" title="Link to this heading">#</a></h4>
+<p>Most of the migration effort you should do is mainly finding and replacing instances of Ignition-related terms with the Gazebo-related one.</p>
+<p>However, here are a lot of edge cases that make it difficult to create a script to handle the migration (leading to errors or bugs), so before the migration steps are suggested, it would be good to know some of these cases.</p>
+<ul class="simple">
+<li><p>Case-sensitivity not respected</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">IGNITION_ADD_PLUGIN</span></code> → <code class="docutils literal notranslate"><span class="pre">gz_ADD_PLUGIN</span></code></p></li>
+</ul>
+</li>
+<li><p>Greedy matches</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">Align</span></code> → <code class="docutils literal notranslate"><span class="pre">Algz</span></code>, <code class="docutils literal notranslate"><span class="pre">unsigned</span></code> → <code class="docutils literal notranslate"><span class="pre">unsgzed</span></code>, <code class="docutils literal notranslate"><span class="pre">signal</span></code> → <code class="docutils literal notranslate"><span class="pre">sgzal</span></code></p></li>
+</ul>
+</li>
+<li><p>Not migrating “gazebo” to “sim”</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">ign-gazebo</span></code> → <code class="docutils literal notranslate"><span class="pre">gz-gazebo</span></code> (it should be <code class="docutils literal notranslate"><span class="pre">gz-sim</span></code>)</p></li>
+</ul>
+</li>
+<li><p>Matching <code class="docutils literal notranslate"><span class="pre">ign</span></code> before <code class="docutils literal notranslate"><span class="pre">ignition</span></code></p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">ignition-cmake3</span></code> → <code class="docutils literal notranslate"><span class="pre">gzition-cmake3</span></code></p></li>
+</ul>
+</li>
+<li><p>Migrating a library that should not be migrated</p>
+<ul>
+<li><p>e.g. <code class="docutils literal notranslate"><span class="pre">ignition-cmake2</span></code> → <code class="docutils literal notranslate"><span class="pre">gz-cmake2</span></code></p></li>
+</ul>
+</li>
+<li><p>Grammar</p>
+<ul>
+<li><p>e.g. “an Ignition library” → “<strong>an</strong> Gazebo library”</p></li>
+</ul>
+</li>
+</ul>
+<p>Additionally, take note of the following behaviors:</p>
+<ul class="simple">
+<li><p>Pre-existing config files do not get overwritten, so if you’d like to use your old configurations or have a config file in a custom location, you might need to manually migrate Ignition-counterpart references in your config files to get them to point to the appropriate counterpart</p>
+<ul>
+<li><p>For example, a prior config file targeting <code class="docutils literal notranslate"><span class="pre">gz-sim</span></code> file could be using an <code class="docutils literal notranslate"><span class="pre">ignition::gazebo::systems::Physics</span></code> plugin.
+You might encounter deprecation warnings because that reference has not yet been migrated.</p></li>
+</ul>
+</li>
+<li><p>Because the install spaces have changed, if you have hard-coded locations involving <code class="docutils literal notranslate"><span class="pre">ignition</span></code>, you might need to migrate them to <code class="docutils literal notranslate"><span class="pre">gz</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="migration-steps">
+<h3>Migration Steps<a class="headerlink" href="#migration-steps" title="Link to this heading">#</a></h3>
+<p>It’s important to execute the steps within each of the individual sections in-order! The steps will typically go from specific to general.</p>
+<section id="migrate-files-and-file-references">
+<h4>Migrate Files and File References<a class="headerlink" href="#migrate-files-and-file-references" title="Link to this heading">#</a></h4>
+<ol class="arabic simple">
+<li><p>In your package root, look for files and directories matching the (case-insensitive) pattern of <code class="docutils literal notranslate"><span class="pre">ign(ition)?[_|-]gazebo</span></code>, and migrate <code class="docutils literal notranslate"><span class="pre">ign</span></code> / <code class="docutils literal notranslate"><span class="pre">ignition</span></code> appropriately to <code class="docutils literal notranslate"><span class="pre">gz</span></code>, and <code class="docutils literal notranslate"><span class="pre">gazebo</span></code> to <code class="docutils literal notranslate"><span class="pre">sim</span></code></p></li>
+<li><p>In your package root, look for files and directories with (case-insensitive) <code class="docutils literal notranslate"><span class="pre">ign</span></code> / <code class="docutils literal notranslate"><span class="pre">ignition</span></code>, and move them to <code class="docutils literal notranslate"><span class="pre">gz</span></code>, matching case</p></li>
+<li><p>Update all internal references to the migrated files and directories in (1) and (2) in your package</p></li>
+</ol>
+</section>
+<section id="migrate-cmake">
+<h4>Migrate CMake<a class="headerlink" href="#migrate-cmake" title="Link to this heading">#</a></h4>
+<p>In <code class="docutils literal notranslate"><span class="pre">CMakeLists.txt</span></code> files (and their references in your source files!):</p>
+<p><strong>Variables and macro/function calls</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Find: IGN(ITION)?_GAZEBO
+Replace: GZ_SIM
+
+Find: ign(ition)?_gazebo
+Replace: gz_sim
+
+Find: IGN(ITION)?_
+Replace: GZ_
+
+Find: ign(ition)?_
+Replace: gz_
+</pre></div>
+</div>
+<p><strong>Includes</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Find: include\(Ign
+Replace: include(Gz
+
+Find: include\(ign
+Replace: include(gz
+
+Find: gz_find_package\(ign-
+Replace: gz_find_package(gz-
+
+Find: gz_find_package\(Ign(ition)?
+Replace: gz_find_package(Gz-
+</pre></div>
+</div>
+<p><strong>Project Names</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Find</span><span class="p">:</span> <span class="n">ignition</span><span class="o">-</span><span class="n">gazebo</span>
+<span class="n">Replace</span><span class="p">:</span> <span class="n">gz</span><span class="o">-</span><span class="n">sim</span>
+
+<span class="n">Find</span><span class="p">:</span> <span class="n">ignition</span><span class="o">-</span>
+<span class="n">Replace</span><span class="p">:</span> <span class="n">gz</span><span class="o">-</span>
+</pre></div>
+</div>
+<p><strong>Note:</strong> Be wary that sometimes CMake arguments trickle down to the source files, so ensure you also migrate them appropriately</p>
+</section>
+<section id="migrate-macros-and-environment-variables">
+<h4>Migrate Macros and Environment Variables<a class="headerlink" href="#migrate-macros-and-environment-variables" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/gazebo-tooling/release-tools/issues/734">Helpful list of env var migrations</a></p></li>
+<li><p><a class="reference external" href="https://github.com/gazebo-tooling/release-tools/issues/737">Helpful list of macro migrations</a> (see the toggled drop-down block, some are skipped!)</p></li>
+</ul>
+<p>Migrate source macros and environment variables</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Find: IGN(ITION)?_GAZEBO
+Replace: GZ_SIM
+
+Find: ign(ition)?_gazebo
+Replace: gz_sim
+
+Find: IGN(ITION)?_
+Replace: GZ_
+
+Find: ign(ition)?_
+Replace: gz_
+</pre></div>
+</div>
+<p>For environment variables, you can use the same approach as with macros, but pay attention to the values stored in the environment variables! (e.g. paths.)</p>
+<p>Additionally, the logging macros have also been migrated! Migrate any uses!</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ignerr</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">gzerr</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ignwarn</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">gzwarn</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ignmsg</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">gzmsg</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">igndbg</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">gzdbg</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ignlog</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">gzlog</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ignLogInit</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">gzLogInit</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ignLogClose</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">gzLogClose</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ignLogDirectory</span></code> -&gt; <code class="docutils literal notranslate"><span class="pre">gzLogDirectory</span></code></p></li>
+</ul>
+</section>
+<section id="migrate-sdf">
+<h4>Migrate SDF<a class="headerlink" href="#migrate-sdf" title="Link to this heading">#</a></h4>
+<p>In <code class="docutils literal notranslate"><span class="pre">.sdf</span></code> files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Find</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">ignition</span>
+<span class="n">Replace</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">gz</span>
+
+<span class="n">Find</span><span class="p">:</span> <span class="o">&lt;/</span><span class="n">ignition</span>
+<span class="n">Replace</span><span class="p">:</span> <span class="o">&lt;/</span><span class="n">gz</span>
+
+<span class="n">Find</span><span class="p">:</span> <span class="n">ignition</span><span class="p">:</span>
+<span class="n">Replace</span><span class="p">:</span> <span class="n">gz</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>Some examples:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;gz:odometer</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;gz-gui</span></code></p></li>
+</ul>
+</section>
+<section id="migrate-plugins-and-shared-libraries">
+<h4>Migrate Plugins and Shared Libraries<a class="headerlink" href="#migrate-plugins-and-shared-libraries" title="Link to this heading">#</a></h4>
+<p>The plugin finder is able to find plugins even if their filenames are stripped of <code class="docutils literal notranslate"><span class="pre">lib</span></code> and <code class="docutils literal notranslate"><span class="pre">.so</span></code>.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">.sdf</span></code> files and source files (e.g. <code class="docutils literal notranslate"><span class="pre">.cc</span></code>):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Find: (lib)?ign(ition)?-gazebo([^. ]*)\.so
+Replace: gz-sim\3
+
+Find: (lib)?ign(ition)?([^. ]*)\.so
+Replace: gz\3
+
+Find: ignition::gazebo
+Replace: gz::sim
+
+Find: ignition::
+Replace: gz::
+</pre></div>
+</div>
+</section>
+<section id="migrate-bindings">
+<h4>Migrate Bindings<a class="headerlink" href="#migrate-bindings" title="Link to this heading">#</a></h4>
+<p>In Python files (e.g. <code class="docutils literal notranslate"><span class="pre">.py</span></code>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Find</span><span class="p">:</span> <span class="n">ignition</span><span class="o">.</span><span class="n">gazebo</span>
+<span class="n">Replace</span><span class="p">:</span> <span class="n">gz</span><span class="o">.</span><span class="n">sim</span>
+
+<span class="n">Find</span><span class="p">:</span> <span class="n">ignition</span><span class="o">.</span>
+<span class="n">Replace</span><span class="p">:</span> <span class="n">gz</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>In Ruby files (e.g. <code class="docutils literal notranslate"><span class="pre">.i</span></code>, <code class="docutils literal notranslate"><span class="pre">.rb</span></code>)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Find: ign(ition)?/
+Replace: gz/
+</pre></div>
+</div>
+</section>
+<section id="migrate-messages">
+<h4>Migrate Messages<a class="headerlink" href="#migrate-messages" title="Link to this heading">#</a></h4>
+<p>In your message definitions</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Find: ign(ition)?\.gazebo
+Replace: gz.sim
+
+Find: ign(ition)?/gazebo
+Replace: gz/sim
+
+Find: ign(ition)?\.
+Replace: gz.
+
+Find: ign(ition)?/
+Replace: gz/
+</pre></div>
+</div>
+</section>
+<section id="migrate-headers-and-sources">
+<h4>Migrate Headers and Sources<a class="headerlink" href="#migrate-headers-and-sources" title="Link to this heading">#</a></h4>
+<p>Sweeping checks everywhere (pay special attention to reviewing these!)</p>
+<p><strong>Headers</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Find</span><span class="p">:</span> <span class="c1">#include\s*([&lt;&quot;])ign(ition)?/gazebo</span>
+<span class="n">Replace</span><span class="p">:</span> <span class="c1">#include \1gz/sim</span>
+
+<span class="n">Find</span><span class="p">:</span> <span class="c1">#include\s*([&lt;&quot;])ign(ition)?/</span>
+<span class="n">Replace</span><span class="p">:</span> <span class="c1">#include \1gz/</span>
+
+<span class="o">//</span> <span class="n">Note</span><span class="p">:</span> <span class="n">You</span> <span class="n">should</span> <span class="n">be</span> <span class="n">wary</span> <span class="n">of</span> <span class="n">the</span> <span class="n">IGNITION</span> <span class="n">GAZEBO</span> <span class="n">case</span> <span class="k">for</span> <span class="n">the</span> <span class="n">following</span>
+<span class="o">//</span> <span class="ow">and</span> <span class="n">adjust</span> <span class="n">accordingly</span>
+<span class="n">Find</span><span class="p">:</span> <span class="c1">#([^\s]*)\s+(.*)IGN(?:ITION)?_(.*)_(H+)_(.*)$</span>
+<span class="n">Replace</span><span class="p">:</span> <span class="c1">#$1 $2GZ_$3_$4_$5</span>
+
+<span class="n">Find</span><span class="p">:</span> <span class="c1">#endif\s*// GZ(.*)_H</span>
+<span class="n">Replace</span><span class="p">:</span> <span class="c1">#endif  // GZ$1_H</span>
+</pre></div>
+</div>
+<p><strong>Namespaces</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Find</span><span class="p">:</span> <span class="n">namespace</span>\<span class="n">s</span><span class="o">*</span><span class="n">ignition</span>
+<span class="n">Replace</span><span class="p">:</span> <span class="n">namespace</span> <span class="n">gz</span>
+
+<span class="n">Find</span><span class="p">:</span> <span class="n">namespace</span>\<span class="n">s</span><span class="o">*</span><span class="n">gazebo</span>
+<span class="n">Replace</span><span class="p">:</span> <span class="n">namespace</span> <span class="n">sim</span>
+
+<span class="n">Find</span><span class="p">:</span> <span class="n">ignition</span><span class="p">::</span><span class="n">gazebo</span>
+<span class="n">Replace</span><span class="p">:</span> <span class="n">gz</span><span class="p">::</span><span class="n">sim</span>
+
+<span class="n">Find</span><span class="p">:</span> <span class="n">Ignition</span><span class="p">::</span><span class="n">Gazebo</span>
+<span class="n">Replace</span><span class="p">:</span> <span class="n">Gz</span><span class="p">::</span><span class="n">Sim</span>
+
+<span class="n">Find</span><span class="p">:</span> <span class="n">ignition</span><span class="p">::</span>
+<span class="n">Replace</span><span class="p">:</span> <span class="n">gz</span><span class="p">::</span>
+
+<span class="n">Find</span><span class="p">:</span> <span class="n">Ignition</span><span class="p">::</span>
+<span class="n">Replace</span><span class="p">:</span> <span class="n">Gz</span><span class="p">::</span>
+</pre></div>
+</div>
+<p><strong>Everything Else</strong></p>
+<p>You probably want to manually inspect:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Ign</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ignition</span></code></p></li>
+</ul>
+<p>And also be mindful that certain instances of <code class="docutils literal notranslate"><span class="pre">gazebo</span></code> (usually as part of an API) need to use <code class="docutils literal notranslate"><span class="pre">sim</span></code> instead.</p>
+</section>
+<section id="migrate-your-cli-usage">
+<h4>Migrate Your CLI Usage<a class="headerlink" href="#migrate-your-cli-usage" title="Link to this heading">#</a></h4>
+<p>Where you used to use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ign</span> <span class="n">gazebo</span> <span class="n">shapes</span><span class="o">.</span><span class="n">sdf</span>
+</pre></div>
+</div>
+<p>Now you should use:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gz</span> <span class="n">sim</span> <span class="n">shapes</span><span class="o">.</span><span class="n">sdf</span>
+</pre></div>
+</div>
+<p>Notice that the <code class="docutils literal notranslate"><span class="pre">gazebo</span></code> verb is <strong>deprecated</strong>.</p>
+</section>
+<section id="helpful-cli-redirection">
+<h4>Helpful CLI Redirection<a class="headerlink" href="#helpful-cli-redirection" title="Link to this heading">#</a></h4>
+<p>In order to support side-by-side installs of <code class="docutils literal notranslate"><span class="pre">Ionic</span></code> and <code class="docutils literal notranslate"><span class="pre">Fortress</span></code>, the <code class="docutils literal notranslate"><span class="pre">ign</span></code> CLI executable (and the <code class="docutils literal notranslate"><span class="pre">gazebo</span></code> verb) will not be installed for <code class="docutils literal notranslate"><span class="pre">Ionic</span></code>.
+This means that unless <code class="docutils literal notranslate"><span class="pre">Fortress</span></code> is also installed alongside <code class="docutils literal notranslate"><span class="pre">Ionic</span></code>, CLI usage has to be migrated.
+Use <code class="docutils literal notranslate"><span class="pre">gz</span></code> instead of <code class="docutils literal notranslate"><span class="pre">ign</span></code>, and <code class="docutils literal notranslate"><span class="pre">sim</span></code> instead of <code class="docutils literal notranslate"><span class="pre">gazebo</span></code>.</p>
+<p>You may add the following script to your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file to redirect any <code class="docutils literal notranslate"><span class="pre">ign</span></code> calls to <code class="docutils literal notranslate"><span class="pre">gz</span></code>, so you won’t have to migrate all of your scripts (that are still using <code class="docutils literal notranslate"><span class="pre">ign</span></code>), though it is still recommended to make the migration.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ign<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span>which<span class="w"> </span>ign<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="k">$(</span>which<span class="w"> </span>ign<span class="k">)</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+<span class="w">  </span><span class="k">else</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span>which<span class="w"> </span>gz<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">      </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[DEPRECATED] ign is deprecated! Please use gz instead!&quot;</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;gazebo&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[DEPRECATED] The gazebo verb is deprecated! Please use sim instead!&quot;</span>
+<span class="w">        </span><span class="nb">shift</span>
+<span class="w">        </span><span class="k">$(</span>which<span class="w"> </span>gz<span class="k">)</span><span class="w"> </span>sim<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+<span class="w">      </span><span class="k">else</span>
+<span class="w">        </span><span class="k">$(</span>which<span class="w"> </span>gz<span class="k">)</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+<span class="w">      </span><span class="k">fi</span>
+<span class="w">    </span><span class="k">else</span>
+<span class="w">      </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[ERROR] It seems like you don&#39;t have Gazebo installed!&quot;</span>
+<span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
+<span class="w">    </span><span class="k">fi</span>
+<span class="w">  </span><span class="k">fi</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="double-check">
+<h3>Double-Check<a class="headerlink" href="#double-check" title="Link to this heading">#</a></h3>
+<p>These might be useful to double-check if you have any lingering stuff, or erroneously migrated instances</p>
+<p>You should match these <strong>case-insensitively</strong>.</p>
+<p><strong>Errors</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gz-gazebo</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gzition</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">an</span> <span class="pre">gz</span></code></p></li>
+</ul>
+<p><strong>Remaining Ign</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">\.ign(ition)?</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ign(ition)?[-_]</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="additional-packages">
+<h2>Additional Packages<a class="headerlink" href="#additional-packages" title="Link to this heading">#</a></h2>
+<p>This section details changes that have taken place in some other Gazebo related packages.</p>
+<section id="ros-gz">
+<h3>ros_gz<a class="headerlink" href="#ros-gz" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">ros_ign</span></code> has been renamed to <code class="docutils literal notranslate"><span class="pre">ros_gz</span></code>.
+All internal references to <code class="docutils literal notranslate"><span class="pre">ign</span></code> or <code class="docutils literal notranslate"><span class="pre">ignition</span></code> that pre-Ionic versions of Gazebo don’t rely on have been migrated.</p>
+<p>If you want to run <code class="docutils literal notranslate"><span class="pre">ros_gz</span></code> demos with custom sim version or sim args, use the <code class="docutils literal notranslate"><span class="pre">gz_version</span></code> and <code class="docutils literal notranslate"><span class="pre">gz_args</span></code> launch parameters.
+Using the <code class="docutils literal notranslate"><span class="pre">ign_version</span></code> launch parameter will also require you to explicitly set the <code class="docutils literal notranslate"><span class="pre">ign_args</span></code> launch parameters instead.</p>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#changes">Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tick-tocks-and-hard-tocks">Tick-tocks and Hard-tocks</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tick-tocks">Tick-tocks</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#hard-tocks">Hard-tocks</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#untocks">Untocks</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#migration">Migration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Overview</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#recommendations">Recommendations</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#gotchas">Gotchas</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#migration-steps">Migration Steps</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#migrate-files-and-file-references">Migrate Files and File References</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#migrate-cmake">Migrate CMake</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#migrate-macros-and-environment-variables">Migrate Macros and Environment Variables</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#migrate-sdf">Migrate SDF</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#migrate-plugins-and-shared-libraries">Migrate Plugins and Shared Libraries</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#migrate-bindings">Migrate Bindings</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#migrate-messages">Migrate Messages</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#migrate-headers-and-sources">Migrate Headers and Sources</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#migrate-your-cli-usage">Migrate Your CLI Usage</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#helpful-cli-redirection">Helpful CLI Redirection</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#double-check">Double-Check</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#additional-packages">Additional Packages</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ros-gz">ros_gz</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/gazebosim/docs/edit/master/ionic/migration_from_ignition.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p> Brought to you by <a href="https://openrobotics.org">Open Robotics</a>. </p>
+<p> Except where otherwise noted, the gazebosim.org web pages are licensed under <a
+    href="https://creativecommons.org/licenses/by/4.0/us/">Creative Commons
+    Attribution 4.0</a>. </p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

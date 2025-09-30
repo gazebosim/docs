@@ -49,9 +49,6 @@ This section provides just an overview of the different changes made, for a more
 
 Additionally the migration pointers in a later section of this migration guide should help you get your packages ready and working with Gazebo.
 
-Generally speaking, you should still be able to use either the Ignition counterpart or Gazebo counterpart for **most things** if you are using Ionic, due to explicit tick-tocking logic written in the stack.
-Just note that using the Ignition counterpart will generally cause deprecation warnings to be emitted.
-
 #### Tick-tocks
 
 Tick-tocks for the following are implemented, though not all of them will emit deprecation warnings.
@@ -167,7 +164,7 @@ Also, anything that is internal to the core Gazebo libraries and not used in dow
 
 A very small selection of things have not been migrated, mostly for backwards compatibility reasons (e.g. supporting Fortress.)
 
-- Branch names for versions of Gazebo libraries targeting releases before Ionic
+- Branch names for versions of Gazebo libraries targeting releases before Jetty
     - e.g. `ign-cmake2`
 - Some links
     - e.g. [https://osrf-migration.github.io/ignition-gh-pages](https://osrf-migration.github.io/ignition-gh-pages)
@@ -463,8 +460,8 @@ Notice that the `gazebo` verb is **deprecated**.
 
 #### Helpful CLI Redirection
 
-In order to support side-by-side installs of `Ionic` and `Fortress`, the `ign` CLI executable (and the `gazebo` verb) will not be installed for `Ionic`.
-This means that unless `Fortress` is also installed alongside `Ionic`, CLI usage has to be migrated.
+In order to support side-by-side installs of `Jetty` and `Fortress`, the `ign` CLI executable (and the `gazebo` verb) will not be installed for `Jetty`.
+This means that unless `Fortress` is also installed alongside `Jetty`, CLI usage has to be migrated.
 Use `gz` instead of `ign`, and `sim` instead of `gazebo`.
 
 You may add the following script to your `~/.bashrc` file to redirect any `ign` calls to `gz`, so you won't have to migrate all of your scripts (that are still using `ign`), though it is still recommended to make the migration.
@@ -517,7 +514,7 @@ This section details changes that have taken place in some other Gazebo related 
 ### ros_gz
 
 `ros_ign` has been renamed to `ros_gz`.
-All internal references to `ign` or `ignition` that pre-Ionic versions of Gazebo don't rely on have been migrated.
+All internal references to `ign` or `ignition` that pre-Jetty versions of Gazebo don't rely on have been migrated.
 
 If you want to run `ros_gz` demos with custom sim version or sim args, use the `gz_version` and `gz_args` launch parameters.
 Using the `ign_version` launch parameter will also require you to explicitly set the `ign_args` launch parameters instead.

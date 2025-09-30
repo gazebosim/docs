@@ -2,7 +2,7 @@
 
 A list of features present in [Gazebo-classic](https://github.com/osrf/gazebo/)
 version 11 and the status of their migration to
-[Gazebo Ionic](https://gazebosim.org/).
+[Gazebo Jetty](https://gazebosim.org/).
 
 All the issues below are labeled with
 [close the gap](https://github.com/search?q=org%3Agazebosim+label%3A%22close+the+gap%22&type=Issues)
@@ -67,9 +67,9 @@ Model plugins | ✓ | ✓ Now called System plugin
 Sensor plugins | ✓ | ✓ Now called System plugin
 Visual plugins | ✓ | ✓
 GUI plugins | ✓ | ✓ Gazebo GUI plugins and Gazebo GUI systems
-System plugins | ✓ | ✓ Through Gazebo Launch
-SDF python bindings | x | ✓ | In sdformat13
-SDF <-> Mujoco MJCF | x | ✓ | In sdformat13, [documentation](https://github.com/gazebosim/gz-mujoco/blob/main/sdformat_mjcf/README.md)
+System plugins | ✓ | ✓ Through Gazebo Launch (deprecated, see [Migration guide](https://github.com/gazebosim/gz-launch/blob/gz-launch9/Migration.md))
+SDF python bindings | x | ✓ | in versions >= sdformat13
+SDF <-> Mujoco MJCF | x | ✓ | in versions >= sdformat13, [documentation](https://github.com/gazebosim/gz-mujoco/blob/main/sdformat_mjcf/README.md)
 
 ## Plugins
 
@@ -88,9 +88,11 @@ CartDemoPlugin | ✓ | ✕
 CessnaPlugin | ✓ | ✕
 DetachableJoint | ✕ | ✓
 DiffDrivePlugin | ✓ | ✓
+DriveToPoseController | ✕ | ✓
 ElevatorPlugin | ✓ | ✓
 FlashLightPlugin | ✓ |
 FollowerPlugin | ✓ |
+FreeSpaceExplorer | ✕ | ✓
 GimbalSmall2dPlugin | ✓ |
 GravityCompensationPlugin | ✓ |
 HarnessPlugin | ✓ |
@@ -106,6 +108,7 @@ LiftDragPlugin | ✓ | ✓
 LinearBatteryConsumerPlugin | ✓ | ✓
 LinearBatteryPlugin | ✓ | ✓
 LinkPlot3DPlugin | ✓ | ✓ (renamed to Plot3D)
+LookupWheelSlipPlugin | ✕ | ✓
 MecanumDrive | ✕ | ✓
 MudPlugin | ✓ |
 MulticopterMotorModel | ✕ | ✓
@@ -132,6 +135,7 @@ Plugin | Gazebo-classic | Gazebo Sim
 -- | -- | --
 ArrangePlugin | ✓ |
 ContainPlugin | ✓ | Partial port, [Issue](https://github.com/gazebosim/gz-sim/issues/162)
+EntitySemantics | ✕ | ✓
 HydraPlugin | ✓ |
 JoyPlugin | ✓ | ✓ Migrated as an Gazebo Launch plugin
 MisalignmentPlugin | ✓ |
@@ -265,17 +269,18 @@ Feature | Gazebo-classic | Gazebo Sim
 Ogre 1.x engine | ✓ | ✓
 Ogre 2.x engine | ✕ | ✓
 Optix engine | ✕ | ✓ Partial support
-Custom engine plugins | ✕ | [✓](https://gazebosim.org/api/rendering/5.0/renderingplugin.html)
+Custom engine plugins | ✕ | [✓](https://gazebosim.org/api/rendering/10/renderingplugin.html)
 Sky | ✓ | ✓
 Fog | ✓ |
 Material scripts | ✓ (Ogre 1.x scripts) | Does not apply
 Physically Based Rendering (PBR) | ✕ | ✓ (with engines that support it, like Ogre 2)
 Normal maps | ✓ | ✓
 Environment maps | ✕  | ✓
+Global Illumination | ✕  | ✓
 Lightmaps | ✕  | ✓
 Particle effects | ✕  | ✓
 Render order | ✕  | ✓
-Projector | ✕  | ([ogre 1.x only](https://github.com/gazebosim/gz-sim/pull/1979))
+Projector | ✕  | ✓
 
 ## ROS integration
 
@@ -284,13 +289,13 @@ ROS integration through the
 
 Supported versions:
 
-* ROS 2 Iron (from source) / Rolling (from source)
+* ROS 2 Jazzy (from source) / Rolling (from source)
 
-Note: binaries for ROS2 might be available sometime after the Ionic release.
+Note: binaries for ROS2 might be available sometime after the Jetty release.
 
 For **ROS 2 Rolling**, the Rolling distribution moves with the next future release
 of ROS 2 defined in [REP-2000](https://www.ros.org/reps/rep-2000.html). For the Gz
-Ionic release this means that it will be adopted when ROS 2 Jazzy goes into the
+Jetty release this means that it will be adopted when ROS 2 Kilted goes into the
 [REP-2000](https://www.ros.org/reps/rep-2000.html).
 
 ## Platforms
@@ -307,7 +312,7 @@ Feature | Gazebo-classic | Gazebo Sim
 -- | -- | --
 Nested models | ✓ | ✓
 Log / playback | ✓ | ✓
-Web client (GzWeb) | ✓ |
+Web client (GzWeb) | ✓ | ✓
 COLLADA meshes | ✓ | ✓
 OBJ meshes | ✓ | ✓
 STL meshes | ✓ | ✓
@@ -321,8 +326,8 @@ Sphere, cylinder and box primitives | ✓ | ✓
 Ellipsoid and capsule primitives | ✕ | ✓
 Hydrodynamics | ✕  | ✓
 Ocean currents | ✕  | ✓
-Test fixture | ✓ | [✓](https://gazebosim.org/api/gazebo/6.6/test_fixture.html)
+Test fixture | ✓ | [✓](https://gazebosim.org/api/sim/10/test_fixture.html)
 Spherical coordinates | ✓ | ✓
-Generic comms system | ✕ | [✓](https://github.com/gazebosim/gz-sim/blob/ign-gazebo6/examples/worlds/perfect_comms.sdf)
+Generic comms system | ✕ | [✓](https://github.com/gazebosim/gz-sim/blob/gz-sim10/examples/worlds/perfect_comms.sdf)
 Acoustic communication | ✕ | ✓
 Static linked plugins | ✕ | ✓

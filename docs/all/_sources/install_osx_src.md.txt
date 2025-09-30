@@ -1,6 +1,6 @@
 # Source Installation on macOS
 
-This tutorial will work for macOS BigSur 10.16 and macOS Monterey 12.0.
+This tutorial will work for macOS Ventura, Sonoma, and Sequoia.
 
 ## Install tools
 
@@ -13,7 +13,7 @@ The easiest way to get the sources of all libraries is to use
 To compile all the different libraries and gz-sim in the right order
 [colcon](https://colcon.readthedocs.io/en/released/) is recommended.
 
-Tools and dependencies for Ionic can be installed using the [Homebrew package manager](https://brew.sh/). After installing Homebrew, add the `osrf/simulation` to Homebrew tap to be able to install prebuilt dependencies.
+Tools and dependencies for Jetty can be installed using the [Homebrew package manager](https://brew.sh/). After installing Homebrew, add the `osrf/simulation` to Homebrew tap to be able to install prebuilt dependencies.
 
 ```bash
 brew tap osrf/simulation
@@ -22,7 +22,7 @@ brew update
 
 ### Install compiler requirements
 
-Building Gazebo Libraries require at least Xcode 10 on MacOS Mojave. The Xcode Command Line Tools are sufficient, and can be installed with:
+Building Gazebo Libraries require at least Xcode 14 on MacOS Ventura. The Xcode Command Line Tools are sufficient, and can be installed with:
 
 ```bash
 xcode-select --install
@@ -30,7 +30,7 @@ xcode-select --install
 
 ## Python 3 from Homebrew
 
-Ionic is compatible with Python 3. Install the latest version from Homebrew:
+Jetty is compatible with Python 3. Install the latest version from Homebrew:
 
 ```bash
 brew install python3
@@ -39,7 +39,9 @@ brew install python3
 ## vcstool and colcon from PyPI
 
 ```bash
-python3 -m pip install -U colcon-common-extensions vcstool
+python3 -m venv $HOME/vcs_colcon_installation
+. $HOME/vcs_colcon_installation/bin/activate
+pip3 install vcstool colcon-common-extensions
 ```
 
 ## Getting the sources
@@ -52,18 +54,18 @@ mkdir -p ~/workspace/src
 cd ~/workspace/src
 ```
 
-All the sources of gazebo-ionic are declared in a yaml file. Download
+All the sources of gazebo-jetty are declared in a yaml file. Download
 it to the workspace:
 
 ```bash
-curl -OL https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-ionic.yaml
+curl -OL https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-jetty.yaml
 ```
 
 Use `vcstool` to automatically retrieve all the Gazebo libraries sources from
 their repositories:
 
 ```bash
-vcs import < collection-ionic.yaml
+vcs import < collection-jetty.yaml
 ```
 
 The src subdirectory should contain all the sources ready to be built.
@@ -79,20 +81,7 @@ brew install --cask xquartz
 General dependencies:
 
 ```bash
-brew install assimp boost bullet cmake cppzmq dartsim doxygen eigen fcl ffmpeg flann freeimage freetype gdal gflags google-benchmark gts ipopt jsoncpp libccd libyaml libzzip libzip nlopt ode open-scene-graph ossp-uuid ogre1.9 ogre2.3 pkg-config protobuf qt@5 qwt-qt5 rapidjson ruby tbb tinyxml tinyxml2 urdfdom zeromq
-```
-
-`qt@5` is a "keg only" Homebrew formula and its path must be explicitly configured before building Gazebo:
-
-```bash
-# qt@5
-export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH:+$CMAKE_PREFIX_PATH:}`brew --prefix qt@5`
-```
-
-Unlink `qt` to avoid conflicts with other versions of qt (e.g. qt6)
-
-```
-brew unlink qt
+brew install assimp boost bullet cmake cppzmq dartsim doxygen eigen fcl ffmpeg flann freeimage freetype gdal gflags google-benchmark ipopt jsoncpp libccd libyaml libzzip libzip nlopt ode open-scene-graph ossp-uuid ogre1.9 ogre2.3 pkg-config protobuf qt@6 qwt rapidjson ruby tbb tinyxml2 urdfdom zeromq
 ```
 
 ## Building the Gazebo Libraries

@@ -1,1 +1,758 @@
-../../all/moving_robot/index.html
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JKS50SX85K"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-JKS50SX85K');
+    </script>
+    
+    <title>Moving the robot &#8212; Gazebo ionic documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/gazebo.css?v=1d42b338" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=0b151d4f"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'moving_robot';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://gazebosim.org/docs/ionic/_static/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'ionic';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="canonical" href="https://gazebosim.org/docs/latest/moving_robot/" />
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="SDF worlds" href="../sdf_worlds/" />
+    <link rel="prev" title="Building your own robot" href="../building_robot/" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="ionic" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search/"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+  
+  <aside aria-label="Version warning" class="bd-header-announcement bd-header-version-info" style="min-height: 3rem;">
+    <div class="bd-header-announcement__content">
+      <div class="sidebar-message">
+        
+          This is documentation for <strong> Gazebo Ionic</strong>,
+          an older but still supported version of Gazebo. 
+        <a class="btn text-wrap font-weight-bold ms-3 my-1 align-baseline pst-button-link-to-stable-version"
+        href="../../jetty/moving_robot">Switch to the latest stable version</a>
+      </div>
+    </div>
+  </aside>
+  
+
+
+
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class=" navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/gazebo_horz_pos.svg" class="logo__image only-light" alt="Gazebo ionic documentation - Home"/>
+    <img src="../_static/gazebo_horz_neg.svg" class="logo__image only-dark pst-js-only" alt="Gazebo ionic documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class=" navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.org/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.org/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.org/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.org/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.org/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+
+
+<div class="doc-header">
+  <div class="banner d-flex flex-column-reverse flex-sm-row">
+    <div>
+      <div class="d-none d-sm-block">
+        <span class="d-inline fs-2">Docs / Gazebo Ionic</span>
+        
+      </div>
+      <span>Supported Sep, 2024 to Sep, 2026</span>
+    </div><div class="gz-version-switcher">
+  <span class="fs-4 fw-light pe-2">Release:</span>
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div></div>
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item"><nav class="navbar-nav">
+  <ul class="bd-navbar-elements navbar-nav">
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.org/features">Features</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.org/showcase">Showcase</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.org/docs">Docs</a></li>
+    <li class="nav-item"><a class="nav-link nav-internal" href="https://community.gazebosim.org/">Community</a></li>
+    <li class="nav-item dropdown">
+      <button class="btn dropdown-toggle nav-item" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-controls="pst-nav-more-links">More</button>
+      <ul class="dropdown-menu">
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.org/about">About</a></li>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://community.gazebosim.org' title="Discussion forum">Community</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href='https://robotics.stackexchange.org' title="Technical help">Answers</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://blog.openrobotics.org/tag/gazebo">Blog</a>
+        <li class="nav-item"><a class="nav-link nav-internal" href="https://gazebosim.org/media">Media</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><a class="btn btn-outline-secondary" href="https://app.gazebosim.org">APP</a></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../getstarted/">Get Started</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../install/">Install</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install_ubuntu/">Binary Ubuntu Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_osx/">Binary macOS Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_windows/">Binary Windows Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_ubuntu_src/">Ubuntu Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_osx_src/">macOS Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../install_windows_src/">Windows Source Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../migration_from_ignition/">Migration from Ignition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../comparison/">Feature Comparison</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../tutorials/">Tutorials</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../building_robot/">Building your own robot</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Moving the robot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdf_worlds/">SDF worlds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sensors/">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../actors/">Actors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../gui/">Understanding the GUI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manipulating_models/">Manipulating Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_insert/">Model Insertion from Fuel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hotkeys/">Keyboard Shortcuts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spawn_urdf/">Spawn URDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_overview/">ROS 2 integration overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_launch_gazebo/">Launch Gazebo from ROS 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_integration/">Use ROS 2 to interact with Gazebo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_spawn_model/">Use ROS 2 to spawn a Gazebo model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_interop/">ROS 2 interoperability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ros_gz_project_template_guide/">ROS 2 integration template</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../ros_installation/">ROS/Gazebo Installation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../ros2_gz_vendor_pkgs/">ROS 2 Gazebo Vendor Packages</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../setup_gazebo_in_ci/">Continuous Integration For Gazebo Packages</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../gazebo_classic_migration/">Gazebo Classic Migration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../install_gz11_side_by_side/">Installing Gazebo11 side by side with new Gazebo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../migrating_gazebo_classic_ros2_packages/">Migration from ROS 2 Gazebo Classic</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../roadmap/">Roadmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release-features/">Release Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../releases/">Releases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../governance/">Governance</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../development/">Development</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contributing/">Contributing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ci/">Continuous Integration</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../release/">Release process</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../releasing/versioning_pre_nightly/">Debian/Ubuntu versioning in nightly and prerelease binaries</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../releases-instructions/">Release Instructions</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../architecture/">Sim Architecture</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../fuel/">Fuel</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_content_deletion_policy/">Content Deletion Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_model/">Contributing New Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_contributing_world/">Contributing New World</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_copyright/">Copyright</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_data_policy/">Data and Privacy Policy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../fuel_fair_use/">What is Fair Use</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../projects_using_gazebo/">Projects using Gazebo</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../library_reference_nav/">Library Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/cmake/4">cmake</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/common/6">common</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/fuel_tools/10">fuel_tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/gui/9">gui</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/launch/8">launch</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/math/8">math</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/msgs/11">msgs</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/physics/8">physics</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/plugin/3">plugin</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/rendering/9">rendering</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sensors/9">sensors</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sim/9">sim</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/tools/2">tools</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/transport/14">transport</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/utils/3">utils</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://gazebosim.org/api/sdformat/15">sdformat</a></li>
+</ul>
+</details></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../tutorials/" class="nav-link">Gazebo Tutorials</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Moving the robot</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="moving-the-robot">
+<h1>Moving the robot<a class="headerlink" href="#moving-the-robot" title="Link to this heading">#</a></h1>
+<p>In this tutorial we will learn how to move our robot. We will use the
+robot we built in the <a class="reference internal" href="../building_robot/"><span class="doc std std-doc">Build your own robot</span></a>
+tutorial. You can download the robot from <a class="reference external" href="https://github.com/gazebosim/docs/blob/master/ionic/tutorials/building_robot/building_robot.sdf">here</a>.
+You can also find the finished world of this tutorial <a class="reference external" href="https://github.com/gazebosim/docs/blob/master/ionic/tutorials/moving_robot/moving_robot.sdf">here</a>.</p>
+<section id="what-is-a-plugin">
+<h2>What is a plugin<a class="headerlink" href="#what-is-a-plugin" title="Link to this heading">#</a></h2>
+<p>To make our robot move we will use the <code class="docutils literal notranslate"><span class="pre">diff_drive</span></code> plugin. But before doing so let’s answer the question “What is a plugin?” A plugin is a chunk of code that is compiled as a shared library and inserted into the simulation. Plugins make us control many aspects of the simulation like world, models, etc.</p>
+<section id="diff-drive-plugin">
+<h3>Diff_drive plugin<a class="headerlink" href="#diff-drive-plugin" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">diff_drive</span></code> plugin helps us control our robot, specifically a robot that
+can be differentially driven. Let’s setup the plugin on our robot. Open
+the <code class="docutils literal notranslate"><span class="pre">building_robot.sdf</span></code> and add the following code within the <code class="docutils literal notranslate"><span class="pre">vehicle_blue</span></code>
+model tags.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin</span>
+<span class="w">    </span><span class="na">filename=</span><span class="s">&quot;gz-sim-diff-drive-system&quot;</span>
+<span class="w">    </span><span class="na">name=</span><span class="s">&quot;gz::sim::systems::DiffDrive&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;left_joint&gt;</span>left_wheel_joint<span class="nt">&lt;/left_joint&gt;</span>
+<span class="w">    </span><span class="nt">&lt;right_joint&gt;</span>right_wheel_joint<span class="nt">&lt;/right_joint&gt;</span>
+<span class="w">    </span><span class="nt">&lt;wheel_separation&gt;</span>1.2<span class="nt">&lt;/wheel_separation&gt;</span>
+<span class="w">    </span><span class="nt">&lt;wheel_radius&gt;</span>0.4<span class="nt">&lt;/wheel_radius&gt;</span>
+<span class="w">    </span><span class="nt">&lt;odom_publish_frequency&gt;</span>1<span class="nt">&lt;/odom_publish_frequency&gt;</span>
+<span class="w">    </span><span class="nt">&lt;topic&gt;</span>cmd_vel<span class="nt">&lt;/topic&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">&lt;plugin&gt;</span></code> tag has two attributes, <code class="docutils literal notranslate"><span class="pre">filename</span></code> which takes the library file name and <code class="docutils literal notranslate"><span class="pre">name</span></code> which takes the name of the plugin.
+In the <code class="docutils literal notranslate"><span class="pre">&lt;left_joint&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;right_joint&gt;</span></code> tags we define the joints which connect the left and the right wheel with the body of the robot, in our case <code class="docutils literal notranslate"><span class="pre">left_wheel_joint</span></code> and <code class="docutils literal notranslate"><span class="pre">right_wheel_joint</span></code>. <code class="docutils literal notranslate"><span class="pre">&lt;wheel_separation&gt;</span></code> takes the distance between the two wheels.
+Our robot has its <code class="docutils literal notranslate"><span class="pre">left_wheel</span></code> at 0.6 m and the <code class="docutils literal notranslate"><span class="pre">right_wheel</span></code> at -0.6 m in y-axis with respect to the <code class="docutils literal notranslate"><span class="pre">chassis</span></code>, so the <code class="docutils literal notranslate"><span class="pre">wheel_separation</span></code> is 1.2 m.
+<code class="docutils literal notranslate"><span class="pre">&lt;wheel_radius&gt;</span></code> takes the radius of the wheel which was defined in the <code class="docutils literal notranslate"><span class="pre">&lt;radius&gt;</span></code> tag under the wheel link.
+<code class="docutils literal notranslate"><span class="pre">&lt;odom_publish_frequency&gt;</span></code> sets the frequency at which the odometry is published at <code class="docutils literal notranslate"><span class="pre">/model/vehicle_blue/odometry</span></code>.
+<code class="docutils literal notranslate"><span class="pre">cmd_vel</span></code> is the input <code class="docutils literal notranslate"><span class="pre">&lt;topic&gt;</span></code> to the <code class="docutils literal notranslate"><span class="pre">DiffDrive</span></code> plugin.</p>
+</section>
+</section>
+<section id="topics-and-messages">
+<h2>Topics and Messages<a class="headerlink" href="#topics-and-messages" title="Link to this heading">#</a></h2>
+<p>Now our model is ready. We just need to send commands (messages) to it.
+These messages will be published (sent) on the <code class="docutils literal notranslate"><span class="pre">cmd_vel</span></code> topic defined above.</p>
+<p>A topic is simply a name for grouping a specific set of messages or a particular service.
+Our model will subscribe (listen) to the messages sent on the <code class="docutils literal notranslate"><span class="pre">cmd_vel</span></code> topic.</p>
+<p>Launch the robot world:</p>
+<p><code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">sim</span> <span class="pre">building_robot.sdf</span></code></p>
+<p>In another terminal let’s send a message to to our robot:</p>
+<p><code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">topic</span> <span class="pre">-t</span> <span class="pre">&quot;/cmd_vel&quot;</span> <span class="pre">-m</span> <span class="pre">gz.msgs.Twist</span> <span class="pre">-p</span> <span class="pre">&quot;linear:</span> <span class="pre">{x:</span> <span class="pre">0.5},</span> <span class="pre">angular:</span> <span class="pre">{z:</span> <span class="pre">0.05}&quot;</span></code></p>
+<p>Now you should have your robot moving in the simulation.</p>
+<p><strong>Note:</strong> Don’t forget to press the play button in the simulation.</p>
+<p>The command specifies the topic to publish to after the <code class="docutils literal notranslate"><span class="pre">-t</span></code> option.
+After the <code class="docutils literal notranslate"><span class="pre">-m</span></code> we specify the message type.
+Our robot expects messages of type <code class="docutils literal notranslate"><span class="pre">Twist</span></code> which consists of two components, <code class="docutils literal notranslate"><span class="pre">linear</span></code> and <code class="docutils literal notranslate"><span class="pre">angular</span></code>.
+After the <code class="docutils literal notranslate"><span class="pre">-p</span></code> option we specify the content (value) of the message: linear speed <code class="docutils literal notranslate"><span class="pre">x:</span> <span class="pre">0.5</span></code> and angular speed <code class="docutils literal notranslate"><span class="pre">z:</span> <span class="pre">0.05</span></code>.</p>
+<p><strong>Hint:</strong> You can know what every topic option does using this command: <code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">topic</span> <span class="pre">-h</span></code></p>
+<p>For more information about <code class="docutils literal notranslate"><span class="pre">Topics</span></code> and <code class="docutils literal notranslate"><span class="pre">Messages</span></code> in Gazebo check the <a class="reference external" href="https://gazebosim.org/api/transport/14/tutorials.html">Transport library tutorials</a></p>
+</section>
+<section id="moving-the-robot-using-the-keyboard">
+<h2>Moving the robot using the keyboard<a class="headerlink" href="#moving-the-robot-using-the-keyboard" title="Link to this heading">#</a></h2>
+<p>Instead of sending messages from the terminal we will send messages using the keyboard keys. To do so we will add two new plugins: <code class="docutils literal notranslate"><span class="pre">KeyPublisher</span></code> and <code class="docutils literal notranslate"><span class="pre">TriggeredPublisher</span></code>.</p>
+<section id="keypublisher">
+<h3>KeyPublisher<a class="headerlink" href="#keypublisher" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">KeyPublisher</span></code> is an <code class="docutils literal notranslate"><span class="pre">gz-gui</span></code> plugin that reads the keyboard’s keystrokes and sends them on a default topic <code class="docutils literal notranslate"><span class="pre">/keyboard/keypress</span></code>.
+Let’s try this plugin as follows:</p>
+<ul>
+<li><p>In one terminal type</p>
+<p><code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">sim</span> <span class="pre">building_robot.sdf</span></code></p>
+</li>
+<li><p>In the top right corner click on the plugins dropdown list (vertical ellipsis), click the Key Publisher.</p></li>
+<li><p>In another terminal type</p>
+<p><code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">topic</span> <span class="pre">-e</span> <span class="pre">-t</span> <span class="pre">/keyboard/keypress</span></code></p>
+</li>
+</ul>
+<p>The last command will display all messages sent on <code class="docutils literal notranslate"><span class="pre">/keyboard/keypress</span></code> topic.</p>
+<p>In the Gazebo window press different keys and you should see data (numbers) on the terminal where you run the <code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">topic</span> <span class="pre">-e</span> <span class="pre">-t</span> <span class="pre">/keyboard/keypress</span></code> command.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ gz topic -e -t /keyboard/keypress
+data: 68
+
+data: 85
+
+data: 72
+
+data: 74
+
+data: 81
+
+data: 16777235
+
+data: 16777234
+
+data: 16777237
+
+data: 16777236
+</pre></div>
+</div>
+<p>We want to map these keystrokes into messages of type <code class="docutils literal notranslate"><span class="pre">Twist</span></code> and publish them to the <code class="docutils literal notranslate"><span class="pre">/cmd_vel</span></code> topic which our model listens to.
+The <code class="docutils literal notranslate"><span class="pre">TriggeredPublisher</span></code> plugin will do this.</p>
+</section>
+<section id="triggered-publisher">
+<h3>Triggered Publisher<a class="headerlink" href="#triggered-publisher" title="Link to this heading">#</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">TriggeredPublisher</span></code> plugin publishes a user specified message on an output topic in response to an input message that matches user specified criteria.
+Let’s add the following code under the <code class="docutils literal notranslate"><span class="pre">&lt;world&gt;</span></code> tag:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- Moving Forward--&gt;</span>
+<span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;gz-sim-triggered-publisher-system&quot;</span>
+<span class="w">        </span><span class="na">name=</span><span class="s">&quot;gz::sim::systems::TriggeredPublisher&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;input</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;gz.msgs.Int32&quot;</span><span class="w"> </span><span class="na">topic=</span><span class="s">&quot;/keyboard/keypress&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;match</span><span class="w"> </span><span class="na">field=</span><span class="s">&quot;data&quot;</span><span class="nt">&gt;</span>16777235<span class="nt">&lt;/match&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/input&gt;</span>
+<span class="w">    </span><span class="nt">&lt;output</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;gz.msgs.Twist&quot;</span><span class="w"> </span><span class="na">topic=</span><span class="s">&quot;/cmd_vel&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span>linear:<span class="w"> </span>{x:<span class="w"> </span>0.5},<span class="w"> </span>angular:<span class="w"> </span>{z:<span class="w"> </span>0.0}
+<span class="w">    </span><span class="nt">&lt;/output&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</pre></div>
+</div>
+<p>This code defines the <code class="docutils literal notranslate"><span class="pre">triggered-publisher</span></code> plugin.
+It accepts messages of type <code class="docutils literal notranslate"><span class="pre">gz.msgs.Int32</span></code> on the <code class="docutils literal notranslate"><span class="pre">/keyboard/keypress</span></code> topic and if the value in the <code class="docutils literal notranslate"><span class="pre">data</span></code> field matches <code class="docutils literal notranslate"><span class="pre">16777235</span></code>(Up arrow key) it outputs a <code class="docutils literal notranslate"><span class="pre">Twist</span></code> message on the <code class="docutils literal notranslate"><span class="pre">cmd_vel</span></code> topic with values <code class="docutils literal notranslate"><span class="pre">x:</span> <span class="pre">0.5</span></code>, <code class="docutils literal notranslate"><span class="pre">z:</span> <span class="pre">0.0</span></code>.</p>
+<p>Now launch <code class="docutils literal notranslate"><span class="pre">building_robot.sdf</span></code> then add the Key Publisher plugin and our robot should move forward as we press the Up arrow key ↑ (make sure you start the simulation by pressing the play button to see the robot move forward after pressing the Up arrow key).</p>
+<p>There is a demo explaining how the <a class="reference external" href="https://github.com/gazebosim/gz-sim/blob/gz-sim9/tutorials/triggered_publisher.md">Triggered Publisher</a> works.</p>
+</section>
+<section id="moving-using-arrow-keys">
+<h3>Moving using arrow keys<a class="headerlink" href="#moving-using-arrow-keys" title="Link to this heading">#</a></h3>
+<p>To see what values are sent on the <code class="docutils literal notranslate"><span class="pre">/keyboard/keypress</span></code> topic when pressing the arrows we can use the <code class="docutils literal notranslate"><span class="pre">--echo</span></code> or <code class="docutils literal notranslate"><span class="pre">-e</span></code> option</p>
+<ul>
+<li><p>Run the model in one terminal:</p>
+<p><code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">sim</span> <span class="pre">building_robot.sdf</span></code></p>
+</li>
+<li><p>In the top right corner click on the plugins dropdown list (vertical ellipsis), click the Key Publisher.</p></li>
+<li><p>In another terminal run the following command:</p>
+<p><code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">topic</span> <span class="pre">-e</span> <span class="pre">-t</span> <span class="pre">/keyboard/keypress</span></code></p>
+</li>
+</ul>
+<p>Start pressing the arrows keys and see what values they give:</p>
+<ul class="simple">
+<li><p>Left ←  : 16777234</p></li>
+<li><p>Up  ↑   : 16777235</p></li>
+<li><p>Right → : 16777236</p></li>
+<li><p>Down ↓  : 16777237</p></li>
+</ul>
+<p>We will add the <code class="docutils literal notranslate"><span class="pre">Triggered</span> <span class="pre">publisher</span></code> plugin for each arrow key.
+For example, the Down arrow:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- Moving Backward--&gt;</span>
+<span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;gz-sim-triggered-publisher-system&quot;</span>
+<span class="w">        </span><span class="na">name=</span><span class="s">&quot;gz::sim::systems::TriggeredPublisher&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;input</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;gz.msgs.Int32&quot;</span><span class="w"> </span><span class="na">topic=</span><span class="s">&quot;/keyboard/keypress&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;match</span><span class="w"> </span><span class="na">field=</span><span class="s">&quot;data&quot;</span><span class="nt">&gt;</span>16777237<span class="nt">&lt;/match&gt;</span>
+<span class="w">    </span><span class="nt">&lt;/input&gt;</span>
+<span class="w">    </span><span class="nt">&lt;output</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;gz.msgs.Twist&quot;</span><span class="w"> </span><span class="na">topic=</span><span class="s">&quot;/cmd_vel&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span>linear:<span class="w"> </span>{x:<span class="w"> </span>-0.5},<span class="w"> </span>angular:<span class="w"> </span>{z:<span class="w"> </span>0.0}
+<span class="w">    </span><span class="nt">&lt;/output&gt;</span>
+<span class="nt">&lt;/plugin&gt;</span>
+</pre></div>
+</div>
+<p>Map each arrow (key stroke) with the desired message (movement) as we did with the backward arrow:</p>
+<ul class="simple">
+<li><p>Left ➞ 16777234 ➞ linear: {x: 0.0}, angular: {z: 0.5}</p></li>
+<li><p>Up ➞ 16777235 ➞ linear: {x: 0.5}, angular: {z: 0.0}</p></li>
+<li><p>Right ➞ 16777236 ➞ linear: {x: 0.0}, angular: {z: -0.5}</p></li>
+<li><p>Down ➞ 16777237 ➞ linear: {x: -0.5}, angular: {z: 0.0}</p></li>
+</ul>
+<p>Now it’s your turn try to make the robot move using different keys.</p>
+<p>In the <a class="reference internal" href="../sdf_worlds/"><span class="doc std std-doc">next tutorial</span></a>, you’ll learn to create your own simulated world with SDF.</p>
+</section>
+</section>
+<section id="video-walk-through">
+<h2>Video walk-through<a class="headerlink" href="#video-walk-through" title="Link to this heading">#</a></h2>
+<p>A video walk-through of this tutorial is available from our YouTube channel: <a class="reference external" href="https://youtu.be/oHtQYPDGk3Y">Gazebo tutorials: Moving robot</a>.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/oHtQYPDGk3Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-plugin">What is a plugin</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diff-drive-plugin">Diff_drive plugin</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#topics-and-messages">Topics and Messages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-the-robot-using-the-keyboard">Moving the robot using the keyboard</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#keypublisher">KeyPublisher</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triggered-publisher">Triggered Publisher</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#moving-using-arrow-keys">Moving using arrow keys</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#video-walk-through">Video walk-through</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
+  
+  <div class="tocsection editthispage">
+    <a href="https://github.com/gazebosim/docs/edit/master/ionic/moving_robot.md">
+      <i class="fa-solid fa-pencil"></i>
+      
+      
+        
+          Edit on GitHub
+        
+      
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item"><p> Brought to you by <a href="https://openrobotics.org">Open Robotics</a>. </p>
+<p> Except where otherwise noted, the gazebosim.org web pages are licensed under <a
+    href="https://creativecommons.org/licenses/by/4.0/us/">Creative Commons
+    Attribution 4.0</a>. </p></div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
