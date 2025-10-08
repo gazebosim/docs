@@ -469,129 +469,404 @@
                   
   <section class="tex2jax_ignore mathjax_ignore" id="release-notes">
 <h1>Release Notes<a class="headerlink" href="#release-notes" title="Link to this heading">#</a></h1>
-<section id="zenoh-in-gz-transport">
-<h2>Zenoh in gz-transport<a class="headerlink" href="#zenoh-in-gz-transport" title="Link to this heading">#</a></h2>
-<p>Gazebo now supports Zenoh as an alternative transport implementation, offering
-improved discovery, interoperability, and performance. To enable Zenoh, set the
-environment variable <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">GZ_TRANSPORT_IMPLEMENTATION=zenoh</span></code>. This allows
-Gazebo to leverage Zenoh’s features and potentially integrate more seamlessly
-with ROS 2 and other systems utilizing Zenoh.</p>
-<p>See the <a class="reference external" href="https://github.com/gazebosim/gz-transport/issues/559">tracking issue</a>
-and the implementation pull request
-<a class="github reference external" href="https://github.com/gazebosim/gz-transport/pull/665">gazebosim/gz-transport#665</a> for more details.</p>
+<p><a class="reference internal" href="../_images/jetty.png"><img alt="Gazebo Jetty Artwork" src="../_images/jetty.png" style="width: 500px; height: 500px;" /></a></p>
+<p>The Gazebo team is happy to announce the 10th major release of Gazebo, code
+named Jetty! Jetty is a long term support (LTS) release, meaning it has a
+longer support lifetime, September 2030 to be exact.</p>
+<section id="highlights">
+<h2>Highlights<a class="headerlink" href="#highlights" title="Link to this heading">#</a></h2>
+<p>Here’s a brief summary of all the new features in Gazebo Jetty:</p>
+<section id="a-new-jetty-demo-world">
+<h3>A new <a class="reference external" href="https://github.com/gazebosim/jetty_demo">Jetty Demo World</a><a class="headerlink" href="#a-new-jetty-demo-world" title="Link to this heading">#</a></h3>
+<p>We created a realistic warehouse environment designed to highlight the latest
+Jetty features. This free, downloadable demo includes shelving and an autonomous
+forklift for loading and unloading. As an added bonus, it also features an
+<a class="reference external" href="https://www.open-rmf.org/">Open-RMF</a> demonstration.</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-2 sd-row-cols-md-2 sd-row-cols-lg-2 docutils">
+<div class="sd-col sd-d-flex-column docutils">
+<p><img alt="jetty_demo_warehouse" src="../_images/jetty_demo_warehouse.png" /></p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<p><img alt="jetty_packing_station" src="../_images/jetty_packing_station.png" /></p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<p><img alt="jetty_loading_dock" src="../_images/jetty_loading_dock.png" /></p>
+</div>
+<div class="sd-col sd-d-flex-column docutils">
+<p><img alt="jetty_upstairs" src="../_images/jetty_upstairs.png" /></p>
+</div>
+</div>
+</div>
 </section>
-<section id="improve-gazebo-apis-for-reinforcement-learning">
-<h2>Improve Gazebo APIs for Reinforcement Learning<a class="headerlink" href="#improve-gazebo-apis-for-reinforcement-learning" title="Link to this heading">#</a></h2>
-<p>Several APIs have been improved to streamline reinforcement learning pipelines.
-We have also added an <a class="reference external" href="https://github.com/gazebosim/gz-sim/tree/gz-sim10/examples/scripts/reinforcement_learning/simple_cart_pole">example integration with the StableBaselines3 Python package</a>
-for reinforcement learning, enabling users to experiment with RL algorithms within
-Gazebo. The example provides a starting point for developing and testing robotic
-control policies.</p>
+<section id="zenoh-transport-support-working-towards-improved-ros-integration">
+<h3><a class="reference external" href="https://github.com/gazebosim/gz-transport/issues/559">Zenoh transport support, working towards improved ROS integration</a><a class="headerlink" href="#zenoh-transport-support-working-towards-improved-ros-integration" title="Link to this heading">#</a></h3>
+<p>Up until Ionic, Gazebo used ZeroMQ (0MQ) as its primary message transport
+protocol. Gazebo now supports <a class="reference external" href="https://zenoh.io/">Zenoh</a> as an alternative
+transport implementation, offering improved discovery, interoperability, and
+performance. To enable Zenoh, set the environment variable
+<code class="docutils literal notranslate"><span class="pre">`export</span> <span class="pre">GZ_TRANSPORT_IMPLEMENTATION=zenoh`</span></code>. This allows Gazebo to leverage
+Zenoh’s features and potentially integrate more seamlessly with ROS 2 Jazzy and
+other systems utilizing Zenoh.</p>
+</section>
+<section id="new-reinforcement-learning-demo-code-and-tutorials">
+<h3><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/2667">New reinforcement learning demo code and tutorials</a><a class="headerlink" href="#new-reinforcement-learning-demo-code-and-tutorials" title="Link to this heading">#</a></h3>
+<p>Based on community feedback we’ve added a full tutorial on performing
+reinforcement learning using Gazebo Jetty and the
+<a class="reference external" href="https://stable-baselines3.readthedocs.io/en/master/">Stable Baselines3 Python library</a>.
+These tutorials walk you through using reinforcement learning to build a
+controller for an inverted pole mounted on a robot cart. StableBaselines3 is
+just the beginning, and more advanced developers can use the tutorial as a
+starting point for integrating other reinforcement learning frameworks into
+Gazebo.</p>
 <figure class="align-default" id="id1">
-<a class="reference internal image-reference" href="https://github.com/user-attachments/assets/f30160a3-e04f-4ec1-aab4-111739b0d349"><img alt="RL_with_gazebo_simple_example" src="https://github.com/user-attachments/assets/f30160a3-e04f-4ec1-aab4-111739b0d349" style="width: 400px;" />
+<a class="reference internal image-reference" href="../_images/rl.gif"><img alt="../_images/rl.gif" src="../_images/rl.gif" style="width: 421.5px; height: 360.9px;" />
 </a>
 <figcaption>
-<p><span class="caption-text">Example of doing Reinforcement Learning in Gazebo</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
+<p><span class="caption-text">Demo of a classic cartpole trained to balance itself</span><a class="headerlink" href="#id1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>See the <a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/2662">tracking issue</a> and
-the implementation pull requests <a class="github reference external" href="https://github.com/gazebosim/gz-sim/pull/2667">gazebosim/gz-sim#2667</a>
-and <a class="github reference external" href="https://github.com/gazebosim/gz-sim/pull/2647">gazebosim/gz-sim#2647</a> for more details</p>
 </section>
-<section id="implement-ros-standard-simulation-interfaces">
-<h2>Implement ROS standard simulation interfaces<a class="headerlink" href="#implement-ros-standard-simulation-interfaces" title="Link to this heading">#</a></h2>
-<p>Gazebo now supports the standard ROS 2
-<a class="reference external" href="https://github.com/ros-simulation/simulation_interfaces">simulation interfaces</a>,
-enabling seamless integration with ROS 2 ecosystems and providing access to
-features for controlling and querying the simulation state. Documentation has
-also been added to guide users on utilizing these new interfaces.</p>
-<p>See the <a class="reference external" href="https://github.com/gazebosim/ros_gz/issues/732">tracking issue</a> and the
-implementation pull requests <a class="github reference external" href="https://github.com/gazebosim/ros_gz/pull/790">gazebosim/ros_gz#790</a> and
-<a class="github reference external" href="https://github.com/gazebosim/docs/pull/601">gazebosim/docs#601</a> for more details</p>
+<section id="ros-standard-sim-interface">
+<h3><a class="reference external" href="https://github.com/gazebosim/ros_gz/pull/790">ROS Standard Sim Interface</a><a class="headerlink" href="#ros-standard-sim-interface" title="Link to this heading">#</a></h3>
+<p>Members of the ROS community have
+<a class="reference external" href="https://github.com/ros-simulation/simulation_interfaces">built a standard simulation interface</a>
+to improve the portability of robot code between simulators. This new standard
+interface should allow ROS developers to quickly and easily switch between
+simulators based on their development needs.</p>
+<figure class="align-default" id="id2">
+<img alt="../_images/sim_ifaces.gif" src="../_images/sim_ifaces.gif" />
+<figcaption>
+<p><span class="caption-text">Simple demo showing conveyor belt based test setup using Simulation Interfaces</span><a class="headerlink" href="#id2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
-<section id="remove-major-version-from-package-names">
-<h2>Remove major version from package names<a class="headerlink" href="#remove-major-version-from-package-names" title="Link to this heading">#</a></h2>
-<p>We have refactored package naming to remove major version numbers, simplifying
-dependency management and reducing maintenance overhead. This change impacts how
-Gazebo packages are identified in CMake builds, package installations, and
-import statements.</p>
-<p>See the
-<a class="reference external" href="https://discourse.openrobotics.org/t/version-numbers-removed-from-package-names-in-gazebo-jetty/48391">announcement</a>
-for more details.</p>
+<section id="new-occupancy-grid-export-functionality">
+<h3><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/2958">New occupancy grid export functionality</a><a class="headerlink" href="#new-occupancy-grid-export-functionality" title="Link to this heading">#</a></h3>
+<p>Occupancy grids are simple 2D maps that robots use for path planning. Open
+source navigation frameworks
+<a class="reference external" href="https://docs.nav2.org/tutorials/docs/navigation2_with_slam.html">like Nav2</a> use
+these maps to guide robots safely to their destination. You can now easily
+export these occupancy grid maps from Gazebo using the <code class="docutils literal notranslate"><span class="pre">/scan_image</span></code> topic and
+running the following command:<br />
+<code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">topic</span> <span class="pre">-t</span> <span class="pre">/start_exploration</span> <span class="pre">-m</span> <span class="pre">gz.msgs.Boolean</span> <span class="pre">-p</span> <span class="pre">'data:</span> <span class="pre">true'</span></code></p>
+<figure class="align-default" id="id3">
+<img alt="../_images/occupancy.gif" src="../_images/occupancy.gif" />
+<figcaption>
+<p><span class="caption-text">New occupancy grid export functionality</span><a class="headerlink" href="#id3" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
-<section id="migrate-from-qt5-to-qt6">
-<h2>Migrate from Qt5 to Qt6<a class="headerlink" href="#migrate-from-qt5-to-qt6" title="Link to this heading">#</a></h2>
-<p>With Qt5 reaching
-<a class="reference external" href="https://www.qt.io/blog/extended-security-maintenance-for-qt-5.15-begins-may-2025">end of life</a>,
-Gazebo has been migrated to Qt6. While there are no major changes to end-users
-of the Gazebo GUI, <code class="docutils literal notranslate"><span class="pre">gz-gui</span></code> plugin authors will need to make changes to ensure
-compatibility with Qt6. Gazebo plugin maintainers should use our <a class="reference external" href="https://gazebosim.org/api/gui/10/migration_qt6.html">migration guide</a>
-to update their plugin to QT6.</p>
-<p>See the <a class="reference external" href="https://github.com/gazebosim/gz-gui/issues/586">tracking issue</a> and the
-implementation pull requests <a class="github reference external" href="https://github.com/gazebosim/gz-gui/pull/666">gazebosim/gz-gui#666</a> and
-<a class="github reference external" href="https://github.com/gazebosim/gz-sim/pull/2832">gazebosim/gz-sim#2832</a> for more details</p>
+<section id="new-auto-inertia-calculation-makes-adding-objects-easier">
+<h3><a class="reference external" href="https://github.com/gazebosim/sdformat/pull/1513">New auto-inertia calculation makes adding objects easier</a><a class="headerlink" href="#new-auto-inertia-calculation-makes-adding-objects-easier" title="Link to this heading">#</a></h3>
+<p>Previously, the <code class="docutils literal notranslate"><span class="pre">inertial/&#64;auto</span></code> attribute in SDFormat required you to specify
+an object’s density to automatically compute its inertial properties. Now you
+can specify an object’s mass in SDFormat and Gazebo will automatically compute
+its density and inertial parameters!</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/auto_inertia_mass.gif"><img alt="../_images/auto_inertia_mass.gif" src="../_images/auto_inertia_mass.gif" style="width: 405.0px; height: 502.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">From left to right: drills using default, auto, manually computed inertias</span><a class="headerlink" href="#id4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
-<section id="resolve-auto-inertia-based-on-input-mass">
-<h2>Resolve auto inertia based on input mass<a class="headerlink" href="#resolve-auto-inertia-based-on-input-mass" title="Link to this heading">#</a></h2>
-<p>Inertia parameters can now be automatically set based on an object’s mass specified in an SDF file. This
-eliminates the need to manually compute and set the density of collision objects. When both mass
-and density are set, Gazebo now correctly scales the auto-computed inertia based
-on the specified mass, respecting the density ratios between collisions.</p>
-<p>See the <a class="reference external" href="https://github.com/gazebosim/sdformat/issues/1482">tracking issue</a> and
-the implementation pull request
-<a class="github reference external" href="https://github.com/gazebosim/sdformat/pull/1513">gazebosim/sdformat#1513</a> for more details</p>
+<section id="a-new-and-improved-qt6-interface">
+<h3><a class="reference external" href="https://github.com/gazebosim/gz-gui/issues/586">A new and improved Qt6 interface!</a><a class="headerlink" href="#a-new-and-improved-qt6-interface" title="Link to this heading">#</a></h3>
+<p>Qt is the cross-platform GUI subsystem used by Gazebo and we recently upgraded
+to the latest version, Qt6. Qt version 5 went end of life on May 26th, 2025
+forcing us to upgrade to version 6. This upgrade was no small feat, as it
+required updating hundreds of files across the Gazebo project. _Gazebo plugin
+developers will need to update their Gazebo GUI plugins to QT6 to maintain
+compatibility.
+<a class="reference external" href="https://gazebosim.org/api/gui/10/migration_qt6.html">We’ve created a Gazebo plugin QT migration guide to help developers update their plugins.</a></p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../_images/qt6.jpg"><img alt="../_images/qt6.jpg" src="../_images/qt6.jpg" style="width: 598.5px; height: 498.5px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Things might look slightly different in Qt6</span><a class="headerlink" href="#id5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
-<section id="standalone-executables-for-the-gz-tool">
-<h2>Standalone executables for the <code class="docutils literal notranslate"><span class="pre">gz</span></code> tool<a class="headerlink" href="#standalone-executables-for-the-gz-tool" title="Link to this heading">#</a></h2>
-<p>Previously, the <code class="docutils literal notranslate"><span class="pre">gz</span></code> tool, a Ruby-based CLI interface, offered subcommands by
-loading shared libraries provided by each of the Gazebo libraries. This approach
-had several downsides including difficulty with debugging with <code class="docutils literal notranslate"><span class="pre">gdb</span></code>,
-portability issues when running on Windows or macOS. With the new approach each
-of the libraries provide standalone executables that are spawn by the <code class="docutils literal notranslate"><span class="pre">gz</span></code> tool.
-The standalone executables can be executed directly if desired, making it
-significantly easier to run under <code class="docutils literal notranslate"><span class="pre">gdb</span></code>. Unlike loading shared libraries,
-running executables is much more straightforward and does not have any of the
-portability issues of the previous approach.</p>
-<p>See the <a class="reference external" href="https://github.com/gazebosim/gz-tools/issues/7">tracking issue</a> and one
-of the implementation pull requests
-<a class="github reference external" href="https://github.com/gazebosim/gz-sim/pull/2849">gazebosim/gz-sim#2849</a> for more details</p>
+<section id="dynamically-adjust-wheel-slip-friction">
+<h3><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/3003">Dynamically adjust wheel slip / friction</a><a class="headerlink" href="#dynamically-adjust-wheel-slip-friction" title="Link to this heading">#</a></h3>
+<p>We’ve added a new LookupWheelSlip system to gz-sim that uses an 8bit RGB lookup
+map to dynamically change a materials friction parameters. This new feature
+allows users to map specific colors in a texture image to specific friction
+values. Want to add an oil slick to the floor of your simulation? Simply draw
+the oil patch on the texture image and set the desired friction value!</p>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../_images/wheelslip.gif"><img alt="../_images/wheelslip.gif" src="../_images/wheelslip.gif" style="width: 465.0px; height: 390.0px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Dynamically adjust wheel slip / friction</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
-<section id="parallel-asset-download">
-<h2>Parallel asset download<a class="headerlink" href="#parallel-asset-download" title="Link to this heading">#</a></h2>
-<p>This enhancement significantly improves Gazebo’s startup time and responsiveness
-when loading worlds with many assets. Assets are now downloaded in parallel,
-allowing the GUI to remain interactive during the loading process and enabling
-users to close the window if needed.</p>
-<p>See the <a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/1260">tracking issue</a> and
-one of the implementation pull requests
-<a class="github reference external" href="https://github.com/gazebosim/gz-sim/pull/2992">gazebosim/gz-sim#2992</a> for more details</p>
+<section id="new-gazebo-standalone-executables">
+<h3><a class="reference external" href="https://github.com/gazebosim/docs/pull/611/files#:~:text=https%3A//github.com/gazebosim/gz%2Dsim/pull/2849">New Gazebo standalone executables</a><a class="headerlink" href="#new-gazebo-standalone-executables" title="Link to this heading">#</a></h3>
+<p>We’ve modified how the `gz` tool works to make debugging your application
+easier and to improve cross-platform support for Windows and MacOS. To do this
+we’ve moved away from the Ruby-based CLI loading libraries back to loading
+standalone applications.</p>
 </section>
-<section id="occupancy-grid-export">
-<h2>Occupancy Grid Export<a class="headerlink" href="#occupancy-grid-export" title="Link to this heading">#</a></h2>
-<p>This enhancement adds a plugin that enables end users to directly export occupancy
-grids for use with Nav2 or other mobile robotics software.</p>
-<p>See the pull request <a class="github reference external" href="https://github.com/gazebosim/gz-sim/pull/2958">gazebosim/gz-sim#2958</a> for more details.</p>
+<section id="better-downloading-of-simulation-models-and-faster-start-times">
+<h3><a class="reference external" href="https://github.com/gazebosim/gz-sim/pull/2992">Better downloading of simulation models and faster start times</a><a class="headerlink" href="#better-downloading-of-simulation-models-and-faster-start-times" title="Link to this heading">#</a></h3>
+<p>We’ve changed how Gazebo downloads models from
+<a class="reference external" href="https://app.gazebosim.org/fuel/models">Fuel, our online model repository</a>.
+Models now download in parallel and in the background, making Gazebo simulations
+start faster and download assets more efficiently.</p>
 </section>
-<section id="lookup-wheel-slip-system">
-<h2>Lookup Wheel Slip system<a class="headerlink" href="#lookup-wheel-slip-system" title="Link to this heading">#</a></h2>
-<p>Introduced a new system that works in conjunction with the existing <code class="docutils literal notranslate"><span class="pre">WheelSlip</span></code>
-system to dynamically adjust wheel slip and friction parameters. Using an 8-bit
-slip- and friction-encoded lookup map representing the terrain the wheeled
-vehicle is on, the <code class="docutils literal notranslate"><span class="pre">LookupWheelSlip</span></code> system modifies lateral slip, longitudinal
-slip, and friction parameters in real time based on the wheel’s position in the
-world, enabling more realistic vehicle behavior on variable surfaces.</p>
-<p>See the pull request <a class="github reference external" href="https://github.com/gazebosim/gz-sim/pull/3003">gazebosim/gz-sim#3003</a> for more details.</p>
+<section id="refactored-package-names-to-remove-major-versions">
+<h3><a class="reference external" href="https://discourse.openrobotics.org/t/version-numbers-removed-from-package-names-in-gazebo-jetty/48391">Refactored package names to remove major versions</a><a class="headerlink" href="#refactored-package-names-to-remove-major-versions" title="Link to this heading">#</a></h3>
+<p>Including major versions in package names was done to allow side-by-side
+installation of two different Gazebo versions. While helpful for some users,
+this approach caused major headaches for developers who had to regularly update
+these version numbers. We’ve ended the practice to make Gazebo simpler to
+maintain and easier to use for package developers.</p>
 </section>
 <section id="bazel-module-migration">
-<h2>Bazel Module Migration<a class="headerlink" href="#bazel-module-migration" title="Link to this heading">#</a></h2>
-<p>Migrated <code class="docutils literal notranslate"><span class="pre">gz</span></code> packages from the legacy Bazel workspace-based setup to the new
-Bazel module system (Bzlmod). As part of this effort, key third-party
-dependencies including DARTSim, Bullet, FreeImage, Assimp and more were
-packaged and published to the Bazel Central Registry (BCR). All Jetty and Ionic
-versions of the libraries have been uploaded to BCR.
-Note that <code class="docutils literal notranslate"><span class="pre">gz-launch</span></code> has been excluded due to deprecation, <code class="docutils literal notranslate"><span class="pre">gz-gui</span></code> is not yet
-supported, and migration of <code class="docutils literal notranslate"><span class="pre">gz-rendering</span></code> in currently in progress.</p>
+<h3>Bazel Module Migration<a class="headerlink" href="#bazel-module-migration" title="Link to this heading">#</a></h3>
+<p>We have migrated <code class="docutils literal notranslate"><span class="pre">gz</span></code> packages from the legacy Bazel workspace-based setup to
+the new Bazel module system (Bzlmod). As part of this effort, key third-party
+dependencies including DARTSim, Bullet, FreeImage, Assimp and more were packaged
+and published to the Bazel Central Registry (BCR). All Jetty and Ionic versions
+of the libraries have been uploaded to BCR.</p>
+<figure class="align-default" id="id7">
+<a class="reference internal image-reference" href="../_images/bazel.gif"><img alt="../_images/bazel.gif" src="../_images/bazel.gif" style="width: 529.5px; height: 413.09999999999997px;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Demo showing Bazel based client program using gz-transport</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
+</section>
+<section id="contributors-and-supporters">
+<h2>Contributors and Supporters<a class="headerlink" href="#contributors-and-supporters" title="Link to this heading">#</a></h2>
+<p>We’d like to give a special thanks to the community members who helped us make
+this Gazebo release happen by reviewing tutorials during our Jetty Test and
+Tutorial Party. The results from our
+<a class="reference external" href="https://discourse.openrobotics.org/t/gazebo-jetty-test-and-tutorial-party-instructions/49779">Jetty Test and Tutorial Party</a>
+were quite impressive and we were so happy to see so many new contributors! Our
+tutorial party went incredibly well! We had 25 participants help us with
+testing the Jetty release which allowed us to:</p>
+<ul class="simple">
+<li><p>Close 388 Issues, <strong>68% of our total issues</strong></p>
+<ul>
+<li><p>Close <strong>148</strong> out of 148 Ubuntu tickets (<strong>100%</strong>)</p></li>
+<li><p>Close <strong>65</strong> out of 83 MacOS tickets <strong>(44%</strong>)</p></li>
+<li><p>Close <strong>47</strong> out of 147 Windows tickets (<strong>32%</strong>)</p></li>
+<li><p>Close 128 out of 128 all platform tickets (<strong>100%</strong>)</p></li>
+</ul>
+</li>
+<li><p>Create 74 PRs fixing the issues that were found!</p></li>
+</ul>
+<p>Our top twenty contributors to the T&amp;T Party are:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><strong>Place</strong></p></th>
+<th class="head text-left"><p><strong>User</strong></p></th>
+<th class="head text-center"><p><strong>Points</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p>1</p></td>
+<td class="text-left"><p><a class="reference internal" href="https://avatars.githubusercontent.com/u/126786356?v=4"><img alt="akky20" src="https://avatars.githubusercontent.com/u/126786356?v=4" style="width: 24px; height: 24px;" /></a> <strong>akky20</strong></p></td>
+<td class="text-center"><p>719.2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>2</p></td>
+<td class="text-left"><p><a class="reference internal" href="https://avatars.githubusercontent.com/u/172131969?v=4"><img alt="Creator-1705" src="https://avatars.githubusercontent.com/u/172131969?v=4" style="width: 24px; height: 24px;" /></a> <strong>Creator-1705</strong></p></td>
+<td class="text-center"><p>410.6</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>3</p></td>
+<td class="text-left"><p><a class="reference internal" href="https://avatars.githubusercontent.com/u/54469384?v=4"><img alt="nikodemj9" src="https://avatars.githubusercontent.com/u/54469384?v=4" style="width: 24px; height: 24px;" /></a> <strong>nikodemj9</strong></p></td>
+<td class="text-center"><p>310.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>4</p></td>
+<td class="text-left"><p><a class="reference internal" href="https://avatars.githubusercontent.com/u/73806646?v=4"><img alt="saiaravind19" src="https://avatars.githubusercontent.com/u/73806646?v=4" style="width: 24px; height: 24px;" /></a> <strong>saiaravind19</strong></p></td>
+<td class="text-center"><p>273.6</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>5</p></td>
+<td class="text-left"><p><a class="reference internal" href="https://avatars.githubusercontent.com/u/5486901?v=4"><img alt="jmackay2" src="https://avatars.githubusercontent.com/u/5486901?v=4" style="width: 24px; height: 24px;" /></a> <strong>jmackay2</strong></p></td>
+<td class="text-center"><p>269.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>6</p></td>
+<td class="text-left"><p><a class="reference internal" href="https://avatars.githubusercontent.com/u/162324988?v=4"><img alt="Physic69" src="https://avatars.githubusercontent.com/u/162324988?v=4" style="width: 24px; height: 24px;" /></a> <strong>Physic69</strong></p></td>
+<td class="text-center"><p>234.0</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>7</p></td>
+<td class="text-left"><p><a class="reference internal" href="https://avatars.githubusercontent.com/u/24916364?v=4"><img alt="srmainwaring" src="https://avatars.githubusercontent.com/u/24916364?v=4" style="width: 24px; height: 24px;" /></a> <strong>srmainwaring</strong></p></td>
+<td class="text-center"><p>187.2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>8</p></td>
+<td class="text-left"><p><a class="reference internal" href="https://avatars.githubusercontent.com/u/23265149?v=4"><img alt="jasmeet0915" src="https://avatars.githubusercontent.com/u/23265149?v=4" style="width: 24px; height: 24px;" /></a> <strong>jasmeet0915</strong></p></td>
+<td class="text-center"><p>165.6</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>9</p></td>
+<td class="text-left"><p><a class="reference internal" href="https://avatars.githubusercontent.com/u/7413624?v=4"><img alt="avanmalleghem" src="https://avatars.githubusercontent.com/u/7413624?v=4" style="width: 24px; height: 24px;" /></a> <strong>avanmalleghem</strong></p></td>
+<td class="text-center"><p>114.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>10</p></td>
+<td class="text-left"><p><a class="reference internal" href="https://avatars.githubusercontent.com/u/204998127?v=4"><img alt="Narashima1808" src="https://avatars.githubusercontent.com/u/204998127?v=4" style="width: 24px; height: 24px;" /></a> <strong>Narashima1808</strong></p></td>
+<td class="text-center"><p>111.0</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>11</p></td>
+<td class="text-left"><p><a class="reference internal" href="https://avatars.githubusercontent.com/u/57068888?v=4"><img alt="AronLapp" src="https://avatars.githubusercontent.com/u/57068888?v=4" style="width: 24px; height: 24px;" /></a> <strong>AronLapp</strong></p></td>
+<td class="text-center"><p>100.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>12</p></td>
+<td class="text-left"><p><a class="reference internal" href="https://avatars.githubusercontent.com/u/40249250?v=4"><img alt="matosinho" src="https://avatars.githubusercontent.com/u/40249250?v=4" style="width: 24px; height: 24px;" /></a> <strong>matosinho</strong></p></td>
+<td class="text-center"><p>84.4</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>13</p></td>
+<td class="text-left"><p><a class="reference internal" href="https://avatars.githubusercontent.com/u/231303564?v=4"><img alt="mukul2020" src="https://avatars.githubusercontent.com/u/231303564?v=4" style="width: 24px; height: 24px;" /></a> <strong>mukul2020</strong></p></td>
+<td class="text-center"><p>79.2</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>14</p></td>
+<td class="text-left"><p><a class="reference internal" href="https://avatars.githubusercontent.com/u/43175555?v=4"><img alt="SuperGops7" src="https://avatars.githubusercontent.com/u/43175555?v=4" style="width: 24px; height: 24px;" /></a> <strong>SuperGops7</strong></p></td>
+<td class="text-center"><p>76.0</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>15</p></td>
+<td class="text-left"><p><a class="reference internal" href="https://avatars.githubusercontent.com/u/106218485?v=4"><img alt="pratik-adhikari" src="https://avatars.githubusercontent.com/u/106218485?v=4" style="width: 24px; height: 24px;" /></a> <strong>pratik-adhikari</strong></p></td>
+<td class="text-center"><p>75.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>16</p></td>
+<td class="text-left"><p><a class="reference internal" href="https://avatars.githubusercontent.com/u/27130471?v=4"><img alt="mohamedsayed18" src="https://avatars.githubusercontent.com/u/27130471?v=4" style="width: 24px; height: 24px;" /></a> <strong>mohamedsayed18</strong></p></td>
+<td class="text-center"><p>66.0</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>17</p></td>
+<td class="text-left"><p><a class="reference internal" href="https://avatars.githubusercontent.com/u/214097032?v=4"><img alt="shreya-ramesh" src="https://avatars.githubusercontent.com/u/214097032?v=4" style="width: 24px; height: 24px;" /></a> <strong>shreya-ramesh</strong></p></td>
+<td class="text-center"><p>53.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>18</p></td>
+<td class="text-left"><p><a class="reference internal" href="https://avatars.githubusercontent.com/u/82680922?v=4"><img alt="CursedRock17" src="https://avatars.githubusercontent.com/u/82680922?v=4" style="width: 24px; height: 24px;" /></a> <strong>CursedRock17</strong></p></td>
+<td class="text-center"><p>45.0</p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p>19</p></td>
+<td class="text-left"><p><a class="reference internal" href="https://avatars.githubusercontent.com/u/75070782?v=4"><img alt="s0um0r0y" src="https://avatars.githubusercontent.com/u/75070782?v=4" style="width: 24px; height: 24px;" /></a> <strong>s0um0r0y</strong></p></td>
+<td class="text-center"><p>40.0</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>20</p></td>
+<td class="text-left"><p><a class="reference internal" href="https://avatars.githubusercontent.com/u/18173602?v=4"><img alt="chen-harrison" src="https://avatars.githubusercontent.com/u/18173602?v=4" style="width: 24px; height: 24px;" /></a> <strong>chen-harrison</strong></p></td>
+<td class="text-center"><p>40.0</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>We would also like to thank everyone that contributed to Jetty:</strong></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+<span class="sd-summary-text">List of Contributors</span><span class="sd-summary-state-marker sd-summary-chevron-right"><svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-right" viewBox="0 0 24 24" aria-hidden="true"><path d="M8.72 18.78a.75.75 0 0 1 0-1.06L14.44 12 8.72 6.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018l6.25 6.25a.75.75 0 0 1 0 1.06l-6.25 6.25a.75.75 0 0 1-1.06 0Z"></path></svg></span></summary><div class="sd-summary-content sd-card-body docutils">
+<ul class="simple">
+<li><p class="sd-card-text">Aarav Gupta (<a class="reference external" href="https://github.com/Amronos">Amronos</a>)</p></li>
+<li><p class="sd-card-text">Aaron Chong (<a class="reference external" href="https://github.com/aaronchongth">aaronchongth</a>)</p></li>
+<li><p class="sd-card-text">Abhiroop (<a class="reference external" href="https://github.com/akky20">akky20</a>)</p></li>
+<li><p class="sd-card-text">Addisu Z. Taddese (<a class="reference external" href="https://github.com/azeey">azeey</a>)</p></li>
+<li><p class="sd-card-text">Afereti Pama (<a class="reference external" href="https://github.com/retinfai">retinfai</a>)</p></li>
+<li><p class="sd-card-text">Alejandro Hernández Cordero (<a class="reference external" href="https://github.com/ahcorde">ahcorde</a>)</p></li>
+<li><p class="sd-card-text">Alessandro Sofia (<a class="reference external" href="https://github.com/alesof">alesof</a>)</p></li>
+<li><p class="sd-card-text">Alex Faxå (<a class="reference external" href="https://github.com/faximan">faximan</a>)</p></li>
+<li><p class="sd-card-text">Alexis Tsogias (<a class="reference external" href="https://github.com/Zyrin">Zyrin</a>)</p></li>
+<li><p class="sd-card-text">Alon Nusem (<a class="reference external" href="https://github.com/4lon">4lon</a>)</p></li>
+<li><p class="sd-card-text">amaldev (<a class="reference external" href="https://github.com/AmalDevHaridevan">AmalDevHaridevan</a>)</p></li>
+<li><p class="sd-card-text">Ansh Chablani (<a class="reference external" href="https://github.com/anshium">anshium</a>)</p></li>
+<li><p class="sd-card-text">Antoine Van Malleghem (<a class="reference external" href="https://github.com/avanmalleghem">avanmalleghem</a>)</p></li>
+<li><p class="sd-card-text">Arjo Chakravarty (<a class="reference external" href="https://github.com/arjo129">arjo129</a>)</p></li>
+<li><p class="sd-card-text">Benjamin Perseghetti (<a class="reference external" href="https://github.com/bperseghetti">bperseghetti</a>)</p></li>
+<li><p class="sd-card-text">bill (<a class="reference external" href="https://github.com/bill997">bill997</a>)</p></li>
+<li><p class="sd-card-text">Carlos Agüero (<a class="reference external" href="https://github.com/caguero">caguero</a>)</p></li>
+<li><p class="sd-card-text">chcaya (<a class="reference external" href="https://github.com/chcaya">chcaya</a>)</p></li>
+<li><p class="sd-card-text">ChenYing Kuo (CY) (<a class="reference external" href="https://github.com/evshary">evshary</a>)</p></li>
+<li><p class="sd-card-text">Ching-Hsiang Wu (<a class="reference external" href="https://github.com/TigerWuu">TigerWuu</a>)</p></li>
+<li><p class="sd-card-text">Chris (<a class="reference external" href="https://github.com/PimpMyPizza">PimpMyPizza</a>)</p></li>
+<li><p class="sd-card-text">Clara Berendsen (<a class="reference external" href="https://github.com/claraberendsen">claraberendsen</a>)</p></li>
+<li><p class="sd-card-text">Cristóbal Arroyo (<a class="reference external" href="https://github.com/Crola1702">Crola1702</a>)</p></li>
+<li><p class="sd-card-text">Daisuke Nishimatsu (<a class="reference external" href="https://github.com/wep21">wep21</a>)</p></li>
+<li><p class="sd-card-text">David Dorf (<a class="reference external" href="https://github.com/david-dorf">david-dorf</a>)</p></li>
+<li><p class="sd-card-text">David Morilla Cabello (<a class="reference external" href="https://github.com/dvdmc">dvdmc</a>)</p></li>
+<li><p class="sd-card-text">Dheeraj Deevi (<a class="reference external" href="https://github.com/dheerubhai-101">dheerubhai-101</a>)</p></li>
+<li><p class="sd-card-text">Dyst-0 (<a class="reference external" href="https://github.com/Dyst-0">Dyst-0</a>)</p></li>
+<li><p class="sd-card-text">efferre79 (<a class="reference external" href="https://github.com/efferre79">efferre79</a>)</p></li>
+<li><p class="sd-card-text">Emmanuel M (<a class="reference external" href="https://github.com/EmmanuelMess">EmmanuelMess</a>)</p></li>
+<li><p class="sd-card-text">erling (<a class="reference external" href="https://github.com/erlingrj">erlingrj</a>)</p></li>
+<li><p class="sd-card-text">Ethan Holter (<a class="reference external" href="https://github.com/ethanholter">ethanholter</a>)</p></li>
+<li><p class="sd-card-text">Fabrice Larribe (<a class="reference external" href="https://github.com/teyssieuman">teyssieuman</a>)</p></li>
+<li><p class="sd-card-text">Federico Vichachi (<a class="reference external" href="https://github.com/Federico-Vichachi">Federico-Vichachi</a>)</p></li>
+<li><p class="sd-card-text">FmJarecki (<a class="reference external" href="https://github.com/FmJarecki">FmJarecki</a>)</p></li>
+<li><p class="sd-card-text">Gabriel Augusto (<a class="reference external" href="https://github.com/gabrielaugz">gabrielaugz</a>)</p></li>
+<li><p class="sd-card-text">Gabriel Pacheco (<a class="reference external" href="https://github.com/gabrielfpacheco">gabrielfpacheco</a>)</p></li>
+<li><p class="sd-card-text">Gaurav Kumar (<a class="reference external" href="https://github.com/GauravKumar9920">GauravKumar9920</a>)</p></li>
+<li><p class="sd-card-text">Gilbert Tanner (<a class="reference external" href="https://github.com/TannerGilbert">TannerGilbert</a>)</p></li>
+<li><p class="sd-card-text">Gopikrishnan K (<a class="reference external" href="https://github.com/SuperGops7">SuperGops7</a>)</p></li>
+<li><p class="sd-card-text">Griffin Tabor (<a class="reference external" href="https://github.com/gftabor">gftabor</a>)</p></li>
+<li><p class="sd-card-text">Guilhem Saurel (<a class="reference external" href="https://github.com/nim65s">nim65s</a>)</p></li>
+<li><p class="sd-card-text">Gwenn Le Bihan (<a class="reference external" href="https://github.com/gwennlbh">gwennlbh</a>)</p></li>
+<li><p class="sd-card-text">Harrison Chen (<a class="reference external" href="https://github.com/chen-harrison">chen-harrison</a>)</p></li>
+<li><p class="sd-card-text">Ian Chen (<a class="reference external" href="https://github.com/iche033">iche033</a>)</p></li>
+<li><p class="sd-card-text">Ignacio Vizzo (<a class="reference external" href="https://github.com/nachovizzo">nachovizzo</a>)</p></li>
+<li><p class="sd-card-text">Jasper van Brakel (<a class="reference external" href="https://github.com/SuperJappie08">SuperJappie08</a>)</p></li>
+<li><p class="sd-card-text">Jenn Nguyen (<a class="reference external" href="https://github.com/jennuine">jennuine</a>)</p></li>
+<li><p class="sd-card-text">Jeremy Nimmer (<a class="reference external" href="https://github.com/jwnimmer-tri">jwnimmer-tri</a>)</p></li>
+<li><p class="sd-card-text">jmackay2 (<a class="reference external" href="https://github.com/jmackay2">jmackay2</a>)</p></li>
+<li><p class="sd-card-text">Jorge J. Perez (<a class="reference external" href="https://github.com/Blast545">Blast545</a>)</p></li>
+<li><p class="sd-card-text">Jose Luis Rivero (<a class="reference external" href="https://github.com/j-rivero">j-rivero</a>)</p></li>
+<li><p class="sd-card-text">Josh Newans (<a class="reference external" href="https://github.com/joshnewans">joshnewans</a>)</p></li>
+<li><p class="sd-card-text">Joshua J. Damanik (<a class="reference external" href="https://github.com/damanikjosh">damanikjosh</a>)</p></li>
+<li><p class="sd-card-text">Júlia Marsal Perendreu
+(<a class="reference external" href="https://github.com/roboticswithjulia">roboticswithjulia</a>)</p></li>
+<li><p class="sd-card-text">Kai Pastor (<a class="reference external" href="https://github.com/dg0yt">dg0yt</a>)</p></li>
+<li><p class="sd-card-text">Khaled Gabr (<a class="reference external" href="https://github.com/khaledgabr77">khaledgabr77</a>)</p></li>
+<li><p class="sd-card-text">Kostubh Khandelwal (<a class="reference external" href="https://github.com/exMachina316">exMachina316</a>)</p></li>
+<li><p class="sd-card-text">Leander Stephen D’Souza (<a class="reference external" href="https://github.com/leander-dsouza">leander-dsouza</a>)</p></li>
+<li><p class="sd-card-text">Leo Lin (<a class="reference external" href="https://github.com/LeoLin6">LeoLin6</a>)</p></li>
+<li><p class="sd-card-text">Luca Della Vedova (<a class="reference external" href="https://github.com/luca-della-vedova">luca-della-vedova</a>)</p></li>
+<li><p class="sd-card-text">Maksim Derbasov (<a class="reference external" href="https://github.com/ntfshard">ntfshard</a>)</p></li>
+<li><p class="sd-card-text">Marcel Jacobse (<a class="reference external" href="https://github.com/mjacobse">mjacobse</a>)</p></li>
+<li><p class="sd-card-text">Martin Pecka (<a class="reference external" href="https://github.com/peci1">peci1</a>)</p></li>
+<li><p class="sd-card-text">Michael Carlstrom (<a class="reference external" href="https://github.com/InvincibleRMC">InvincibleRMC</a>)</p></li>
+<li><p class="sd-card-text">Michael Carroll (<a class="reference external" href="https://github.com/mjcarroll">mjcarroll</a>)</p></li>
+<li><p class="sd-card-text">Mohamed Hassan (<a class="reference external" href="https://github.com/mohamedsayed18">mohamedsayed18</a>)</p></li>
+<li><p class="sd-card-text">mosfet80 (<a class="reference external" href="https://github.com/mosfet80">mosfet80</a>)</p></li>
+<li><p class="sd-card-text">muttistefano (<a class="reference external" href="https://github.com/muttistefano">muttistefano</a>)</p></li>
+<li><p class="sd-card-text">Nate Koenig (<a class="reference external" href="https://github.com/nkoenig">nkoenig</a>)</p></li>
+<li><p class="sd-card-text">Nathan Rogers (<a class="reference external" href="https://github.com/torn8to">torn8to</a>)</p></li>
+<li><p class="sd-card-text">Nguyễn Tấn Anh Khoa (<a class="reference external" href="https://github.com/kitare17">kitare17</a>)</p></li>
+<li><p class="sd-card-text">Nikodem (<a class="reference external" href="https://github.com/nikodemj9">nikodemj9</a>)</p></li>
+<li><p class="sd-card-text">Nizam Gifary (<a class="reference external" href="https://github.com/ngifary">ngifary</a>)</p></li>
+<li><p class="sd-card-text">Noa Thouard (<a class="reference external" href="https://github.com/Noa-Thouard-Nexxis">Noa-Thouard-Nexxis</a>)</p></li>
+<li><p class="sd-card-text">Oscmoar07 (<a class="reference external" href="https://github.com/XINJIANGMO">XINJIANGMO</a>)</p></li>
+<li><p class="sd-card-text">Patrick Roncagliolo (<a class="reference external" href="https://github.com/roncapat">roncapat</a>)</p></li>
+<li><p class="sd-card-text">Pravin Dangol (<a class="reference external" href="https://github.com/Pravin-Dangol">Pravin-Dangol</a>)</p></li>
+<li><p class="sd-card-text">Qingyou Zhao (<a class="reference external" href="https://github.com/qingyouzhao">qingyouzhao</a>)</p></li>
+<li><p class="sd-card-text">Rahul K.A (<a class="reference external" href="https://github.com/Rahul-K-A">Rahul-K-A</a>)</p></li>
+<li><p class="sd-card-text">Ramir Sultanov (<a class="reference external" href="https://github.com/sumir0">sumir0</a>)</p></li>
+<li><p class="sd-card-text">Rhys Mainwaring (<a class="reference external" href="https://github.com/srmainwaring">srmainwaring</a>)</p></li>
+<li><p class="sd-card-text">Rnishu (<a class="reference external" href="https://github.com/Rnishu">Rnishu</a>)</p></li>
+<li><p class="sd-card-text">Rômulo Cerqueira (<a class="reference external" href="https://github.com/romulogcerqueira">romulogcerqueira</a>)</p></li>
+<li><p class="sd-card-text">Sai Aravind (<a class="reference external" href="https://github.com/saiaravind19">saiaravind19</a>)</p></li>
+<li><p class="sd-card-text">Saurabh Kamat (<a class="reference external" href="https://github.com/sauk2">sauk2</a>)</p></li>
+<li><p class="sd-card-text">Shady Gmira (<a class="reference external" href="https://github.com/shadygm">shadygm</a>)</p></li>
+<li><p class="sd-card-text">Shameek Ganguly (<a class="reference external" href="https://github.com/shameekganguly">shameekganguly</a>)</p></li>
+<li><p class="sd-card-text">Shashank (<a class="reference external" href="https://github.com/shashank1300">shashank1300</a>)</p></li>
+<li><p class="sd-card-text">Shyam Ganatra (<a class="reference external" href="https://github.com/ganatrask">ganatrask</a>)</p></li>
+<li><p class="sd-card-text">Sikiru O. Salau (<a class="reference external" href="https://github.com/siksal">siksal</a>)</p></li>
+<li><p class="sd-card-text">Silvio Traversaro (<a class="reference external" href="https://github.com/traversaro">traversaro</a>)</p></li>
+<li><p class="sd-card-text">Steve Peters (<a class="reference external" href="https://github.com/scpeters">scpeters</a>)</p></li>
+<li><p class="sd-card-text">Tatsuro Sakaguchi (<a class="reference external" href="https://github.com/Tacha-S">Tacha-S</a>)</p></li>
+<li><p class="sd-card-text">Trushant Adeshara (<a class="reference external" href="https://github.com/trushant05">trushant05</a>)</p></li>
+<li><p class="sd-card-text">Udaya Prakash (<a class="reference external" href="https://github.com/udaya2899">udaya2899</a>)</p></li>
+<li><p class="sd-card-text">Utkarsh Yenurkar (<a class="reference external" href="https://github.com/BA-Utkarsh">BA-Utkarsh</a>)</p></li>
+<li><p class="sd-card-text">Vasily Kiniv (<a class="reference external" href="https://github.com/v-kiniv">v-kiniv</a>)</p></li>
+<li><p class="sd-card-text">Vedant Randive (<a class="reference external" href="https://github.com/Vedant87">Vedant87</a>)</p></li>
+<li><p class="sd-card-text">VM (Vicky) Brasseur (<a class="reference external" href="https://github.com/vmbrasseur">vmbrasseur</a>)</p></li>
+<li><p class="sd-card-text">WangWeiLin-MV (<a class="reference external" href="https://github.com/WangWeiLin-MV">WangWeiLin-MV</a>)</p></li>
+<li><p class="sd-card-text">Wiktor Bajor (<a class="reference external" href="https://github.com/Wiktor-99">Wiktor-99</a>)</p></li>
+<li><p class="sd-card-text">Xiaochuan Ye (<a class="reference external" href="https://github.com/XueSongTap">XueSongTap</a>)</p></li>
+<li><p class="sd-card-text">Yaswanth (<a class="reference external" href="https://github.com/yaswanth1701">yaswanth1701</a>)</p></li>
+<li><p class="sd-card-text">Øystein Sture (<a class="reference external" href="https://github.com/oysstu">oysstu</a>)</p></li>
+</ul>
+</div>
+</details></section>
 </section>
 
 
@@ -617,17 +892,22 @@ supported, and migration of <code class="docutils literal notranslate"><span cla
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#zenoh-in-gz-transport">Zenoh in gz-transport</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#improve-gazebo-apis-for-reinforcement-learning">Improve Gazebo APIs for Reinforcement Learning</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implement-ros-standard-simulation-interfaces">Implement ROS standard simulation interfaces</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-major-version-from-package-names">Remove major version from package names</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#migrate-from-qt5-to-qt6">Migrate from Qt5 to Qt6</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resolve-auto-inertia-based-on-input-mass">Resolve auto inertia based on input mass</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#standalone-executables-for-the-gz-tool">Standalone executables for the <code class="docutils literal notranslate"><span class="pre">gz</span></code> tool</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-asset-download">Parallel asset download</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#occupancy-grid-export">Occupancy Grid Export</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lookup-wheel-slip-system">Lookup Wheel Slip system</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bazel-module-migration">Bazel Module Migration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#highlights">Highlights</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-new-jetty-demo-world">A new Jetty Demo World</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zenoh-transport-support-working-towards-improved-ros-integration">Zenoh transport support, working towards improved ROS integration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-reinforcement-learning-demo-code-and-tutorials">New reinforcement learning demo code and tutorials</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ros-standard-sim-interface">ROS Standard Sim Interface</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-occupancy-grid-export-functionality">New occupancy grid export functionality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-auto-inertia-calculation-makes-adding-objects-easier">New auto-inertia calculation makes adding objects easier</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-new-and-improved-qt6-interface">A new and improved Qt6 interface!</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dynamically-adjust-wheel-slip-friction">Dynamically adjust wheel slip / friction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#new-gazebo-standalone-executables">New Gazebo standalone executables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#better-downloading-of-simulation-models-and-faster-start-times">Better downloading of simulation models and faster start times</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#refactored-package-names-to-remove-major-versions">Refactored package names to remove major versions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bazel-module-migration">Bazel Module Migration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributors-and-supporters">Contributors and Supporters</a></li>
 </ul>
   </nav></div>
 
