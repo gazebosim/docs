@@ -127,24 +127,13 @@ workspace are:
 # CMD
 cd gazebo
 pixi shell
-call install\setup.bat
+call gz-ws\install\setup.bat
 
 # PowerShell
 cd gazebo
 pixi shell
-.\install\setup.ps1
+.\gz-ws\install\setup.ps1
 ```
-:::{warning}
-An issue in the conda-forge Qt6 package is requiring to set QT environment variables:
-:::
-
-```bash
-# Until https://github.com/conda-forge/qt-main-feedstock/issues/275 is resolved
-cd gazebo
-set QT_PLUGIN_PATH=%CONDA_PREFIX%\Library\lib\qt6\plugins\platforms
-set QML2_IMPORT_PATH=%CONDA_PREFIX%\Library\lib\qt6\qml
-```
-
 You should now be able to launch gazebo normally:
 
 ```bash
