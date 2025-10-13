@@ -25,14 +25,14 @@ How to read the columns:
 ||1|EOL ❌||X B||||2018-12-12|-|
 ||2|stable|F|B F J|F J|11|A B C D E F|2019-01-31|2026-09 with Fortress|
 ||3|stable||F J N|||G H|2022-09-23|2028-09 with Harmonic|
-||4|stable||N|||I|2024-09-26|TBD|
+||4|stable||N|||H I|2024-09-26|2026-09 with Ionic|
 |gz-common|0|EOL ❌||T X Y Z A||||2016-07-27|-|
 ||1|EOL ❌|B C D E F|X Z A B||9 10||2018-01-05|2023-01-25 with Gazebo 9|
 ||2|EOL ❌||X B||||2019-02-11|-|
 ||3|EOL ❌|G H I J K L|B F|F|11|A B C D|2019-02-28|2025-01-25 with Gazebo 11|
 ||4|stable|J K L|B F J|F J| |E F|2020-03-31|2026-09 with Fortress|
 ||5|stable||F J N|||G H|2022-09-22|2028-09 with Harmonic|
-||6|stable||N|||I|2024-09-26|TBD|
+||6|stable||N|||H I|2024-09-26|2026-09 with Ionic|
 |gz-fuel-tools|0|EOL ❌||X Z A||||2017|-|
 ||1|EOL ❌|B C D E F|X A B||9 10||2018-01-25|2023-01-25 with Gazebo 9|
 ||2|EOL ❌||X B||||2019-01-29|2019-01-29|
@@ -43,7 +43,7 @@ How to read the columns:
 ||7|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
 ||8|EOL ❌||F J|||G|2022-09-26|2024-11 with Garden|
 ||9|stable||J N|||H|2023-09-29|2028-09 with Harmonic|
-||10|stable||N|||I|2024-09-26|TBD|
+||10|stable||N|||I|2024-09-26|2026-09 with Ionic|
 |gz-sim|1|EOL ❌||B|||A|2019-03-02|2019-09 with Acropolis|
 ||2|EOL ❌||B|||B|2019-05-21|2020-12 with Blueprint|
 ||3|EOL ❌||B F|F||C|2019-12-10|2024-12 with Citadel|
@@ -52,7 +52,7 @@ How to read the columns:
 ||6|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
 ||7|EOL ❌||F J|||G|2022-09-27|2024-11 with Garden|
 ||8|stable||J N|||H|2023-09-29|2028-09 with Harmonic|
-||9|stable||N|||I|2024-09-26|TBD|
+||9|stable||N|||I|2024-09-26|2026-09 with Ionic|
 |gz-gui|0|EOL ❌||B||||2019-03-06|-|
 ||1|EOL ❌||B|||A|2019-03-01|2019-09 with Acropolis|
 ||2|EOL ❌||B|||B|2019-05-21|2020-12 with Blueprint|
@@ -62,7 +62,7 @@ How to read the columns:
 ||6|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
 ||7|EOL ❌||F J|||G|2022-09-27|2024-11 with Garden|
 ||8|stable||J N|||H|2023-09-29|2028-09 with Harmonic|
-||9|stable||N|||I|2024-09-26|TBD|
+||9|stable||N|||I|2024-09-26|2026-09 with Ionic|
 |gz-launch|0|EOL ❌||B|||A|2019-03-18|2019-09 with Acropolis|
 ||1|EOL ❌||B|||B|2019-05-21|2020-12 with Blueprint|
 ||2|EOL ❌||B F|F||C|2019-12-10|2024-12 with Citadel|
@@ -71,7 +71,7 @@ How to read the columns:
 ||5|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
 ||6|EOL ❌||F J|||G|2022-09-27|2024-11 with Garden|
 ||7|stable||J N|||H|2023-09-29|2028-09 with Harmonic|
-||8|stable||N|||I|2024-09-26|TBD|
+||8|stable||N|||I|2024-09-26|2026-09 with Ionic|
 |gz-math|0|EOL ❌||P T||||2014-06-16|-|
 ||1|EOL ❌||||||2015-03-06|-|
 ||2|EOL ❌|X B C D E|P T V W X Y Z A||6 7||2015-04-17|2021-01-25 with gazebo7|
@@ -80,7 +80,7 @@ How to read the columns:
 ||5|EOL ❌||X B||||2018-12-12||
 ||6|stable|G H I J K L|B F J|F J|11|A B C D E F|2019-01-31|2026-09 with Fortress|
 ||7|stable||F J N|||G H|2022-09-22|2028-09 with Harmonic|
-||8|stable||N|||I|2024-09-26|TBD|
+||8|stable||N|||I|2024-09-26|2026-09 with Ionic|
 |gz-msgs|0|EOL ❌||P T X Z A B||8||2014-07-14|2019-01-25 with gazebo8|
 ||1|EOL ❌|B C D E F|T W X Y Z A||9 10||2017-10-04|2023-01-25 with Gazebo 9|
 ||2|EOL ❌||X B||||2019-02-11||
@@ -92,7 +92,7 @@ How to read the columns:
 ||8|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
 ||9|EOL ❌||F J|||G|2022-09-22|2024-11 with Garden|
 ||10|stable||J N|||H|2023-09-29|2028-09 with Harmonic|
-||11|stable||N|||I|2024-09-26|TBD|
+||11|stable||N|||I|2024-09-26|2026-09 with Ionic|
 |gz-physics|1|EOL ❌||B|||A B|2019-03-01|2020-12 with Blueprint|
 ||2|EOL ❌||B F|F||C|2019-12-10|2024-12 with Citadel|
 ||3|EOL ❌|||||D|2020-09-30|2021-12 with Dome|
@@ -100,7 +100,7 @@ How to read the columns:
 ||5|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
 ||6|EOL ❌||F J|||G|2022-09-21|2024-11 with Garden|
 ||7|stable||J N|||H|2023-09-29|2028-09 with Harmonic|
-||8|stable||N|||I|2024-09-26|TBD|
+||8|stable||N|||I|2024-09-26|2026-09 with Ionic|
 |gz-plugin|1|stable|J K L|B F J|F J||A B C D E F|2019-03-01|2026-09 with Fortress|
 ||2|stable||F J N|||G H|2022-09-22|2028-09 with Harmonic|
 ||3|stable||N|||I|2024-09-26|TBD|
@@ -112,7 +112,7 @@ How to read the columns:
 ||6|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
 ||7|EOL ❌||F J|||G|2022-09-22|2024-11 with Garden|
 ||8|stable||J N|||H|2023-09-29|2028-09 with Harmonic|
-||9|stable||N|||I|2024-09-26|TBD|
+||9|stable||N|||I|2024-09-26|2026-09 with Ionic|
 |gz-sensors|1|EOL ❌||B|||A|2019-03-01|2019-09 with Acropolis|
 ||2|EOL ❌||B|||B|2019-05-21|2020-12 with Blueprint|
 ||3|EOL ❌||B F|F||C|2019-12-10|2024-12 with Citadel|
@@ -121,10 +121,10 @@ How to read the columns:
 ||6|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
 ||7|EOL ❌||F J|||G|2022-09-22|2024-11 with Garden|
 ||8|stable||J N|||H|2023-09-29|2028-09 with Harmonic|
-||9|stable||N|||I|2024-09-26|TBD|
+||9|stable||N|||I|2024-09-26|2026-09 with Ionic|
 |gz-tools|0|EOL ❌||X A B|||A B|2018-02-22|2020-12 with Blueprint|
 ||1|stable|J K L|B F J|F J|11|C D E F|2019-05-21|2026-09 with Fortress|
-||2|stable||F J N|||G H I|2022-09-22|TBD|
+||2|stable||F J N|||G H I|2022-09-22|2026-09 with Ionic|
 |gz-transport|0|EOL ❌|X|P T V W||||2014-08-12||
 ||1|EOL ❌||T V W X||||2016-02-05||
 ||2|EOL ❌||T X Y||7||2016-08-08|2021-01-25 with gazebo7|
@@ -139,7 +139,7 @@ How to read the columns:
 ||11|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
 ||12|EOL ❌||F J|||G|2022-09-22|2024-11 with Garden|
 ||13|stable||J N|||H|2023-09-29|2028-09 with Harmonic|
-||14|stable||N|||I|2024-09-26|TBD|
+||14|stable||N|||I|2024-09-26|2026-09 with Ionic|
 |gz-utils|1|stable|J K L|B F J|F J||E F|2020-03-31|2026-09 with Fortress|
 ||2|stable||F J N|||G H|2022-09-22|2028-09 with Harmonic|
 ||3|stable||N|||I|2024-09-26|TBD|
@@ -157,7 +157,7 @@ How to read the columns:
 ||12|stable|J K L|B F J|F J||F|2021-09-30|2026-09 with Fortress|
 ||13|EOL ❌||F J|||G|2022-09-23|2024-11 with Garden|
 ||14|stable||J N|||H|2023-09-29|2028-09 with Harmonic|
-||15|stable||N|||I|2024-09-26|TBD|
+||15|stable||N|||I|2024-09-26|2026-09 with Ionic|
 |Gazebo classic|1|EOL ❌||P||||2012-12-09|2015-07-27|
 ||2|EOL ❌||T||||2013-10-08|2016-01-25|
 ||3|EOL ❌||P T||||2014-04-11|2015-07-27|
