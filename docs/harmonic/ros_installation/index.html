@@ -518,11 +518,13 @@ continued use.</p>
 <th class="head"><p><strong>GZ Fortress (LTS)</strong></p></th>
 <th class="head"><p><strong>GZ Harmonic (LTS)</strong></p></th>
 <th class="head"><p><strong>Gz Ionic</strong></p></th>
+<th class="head"><p><strong>Gz Jetty</strong></p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><strong>ROS 2 Rolling</strong></p></td>
 <td><p>❌</p></td>
+<td><p>⚡</p></td>
 <td><p>⚡</p></td>
 <td><p>✅</p></td>
 </tr>
@@ -530,18 +532,16 @@ continued use.</p>
 <td><p>❌</p></td>
 <td><p>⚡</p></td>
 <td><p>✅</p></td>
+<td><p>❌</p></td>
 </tr>
 <tr class="row-even"><td><p><strong>ROS 2 Jazzy (LTS)</strong></p></td>
 <td><p>❌</p></td>
 <td><p>✅</p></td>
 <td><p>❌</p></td>
+<td><p>❌</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>ROS 2 Humble (LTS)</strong></p></td>
 <td><p>✅</p></td>
-<td><p>⚡</p></td>
-<td><p>❌</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>ROS 1 Noetic (LTS)</strong></p></td>
 <td><p>⚡</p></td>
 <td><p>❌</p></td>
 <td><p>❌</p></td>
@@ -610,18 +610,18 @@ of writing the following packages are available on the following hosts:</p>
 <ul class="simple">
 <li><p><strong><a class="reference external" href="http://packages.ros.org">packages.ros.org</a></strong></p>
 <ul>
-<li><p>ROS1 Noetic: Gazebo Citadel</p></li>
-<li><p>ROS2 Humble: Gazebo Fortress</p></li>
-<li><p>ROS2 Jazzy: Gazebo Harmonic (ROS vendor packages)</p></li>
-<li><p>ROS2 Rolling: Gazebo Ionic (ROS vendor packages, changing frequently)</p></li>
+<li><p>ROS 2 Humble: Gazebo Fortress</p></li>
+<li><p>ROS 2 Jazzy: Gazebo Harmonic (ROS vendor packages)</p></li>
+<li><p>ROS 2 Kilted: Gazebo Ionic (ROS vendor packages)</p></li>
+<li><p>ROS 2 Rolling: Gazebo Jetty (ROS vendor packages, changing frequently)</p></li>
 </ul>
 </li>
 <li><p><strong><a class="reference external" href="http://packages.osrfoundation.org">packages.osrfoundation.org</a></strong></p>
 <ul>
-<li><p>Gazebo Citadel</p></li>
 <li><p>Gazebo Fortress</p></li>
 <li><p>Gazebo Harmonic</p></li>
 <li><p>Gazebo Ionic</p></li>
+<li><p>Gazebo Jetty</p></li>
 </ul>
 </li>
 </ul>
@@ -654,8 +654,8 @@ even buggy, the use of them is reserved for advanced users.</p></li>
 built together but have no binary packages, neither in <code class="docutils literal notranslate"><span class="pre">packages.ros.org</span></code> or <code class="docutils literal notranslate"><span class="pre">packages.osrfoundation.org</span></code></p></li>
 </ul>
 <p>Both approaches may also require that you modify your ROS or Gazebo source code to support this compilation.</p>
-<section id="gazebo-harmonic-with-ros-2-humble-or-rolling-use-with-caution">
-<h3>📦 Gazebo Harmonic with ROS 2 Humble or Rolling (Use with caution)<a class="headerlink" href="#gazebo-harmonic-with-ros-2-humble-or-rolling-use-with-caution" title="Link to this heading">#</a></h3>
+<section id="gazebo-harmonic-with-ros-2-humble">
+<h3>📦 Gazebo Harmonic with ROS 2 Humble<a class="headerlink" href="#gazebo-harmonic-with-ros-2-humble" title="Link to this heading">#</a></h3>
 <p>Gazebo Harmonic can be used with ROS 2 Humble and non ROS official binary packages hosted
 in <code class="docutils literal notranslate"><span class="pre">packages.osrfoundation.org</span></code>. These packages conflict with <code class="docutils literal notranslate"><span class="pre">ros-humble-ros-gz*</span></code>
 packages (Humble officially supports Gazebo Fortress).</p>
@@ -667,49 +667,6 @@ repository.</p></li>
 <li><p>Install <code class="docutils literal notranslate"><span class="pre">ros_gz</span></code> from the non official binary packages from apt:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">ros-humble-ros-gzharmonic</span></code></p></li>
-</ul>
-</li>
-</ul>
-<p>Gazebo Harmonic can be used with ROS 2 Rolling but
-<a class="reference external" href="https://github.com/gazebosim/ros_gz"><code class="docutils literal notranslate"><span class="pre">ros_gz</span></code></a> will need to be compiled
-from source.</p>
-<ul class="simple">
-<li><p>Follow <a class="reference external" href="https://gazebosim.org/docs/harmonic/install_ubuntu#binary-installation-on-ubuntu">these instruction to install gz-harmonic</a>
-from <a class="reference external" href="https://packages.osrfoundation.org/gazebo/ubuntu/"><code class="docutils literal notranslate"><span class="pre">packages.osrfoundation.org</span></code></a>
-repository.</p></li>
-<li><p>Install <a class="reference external" href="https://github.com/osrf/osrf-rosdep#installing-rosdep-rules-to-resolve-gazebo-harmonic-libraries">rosdep rules for Gazebo Harmonic</a></p></li>
-<li><p>Follow the instructions to compile <code class="docutils literal notranslate"><span class="pre">ros_gz</span></code> from source in a colcon workspace</p>
-<ul>
-<li><p><a class="reference external" href="https://github.com/gazebosim/ros_gz/tree/ros2#from-source">ROS 2 Rolling</a></p>
-<ul>
-<li><p>Be sure of using <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">GZ_VERSION=harmonic</span></code></p></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</section>
-<section id="gazebo-fortress-with-ros-2-galactic-or-ros-1-noetic-not-recommended">
-<h3>📦 Gazebo Fortress with ROS 2 Galactic or ROS 1 Noetic  (Not Recommended)<a class="headerlink" href="#gazebo-fortress-with-ros-2-galactic-or-ros-1-noetic-not-recommended" title="Link to this heading">#</a></h3>
-<p>Gazebo Fortress can be used with ROS 2 Galactic and ROS 1 Noetic by compiling
-<a class="reference external" href="https://github.com/gazebosim/ros_gz"><code class="docutils literal notranslate"><span class="pre">ros_gz</span></code></a> from source
-source.</p>
-<ul class="simple">
-<li><p>Follow <a class="reference external" href="https://gazebosim.org/docs/fortress/install_ubuntu#binary-installation-on-ubuntu">these instruction to install gz-fortress</a>
-from <a class="reference external" href="https://packages.osrfoundation.org/gazebo/ubuntu/"><code class="docutils literal notranslate"><span class="pre">packages.osrfoundation.org</span></code></a>
-repository.</p></li>
-<li><p>Follow the instructions to compile <code class="docutils literal notranslate"><span class="pre">ros_gz</span></code> from source in a colcon workspace</p>
-<ul>
-<li><p><a class="reference external" href="https://github.com/gazebosim/ros_gz/tree/galactic#from-source">ROS 2 Galactic</a></p>
-<ul>
-<li><p>Be sure of using <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">GZ_VERSION=fortress</span></code></p></li>
-</ul>
-</li>
-<li><p><a class="reference external" href="https://github.com/gazebosim/ros_gz/tree/noetic#from-source">ROS1 Noetic</a></p>
-<ul>
-<li><p>Be sure of using <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">GZ_VERSION=fortress</span></code></p></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -818,8 +775,7 @@ In the top right corner of the <a class="reference external" href="https://gazeb
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-non-default-gazebo-ros-2-pairings">Installing Non-Default Gazebo/ROS 2 Pairings</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gazebo-harmonic-with-ros-2-humble-or-rolling-use-with-caution">📦 Gazebo Harmonic with ROS 2 Humble or Rolling (Use with caution)</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gazebo-fortress-with-ros-2-galactic-or-ros-1-noetic-not-recommended">📦 Gazebo Fortress with ROS 2 Galactic or ROS 1 Noetic  (Not Recommended)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gazebo-harmonic-with-ros-2-humble">📦 Gazebo Harmonic with ROS 2 Humble</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-the-latest-gazebo-source-code-for-a-gazebo-distribution">Using the Latest Gazebo Source Code for a Gazebo Distribution</a><ul class="nav section-nav flex-column">
