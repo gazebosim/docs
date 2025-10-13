@@ -8,7 +8,7 @@ First install some necessary tools:
 
 ```bash
 sudo apt-get update
-sudo apt-get install lsb-release gnupg
+sudo apt-get install curl lsb-release gnupg
 ```
 
 Then install Gazebo Ionic:
