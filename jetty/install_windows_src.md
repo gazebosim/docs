@@ -174,14 +174,6 @@ page to start using Gazebo!
 > ```
 > Remember to set the same partition in all other consoles.
 
-### Gazebo GUI workaround
-
-Although running `gz sim` without arguments is not supported on Windows,
- the `gz sim -g` command is  supported, and you can use it to launch the graphical interface on Windows.
-
-
-This should allow you to run the GUI in a separate console, connecting to the server running in another console.
-
 ## Uninstalling source-based install
 
 A source-based install can be "uninstalled" using several methods, depending on
