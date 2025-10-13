@@ -36,13 +36,12 @@ This table includes all currently supported versions of ROS and Gazebo. All
 other ROS and Gazebo releases are end of life and we do not recommend their
 continued use.
 
-|                           | **GZ Fortress (LTS)**   | **GZ Harmonic (LTS)**   | **Gz Ionic**
-|---------------------------|-----------------------  | ----------------------  | ------------
-| **ROS 2 Rolling**         | ❌                      | ⚡                       | ✅
-| **ROS 2 Kilted**          | ❌                      | ⚡                       | ✅
-| **ROS 2 Jazzy (LTS)**     | ❌                      | ✅                      | ❌
-| **ROS 2 Humble (LTS)**    | ✅                      | ⚡                       | ❌
-| **ROS 1 Noetic (LTS)**    | ⚡                       | ❌                      | ❌
+|                           | **GZ Fortress (LTS)**   | **GZ Harmonic (LTS)**   | **Gz Ionic**    | **Gz Jetty**
+|---------------------------|-----------------------  | ----------------------  | --------------- | ------------
+| **ROS 2 Rolling**         | ❌                      | ⚡                       | ⚡               | ✅
+| **ROS 2 Kilted**          | ❌                      | ⚡                       | ✅              | ❌
+| **ROS 2 Jazzy (LTS)**     | ❌                      | ✅                      | ❌              | ❌
+| **ROS 2 Humble (LTS)**    | ✅                      | ⚡                       | ❌              | ❌
 
 
 * ✅ - Recommended combination
@@ -109,16 +108,16 @@ is `packages.ros.org` and the other is the Gazebo repository known as
 of writing the following packages are available on the following hosts:
 
  * **packages.ros.org**
-   * ROS1 Noetic: Gazebo Citadel
-   * ROS2 Humble: Gazebo Fortress
-   * ROS2 Jazzy: Gazebo Harmonic (ROS vendor packages)
-   * ROS2 Rolling: Gazebo Ionic (ROS vendor packages, changing frequently)
+   * ROS 2 Humble: Gazebo Fortress
+   * ROS 2 Jazzy: Gazebo Harmonic (ROS vendor packages)
+   * ROS 2 Kilted: Gazebo Ionic (ROS vendor packages)
+   * ROS 2 Rolling: Gazebo Jetty (ROS vendor packages, changing frequently)
 
  * **packages.osrfoundation.org**
-   * Gazebo Citadel
    * Gazebo Fortress
    * Gazebo Harmonic
    * Gazebo Ionic
+   * Gazebo Jetty
 
 This means that including the `osrfoundation.org` repository is not strictly needed
 to get the Gazebo binary packages, as it can be installed from the ROS
@@ -150,7 +149,7 @@ every ROS package that uses a Gazebo library):
 
 Both approaches may also require that you modify your ROS or Gazebo source code to support this compilation.
 
-### 📦 Gazebo Harmonic with ROS 2 Humble or Rolling (Use with caution)
+### 📦 Gazebo Harmonic with ROS 2 Humble
 
 Gazebo Harmonic can be used with ROS 2 Humble and non ROS official binary packages hosted
 in `packages.osrfoundation.org`. These packages conflict with `ros-humble-ros-gz*`
@@ -163,33 +162,6 @@ To install the binary Gazebo Harmonic/ROS 2 Humble packages:
    repository.
  * Install `ros_gz` from the non official binary packages from apt:
    * `apt-get install ros-humble-ros-gzharmonic`
-
-Gazebo Harmonic can be used with ROS 2 Rolling but
-[`ros_gz`](https://github.com/gazebosim/ros_gz) will need to be compiled
-from source.
-
- * Follow [these instruction to install gz-harmonic](https://gazebosim.org/docs/harmonic/install_ubuntu#binary-installation-on-ubuntu)
-   from [`packages.osrfoundation.org`](https://packages.osrfoundation.org/gazebo/ubuntu/)
-   repository.
- * Install [rosdep rules for Gazebo Harmonic](https://github.com/osrf/osrf-rosdep#installing-rosdep-rules-to-resolve-gazebo-harmonic-libraries)
- * Follow the instructions to compile `ros_gz` from source in a colcon workspace
-   * [ROS 2 Rolling](https://github.com/gazebosim/ros_gz/tree/ros2#from-source)
-     * Be sure of using `export GZ_VERSION=harmonic`
-
-### 📦 Gazebo Fortress with ROS 2 Galactic or ROS 1 Noetic  (Not Recommended)
-
-Gazebo Fortress can be used with ROS 2 Galactic and ROS 1 Noetic by compiling
-[`ros_gz`](https://github.com/gazebosim/ros_gz) from source
-source.
-
- * Follow [these instruction to install gz-fortress](https://gazebosim.org/docs/fortress/install_ubuntu#binary-installation-on-ubuntu)
-   from [`packages.osrfoundation.org`](https://packages.osrfoundation.org/gazebo/ubuntu/)
-   repository.
- * Follow the instructions to compile `ros_gz` from source in a colcon workspace
-   * [ROS 2 Galactic](https://github.com/gazebosim/ros_gz/tree/galactic#from-source)
-     * Be sure of using `export GZ_VERSION=fortress`
-   * [ROS1 Noetic](https://github.com/gazebosim/ros_gz/tree/noetic#from-source)
-     * Be sure of using `export GZ_VERSION=fortress`
 
 ## Using the Latest Gazebo Source Code for a Gazebo Distribution
 
