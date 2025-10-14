@@ -505,7 +505,7 @@ within this tag. Here’s an example for launching Gazebo server:</p>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;container_name&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;ros_gz_container&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;create_own_container&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;False&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;use_composition&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;False&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;gz_server</span><span class="w"> </span>
+<span class="w">  </span><span class="nt">&lt;gz_server</span>
 <span class="w">    </span><span class="na">world_sdf_file=</span><span class="s">&quot;$(var world_sdf_file)&quot;</span>
 <span class="w">    </span><span class="na">world_sdf_string=</span><span class="s">&quot;$(var world_sdf_string)&quot;</span>
 <span class="w">    </span><span class="na">container_name=</span><span class="s">&quot;$(var container_name)&quot;</span>
@@ -606,6 +606,41 @@ An example launch file for Python can be viewed <a class="reference external" hr
 <p>More info about <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> can be viewed <a class="reference internal" href="../ros2_integration/"><span class="doc std std-doc">here</span></a>.
 More info about composition can be viewed <a class="reference internal" href="../ros2_overview/#composition"><span class="std std-ref">here</span></a>.</p>
 </section>
+<section id="further-considerations-for-ros2-control">
+<h2>Further Considerations for ROS2 Control<a class="headerlink" href="#further-considerations-for-ros2-control" title="Link to this heading">#</a></h2>
+<p>If you’re planning to use <code class="docutils literal notranslate"><span class="pre">ros2_control</span></code> with Gazebo, please take a look at the <a class="reference external" href="https://github.com/ros-controls/gz_ros2_control/tree/rolling/gz_ros2_control_demos/launch">example launch files</a> in the <code class="docutils literal notranslate"><span class="pre">gz_ros2_control</span></code> repository</p>
+<p>It is essential to publish the <code class="docutils literal notranslate"><span class="pre">/clock</span></code> topic for the <code class="docutils literal notranslate"><span class="pre">controller_manager</span></code> to function correctly:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> gz_bridge = Node(
+     package=&quot;ros_gz_bridge&quot;,
+     executable=&quot;parameter_bridge&quot;,
+     arguments=[&#39;/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock&#39;],
+     parameters=[{
+         &quot;qos_overrides./tf_static.publisher.durability&quot;: &quot;transient_local&quot;
+     }],
+     output=&quot;screen&quot;,
+ )
+</pre></div>
+</div>
+<p>If you <strong>do not</strong> publish the <code class="docutils literal notranslate"><span class="pre">/clock</span></code> topic, the <code class="docutils literal notranslate"><span class="pre">controller_manager</span></code> will issue warnings or errors such as:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   [gazebo-1] [WARN] [1744219953.983130822] [controller_manager]: No clock received, using time argument instead! Check your node&#39;s clock configuration (use_sim_time parameter) and if a valid clock source is available.
+</pre></div>
+</div>
+</section>
+<section id="timing-issues">
+<h2>Timing Issues<a class="headerlink" href="#timing-issues" title="Link to this heading">#</a></h2>
+<p>By default, the <code class="docutils literal notranslate"><span class="pre">controller_manager</span></code> launched by <code class="docutils literal notranslate"><span class="pre">gz_ros2_control</span></code> has <code class="docutils literal notranslate"><span class="pre">use_sim_time=true</span></code>. If for any reason this is set to <code class="docutils literal notranslate"><span class="pre">false</span></code>, it will fall back to the system clock.</p>
+<p>This results in logs like:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> [gazebo-1] [INFO] [1744209678.974210234] [gz_ros_control]: Loading controller_manager
+ [gazebo-1] [INFO] [1744209679.000651931] [controller_manager]: Using Steady (Monotonic) clock for triggering controller manager cycles.
+</pre></div>
+</div>
+<p>Eventually leading to a fatal error:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> [gazebo-1] terminate called after throwing an instance of &#39;std::runtime_error&#39;
+ [gazebo-1]   what():  can&#39;t compare times with different time sources
+</pre></div>
+</div>
+<p>Ensure <code class="docutils literal notranslate"><span class="pre">use_sim_time</span></code> is correctly set to <code class="docutils literal notranslate"><span class="pre">true</span></code> when working with simulation time to avoid such mismatches.</p>
+</section>
 </section>
 
 
@@ -638,6 +673,8 @@ More info about composition can be viewed <a class="reference internal" href="..
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#launching-with-ros-gz-bridge">Launching with ros_gz_bridge</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#further-considerations-for-ros2-control">Further Considerations for ROS2 Control</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timing-issues">Timing Issues</a></li>
 </ul>
   </nav></div>
 
