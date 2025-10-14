@@ -128,7 +128,6 @@ def generate_launch_description():
     return ld
 ```
 
-
 ## Launching with ros_gz_bridge
 
 An example launch file for XML can be viewed [here](https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_sim/launch/ros_gz_sim.launch)
@@ -159,7 +158,6 @@ More info about composition can be viewed [here](ros2_overview.md#composition).
          }],
          output="screen",
      )
-
 
 If you **do not** publish the `/clock` topic, the `controller_manager` will issue warnings or errors such as:
 
