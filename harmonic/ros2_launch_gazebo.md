@@ -145,7 +145,7 @@ More info about composition can be viewed [here](ros2_overview.md#composition).
 
 ## Further Considerations for ROS2 Control
  
- If you're planning to use ros2_control with Gazebo, please take a look at the [example launch files](https://github.com/ros-controls/gz_ros2_control/tree/rolling/gz_ros2_control_demos/launch) in the `gz_ros2_control` repository
+ If you're planning to use `ros2_control` with Gazebo, please take a look at the [example launch files](https://github.com/ros-controls/gz_ros2_control/tree/rolling/gz_ros2_control_demos/launch) in the `gz_ros2_control` repository
  
  It is essential to publish the `/clock` topic for the `controller_manager` to function correctly:
  
