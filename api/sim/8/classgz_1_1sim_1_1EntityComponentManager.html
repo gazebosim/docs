@@ -173,6 +173,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6d3cc1a13259adb16e330f6e8df42c66"><td class="memTemplItemLeft" align="right" valign="top"><a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; <a class="el" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d">Entity</a> &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#a6d3cc1a13259adb16e330f6e8df42c66">ChildrenByComponents</a> (<a class="el" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d">Entity</a> _parent, const ComponentTypeTs &amp;..._desiredComponents) const</td></tr>
 <tr class="memdesc:a6d3cc1a13259adb16e330f6e8df42c66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all entities which match the value of all the given components and are immediate children of a given parent entity. For example, the following will return a child of entity <code>parent</code> which has an int component equal to 123, and a string component equal to "name":  <a href="classgz_1_1sim_1_1EntityComponentManager.html#a6d3cc1a13259adb16e330f6e8df42c66">More...</a><br /></td></tr>
 <tr class="separator:a6d3cc1a13259adb16e330f6e8df42c66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a867c61fd057eb843c1148b4a784b05c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#a867c61fd057eb843c1148b4a784b05c1">ClearNewlyCreatedEntities</a> ()</td></tr>
+<tr class="memdesc:a867c61fd057eb843c1148b4a784b05c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the list of newly added entities so that a call to EachAdded after this will have no entities to iterate.  <a href="classgz_1_1sim_1_1EntityComponentManager.html#a867c61fd057eb843c1148b4a784b05c1">More...</a><br /></td></tr>
+<tr class="separator:a867c61fd057eb843c1148b4a784b05c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a64430d9798184c28ca389f69d31ac624"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#a64430d9798184c28ca389f69d31ac624">ClearRemovedComponents</a> ()</td></tr>
+<tr class="memdesc:a64430d9798184c28ca389f69d31ac624"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the list of removed components so that a call to RemoveComponent doesn't make the list grow indefinitely.  <a href="classgz_1_1sim_1_1EntityComponentManager.html#a64430d9798184c28ca389f69d31ac624">More...</a><br /></td></tr>
+<tr class="separator:a64430d9798184c28ca389f69d31ac624"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d0748493ec2b3c25a049e702e791f97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d">Entity</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#a7d0748493ec2b3c25a049e702e791f97">Clone</a> (<a class="el" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d">Entity</a> _entity, <a class="el" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d">Entity</a> _parent, const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name, bool _allowRename)</td></tr>
 <tr class="memdesc:a7d0748493ec2b3c25a049e702e791f97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clone an entity and its components. If the entity has any child entities, they will also be cloned. When cloning entities, the following rules apply:  <a href="classgz_1_1sim_1_1EntityComponentManager.html#a7d0748493ec2b3c25a049e702e791f97">More...</a><br /></td></tr>
 <tr class="separator:a7d0748493ec2b3c25a049e702e791f97"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -295,6 +301,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ab2038db3fc414935074741f0a48b648b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#ab2038db3fc414935074741f0a48b648b">PinEntity</a> (const <a class="el" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d">Entity</a> _entity, bool _recursive=true)</td></tr>
 <tr class="memdesc:ab2038db3fc414935074741f0a48b648b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prevent an entity and optionally its children from being removed.  <a href="classgz_1_1sim_1_1EntityComponentManager.html#ab2038db3fc414935074741f0a48b648b">More...</a><br /></td></tr>
 <tr class="separator:ab2038db3fc414935074741f0a48b648b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04ca781fb60cc7e626028af125269c46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#a04ca781fb60cc7e626028af125269c46">ProcessRemoveEntityRequests</a> ()</td></tr>
+<tr class="memdesc:a04ca781fb60cc7e626028af125269c46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process all entity remove requests. This will remove entities and their components.  <a href="classgz_1_1sim_1_1EntityComponentManager.html#a04ca781fb60cc7e626028af125269c46">More...</a><br /></td></tr>
+<tr class="separator:a04ca781fb60cc7e626028af125269c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa44375162c6240103919dcd29ce2d374"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#aa44375162c6240103919dcd29ce2d374">RebuildViews</a> ()</td></tr>
 <tr class="memdesc:aa44375162c6240103919dcd29ce2d374"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rebuild all the views. This could be an expensive operation.  <a href="classgz_1_1sim_1_1EntityComponentManager.html#aa44375162c6240103919dcd29ce2d374">More...</a><br /></td></tr>
 <tr class="separator:aa44375162c6240103919dcd29ce2d374"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -314,6 +323,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac49e362ab68e472d9dc65d8eb7c79123"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#ac49e362ab68e472d9dc65d8eb7c79123">ResetTo</a> (const <a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html">EntityComponentManager</a> &amp;_other)</td></tr>
 <tr class="memdesc:ac49e362ab68e472d9dc65d8eb7c79123"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a diff, apply it to this ECM. Note that for removed entities, this would mark them for removal instead of actually removing the entities.  <a href="classgz_1_1sim_1_1EntityComponentManager.html#ac49e362ab68e472d9dc65d8eb7c79123">More...</a><br /></td></tr>
 <tr class="separator:ac49e362ab68e472d9dc65d8eb7c79123"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46f812c07983a72d84430c96b7750da9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#a46f812c07983a72d84430c96b7750da9">SetAllComponentsUnchanged</a> ()</td></tr>
+<tr class="memdesc:a46f812c07983a72d84430c96b7750da9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mark all components as not changed.  <a href="classgz_1_1sim_1_1EntityComponentManager.html#a46f812c07983a72d84430c96b7750da9">More...</a><br /></td></tr>
+<tr class="separator:a46f812c07983a72d84430c96b7750da9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f9fb828ad3327905b7a63d62ece41dc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#a0f9fb828ad3327905b7a63d62ece41dc">SetChanged</a> (const <a class="el" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d">Entity</a> _entity, const <a class="el" href="namespacegz_1_1sim.html#abab4b072dfb7fefac5d9a58df567162e">ComponentTypeId</a> _type, <a class="el" href="namespacegz_1_1sim.html#af8cb05dbaab6a7d39b05bf4366d4a782">sim::ComponentState</a> _c=<a class="el" href="namespacegz_1_1sim.html#af8cb05dbaab6a7d39b05bf4366d4a782a788dd38d4b17d40c57353d5a7a2e081c">ComponentState::OneTimeChange</a>)</td></tr>
 <tr class="memdesc:a0f9fb828ad3327905b7a63d62ece41dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the changed state of a component.  <a href="classgz_1_1sim_1_1EntityComponentManager.html#a0f9fb828ad3327905b7a63d62ece41dc">More...</a><br /></td></tr>
 <tr class="separator:a0f9fb828ad3327905b7a63d62ece41dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -361,20 +373,8 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a088cb32a7b8cad294688a2eb66186e86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#a088cb32a7b8cad294688a2eb66186e86">ApplyEntityDiff</a> (const <a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html">EntityComponentManager</a> &amp;_other, const EntityComponentManagerDiff &amp;_diff)</td></tr>
 <tr class="memdesc:a088cb32a7b8cad294688a2eb66186e86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given an entity diff, apply it to this ECM. Note that for removed entities, this would mark them for removal instead of actually removing the entities.  <a href="classgz_1_1sim_1_1EntityComponentManager.html#a088cb32a7b8cad294688a2eb66186e86">More...</a><br /></td></tr>
 <tr class="separator:a088cb32a7b8cad294688a2eb66186e86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a867c61fd057eb843c1148b4a784b05c1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#a867c61fd057eb843c1148b4a784b05c1">ClearNewlyCreatedEntities</a> ()</td></tr>
-<tr class="memdesc:a867c61fd057eb843c1148b4a784b05c1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the list of newly added entities so that a call to EachAdded after this will have no entities to iterate. This function is protected to facilitate testing.  <a href="classgz_1_1sim_1_1EntityComponentManager.html#a867c61fd057eb843c1148b4a784b05c1">More...</a><br /></td></tr>
-<tr class="separator:a867c61fd057eb843c1148b4a784b05c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64430d9798184c28ca389f69d31ac624"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#a64430d9798184c28ca389f69d31ac624">ClearRemovedComponents</a> ()</td></tr>
-<tr class="memdesc:a64430d9798184c28ca389f69d31ac624"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the list of removed components so that a call to RemoveComponent doesn't make the list grow indefinitely.  <a href="classgz_1_1sim_1_1EntityComponentManager.html#a64430d9798184c28ca389f69d31ac624">More...</a><br /></td></tr>
-<tr class="separator:a64430d9798184c28ca389f69d31ac624"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4ff9d43459daa58e976f68bb0a21b1d"><td class="memItemLeft" align="right" valign="top">EntityComponentManagerDiff&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#ac4ff9d43459daa58e976f68bb0a21b1d">ComputeEntityDiff</a> (const <a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html">EntityComponentManager</a> &amp;_other) const</td></tr>
 <tr class="separator:ac4ff9d43459daa58e976f68bb0a21b1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04ca781fb60cc7e626028af125269c46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#a04ca781fb60cc7e626028af125269c46">ProcessRemoveEntityRequests</a> ()</td></tr>
-<tr class="memdesc:a04ca781fb60cc7e626028af125269c46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Process all entity remove requests. This will remove entities and their components. This function is protected to facilitate testing.  <a href="classgz_1_1sim_1_1EntityComponentManager.html#a04ca781fb60cc7e626028af125269c46">More...</a><br /></td></tr>
-<tr class="separator:a04ca781fb60cc7e626028af125269c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46f812c07983a72d84430c96b7750da9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#a46f812c07983a72d84430c96b7750da9">SetAllComponentsUnchanged</a> ()</td></tr>
-<tr class="memdesc:a46f812c07983a72d84430c96b7750da9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mark all components as not changed.  <a href="classgz_1_1sim_1_1EntityComponentManager.html#a46f812c07983a72d84430c96b7750da9">More...</a><br /></td></tr>
-<tr class="separator:a46f812c07983a72d84430c96b7750da9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The <a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html" title="The EntityComponentManager constructs, deletes, and returns components and entities....">EntityComponentManager</a> constructs, deletes, and returns components and entities. A component can be of any class which inherits from <code><a class="el" href="classgz_1_1sim_1_1components_1_1BaseComponent.html" title="Base class for all components.">components::BaseComponent</a></code>. </p>
@@ -569,9 +569,6 @@ Protected Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ClearNewlyCreatedEntities </td>
@@ -580,14 +577,9 @@ Protected Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Clear the list of newly added entities so that a call to EachAdded after this will have no entities to iterate. This function is protected to facilitate testing. </p>
+<p>Clear the list of newly added entities so that a call to EachAdded after this will have no entities to iterate. </p>
 
 </div>
 </div>
@@ -596,9 +588,6 @@ Protected Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ClearRemovedComponents </td>
@@ -607,11 +596,6 @@ Protected Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Clear the list of removed components so that a call to RemoveComponent doesn't make the list grow indefinitely. </p>
@@ -1783,9 +1767,6 @@ Protected Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ProcessRemoveEntityRequests </td>
@@ -1794,14 +1775,9 @@ Protected Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Process all entity remove requests. This will remove entities and their components. This function is protected to facilitate testing. </p>
+<p>Process all entity remove requests. This will remove entities and their components. </p>
 
 </div>
 </div>
@@ -1985,9 +1961,6 @@ Protected Member Functions</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void SetAllComponentsUnchanged </td>
@@ -1996,11 +1969,6 @@ Protected Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Mark all components as not changed. </p>

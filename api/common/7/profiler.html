@@ -150,8 +150,11 @@ Enabling the Profiler</h2>
 <h3><a class="anchor" id="on-custom-example"></a>
 On custom example</h3>
 <p>In order to use the profiler, inspection points must be added to the source code, and the application or library must be linked to the <code>gz-common::profiler</code> component.</p>
-<p>To start, download the <a href="https://github.com/gazebosim/gz-common/raw/gz-common7/examples/profiler.cc">profiler.cc</a> example.</p>
-<p>The relevant corresponding C++ would be as follows:</p>
+<p>To start, create a new CMake project directory and navigate to it:</p>
+<div class="fragment"><div class="line">mkdir -p ~/profiler_example &amp;&amp; cd ~/profiler_example</div>
+</div><!-- fragment --><p>Next, download the <a href="https://github.com/gazebosim/gz-common/raw/gz-common7/examples/profiler.cc">profiler.cc</a> example into the project:</p>
+<div class="fragment"><div class="line">wget https://raw.githubusercontent.com/gazebosim/gz-common/gz-common7/examples/profiler.cc</div>
+</div><!-- fragment --><p>The relevant corresponding C++ would be as follows:</p>
 <div class="fragment"><div class="line"><span class="comment">// Add the profiler header</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="Profiler_8hh.html">gz/common/Profiler.hh</a>&gt;</span></div>
 <div class="line"> </div>
@@ -173,7 +176,7 @@ On custom example</h3>
 <div class="line">    task3();</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-</div><!-- fragment --><p>Update your CMakeLists.txt to the following. Note that the profiler must be enabled at compile time in order to function.</p>
+</div><!-- fragment --><p>Create a new <code>CMakeLists.txt</code> at the root of the project directory (<code>~/profiler_example</code>). Note that the profiler must be enabled at compile time in order to function.</p>
 <div class="fragment"><div class="line">cmake_minimum_required(VERSION 3.22.1 FATAL_ERROR)</div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor"># Find the gz-common library</span></div>
@@ -184,36 +187,35 @@ On custom example</h3>
 <div class="line"><span class="preprocessor"># Enable the profiler for the example</span></div>
 <div class="line">target_compile_definitions(profiler_example PUBLIC <span class="stringliteral">&quot;GZ_PROFILER_ENABLE=1&quot;</span>)</div>
 </div><!-- fragment --><p>Run <code>cmake</code> and build the example</p>
-<div class="fragment"><div class="line">cd build</div>
+<div class="fragment"><div class="line">mkdir -p build &amp;&amp; cd build</div>
 <div class="line">cmake ..</div>
 <div class="line">make profiler_example</div>
-</div><!-- fragment --><p>Then execute the example and the profiler visualization:</p>
-<p>From terminal 1:</p>
+</div><!-- fragment --><p>Then use two terminals to execute the example and the profiler visualization:</p>
+<p>From terminal 1, inside <code>~/profiler_example/build</code>:</p>
 <div class="fragment"><div class="line">./profiler_example</div>
-</div><!-- fragment --><p>From terminal 2, open the visualizer using one of the following commands</p>
-<div class="fragment"><div class="line"># Find the launcher script and use it (Linux and macOS)</div>
-<div class="line">find /usr | grep gz_remotery_vis</div>
-<div class="line">...</div>
-<div class="line"> </div>
-<div class="line">/usr/&lt;path_to&gt;/gz_remotery_vis</div>
-<div class="line"> </div>
-<div class="line"># Use the source path (Linux)</div>
-<div class="line"># Substitute the path to your gz-common source checkout</div>
-<div class="line">xdg-open $SOURCE_DIR/gz-common/profiler/src/Remotery/vis/index.html</div>
-<div class="line"> </div>
-<div class="line"># Use the installation path (Linux)</div>
-<div class="line"># This may vary depending on where you have choosen to install</div>
-<div class="line">xdg-open /usr/share/gz/gz-common/profiler_vis/index.html</div>
-<div class="line"> </div>
-<div class="line"># Use the installation path (macOS)</div>
-<div class="line">open /usr/share/gz/gz-common/profiler_vis/index.html</div>
-<div class="line"> </div>
-<div class="line"># Inside a Docker container with port 8000 exposed</div>
-<div class="line"># 1. Find your container&#39;s IP with &#39;ifconfig&#39;</div>
-<div class="line"># 2. Start a basic web server:</div>
-<div class="line">python3 -m http.server $SOURCE_DIR/gz-common/profiler/src/Remotery/vis/index.html</div>
-<div class="line"># 3. Open URL &quot;http://&lt;container IP&gt;:8000/&quot; with a browser on the host.</div>
-</div><!-- fragment --><h3><a class="anchor" id="on-gazebo-library"></a>
+</div><!-- fragment --><p>From terminal 2, use one of the following commands, depending on your configuration:</p>
+<ul>
+<li>If you installed <code>gz-common</code> as a package/binary:<ul>
+<li><p class="startli">Open the HTML file directly via a convenience script:</p>
+<p class="startli"><code>{.sh} $(find /usr -type f -name 'gz_remotery_vis') </code></p>
+</li>
+<li><p class="startli">Or, if you're running inside a Docker container, start a server:</p>
+<p class="startli"><code>{.sh} python3 -m http.server -d $(find / -type d -name 'profiler_vis') </code></p>
+</li>
+</ul>
+</li>
+<li>If you installed <code>gz-common</code> from source, we assume it is located at <code>$SOURCE_DIR/gz-common</code>, where <code>$SOURCE_DIR</code> is a variable representing a file path<ul>
+<li><p class="startli">Open the HTML file directly:</p>
+<p class="startli"><code>{.sh} xdg-open $SOURCE_DIR/gz-common/profiler/src/Remotery/vis/index.html </code></p>
+</li>
+<li><p class="startli">Or, if you're running inside a Docker container, start a server:</p>
+<p class="startli"><code>{.sh} python3 -m http.server -d $SOURCE_DIR/gz-common/profiler/src/Remotery/vis </code></p>
+</li>
+</ul>
+</li>
+</ul>
+<p>If you are running the profiler visualization as a server, the command will display an output <code>Serving HTTP on [IP_ADDRESS] port 8000 (<a href="http://">http://</a>[IP_ADDRESS]:8000/) ...</code> - navigate to that URL in your browser and you should see the profiler displayed. </p>
+<h3><a class="anchor" id="on-gazebo-library"></a>
 On Gazebo library</h3>
 <p>If you want to use profiler on any other Gazebo library, enable the profiler at compile time with <code>ENABLE_PROFILER</code> cmake argument.</p>
 <p>When compiling with <code>CMake</code>: </p><div class="fragment"><div class="line">cmake .. -DENABLE_PROFILER=1</div>
