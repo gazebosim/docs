@@ -13,10 +13,10 @@ The `setup-gazebo` GitHub Action can be found on the [Marketplace](https://githu
 
 The action currently supports all the non-EOL Gazebo releases. See [releases](https://gazebosim.org/docs/all/releases/) for more information.
 
-* Citadel
 * Fortress
 * Harmonic
 * Ionic
+* Jetty
 
 ## Supported Platforms
 

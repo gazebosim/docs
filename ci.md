@@ -59,7 +59,7 @@ Jenkins | `<library>-pr-win` | Windows | Compile and run tests using [colcon](ht
 Jenkins | `<library>-abichecker-any_to_any-ubuntu_auto-amd64` | Ubuntu | Run ABI checker | Stable binaries
 Actions | `Ubuntu CI / Ubuntu * CI` | Ubuntu Bionic and Focal | Compile and run tests using CMake and Make, run code checker and upload coverage results | Stable binaries for stable branches, nightlies for `main`
 Actions | `DCO` | - | Checks that all commits are signed correctly | -
-Actions | `PR Collection Labeler` | - | Adds collection labels (i.e. Blueprint, Citadel...) according to the target branch | -
+Actions | `PR Collection Labeler` | - | Adds collection labels according to the target branch | -
 Actions | `Ticket opened` | - | Adds the pull request to the [Core development board](https://github.com/orgs/gazebosim/projects/3) | -
 Actions | `codecov/*` | - | Checks that the test coverage hasn't been reduced | -
 

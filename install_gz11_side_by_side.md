@@ -4,7 +4,7 @@
 
 This tutorial affects the Gazebo Classic users on Ubuntu `Jammy` (latest
 Ubuntu release were Gazebo Classic packages supported by the Gazebo team)
-that plan on migrating code to new Gazebo `Fortress`, `Garden` or `Harmonic.`
+that plan on migrating code to new Gazebo `Fortress`, `Harmonic`, `Ionic` or `Jetty`.
 
 There is no guarantee that the Gazebo Classic version detailed in this document
 will be updated in any case. Please consider the migration to the new Gazebo

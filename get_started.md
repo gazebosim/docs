@@ -16,10 +16,10 @@ packages available for the platform to use:
 
 |Platform|Gazebo Versions|
 |---|---|
-| Ubuntu 24.04 Noble | [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended), (recommended if using ROS 2 Jazzy) and [Gazebo Ionic](/docs/ionic/install_ubuntu){.external}
+| Ubuntu 24.04 Noble | [Gazebo Jetty](/docs/jetty/install_ubuntu){.external} (recommended), [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (default in ROS 2 Jazzy) and [Gazebo Ionic](/docs/ionic/install_ubuntu){.external} (default in ROS 2 Jetty)
 | Ubuntu 22.04 Jammy | [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended) and [Gazebo Fortress](/docs/fortress/install_ubuntu){.external} (recommended if using ROS 2 Humble)
-| Mac Ventura | [Gazebo Harmonic](/docs/harmonic/install_osx){.external} (recommended) and [Gazebo Fortress](/docs/fortress/install_osx){.external}
-| Mac Monterey | [Gazebo Harmonic](/docs/harmonic/install_osx){.external} (recommended) and [Gazebo Fortress](/docs/fortress/install_osx){.external}
+| Mac Sequoia arm64 | [Gazebo Jetty](/docs/jetty/install_osx){.external} (recommended), [Gazebo Ionic](/docs/ionic/install_osx){.external}, [Gazebo Harmonic](/docs/harmonic/install_osx){.external} and [Gazebo Fortress](/docs/fortress/install_osx){.external}
+| Mac Sonoma arm64/amd64 | [Gazebo Jetty](/docs/jetty/install_osx){.external} (recommended), [Gazebo Ionic](/docs/ionic/install_osx){.external}, [Gazebo Harmonic](/docs/harmonic/install_osx){.external} and [Gazebo Fortress](/docs/fortress/install_osx){.external}
 | Windows | Support via Conda-Forge is not fully functional, as there are known runtime issues [see this issue for details](https://github.com/gazebosim/gz-sim/issues/168).
 
 If the desired platform is not listed above or if a particular feature in a
@@ -27,6 +27,7 @@ given [Gazebo release](releases) is needed,
 there is an installation package per release available with all the
 installation options:
 
+* [Gazebo Jetty (LTS) installation](/docs/jetty/install){.external} options (EOL 2030 Sep)
 * [Gazebo Ionic installation](/docs/ionic/install){.external} options (EOL 2026 Sep)
 * [Gazebo Harmonic (LTS) installation](/docs/harmonic/install){.external} options (EOL 2028 Sep)
 * [Gazebo Fortress (LTS) installation](/docs/fortress/install){.external} options (EOL 2026 Sep)
