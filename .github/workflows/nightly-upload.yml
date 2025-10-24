@@ -1,6 +1,9 @@
 name: Deploy API Docs
 
 on:
+  push:
+    branches:
+      - 'iche033/manual_trigger'
   schedule:
    # UTC timezone
    - cron: '0 6 * * *'
@@ -19,8 +22,8 @@ jobs:
           - ubuntu_distribution: focal
             gazebo_distribution: fortress
 
-          - ubuntu_distribution: jammy
-            gazebo_distribution: harmonic
+          # - ubuntu_distribution: jammy
+          #   gazebo_distribution: harmonic
 
           - ubuntu_distribution: noble
             gazebo_distribution: ionic
