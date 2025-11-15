@@ -29,7 +29,7 @@ For example, if you have Ionic (9.x.x), Harmonic (8.x.x), Garden (7.x.x), and Fo
 To ensure you're working with Jetty, include the `--force-version` directive when starting up:
 
 ```bash
-gz sim --force-version 9.0.0 shapes.sdf
+gz sim --force-version 10.0.0 shapes.sdf
 ```
 
 ## GUI

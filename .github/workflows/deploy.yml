@@ -81,21 +81,30 @@ jobs:
     concurrency:
       group: pages
       cancel-in-progress: false
+    env:
+      BUILD_DIR: merged_artifacts/
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
       - uses: actions/download-artifact@v4
         with:
           merge-multiple: true
+          path: ${{ env.BUILD_DIR }}
+      - name: Deduplicate files
+        run: |
+          sudo apt-get install -y rdfind symlinks
+          bash tools/deduplicate_files.sh $BUILD_DIR
       - name: Upload merged
         uses: actions/upload-artifact@v4
         with:
           name: website-docs-merged
-          path: ./
+          path: ${{ env.BUILD_DIR }}
       - name: Commit
-        uses: peaceiris/actions-gh-pages@v4
         # The workflow upto this point is good for generating a preview,
         # but only commit to deploy if we are on the master branch (not a pull request).
         if: github.ref == 'refs/heads/master'
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
-          keep_files: true
+          folder: ${{ env.BUILD_DIR }}
+          clean-exclude: |
+            api/*

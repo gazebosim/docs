@@ -9,7 +9,7 @@ an IMU sensor, a Contact sensor and a Lidar sensor. We will also
 learn how to launch multiple tasks with just one file using `gz launch`.
 
 You can find the final world of this tutorial showing all these plugins in use [here](https://github.com/gazebosim/docs/blob/master/jetty/tutorials/sensors/sensor_tutorial.sdf).
-You may also find an extensive set of world examples with many possible sensors and actuation capabilities in [`gz-sim/examples/worlds`](https://github.com/gazebosim/gz-sim/tree/gz-sim8/examples/worlds) for individual examples.
+You may also find an extensive set of world examples with many possible sensors and actuation capabilities in [`gz-sim/examples/worlds`](https://github.com/gazebosim/gz-sim/tree/gz-sim10/examples/worlds) for individual examples.
 The full set of sensors can be found in the [`gz-sensors` library](https://github.com/gazebosim/gz-sensors).
 If using ROS, you can see demo launches and bridging configuration for these examples [here](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_sim_demos/launch).
 
@@ -315,7 +315,7 @@ To do that, we'll write a short C++ program that listens to
 the sensor data and sends velocity commands to the robot.
 This program is called a node. We will build a node that subscribes
 to the `/lidar` topic and reads its data.
-Have a look at this [tutorial](https://gazebosim.org/api/transport/14/messages.html)
+Have a look at this [tutorial](https://gazebosim.org/api/transport/15/messages.html)
 to learn how to build a `publisher` and a `subscriber` node.
 You can download the finished node for this demo from [here](https://github.com/gazebosim/docs/blob/master/jetty/tutorials/sensors/lidar_node.cc).
 

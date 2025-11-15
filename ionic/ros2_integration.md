@@ -78,36 +78,34 @@ ros2 launch ros_gz_bridge ros_gz_bridge.launch.py bridge_name:=ros_gz_bridge con
 Alternatively, if an existing container is already running, you can pass its name
 when launching the bridge using the `container_name` parameter. More info about composition can be viewed [here](ros2_overview.md#composition)
 
-Check [this block](https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_bridge/launch/ros_gz_bridge.launch.py#L27-L34)
+Check [this block](https://github.com/gazebosim/ros_gz/blob/jazzy/ros_gz_bridge/launch/ros_gz_bridge.launch.py#L25-L68)
 from the source code to know all the different parameters accepted by this
 launch file.
+
+QOS Overrides:
+
+QOS overrides can be passed as extra parameters to the bridge using the `bridge_params` argument of the launch file. An example of this:
+```bash
+ros2 launch ros_gz_bridge ros_gz_bridge.launch.py bridge_name:=ros_gz_bridge config_file:=<path_to_your_YAML_file> bridge_params:={'qos_overrides./topic_name.publisher.durability': 'transient_local', 'qos_overrides./another_topic_name.publisher.durability': 'transient_local'}
+```
+You can omit the following from what you pass to `bridge_params`: `{}`, ` `, `"`, `'`.
+
+More info about using QOS overrides can be found [here](https://docs.ros.org/en/jazzy/How-To-Guides/Overriding-QoS-Policies-For-Recording-And-Playback.html#using-qos-overrides)
 
 ## Launching the bridge from a custom launch file in XML.
 
 It's also possible to trigger the bridge from your custom launch file. For that
 purpose we have created the `<ros_gz_bridge/>` tag that can be used from you
 XML or YAML launch file. In this case, the arguments are passed as attributes
-within this tag. Here's an example:
+within this tag. Here's a simplified example, a more comprehensive example can be viewed [here](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/launch/ros_gz_bridge.launch):
 
 ```xml
 <launch>
   <arg name="bridge_name" />
   <arg name="config_file" />
-  <arg name="container_name" default="ros_gz_container" />
-  <arg name="create_own_container" default="False" />
-  <arg name="namespace" default="" />
-  <arg name="use_composition" default="False" />
-  <arg name="use_respawn" default="False" />
-  <arg name="log_level" default="info" />
   <ros_gz_bridge
     bridge_name="$(var bridge_name)"
-    config_file="$(var config_file)"
-    container_name="$(var container_name)"
-    create_own_container="$(var create_own_container)"
-    namespace="$(var namespace)"
-    use_composition="$(var use_composition)"
-    use_respawn="$(var use_respawn)"
-    log_level="$(var log_level)">
+    config_file="$(var config_file)">
   </ros_gz_bridge>
 </launch>
 ```
@@ -119,7 +117,7 @@ of the values or not even use all the parameters.
 ## Launching the bridge from a custom launch file in Python.
 
 Here's a simplified example of a Python launch file used to load a bridge from
-Python:
+Python, a more comprehensive example can be viewed [here](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/launch/ros_gz_bridge.launch.py):
 ```python
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
@@ -207,7 +205,7 @@ A video walk-through of this tutorial is available from our YouTube channel: [Ga
 Take a step further and try out demos from [`ros_gz_sim_demos`](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_sim_demos).
 
 For the `sdf_parser` demo, install [`ros_gz`](https://github.com/gazebosim/ros_gz/tree/ros2) and the parser plugin `sdformat_urdf` from source in a colcon workspace.
-Read more about `sdformat_urdf` [here](https://github.com/ros/sdformat_urdf/blob/ros2/sdformat_urdf/README.md).
+Read more about `sdformat_urdf` [here](https://github.com/ros/sdformat_urdf/blob/rolling/sdformat_urdf/README.md).
 
 Run the demo launch file with the rviz launch argument set:
 
