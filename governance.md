@@ -29,7 +29,7 @@ to the OSRF Board on the activities of the OSRA and status of each project.
 
 Community members are encouraged to *observe* the Gazebo PMC meetings and submit agenda items via a PMC constituent.
 To add an item to the Gazebo PMC agenda please contact one of the PMC constituents list below.
-Gazebo PMC meetings are conducted using Zoom and presently occur every Monday at 18:00 UTC (10:00 PST / 13:00 EST / 19:00 CET / +1 03:00 JST).
+Gazebo PMC meetings are conducted using Zoom and presently occur every Monday.
 To join the Gazebo PMC meeting please use the [link available in our official OSRA Google calendar](https://calendar.google.com/calendar/u/0/embed?src=agf3kajirket8khktupm9go748@group.calendar.google.com&ctz=Etc%2FUTC).
 
 ## The Gazebo Project Management Committee (PMC)
