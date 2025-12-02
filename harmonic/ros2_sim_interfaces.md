@@ -12,6 +12,7 @@ will learn how to interact with a running Gazebo simulation for the following ta
 - [Simulation Control](#simulation-control)
 - [Entity Management](#entity-management)
 - [State Query](#state-query)
+- [State Update](#state-update)
 - [Simulator Information](#simulator-information)
 
 ## Simulation Control
@@ -154,6 +155,37 @@ Get the list of entities (optionally filtered).
 ```bash
 ros2 service call /gzserver/get_entities simulation_interfaces/src/GetEntities "{filters: {filter: ''}}"
 ```
+
+## State Update
+
+The following interfaces are used to set entity states.
+
+| Interface Name | Topic Name | Type | Description |
+|----------------|------------|------|-------------|
+| `SetEntityState` | `/gzserver/set_entity_state` | Service | Set the pose and twist of a specific entity |
+
+### SetEntityState Service
+
+Set the pose and twist of a specific entity.
+
+```bash
+ros2 service call /gzserver/set_entity_state simulation_interfaces/srv/SetEntityState "{ entity: 'my_model', state: {pose: { position: { x: -2.0, z: 0.5 }}, twist: {linear: {x: 0.5}}}}"
+```
+
+:::{caution}
+When using `SetEntityState`, it is currently not possible to set just the `pose` or the `twist` of an entity.
+Both components of the entity will be assigned based on the value of the provided message. For example, of `pose` is left empty, the pose of the entity will be set to the origin.
+
+This might be resolved in the future. See https://github.com/ros-simulation/simulation_interfaces/issues/18
+:::
+
+:::{warning}
+In Gazebo Harmonic, the twist of an entity is reset back to zero
+after each time step. This is like applying a brake on the entity (see https://github.com/gazebosim/gz-sim/issues/1926).
+Thus, we do not recommend using `SetEntityState` to control the twist. Later versions of
+Gazebo do not have this problem. If you need to control the twist, consider
+using the [VelocityControl](https://gazebosim.org/api/sim/8/classgz_1_1sim_1_1systems_1_1VelocityControl.html) system.
+:::
 
 ## Simulator Information
 
