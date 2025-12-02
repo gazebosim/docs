@@ -8,6 +8,7 @@ provide a unified way to control and observe simulation using ROS 2.
 Gazebo has implemented these interfaces, enabling tasks like spawning entities, stepping
 simulation, querying world state, etc. through standard ROS 2 calls. In this tutorial we
 will learn how to interact with a running Gazebo simulation for the following tasks,
+
 - [Simulation Control](#simulation-control)
 - [Entity Management](#entity-management)
 - [State Query](#state-query)
@@ -23,9 +24,9 @@ The following services and actions are available to control the flow of simulati
 | `StepSimulation` | `/gzserver/step_simulation` | Service | Step the simulation forward by a specified number of steps |
 | `GetSimulationState` | `/gzserver/get_simulation_state` | Service | Get the current simulation state (playing/paused/stopped) |
 | `SetSimulationState` | `/gzserver/set_simulation_state` | Service | Set the simulation state (play/pause/stop) |
-| `SimulateSteps` | `/gzserver/simulate_steps` | Action | Step the simulation forward by a specified number of steps with feedback and cancellation support | 
+| `SimulateSteps` | `/gzserver/simulate_steps` | Action | Step the simulation forward by a specified number of steps with feedback and cancellation support |
 
-**ResetSimulation Service**
+### ResetSimulation Service
 
 Reset the simulation to its initial state.
 
@@ -33,7 +34,7 @@ Reset the simulation to its initial state.
 ros2 service call /gzserver/reset_simulation simulation_interfaces/srv/ResetSimulation "{}"
 ```
 
-**StepSimulation Service**
+### StepSimulation Service
 
 Step the simulation forward by a specified number of steps.
 
@@ -41,7 +42,7 @@ Step the simulation forward by a specified number of steps.
 ros2 service call /gzserver/step_simulation simulation_interfaces/srv/StepSimulation "{steps: 10}"
 ```
 
-**GetSimulationState Service**
+### GetSimulationState Service
 
 Get the current simulation state (playing/paused/stopped).
 
@@ -49,7 +50,7 @@ Get the current simulation state (playing/paused/stopped).
 ros2 service call /gzserver/get_simulation_state simulation_interfaces/srv/GetSimulationState "{}"
 ```
 
-**SetSimulationState Service**
+### SetSimulationState Service
 
 Set the simulation state (play/pause/stop).
 
@@ -77,7 +78,7 @@ Set the simulation state (play/pause/stop).
   ros2 service call /gzserver/set_simulation_state simulation_interfaces/srv/SetSimulationState "{state: {state: 3}}"
   ```
 
-**SimulateSteps Action**
+### SimulateSteps Action
 
 Step the simulation forward by a specified number of steps with feedback and cancellation support.
 
@@ -94,7 +95,7 @@ The following interfaces are used to create or remove entities in the simulation
 | `SpawnEntity` | `/gzserver/spawn_entity` | Service | Spawn a new entity in the simulation at a specific location |
 | `DeleteEntity` | `/gzserver/delete_entity` | Service | Delete an existing entity by name |
 
-**SpawnEntity Service**
+### SpawnEntity Service
 
 Spawn a new entity in the simulation at a specific location.
 
@@ -112,7 +113,7 @@ ros2 service call /gzserver/spawn_entity simulation_interfaces/srv/SpawnEntity "
 }"
 ```
 
-**DeleteEntity Service**
+### DeleteEntity Service
 
 Delete an existing entity by name.
 
@@ -130,7 +131,7 @@ The following interfaces are used to introspect simulation world and entity stat
 | `GetEntitiesStates` | `/gzserver/get_entities_states` | Service | Get the state for multiple entities (optionally filtered) |
 | `GetEntities` | `/gzserver/get_entities` | Service | Get a list of entities (optionally filtered) |
 
-**GetEntityState Service**
+### GetEntityState Service
 
 Get the pose and twist of a specific entity.
 
@@ -138,7 +139,7 @@ Get the pose and twist of a specific entity.
 ros2 service call /gzserver/get_entity_state simulation_interfaces/srv/GetEntityState "{entity: 'my_model'}"
 ```
 
-**GetEntitiesStates Service**
+### GetEntitiesStates Service
 
 Get the state of multiple entities (optionally filtered).
 
@@ -146,7 +147,7 @@ Get the state of multiple entities (optionally filtered).
 ros2 service call /gzserver/get_entities_states simulation_interfaces/srv/GetEntitiesStates "{filters: {filter: ''}}"
 ```
 
-**GetEntites Service**
+### GetEntites Service
 
 Get the list of entities (optionally filtered).
 
@@ -163,7 +164,7 @@ supported features.
 |----------------|------------|------|-------------|
 | `GetSimulatorFeatures` | `/gzserver/get_simulator_features` | Service | Query which interface features are supported |
 
-**GetSimulatorFeatures Service**
+### GetSimulatorFeatures Service
 
 Query which interface features are supported.
 
