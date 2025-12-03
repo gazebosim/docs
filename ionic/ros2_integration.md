@@ -227,3 +227,20 @@ And verify the vehicle matching its trajectory in Gazebo and RViz.
 ![gz_rviz](tutorials/ros2_integration/gz_rviz.gif)
 
 For more details on implementation of this demo see [ROS 2 Interoperability](ros2_interop).
+
+## Using ROS 2 Simulation Interfaces
+
+The [ROS 2 Simulation Interfaces](https://github.com/ros-simulation/simulation_interfaces)
+are a set of standard ROS 2 service, message and action
+definitions for controlling and interacting with simulation environments. They are
+simulator agnostic, which means the same interfacs can be implemented in different
+simulators while keeping the API consistent.
+
+Gazebo implements these interfaces, enabling you to,
+- Spawn and delete entities
+- Control simulation state and time stepping
+- Query entity and world state
+- Retrieve simulator information
+
+For a full tutorial, including usage examples for each interface see
+[Use ROS 2 Simulation Interfaces with Gazebo](ros2_sim_interfaces).
