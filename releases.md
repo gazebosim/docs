@@ -14,6 +14,7 @@ A Gazebo release follows the form "Gazebo Codename", for example Gazebo Acropoli
 
 | Name                                                     | Date      | EOL date  | Notes |
 |----------------------------------------------------------|-----------|-----------|-------|
+| Kura                                                     | Aug, 2026 | Sep, 2028 |       |
 | [Jetty](https://gazebosim.org/docs/jetty)                | Sep, 2025 | Sep, 2030 | LTS   |
 | [Ionic](https://gazebosim.org/docs/ionic)                | Sep, 2024 | Sep, 2026 |       |
 | [Harmonic](https://gazebosim.org/docs/harmonic)          | Sep, 2023 | Sep, 2028 | LTS   |
