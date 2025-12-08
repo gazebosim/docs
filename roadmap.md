@@ -30,7 +30,7 @@ This is a tentative release timeline for the next Gazebo release.
 
 #### Feature Freeze
 
-During the feature freeze period, we will not accept new features to Gazebo.
+During the feature freeze period, we will not accept new feature pull requests to Gazebo.
 This includes new features to the upcoming release as well as to currently stable versions. The focus will be reviewing open pull requests that are likely to be merged before the code freeze starts.
 If you have a new feature you want to contribute, please open a PR before we go into feature freeze noting that changes can be made to open pull requests during the feature freeze period.
 
