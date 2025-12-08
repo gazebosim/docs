@@ -483,25 +483,96 @@ features and development efforts should provide insight into the overall
 direction of Gazebo. If you would like to
 see other features on the roadmap, then please get in touch with us at
 <a class="reference external" href="mailto:info&#37;&#52;&#48;openrobotics&#46;org">info<span>&#64;</span>openrobotics<span>&#46;</span>org</a>.</p>
-<section id="gazebo-jetty-roadmap">
-<h2>Gazebo Jetty Roadmap<a class="headerlink" href="#gazebo-jetty-roadmap" title="Link to this heading">#</a></h2>
+<section id="gazebo-kura-roadmap">
+<h2>Gazebo Kura Roadmap<a class="headerlink" href="#gazebo-kura-roadmap" title="Link to this heading">#</a></h2>
+<p>Coming soon…</p>
+<!-- Note that some of these roadmap items may be backported to older versions of Gazebo -->
+<!-- on a best-effort basis if they do not break API and ABI. -->
+<section id="gazebo-kura-release-timeline-2026">
+<h3>Gazebo Kura Release Timeline (2026)<a class="headerlink" href="#gazebo-kura-release-timeline-2026" title="Link to this heading">#</a></h3>
+<p>This is a tentative release timeline for the next Gazebo release.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-left"><p>Event / Period</p></th>
+<th class="head text-left"><p>Date</p></th>
+<th class="head text-left"><p>Duration</p></th>
+<th class="head text-left"><p>Primary Focus</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-left"><p><strong>Feature Freeze</strong></p></td>
+<td class="text-left"><p>Friday, June 26</p></td>
+<td class="text-left"><p>~1 month</p></td>
+<td class="text-left"><p>Stabilize new features, merge pre-existing PRs.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Code Freeze</strong></p></td>
+<td class="text-left"><p>Monday, July 27</p></td>
+<td class="text-left"><p>~1 month</p></td>
+<td class="text-left"><p>Bug fixes only.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Tutorial Party</strong></p></td>
+<td class="text-left"><p>July 29 - August 13</p></td>
+<td class="text-left"><p>2.5 Weeks</p></td>
+<td class="text-left"><p>Community testing, tutorial verification.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Internal QA/Demo Prep</strong></p></td>
+<td class="text-left"><p>August 17 - 21</p></td>
+<td class="text-left"><p>1 Week</p></td>
+<td class="text-left"><p>Final package releases and feature demo preparation.</p></td>
+</tr>
+<tr class="row-even"><td class="text-left"><p><strong>Community Meeting</strong></p></td>
+<td class="text-left"><p>Wednesday, August 26</p></td>
+<td class="text-left"><p>N/A</p></td>
+<td class="text-left"><p>Feature showcase.</p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><strong>Official Announcement</strong></p></td>
+<td class="text-left"><p>Monday, August 31</p></td>
+<td class="text-left"><p>N/A</p></td>
+<td class="text-left"><p>Release day!</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="detailed-release-phase-guidelines">
+<h3>Detailed Release Phase Guidelines<a class="headerlink" href="#detailed-release-phase-guidelines" title="Link to this heading">#</a></h3>
+<section id="feature-freeze">
+<h4>Feature Freeze<a class="headerlink" href="#feature-freeze" title="Link to this heading">#</a></h4>
+<p>During the feature freeze period, we will not accept new feature pull requests to Gazebo.
+This includes new features to the upcoming release as well as to currently stable versions. The focus will be reviewing open pull requests that are likely to be merged before the code freeze starts.
+If you have a new feature you want to contribute, please open a PR before we go into feature freeze noting that changes can be made to open pull requests during the feature freeze period.</p>
 <ul class="simple">
-<li><p><strong>Improve documentation website (<a class="reference external" href="http://gazebosim.org/docs">gazebosim.org/docs</a>)</strong></p>
-<ul>
-<li><p><a class="reference external" href="https://github.com/gazebosim/docs/issues/55">Make doxygen tutorials from each library accessible on the main tutorials page on gazebosim.org/docs</a></p></li>
-<li><p>Copy/adapt tutorials from <a class="reference external" href="https://classic.gazebosim.org/tutorials">https://classic.gazebosim.org/tutorials</a></p></li>
+<li><p><strong>Initial Two-Week Review Period:</strong> For the first two weeks following the feature freeze date, all branches remain frozen to <em>new-feature pull requests opened after the deadline</em>.
+During this time, our focus is to review, merge, and forward-port eligible pull requests that were submitted <em>before</em> the freeze began.</p></li>
+<li><p><strong>Unfreezing Stable Branches:</strong> After this initial two-week period, branches for older, stable Gazebo releases will be “unfrozen.” New-feature pull requests targeting these branches can once again be opened and merged.</p></li>
+<li><p><strong>Protecting the <code class="docutils literal notranslate"><span class="pre">main</span></code> Branch:</strong> To ensure the stability of the upcoming release, features merged into stable branches during the freeze <strong>will not</strong> be forward-ported to <code class="docutils literal notranslate"><span class="pre">main</span></code> until after the release is complete.</p></li>
 </ul>
-</li>
-<li><p><a class="reference external" href="https://github.com/gazebosim/gz-gui/issues/586">Migrate from Qt5 to Qt6</a></p></li>
-<li><p><a class="reference external" href="https://github.com/gazebosim/gz-transport/issues/559">Use Zenoh in gz-transport</a></p></li>
-<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/2662">Create or improve interfaces for doing Reinforcement Learning using Gazebo</a></p></li>
-<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/1995">Create a federated third party plugin ecosystem</a></p></li>
-<li><p><a class="reference external" href="https://github.com/gazebosim/gz-tools/issues/7">Command line: use binaries instead of shared libraries</a></p></li>
-<li><p><a class="reference external" href="https://github.com/gazebosim/gz-sim/issues/1260">Download Fuel models on the background</a></p></li>
-<li><p><a class="reference external" href="https://github.com/gazebosim/rules_gazebo">Support Bazel for all Gazebo libraries</a></p></li>
-</ul>
-<p>Note that some of these roadmap items may be backported to older versions of Gazebo
-on a best-effort basis if they do not break API and ABI.</p>
+<p><strong>Exception</strong>: Branches shared between the upcoming release and older releases (which can happen to slowly changing packages such as <code class="docutils literal notranslate"><span class="pre">gz-cmake</span></code>) will remain fully frozen for the entire duration of the freeze.</p>
+</section>
+<section id="code-freeze">
+<h4>Code Freeze<a class="headerlink" href="#code-freeze" title="Link to this heading">#</a></h4>
+<p>After the code freeze date, only critical bug fixes and documentation updates may be merged.</p>
+</section>
+<section id="tutorial-party">
+<h4>Tutorial Party<a class="headerlink" href="#tutorial-party" title="Link to this heading">#</a></h4>
+<p>To make sure we have the best release possible the team goes over all the tutorials using pre-releases to check that everything is working as it should and make final tweaks.
+We invite the community to join the party! If you are new to Gazebo, this would be a great opportunity to get your feet wet.
+The tutorial party is also a great way for prospective interns and GSoC students to get familiar with Gazebo, meet the community, and close their first Github issue.
+The tutorials are hosted on <a class="github reference external" href="https://github.com/gazebosim/gazebo_test_cases">gazebosim/gazebo_test_cases</a> and instructions will be posted on <a class="reference external" href="https://discourse.openrobotics.org/">Discourse</a> a few weeks before the party starts.</p>
+</section>
+<section id="internal-qa-demo-preparation">
+<h4>Internal QA/Demo Preparation<a class="headerlink" href="#internal-qa-demo-preparation" title="Link to this heading">#</a></h4>
+<p>Every year, the Gazebo team prepares a demo to showcase all the new features in the upcoming release. During this period, the team works on finalizing the demo as well as making final package releases.</p>
+</section>
+<section id="community-meeting">
+<h4>Community Meeting<a class="headerlink" href="#community-meeting" title="Link to this heading">#</a></h4>
+<p>The demo mentioned above is presented to the community.</p>
+</section>
+<section id="official-announcement">
+<h4>Official Announcement<a class="headerlink" href="#official-announcement" title="Link to this heading">#</a></h4>
+<p>The official release announcement is made on <a class="reference external" href="https://discourse.openrobotics.org/">Discourse</a>.</p>
+</section>
+</section>
 </section>
 <section id="planned-releases">
 <h2>Planned releases<a class="headerlink" href="#planned-releases" title="Link to this heading">#</a></h2>
@@ -544,7 +615,19 @@ associated with each.</p></li>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gazebo-jetty-roadmap">Gazebo Jetty Roadmap</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gazebo-kura-roadmap">Gazebo Kura Roadmap</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gazebo-kura-release-timeline-2026">Gazebo Kura Release Timeline (2026)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#detailed-release-phase-guidelines">Detailed Release Phase Guidelines</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#feature-freeze">Feature Freeze</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#code-freeze">Code Freeze</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tutorial-party">Tutorial Party</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#internal-qa-demo-preparation">Internal QA/Demo Preparation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#community-meeting">Community Meeting</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#official-announcement">Official Announcement</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#planned-releases">Planned releases</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#contributing-to-gazebo">Contributing to Gazebo</a></li>
 </ul>
