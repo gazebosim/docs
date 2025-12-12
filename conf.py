@@ -27,6 +27,7 @@ import yaml
 
 from sphinx.application import Sphinx
 from sphinx.config import Config
+from pygments.lexers.shell import BatchLexer
 
 
 sys.path.append(str(Path(__file__).parent))
@@ -130,3 +131,4 @@ def setup(app: Sphinx):
     app.add_config_value("gz_root_index_file", "", rebuild="env", types=[str])
     app.connect("html-page-context", setup_file_map)
     app.connect("config-inited", config_init)
+    app.add_lexer("cmd", BatchLexer)

@@ -35,6 +35,31 @@ def _combine_nav(common_nav, release_nav):
         combined.insert(i + 1, item)
     return combined
 
+def _build_sphinx(src_dir, output_dir, variables, extra_args):
+    """Build arguments for running sphinx-build
+
+    Args:
+        src_dir (str): Source directory
+        output_dir (str): Output directory
+        variables (dict): Dictionary of variables passed with `-D`
+        extra_args (list): Extra arguments forwarded to sphinx
+    """
+    sphinx_args = [
+        "sphinx-build",
+        "--nitpicky",
+        "-b",
+        "dirhtml",
+        "--fail-on-warning",
+        str(src_dir),
+        str(output_dir),
+    ]
+
+    for key, val in variables.items():
+        sphinx_args.extend(["-D", f"{key}={val}"])
+
+    sphinx_args.extend(extra_args)
+
+    subprocess.run(sphinx_args, check=True)
 
 def copy_pages(pages, root_src_dir, dst):
     for page in pages:
@@ -331,14 +356,7 @@ def build_libs(gz_nav_yaml, src_dir, tmp_dir, build_dir):
 
     generate_libs(gz_nav_yaml, libs_dir)
 
-    sphinx_args = [
-        "sphinx-build",
-        "-b",
-        "dirhtml",
-        f"{libs_dir}",
-        f"{build_dir}",
-    ]
-    subprocess.run(sphinx_args)
+    _build_sphinx(libs_dir, build_dir, {}, [])
 
 
 def main(argv=None):
@@ -396,19 +414,12 @@ def main(argv=None):
     for release in args.releases:
         generate_sources(gz_nav_yaml, src_dir, tmp_dir, release)
         release_build_dir = build_docs_dir / release
-        sphinx_args = [
-            "sphinx-build",
-            "-b",
-            "dirhtml",
-            f"{tmp_dir/release}",
-            f"{release_build_dir }",
-            "-D",
-            f"gz_release={release}",
-            "-D",
-            f"gz_root_index_file={index_yaml}",
-            *unknown_args,
-        ]
-        subprocess.run(sphinx_args)
+        _build_sphinx(
+            tmp_dir / release,
+            release_build_dir,
+            {"gz_release": release, "gz_root_index_file": index_yaml},
+            unknown_args,
+        )
 
     # Handle "latest" and "all"
     release = preferred_release["name"]
@@ -425,19 +436,12 @@ def main(argv=None):
                         f"{pointer_tmp_dir} already exists and is not a symlink"
                     )
 
-            sphinx_args = [
-                "sphinx-build",
-                "-b",
-                "dirhtml",
-                f"{pointer_tmp_dir}",
-                f"{release_build_dir}",
-                "-D",
-                f"gz_release={release}",
-                "-D",
-                f"gz_root_index_file={index_yaml}",
-                *unknown_args,
-            ]
-            subprocess.run(sphinx_args)
+            _build_sphinx(
+                pointer_tmp_dir,
+                release_build_dir,
+                {"gz_release": release, "gz_root_index_file": index_yaml},
+                unknown_args,
+            )
 
         # Create a redirect to "/latest"
         redirect_page = build_docs_dir / "index.html"
