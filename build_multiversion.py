@@ -46,8 +46,10 @@ def _build_sphinx(src_dir, output_dir, variables, extra_args):
     """
     sphinx_args = [
         "sphinx-build",
+        "--nitpicky",
         "-b",
         "dirhtml",
+        "--fail-on-warning",
         str(src_dir),
         str(output_dir),
     ]
@@ -57,7 +59,7 @@ def _build_sphinx(src_dir, output_dir, variables, extra_args):
 
     sphinx_args.extend(extra_args)
 
-    subprocess.run(sphinx_args)
+    subprocess.run(sphinx_args, check=True)
 
 def copy_pages(pages, root_src_dir, dst):
     for page in pages:
