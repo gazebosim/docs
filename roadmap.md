@@ -16,7 +16,7 @@ willing to work on any of the items. Each item will have one or more point of
 contacts (POCs) who are Gazebo committers and who will be responsible for
 coordinating with a community member to get roadmap item implemented. The
 POC(s) will provide a description of the roadmap item on a Github issue as well
-some suggestions on how the feature should be implemented.
+as some suggestions on how the feature should be implemented.
 
 :::{note}
 Note that the roadmap may be adjusted during the development cycle and some
@@ -90,7 +90,7 @@ still need to access the ECM directly for more advanced user cases.
 #### Low fidelity, faster-than-realtime simulation
 
 * Full support for kinematic objects in dartsim and bullet
-* Support a mode where we sim runs kinematics mode without having to change the
+* Support a mode where sim runs kinematics mode without having to change the
 SDF.
 * {bdg-primary}`POC:` https://github.com/scpeters
 
