@@ -40,9 +40,9 @@ extensions = [
 
 templates_path = ["_templates"]
 
-source_suffix = [
-    ".md",
-]
+source_suffix = {
+    ".md": "markdown"
+}
 
 myst_heading_anchors = 4
 

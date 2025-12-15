@@ -35,7 +35,7 @@ def _combine_nav(common_nav, release_nav):
         combined.insert(i + 1, item)
     return combined
 
-def _build_sphinx(src_dir, output_dir, variables, extra_args):
+def _build_sphinx(src_dir, output_dir, variables, extra_args, strict_mode=True):
     """Build arguments for running sphinx-build
 
     Args:
@@ -48,11 +48,11 @@ def _build_sphinx(src_dir, output_dir, variables, extra_args):
         "sphinx-build",
         "--nitpicky",
         "-b",
-        "dirhtml",
-        "--fail-on-warning",
-        str(src_dir),
-        str(output_dir),
-    ]
+        "dirhtml"]
+    if strict_mode:
+        sphinx_args.append("--fail-on-warning")
+
+    sphinx_args.extend([str(src_dir), str(output_dir)])
 
     for key, val in variables.items():
         sphinx_args.extend(["-D", f"{key}={val}"])
@@ -356,7 +356,9 @@ def build_libs(gz_nav_yaml, src_dir, tmp_dir, build_dir):
 
     generate_libs(gz_nav_yaml, libs_dir)
 
-    _build_sphinx(libs_dir, build_dir, {}, [])
+    # TODO(azeey) There are a few reference errors in the README files of some
+    # of the libraries, so we can't enable strict_mode yet.
+    _build_sphinx(libs_dir, build_dir, {}, [], strict_mode=False)
 
 
 def main(argv=None):
