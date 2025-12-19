@@ -26,6 +26,24 @@ A Gazebo release follows the form "Gazebo Codename", for example Gazebo Acropoli
 | [Blueprint](https://gazebosim.org/docs/blueprint)        | May, 2019 | Dec, 2020 | EOL   |
 | [Acropolis](https://gazebosim.org/docs/acropolis)        | Feb, 2019 | Sep, 2019 | EOL   |
 
+~~~mermaid
+gantt
+    title Gazebo release support dates
+    dateFormat  YYYY-MM
+                          
+    Acropolis          :acropolis, 2019-02, 2019-09
+    Blueprint          :blueprint, 2019-05, 2020-12
+    Citadel            :citadel,   2019-12, 5y
+    Dome               :dome,      2020-09, 2021-12
+    Edifice            :edifice,   2021-03, 1y
+    Fortress    :crit, :fortress,  2021-09, 5y
+    Garden             :garden,    2022-09, 2024-11
+    Harmonic    :crit, :harmonic,  2023-09, 5y
+    Ionic       :crit, :ionic,     2024-09, 2y
+    Jetty       :crit, :jetty,     2025-09, 5y
+    Kura               :kura,      2026-08, 2y
+~~~
+
 ## Library Versions
 
 Gazebo adheres to [semantic versioning](https://semver.org), with the
