@@ -25,7 +25,7 @@ import sys
 import subprocess
 import yaml
 
-additional_shared_directories = ["images", "releasing"]
+
 
 
 def _combine_nav(common_nav, release_nav):
@@ -88,15 +88,50 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
     tmp_dir.mkdir(exist_ok=True)
     version_tmp_dir = tmp_dir / gz_release
 
+    # Start with a clean slate
+    if version_tmp_dir.exists():
+        shutil.rmtree(version_tmp_dir)
+
+    # 1. Copy all common files
+    shutil.copytree(root_src_dir / 'common', version_tmp_dir, dirs_exist_ok=True)
+
+    # 2. Copy release-specific files over the common ones
     shutil.copytree(version_src_dir, version_tmp_dir, dirs_exist_ok=True)
+
+    # 3. Copy sphinx infrastructure files
     for dir in ["_static", "_templates"]:
         shutil.copytree(root_src_dir / dir, version_tmp_dir / dir, dirs_exist_ok=True)
-
     shutil.copy2(root_src_dir / "base_conf.py", version_tmp_dir)
     shutil.copy2(root_src_dir / "conf.py", version_tmp_dir)
 
-    for dir in additional_shared_directories:
-        shutil.copytree(root_src_dir / dir, version_tmp_dir / dir, dirs_exist_ok=True)
+    # 4. Generate the name -> source path map for "Edit on GitHub" links
+    with open(version_tmp_dir / "index.yaml") as f:
+        version_nav_yaml = yaml.safe_load(f)
+
+    name_to_source_map = {}
+    
+    def build_name_to_source_map(pages):
+        for page in pages:
+            name = page.get("name")
+            source_file = page.get("file")
+            if not (name and source_file):
+                continue
+
+            if source_file.startswith("common:"):
+                source_path = source_file.replace("common:", "common/")
+            else:
+                source_path = f"{gz_release}/{source_file}"
+            name_to_source_map[name] = source_path
+            
+            if "children" in page:
+                build_name_to_source_map(page["children"])
+
+    if "pages" in version_nav_yaml:
+        build_name_to_source_map(version_nav_yaml["pages"])
+
+    map_path = version_tmp_dir / 'name_to_source.json'
+    with open(map_path, 'w') as f:
+        json.dump(name_to_source_map, f, indent=2)
 
     deploy_url = os.environ.get("GZ_DEPLOY_URL", "")
     # Write switcher.json file
@@ -122,116 +157,82 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
     static_dir = version_tmp_dir / "_static"
     static_dir.mkdir(exist_ok=True)
     json.dump(switcher, open(static_dir / "switcher.json", "w"))
+    # 5. Load navigation
+    combined_nav = _combine_nav(gz_nav_yaml.get("pages", []), version_nav_yaml.get("pages", []))
 
     def handle_file_url_rename(file_path, file_url):
         computed_url, ext = os.path.splitext(file_path)
-        # print("renames:", file_path, file_url)
         if file_url != computed_url:
             new_path = file_url + ext
-            # If the file url is inside a directory, we want the new path to end up in the same directory
-            # print("Moving", version_tmp_dir / file_path, version_tmp_dir / new_path)
             shutil.move(version_tmp_dir / file_path, version_tmp_dir / new_path)
             return new_path
         return file_path
 
     toc_directives = ["{toctree}", ":hidden:", ":maxdepth: 1", ":titlesonly:"]
 
-    def copy_common_pages(pages, root_src_dir, dst):
-        for page in pages:
-            file_path_str = page.get("file")
-            if not file_path_str:
-                if "children" in page:
-                    copy_common_pages(page["children"], root_src_dir, dst)
-                continue
+    nav_md = []
+    # TODO(azeey) Make this recursive so multiple levels of
+    # 'children' can be supported.
+    for page in combined_nav:
+        file_url = page["name"]
+        file_path_from_yaml = page["file"]
+        if file_path_from_yaml.startswith("common:"):
+            file_path = file_path_from_yaml.replace("common:", "")
+        else:
+            file_path = file_path_from_yaml
 
-            if file_path_str.startswith("common:"):
-                base_filename = file_path_str.replace("common:", "")
-                src_path = root_src_dir / "common" / base_filename
-                dst_path = dst / base_filename
+        children = page.get("children")
+        nav_md.append(f"{page['title']} <{page['name']}>")
+        new_file_path = handle_file_url_rename(file_path, file_url)
 
-                if dst_path.parent != dst:
-                    dst_path.parent.mkdir(parents=True, exist_ok=True)
+        if children:
+            child_md = []
+            for child in children:
+                file_url = child["name"]
+                child_file_path_from_yaml = child["file"]
+                if child_file_path_from_yaml.startswith("common:"):
+                    child_file_path = child_file_path_from_yaml.replace("common:", "")
+                else:
+                    child_file_path = child_file_path_from_yaml
+                handle_file_url_rename(child_file_path, file_url)
+                child_md.append(f"{child['title']} <{file_url}>")
 
-                if not src_path.exists():
-                    print(f"Warning: Common file not found: {src_path}", file=sys.stderr)
-                    continue
+            with open(version_tmp_dir / new_file_path, "a") as ind_f:
+                # Include {toctree} for children below the .md text
+                ind_f.write("\n```")
+                ind_f.write("\n".join(toc_directives) + "\n")
+                ind_f.writelines("\n".join(child_md) + "\n")
+                ind_f.write("```\n")
 
-                shutil.copy2(src_path, dst_path)
+    library_reference_nav = "library_reference_nav"
+    libraries = release_info["libraries"]
+    if libraries:
+        nav_md.append(library_reference_nav)
+        # Add Library Reference
+        with open(version_tmp_dir / f"{library_reference_nav}.md", "w") as ind_f:
+            ind_f.write("# Library Reference\n\n")
+            ind_f.write("```")
+            ind_f.write("{toctree}\n")
+            for library in libraries:
+                ind_f.write(
+                    f"{library['name']} <https://gazebosim.org/api/{library['name']}/{library['version']}>\n"
+                )
+            ind_f.write("```\n\n")
 
-            if "children" in page:
-                copy_common_pages(page["children"], root_src_dir, dst)
-
-    with open(version_tmp_dir / "index.yaml") as f:
-        version_nav_yaml = yaml.safe_load(f)
-
-        if "pages" in version_nav_yaml:
-            copy_common_pages(version_nav_yaml["pages"], root_src_dir, version_tmp_dir)
-
-        combined_nav = _combine_nav(gz_nav_yaml.get("pages", []), version_nav_yaml.get("pages", []))
-
-        nav_md = []
-        # TODO(azeey) Make this recursive so multiple levels of
-        # 'children' can be supported.
-        for page in combined_nav:
-            file_url = page["name"]
-            file_path_from_yaml = page["file"]
-            if file_path_from_yaml.startswith("common:"):
-                file_path = file_path_from_yaml.replace("common:", "")
-            else:
-                file_path = file_path_from_yaml
-
-            children = page.get("children")
-            nav_md.append(f"{page['title']} <{page['name']}>")
-            new_file_path = handle_file_url_rename(file_path, file_url)
-
-            if children:
-                child_md = []
-                for child in children:
-                    file_url = child["name"]
-                    child_file_path_from_yaml = child["file"]
-                    if child_file_path_from_yaml.startswith("common:"):
-                        child_file_path = child_file_path_from_yaml.replace("common:", "")
-                    else:
-                        child_file_path = child_file_path_from_yaml
-                    handle_file_url_rename(child_file_path, file_url)
-                    child_md.append(f"{child['title']} <{file_url}>")
-
-                with open(version_tmp_dir / new_file_path, "a") as ind_f:
-                    # Include {toctree} for children below the .md text
-                    ind_f.write("\n```")
-                    ind_f.write("\n".join(toc_directives) + "\n")
-                    ind_f.writelines("\n".join(child_md) + "\n")
-                    ind_f.write("```\n")
-
-        library_reference_nav = "library_reference_nav"
-        libraries = release_info["libraries"]
-        if libraries:
-            nav_md.append(library_reference_nav)
-            # Add Library Reference
-            with open(version_tmp_dir / f"{library_reference_nav}.md", "w") as ind_f:
-                ind_f.write("# Library Reference\n\n")
-                ind_f.write("```")
-                ind_f.write("{toctree}\n")
-                for library in libraries:
-                    ind_f.write(
-                        f"{library['name']} <https://gazebosim.org/api/{library['name']}/{library['version']}>\n"
-                    )
-                ind_f.write("```\n\n")
-
-        with open(version_tmp_dir / "index.md", "w") as ind_f:
-            ind_f.write(
-                """---
+    with open(version_tmp_dir / "index.md", "w") as ind_f:
+        ind_f.write(
+            """---
 myst:
     html_meta:
-      "http-equiv=refresh": "0; url=getstarted"
+        "http-equiv=refresh": "0; url=getstarted"
 ---
 """
-            )
-            ind_f.write("# Index\n\n")
-            ind_f.write("```")
-            ind_f.write("\n".join(toc_directives) + "\n")
-            ind_f.writelines("\n".join(nav_md) + "\n")
-            ind_f.write("```\n\n")
+        )
+        ind_f.write("# Index\n\n")
+        ind_f.write("```")
+        ind_f.write("\n".join(toc_directives) + "\n")
+        ind_f.writelines("\n".join(nav_md) + "\n")
+        ind_f.write("```\n\n")
 
 
 def get_preferred_release(releases: dict):
