@@ -1,30 +1,4 @@
-# Gazebo Tutorials
-
-These tutorials cover general concepts to help get you started with Gazebo.
-
-## Basics tutorials
-
-* [Building Your Own Robot](building_robot)
-* [Moving the Robot](moving_robot)
-* [SDF Worlds](sdf_worlds)
-* [Sensors](sensors)
-* [Actors](actors)
-
-## GUI tutorials
-
-* [Understanding the GUI](gui)
-* [Manipulating Models](manipulating_models)
-* [Model Insertion from Fuel](fuel_insert)
-* [Keyboard Shortcuts](hotkeys)
-
-## ROS integration
-
-* [Spawn URDF](spawn_urdf)
-* [ROS 2 Integration via Bridge](ros2_integration)
-* [ROS 2 Interoperability](ros2_interop)
-* [ROS 2 Integration Template](ros_gz_project_template_guide)
-
-## Per-library tutorials
+# Gazebo Library How-To Guides
 
 See the *API & Tutorials* sections on the [Libraries page](/libs){.external} page for more specific content correlating to each Gazebo library.
 

@@ -20,6 +20,7 @@ import json
 import os
 import requests
 import shutil
+import textwrap
 import sys
 import subprocess
 import yaml
@@ -149,38 +150,72 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
             return new_path
         return file_path
 
-    toc_directives = ["{toctree}", ":hidden:", ":maxdepth: 1", ":titlesonly:"]
 
-    nav_md = []
-    # TODO(azeey) Make this recursive so multiple levels of
-    # 'children' can be supported.
+    def create_toctrees(pages):
+        nav_md = []
+        for page in pages:
+            maybe_hidden = ":hidden:"
+            file_url = page["name"]
+
+            # TODO(azeey) Document
+            if "file" in page:
+                file_path = page["file"].replace("common:", "")
+                new_file_path = handle_file_url_rename(file_path, file_url)
+            else:
+                new_file_path = f"{file_url}.md"
+                maybe_hidden = ""
+                print(f"Page {page['name']}: {page['title']} not hidden")
+                with open(version_tmp_dir / new_file_path, "w") as ind_f:
+                    ind_f.write(f"# {page['title']}\n")
+
+            nav_md.append(f"{page['title']} <{file_url}>")
+            children = page.get("children")
+            if children:
+                child_md = create_toctrees(children)
+                with open(version_tmp_dir / new_file_path, "a") as ind_f:
+                    # Include {toctree} for children below the .md text
+                    ind_f.write(textwrap.dedent(f"""
+                        ```{{toctree}}
+                        :maxdepth: 1
+                        :titlesonly:
+                        {maybe_hidden}
+                        """))
+                    ind_f.write("\n".join(child_md))
+                    ind_f.write("\n```\n")
+        return nav_md
+
+    index_toc ="# Index\n\n"
     for page in version_nav_yaml["pages"]:
-        file_url = page["name"]
-        file_path = page["file"].replace("common:", "")
+        if "section" not in page:
+            print(
+                "The top level item in the pages entry of index.yaml should be a 'section'.\n"
+                f"Found {page}"
+            )
+            sys.exit(1)
+        index_toc += textwrap.dedent(f"""\
+        ```{{toctree}}
+        :hidden:
+        :maxdepth: 1
+        :titlesonly:
+        :caption: {page["section"]}
+        """)
 
-        children = page.get("children")
-        nav_md.append(f"{page['title']} <{page['name']}>")
-        new_file_path = handle_file_url_rename(file_path, file_url)
-
-        if children:
-            child_md = []
-            for child in children:
-                file_url = child["name"]
-                child_file_path = child["file"].replace("common:", "")
-                handle_file_url_rename(child_file_path, file_url)
-                child_md.append(f"{child['title']} <{file_url}>")
-
-            with open(version_tmp_dir / new_file_path, "a") as ind_f:
-                # Include {toctree} for children below the .md text
-                ind_f.write("\n```")
-                ind_f.write("\n".join(toc_directives) + "\n")
-                ind_f.writelines("\n".join(child_md) + "\n")
-                ind_f.write("```\n")
+        nav_md = create_toctrees(page["children"])
+        index_toc += "\n".join(nav_md) + "\n"
+        index_toc += "```\n\n"
 
     library_reference_nav = "library_reference_nav"
     libraries = release_info["libraries"]
     if libraries:
-        nav_md.append(library_reference_nav)
+        index_toc += textwrap.dedent(f"""\
+        ```{{toctree}}
+        :hidden:
+        :maxdepth: 1
+        :titlesonly:
+        :caption: API Reference
+        {library_reference_nav}
+        ```
+        """)
         # Add Library Reference
         with open(version_tmp_dir / f"{library_reference_nav}.md", "w") as ind_f:
             ind_f.write("# Library Reference\n\n")
@@ -190,22 +225,18 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
                 ind_f.write(
                     f"{library['name']} <https://gazebosim.org/api/{library['name']}/{library['version']}>\n"
                 )
-            ind_f.write("```\n\n")
+            ind_f.write("```\n")
 
     with open(version_tmp_dir / "index.md", "w") as ind_f:
         ind_f.write(
             """---
 myst:
     html_meta:
-        "http-equiv=refresh": "0; url=getstarted"
+      "http-equiv=refresh": "0; url=getstarted"
 ---
 """
         )
-        ind_f.write("# Index\n\n")
-        ind_f.write("```")
-        ind_f.write("\n".join(toc_directives) + "\n")
-        ind_f.writelines("\n".join(nav_md) + "\n")
-        ind_f.write("```\n\n")
+        ind_f.write(index_toc)
 
 
 def get_preferred_release(releases: dict):
