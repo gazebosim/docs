@@ -16,7 +16,6 @@
 from pathlib import Path
 from string import Template
 import argparse
-import copy
 import json
 import os
 import requests
@@ -27,15 +26,6 @@ import yaml
 
 
 
-
-def _combine_nav(common_nav, release_nav):
-    if not common_nav:
-        return copy.deepcopy(release_nav)
-    combined = copy.deepcopy(common_nav)
-    # Release are added after 'get_started'
-    for i, item in enumerate(release_nav):
-        combined.insert(i + 1, item)
-    return combined
 
 def _build_sphinx(src_dir, output_dir, variables, extra_args, strict_mode=True):
     """Build arguments for running sphinx-build
@@ -150,7 +140,6 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
     # 5. Load navigation
     with open(version_tmp_dir / "index.yaml") as f:
         version_nav_yaml = yaml.safe_load(f)
-    combined_nav = _combine_nav(gz_nav_yaml.get("pages", []), version_nav_yaml.get("pages", []))
 
     def handle_file_url_rename(file_path, file_url):
         computed_url, ext = os.path.splitext(file_path)
@@ -165,7 +154,7 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
     nav_md = []
     # TODO(azeey) Make this recursive so multiple levels of
     # 'children' can be supported.
-    for page in combined_nav:
+    for page in version_nav_yaml["pages"]:
         file_url = page["name"]
         file_path = page["file"].replace("common:", "")
 
