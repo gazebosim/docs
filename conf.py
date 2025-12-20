@@ -71,10 +71,16 @@ def get_preferred_release(releases: dict):
 def create_file_rename_map(nav_yaml_pages, release):
     file_name_map = {}
 
-    prefix = f"{release}/" if release is not None else ""
-
     for page in nav_yaml_pages:
-        file_name_map[page["name"]] = f"{prefix}{page['file']}"
+        source_path = page['file']
+        if source_path.startswith("common:"):
+            # It's a common file, path is relative to repo root
+            final_path = source_path.replace("common:", "common/")
+        else:
+            # It's a release-specific file, path is relative to release dir
+            final_path = f"{release}/{source_path}"
+        
+        file_name_map[page["name"]] = final_path
 
         children = page.get("children")
         if children:
@@ -90,9 +96,6 @@ def config_init(app: Sphinx, config: Config):
     config.version = config.gz_release  # type: ignore
 
     file_name_map = {}
-
-    with open(app.config.gz_root_index_file) as f:
-        file_name_map.update(create_file_rename_map(yaml.safe_load(f)["pages"], None))
 
     with open(Path(app.srcdir) / "index.yaml") as f:
         file_name_map.update(

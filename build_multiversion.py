@@ -29,6 +29,8 @@ additional_shared_directories = ["images", "releasing"]
 
 
 def _combine_nav(common_nav, release_nav):
+    if not common_nav:
+        return copy.deepcopy(release_nav)
     combined = copy.deepcopy(common_nav)
     # Release are added after 'get_started'
     for i, item in enumerate(release_nav):
@@ -61,15 +63,7 @@ def _build_sphinx(src_dir, output_dir, variables, extra_args, strict_mode=True):
 
     subprocess.run(sphinx_args, check=True)
 
-def copy_pages(pages, root_src_dir, dst):
-    for page in pages:
-        full_dst = Path(dst) / page["file"]
-        if full_dst.parent != dst:
-            full_dst.parent.mkdir(parents=True, exist_ok=True)
 
-        shutil.copy2(root_src_dir / page["file"], full_dst)
-        if "children" in page:
-            copy_pages(page["children"], root_src_dir, dst)
 
 
 def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
@@ -103,8 +97,6 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
 
     for dir in additional_shared_directories:
         shutil.copytree(root_src_dir / dir, version_tmp_dir / dir, dirs_exist_ok=True)
-
-    copy_pages(gz_nav_yaml["pages"], root_src_dir, version_tmp_dir)
 
     deploy_url = os.environ.get("GZ_DEPLOY_URL", "")
     # Write switcher.json file
@@ -144,16 +136,49 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
 
     toc_directives = ["{toctree}", ":hidden:", ":maxdepth: 1", ":titlesonly:"]
 
+    def copy_common_pages(pages, root_src_dir, dst):
+        for page in pages:
+            file_path_str = page.get("file")
+            if not file_path_str:
+                if "children" in page:
+                    copy_common_pages(page["children"], root_src_dir, dst)
+                continue
+
+            if file_path_str.startswith("common:"):
+                base_filename = file_path_str.replace("common:", "")
+                src_path = root_src_dir / "common" / base_filename
+                dst_path = dst / base_filename
+
+                if dst_path.parent != dst:
+                    dst_path.parent.mkdir(parents=True, exist_ok=True)
+
+                if not src_path.exists():
+                    print(f"Warning: Common file not found: {src_path}", file=sys.stderr)
+                    continue
+
+                shutil.copy2(src_path, dst_path)
+
+            if "children" in page:
+                copy_common_pages(page["children"], root_src_dir, dst)
+
     with open(version_tmp_dir / "index.yaml") as f:
         version_nav_yaml = yaml.safe_load(f)
-        combined_nav = _combine_nav(gz_nav_yaml["pages"], version_nav_yaml["pages"])
+
+        if "pages" in version_nav_yaml:
+            copy_common_pages(version_nav_yaml["pages"], root_src_dir, version_tmp_dir)
+
+        combined_nav = _combine_nav(gz_nav_yaml.get("pages", []), version_nav_yaml.get("pages", []))
 
         nav_md = []
         # TODO(azeey) Make this recursive so multiple levels of
         # 'children' can be supported.
         for page in combined_nav:
             file_url = page["name"]
-            file_path = page["file"]
+            file_path_from_yaml = page["file"]
+            if file_path_from_yaml.startswith("common:"):
+                file_path = file_path_from_yaml.replace("common:", "")
+            else:
+                file_path = file_path_from_yaml
 
             children = page.get("children")
             nav_md.append(f"{page['title']} <{page['name']}>")
@@ -163,13 +188,17 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
                 child_md = []
                 for child in children:
                     file_url = child["name"]
-                    file_path = child["file"]
-                    handle_file_url_rename(file_path, file_url)
+                    child_file_path_from_yaml = child["file"]
+                    if child_file_path_from_yaml.startswith("common:"):
+                        child_file_path = child_file_path_from_yaml.replace("common:", "")
+                    else:
+                        child_file_path = child_file_path_from_yaml
+                    handle_file_url_rename(child_file_path, file_url)
                     child_md.append(f"{child['title']} <{file_url}>")
 
                 with open(version_tmp_dir / new_file_path, "a") as ind_f:
                     # Include {toctree} for children below the .md text
-                    ind_f.write("\n```") 
+                    ind_f.write("\n```")
                     ind_f.write("\n".join(toc_directives) + "\n")
                     ind_f.writelines("\n".join(child_md) + "\n")
                     ind_f.write("```\n")

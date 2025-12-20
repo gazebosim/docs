@@ -4,96 +4,185 @@
 #
 # Components of the index:
 #
-# 1. "pages:" The master list of pages
-#
-# 2. Each page has a
-#    a. "name:" This should be a short url-friendly and unique name. It will
-#    be used in the website url.
-#
-#    b. "title:" This is a human-friendly title for the page. This title will
-#    be displayed on the website's left side bar.
-#
-#    c. "file:" The markdown file that contains the page's content.
 pages:
-  - name: install
-    title: Install
-    file: install.md
-    description: Garden installation instructions
-    children:
-      - name: install_ubuntu
-        title: Binary Ubuntu Install
-        file: install_ubuntu.md
-      - name: install_osx
-        title: Binary macOS Install
-        file: install_osx.md
-      - name: install_windows
-        title: Binary Windows Install
-        file: install_windows.md
-      - name: install_ubuntu_src
-        title: Ubuntu Source Install
-        file: install_ubuntu_src.md
-      - name: install_osx_src
-        title: macOS Source Install
-        file: install_osx_src.md
-      - name: install_windows_src
-        title: Windows Source Install
-        file: install_windows_src.md
-      - name: troubleshooting
-        title: Troubleshooting
-        file: troubleshooting.md
-  - name: migration_from_ignition
-    title: Migration from Ignition
-    file: migration_from_ignition.md
-    description: Migration from the Ignition name
-
-  - name: comparison
-    title: Feature Comparison
-    file: comparison.md
-    description: A list of features present in Gazebo-classic and the status of their migration to Gazebo.
-  - name: tutorials
-    title: Tutorials
-    file: tutorials.md
-    children:
-      - name: building_robot
-        title: Building your own robot
-        file: building_robot.md
-      - name: moving_robot
-        title: Moving the robot
-        file: moving_robot.md
-      - name: sdf_worlds
-        title: SDF worlds
-        file: sdf_worlds.md
-      - name: sensors
-        title: Sensors
-        file: sensors.md
-      - name: actors
-        title: Actors
-        file: actors.md
-      - name: gui
-        title: Understanding the GUI
-        file: GUI_tutorial.md
-      - name: manipulating_models
-        title: Manipulating Models
-        file: Manipulating_models.md
-      - name: fuel_insert
-        title: Model Insertion from Fuel
-        file: Model_insertion_fuel.md
-      - name: hotkeys
-        title: Keyboard Shortcuts
-        file: hotkeys.md
-        description: Gazebo keyboard shortcuts
-      - name: spawn_urdf
-        title: Spawn URDF
-        file: spawn_urdf.md
-      - name: ros2_integration
-        title: ROS 2 integration via bridge
-        file: ros2_integration.md
-      - name: ros2_interop
-        title: ROS 2 interoperability
-        file: ros2_interop.md
-      - name: ros_gz_project_template_guide
-        title: ROS 2 integration template
-        file: ros_gz_project_template_guide.md
-      - name: web_visualization
-        title: Web Visualization
-        file: web_visualization.md
+- name: getstarted
+  title: Get Started
+  file: common:get_started.md
+  description: Getting started with Gazebo.
+- name: install
+  title: Install
+  file: install.md
+  description: Garden installation instructions
+  children:
+  - name: install_ubuntu
+    title: Binary Ubuntu Install
+    file: install_ubuntu.md
+  - name: install_osx
+    title: Binary macOS Install
+    file: install_osx.md
+  - name: install_windows
+    title: Binary Windows Install
+    file: install_windows.md
+  - name: install_ubuntu_src
+    title: Ubuntu Source Install
+    file: install_ubuntu_src.md
+  - name: install_osx_src
+    title: macOS Source Install
+    file: install_osx_src.md
+  - name: install_windows_src
+    title: Windows Source Install
+    file: install_windows_src.md
+  - name: troubleshooting
+    title: Troubleshooting
+    file: troubleshooting.md
+- name: migration_from_ignition
+  title: Migration from Ignition
+  file: migration_from_ignition.md
+  description: Migration from the Ignition name
+- name: comparison
+  title: Feature Comparison
+  file: comparison.md
+  description: A list of features present in Gazebo-classic and the status of their
+    migration to Gazebo.
+- name: tutorials
+  title: Tutorials
+  file: tutorials.md
+  children:
+  - name: building_robot
+    title: Building your own robot
+    file: building_robot.md
+  - name: moving_robot
+    title: Moving the robot
+    file: moving_robot.md
+  - name: sdf_worlds
+    title: SDF worlds
+    file: sdf_worlds.md
+  - name: sensors
+    title: Sensors
+    file: sensors.md
+  - name: actors
+    title: Actors
+    file: actors.md
+  - name: gui
+    title: Understanding the GUI
+    file: GUI_tutorial.md
+  - name: manipulating_models
+    title: Manipulating Models
+    file: Manipulating_models.md
+  - name: fuel_insert
+    title: Model Insertion from Fuel
+    file: Model_insertion_fuel.md
+  - name: hotkeys
+    title: Keyboard Shortcuts
+    file: hotkeys.md
+    description: Gazebo keyboard shortcuts
+  - name: spawn_urdf
+    title: Spawn URDF
+    file: spawn_urdf.md
+  - name: ros2_integration
+    title: ROS 2 integration via bridge
+    file: ros2_integration.md
+  - name: ros2_interop
+    title: ROS 2 interoperability
+    file: ros2_interop.md
+  - name: ros_gz_project_template_guide
+    title: ROS 2 integration template
+    file: ros_gz_project_template_guide.md
+  - name: web_visualization
+    title: Web Visualization
+    file: web_visualization.md
+- name: ros_installation
+  title: ROS/Gazebo Installation
+  file: common:ros_installation.md
+  description: Ros and Gazebo options and combinations
+  children:
+  - name: ros2_gz_vendor_pkgs
+    title: ROS 2 Gazebo Vendor Packages
+    file: common:ros2_gz_vendor_pkgs.md
+    description: Using ROS 2 Gazebo Vendor packages
+- name: setup_gazebo_in_ci
+  title: Continuous Integration For Gazebo Packages
+  file: common:setup_gazebo_in_ci.md
+  description: Instruction on using setup-gazebo
+- name: gazebo_classic_migration
+  title: Gazebo Classic Migration
+  file: common:gazebo_classic_migration.md
+  description: Guides for migrating from Gazebo Classic to the new Gazebo
+  children:
+  - name: install_gz11_side_by_side
+    title: Installing Gazebo11 side by side with new Gazebo
+    file: common:install_gz11_side_by_side.md
+    description: How to install gazebo11 and new Gazebo together
+  - name: migrating_gazebo_classic_ros2_packages
+    title: Migration from ROS 2 Gazebo Classic
+    file: common:migrating_gazebo_classic_ros2_packages.md
+    description: A tutorial on how to migrate a ROS 2 package that uses Gazebo Classic
+      to the new Gazebo
+- name: roadmap
+  title: Roadmap
+  file: common:roadmap.md
+  description: Our development plans.
+- name: release-features
+  title: Release Features
+  file: common:release_features.md
+  description: Features available in each Gazebo release.
+- name: releases
+  title: Releases
+  file: common:releases.md
+  description: Past, current, and future release information.
+- name: governance
+  title: Governance
+  file: common:governance.md
+  description: Governance of the Gazebo project under the OSRA
+- name: development
+  title: Development
+  file: common:development.md
+  description: Gazebo development information
+  children:
+  - name: contributing
+    title: Contributing
+    file: common:contributing.md
+    description: How to contribute to Gazebo.
+  - name: ci
+    title: Continuous Integration
+    file: common:ci.md
+    description: Continuous Integration overview.
+  - name: release
+    title: Release process
+    file: common:release.md
+    description: Release process overview.
+  - name: releases-instructions
+    title: Release Instructions
+    file: common:release_instructions.md
+    description: How Gazebo releases are generated.
+- name: architecture
+  title: Sim Architecture
+  file: common:architecture.md
+  description: Gazebo Sim's architecture overview.
+- name: fuel
+  title: Fuel
+  file: common:fuel/about.md
+  description: Fuel information
+  children:
+  - name: fuel_content_deletion_policy
+    title: Content Deletion Policy
+    file: common:fuel/content_deletion_policy.md
+  - name: fuel_contributing_model
+    title: Contributing New Model
+    file: common:fuel/contributing_model.md
+  - name: fuel_contributing_world
+    title: Contributing New World
+    file: common:fuel/contributing_world.md
+  - name: fuel_copyright
+    title: Copyright
+    file: common:fuel/copyright.md
+  - name: fuel_data_policy
+    title: Data and Privacy Policy
+    file: common:fuel/data_privacy_policy.md
+  - name: fuel_fair_use
+    title: What is Fair Use
+    file: common:fuel/fair_use.md
+- name: projects_using_gazebo
+  title: Projects using Gazebo
+  file: common:projects_using_gazebo.md
+  description: List of projects using Gazebo
