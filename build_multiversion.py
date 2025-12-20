@@ -104,34 +104,24 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
     shutil.copy2(root_src_dir / "base_conf.py", version_tmp_dir)
     shutil.copy2(root_src_dir / "conf.py", version_tmp_dir)
 
-    # 4. Generate the name -> source path map for "Edit on GitHub" links
-    with open(version_tmp_dir / "index.yaml") as f:
-        version_nav_yaml = yaml.safe_load(f)
-
-    name_to_source_map = {}
-    
-    def build_name_to_source_map(pages):
-        for page in pages:
-            name = page.get("name")
-            source_file = page.get("file")
-            if not (name and source_file):
-                continue
-
-            if source_file.startswith("common:"):
-                source_path = source_file.replace("common:", "common/")
-            else:
-                source_path = f"{gz_release}/{source_file}"
-            name_to_source_map[name] = source_path
+    # 4. Generate the source manifest for "Edit on GitHub" links
+    manifest = {}
+    # First, add all common files.
+    common_dir = root_src_dir / 'common'
+    for path in common_dir.glob('**/*'):
+        if path.is_file():
+            rel_path = path.relative_to(common_dir)
+            manifest[str(rel_path)] = f"common/{rel_path}"
             
-            if "children" in page:
-                build_name_to_source_map(page["children"])
+    # Then, add/overwrite with release-specific files.
+    for path in Path(version_src_dir).glob('**/*'):
+        if path.is_file():
+            rel_path = path.relative_to(version_src_dir)
+            manifest[str(rel_path)] = f"{gz_release}/{rel_path}"
 
-    if "pages" in version_nav_yaml:
-        build_name_to_source_map(version_nav_yaml["pages"])
-
-    map_path = version_tmp_dir / 'name_to_source.json'
-    with open(map_path, 'w') as f:
-        json.dump(name_to_source_map, f, indent=2)
+    manifest_path = version_tmp_dir / 'source_manifest.json'
+    with open(manifest_path, 'w') as f:
+        json.dump(manifest, f, indent=2)
 
     deploy_url = os.environ.get("GZ_DEPLOY_URL", "")
     # Write switcher.json file
@@ -158,6 +148,8 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
     static_dir.mkdir(exist_ok=True)
     json.dump(switcher, open(static_dir / "switcher.json", "w"))
     # 5. Load navigation
+    with open(version_tmp_dir / "index.yaml") as f:
+        version_nav_yaml = yaml.safe_load(f)
     combined_nav = _combine_nav(gz_nav_yaml.get("pages", []), version_nav_yaml.get("pages", []))
 
     def handle_file_url_rename(file_path, file_url):
@@ -175,11 +167,7 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
     # 'children' can be supported.
     for page in combined_nav:
         file_url = page["name"]
-        file_path_from_yaml = page["file"]
-        if file_path_from_yaml.startswith("common:"):
-            file_path = file_path_from_yaml.replace("common:", "")
-        else:
-            file_path = file_path_from_yaml
+        file_path = page["file"].replace("common:", "")
 
         children = page.get("children")
         nav_md.append(f"{page['title']} <{page['name']}>")
@@ -189,11 +177,7 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
             child_md = []
             for child in children:
                 file_url = child["name"]
-                child_file_path_from_yaml = child["file"]
-                if child_file_path_from_yaml.startswith("common:"):
-                    child_file_path = child_file_path_from_yaml.replace("common:", "")
-                else:
-                    child_file_path = child_file_path_from_yaml
+                child_file_path = child["file"].replace("common:", "")
                 handle_file_url_rename(child_file_path, file_url)
                 child_md.append(f"{child['title']} <{file_url}>")
 
