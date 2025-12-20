@@ -166,7 +166,13 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
                 maybe_hidden = ""
                 print(f"Page {page['name']}: {page['title']} not hidden")
                 with open(version_tmp_dir / new_file_path, "w") as ind_f:
-                    ind_f.write(f"# {page['title']}\n")
+                    ind_f.write(textwrap.dedent(f"""\
+                        ---
+                        html_theme.sidebar_secondary.remove: true
+                        ---
+
+                        # {page['title']}
+                        """))
 
             nav_md.append(f"{page['title']} <{file_url}>")
             children = page.get("children")
@@ -218,6 +224,7 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
         """)
         # Add Library Reference
         with open(version_tmp_dir / f"{library_reference_nav}.md", "w") as ind_f:
+            ind_f.write("---\nhtml_theme.sidebar_secondary.remove: true\n---\n\n")
             ind_f.write("# Library Reference\n\n")
             ind_f.write("```")
             ind_f.write("{toctree}\n")
