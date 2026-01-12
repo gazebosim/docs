@@ -35,6 +35,7 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_design",
     "sphinxcontrib.googleanalytics",
+    "sphinxcontrib.mermaid",
     # 'sphinx_sitemap',
 ]
 
@@ -63,6 +64,8 @@ myst_enable_extensions = [
     "substitution",
     "tasklist",
 ]
+
+myst_fence_as_directive = ["mermaid"]
 
 nitpicky = True
 # -- Options for HTML output -------------------------------------------------
