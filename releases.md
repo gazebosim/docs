@@ -29,6 +29,7 @@ A Gazebo release follows the form "Gazebo Codename", for example Gazebo Acropoli
 ~~~mermaid
 gantt
     title Gazebo release support dates
+    axisFormat %Y
     dateFormat  YYYY-MM
                           
     Acropolis          :acropolis, 2019-02, 2019-09
