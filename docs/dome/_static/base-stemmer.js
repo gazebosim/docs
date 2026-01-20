@@ -1,0 +1,1 @@
+../../../libs/_static/base-stemmer.js
