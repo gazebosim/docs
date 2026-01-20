@@ -32,17 +32,17 @@ gantt
     axisFormat %Y
     dateFormat  YYYY-MM
                           
-    Acropolis          :acropolis, 2019-02, 2019-09
-    Blueprint          :blueprint, 2019-05, 2020-12
-    Citadel            :citadel,   2019-12, 5y
-    Dome               :dome,      2020-09, 2021-12
-    Edifice            :edifice,   2021-03, 1y
-    Fortress    :crit, :fortress,  2021-09, 5y
-    Garden             :garden,    2022-09, 2024-11
-    Harmonic    :crit, :harmonic,  2023-09, 5y
-    Ionic       :crit, :ionic,     2024-09, 2y
-    Jetty       :crit, :jetty,     2025-09, 5y
     Kura               :kura,      2026-08, 2y
+    Jetty       :crit, :jetty,     2025-09, 5y
+    Ionic       :crit, :ionic,     2024-09, 2y
+    Harmonic    :crit, :harmonic,  2023-09, 5y
+    Garden             :garden,    2022-09, 2024-11
+    Fortress    :crit, :fortress,  2021-09, 5y
+    Edifice            :edifice,   2021-03, 1y
+    Dome               :dome,      2020-09, 2021-12
+    Citadel            :citadel,   2019-12, 5y
+    Blueprint          :blueprint, 2019-05, 2020-12
+    Acropolis          :acropolis, 2019-02, 2019-09
 ~~~
 
 ## Library Versions
