@@ -53,12 +53,29 @@ Zulip is well suited for quick questions, development discussion, and
 collaboration. Please note that responses may vary depending on time zones and
 availability.
 
-### Reporting bugs and requesting features
+## Pull requests
+
+If you would like to contribute a fix or improvement directly, you are welcome
+to open a pull request against the appropriate Gazebo repository.
+
+Please make sure to:
+- Follow the pull request template
+- Target the correct branch for your change
+
+Guidance on branch selection, contribution workflow, and general contribution
+etiquette is described in the contributing guide:
+[Contributing to Gazebo](https://gazebosim.org/docs/all/contributing)
+
+## Reporting bugs and requesting features
 
 If you identify a bug, have a suggestion for improvement, or would like to
 request a new feature, please open an issue in the appropriate repository on
 GitHub:
 [Gazebosim](https://github.com/gazebosim)
 
-Before opening a new issue, consider searching existing issues to see if the
-problem has already been reported.
+Before opening a new issue, please:
+- Search existing issues to see if the problem has already been reported
+- Use the provided issue template and fill out all relevant sections
+
+Using the issue templates and providing complete information helps maintainers
+and contributors understand and address issues more efficiently.
