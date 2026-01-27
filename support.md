@@ -71,7 +71,7 @@ etiquette is described in the contributing guide:
 If you identify a bug, have a suggestion for improvement, or would like to
 request a new feature, please open an issue in the appropriate repository on
 GitHub:
-[Gazebosim](https://github.com/gazebosim)
+[Gazebo Sim](https://github.com/gazebosim)
 
 Before opening a new issue, please:
 - Search existing issues to see if the problem has already been reported
