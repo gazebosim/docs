@@ -14,7 +14,7 @@ A Gazebo release follows the form "Gazebo Codename", for example Gazebo Acropoli
 
 | Name                                                     | Date      | EOL date  | Notes |
 |----------------------------------------------------------|-----------|-----------|-------|
-| Kura                                                     | Aug, 2026 | Sep, 2028 |       |
+| Kura                                                     | Aug, 2026 | Dec, 2028 |       |
 | [Jetty](https://gazebosim.org/docs/jetty)                | Sep, 2025 | May, 2031 | LTS   |
 | [Ionic](https://gazebosim.org/docs/ionic)                | Sep, 2024 | Sep, 2026 |       |
 | [Harmonic](https://gazebosim.org/docs/harmonic)          | Sep, 2023 | Sep, 2028 | LTS   |
@@ -32,7 +32,7 @@ gantt
     axisFormat %Y
     dateFormat  YYYY-MM
                           
-    Kura               :kura,      2026-08, 2y
+    Kura               :kura,      2026-08, 2028-12
     Jetty       :crit, :jetty,     2025-09, 2031-05
     Ionic       :crit, :ionic,     2024-09, 2y
     Harmonic    :crit, :harmonic,  2023-09, 5y
