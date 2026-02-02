@@ -6,7 +6,7 @@
 
 The Gazebo team is happy to announce the 10th major release of Gazebo, code
 named Jetty\! Jetty is a long term support (LTS) release, meaning it has a
-longer support lifetime, September 2030 to be exact.
+longer support lifetime, May 2031 to be exact.
 
 ## Highlights
 
