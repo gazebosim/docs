@@ -18,8 +18,8 @@ packages available for the platform to use:
 |---|---|
 | Ubuntu 24.04 Noble | [Gazebo Jetty](/docs/jetty/install_ubuntu){.external} (recommended), [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (default in ROS 2 Jazzy) and [Gazebo Ionic](/docs/ionic/install_ubuntu){.external} (default in ROS 2 Jetty)
 | Ubuntu 22.04 Jammy | [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended) and [Gazebo Fortress](/docs/fortress/install_ubuntu){.external} (recommended if using ROS 2 Humble)
-| Mac Sequoia arm64 | [Gazebo Jetty](/docs/jetty/install_osx){.external} (recommended), [Gazebo Ionic](/docs/ionic/install_osx){.external}, [Gazebo Harmonic](/docs/harmonic/install_osx){.external} and [Gazebo Fortress](/docs/fortress/install_osx){.external}
-| Mac Sonoma arm64/amd64 | [Gazebo Jetty](/docs/jetty/install_osx){.external} (recommended), [Gazebo Ionic](/docs/ionic/install_osx){.external}, [Gazebo Harmonic](/docs/harmonic/install_osx){.external} and [Gazebo Fortress](/docs/fortress/install_osx){.external}
+| Mac Sequoia arm64 (until August 2027) | [Gazebo Jetty](/docs/jetty/install_osx){.external} (recommended), [Gazebo Ionic](/docs/ionic/install_osx){.external}, [Gazebo Harmonic](/docs/harmonic/install_osx){.external} and [Gazebo Fortress](/docs/fortress/install_osx){.external}
+| Mac Sonoma arm64/amd64 (until August 2026) | [Gazebo Jetty](/docs/jetty/install_osx){.external} (recommended), [Gazebo Ionic](/docs/ionic/install_osx){.external}, [Gazebo Harmonic](/docs/harmonic/install_osx){.external} and [Gazebo Fortress](/docs/fortress/install_osx){.external}
 | Windows | Support via Conda-Forge is not fully functional, as there are known runtime issues [see this issue for details](https://github.com/gazebosim/gz-sim/issues/168).
 
 If the desired platform is not listed above or if a particular feature in a
