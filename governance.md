@@ -25,6 +25,13 @@ responsibilities include approving proposed activities of each Project
 Management Committee (PMC), approving Project Leader nominations, and reporting
 to the OSRF Board on the activities of the OSRA and status of each project.
 
+## Gazebo PMC Meetings
+
+Community members are encouraged to *observe* the Gazebo PMC meetings and submit agenda items via a PMC constituent.
+To add an item to the Gazebo PMC agenda please contact one of the PMC constituents list below.
+Gazebo PMC meetings are conducted using Zoom and presently occur every Monday.
+To join the Gazebo PMC meeting please use the [link available in our official OSRA Google calendar](https://calendar.google.com/calendar/u/0/embed?src=agf3kajirket8khktupm9go748@group.calendar.google.com&ctz=Etc%2FUTC).
+
 ## The Gazebo Project Management Committee (PMC)
 
 The Gazebo PMC is responsible for the day-to-day management of the Gazebo
@@ -52,14 +59,14 @@ The Gazebo PMC currently consists of the following individuals:
 
 | Name                 | Affiliation                                    | Github Handle                                   | PMC Role       | Time Zone (optional)    |
 | -------------------- | ---------------------------------------------- | ----------------------------------------------- | -------------- | ----------------------- |
-| Carlos Agüero        | [Honu Robotics](https://www.honurobotics.com/) | [caguero](https://github.com/caguero)           | Member         | CET (UTC+2)/CET (UTC+1) |
+| Carlos Agüero        | [Honu Robotics](https://honurobotics.com)      | [caguero](https://github.com/caguero)           | Member         | CET (UTC+2)/CET (UTC+1) |
 | Michael Carroll      | [Intrinsic](https://www.intrinsic.ai/)         | [mjcarroll](https://github.com/mjcarroll)       | Member         | CST (UTC-6)/CDT (UTC-5) | 
 | Ian Chen             | [Intrinsic](https://www.intrinsic.ai/)         | [iche033](https://github.com/iche033)           | Member         | PST (UTC-8)/PDT (UTC-7) |
-| Alejandro Hernández  | [Honu Robotics](https://www.honurobotics.com/) | [ahcorde](https://github.com/ahcorde)           | Member         | CET (UTC+2)/CET (UTC+1) |
+| Alejandro Hernández  | [Honu Robotics](https://honurobotics.com)      | [ahcorde](https://github.com/ahcorde)           | Member         | CET (UTC+2)/CET (UTC+1) |
 | Jenn Nguyen          | [Intrinsic](https://www.intrinsic.ai/)         | [jennuine](https://github.com/jennuine)         | Member         | PST (UTC-8)/PDT (UTC-7) |
 | Benjamin Perseghetti | [Rudis Labs](https://github.com/rudislabs)     | [bperseghetti](https://github.com/bperseghetti) | Member         | EST (UTC-5)/EDT (UTC-4) |
 | Steve Peters         | [Intrinsic](https://www.intrinsic.ai/)         | [scpeters](https://github.com/scpeters)         | Member         | PST (UTC-8)/PDT (UTC-7) |
-| Jose Luis Rivero     | [Honu Robotics](https://www.honurobotics.com/) | [jrivero](https://github.com/j-rivero)          | Member         | CET (UTC+2)/CET (UTC+1) |
+| Jose Luis Rivero     | [Honu Robotics](https://honurobotics.com)      | [jrivero](https://github.com/j-rivero)          | Member         | CET (UTC+2)/CET (UTC+1) |
 | Silvio Traversaro    | [Italian Institute of Technology](https://www.iit.it) | [traversaro](https://github.com/traversaro)  | Member     | CEST (UTC+2)/CET (UTC+1) |
 | Addisu Z. Taddese    | [Intrinsic](https://www.intrinsic.ai/)         | [azeey](https://github.com/azeey)               | Project Leader | CST (UTC-6)/CDT (UTC-5) |
 
@@ -71,6 +78,8 @@ following individuals:
 
 <!-- Alphabetized by last name -->
 
-| Name                | Affiliation                                    | Github Handle                         | Time Zone (optional)    |
-| ----------------    | --------------------------------------         | ------------------------------------- | --------------------    |
-| Arjo Chakravarty    | [Intrinsic](https://www.intrinsic.ai/)         | [arjo129](https://github.com/arjo129) | SST (UTC+8)             |
+| Name                | Affiliation                                    | Github Handle                                       | Time Zone (optional)    |
+| ----------------    | --------------------------------------         | --------------------------------------------------- | ----------------------  |
+| Arjo Chakravarty    | [Intrinsic](https://www.intrinsic.ai/)         | [arjo129](https://github.com/arjo129)               | SST (UTC+8)             |
+| Shameek Ganguly     | [Intrinsic](https://www.intrinsic.ai/)         | [shameekganguly](https://github.com/shameekganguly) | PST (UTC-8)/PDT (UTC-7) |
+| Saurabh Kamat       | [ROS-Industrial](https://rosindustrial.org/)   | [sauk2](https://github.com/sauk2)                   | SST (UTC+8)             |

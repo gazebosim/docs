@@ -47,7 +47,7 @@ The following command spawns the URDF file `model.urdf` into the Gazebo Sim worl
 gz service -s /world/empty/create --reqtype gz.msgs.EntityFactory --reptype gz.msgs.Boolean --timeout 1000 --req 'sdf_filename: "/path/to/model.urdf", name: "urdf_model"'
 ```
 
-If `model.urdf` is the URDF representation of [rrbot.xacro](https://github.com/ros-simulation/gazebo_ros_demos/blob/kinetic-devel/rrbot_description/urdf/rrbot.xacro) in the `gazebo_ros_demos` package, executing the service call above should result in a simulation that now looks like this:
+If `model.urdf` is the URDF representation of [`rrbot.urdf`](https://github.com/gazebosim/docs/blob/master/jetty/tutorials/spawn_urdf/rrbot.urdf) in the `gazebo_ros_demos` package, executing the service call above should result in a simulation that now looks like this:
 
 ![urdf_spawned](tutorials/spawn_urdf/urdf_spawned.png)
 

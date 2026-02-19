@@ -73,7 +73,7 @@ At this point you'll have the following packages in your project:
 
 ## Accessing Simulation Assets
 
-Simulation assets include your models or robot descriptions in URDF or SDF, meshes and materials files to help visualize different parts of the robot and finally compiling all these elements in a simulated world SDF. Gazebo offers a few different mechanisms for locating those, initializing it's search on `GZ_SIM_RESOURCE_PATH` environment variable, see gz-sim API on [finding resources](https://gazebosim.org/api/sim/8/resources.html) for more details.
+Simulation assets include your models or robot descriptions in URDF or SDF, meshes and materials files to help visualize different parts of the robot and finally compiling all these elements in a simulated world SDF. Gazebo offers a few different mechanisms for locating those, initializing it's search on `GZ_SIM_RESOURCE_PATH` environment variable, see gz-sim API on [finding resources](https://gazebosim.org/api/sim/10/resources.html) for more details.
 
 There is a difference in how ROS and Gazebo resolves URIs, that the ROS side can handle `package://` URIs, but by default SDFormat only supports `model://`. Now `libsdformat` can convert `package://` to `model://` URIs. So existing simulation assets can be loaded by "installing" the models directory and exporting the model paths to your environment.
 

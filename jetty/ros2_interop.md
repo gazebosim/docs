@@ -10,7 +10,7 @@ Users can interact with `rrbot` through ROS 2 commands to move the robot's arms 
 
 ## Prerequisites
 
-1. A working installation of ROS 2 and Gazebo is required to go further. Please follow the [Install Gazebo and ROS document](ros_installation). 
+1. A working installation of ROS 2 and Gazebo is required to go further. Please follow the [Install Gazebo and ROS document](ros_installation).
 2. Basic familiarity with ROS concepts and terminal commands.
 3. Check out [ROS 2 Integration](ros2_integration) to get familiar with [`ros_gz_bridge`](https://github.com/gazebosim/ros_gz) before starting this tutorial.
 
@@ -56,7 +56,7 @@ For publishing and controlling the robot pose, we need joint states of the robot
 
    See [documentation](http://docs.ros.org/en/rolling/p/joint_state_publisher_gui/) for node API.
    This functionality is useful during initial development of the model.
-   At this point we have achieved the first aim defined in [Setup](#setup). 
+   At this point we have achieved the first aim defined in [Setup](#setup).
 
 3. Now if you'd want to extend this to visualize robot motion, we need positions and transforms.
    The [`robot_state_publisher`](https://github.com/ros/robot_state_publisher) takes the description and joint angles of the robot as inputs and publishes the 3D poses of the robot links, using a kinematic tree model of the robot.
@@ -76,7 +76,7 @@ For publishing and controlling the robot pose, we need joint states of the robot
 
 ### Configure a communication bridge
 
-These joint states can either come from `joint_state_publisher` as seen earlier or from simulated [JointStatePub](https://gazebosim.org/api/sim/8/classgz_1_1sim_1_1systems_1_1JointStatePublisher.html) system's `joint_state` message.
+These joint states can either come from `joint_state_publisher` as seen earlier or from simulated [JointStatePub](https://gazebosim.org/api/sim/10/classgz_1_1sim_1_1systems_1_1JointStatePublisher.html) system's `joint_state` message.
 
 Configure a bridge between ROS topic `/joint_states` and Gazebo topic `/world/demo/model/diff_drive/joint_state` by adding remappings in the node setup or by creating a [bridge.yaml](https://github.com/gazebosim/ros_gz_project_template/blob/main/ros_gz_example_bringup/config/ros_gz_example_bridge.yaml):
 
