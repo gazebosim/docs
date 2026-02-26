@@ -164,8 +164,7 @@ Prerequisites</h3>
 <p>The Zenoh wire protocol is <a href="https://zenoh.io/blog/2024-04-30-zenoh-electrode/">backward-compatible within the 1.x series</a>, so the router does not need to exactly match the version of the Zenoh library that Gazebo Transport was compiled against.</p>
 <p>Then, create the following session configuration file. It connects to the router in <code>"peer"</code> mode with multicast scouting disabled, so that discovery is handled by the router:</p>
 <p><b>Session configuration</b> (<code>/tmp/gz_zenoh_session.json5</code>):</p>
-<div class="fragment"><div class="line"> 5</div>
-<div class="line">{</div>
+<div class="fragment"><div class="line">{</div>
 <div class="line">  mode: &quot;peer&quot;,</div>
 <div class="line">  connect: {</div>
 <div class="line">    endpoints: [</div>
@@ -204,8 +203,7 @@ Example: Publisher and subscriber with router discovery</h3>
 <h3><a class="anchor" id="routing-data-through-the-router"></a>
 Routing data through the router</h3>
 <p>By default, the session configuration uses <code>"peer"</code> mode, where the router assists with discovery but data flows directly between nodes. If you want all data to flow through the router, change the session mode to <code>"client"</code> in <code>/tmp/gz_zenoh_session.json5</code>:</p>
-<div class="fragment"><div class="line">5</div>
-<div class="line"> mode: &quot;client&quot;,</div>
+<div class="fragment"><div class="line">mode: &quot;client&quot;,</div>
 </div><!-- fragment --><p>With this change, all messages are routed through the router. You can verify this by stopping the router while the publisher and subscriber are running — communication will be interrupted.</p>
 <h3><a class="anchor" id="verifying-router-dependency"></a>
 Verifying router dependency</h3>
