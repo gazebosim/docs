@@ -339,9 +339,19 @@ Functions</h2></td></tr>
 <tr class="memitem:a1e69448f1c7834990332af7c577dd388" id="r_a1e69448f1c7834990332af7c577dd388"><td class="memItemLeft" align="right" valign="top"><a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegz_1_1transport.html#a1e69448f1c7834990332af7c577dd388">username</a> ()</td></tr>
 <tr class="memdesc:a1e69448f1c7834990332af7c577dd388"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine your login name.  <br /></td></tr>
 <tr class="separator:a1e69448f1c7834990332af7c577dd388"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac198f57fa3819fac89a74ea405014007" id="r_ac198f57fa3819fac89a74ea405014007"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegz_1_1transport.html#ac198f57fa3819fac89a74ea405014007">waitForService</a> (const <a class="el" href="classgz_1_1transport_1_1Node.html">Node</a> &amp;_node, const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_service, <a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::milliseconds</a> _timeout=<a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::milliseconds</a>(10000))</td></tr>
+<tr class="memdesc:ac198f57fa3819fac89a74ea405014007"><td class="mdescLeft">&#160;</td><td class="mdescRight">Block until a service is discovered or a timeout expires.  <br /></td></tr>
+<tr class="separator:ac198f57fa3819fac89a74ea405014007"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ce095f75195272da1dee933c773a4f7" id="r_a5ce095f75195272da1dee933c773a4f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegz_1_1transport.html#a5ce095f75195272da1dee933c773a4f7">waitForShutdown</a> ()</td></tr>
 <tr class="memdesc:a5ce095f75195272da1dee933c773a4f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Block the current thread until a SIGINT or SIGTERM is received. Note that this function registers a signal handler. Do not use this function if you want to manage yourself SIGINT/SIGTERM.  <br /></td></tr>
 <tr class="separator:a5ce095f75195272da1dee933c773a4f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1897d605f7231afdf2ee3390149ffa0" id="r_ae1897d605f7231afdf2ee3390149ffa0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegz_1_1transport.html#ae1897d605f7231afdf2ee3390149ffa0">waitForTopic</a> (const <a class="el" href="classgz_1_1transport_1_1Node.html">Node</a> &amp;_node, const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_topic, <a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::milliseconds</a> _timeout=<a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::milliseconds</a>(10000))</td></tr>
+<tr class="memdesc:ae1897d605f7231afdf2ee3390149ffa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Block until a topic is discovered or a timeout expires.  <br /></td></tr>
+<tr class="separator:ae1897d605f7231afdf2ee3390149ffa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e963f12f56f014f7ca768dc76163a64" id="r_a1e963f12f56f014f7ca768dc76163a64"><td class="memTemplParams" colspan="2">template&lt;typename Pred &gt; </td></tr>
+<tr class="memitem:a1e963f12f56f014f7ca768dc76163a64"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacegz_1_1transport.html#a1e963f12f56f014f7ca768dc76163a64">waitUntil</a> (Pred _pred, <a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::milliseconds</a> _timeout=<a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::milliseconds</a>(10000), <a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::milliseconds</a> _interval=<a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::milliseconds</a>(10))</td></tr>
+<tr class="memdesc:a1e963f12f56f014f7ca768dc76163a64"><td class="mdescLeft">&#160;</td><td class="mdescRight">Block until a predicate becomes true or a timeout expires. Polls by calling _pred() repeatedly with _interval sleep between checks. Uses steady_clock for monotonic timing.  <br /></td></tr>
+<tr class="separator:a1e963f12f56f014f7ca768dc76163a64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -980,6 +990,51 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="ac198f57fa3819fac89a74ea405014007" name="ac198f57fa3819fac89a74ea405014007"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac198f57fa3819fac89a74ea405014007">&#9670;&#160;</a></span>waitForService()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool waitForService </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classgz_1_1transport_1_1Node.html">Node</a> &amp;&#160;</td>
+          <td class="paramname"><em>_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>_service</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::milliseconds</a>&#160;</td>
+          <td class="paramname"><em>_timeout</em> = <code><a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::milliseconds</a>(10000)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Block until a service is discovered or a timeout expires. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_node</td><td><a class="el" href="classgz_1_1transport_1_1Node.html" title="A class that allows a client to communicate with other peers. There are two main communication modes:...">Node</a> to query for service info. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_service</td><td>Fully-qualified service name. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_timeout</td><td>Maximum time to wait (default 10 s). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the service was discovered, false on timeout. </dd></dl>
+
+</div>
+</div>
 <a id="a5ce095f75195272da1dee933c773a4f7" name="a5ce095f75195272da1dee933c773a4f7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5ce095f75195272da1dee933c773a4f7">&#9670;&#160;</a></span>waitForShutdown()</h2>
 
@@ -996,6 +1051,101 @@ template&lt;typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Block the current thread until a SIGINT or SIGTERM is received. Note that this function registers a signal handler. Do not use this function if you want to manage yourself SIGINT/SIGTERM. </p>
+
+</div>
+</div>
+<a id="ae1897d605f7231afdf2ee3390149ffa0" name="ae1897d605f7231afdf2ee3390149ffa0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1897d605f7231afdf2ee3390149ffa0">&#9670;&#160;</a></span>waitForTopic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool waitForTopic </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classgz_1_1transport_1_1Node.html">Node</a> &amp;&#160;</td>
+          <td class="paramname"><em>_node</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>_topic</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::milliseconds</a>&#160;</td>
+          <td class="paramname"><em>_timeout</em> = <code><a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::milliseconds</a>(10000)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Block until a topic is discovered or a timeout expires. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_node</td><td><a class="el" href="classgz_1_1transport_1_1Node.html" title="A class that allows a client to communicate with other peers. There are two main communication modes:...">Node</a> to query for topic list. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_topic</td><td>Fully-qualified topic name. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_timeout</td><td>Maximum time to wait (default 10 s). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the topic was discovered, false on timeout. </dd></dl>
+
+</div>
+</div>
+<a id="a1e963f12f56f014f7ca768dc76163a64" name="a1e963f12f56f014f7ca768dc76163a64"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e963f12f56f014f7ca768dc76163a64">&#9670;&#160;</a></span>waitUntil()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Pred &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">bool waitUntil </td>
+          <td>(</td>
+          <td class="paramtype">Pred&#160;</td>
+          <td class="paramname"><em>_pred</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::milliseconds</a>&#160;</td>
+          <td class="paramname"><em>_timeout</em> = <code><a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::milliseconds</a>(10000)</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::milliseconds</a>&#160;</td>
+          <td class="paramname"><em>_interval</em> = <code><a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::milliseconds</a>(10)</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Block until a predicate becomes true or a timeout expires. Polls by calling _pred() repeatedly with _interval sleep between checks. Uses steady_clock for monotonic timing. </p>
+<dl class="section note"><dt>Note</dt><dd>An _interval of zero causes busy-waiting. Use a positive interval in production code. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_pred</td><td>Callable returning bool. Checked repeatedly. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_timeout</td><td>Maximum time to wait (default 10 s). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_interval</td><td>Sleep between checks (default 10 ms). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the predicate became true, false on timeout. </dd></dl>
+
+<p class="reference">References <a class="elRef" href="http://en.cppreference.com/w/cpp/chrono/steady_clock/now.html">steady_clock::now()</a>, and <a class="elRef" href="http://en.cppreference.com/w/cpp/thread/sleep_for.html">std::this_thread::sleep_for()</a>.</p>
 
 </div>
 </div>
