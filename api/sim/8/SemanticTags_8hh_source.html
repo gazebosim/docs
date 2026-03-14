@@ -192,37 +192,41 @@
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      msg.add_data(tag);</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    }</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    msg.SerializeToOstream(&amp;_out);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordflow">return</span> _out;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1serializers_1_1SemanticTagsSerializer.html#a9520081d30471637302b3e9c0fe4695d">   55</a></span>&#160;  <span class="keyword">static</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_istream.html">std::istream</a> &amp;<a class="code" href="classgz_1_1sim_1_1serializers_1_1SemanticTagsSerializer.html#a9520081d30471637302b3e9c0fe4695d">Deserialize</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_istream.html">std::istream</a> &amp;_in,</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;                                   <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;std::string&gt;</a> &amp;_tags)</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  {</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    msgs::StringMsg_V msg;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    msg.ParsePartialFromIstream(&amp;_in);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    _tags.<a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector/clear.html">clear</a>();</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;item : msg.data())</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    {</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      _tags.<a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector/push_back.html">push_back</a>(item);</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">return</span> _in;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;}  <span class="comment">// namespace serializers</span></div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">namespace </span>components</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="namespacegz_1_1sim_1_1components.html#ac95bb88e10773c4101f30fc29c7479f5">   77</a></span>&#160;<span class="keyword">using</span> <a class="code" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">SemanticTags</a> = <a class="code" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">Component&lt;std::vector&lt;std::string&gt;</a>, <span class="keyword">class </span>SemanticTagsTag,</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                              serializers::SemanticTagsSerializer&gt;;</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<a class="code" href="Factory_8hh.html#abf3e5e175d1e8206d83eb11e6aa324bb" title="Static component registration macro.">GZ_SIM_REGISTER_COMPONENT</a>(&quot;gz_sim_components.SemanticTags&quot;, SemanticTags)</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;}  <span class="comment">// namespace components</span></div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;}  <span class="comment">// namespace GZ_SIM_VERSION_NAMESPACE</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}  <span class="comment">// namespace sim</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}  <span class="comment">// namespace gz</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    <span class="keyword">auto</span> result = msg.SerializeToOstream(&amp;_out);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    (void)result;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">return</span> _out;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1serializers_1_1SemanticTagsSerializer.html#a9520081d30471637302b3e9c0fe4695d">   56</a></span>&#160;  <span class="keyword">static</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_istream.html">std::istream</a> &amp;<a class="code" href="classgz_1_1sim_1_1serializers_1_1SemanticTagsSerializer.html#a9520081d30471637302b3e9c0fe4695d">Deserialize</a>(<a class="codeRef" href="http://en.cppreference.com/w/cpp/io/basic_istream.html">std::istream</a> &amp;_in,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                                   <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector&lt;std::string&gt;</a> &amp;_tags)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    msgs::StringMsg_V msg;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keywordflow">if</span>(!msg.ParsePartialFromIstream(&amp;_in))</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keywordflow">return</span> _in;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    _tags.<a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector/clear.html">clear</a>();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span> &amp;item : msg.data())</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      _tags.<a class="codeRef" href="http://en.cppreference.com/w/cpp/container/vector/push_back.html">push_back</a>(item);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">return</span> _in;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;}  <span class="comment">// namespace serializers</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">namespace </span>components</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;{</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="namespacegz_1_1sim_1_1components.html#ac95bb88e10773c4101f30fc29c7479f5">   81</a></span>&#160;<span class="keyword">using</span> <a class="code" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">SemanticTags</a> = <a class="code" href="classgz_1_1sim_1_1components_1_1Component.html" title="A component type that wraps any data type. The intention is for this class to be used to create simpl...">Component&lt;std::vector&lt;std::string&gt;</a>, <span class="keyword">class </span>SemanticTagsTag,</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;                              serializers::SemanticTagsSerializer&gt;;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<a class="code" href="Factory_8hh.html#abf3e5e175d1e8206d83eb11e6aa324bb" title="Static component registration macro.">GZ_SIM_REGISTER_COMPONENT</a>(&quot;gz_sim_components.SemanticTags&quot;, SemanticTags)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}  <span class="comment">// namespace components</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}  <span class="comment">// namespace GZ_SIM_VERSION_NAMESPACE</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}  <span class="comment">// namespace sim</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;}  <span class="comment">// namespace gz</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
       </div>
     </main>

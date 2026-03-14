@@ -299,11 +299,17 @@ Buoyancy</h3>
 </div>
 <p>If you hit play, your lander will sink as expected. Although the buoyancy plugin is loaded, notice that all the collision elements that we added are low-volume. This is on purpose to make sure that our model can collide with obstacles. However, it's generating very little buoyancy.</p>
 <p>Let's now compute the reference volume that will make the lander neutrally buoyant.</p>
-<p>$$volume\_neutral = \frac{mass}{waterDensity} = \frac{1209.175}{1025} = 1.1796829268292683$$</p>
+<p class="formulaDsp">
+\[volume\_neutral = \frac{mass}{waterDensity} = \frac{1209.175}{1025} = 1.1796829268292683\]
+</p>
 <p>Now, let's account for the volume that our lander already has thanks to the low-volume outer collision elements:</p>
-<p>$$outer\_volume = 2*1.1325*1.1503*0.000001 + 2*0.000001*1.1503*1.5 + 2*1.325* 0.000001*1.5 = 1.00313295e-05$$</p>
+<p class="formulaDsp">
+\[outer\_volume = 2*1.1325*1.1503*0.000001 + 2*0.000001*1.1503*1.5 + 2*1.325* 0.000001*1.5 = 1.00313295e-05\]
+</p>
 <p>Let's now compute the volume of the main buoyancy <code>&lt;collision&gt;</code> element:</p>
-<p>$$main\_buoyancy\_volume = 1.1796829268292683 - 1.00313295e-05 = 1.1796728954997684$$</p>
+<p class="formulaDsp">
+\[main\_buoyancy\_volume = 1.1796829268292683 - 1.00313295e-05 = 1.1796728954997684\]
+</p>
 <p>Let's verify that our lander is neutrally buoyant now. Add the following collision element to your <code>base_link</code>:</p>
 <div class="fragment"><div class="line"><span class="comment">&lt;!-- Center of buoyancy --&gt;</span></div>
 <div class="line">&lt;<span class="keywordtype">collision</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;buoyancy&quot;</span>&gt;</div>
@@ -398,8 +404,12 @@ Drop weight</h3>
 <div class="line">  &lt;<span class="keywordtype">topic</span>&gt;/<span class="keyword">model</span>/<span class="keyword">lander</span>/<span class="keyword">drop_weight</span>&lt;/<span class="keywordtype">topic</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
 </div><!-- fragment --><p>The mass of the drop weight changes the buoyancy properties of the lander. Let's calculate the reference values:</p>
-<p>$$volume\_neutral\_with\_dropweight = \frac{mass}{waterDensity} = \frac{1209.175 + 120}{1025} = 1.2967560975609755$$</p>
-<p>$$volume\_neutral\_without\_dropweight = \frac{mass}{waterDensity} = \frac{1209.175}{1025} = 1.1796829268292683$$</p>
+<p class="formulaDsp">
+\[volume\_neutral\_with\_dropweight = \frac{mass}{waterDensity} = \frac{1209.175 + 120}{1025} = 1.2967560975609755\]
+</p>
+<p class="formulaDsp">
+\[volume\_neutral\_without\_dropweight = \frac{mass}{waterDensity} = \frac{1209.175}{1025} = 1.1796829268292683\]
+</p>
 <p>We're looking for a volume that's lower than <code>volume_neutral_with_dropweight</code> to cause the lander to sink from its initial configuration, and bigger than <code>volume_neutral_without_dropweight</code> to cause the lander to go back to the surface when the drop weight is enabled. Let's choose <code>1.24</code> as the volume for our main buoyancy collision element. Replace the <code>buoyancy</code> collision element with:</p>
 <div class="fragment"><div class="line"><span class="comment">&lt;!-- Center of buoyancy --&gt;</span></div>
 <div class="line">&lt;<span class="keywordtype">collision</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;buoyancy&quot;</span>&gt;</div>
