@@ -345,13 +345,21 @@ For checking that the build process is ongoing as expected:
             to get added to the release team.
         1. Follow the steps of releasing a ROS package to release the vendor
             package
-            <https://docs.ros.org/en/rolling/How-To-Guides/Releasing/Subsequent-Releases.html>
-            * Bump patch versions if the package has already been released for
-              the target ROS distribution. This is almost always what you want
-              to do.
-            * Bump minor version only if the package is being released into
-              `rolling` and if the release happens immediately after a new ROS
-              distribution has been branched off of `rolling`. The intention
-              here is that all release branches (e.g. `jazzy`, `kilted`,
-              `rolling`, etc.) have distinct minor version numbers.
-            * Never bump the major version number.
+            <https://docs.ros.org/en/rolling/How-To-Guides/Releasing/Subsequent-Releases.html>.
+            View the [versioning scheme](#versioning-scheme-for-gazebo-ros-vendor-packages)
+            section for more information.
+
+## Versioning scheme for Gazebo-ROS vendor packages
+
+The Gazebo vendor packages for ROS follow a specific versioning scheme to ensure
+compatibility and proper ordering across different ROS distributions:
+
+* **Patch version:** Bump the patch version if the package has already been
+  released for the target ROS distribution. This is almost always what you want
+  to do.
+* **Minor version:** Bump the minor version only if the package is being
+  released into `rolling` and if the release happens immediately after a new ROS
+  distribution has been branched off of `rolling`. The intention here is that
+  all release branches (e.g. `jazzy`, `kilted`, `rolling`, etc.) have distinct
+  minor version numbers.
+* **Major version:** Never bump the major version number.
