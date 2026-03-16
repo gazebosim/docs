@@ -363,3 +363,12 @@ compatibility and proper ordering across different ROS distributions:
   all release branches (e.g. `jazzy`, `kilted`, `rolling`, etc.) have distinct
   minor version numbers.
 * **Major version:** Never bump the major version number.
+* **Bloom track:** When creating new branches for a vendor package (e.g.
+  branching off `rolling` for a newly released ROS distribution), ensure the
+  bloom track is updated accordingly.
+  **It is critical to check that the correct track is being used when making a
+  release after a new ROS distribution has been branched off of `rolling`.**
+  This can be done by editing the `tracks.yaml` file in the release repository
+  or by running `bloom-release` with the appropriate flags. Refer to the
+  [bloom documentation](https://wiki.ros.org/bloom/Tutorials/ReleaseRepository#Tracks)
+  for more information.
