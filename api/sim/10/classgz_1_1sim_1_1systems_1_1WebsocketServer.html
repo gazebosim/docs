@@ -237,16 +237,16 @@ Additional Inherited Members</h2></td></tr>
 <h1><a class="anchor" id="plugin-parameters"></a>
 Plugin parameters</h1>
 <ul>
-<li>&lt;publication_hz&gt; : An integer that is the maximum publication hertz rate.</li>
-<li>&lt;port&gt; : An integer that is websocket port.</li>
-<li>&lt;authorization_key&gt; : A key used for authentication. If this is set, then a connection must provide the matching key using an "auth" call on the websocket. If the &lt;admin_authorization_key&gt; is set, then the connection can provide that key.</li>
-<li>&lt;admin_authorization_key&gt; : An admin key used for authentication. If this is set, then a connection must provide the matching key using an "auth" call on the websocket. If the &lt;authorization_key&gt; is set, then the connection can provide that key.</li>
-<li>&lt;max_connections&gt; : An integer that specifies the maximum number of active websocket connections. A value less than zero indicates an unlimited number, this is the default. A websocket client error code of 1008 along with a reason set to "max_connections" will be returned if a new connection is rejected due to the max connection threshold.</li>
-<li>&lt;ssl&gt; : Element that contains SSL configuration. For testing purposes you can create self-signed SSL certificates. Run <div class="fragment"><div class="line">openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key \</div>
+<li><code>&lt;publication_hz&gt;</code> : An integer that is the maximum publication hertz rate.</li>
+<li><code>&lt;port&gt;</code> : An integer that is websocket port.</li>
+<li><code>&lt;authorization_key&gt;</code> : A key used for authentication. If this is set, then a connection must provide the matching key using an "auth" call on the websocket. If the <code>&lt;admin_authorization_key&gt;</code> is set, then the connection can provide that key.</li>
+<li><code>&lt;admin_authorization_key&gt;</code> : An admin key used for authentication. If this is set, then a connection must provide the matching key using an "auth" call on the websocket. If the <code>&lt;authorization_key&gt;</code> is set, then the connection can provide that key.</li>
+<li><code>&lt;max_connections&gt;</code> : An integer that specifies the maximum number of active websocket connections. A value less than zero indicates an unlimited number, this is the default. A websocket client error code of 1008 along with a reason set to "max_connections" will be returned if a new connection is rejected due to the max connection threshold.</li>
+<li><code>&lt;ssl&gt;</code> : Element that contains SSL configuration. For testing purposes you can create self-signed SSL certificates. Run <div class="fragment"><div class="line">openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout server.key \</div>
 <div class="line">    -out server.cert</div>
-</div><!-- fragment --> Use "localhost" for the "Common Name" question. If you are testing with a browser, first navigate to "https://localhost:&lt;port&gt;" and accept the self-signed certificate.<ul>
-<li>&lt;cert_file&gt;: Child element of &lt;ssl&gt; that contains the path to the SSL certificate file.</li>
-<li>&lt;private_key_file&gt;: Child element of &lt;ssl&gt; that contains the path to SSL private key file.</li>
+</div><!-- fragment --> Use "localhost" for the "Common Name" question. If you are testing with a browser, first navigate to "https://localhost:`&lt;port&gt;`" and accept the self-signed certificate.<ul>
+<li><code>&lt;cert_file&gt;</code>: Child element of <code>&lt;ssl&gt;</code> that contains the path to the SSL certificate file.</li>
+<li><code>&lt;private_key_file&gt;</code>: Child element of <code>&lt;ssl&gt;</code> that contains the path to SSL private key file.</li>
 </ul>
 </li>
 </ul>
@@ -290,11 +290,15 @@ Example usage</h1>
 <h2><a class="anchor" id="websocket-server"></a>
 Websocket Server</h2>
 <ol type="1">
-<li><p class="startli">Add the following to the top of an SDF file to include the websocket server system when launching a world.</p>
-<p class="startli">&lt;plugin name="WebsocketServer"
-     filename="gz-sim-websocket-server-system"&gt;</p>
-<p class="startli">&lt;publication_hz&gt;30&lt;/publication_hz&gt; &lt;/plugin&gt;</p>
-</li>
+<li>Add the following to the top of an SDF file to include the websocket server system when launching a world.</li>
+</ol>
+<div class="fragment"><div class="line"> &lt;<span class="keywordtype">plugin</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;WebsocketServer&quot;</span></div>
+<div class="line">     <span class="keyword">filename</span>=<span class="stringliteral">&quot;gz-sim-websocket-server-system&quot;</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">   <span class="comment">&lt;!-- Publication Hz --&gt;</span></div>
+<div class="line">   &lt;<span class="keywordtype">publication_hz</span>&gt;30&lt;/<span class="keywordtype">publication_hz</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
+</div><!-- fragment --><ol type="1">
 <li>Launch your SDF world file, e.g.</li>
 </ol>
 <p><code>gz sim -v 4 -s websocket.sdf</code></p>

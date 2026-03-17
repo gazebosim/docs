@@ -209,45 +209,45 @@ System Parameters</h2>
 <h3><a class="anchor" id="diagonal-terms"></a>
 Diagonal terms:</h3>
 <ul>
-<li>&lt;xDotU&gt; - (Deprecated) Added mass in x direction [kg]</li>
-<li>&lt;yDotV&gt; - (Deprecated) Added mass in y direction [kg]</li>
-<li>&lt;zDotW&gt; - (Deprecated) Added mass in z direction [kg]</li>
-<li>&lt;kDotP&gt; - (Deprecated) Added mass in roll direction [kgm^2]</li>
-<li>&lt;mDotQ&gt; - (Deprecated) Added mass in pitch direction [kgm^2]</li>
-<li>&lt;nDotR&gt; - (Deprecated) Added mass in yaw direction [kgm^2]</li>
-<li>&lt;xUabsU&gt; - Quadratic damping, 2nd order, x component [kg/m]</li>
-<li>&lt;xU&gt; - Linear damping, 1st order, x component [kg]</li>
-<li>&lt;yVabsV&gt; - Quadratic damping, 2nd order, y component [kg/m]</li>
-<li>&lt;yV&gt; - Linear damping, 1st order, y component [kg]</li>
-<li>&lt;zWabsW&gt; - Quadratic damping, 2nd order, z component [kg/m]</li>
-<li>&lt;zW&gt; - Linear damping, 1st order, z component [kg]</li>
-<li>&lt;kPabsP&gt; - Quadratic damping, 2nd order, roll component [kg/m^2]</li>
-<li>&lt;kP&gt; - Linear damping, 1st order, roll component [kg/m]</li>
-<li>&lt;mQabsQ&gt; - Quadratic damping, 2nd order, pitch component [kg/m^2]</li>
-<li>&lt;mQ&gt; - Linear damping, 1st order, pitch component [kg/m]</li>
-<li>&lt;nRabsR&gt; - Quadratic damping, 2nd order, yaw component [kg/m^2]</li>
-<li>&lt;nR&gt; - Linear damping, 1st order, yaw component [kg/m]</li>
+<li><code>&lt;xDotU&gt;</code> - (Deprecated) Added mass in x direction [kg]</li>
+<li><code>&lt;yDotV&gt;</code> - (Deprecated) Added mass in y direction [kg]</li>
+<li><code>&lt;zDotW&gt;</code> - (Deprecated) Added mass in z direction [kg]</li>
+<li><code>&lt;kDotP&gt;</code> - (Deprecated) Added mass in roll direction [kgm^2]</li>
+<li><code>&lt;mDotQ&gt;</code> - (Deprecated) Added mass in pitch direction [kgm^2]</li>
+<li><code>&lt;nDotR&gt;</code> - (Deprecated) Added mass in yaw direction [kgm^2]</li>
+<li><code>&lt;xUabsU&gt;</code> - Quadratic damping, 2nd order, x component [kg/m]</li>
+<li><code>&lt;xU&gt;</code> - Linear damping, 1st order, x component [kg]</li>
+<li><code>&lt;yVabsV&gt;</code> - Quadratic damping, 2nd order, y component [kg/m]</li>
+<li><code>&lt;yV&gt;</code> - Linear damping, 1st order, y component [kg]</li>
+<li><code>&lt;zWabsW&gt;</code> - Quadratic damping, 2nd order, z component [kg/m]</li>
+<li><code>&lt;zW&gt;</code> - Linear damping, 1st order, z component [kg]</li>
+<li><code>&lt;kPabsP&gt;</code> - Quadratic damping, 2nd order, roll component [kg/m^2]</li>
+<li><code>&lt;kP&gt;</code> - Linear damping, 1st order, roll component [kg/m]</li>
+<li><code>&lt;mQabsQ&gt;</code> - Quadratic damping, 2nd order, pitch component [kg/m^2]</li>
+<li><code>&lt;mQ&gt;</code> - Linear damping, 1st order, pitch component [kg/m]</li>
+<li><code>&lt;nRabsR&gt;</code> - Quadratic damping, 2nd order, yaw component [kg/m^2]</li>
+<li><code>&lt;nR&gt;</code> - Linear damping, 1st order, yaw component [kg/m]</li>
 </ul>
 <h3><a class="anchor" id="cross-terms"></a>
 Cross terms</h3>
 <p>In general we support cross terms as well. These are terms which act on non-diagonal sides. We use the SNAMe convention of naming search terms. (x, y, z) correspond to the respective axis. (k, m, n) correspond to roll, pitch and yaw. Similarly U, V, W represent velocity vectors in X, Y and Z axis while P, Q, R represent angular velocity in roll, pitch and yaw axis respectively.</p><ul>
-<li>Added Mass: &lt;{x|y|z|k|m|n}Dot{U|V|W|P|Q|R}&gt; e.g. &lt;xDotR&gt; (Deprecated) Units are either kg or kgm^2 depending on the choice of terms. You should use the sdf method based spec <a href="http://sdformat.org/spec?ver=1.11&elem=link#inertial_fluid_added_mass">http://sdformat.org/spec?ver=1.11&amp;elem=link#inertial_fluid_added_mass</a></li>
-<li>Quadratic Damping With abs term (this is probably what you want): &lt;{x|y|z|k|m|n}{U|V|W|P|Q|R}abs{U|V|W|P|Q|R}&gt; e.g. &lt;xRabsQ&gt; Units are either kg/m or kg/m^2.</li>
-<li>Quadratic Damping (could lead to unwanted oscillations): &lt;{x|y|z|k|m|n}{U|V|W|P|Q|R}{U|V|W|P|Q|R}&gt; e.g. &lt;xRQ&gt; Units are either kg/m or kg/m^2.</li>
-<li>Linear Damping: &lt;{x|y|z|k|m|n}{U|V|W|P|Q|R}&gt;. e.g. &lt;xR&gt; Units are either kg or kg or kg/m. Additionally the system also supports the following parameters:</li>
-<li>&lt;water_density&gt; - The density of the fluid its moving in. Defaults to 998kgm^-3. [kgm^-3]</li>
-<li>&lt;link_name&gt; - The link of the model that is being subject to hydrodynamic forces. [Required]</li>
-<li>&lt;namespace&gt; - This allows the robot to have an individual namespace for current. This is useful when you have multiple vehicles in different locations and you wish to set the currents of each vehicle separately. If no namespace is given then the plugin listens on the <code>/ocean_current</code> topic for a <code>Vector3d</code> message. Otherwise it listens on <code>/model/{namespace name}/ocean_current</code>.[String, Optional]</li>
-<li>&lt;default_current&gt; - A generic current. [vector3d m/s, optional, default = [0,0,0]m/s]</li>
-<li>&lt;disable_coriolis&gt; - Disable Coriolis force [Boolean, Default: false]</li>
-<li>&lt;disable_added_mass&gt; - Disable Added Mass [Boolean, Default: false]. To be deprecated in Garden.</li>
+<li>Added Mass: <code>&lt;{x|y|z|k|m|n}Dot{U|V|W|P|Q|R}&gt;</code> e.g. <code>&lt;xDotR&gt;</code> (Deprecated) Units are either kg or kgm^2 depending on the choice of terms. You should use the sdf method based spec <a href="http://sdformat.org/spec?ver=1.11&elem=link#inertial_fluid_added_mass">http://sdformat.org/spec?ver=1.11&amp;elem=link#inertial_fluid_added_mass</a></li>
+<li>Quadratic Damping With abs term (this is probably what you want): <code>&lt;{x|y|z|k|m|n}{U|V|W|P|Q|R}abs{U|V|W|P|Q|R}&gt;</code> e.g. <code>&lt;xRabsQ&gt;</code> Units are either kg/m or kg/m^2.</li>
+<li>Quadratic Damping (could lead to unwanted oscillations): <code>&lt;{x|y|z|k|m|n}{U|V|W|P|Q|R}{U|V|W|P|Q|R}&gt;</code> e.g. <code>&lt;xRQ&gt;</code> Units are either kg/m or kg/m^2.</li>
+<li>Linear Damping: <code>&lt;{x|y|z|k|m|n}{U|V|W|P|Q|R}&gt;</code>. e.g. <code>&lt;xR&gt;</code> Units are either kg or kg or kg/m. Additionally the system also supports the following parameters:</li>
+<li><code>&lt;water_density&gt;</code> - The density of the fluid its moving in. Defaults to 998kgm^-3. [kgm^-3]</li>
+<li><code>&lt;link_name&gt;</code> - The link of the model that is being subject to hydrodynamic forces. [Required]</li>
+<li><code>&lt;namespace&gt;</code> - This allows the robot to have an individual namespace for current. This is useful when you have multiple vehicles in different locations and you wish to set the currents of each vehicle separately. If no namespace is given then the plugin listens on the <code>/ocean_current</code> topic for a <code>Vector3d</code> message. Otherwise it listens on <code>/model/{namespace name}/ocean_current</code>.[String, Optional]</li>
+<li><code>&lt;default_current&gt;</code> - A generic current. [vector3d m/s, optional, default = [0,0,0]m/s]</li>
+<li><code>&lt;disable_coriolis&gt;</code> - Disable Coriolis force [Boolean, Default: false]</li>
+<li><code>&lt;disable_added_mass&gt;</code> - Disable Added Mass [Boolean, Default: false]. To be deprecated in Garden.</li>
 </ul>
 <h3><a class="anchor" id="loading-external-currents"></a>
 Loading external currents</h3>
 <p>One can use the <a class="el" href="classgz_1_1sim_1_1systems_1_1EnvironmentPreload.html" title="A plugin to preload an Environment component into the ECM upon simulation start-up.">EnvironmentPreload</a> system to preload currents into the plugin using data files. To use the data you may give CSV column names by using <code>lookup_current_*</code> tags listed below:</p><ul>
-<li>&lt;lookup_current_x&gt; - X axis to use for lookup current</li>
-<li>&lt;lookup_current_y&gt; - Y axis to use for lookup current</li>
-<li>&lt;lookup_current_z&gt; - Z axis to use for lookup current If any one of the fields is present, it is assumed current is to be loaded by a data file and the topic will be ignored. If one or two fields are present, the missing fields are assumed to default to zero.</li>
+<li><code>&lt;lookup_current_x&gt;</code> - X axis to use for lookup current</li>
+<li><code>&lt;lookup_current_y&gt;</code> - Y axis to use for lookup current</li>
+<li><code>&lt;lookup_current_z&gt;</code> - Z axis to use for lookup current If any one of the fields is present, it is assumed current is to be loaded by a data file and the topic will be ignored. If one or two fields are present, the missing fields are assumed to default to zero.</li>
 </ul>
 <h1><a class="anchor" id="example-3"></a>
 Example</h1>

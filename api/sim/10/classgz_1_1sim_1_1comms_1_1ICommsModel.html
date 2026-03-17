@@ -202,12 +202,18 @@ Additional Inherited Members</h2></td></tr>
 <div class="textblock"><p>Abstract interface to define how the environment should handle communication simulation. As an example, this class could be responsible for handling dropouts, decay and packet collisions. </p>
 <p>The derived comms models can be configured with the following SDF parameters:</p>
 <ul>
-<li>Optional parameters: &lt;step_size&gt; If defined this will allow the comms model to run at a higher frequency than the physics engine. This is useful when dealing with ranging. If the &lt;step_size&gt; is set larger than the physics engine dt then the comms model step size will default to dt. Note: for consistency it is advised that the dt is a multiple of timestep. Units are in seconds.</li>
+<li>Optional parameters: <code>&lt;step_size&gt;</code> If defined this will allow the comms model to run at a higher frequency than the physics engine. This is useful when dealing with ranging. If the <code>&lt;step_size&gt;</code> is set larger than the physics engine dt then the comms model step size will default to dt. Note: for consistency it is advised that the dt is a multiple of timestep. Units are in seconds.</li>
 </ul>
-<p>Here's an example: &lt;physics name="1ms" type="ignored"&gt; &lt;max_step_size&gt;2&lt;/max_step_size&gt; &lt;real_time_factor&gt;1.0&lt;/real_time_factor&gt; &lt;/physics&gt; &lt;plugin
-  filename="gz-sim-perfect-comms-system"
-  name="systems::PerfectComms"&gt; &lt;step_size&gt;1&lt;/step_size&gt; &lt;/plugin&gt; </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<p>Here's an example: </p><div class="fragment"><div class="line">&lt;<span class="keywordtype">physics</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;1ms&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;ignored&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">max_step_size</span>&gt;2&lt;/<span class="keywordtype">max_step_size</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">real_time_factor</span>&gt;1.0&lt;/<span class="keywordtype">real_time_factor</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">physics</span>&gt;</div>
+<div class="line">&lt;<span class="keywordtype">plugin</span></div>
+<div class="line">  <span class="keyword">filename</span>=<span class="stringliteral">&quot;gz-sim-perfect-comms-system&quot;</span></div>
+<div class="line">  <span class="keyword">name</span>=<span class="stringliteral">&quot;systems::PerfectComms&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">step_size</span>&gt;1&lt;/<span class="keywordtype">step_size</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af1e7f0de171d9a0bc77a13fad1d99c4c" name="af1e7f0de171d9a0bc77a13fad1d99c4c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af1e7f0de171d9a0bc77a13fad1d99c4c">&#9670;&#160;</a></span>ICommsModel()</h2>
 
