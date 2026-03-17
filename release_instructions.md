@@ -371,7 +371,22 @@ compatibility and proper ordering across different ROS distributions:
   bloom track is updated accordingly.
   **It is critical to check that the correct track is being used when making a
   release after a new ROS distribution has been branched off of `rolling`.**
-  This can be done by editing the `tracks.yaml` file in the release repository
-  or by running `bloom-release` with the appropriate flags. Refer to the
+  There are two main cases:
+  1. **Core vendor packages (`gz_cmake_vendor`, `gz_utils_vendor`, and
+     `gz_math_vendor`):** These packages might be released into a new ROS
+     distribution automatically from the `rolling` branch. In this case, a new
+     stable branch should be created for the new ROS distribution, and the
+     bloom track should be updated to point to this new branch. It may be
+     best to edit the `tracks.yaml` file manually in the release repository to
+     ensure that the new track points to the correct branch while the `rolling`
+     track continues to point to the `rolling` branch.
+  2. **Non-core vendor packages:** For these packages, we are responsible for
+     branching off and making the release. The steps are: branch off from
+     `rolling`, then make the release using `bloom-release` with the
+     `--edit-track` flag to update the tracking information for the new
+     distribution. The `rolling` branch should continue to track the `rolling`
+     distribution without any changes.
+
+  Refer to the
   [bloom documentation](https://wiki.ros.org/bloom/Tutorials/ReleaseRepository#Tracks)
   for more information.
