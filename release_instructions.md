@@ -388,5 +388,5 @@ compatibility and proper ordering across different ROS distributions:
      distribution without any changes.
 
   Refer to the
-  [bloom documentation](https://wiki.ros.org/bloom/Tutorials/ReleaseRepository#Tracks)
+  [bloom documentation](https://docs.ros.org/en/rolling/How-To-Guides/Releasing/Release-Track.html)
   for more information.
