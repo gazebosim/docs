@@ -357,11 +357,14 @@ compatibility and proper ordering across different ROS distributions:
 * **Patch version:** Bump the patch version if the package has already been
   released for the target ROS distribution. This is almost always what you want
   to do.
-* **Minor version:** Bump the minor version only if the package is being
-  released into `rolling` and if the release happens immediately after a new ROS
-  distribution has been branched off of `rolling`. The intention here is that
-  all release branches (e.g. `jazzy`, `kilted`, `rolling`, etc.) have distinct
-  minor version numbers.
+* **Minor version:** Bump the minor version in the following cases:
+  1. If the package is being released into `rolling` and if the release happens
+     immediately after a new ROS distribution has been branched off of
+     `rolling`. The intention here is that all release branches (e.g. `jazzy`,
+     `kilted`, `rolling`, etc.) have distinct minor version numbers.
+  2. When the underlying Gazebo package's major version number is bumped (e.g.,
+     moving from `gz-math7` to `gz-math8`). This usually corresponds to a new
+     Gazebo collection release.
 * **Major version:** Never bump the major version number.
 * **Bloom track:** When creating new branches for a vendor package (e.g.
   branching off `rolling` for a newly released ROS distribution), ensure the
