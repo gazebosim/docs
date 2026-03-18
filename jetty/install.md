@@ -11,6 +11,14 @@ Binary installation is the recommended method of installing Gazebo.
  * [Binary Installation on macOS](install_osx)
  * [Binary Installation on Windows](install_windows)
 
+## Server-only installation
+
+A server-only package is available on Ubuntu for headless and CI environments.
+It installs the Gazebo server without GUI components, avoiding Qt and extra X11
+dependencies to provide a much lighter installation.
+
+ * [Server-only Installation on Ubuntu](install_ubuntu#server-only-installation)
+
 ## Source Installation instructions
 
 Source installation is recommended for users planning on altering Gazebo's source code (advanced).
