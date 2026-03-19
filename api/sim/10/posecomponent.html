@@ -171,7 +171,7 @@ Use the pose component</h3>
 <p>Now we can use the pose data as we like.</p>
 <p>Here, we manipulate the pose and package the result into a gz::msgs::Odometry message to be published:</p>
 <div class="fragment"><div class="line">  msgs::Odometry msg;</div>
-</div><!-- fragment --><div class="fragment"><div class="line">  math::Pose3d pose = rawPose * this-&gt;offset;</div>
+</div><!-- fragment --><div class="fragment"><div class="line">  math::Pose3d pose = this-&gt;globalOffset.Inverse() * rawPose * this-&gt;offset;</div>
 <div class="line">  msg.mutable_pose()-&gt;mutable_position()-&gt;set_x(pose.Pos().X());</div>
 <div class="line">  msg.mutable_pose()-&gt;mutable_position()-&gt;set_y(pose.Pos().Y());</div>
 <div class="line">  msgs::Set(msg.mutable_pose()-&gt;mutable_orientation(), pose.Rot());</div>
