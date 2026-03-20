@@ -17,7 +17,7 @@ A server-only package is available on Ubuntu for headless and CI environments.
 It installs the Gazebo server without GUI components, avoiding Qt and extra X11
 dependencies to provide a much lighter installation.
 
- * [Server-only Installation on Ubuntu](install_ubuntu#server-only-installation)
+ * [Server-only Installation on Ubuntu](install_ubuntu.md#server-only-installation)
 
 ## Source Installation instructions
 

@@ -26,6 +26,7 @@ All libraries should be ready to use and the `gz sim` app ready to be executed.
 Head back to the [Getting started](getstarted)
 page to start using Gazebo!
 
+(server-only-installation)=
 ## Server-only installation
 
 For headless and CI environments where the GUI is not needed, the
