@@ -152,7 +152,7 @@ Scenes</h2>
 Plugin types</h2>
 <p>Depending on the scene that you want to affect, you'll need to write a different plugin.</p>
 <p>To interact with the server-side scene, you'll need to write an <code><a class="el" href="classgz_1_1sim_1_1System.html" title="Base class for a System.">gz::sim::System</a></code>. See <a href="createsystemplugins.html">Create System Plugins</a>.</p>
-<p>To interact with the client-side scene, you'll need to write an gz::gui::Plugin, or a more specialized <code><a class="el" href="classgz_1_1sim_1_1GuiSystem.html" title="Base class for a GUI System.">gz::sim::GuiSystem</a></code> if you need to access entities and components. See the <a href="https://github.com/gazebosim/gz-sim/tree/gz-sim10/examples/plugin/gui_system_plugin">GUI system plugin example</a>.</p>
+<p>To interact with the client-side scene, you'll need to write an <code>gz::gui::Plugin</code>, or a more specialized <code><a class="el" href="classgz_1_1sim_1_1GuiSystem.html" title="Base class for a GUI System.">gz::sim::GuiSystem</a></code> if you need to access entities and components. See the <a href="https://github.com/gazebosim/gz-sim/tree/gz-sim10/examples/plugin/gui_system_plugin">GUI system plugin example</a>.</p>
 <h2><a class="anchor" id="getting-the-scene"></a>
 Getting the scene</h2>
 <p>When writing either plugin type, the <code>gz::rendering::Scene</code> pointer can be conveniently found using the rendering engine's singleton. Both example plugins use the exact same logic to get the scene:</p>
@@ -213,7 +213,7 @@ Render thread</h2>
 <p>Rendering operations aren't thread-safe. To make sure there are no race conditions, all rendering operations should happen in the same thread, the "render thread". In order to access that thread from a custom plugin, it's necessary to listen to events that the 3D scene is emitting. These are different for each plugin type.</p>
 <h3><a class="anchor" id="render-events-on-the-gui"></a>
 Render events on the GUI</h3>
-<p>The GUI plugin will need to listen to gz::gui::events::Render events. Here's how to do it:</p>
+<p>The GUI plugin will need to listen to <code>gz::gui::events::Render</code> events. Here's how to do it:</p>
 <ol type="1">
 <li><p class="startli">Include the GUI events header:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;gz/gui/GuiEvents.hh&gt;</span></div>

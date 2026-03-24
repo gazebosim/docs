@@ -148,7 +148,7 @@ Find the entity of interest</h3>
 <p>First, we will need access to an entity, the <a class="el" href="classgz_1_1sim_1_1Joint.html">gz::sim::Joint</a> entity in this case. It is declared as a member variable:</p>
 <div class="fragment"><div class="line">  <span class="keyword">public</span>: Entity jointEntity;</div>
 </div><!-- fragment --><p>An entity may have been created at the time the world is loaded, or you may create an entity at runtime if it does not exist yet. For joints, most likely they were defined in the SDF file that specifies the world, and all we have to do at runtime is to look for the joint by its name.</p>
-<p><code>ApplyJointForce</code> happens to be a system meant to be specified under <code>&lt;model&gt;</code> in the SDF, so at the time <code>Configure()</code> is called, it has access to a model entity from which we can extract a gz::sim::Model:</p>
+<p><code>ApplyJointForce</code> happens to be a system meant to be specified under <code>&lt;model&gt;</code> in the SDF, so at the time <code>Configure()</code> is called, it has access to a model entity from which we can extract a <a class="el" href="classgz_1_1sim_1_1Model.html">Model</a>:</p>
 <div class="fragment"><div class="line">  <span class="keyword">public</span>: Model model{kNullEntity};</div>
 </div><!-- fragment --> <div class="fragment"><div class="line"><span class="keywordtype">void</span> ApplyJointForce::Configure(<span class="keyword">const</span> Entity &amp;_entity,</div>
 <div class="line">    <span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr&lt;const sdf::Element&gt;</a> &amp;_sdf,</div>
