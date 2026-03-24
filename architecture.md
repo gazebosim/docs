@@ -11,7 +11,7 @@ For example, there are plugins that introduce new physics engines or rendering e
 However, for the purpose of this document, any mention of plugins is referring only to Gazebo Sim server and GUI plugins.
 
 Because they’re loaded at runtime, Gazebo does not need to be recompiled to add or remove plugins.
-Gazebo Sim ships with many plugins by default ([Server plugins](https://gazebosim.org/api/gazebo/4.5/namespaceignition_1_1gazebo_1_1systems.html), [Gazebo GUI plugins](https://gazebosim.org/api/gui/4.2/namespaceignition_1_1gui_1_1plugins.html), [Gazebo Sim GUI plugins]( https://gazebosim.org/api/gazebo/4.5/namespaceignition_1_1gazebo.html), and more), all of which are optional and can be removed by the user.
+Gazebo Sim ships with many plugins by default ([Server plugins](https://gazebosim.org/api/gazebo/6/namespaceignition_1_1gazebo_1_1systems.html), [Gazebo GUI plugins](https://gazebosim.org/api/gui/6/namespaceignition_1_1gui_1_1plugins.html), [Gazebo Sim GUI plugins]( https://gazebosim.org/api/gazebo/6/namespaceignition_1_1gazebo.html), and more), all of which are optional and can be removed by the user.
 Users can also add more plugins and even write their own plugins that will be compiled into library files.  
 
 Gazebo libraries are modular.
@@ -27,7 +27,7 @@ There are certain plugins in both the frontend and backend processes that are lo
 Many other plugins are optional.
 One common optional plugin is the sensors plugin.
 Both optional and default plugins can be removed or added at any time; Gazebo Sim will continue to run with limited functionality.
-These demos on [Server Configuration](https://gazebosim.org/api/gazebo/4.3/server_config.html) and [GUI Configuration](https://gazebosim.org/api/gazebo/4.3/gui_config.html) showcase that functionality.
+These demos on [Server Configuration](https://gazebosim.org/api/gazebo/6/server_config.html) and [GUI Configuration](https://gazebosim.org/api/gazebo/6/gui_config.html) showcase that functionality.
 
 The simulation process is depicted in the diagram below, and further explained in the Backend and Frontend process sections that follow.
 
@@ -36,7 +36,7 @@ The simulation process is depicted in the diagram below, and further explained i
 ## Backend server process
 
 Gazebo Sim is responsible for loading plugins in the backend, referred to as systems.
-The server runs an entity-component system architecture (see [Gazebo Sim terminology](https://gazebosim.org/api/gazebo/4.2/terminology.html)).
+The server runs an entity-component system architecture (see [Gazebo Sim terminology](https://gazebosim.org/api/gazebo/8/terminology.html)).
 The backend will usually have multiple systems responsible for everything in the simulation – computing physics, recording logs, receiving user commands, etc.
 
 Systems act on entities and components of those entities.
@@ -53,10 +53,10 @@ There is a loop running in the backend that runs the systems, where some systems
 This is called the “simulation loop”.
 The Entity Component Manager (ECM) in the backend provides the functionality for the actual querying and updating of the entities and components.
 
-[Physics](https://gazebosim.org/api/gazebo/4.5/classignition_1_1gazebo_1_1systems_1_1Physics.html), [User Commands](https://gazebosim.org/api/gazebo/4.5/classignition_1_1gazebo_1_1systems_1_1UserCommands.html), and [Scene Broadcaster](https://gazebosim.org/api/gazebo/4.5/classignition_1_1gazebo_1_1systems_1_1SceneBroadcaster.html) are all systems launched by default in the backend.
-As mentioned earlier, however, even default systems can be added to or removed from the simulation loop (the [Server Configuration](https://gazebosim.org/api/gazebo/4.3/server_config.html) tutorial describes how to customize default systems).
+[Physics](https://gazebosim.org/api/gazebo/6/classignition_1_1gazebo_1_1systems_1_1Physics.html), [User Commands](https://gazebosim.org/api/gazebo/6/classignition_1_1gazebo_1_1systems_1_1UserCommands.html), and [Scene Broadcaster](https://gazebosim.org/api/gazebo/6/classignition_1_1gazebo_1_1systems_1_1SceneBroadcaster.html) are all systems launched by default in the backend.
+As mentioned earlier, however, even default systems can be added to or removed from the simulation loop (the [Server Configuration](https://gazebosim.org/api/gazebo/6/server_config.html) tutorial describes how to customize default systems).
 For any other functionality, like sensor data processing for example, an additional system would have to be loaded.
-For example, if you need to generate sensor data that utilizes rendering sensors, you would need to load the [sensors system](https://gazebosim.org/api/gazebo/4.5/classignition_1_1gazebo_1_1systems_1_1Sensors.html).
+For example, if you need to generate sensor data that utilizes rendering sensors, you would need to load the [sensors system](https://gazebosim.org/api/gazebo/6/classignition_1_1gazebo_1_1systems_1_1Sensors.html).
 The visualization of that data, however, is left up to the client side plugins.
 
 ## Communication process
@@ -83,7 +83,7 @@ All of the frontend plugins use the [Gazebo GUI](https://gazebosim.org/libs/gui)
 The client itself also relies on Gazebo GUI.
 There are visualization plugins that create the windows of the GUI, add buttons and other interactive features, and a 3D scene plugin that utilizes [Gazebo Rendering](https://gazebosim.org/libs/rendering) that creates the scene the user sees.
 
-Frontend plugins typically communicate among themselves using [events](https://gazebosim.org/api/gui/4.2/namespaceignition_1_1gui_1_1events.html).
+Frontend plugins typically communicate among themselves using [events](https://gazebosim.org/api/gui/6/namespaceignition_1_1gui_1_1events.html).
 Events are similar to messages, but they're processed synchronously.
 For example, the `Render` event is emitted by a 3D scene from it's rendering thread right before the scene is rendered; this gives other plugins the chance to execute code right at that thread at that moment, which is valuable to edit the 3D scene.
 Other such events are emitted when the user right-clicks or hovers the scene for example.
