@@ -36,7 +36,7 @@ The simulation process is depicted in the diagram below, and further explained i
 ## Backend server process
 
 Gazebo Sim is responsible for loading plugins in the backend, referred to as systems.
-The server runs an entity-component system architecture (see [Gazebo Sim terminology](https://gazebosim.org/api/gazebo/8/terminology.html)).
+The server runs an entity-component system architecture (see [Gazebo Sim terminology](https://gazebosim.org/api/gazebo/6/terminology.html)).
 The backend will usually have multiple systems responsible for everything in the simulation – computing physics, recording logs, receiving user commands, etc.
 
 Systems act on entities and components of those entities.
