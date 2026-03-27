@@ -6,9 +6,9 @@ direction of Gazebo. If you would like to
 see other features on the roadmap, then please get in touch with us at
 info@openrobotics.org.
 
-## Gazebo Kura Roadmap
+## Gazebo M Roadmap
 
-Starting in Gazebo Kura, we are introducing the idea of a secondary roadmap
+Starting in Gazebo M, we are introducing the idea of a secondary roadmap
 which is a list of items the Gazebo PMC is looking to implement with the help
 of the community. Committers on the Gazebo project will focus on the primary
 roadmap, but will provide guidance and review to anyone in the community
@@ -150,18 +150,18 @@ Note that some of these roadmap items may be backported to older versions of
 Gazebo on a best-effort basis if they do not break API and ABI.
 :::
 
-### Gazebo Kura Release Timeline (2026)
+### Gazebo M Release Timeline (2027)
 
 This is a tentative release timeline for the next Gazebo release.
 
 | Event / Period | Date | Duration | Primary Focus |
 | :--- | :--- | :--- | :--- |
-| **Feature Freeze** | Friday, June 26 | ~1 month | Stabilize new features, merge pre-existing PRs. |
-| **Code Freeze** | Monday, July 27 | ~1 month | Bug fixes only. |
-| **Tutorial Party** | July 29 - August 13 | 2.5 Weeks | Community testing, tutorial verification. |
-| **Internal QA/Demo Prep** | August 17 - 21 | 1 Week | Final package releases and feature demo preparation. |
-| **Community Meeting** | Wednesday, August 26 | N/A | Feature showcase. |
-| **Official Announcement** | Monday, August 31 | N/A | Release day! |
+| **Feature Freeze** | Friday, January 22 | ~1 month | Stabilize new features, merge pre-existing PRs. |
+| **Code Freeze** | Monday, February 22 | ~1 month | Bug fixes only. |
+| **Tutorial Party** | February 24 - March 5 | 1.5 Weeks | Community testing, tutorial verification. |
+| **Internal QA/Demo Prep** | March 8 - 16 | 1 Week | Final package releases and feature demo preparation. |
+| **Community Meeting** | Wednesday, March 17 | N/A | Feature showcase. |
+| **Official Announcement** | Tuesday, March 23 | N/A | Release day! |
 
 ### Detailed Release Phase Guidelines
 
