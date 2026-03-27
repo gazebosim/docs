@@ -173,50 +173,45 @@
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1type.html">   32</a></span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">class</span>... T&gt; <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1type.html">type</a> { };</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span>...&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="namespaceignition_1_1physics.html#ab8ddf9531fc4ac7ce28574db20c8f20e">   37</a></span>&#160;    <span class="keyword">using</span> <a class="code" href="namespaceignition_1_1physics.html#ab8ddf9531fc4ac7ce28574db20c8f20e">void_t</a> = void;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> To, <span class="keyword">typename</span> From&gt;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ConstCompatible.html">   58</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1ConstCompatible.html">ConstCompatible</a> : <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/integral_constant.html">std::true_type</a> { };</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> To, <span class="keyword">typename</span> From&gt;</div>
-<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ConstCompatible_3_01To_00_01const_01From_01_4.html">   61</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1ConstCompatible_3_01To_00_01const_01From_01_4.html">ConstCompatible&lt;To, const From&gt;</a></div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        : <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/integral_constant.html">std::integral_constant&lt;bool, std::is_const&lt;To&gt;::value</a>&gt; { };</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;}</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="gz_2physics_2TemplateHelpers_8hh.html#a0efd7c702cc13c171a52feb85e64417a">   81</a></span>&#160;<span class="preprocessor">#define IGN_PHYSICS_CREATE_SELECTOR(X) \</span></div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">  template&lt;typename InFeature&gt; \</span></div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">  struct Select ## X \</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">  { \</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">    template&lt;typename F, typename PolicyT, typename FeaturesT, \</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">             typename = ::ignition::physics::void_t&lt;&gt;&gt; \</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">    struct Implementation \</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">    { \</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">      using type = ::ignition::physics::Empty; \</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">    }; \</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">    \</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">    template&lt;typename F, typename PolicyT, typename FeaturesT&gt; \</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">    struct Implementation&lt;F, PolicyT, FeaturesT, \</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">                          ::ignition::physics::void_t&lt; \</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">                              typename F::template X &lt;PolicyT, FeaturesT&gt;&gt;&gt; \</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">    { \</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">      using type = typename F::template X &lt;PolicyT, FeaturesT&gt;; \</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">    }; \</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">    \</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">    template &lt;typename PolicyT, typename FeaturesT&gt; \</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">    using type = typename Implementation&lt;InFeature, PolicyT, FeaturesT&gt;::type; \</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">  };</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> To, <span class="keyword">typename</span> From&gt;</div>
+<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ConstCompatible.html">   53</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1ConstCompatible.html">ConstCompatible</a> : <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/integral_constant.html">std::true_type</a> { };</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> To, <span class="keyword">typename</span> From&gt;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="structignition_1_1physics_1_1ConstCompatible_3_01To_00_01const_01From_01_4.html">   56</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structignition_1_1physics_1_1ConstCompatible.html">ConstCompatible</a>&lt;To, const From&gt;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;        : <a class="codeRef" href="http://en.cppreference.com/w/cpp/types/integral_constant.html">std::integral_constant</a>&lt;bool, std::is_const&lt;To&gt;::value&gt; { };</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="gz_2physics_2TemplateHelpers_8hh.html#a0efd7c702cc13c171a52feb85e64417a">   76</a></span>&#160;<span class="preprocessor">#define IGN_PHYSICS_CREATE_SELECTOR(X) \</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="preprocessor">  template&lt;typename InFeature&gt; \</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">  struct Select ## X \</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="preprocessor">  { \</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="preprocessor">    template&lt;typename F, typename PolicyT, typename FeaturesT, \</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">             typename = std::void_t&lt;&gt;&gt; \</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">    struct Implementation \</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">    { \</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">      using type = ::ignition::physics::Empty; \</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">    }; \</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">    \</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">    template&lt;typename F, typename PolicyT, typename FeaturesT&gt; \</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">    struct Implementation&lt;F, PolicyT, FeaturesT, \</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">                          std::void_t&lt; \</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">                              typename F::template X &lt;PolicyT, FeaturesT&gt;&gt;&gt; \</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">    { \</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">      using type = typename F::template X &lt;PolicyT, FeaturesT&gt;; \</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">    }; \</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">    \</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">    template &lt;typename PolicyT, typename FeaturesT&gt; \</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">    using type = typename Implementation&lt;InFeature, PolicyT, FeaturesT&gt;::type; \</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">  };</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="astructignition_1_1physics_1_1ConstCompatible_html"><div class="ttname"><a href="structignition_1_1physics_1_1ConstCompatible.html">ignition::physics::ConstCompatible</a></div><div class="ttdoc">Contains a static constexpr field named value which will be true if the type From has a const-quality...</div><div class="ttdef"><b>Definition:</b> gz/physics/TemplateHelpers.hh:58</div></div>
+<div class="ttc" id="astructignition_1_1physics_1_1ConstCompatible_html"><div class="ttname"><a href="structignition_1_1physics_1_1ConstCompatible.html">ignition::physics::ConstCompatible</a></div><div class="ttdoc">Contains a static constexpr field named value which will be true if the type From has a const-quality...</div><div class="ttdef"><b>Definition:</b> gz/physics/TemplateHelpers.hh:53</div></div>
 <div class="ttc" id="aintegral_constant_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/types/integral_constant.html">std::true_type</a></div></div>
 <div class="ttc" id="astructignition_1_1physics_1_1type_html"><div class="ttname"><a href="structignition_1_1physics_1_1type.html">ignition::physics::type</a></div><div class="ttdoc">This can be used to turn a type into a function argument, which is useful for template metaprogrammin...</div><div class="ttdef"><b>Definition:</b> gz/physics/TemplateHelpers.hh:32</div></div>
 <div class="ttc" id="anamespaceignition_html"><div class="ttname"><a href="namespaceignition.html">ignition</a></div></div>
 <div class="ttc" id="astructignition_1_1physics_1_1Empty_html"><div class="ttname"><a href="structignition_1_1physics_1_1Empty.html">ignition::physics::Empty</a></div><div class="ttdoc">Useful as a blank placeholder in template metaprogramming.</div><div class="ttdef"><b>Definition:</b> gz/physics/TemplateHelpers.hh:28</div></div>
-<div class="ttc" id="anamespaceignition_1_1physics_html_ab8ddf9531fc4ac7ce28574db20c8f20e"><div class="ttname"><a href="namespaceignition_1_1physics.html#ab8ddf9531fc4ac7ce28574db20c8f20e">ignition::physics::void_t</a></div><div class="ttdeci">void void_t</div><div class="ttdef"><b>Definition:</b> gz/physics/TemplateHelpers.hh:37</div></div>
-<div class="ttc" id="astructignition_1_1physics_1_1ConstCompatible_3_01To_00_01const_01From_01_4_html"><div class="ttname"><a href="structignition_1_1physics_1_1ConstCompatible_3_01To_00_01const_01From_01_4.html">ignition::physics::ConstCompatible&lt; To, const From &gt;</a></div><div class="ttdef"><b>Definition:</b> gz/physics/TemplateHelpers.hh:61</div></div>
       </div>
     </main>
   </div>
