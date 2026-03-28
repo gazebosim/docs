@@ -1,1 +1,1 @@
-../../cmake/2/jquery.js
+../../cmake/4/jquery.js

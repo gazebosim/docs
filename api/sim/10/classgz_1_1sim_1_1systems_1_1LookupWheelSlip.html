@@ -195,7 +195,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Lookup Wheel Slip system. This plugin dynamically adjusts the wheel slip and friction parameters based on the wheel's position on the region covered by the specified lookup image map (slip map) where slip and friction values are encoded in the image's RGB channels. This plugin needs to be used together with the <a class="el" href="classgz_1_1sim_1_1systems_1_1WheelSlip.html" title="A system that updates wheel slip parameters based on linear wheel spin velocity (radius * spin rate).">WheelSlip</a> system. <a class="el" href="classgz_1_1sim_1_1systems_1_1LookupWheelSlip.html" title="Lookup Wheel Slip system. This plugin dynamically adjusts the wheel slip and friction parameters base...">LookupWheelSlip</a> system params: </p>
 <ul>
-<li><code>&lt;slip_map&gt;</code>: (Required) Lookup slip map filename. This needs to be an 8 bit RGB image.<ul>
+<li><p class="startli"><code>&lt;slip_map&gt;</code>: (Required) Lookup slip map filename. This needs to be an 8 bit RGB image.</p><ul>
 <li>Channels:<ul>
 <li>Red - updates lateral slip</li>
 <li>Green - updates longitudinal slip</li>
@@ -210,8 +210,21 @@ Additional Inherited Members</h2></td></tr>
 </ul>
 </li>
 </ul>
+<p class="startli">Parameters (SDF): </p><div class="fragment"><div class="line">&lt;<span class="keywordtype">size_x</span>&gt;</div>
+<div class="line">&lt;<span class="keywordtype">size_y</span>&gt;</div>
+<div class="line">&lt;<span class="keywordtype">wheel_link_name</span>&gt;</div>
+<div class="line">&lt;<span class="keywordtype">slip_compliance_lateral_delta</span>&gt;</div>
+<div class="line">&lt;<span class="keywordtype">slip_compliance_longitudinal_delta</span>&gt;</div>
+<div class="line">&lt;<span class="keywordtype">friction_delta</span>&gt;</div>
+</div><!-- fragment --><p class="startli">Where:</p><ul>
+<li>size_x: (Required) x size of lookup slip map in meters.</li>
+<li>size_y: (Required) y size of lookup slip map in meters.</li>
+<li>wheel_link_name: (Required) The wheel link name from the <a class="el" href="classgz_1_1sim_1_1systems_1_1WheelSlip.html" title="A system that updates wheel slip parameters based on linear wheel spin velocity (radius * spin rate).">WheelSlip</a> system. Specify one per wheel link.</li>
+<li>slip_compliance_lateral_delta: (Optional) The increase/decrease step applied to the lateral slip. Default is 0.05.</li>
+<li>slip_compliance_longitudinal_delta: (Optional) The increase/decrease step applied to the longitudinal slip. Default is 0.005.</li>
+<li>friction_delta: (Optional) The increase/decrease step applied to the friction coefficients in the primary and secondary directions. Default is 0.5. </li>
+</ul>
 </li>
-<li>`&lt;size_x&gt;<code>: (Required) x size of lookup slip map in meters. *</code>&lt;size_y&gt;<code>: (Required) y size of lookup slip map in meters. *</code>&lt;wheel_link_name&gt;<code>: (Required) The wheel link name from the <a class="el" href="classgz_1_1sim_1_1systems_1_1WheelSlip.html" title="A system that updates wheel slip parameters based on linear wheel spin velocity (radius * spin rate).">WheelSlip</a> system. Specify one</code>&lt;wheel_link_name&gt;<code>per wheel link. *</code>&lt;slip_compliance_lateral_delta&gt;<code>: (Optional) The increase / decrease step to be applied to the lateral slip. Default is 0.05 *</code>&lt;slip_compliance_longitudinal_delta&gt;<code>: (Optional) The increase / decrease step to be applied to the longitudinal slip. Default is 0.005 *</code>&lt;friction_delta&gt;`: (Optional) The increase/decrease step to be applied to the friction coefficients in the primary and secondary directions. Default is 0.5 </li>
 </ul>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7aef04be134b1e10126cd98f2facf05b" name="a7aef04be134b1e10126cd98f2facf05b"></a>
