@@ -261,7 +261,7 @@ Headers</h3>
 <div class="line"><span class="preprocessor">#include &lt;gz/math/Pose3.hh&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;gz/math/PID.hh&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;gz/math/Vector3.hh&gt;</span></div>
-</div><!-- fragment --><p>To use the <code><a class="elRef" href="https://gazebosim.org/api/plugin/1/gz_2plugin_2Register_8hh.html#abcee184a421558b5599b4bdd075bf61b">IGNITION_ADD_PLUGIN()</a></code> and <code><a class="elRef" href="https://gazebosim.org/api/plugin/1/gz_2plugin_2Register_8hh.html#a1eabf3749f038a9224fb1ec16e090087">IGNITION_ADD_PLUGIN_ALIAS()</a></code> macros, we need a header from <code>ign-plugin</code>:</p>
+</div><!-- fragment --><p>To use the <code>IGNITION_ADD_PLUGIN()</code> and <code>IGNITION_ADD_PLUGIN_ALIAS()</code> macros, we need a header from <code>ign-plugin</code>:</p>
 <div class="fragment"><div class="line"><span class="comment">// NEW</span></div>
 <div class="line"><span class="preprocessor">#include &lt;gz/plugin/Register.hh&gt;</span></div>
 </div><!-- fragment --><p>Because we'll be subscribing to data published by a sensor, we need a header from <code>ign-transport</code>:</p>
@@ -331,10 +331,10 @@ Console logging</h3>
 <div class="line">gzerr &lt;&lt; ... ;</div>
 </div><!-- fragment --><p>with their Ignition equivalents:</p>
 <div class="fragment"><div class="line"><span class="comment">// NEW</span></div>
-<div class="line"><a class="codeRef" href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#acc94b8f20a0596b68b4ec266a75fa8be">igndbg</a> &lt;&lt; ... ;</div>
-<div class="line"><a class="codeRef" href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#a4650b956b09bfa86be5770c1cfa522ae">ignlog</a> &lt;&lt; ... ;</div>
-<div class="line"><a class="codeRef" href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#a27f74932032badfe1255e584f1e8a791">ignwarn</a> &lt;&lt; ... ;</div>
-<div class="line"><a class="codeRef" href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#ab2bfcd13bf44fe6d8c2f19c530c10e28">ignerr</a> &lt;&lt; ... ;</div>
+<div class="line">igndbg &lt;&lt; ... ;</div>
+<div class="line">ignlog &lt;&lt; ... ;</div>
+<div class="line">ignwarn &lt;&lt; ... ;</div>
+<div class="line">ignerr &lt;&lt; ... ;</div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md116"></a>
 Plugin interface: Configure()</h3>
 <p>Recall that <code>Configure()</code> replaces <code>Load()</code>.</p>
@@ -442,7 +442,7 @@ One-time initialization in PreUpdate(): subscribing to sensor data</h4>
 <div class="line"> </div>
 <div class="line">  <span class="keywordflow">if</span>(imuTopicName.empty())</div>
 <div class="line">  {</div>
-<div class="line">    <a class="codeRef" href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#ab2bfcd13bf44fe6d8c2f19c530c10e28">ignerr</a> &lt;&lt; <span class="stringliteral">&quot;[&quot;</span> &lt;&lt; this-&gt;dataPtr-&gt;modelName &lt;&lt; <span class="stringliteral">&quot;] &quot;</span></div>
+<div class="line">    ignerr &lt;&lt; <span class="stringliteral">&quot;[&quot;</span> &lt;&lt; this-&gt;dataPtr-&gt;modelName &lt;&lt; <span class="stringliteral">&quot;] &quot;</span></div>
 <div class="line">          &lt;&lt; <span class="stringliteral">&quot;imu_sensor [&quot;</span> &lt;&lt; this-&gt;dataPtr-&gt;imuName</div>
 <div class="line">          &lt;&lt; <span class="stringliteral">&quot;] not found, abort ArduPilot plugin.&quot;</span> &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
@@ -524,14 +524,14 @@ Registering the plugin</h3>
 <p>In the old code we register our plugin via the macro <code>GZ_REGISTER_PLUGIN()</code>:</p>
 <div class="fragment"><div class="line"><span class="comment">// OLD</span></div>
 <div class="line">GZ_REGISTER_MODEL_PLUGIN(ArduPilotPlugin)</div>
-</div><!-- fragment --><p>In the new code we instead use two macros: <code><a class="elRef" href="https://gazebosim.org/api/plugin/1/gz_2plugin_2Register_8hh.html#abcee184a421558b5599b4bdd075bf61b">IGNITION_ADD_PLUGIN()</a></code> and <code><a class="elRef" href="https://gazebosim.org/api/plugin/1/gz_2plugin_2Register_8hh.html#a1eabf3749f038a9224fb1ec16e090087">IGNITION_ADD_PLUGIN_ALIAS()</a></code>:</p>
+</div><!-- fragment --><p>In the new code we instead use two macros: <code>IGNITION_ADD_PLUGIN()</code> and <code>IGNITION_ADD_PLUGIN_ALIAS()</code>:</p>
 <div class="fragment"><div class="line"><span class="comment">// NEW</span></div>
-<div class="line"><a class="codeRef" href="https://gazebosim.org/api/plugin/1/gz_2plugin_2Register_8hh.html#abcee184a421558b5599b4bdd075bf61b">IGNITION_ADD_PLUGIN</a>(gz::sim::systems::ArduPilotPlugin,</div>
+<div class="line">IGNITION_ADD_PLUGIN(gz::sim::systems::ArduPilotPlugin,</div>
 <div class="line">                    <a class="code" href="classignition_1_1gazebo_1_1System.html">gz::sim::System</a>,</div>
 <div class="line">                    gz::sim::systems::ArduPilotPlugin::ISystemConfigure,</div>
 <div class="line">                    gz::sim::systems::ArduPilotPlugin::ISystemPostUpdate,</div>
 <div class="line">                    gz::sim::systems::ArduPilotPlugin::ISystemPreUpdate)</div>
-<div class="line"><a class="codeRef" href="https://gazebosim.org/api/plugin/1/gz_2plugin_2Register_8hh.html#a1eabf3749f038a9224fb1ec16e090087">IGNITION_ADD_PLUGIN_ALIAS</a>(gz::sim::systems::ArduPilotPlugin,<span class="stringliteral">&quot;ArduPilotPlugin&quot;</span>)</div>
+<div class="line">IGNITION_ADD_PLUGIN_ALIAS(gz::sim::systems::ArduPilotPlugin,<span class="stringliteral">&quot;ArduPilotPlugin&quot;</span>)</div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md122"></a>
 Build recipe: &lt;tt&gt;CMakeLists.txt&lt;/tt&gt;</h2>
 <p>Compared to the code changes, the updates in the CMake configuration are pretty minor and primarily result from the fact that the formerly monolithic Gazebo project is now a set of Ignition libraries.</p>
@@ -629,7 +629,6 @@ What's next</h2>
 <p>Check out <a href="https://github.com/gerkey/ardupilot_gazebo/tree/ignition#using-with-ignition">these instructions</a> if you'd like to learn more about using ardupilot_gazebo with Ignition. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
-<div class="ttc" id="agz_2plugin_2Register_8hh_html_abcee184a421558b5599b4bdd075bf61b"><div class="ttname"><a href="https://gazebosim.org/api/plugin/1/gz_2plugin_2Register_8hh.html#abcee184a421558b5599b4bdd075bf61b">IGNITION_ADD_PLUGIN</a></div><div class="ttdeci">#define IGNITION_ADD_PLUGIN(PluginClass,...)</div></div>
 <div class="ttc" id="anamespaceignition_1_1gazebo_1_1components_html_a5b54cafbb965ca861020b90d5ccf7e2a"><div class="ttname"><a href="namespaceignition_1_1gazebo_1_1components.html#a5b54cafbb965ca861020b90d5ccf7e2a">ignition::gazebo::components::Imu</a></div><div class="ttdeci">Component&lt; sdf::Sensor, class ImuTag, serializers::SensorSerializer &gt; Imu</div><div class="ttdoc">A component type that contains an IMU sensor, sdf::IMU, information.</div><div class="ttdef"><b>Definition:</b> include/gz/sim/components/Imu.hh:40</div></div>
 <div class="ttc" id="alock_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/thread/lock.html">std::lock</a></div><div class="ttdeci">T lock(T... args)</div></div>
 <div class="ttc" id="anamespaceignition_1_1gazebo_html_ad83694d867b0e3a9446b535b5dfd208d"><div class="ttname"><a href="namespaceignition_1_1gazebo.html#ad83694d867b0e3a9446b535b5dfd208d">ignition::gazebo::Entity</a></div><div class="ttdeci">uint64_t Entity</div><div class="ttdoc">An Entity identifies a single object in simulation such as a model, link, or light....</div><div class="ttdef"><b>Definition:</b> gz/sim/Entity.hh:58</div></div>
@@ -639,11 +638,9 @@ What's next</h2>
 <div class="ttc" id="aclassignition_1_1gazebo_1_1Model_html"><div class="ttname"><a href="classignition_1_1gazebo_1_1Model.html">ignition::gazebo::Model</a></div><div class="ttdoc">This class provides wrappers around entities and components which are more convenient and straight-fo...</div><div class="ttdef"><b>Definition:</b> gz/sim/Model.hh:60</div></div>
 <div class="ttc" id="anamespaceignition_1_1gazebo_1_1components_html_a6e4fc60b44eb0e0cf7fdfee1f1b93b86"><div class="ttname"><a href="namespaceignition_1_1gazebo_1_1components.html#a6e4fc60b44eb0e0cf7fdfee1f1b93b86">ignition::gazebo::components::ParentEntity</a></div><div class="ttdeci">Component&lt; Entity, class ParentEntityTag &gt; ParentEntity</div><div class="ttdoc">This component holds an entity's parent entity.</div><div class="ttdef"><b>Definition:</b> gz/sim/components/ParentEntity.hh:41</div></div>
 <div class="ttc" id="aduration_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/chrono/duration.html">std::chrono::duration</a></div></div>
-<div class="ttc" id="agz_2common_2Console_8hh_html_a4650b956b09bfa86be5770c1cfa522ae"><div class="ttname"><a href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#a4650b956b09bfa86be5770c1cfa522ae">ignlog</a></div><div class="ttdeci">#define ignlog</div></div>
 <div class="ttc" id="agz_2sim_2components_2JointPosition_8hh_html"><div class="ttname"><a href="gz_2sim_2components_2JointPosition_8hh.html">JointPosition.hh</a></div></div>
 <div class="ttc" id="alock_guard_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/thread/lock_guard.html">std::lock_guard</a></div><div class="ttdoc">STL class.</div></div>
 <div class="ttc" id="aclassignition_1_1gazebo_1_1EventManager_html"><div class="ttname"><a href="classignition_1_1gazebo_1_1EventManager.html">ignition::gazebo::EventManager</a></div><div class="ttdoc">The EventManager is used to send/receive notifications of simulator events.</div><div class="ttdef"><b>Definition:</b> gz/sim/EventManager.hh:54</div></div>
-<div class="ttc" id="agz_2common_2Console_8hh_html_ab2bfcd13bf44fe6d8c2f19c530c10e28"><div class="ttname"><a href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#ab2bfcd13bf44fe6d8c2f19c530c10e28">ignerr</a></div><div class="ttdeci">#define ignerr</div></div>
 <div class="ttc" id="agz_2sim_2components_2Name_8hh_html"><div class="ttname"><a href="gz_2sim_2components_2Name_8hh.html">Name.hh</a></div></div>
 <div class="ttc" id="agz_2sim_2components_2JointVelocityCmd_8hh_html"><div class="ttname"><a href="gz_2sim_2components_2JointVelocityCmd_8hh.html">JointVelocityCmd.hh</a></div></div>
 <div class="ttc" id="agz_2sim_2components_2JointForceCmd_8hh_html"><div class="ttname"><a href="gz_2sim_2components_2JointForceCmd_8hh.html">JointForceCmd.hh</a></div></div>
@@ -651,12 +648,9 @@ What's next</h2>
 <div class="ttc" id="anamespaceignition_1_1gazebo_1_1components_html_acb1fa80d3ae07408b4bd1efbeedaef15"><div class="ttname"><a href="namespaceignition_1_1gazebo_1_1components.html#acb1fa80d3ae07408b4bd1efbeedaef15">ignition::gazebo::components::JointForceCmd</a></div><div class="ttdeci">Component&lt; std::vector&lt; double &gt;, class JointForceCmdTag &gt; JointForceCmd</div><div class="ttdoc">Commanded joint forces (or torques) to be applied to a joint in SI units (Nm for revolute,...</div><div class="ttdef"><b>Definition:</b> gz/sim/components/JointForceCmd.hh:38</div></div>
 <div class="ttc" id="astructignition_1_1gazebo_1_1UpdateInfo_html"><div class="ttname"><a href="structignition_1_1gazebo_1_1UpdateInfo.html">ignition::gazebo::UpdateInfo</a></div><div class="ttdoc">Information passed to systems on the update callback.</div><div class="ttdef"><b>Definition:</b> include/gz/sim/Types.hh:38</div></div>
 <div class="ttc" id="agz_2sim_2Model_8hh_html"><div class="ttname"><a href="gz_2sim_2Model_8hh.html">Model.hh</a></div></div>
-<div class="ttc" id="agz_2plugin_2Register_8hh_html_a1eabf3749f038a9224fb1ec16e090087"><div class="ttname"><a href="https://gazebosim.org/api/plugin/1/gz_2plugin_2Register_8hh.html#a1eabf3749f038a9224fb1ec16e090087">IGNITION_ADD_PLUGIN_ALIAS</a></div><div class="ttdeci">#define IGNITION_ADD_PLUGIN_ALIAS(PluginClass,...)</div></div>
 <div class="ttc" id="anamespaceignition_1_1gazebo_html_a03d78dd6f322345283506c2005476e79"><div class="ttname"><a href="namespaceignition_1_1gazebo.html#a03d78dd6f322345283506c2005476e79">ignition::gazebo::kNullEntity</a></div><div class="ttdeci">const Entity kNullEntity</div><div class="ttdoc">Indicates a non-existant or invalid Entity.</div><div class="ttdef"><b>Definition:</b> gz/sim/Entity.hh:61</div></div>
-<div class="ttc" id="agz_2common_2Console_8hh_html_acc94b8f20a0596b68b4ec266a75fa8be"><div class="ttname"><a href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#acc94b8f20a0596b68b4ec266a75fa8be">igndbg</a></div><div class="ttdeci">#define igndbg</div></div>
 <div class="ttc" id="anamespaceignition_1_1gazebo_1_1components_html_a64427335ab235cc2ce07461b343f6eb3"><div class="ttname"><a href="namespaceignition_1_1gazebo_1_1components.html#a64427335ab235cc2ce07461b343f6eb3">ignition::gazebo::components::JointVelocity</a></div><div class="ttdeci">Component&lt; std::vector&lt; double &gt;, class JointVelocityTag, serializers::VectorDoubleSerializer &gt; JointVelocity</div><div class="ttdoc">Base class which can be extended to add serialization.</div><div class="ttdef"><b>Definition:</b> gz/sim/components/JointVelocity.hh:38</div></div>
-<div class="ttc" id="anamespacegz_html"><div class="ttname"><a href="namespacegz.html">gz</a></div></div>
-<div class="ttc" id="agz_2common_2Console_8hh_html_a27f74932032badfe1255e584f1e8a791"><div class="ttname"><a href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#a27f74932032badfe1255e584f1e8a791">ignwarn</a></div><div class="ttdeci">#define ignwarn</div></div>
+<div class="ttc" id="anamespacegz_html"><div class="ttname"><a href="namespacegz.html">gz</a></div><div class="ttdef"><b>Definition:</b> config.hh:55</div></div>
 <div class="ttc" id="agz_2sim_2components_2AngularVelocity_8hh_html"><div class="ttname"><a href="gz_2sim_2components_2AngularVelocity_8hh.html">AngularVelocity.hh</a></div></div>
 <div class="ttc" id="ainclude_2gz_2sim_2components_2Imu_8hh_html"><div class="ttname"><a href="include_2gz_2sim_2components_2Imu_8hh.html">Imu.hh</a></div></div>
 <div class="ttc" id="agz_2sim_2components_2LinearVelocity_8hh_html"><div class="ttname"><a href="gz_2sim_2components_2LinearVelocity_8hh.html">LinearVelocity.hh</a></div></div>

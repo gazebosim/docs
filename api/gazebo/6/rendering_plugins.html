@@ -162,7 +162,7 @@ Getting the scene</h2>
 <div class="line">  <span class="keyword">auto</span> loadedEngNames = gz::rendering::loadedEngines();</div>
 <div class="line">  <span class="keywordflow">if</span> (loadedEngNames.empty())</div>
 <div class="line">  {</div>
-<div class="line">    <a class="codeRef" href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#acc94b8f20a0596b68b4ec266a75fa8be">igndbg</a> &lt;&lt; <span class="stringliteral">&quot;No rendering engine is loaded yet&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line">    igndbg &lt;&lt; <span class="stringliteral">&quot;No rendering engine is loaded yet&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">  }</div>
 <div class="line"> </div>
@@ -170,20 +170,20 @@ Getting the scene</h2>
 <div class="line">  <span class="keyword">auto</span> engineName = loadedEngNames[0];</div>
 <div class="line">  <span class="keywordflow">if</span> (loadedEngNames.size() &gt; 1)</div>
 <div class="line">  {</div>
-<div class="line">    <a class="codeRef" href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#acc94b8f20a0596b68b4ec266a75fa8be">igndbg</a> &lt;&lt; <span class="stringliteral">&quot;More than one engine is available. &quot;</span></div>
+<div class="line">    igndbg &lt;&lt; <span class="stringliteral">&quot;More than one engine is available. &quot;</span></div>
 <div class="line">      &lt;&lt; <span class="stringliteral">&quot;Using engine [&quot;</span> &lt;&lt; engineName &lt;&lt; <span class="stringliteral">&quot;]&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 <div class="line">  }</div>
 <div class="line">  <span class="keyword">auto</span> engine = gz::rendering::engine(engineName);</div>
 <div class="line">  <span class="keywordflow">if</span> (!engine)</div>
 <div class="line">  {</div>
-<div class="line">    <a class="codeRef" href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#ab2bfcd13bf44fe6d8c2f19c530c10e28">ignerr</a> &lt;&lt; <span class="stringliteral">&quot;Internal error: failed to load engine [&quot;</span> &lt;&lt; engineName</div>
+<div class="line">    ignerr &lt;&lt; <span class="stringliteral">&quot;Internal error: failed to load engine [&quot;</span> &lt;&lt; engineName</div>
 <div class="line">      &lt;&lt; <span class="stringliteral">&quot;]. Grid plugin won&#39;t work.&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">  }</div>
 <div class="line"> </div>
 <div class="line">  <span class="keywordflow">if</span> (engine-&gt;SceneCount() == 0)</div>
 <div class="line">  {</div>
-<div class="line">    <a class="codeRef" href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#acc94b8f20a0596b68b4ec266a75fa8be">igndbg</a> &lt;&lt; <span class="stringliteral">&quot;No scene has been created yet&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line">    igndbg &lt;&lt; <span class="stringliteral">&quot;No scene has been created yet&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">  }</div>
 <div class="line"> </div>
@@ -191,13 +191,13 @@ Getting the scene</h2>
 <div class="line">  <span class="keyword">auto</span> scenePtr = engine-&gt;SceneByIndex(0);</div>
 <div class="line">  <span class="keywordflow">if</span> (<span class="keyword">nullptr</span> == scenePtr)</div>
 <div class="line">  {</div>
-<div class="line">    <a class="codeRef" href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#ab2bfcd13bf44fe6d8c2f19c530c10e28">ignerr</a> &lt;&lt; <span class="stringliteral">&quot;Internal error: scene is null.&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line">    ignerr &lt;&lt; <span class="stringliteral">&quot;Internal error: scene is null.&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 <div class="line">    <span class="keywordflow">return</span>;</div>
 <div class="line">  }</div>
 <div class="line"> </div>
 <div class="line">  <span class="keywordflow">if</span> (engine-&gt;SceneCount() &gt; 1)</div>
 <div class="line">  {</div>
-<div class="line">    <a class="codeRef" href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#acc94b8f20a0596b68b4ec266a75fa8be">igndbg</a> &lt;&lt; <span class="stringliteral">&quot;More than one scene is available. &quot;</span></div>
+<div class="line">    igndbg &lt;&lt; <span class="stringliteral">&quot;More than one scene is available. &quot;</span></div>
 <div class="line">      &lt;&lt; <span class="stringliteral">&quot;Using scene [&quot;</span> &lt;&lt; scene-&gt;Name() &lt;&lt; <span class="stringliteral">&quot;]&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 <div class="line">  }</div>
 <div class="line"> </div>
@@ -313,8 +313,6 @@ Running examples</h2>
  </div></div><!-- contents -->
 </div><!-- PageDoc -->
 <div class="ttc" id="abind_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/functional/bind.html">std::bind</a></div><div class="ttdeci">T bind(T... args)</div></div>
-<div class="ttc" id="agz_2common_2Console_8hh_html_ab2bfcd13bf44fe6d8c2f19c530c10e28"><div class="ttname"><a href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#ab2bfcd13bf44fe6d8c2f19c530c10e28">ignerr</a></div><div class="ttdeci">#define ignerr</div></div>
-<div class="ttc" id="agz_2common_2Console_8hh_html_acc94b8f20a0596b68b4ec266a75fa8be"><div class="ttname"><a href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#acc94b8f20a0596b68b4ec266a75fa8be">igndbg</a></div><div class="ttdeci">#define igndbg</div></div>
 <div class="ttc" id="aendl_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a></div><div class="ttdeci">T endl(T... args)</div></div>
 <div class="ttc" id="agz_2sim_2rendering_2Events_8hh_html"><div class="ttname"><a href="gz_2sim_2rendering_2Events_8hh.html">Events.hh</a></div></div>
 <div class="ttc" id="anamespaceignition_1_1gazebo_1_1events_html_a051bf7c281935b87ac35a5b8ea69ffa8"><div class="ttname"><a href="namespaceignition_1_1gazebo_1_1events.html#a051bf7c281935b87ac35a5b8ea69ffa8">ignition::gazebo::events::PreRender</a></div><div class="ttdeci">gz::common::EventT&lt; void(void), struct PreRenderTag &gt; PreRender</div><div class="ttdoc">The render event is emitted before rendering updates. The event is emitted in the rendering thread so...</div><div class="ttdef"><b>Definition:</b> gz/sim/rendering/Events.hh:56</div></div>

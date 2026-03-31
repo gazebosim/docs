@@ -232,14 +232,14 @@ Register Plugin</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;gz/plugin/Register.hh&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Include a line in your source file for each interface implemented.</span></div>
-<div class="line"><a class="codeRef" href="https://gazebosim.org/api/plugin/1/gz_2plugin_2Register_8hh.html#abcee184a421558b5599b4bdd075bf61b">IGNITION_ADD_PLUGIN</a>(</div>
+<div class="line">IGNITION_ADD_PLUGIN(</div>
 <div class="line">    sample_system::SampleSystem,</div>
 <div class="line">    <a class="code" href="classignition_1_1gazebo_1_1System.html">gz::sim::System</a>,</div>
 <div class="line">    sample_system::SampleSystem::ISystemPostUpdate)</div>
 </div><!-- fragment --><p> If the library will contain multiple plugins, in one implementation do as above, and then for each successive implementation use:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;gz/plugin/RegisterMore.hh&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><a class="codeRef" href="https://gazebosim.org/api/plugin/1/gz_2plugin_2Register_8hh.html#abcee184a421558b5599b4bdd075bf61b">IGNITION_ADD_PLUGIN</a>(</div>
+<div class="line">IGNITION_ADD_PLUGIN(</div>
 <div class="line">    sample_system::SampleSystem2,</div>
 <div class="line">    <a class="code" href="classignition_1_1gazebo_1_1System.html">gz::sim::System</a>,</div>
 <div class="line">    sample_system::SampleSystem2::ISystemPreUpdate,</div>
@@ -261,7 +261,7 @@ Implement Source</h2>
 <div class="line"><span class="keywordtype">void</span> SampleSystem::PostUpdate(<span class="keyword">const</span> <a class="code" href="structignition_1_1gazebo_1_1UpdateInfo.html">gz::sim::UpdateInfo</a> &amp;_info,</div>
 <div class="line">    <span class="keyword">const</span> <a class="code" href="classignition_1_1gazebo_1_1EntityComponentManager.html">gz::sim::EntityComponentManager</a> &amp;_ecm)</div>
 <div class="line">{</div>
-<div class="line">  <a class="codeRef" href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#a01e58f1eed149799395d1f0a3363a93f">ignmsg</a> &lt;&lt; <span class="stringliteral">&quot;SampleSystem::PostUpdate&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
+<div class="line">  ignmsg &lt;&lt; <span class="stringliteral">&quot;SampleSystem::PostUpdate&quot;</span> &lt;&lt; <a class="codeRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a>;</div>
 <div class="line">}</div>
 </div><!-- fragment --> <h2><a class="anchor" id="autotoc_md34"></a>
 Setup the build</h2>
@@ -293,13 +293,11 @@ Loading your plugin</h2>
 <div class="line">    ...</div>
 </div><!-- fragment --> </div></div><!-- contents -->
 </div><!-- PageDoc -->
-<div class="ttc" id="agz_2plugin_2Register_8hh_html_abcee184a421558b5599b4bdd075bf61b"><div class="ttname"><a href="https://gazebosim.org/api/plugin/1/gz_2plugin_2Register_8hh.html#abcee184a421558b5599b4bdd075bf61b">IGNITION_ADD_PLUGIN</a></div><div class="ttdeci">#define IGNITION_ADD_PLUGIN(PluginClass,...)</div></div>
 <div class="ttc" id="aclassignition_1_1gazebo_1_1EntityComponentManager_html"><div class="ttname"><a href="classignition_1_1gazebo_1_1EntityComponentManager.html">ignition::gazebo::EntityComponentManager</a></div><div class="ttdoc">The EntityComponentManager constructs, deletes, and returns components and entities....</div><div class="ttdef"><b>Definition:</b> gz/sim/EntityComponentManager.hh:66</div></div>
 <div class="ttc" id="agz_2sim_2System_8hh_html"><div class="ttname"><a href="gz_2sim_2System_8hh.html">System.hh</a></div></div>
 <div class="ttc" id="astructignition_1_1gazebo_1_1UpdateInfo_html"><div class="ttname"><a href="structignition_1_1gazebo_1_1UpdateInfo.html">ignition::gazebo::UpdateInfo</a></div><div class="ttdoc">Information passed to systems on the update callback.</div><div class="ttdef"><b>Definition:</b> include/gz/sim/Types.hh:38</div></div>
 <div class="ttc" id="aclassignition_1_1gazebo_1_1ISystemPreUpdate_html"><div class="ttname"><a href="classignition_1_1gazebo_1_1ISystemPreUpdate.html">ignition::gazebo::ISystemPreUpdate</a></div><div class="ttdoc">Interface for a system that uses the PreUpdate phase.</div><div class="ttdef"><b>Definition:</b> gz/sim/System.hh:121</div></div>
 <div class="ttc" id="aclassignition_1_1gazebo_1_1ISystemPostUpdate_html"><div class="ttname"><a href="classignition_1_1gazebo_1_1ISystemPostUpdate.html">ignition::gazebo::ISystemPostUpdate</a></div><div class="ttdoc">Interface for a system that uses the PostUpdate phase.</div><div class="ttdef"><b>Definition:</b> gz/sim/System.hh:135</div></div>
-<div class="ttc" id="agz_2common_2Console_8hh_html_a01e58f1eed149799395d1f0a3363a93f"><div class="ttname"><a href="https://gazebosim.org/api/common/4/gz_2common_2Console_8hh.html#a01e58f1eed149799395d1f0a3363a93f">ignmsg</a></div><div class="ttdeci">#define ignmsg</div></div>
 <div class="ttc" id="aendl_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl</a></div><div class="ttdeci">T endl(T... args)</div></div>
 <div class="ttc" id="aclassignition_1_1gazebo_1_1System_html"><div class="ttname"><a href="classignition_1_1gazebo_1_1System.html">ignition::gazebo::System</a></div><div class="ttdoc">Base class for a System.</div><div class="ttdef"><b>Definition:</b> gz/sim/System.hh:75</div></div>
 <div class="ttc" id="aclassignition_1_1gazebo_1_1ISystemUpdate_html"><div class="ttname"><a href="classignition_1_1gazebo_1_1ISystemUpdate.html">ignition::gazebo::ISystemUpdate</a></div><div class="ttdoc">Interface for a system that uses the Update phase.</div><div class="ttdef"><b>Definition:</b> gz/sim/System.hh:128</div></div>

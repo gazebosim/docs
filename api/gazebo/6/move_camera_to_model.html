@@ -144,17 +144,17 @@
 How to move the camera to a model</h2>
 <ol type="1">
 <li>Load the <b>View Angle</b> plugin. This service is only available when the <b>View Angle</b> plugin is loaded.</li>
-<li>Call the service using the request message type <code><a class="elRef" href="https://gazebosim.org/api/msgs/8/classignition_1_1msgs_1_1GUICamera.html">ignition.msgs.GUICamera</a></code> and the response message type <code><a class="elRef" href="https://gazebosim.org/api/msgs/8/classignition_1_1msgs_1_1Boolean.html">ignition.msgs.Boolean</a></code>. The distance to the object is defined as the z coordinate, and the direction of the camera with a quaternion. It's possible to select the projection type.</li>
+<li>Call the service using the request message type <code>ignition.msgs.GUICamera</code> and the response message type <code>ignition.msgs.Boolean</code>. The distance to the object is defined as the z coordinate, and the direction of the camera with a quaternion. It's possible to select the projection type.</li>
 </ol>
 <p>For example, Let's move the camera to the <code>box</code> model looking down from 5 meters away.</p>
 <div class="fragment"><div class="line">ign service  -s /gui/move_to/model --reqtype ignition.msgs.GUICamera  --reptype ignition.msgs.Boolean -r &#39;name: &quot;box&quot;, pose: {position: {z:5}, orientation: {x:0, y:0, z: -1, w:0}}, projection_type: &quot;orbit&quot;&#39; --timeout 5000</div>
 </div><!-- fragment --><div class="image">
-<img src="files/move_camera_to_model/box_5.gif" alt=""/>
+<img src="box_5.png" alt=""/>
 </div>
 <p>The camera can also be placed far away, for example 20 meters:</p>
 <div class="fragment"><div class="line">ign service  -s /gui/move_to/model --reqtype ignition.msgs.GUICamera  --reptype ignition.msgs.Boolean -r &#39;name: &quot;box&quot;, pose: {position: {z:20}, orientation: {x:0, y:0, z: -1, w:0}}, projection_type: &quot;orbit&quot;&#39; --timeout 5000</div>
 </div><!-- fragment --><div class="image">
-<img src="files/move_camera_to_model/box_20.gif" alt=""/>
+<img src="box_20.png" alt=""/>
 </div>
 <p>In the following gif you can see the workflow of this service:</p>
 <div class="image">

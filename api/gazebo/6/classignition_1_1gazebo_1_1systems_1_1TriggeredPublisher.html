@@ -167,7 +167,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5a07a6b7cbf723cabcd9b2612b2914c5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classignition_1_1gazebo_1_1systems_1_1TriggeredPublisher.html#a5a07a6b7cbf723cabcd9b2612b2914c5">DoWork</a> ()</td></tr>
 <tr class="memdesc:a5a07a6b7cbf723cabcd9b2612b2914c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Thread that handles publishing output messages.  <a href="classignition_1_1gazebo_1_1systems_1_1TriggeredPublisher.html#a5a07a6b7cbf723cabcd9b2612b2914c5">More...</a><br /></td></tr>
 <tr class="separator:a5a07a6b7cbf723cabcd9b2612b2914c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8490d5057d7b9f109d4e9400bc45ecf6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classignition_1_1gazebo_1_1systems_1_1TriggeredPublisher.html#a8490d5057d7b9f109d4e9400bc45ecf6">MatchInput</a> (const <a class="elRef" href="https://gazebosim.org/api/transport/11/namespaceignition_1_1transport.html#ad0c5b75d912824efaf1e6256e253b236">transport::ProtoMsg</a> &amp;_inputMsg)</td></tr>
+<tr class="memitem:a8490d5057d7b9f109d4e9400bc45ecf6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classignition_1_1gazebo_1_1systems_1_1TriggeredPublisher.html#a8490d5057d7b9f109d4e9400bc45ecf6">MatchInput</a> (const transport::ProtoMsg &amp;_inputMsg)</td></tr>
 <tr class="memdesc:a8490d5057d7b9f109d4e9400bc45ecf6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Helper function that calls Match on every InputMatcher available.  <a href="classignition_1_1gazebo_1_1systems_1_1TriggeredPublisher.html#a8490d5057d7b9f109d4e9400bc45ecf6">More...</a><br /></td></tr>
 <tr class="separator:a8490d5057d7b9f109d4e9400bc45ecf6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad12e86eb3d2fdfee0dc48f64916cd8e3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classignition_1_1gazebo_1_1systems_1_1TriggeredPublisher.html#ad12e86eb3d2fdfee0dc48f64916cd8e3">PreUpdate</a> (const <a class="el" href="structignition_1_1gazebo_1_1UpdateInfo.html">ignition::gazebo::UpdateInfo</a> &amp;_info, <a class="el" href="classignition_1_1gazebo_1_1EntityComponentManager.html">ignition::gazebo::EntityComponentManager</a> &amp;_ecm) override</td></tr>
@@ -187,7 +187,7 @@ System Parameters</h2>
 <ul>
 <li><code>&lt;input&gt;</code> The tag contains the input message type, topic and matcher information.<ul>
 <li>Attributes:<ul>
-<li><code>type</code>: Input message type (eg. <code><a class="elRef" href="https://gazebosim.org/api/msgs/8/classignition_1_1msgs_1_1Boolean.html">ignition.msgs.Boolean</a></code>)</li>
+<li><code>type</code>: Input message type (eg. <code>ignition.msgs.Boolean</code>)</li>
 <li><code>topic</code>: Input message topic name</li>
 </ul>
 </li>
@@ -205,7 +205,7 @@ System Parameters</h2>
 </li>
 <li><code>&lt;output&gt;</code>: Contains configuration for output messages: Multiple <code>&lt;output&gt;</code> tags are possible. A message will be published on each output topic for each input that matches.<ul>
 <li>Attributes:<ul>
-<li><code>type</code>: Output message type (eg. <code><a class="elRef" href="https://gazebosim.org/api/msgs/8/classignition_1_1msgs_1_1Boolean.html">ignition.msgs.Boolean</a></code>)</li>
+<li><code>type</code>: Output message type (eg. <code>ignition.msgs.Boolean</code>)</li>
 <li><code>topic</code>: Output message topic name</li>
 </ul>
 </li>
@@ -217,8 +217,8 @@ System Parameters</h2>
 <li>Attributes:<ul>
 <li><code>name</code>: Service name (eg. <code>/world/triggered_publisher/set_pose</code>)</li>
 <li><code>timeout</code>: Service timeout</li>
-<li><code>reqType</code>: Service request message type (eg. <a class="elRef" href="https://gazebosim.org/api/msgs/8/classignition_1_1msgs_1_1Pose.html">ignition.msgs.Pose</a>)</li>
-<li><code>repType</code>: Service response message type (eg. <a class="elRef" href="https://gazebosim.org/api/msgs/8/classignition_1_1msgs_1_1Empty.html">ignition.msgs.Empty</a>)</li>
+<li><code>reqType</code>: Service request message type (eg. ignition.msgs.Pose)</li>
+<li><code>repType</code>: Service response message type (eg. ignition.msgs.Empty)</li>
 <li><code>reqMsg</code>: String used to construct the service protobuf message.</li>
 </ul>
 </li>
@@ -258,7 +258,7 @@ System Parameters</h2>
 <div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
 </div><!-- fragment --><h3><a class="anchor" id="autotoc_md357"></a>
 Repeated Fields</h3>
-<p>When a field matcher is used with repeated fields, the content of the repeated field is treated as a set and the comparison operator is set containment. For example, the <code>data</code> field of <code><a class="elRef" href="https://gazebosim.org/api/msgs/8/classignition_1_1msgs_1_1Int32__V.html">ignition.msgs.Int32_V</a></code> is a repeated Int32 message. To match an input that contains the values 1 and 2 the following matcher can be used: </p><div class="fragment"><div class="line">&lt;<span class="keywordtype">plugin</span>&gt;</div>
+<p>When a field matcher is used with repeated fields, the content of the repeated field is treated as a set and the comparison operator is set containment. For example, the <code>data</code> field of <code>ignition.msgs.Int32_V</code> is a repeated Int32 message. To match an input that contains the values 1 and 2 the following matcher can be used: </p><div class="fragment"><div class="line">&lt;<span class="keywordtype">plugin</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">input</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;ignition.msgs.Int32_V&quot;</span> <span class="keyword">topic</span>=<span class="stringliteral">&quot;/input_topic&quot;</span>&gt;</div>
 <div class="line">    &lt;<span class="keywordtype">match</span> <span class="keyword">field</span>=<span class="stringliteral">&quot;data&quot;</span>&gt;1&lt;/<span class="keywordtype">match</span>&gt;</div>
 <div class="line">    &lt;<span class="keywordtype">match</span> <span class="keyword">field</span>=<span class="stringliteral">&quot;data&quot;</span>&gt;2&lt;/<span class="keywordtype">match</span>&gt;</div>
@@ -422,7 +422,7 @@ Limitations</h3>
         <tr>
           <td class="memname">bool MatchInput </td>
           <td>(</td>
-          <td class="paramtype">const <a class="elRef" href="https://gazebosim.org/api/transport/11/namespaceignition_1_1transport.html#ad0c5b75d912824efaf1e6256e253b236">transport::ProtoMsg</a> &amp;&#160;</td>
+          <td class="paramtype">const transport::ProtoMsg &amp;&#160;</td>
           <td class="paramname"><em>_inputMsg</em></td><td>)</td>
           <td></td>
         </tr>

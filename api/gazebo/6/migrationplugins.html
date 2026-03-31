@@ -264,14 +264,14 @@ Plugin interfaces</h2>
 <div class="line">};</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Register plugin</span></div>
-<div class="line"><a class="codeRef" href="https://gazebosim.org/api/plugin/1/gz_2plugin_2Register_8hh.html#abcee184a421558b5599b4bdd075bf61b">IGNITION_ADD_PLUGIN</a>(MyPlugin,</div>
+<div class="line">IGNITION_ADD_PLUGIN(MyPlugin,</div>
 <div class="line">                    <a class="code" href="classignition_1_1gazebo_1_1System.html">gz::sim::System</a>,</div>
 <div class="line">                    MyPlugin::ISystemConfigure,</div>
 <div class="line">                    MyPlugin::ISystemPostUpdate)</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Add plugin alias so that we can refer to the plugin without the version</span></div>
 <div class="line"><span class="comment">// namespace</span></div>
-<div class="line"><a class="codeRef" href="https://gazebosim.org/api/plugin/1/gz_2plugin_2Register_8hh.html#a1eabf3749f038a9224fb1ec16e090087">IGNITION_ADD_PLUGIN_ALIAS</a>(MyPlugin, <span class="stringliteral">&quot;gz::sim::systems::MyPlugin&quot;</span>)</div>
+<div class="line">IGNITION_ADD_PLUGIN_ALIAS(MyPlugin, <span class="stringliteral">&quot;gz::sim::systems::MyPlugin&quot;</span>)</div>
 </div><!-- fragment --><p>The example above uses headers like <code>Model.hh</code> and <code>Util.hh</code>, which offer convenient APIs for some tasks that are common during simulation. However, the real power of the ECS architecture is the direct access to all entities and components. Let's take a look at how to do the same just using the ECM's API:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="gz_2sim_2EntityComponentManager_8hh.html">gz/sim/EntityComponentManager.hh</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;<a class="code" href="gz_2sim_2System_8hh.html">gz/sim/System.hh</a>&gt;</span></div>
@@ -338,12 +338,12 @@ Plugin interfaces</h2>
 <div class="line">  <span class="keyword">private</span>: <a class="code" href="namespaceignition_1_1gazebo.html#ad83694d867b0e3a9446b535b5dfd208d">Entity</a> linkEntity;</div>
 <div class="line">};</div>
 <div class="line"> </div>
-<div class="line"><a class="codeRef" href="https://gazebosim.org/api/plugin/1/gz_2plugin_2Register_8hh.html#abcee184a421558b5599b4bdd075bf61b">IGNITION_ADD_PLUGIN</a>(MyPlugin,</div>
+<div class="line">IGNITION_ADD_PLUGIN(MyPlugin,</div>
 <div class="line">                    <a class="code" href="classignition_1_1gazebo_1_1System.html">gz::sim::System</a>,</div>
 <div class="line">                    MyPlugin::ISystemConfigure,</div>
 <div class="line">                    MyPlugin::ISystemPostUpdate)</div>
 <div class="line"> </div>
-<div class="line"><a class="codeRef" href="https://gazebosim.org/api/plugin/1/gz_2plugin_2Register_8hh.html#a1eabf3749f038a9224fb1ec16e090087">IGNITION_ADD_PLUGIN_ALIAS</a>(MyPlugin, <span class="stringliteral">&quot;gz::sim::systems::MyPlugin&quot;</span>)</div>
+<div class="line">IGNITION_ADD_PLUGIN_ALIAS(MyPlugin, <span class="stringliteral">&quot;gz::sim::systems::MyPlugin&quot;</span>)</div>
 </div><!-- fragment --><p>In summary, the key differences between Gazebo Classic and Ignition Gazebo are:</p>
 <ul>
 <li>Plugins must inherit from the <code>ISystemConfigure</code> class to be able to override the <code>Configure</code> callback that gives access to many things, such as the SDF pointer. This used to be done through the <code>Load</code> callback.</li>
@@ -353,7 +353,6 @@ Plugin interfaces</h2>
 <p>All these changes are meant to give plugin developers more flexibility to only use the features they need, and several layers of abstraction which can be chosen according to the developer's experience and specific use-case. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
-<div class="ttc" id="agz_2plugin_2Register_8hh_html_abcee184a421558b5599b4bdd075bf61b"><div class="ttname"><a href="https://gazebosim.org/api/plugin/1/gz_2plugin_2Register_8hh.html#abcee184a421558b5599b4bdd075bf61b">IGNITION_ADD_PLUGIN</a></div><div class="ttdeci">#define IGNITION_ADD_PLUGIN(PluginClass,...)</div></div>
 <div class="ttc" id="anamespaceignition_1_1gazebo_html_ad83694d867b0e3a9446b535b5dfd208d"><div class="ttname"><a href="namespaceignition_1_1gazebo.html#ad83694d867b0e3a9446b535b5dfd208d">ignition::gazebo::Entity</a></div><div class="ttdeci">uint64_t Entity</div><div class="ttdoc">An Entity identifies a single object in simulation such as a model, link, or light....</div><div class="ttdef"><b>Definition:</b> gz/sim/Entity.hh:58</div></div>
 <div class="ttc" id="abind_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/utility/functional/bind.html">std::bind</a></div><div class="ttdeci">T bind(T... args)</div></div>
 <div class="ttc" id="abasic_string_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a></div><div class="ttdoc">STL class.</div></div>
@@ -364,8 +363,7 @@ Plugin interfaces</h2>
 <div class="ttc" id="anamespaceignition_1_1gazebo_1_1components_html_a92422623ef91bf733c54454995d18bd7"><div class="ttname"><a href="namespaceignition_1_1gazebo_1_1components.html#a92422623ef91bf733c54454995d18bd7">ignition::gazebo::components::Pose</a></div><div class="ttdeci">Component&lt; gz::math::Pose3d, class PoseTag &gt; Pose</div><div class="ttdoc">A component type that contains pose, gz::math::Pose3d, information.</div><div class="ttdef"><b>Definition:</b> gz/sim/components/Pose.hh:35</div></div>
 <div class="ttc" id="abasic_ostream_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/io/basic_ostream.html">std::cout</a></div></div>
 <div class="ttc" id="agz_2sim_2Model_8hh_html"><div class="ttname"><a href="gz_2sim_2Model_8hh.html">Model.hh</a></div></div>
-<div class="ttc" id="agz_2plugin_2Register_8hh_html_a1eabf3749f038a9224fb1ec16e090087"><div class="ttname"><a href="https://gazebosim.org/api/plugin/1/gz_2plugin_2Register_8hh.html#a1eabf3749f038a9224fb1ec16e090087">IGNITION_ADD_PLUGIN_ALIAS</a></div><div class="ttdeci">#define IGNITION_ADD_PLUGIN_ALIAS(PluginClass,...)</div></div>
-<div class="ttc" id="anamespacegz_html"><div class="ttname"><a href="namespacegz.html">gz</a></div></div>
+<div class="ttc" id="anamespacegz_html"><div class="ttname"><a href="namespacegz.html">gz</a></div><div class="ttdef"><b>Definition:</b> config.hh:55</div></div>
 <div class="ttc" id="anamespaceignition_1_1gazebo_html_abd245284d472b010a46c7b592921fd91"><div class="ttname"><a href="namespaceignition_1_1gazebo.html#abd245284d472b010a46c7b592921fd91">ignition::gazebo::worldPose</a></div><div class="ttdeci">math::Pose3d worldPose(const Entity &amp;_entity, const EntityComponentManager &amp;_ecm)</div><div class="ttdoc">Helper function to compute world pose of an entity.</div></div>
 <div class="ttc" id="anamespaceignition_1_1gazebo_1_1components_html_a81c45336dd134e03c5a29b34beb293db"><div class="ttname"><a href="namespaceignition_1_1gazebo_1_1components.html#a81c45336dd134e03c5a29b34beb293db">ignition::gazebo::components::Model</a></div><div class="ttdeci">Component&lt; NoData, class ModelTag &gt; Model</div><div class="ttdoc">A component that identifies an entity as being a model.</div><div class="ttdef"><b>Definition:</b> gz/sim/components/Model.hh:125</div></div>
 <div class="ttc" id="agz_2sim_2Util_8hh_html"><div class="ttname"><a href="gz_2sim_2Util_8hh.html">Util.hh</a></div></div>
