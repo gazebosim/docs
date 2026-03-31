@@ -493,6 +493,30 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w
 <p>All libraries should be ready to use and the <code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">sim</span></code> app ready to be executed.</p>
 <p>Head back to the <a class="reference internal" href="../getstarted/"><span class="doc std std-doc">Getting started</span></a>
 page to start using Gazebo!</p>
+<section id="server-only-installation">
+<span id="id1"></span><h2>Server-only installation<a class="headerlink" href="#server-only-installation" title="Link to this heading">#</a></h2>
+<p>For headless and CI environments where the GUI is not needed, the
+<code class="docutils literal notranslate"><span class="pre">gz-sim10-server</span></code> package provides a lightweight alternative. It installs only
+the Gazebo simulation server (<code class="docutils literal notranslate"><span class="pre">gz-sim-server</span></code>) without any GUI or Qt
+dependencies, resulting in a significantly smaller installation footprint.</p>
+<p>After configuring the repository (same as above), install the server-only
+package:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>gz-sim10-server
+</pre></div>
+</div>
+<p>The server-only package includes the DART physics engine and the core
+simulation server plugins. To start a headless simulation:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/usr/libexec/gz/sim10/gz-sim-server<span class="w"> </span>&lt;world_file.sdf&gt;
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The server-only binary is installed at <code class="docutils literal notranslate"><span class="pre">/usr/libexec/gz/sim10/gz-sim-server</span></code>,
+which is not in the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> by default. The regular <code class="docutils literal notranslate"><span class="pre">gz</span> <span class="pre">sim</span> <span class="pre">-s</span></code> command is not
+available in the server-only installation since it requires the full
+<code class="docutils literal notranslate"><span class="pre">gz-sim10-cli</span></code> package.</p>
+</div>
+</section>
 <section id="uninstalling-binary-install">
 <h2>Uninstalling binary install<a class="headerlink" href="#uninstalling-binary-install" title="Link to this heading">#</a></h2>
 <p>If you need to uninstall Gazebo or switch to a source-based install once you
@@ -530,6 +554,7 @@ have already installed the library from binaries, run the following command:</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#server-only-installation">Server-only installation</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uninstalling-binary-install">Uninstalling binary install</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">Troubleshooting</a></li>
 </ul>
