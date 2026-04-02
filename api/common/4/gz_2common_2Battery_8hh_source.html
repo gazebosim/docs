@@ -162,86 +162,87 @@
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef IGNITION_COMMON_BATTERY_HH_</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#define IGNITION_COMMON_BATTERY_HH_</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;gz/common/config.hh&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;gz/common/Export.hh&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="gz_2common_2SuppressWarning_8hh.html">gz/common/SuppressWarning.hh</a>&gt;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition.html">ignition</a></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;  <span class="keyword">namespace </span>common</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  {</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="comment">// Forward declare private data class.</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keyword">class </span>BatteryPrivate;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="classignition_1_1common_1_1Battery.html">   46</a></span>&#160;    <span class="keyword">class </span>IGNITION_COMMON_VISIBLE <a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    {</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="classignition_1_1common_1_1Battery.html#a5c919f0c41224ca7d6ebd6de8eee7c28">   50</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">typedef</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/map.html">std::map&lt;uint32_t, double&gt;</a> <a class="code" href="classignition_1_1common_1_1Battery.html#a5c919f0c41224ca7d6ebd6de8eee7c28">PowerLoad_M</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      <span class="keyword">public</span>: <span class="keyword">explicit</span> <a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a>();</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name, <span class="keyword">const</span> <span class="keywordtype">double</span> _voltage);</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a> &amp;_battery);</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a> &amp;operator=(<span class="keyword">const</span> <a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a> &amp;_battery);</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> ~<a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a>();</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a> &amp;_battery) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> <a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a> &amp;_battery) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> Init();</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> ResetVoltage();</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">double</span> InitVoltage() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetInitVoltage(<span class="keyword">const</span> <span class="keywordtype">double</span> _voltage);</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;      <span class="keyword">public</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> Name() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> SetName(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      <span class="keyword">public</span>: uint32_t AddConsumer();</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> RemoveConsumer(<span class="keyword">const</span> uint32_t _consumerId);</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> SetPowerLoad(<span class="keyword">const</span> uint32_t _consumerId,</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">double</span> _powerLoad);</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> PowerLoad(<span class="keyword">const</span> uint32_t _consumerId,</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;                             <span class="keywordtype">double</span> &amp;_powerLoad) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;      <span class="keyword">public</span>: <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/map.html">PowerLoad_M</a> &amp;PowerLoads() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">double</span> Voltage() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> SetUpdateFunc(</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;                  <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a>&lt;<span class="keywordtype">double</span> (<a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a> *)&gt; _updateFunc);</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> ResetUpdateFunc();</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> Update();</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">void</span> InitConsumers();</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;      <span class="keyword">private</span>: <span class="keywordtype">double</span> UpdateDefault(<a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a> *_battery);</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;      <a class="code" href="gz_2common_2SuppressWarning_8hh.html#a82324ce4e7d1211070600fae7fe563b4">IGN_COMMON_WARN_IGNORE__DLL_INTERFACE_MISSING</a></div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;      <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;BatteryPrivate&gt;</a> dataPtr;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;      <a class="code" href="gz_2common_2SuppressWarning_8hh.html#ad1ef92a8b277945c71d4949568c9ba01">IGN_COMMON_WARN_RESUME__DLL_INTERFACE_MISSING</a></div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    };</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
-<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="namespaceignition_1_1common.html#a47b111892a0857c992ff60f4178c37a6">  177</a></span>&#160;    <span class="keyword">typedef</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr&lt;Battery&gt;</a> <a class="code" href="namespaceignition_1_1common.html#a47b111892a0857c992ff60f4178c37a6">BatteryPtr</a>;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  }</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;}</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;cstdint&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;gz/common/config.hh&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;gz/common/Export.hh&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="gz_2common_2SuppressWarning_8hh.html">gz/common/SuppressWarning.hh</a>&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespaceignition.html">ignition</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keyword">namespace </span>common</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="comment">// Forward declare private data class.</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keyword">class </span>BatteryPrivate;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="classignition_1_1common_1_1Battery.html">   47</a></span>&#160;    <span class="keyword">class </span>IGNITION_COMMON_VISIBLE <a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="classignition_1_1common_1_1Battery.html#a5c919f0c41224ca7d6ebd6de8eee7c28">   51</a></span>&#160;      <span class="keyword">public</span>: <span class="keyword">typedef</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/map.html">std::map&lt;uint32_t, double&gt;</a> <a class="code" href="classignition_1_1common_1_1Battery.html#a5c919f0c41224ca7d6ebd6de8eee7c28">PowerLoad_M</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      <span class="keyword">public</span>: <span class="keyword">explicit</span> <a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a>();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a>(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name, <span class="keyword">const</span> <span class="keywordtype">double</span> _voltage);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a>(<span class="keyword">const</span> <a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a> &amp;_battery);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      <span class="keyword">public</span>: <a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a> &amp;operator=(<span class="keyword">const</span> <a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a> &amp;_battery);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> ~<a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a>();</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a> &amp;_battery) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> <a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a> &amp;_battery) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> Init();</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> ResetVoltage();</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">double</span> InitVoltage() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;      <span class="keyword">public</span>: <span class="keyword">virtual</span> <span class="keywordtype">void</span> SetInitVoltage(<span class="keyword">const</span> <span class="keywordtype">double</span> _voltage);</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;      <span class="keyword">public</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> Name() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> SetName(<span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      <span class="keyword">public</span>: uint32_t AddConsumer();</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> RemoveConsumer(<span class="keyword">const</span> uint32_t _consumerId);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> SetPowerLoad(<span class="keyword">const</span> uint32_t _consumerId,</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                                <span class="keyword">const</span> <span class="keywordtype">double</span> _powerLoad);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">bool</span> PowerLoad(<span class="keyword">const</span> uint32_t _consumerId,</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;                             <span class="keywordtype">double</span> &amp;_powerLoad) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;      <span class="keyword">public</span>: <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/map.html">PowerLoad_M</a> &amp;PowerLoads() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">double</span> Voltage() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> SetUpdateFunc(</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                  <a class="codeRef" href="http://en.cppreference.com/w/cpp/utility/functional/function.html">std::function</a>&lt;<span class="keywordtype">double</span> (<a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a> *)&gt; _updateFunc);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> ResetUpdateFunc();</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="keyword">public</span>: <span class="keywordtype">void</span> Update();</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;      <span class="keyword">protected</span>: <span class="keywordtype">void</span> InitConsumers();</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;      <span class="keyword">private</span>: <span class="keywordtype">double</span> UpdateDefault(<a class="code" href="classignition_1_1common_1_1Battery.html">Battery</a> *_battery);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;      <a class="code" href="gz_2common_2SuppressWarning_8hh.html#a82324ce4e7d1211070600fae7fe563b4">IGN_COMMON_WARN_IGNORE__DLL_INTERFACE_MISSING</a></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;      <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;BatteryPrivate&gt;</a> dataPtr;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;      <a class="code" href="gz_2common_2SuppressWarning_8hh.html#ad1ef92a8b277945c71d4949568c9ba01">IGN_COMMON_WARN_RESUME__DLL_INTERFACE_MISSING</a></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    };</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="namespaceignition_1_1common.html#a47b111892a0857c992ff60f4178c37a6">  178</a></span>&#160;    <span class="keyword">typedef</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr&lt;Battery&gt;</a> <a class="code" href="namespaceignition_1_1common.html#a47b111892a0857c992ff60f4178c37a6">BatteryPtr</a>;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  }</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;}</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassignition_1_1common_1_1Battery_html_afb365612ee37400d1a46e1ac9f7ced01"><div class="ttname"><a href="classignition_1_1common_1_1Battery.html#afb365612ee37400d1a46e1ac9f7ced01">ignition::common::Battery::AddConsumer</a></div><div class="ttdeci">uint32_t AddConsumer()</div><div class="ttdoc">Create a unique consumer.</div></div>
 <div class="ttc" id="aclassignition_1_1common_1_1Battery_html_a3e0b39e1326de703012f81ac2be7feba"><div class="ttname"><a href="classignition_1_1common_1_1Battery.html#a3e0b39e1326de703012f81ac2be7feba">ignition::common::Battery::Init</a></div><div class="ttdeci">virtual void Init()</div><div class="ttdoc">Initialize.</div></div>
@@ -255,9 +256,9 @@
 <div class="ttc" id="aclassignition_1_1common_1_1Battery_html_a524aad7a81566ecee1a97153f311d79d"><div class="ttname"><a href="classignition_1_1common_1_1Battery.html#a524aad7a81566ecee1a97153f311d79d">ignition::common::Battery::SetName</a></div><div class="ttdeci">void SetName(const std::string &amp;_name) const</div><div class="ttdoc">Set the name of the battery.</div></div>
 <div class="ttc" id="aclassignition_1_1common_1_1Battery_html_acc3642a38ca1ea693e79513256a75e8e"><div class="ttname"><a href="classignition_1_1common_1_1Battery.html#acc3642a38ca1ea693e79513256a75e8e">ignition::common::Battery::ResetUpdateFunc</a></div><div class="ttdeci">void ResetUpdateFunc()</div><div class="ttdoc">Reset function to update voltage, upon destruction of current callback function.</div></div>
 <div class="ttc" id="aclassignition_1_1common_1_1Battery_html_aea06c2eec07e2bbb59c3cfc057814a84"><div class="ttname"><a href="classignition_1_1common_1_1Battery.html#aea06c2eec07e2bbb59c3cfc057814a84">ignition::common::Battery::RemoveConsumer</a></div><div class="ttdeci">bool RemoveConsumer(const uint32_t _consumerId)</div><div class="ttdoc">Remove a consumer.</div></div>
-<div class="ttc" id="aclassignition_1_1common_1_1Battery_html"><div class="ttname"><a href="classignition_1_1common_1_1Battery.html">ignition::common::Battery</a></div><div class="ttdoc">A battery abstraction.</div><div class="ttdef"><b>Definition:</b> gz/common/Battery.hh:46</div></div>
+<div class="ttc" id="aclassignition_1_1common_1_1Battery_html"><div class="ttname"><a href="classignition_1_1common_1_1Battery.html">ignition::common::Battery</a></div><div class="ttdoc">A battery abstraction.</div><div class="ttdef"><b>Definition:</b> gz/common/Battery.hh:47</div></div>
 <div class="ttc" id="aclassignition_1_1common_1_1Battery_html_a12351c9b0a9390c1abf0353cb65c7764"><div class="ttname"><a href="classignition_1_1common_1_1Battery.html#a12351c9b0a9390c1abf0353cb65c7764">ignition::common::Battery::InitConsumers</a></div><div class="ttdeci">void InitConsumers()</div><div class="ttdoc">Initialize the list of consumers.</div></div>
-<div class="ttc" id="anamespaceignition_1_1common_html_a47b111892a0857c992ff60f4178c37a6"><div class="ttname"><a href="namespaceignition_1_1common.html#a47b111892a0857c992ff60f4178c37a6">ignition::common::BatteryPtr</a></div><div class="ttdeci">std::shared_ptr&lt; Battery &gt; BatteryPtr</div><div class="ttdef"><b>Definition:</b> gz/common/Battery.hh:177</div></div>
+<div class="ttc" id="anamespaceignition_1_1common_html_a47b111892a0857c992ff60f4178c37a6"><div class="ttname"><a href="namespaceignition_1_1common.html#a47b111892a0857c992ff60f4178c37a6">ignition::common::BatteryPtr</a></div><div class="ttdeci">std::shared_ptr&lt; Battery &gt; BatteryPtr</div><div class="ttdef"><b>Definition:</b> gz/common/Battery.hh:178</div></div>
 <div class="ttc" id="aclassignition_1_1common_1_1Battery_html_a9c6698ad3f2ed4406125dc715529d4c7"><div class="ttname"><a href="classignition_1_1common_1_1Battery.html#a9c6698ad3f2ed4406125dc715529d4c7">ignition::common::Battery::~Battery</a></div><div class="ttdeci">virtual ~Battery()</div><div class="ttdoc">Destructor.</div></div>
 <div class="ttc" id="amap_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/container/map.html">std::map</a></div><div class="ttdoc">STL class.</div></div>
 <div class="ttc" id="aclassignition_1_1common_1_1Battery_html_a5f0d35f88c831ad018d1b3208f3fac0d"><div class="ttname"><a href="classignition_1_1common_1_1Battery.html#a5f0d35f88c831ad018d1b3208f3fac0d">ignition::common::Battery::SetInitVoltage</a></div><div class="ttdeci">virtual void SetInitVoltage(const double _voltage)</div><div class="ttdoc">Set the initial voltage.</div></div>
@@ -271,7 +272,7 @@
 <div class="ttc" id="aclassignition_1_1common_1_1Battery_html_a249948d0a76823cd1375bc405f862d60"><div class="ttname"><a href="classignition_1_1common_1_1Battery.html#a249948d0a76823cd1375bc405f862d60">ignition::common::Battery::Battery</a></div><div class="ttdeci">Battery()</div><div class="ttdoc">Constructor.</div></div>
 <div class="ttc" id="aclassignition_1_1common_1_1Battery_html_aa2c2d993e2a12fe4100f6602ecaf9f44"><div class="ttname"><a href="classignition_1_1common_1_1Battery.html#aa2c2d993e2a12fe4100f6602ecaf9f44">ignition::common::Battery::Voltage</a></div><div class="ttdeci">double Voltage() const</div><div class="ttdoc">Get the real voltage in volts.</div></div>
 <div class="ttc" id="aclassignition_1_1common_1_1Battery_html_a4ac61dd604c1ae1d6683bcbef5e5d34d"><div class="ttname"><a href="classignition_1_1common_1_1Battery.html#a4ac61dd604c1ae1d6683bcbef5e5d34d">ignition::common::Battery::operator!=</a></div><div class="ttdeci">bool operator!=(const Battery &amp;_battery) const</div><div class="ttdoc">Inequality operator.</div></div>
-<div class="ttc" id="aclassignition_1_1common_1_1Battery_html_a5c919f0c41224ca7d6ebd6de8eee7c28"><div class="ttname"><a href="classignition_1_1common_1_1Battery.html#a5c919f0c41224ca7d6ebd6de8eee7c28">ignition::common::Battery::PowerLoad_M</a></div><div class="ttdeci">std::map&lt; uint32_t, double &gt; PowerLoad_M</div><div class="ttdoc">Typedef the powerload map.</div><div class="ttdef"><b>Definition:</b> gz/common/Battery.hh:50</div></div>
+<div class="ttc" id="aclassignition_1_1common_1_1Battery_html_a5c919f0c41224ca7d6ebd6de8eee7c28"><div class="ttname"><a href="classignition_1_1common_1_1Battery.html#a5c919f0c41224ca7d6ebd6de8eee7c28">ignition::common::Battery::PowerLoad_M</a></div><div class="ttdeci">std::map&lt; uint32_t, double &gt; PowerLoad_M</div><div class="ttdoc">Typedef the powerload map.</div><div class="ttdef"><b>Definition:</b> gz/common/Battery.hh:51</div></div>
 <div class="ttc" id="aclassignition_1_1common_1_1Battery_html_acb100ef8b2009f8cabf81ec4787d6296"><div class="ttname"><a href="classignition_1_1common_1_1Battery.html#acb100ef8b2009f8cabf81ec4787d6296">ignition::common::Battery::operator=</a></div><div class="ttdeci">Battery &amp; operator=(const Battery &amp;_battery)</div><div class="ttdoc">Assignment operator.</div></div>
 <div class="ttc" id="aunique_ptr_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt; BatteryPrivate &gt;</a></div></div>
 <div class="ttc" id="aclassignition_1_1common_1_1Battery_html_a51c60e47b2640ecb27dc8a8183ff9640"><div class="ttname"><a href="classignition_1_1common_1_1Battery.html#a51c60e47b2640ecb27dc8a8183ff9640">ignition::common::Battery::SetUpdateFunc</a></div><div class="ttdeci">void SetUpdateFunc(std::function&lt; double(Battery *)&gt; _updateFunc)</div><div class="ttdoc">Setup function to update voltage.</div></div>
