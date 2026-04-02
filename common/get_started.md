@@ -1,9 +1,14 @@
 # Getting Started with Gazebo?
 
 Welcome to Gazebo!
+:::{tip}
+To help you navigate our documentation, we have organized it into two primary paths based on your workflow:
 
-When you're ready, follow the next few steps to get up and running with
-simulation using Gazebo.
+*   **Users**: For those who primarily run Gazebo using standard tools (like `gz sim`), edit SDFormat files, use existing plugins, or write external algorithms using `gz-transport` or ROS topics and services.
+*   **Developers**: For those who use individual Gazebo libraries (like `gz-math`, `sdformat`, or `gz-transport`) directly in their own C++ applications, or those who are developing custom plugins for the simulator (`gz-sim`) itself.
+
+Regardless of which path fits you best, the first step is to get Gazebo installed and running. Follow the steps below to set up your environment and launch a test simulation, and then you can head to the sidebar to find tutorials tailored to your role.
+:::
 
 ## Step 1: Install
 
