@@ -71,11 +71,11 @@ This gives you a baseline before you start trading fidelity for speed.
 These are worth exploring for specialized workloads, but they are not part of a
 small Jetty-only tuning guide:
 
-* Alternative physics backends such as [Bullet Featherstone](https://github.com/gazebosim/gz-physics/issues/44){.external}
+* Alternative physics backends such as [Bullet Featherstone](https://github.com/gazebosim/gz-physics/issues/44)
   may help some articulated systems, but they need workload-specific validation
   and are not covered by a Jetty how-to yet.
-* Third-party accelerators such as [RGLGazeboPlugin](https://github.com/RobotecAI/RGLGazeboPlugin){.external}
-  or [gz_wgpu_rt_lidar](https://github.com/arjo129/gz_wgpu_rt_lidar/){.external}
+* Third-party accelerators such as [RGLGazeboPlugin](https://github.com/RobotecAI/RGLGazeboPlugin)
+  or [gz_wgpu_rt_lidar](https://github.com/arjo129/gz_wgpu_rt_lidar/)
   may be useful when GPU-accelerated sensing is the main bottleneck. Follow the
   setup and support guidance in those projects.
 
