@@ -1,3 +1,5 @@
+# Gazebo Library How-To Guides
+
 # Ignition Tutorials
 
 These tutorials cover general concepts to help get you started with Ignition.
