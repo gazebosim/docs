@@ -8,6 +8,7 @@ These tutorials cover general concepts to help get you started with Gazebo.
 * [Moving the Robot](moving_robot)
 * [SDF Worlds](sdf_worlds)
 * [Sensors](sensors)
+* [Performance tuning](performance_tuning)
 * [Actors](actors)
 
 ## GUI tutorials
