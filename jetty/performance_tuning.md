@@ -35,7 +35,8 @@ This gives you a baseline before you start trading fidelity for speed.
 * For lidar, reduce the number of samples or resolution before increasing scene
   complexity.
 * If a GPU-backed lidar fits your use case, consider `gpu_lidar` in
-  [Sensors](sensors). It requires Ogre 2.
+  [Sensors](sensors). Its availability and performance depend on rendering
+  engine support and your GPU / driver setup.
 
 ### Reduce rendering work
 
