@@ -127,17 +127,3 @@ vcs import --input https://raw.githubusercontent.com/gazebo-tooling/gazebodistro
 
 After the import, continue with the "Building the Gazebo Libraries" step
 of the Jetty Windows source guide unchanged.
-
-## Caveats and branch-off behavior
-
- * Rotary is a rolling stream. Library major versions on `main` can change
-   at any time, and existing installations may be affected after an
-   upgrade.
- * At the time a new Gazebo collection branches off from `main`, each
-   `{package}-rotary-release` repository will be forked into a versioned
-   release repository for the new codename, and the rotary aliases will
-   start tracking the next development cycle. Installations made shortly
-   before a branch-off may therefore need manual migration to the new
-   stable collection once it is released.
- * The full design rationale, naming rules, and rollout status live in
-   [gazebo-tooling/release-tools#1446](https://github.com/gazebo-tooling/release-tools/issues/1446).
