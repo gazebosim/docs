@@ -333,18 +333,21 @@ Buoyancy</h3>
 </div><!-- fragment --><p>Hit play and the lander will slowly sink and hit the seafloor.</p>
 <h3><a class="anchor" id="hydrodynamics"></a>
 Hydrodynamics</h3>
-<p>As an underwater vehicle, the lander should be influenced by the water as it moves. We can do that by attaching the <code>hydrodynamics</code> plugin to our lander. Add the next SDF block to your <code>model.sdf</code>. Note that we have empirically adjusted its values. Follow the <a href="https://gazebosim.org/api/sim/8/theory_hydrodynamics.html">hydrodynamics tutorial</a> for recommendations about how to tune its values.</p>
-<div class="fragment"><div class="line"><span class="comment">&lt;!-- Hydrodynamics --&gt;</span></div>
+<p>As an underwater vehicle, the lander should be influenced by the water as it moves. We model this in two parts: added mass (the inertia of the surrounding fluid) is specified on the link, and hydrodynamic damping (drag) is handled by the Hydrodynamics plugin. Follow the <a class="el" href="theory_hydrodynamics.html">hydrodynamics tutorial</a> for recommendations about how to tune these values.</p>
+<p>First, add <code>&lt;fluid_added_mass&gt;</code> inside the <code>base_link</code>'s <code>&lt;inertial&gt;</code> element in your <code>model.sdf</code>:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">fluid_added_mass</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">xx</span>&gt;4.876161&lt;/<span class="keywordtype">xx</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">yy</span>&gt;126.324739&lt;/<span class="keywordtype">yy</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">zz</span>&gt;126.324739&lt;/<span class="keywordtype">zz</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">qq</span>&gt;33.46&lt;/<span class="keywordtype">qq</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">rr</span>&gt;33.46&lt;/<span class="keywordtype">rr</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">fluid_added_mass</span>&gt;</div>
+</div><!-- fragment --><p>Then add the Hydrodynamics plugin for damping:</p>
+<div class="fragment"><div class="line"><span class="comment">&lt;!-- Hydrodynamics (damping only) --&gt;</span></div>
 <div class="line">&lt;<span class="keywordtype">plugin</span></div>
 <div class="line">  <span class="keyword">filename</span>=<span class="stringliteral">&quot;gz-sim-hydrodynamics-system&quot;</span></div>
 <div class="line">  <span class="keyword">name</span>=<span class="stringliteral">&quot;gz::sim::systems::Hydrodynamics&quot;</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">link_name</span>&gt;<span class="keyword">base_link</span>&lt;/<span class="keywordtype">link_name</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">xDotU</span>&gt;-4.876161&lt;/<span class="keywordtype">xDotU</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">yDotV</span>&gt;-126.324739&lt;/<span class="keywordtype">yDotV</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">zDotW</span>&gt;-126.324739&lt;/<span class="keywordtype">zDotW</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">kDotP</span>&gt;0&lt;/<span class="keywordtype">kDotP</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">mDotQ</span>&gt;-33.46&lt;/<span class="keywordtype">mDotQ</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">nDotR</span>&gt;-33.46&lt;/<span class="keywordtype">nDotR</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">xUabsU</span>&gt;-6.2282&lt;/<span class="keywordtype">xUabsU</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">xU</span>&gt;0&lt;/<span class="keywordtype">xU</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">yVabsV</span>&gt;-601.27&lt;/<span class="keywordtype">yVabsV</span>&gt;</div>

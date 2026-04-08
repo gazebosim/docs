@@ -229,17 +229,24 @@ Adding thrusters</h1>
 <h1><a class="anchor" id="adding-hydrodynamics"></a>
 Adding hydrodynamics</h1>
 <p>You may notice that the robot now keeps getting faster and faster. This is because there is no drag to oppose the thruster's force. We will be using Fossen's equations which describe the motion of a craft through the water for this. For better understanding of the parameters here, I would refer you to his book. Usually these parameters can be found via fluid simulation programs or experimental tests in a water tub.</p>
-<p>Uncomment the following block from <code>buoyant_lrauv.sdf</code> to enable hydrodynamics.</p>
+<p>Hydrodynamics in Gazebo is split into two parts:</p>
+<ol type="1">
+<li><b>Added mass and Coriolis</b>: specified using the SDF <code>&lt;fluid_added_mass&gt;</code> tag on the link's <code>&lt;inertial&gt;</code> element. The physics engine handles these implicitly.</li>
+<li><b>Damping (drag)</b>: specified using the Hydrodynamics plugin parameters.</li>
+</ol>
+<p>First, add the <code>&lt;fluid_added_mass&gt;</code> to the <code>base_link</code>'s <code>&lt;inertial&gt;</code> element in <code>model.sdf</code>:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">fluid_added_mass</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">xx</span>&gt;4.876161&lt;/<span class="keywordtype">xx</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">yy</span>&gt;126.324739&lt;/<span class="keywordtype">yy</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">zz</span>&gt;126.324739&lt;/<span class="keywordtype">zz</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">qq</span>&gt;33.46&lt;/<span class="keywordtype">qq</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">rr</span>&gt;33.46&lt;/<span class="keywordtype">rr</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">fluid_added_mass</span>&gt;</div>
+</div><!-- fragment --><p>Then, uncomment the following block from <code>buoyant_lrauv.sdf</code> to enable hydrodynamic damping:</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">plugin</span></div>
 <div class="line"><span class="keyword">filename</span>=<span class="stringliteral">&quot;gz-sim-hydrodynamics-system&quot;</span></div>
 <div class="line"><span class="keyword">name</span>=<span class="stringliteral">&quot;gz::sim::systems::Hydrodynamics&quot;</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">link_name</span>&gt;<span class="keyword">base_link</span>&lt;/<span class="keywordtype">link_name</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">xDotU</span>&gt;-4.876161&lt;/<span class="keywordtype">xDotU</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">yDotV</span>&gt;-126.324739&lt;/<span class="keywordtype">yDotV</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">zDotW</span>&gt;-126.324739&lt;/<span class="keywordtype">zDotW</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">kDotP</span>&gt;0&lt;/<span class="keywordtype">kDotP</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">mDotQ</span>&gt;-33.46&lt;/<span class="keywordtype">mDotQ</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">nDotR</span>&gt;-33.46&lt;/<span class="keywordtype">nDotR</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">xUabsU</span>&gt;-6.2282&lt;/<span class="keywordtype">xUabsU</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">xU</span>&gt;0&lt;/<span class="keywordtype">xU</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">yVabsV</span>&gt;-601.27&lt;/<span class="keywordtype">yVabsV</span>&gt;</div>

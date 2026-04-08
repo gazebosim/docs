@@ -147,27 +147,17 @@ Understanding Hydrodynamic Forces</h1>
 <h1><a class="anchor" id="autotoc_md399"></a>
 The hydrodynamics plugin</h1>
 <p>To approximate the motion of the vehicle in the ocean environment, we adapt Fossen’s six degree-of-freedom robot-like vectorial model for marine craft [2] expressed as</p>
-<p>$$M ẍ + D(ẋ)ẋ + C(ẋ)ẋ = F$$</p>
-<p>where <code>M</code> is the added mass matrix, <code>D(ẋ)</code> is the damping matrix, <code>C(ẋ)</code> is the Coriolis matrix, and <code>ẋ</code> is the velocity six-vector.</p>
-<p>If present, ocean current is approximated by adding a term <code>vc</code> to the velocity:</p>
-<p>$$M ẍ + D(ẋ − vc )(ẋ − vc ) + C(ẋ − vc )(ẋ − vc ) = F$$</p>
-<p>The hydrodynamic forces include the added mass terms due to inertia of the surrounding fluid, the Coriolis-centripetal matrix for the added mass, and hydrodynamic damping. The hydrodynamic damping includes forces due to radiation-induced potential damping, skin friction, wave drift damping, vortex shedding and lifting forces. These effects are aggregated in the hydrodynamic damping matrix. This approximation of the hydrodynamic effects is implemented in this Gazebo plugin. The user defines the characteristics of the vessel under test through a vessel-specific configuration that includes the hydrodynamic derivatives. During each time step of the simulation, the plugin is executed with access to the state of the vessel and environment. The hydrodynamic force terms are calculated based on this state information and the user-defined vessel characteristics. The resulting force and moment values are then applied to the vessel through the Gazebo API for inclusion in the next iteration of the physics engine.</p>
-<p>The parameters of the plugin are configured via SDF in the model file. The next table summarizes all the available SDF parameters.</p>
+<p>$$M ẍ + C(ẋ)ẋ + D(ẋ)ẋ = F$$</p>
+<p>where <code>M</code> is the inertia matrix (including added mass), <code>C(ẋ)</code> is the Coriolis-centripetal matrix, <code>D(ẋ)</code> is the damping matrix, and <code>ẋ</code> is the velocity six-vector.</p>
+<p>If present, ocean current is approximated by using the relative velocity <code>ẋr = ẋ − vc</code>:</p>
+<p>$$M ẍ + C(ẋ_r)ẋ_r + D(ẋ_r)ẋ_r = F$$</p>
+<p><b>Added mass and Coriolis</b> (<code>M</code> and <code>C</code> terms) are handled by the physics engine via the SDF <code>&lt;fluid_added_mass&gt;</code> tag on the link’s <code>&lt;inertial&gt;</code> element. This provides implicit integration that is unconditionally stable. See the <a href="http://sdformat.org/spec?ver=1.11&amp;elem=link#inertial_fluid_added_mass">SDF specification</a> for details.</p>
+<p><b>Hydrodynamic damping</b> (<code>D</code> term) is handled by the Hydrodynamics plugin. This includes forces due to radiation-induced potential damping, skin friction, wave drift damping, vortex shedding and lifting forces. These effects are aggregated in the damping matrix. The user defines the vessel’s damping characteristics through SDF parameters using the SNAME naming convention. During each time step, the plugin computes the damping force using the velocity relative to the ocean current and applies it to the vessel.</p>
+<p>When both <code>&lt;fluid_added_mass&gt;</code> and an ocean current are present, the plugin also applies a Coriolis correction so that the added-mass Coriolis force uses the relative velocity rather than the absolute velocity.</p>
+<p>The next table summarizes the available SDF parameters for the plugin.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Parameter   </th><th class="markdownTableHeadNone">Description    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">&lt;xDotU&gt;   </td><td class="markdownTableBodyNone">Added mass in surge    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">&lt;yDotV&gt;   </td><td class="markdownTableBodyNone">Added mass in sway    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">&lt;zDotW&gt;   </td><td class="markdownTableBodyNone">Added mass in heave    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">&lt;kDotP&gt;   </td><td class="markdownTableBodyNone">Added mass in roll    </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">&lt;mDotQ&gt;   </td><td class="markdownTableBodyNone">Added mass in pitch    </td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">&lt;nDotR&gt;   </td><td class="markdownTableBodyNone">Added mass in yaw    </td></tr>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">&lt;xUabsU&gt;   </td><td class="markdownTableBodyNone">Quadratic drag in surge    </td></tr>
 <tr class="markdownTableRowEven">
@@ -195,7 +185,6 @@ The hydrodynamics plugin</h1>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">&lt;default_current&gt;   </td><td class="markdownTableBodyNone">Default ocean current vector   </td></tr>
 </table>
-<p><b>Note about added mass</b>: SDFormat also supports added mass natively. Until we deprecate the added mass parameters of this plugin, do not set the added mass parameters in both places, choose one (either in this plugin or under <code>&lt;inertial&gt;</code> of your link).</p>
 <h1><a class="anchor" id="autotoc_md400"></a>
 A simple example</h1>
 <p>Let's download the provided <code>buoyant_cylinder.sdf</code> world and run to see an example of a cylinder with three plugins attached:</p>
@@ -222,16 +211,42 @@ A simple example</h1>
 </div><!-- fragment --><p>See how slow the cylinder moves. With these set of parameters we increased the damping in the surge axis, causing the vehicle to slowly move towards its goal.</p>
 <h1><a class="anchor" id="autotoc_md401"></a>
 Experimental - How to tune the parameters</h1>
-<p>The hydrodynamics plugin requires a large number of parameters to model the added mass and drag behaviors of underwater vehicles. This section describes a method to generate an initial set of parameters for the hydrodynamics plugin. Note these parameters need to be tested and possibly tweaked to guarantee model stability.</p>
+<p>The hydrodynamics plugin requires a number of parameters to model the drag behavior of underwater vehicles. The added mass is specified separately using the SDF <code>&lt;fluid_added_mass&gt;</code> tag. This section describes methods to determine these parameters. Note these parameters need to be tested and possibly tweaked to guarantee model stability.</p>
 <h2><a class="anchor" id="autotoc_md402"></a>
 Added mass</h2>
 <p>A python library called <a href="https://github.com/capytaine/capytaine">Capytaine</a> can be used to determine the added mass matrix of your vehicle. Capytaine enables the user to import a mesh (.stl), define a set of linear potential flow problems and solve these using the included Boundary Element Method (BEM) solver.</p>
 <p>Capytaine is typically used to model the interaction between floating bodies and waves, however it can be applied to ROVs by setting the wave frequency and free surface both to infinity (this assumes that the added mass is approximately constant since the ROV does not operate near the wave zone and that it operates in infinitely deep water respectively) <a href="p.14">1</a>, <a href="p.18">2</a>.</p>
 <p>Furthermore, it is recommended to use a simplified mesh when computing the added mass with Capytaine, since a complex mesh is computationally prohibitive.</p>
-<h2><a class="anchor" id="autotoc_md403"></a>
+<p>Once you have the added mass values, specify them using the <code>&lt;fluid_added_mass&gt;</code> tag in your link's <code>&lt;inertial&gt;</code> element. For example, for diagonal added mass:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">inertial</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">fluid_added_mass</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">xx</span>&gt;4.876&lt;/<span class="keywordtype">xx</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">yy</span>&gt;126.325&lt;/<span class="keywordtype">yy</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">zz</span>&gt;126.325&lt;/<span class="keywordtype">zz</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">qq</span>&gt;33.46&lt;/<span class="keywordtype">qq</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">rr</span>&gt;33.46&lt;/<span class="keywordtype">rr</span>&gt;</div>
+<div class="line">  &lt;/<span class="keywordtype">fluid_added_mass</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">inertial</span>&gt;</div>
+</div><!-- fragment --><p>Note that <code>&lt;fluid_added_mass&gt;</code> uses positive values, unlike the deprecated plugin parameters which used the negative Fossen sign convention.</p>
+<h3><a class="anchor" id="autotoc_md403"></a>
+Recommended added mass configuration by physics engine</h3>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Physics Engine   </th><th class="markdownTableHeadNone">Recommended Method   </th><th class="markdownTableHeadNone">Notes    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>DART</b>   </td><td class="markdownTableBodyNone">Native <code>&lt;fluid_added_mass&gt;</code> in SDF <code>&lt;inertial&gt;</code> + <code>&lt;disable_added_mass&gt;true</code> in plugin   </td><td class="markdownTableBodyNone">Unconditionally stable, full 6x6 matrix, implicit Coriolis    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b>Bullet-Featherstone</b>   </td><td class="markdownTableBodyNone">Plugin parameters (<code>&lt;xDotU&gt;</code>, etc.)   </td><td class="markdownTableBodyNone">Native added mass not supported; plugin is the only option    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><b>Bullet (classic)</b>   </td><td class="markdownTableBodyNone">Plugin parameters (<code>&lt;xDotU&gt;</code>, etc.)   </td><td class="markdownTableBodyNone">Native added mass not supported; plugin is the only option    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><b>MuJoCo</b>   </td><td class="markdownTableBodyNone">Plugin parameters (<code>&lt;xDotU&gt;</code>, etc.)   </td><td class="markdownTableBodyNone">Native added mass not supported; plugin is the only option   </td></tr>
+</table>
+<p><b>Warning</b>: Do not set added mass in both places simultaneously. If both <code>&lt;fluid_added_mass&gt;</code> and plugin parameters are active, forces are double-counted.</p>
+<h2><a class="anchor" id="autotoc_md404"></a>
 Linear and quadratic damping</h2>
 <p>Computing the linear and quadratic damping coefficients is generally not possible using computational analysis and is usually done experimentally <a href="p.28">1</a>. If determining the damping coefficients experimentally is not feasible, the same method described by Berg2012 can be used to estimate these values from a similar ROV <a href="p.28-31">1</a>.</p>
-<h1><a class="anchor" id="autotoc_md404"></a>
+<h1><a class="anchor" id="autotoc_md405"></a>
 References</h1>
 <p>[1] BERG, V. Development and Commissioning of a DP system for ROV SF 30k, 2012.</p>
 <p>[2] FOSSEN , T. I. Lecture notes: Ttk 4190 guidance, navigation and control of vehicles, February 2021.</p>

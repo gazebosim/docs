@@ -259,14 +259,11 @@ Hydrodynamics</h3>
 <p>I know, I know, it looks like a dancing catamaran. The reason for that behavior is because we don't have any drag yet to oppose the forces of the <code>Surface</code> plugins. We need hydrodynamics!</p>
 <p>We will be using Fossen's equations which describe the motion of a craft through the water for this. For better understanding of the parameters here, I would refer you to <a href="https://www.wiley.com/en-sg/Guidance+and+Control+of+Ocean+Vehicles-p-9780471941132">his book</a> (check your library). Usually these parameters can be found via fluid simulation programs or experimental tests in a water tub.</p>
 <p>Uncomment the following block from <code>~/gazebo_maritime_ws/src/gazebo_maritime/models/wam-v/model.sdf</code> to enable hydrodynamics.</p>
-<div class="fragment"><div class="line"><span class="comment">&lt;!-- Hydrodynamics --&gt;</span></div>
+<div class="fragment"><div class="line"><span class="comment">&lt;!-- Hydrodynamics (damping only) --&gt;</span></div>
 <div class="line">&lt;<span class="keywordtype">plugin</span></div>
 <div class="line">  <span class="keyword">filename</span>=<span class="stringliteral">&quot;gz-sim-hydrodynamics-system&quot;</span></div>
 <div class="line">  <span class="keyword">name</span>=<span class="stringliteral">&quot;gz::sim::systems::Hydrodynamics&quot;</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">link_name</span>&gt;<span class="keyword">base_link</span>&lt;/<span class="keywordtype">link_name</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">xDotU</span>&gt;0.0&lt;/<span class="keywordtype">xDotU</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">yDotV</span>&gt;0.0&lt;/<span class="keywordtype">yDotV</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">nDotR</span>&gt;0.0&lt;/<span class="keywordtype">nDotR</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">xU</span>&gt;-51.3&lt;/<span class="keywordtype">xU</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">xAbsU</span>&gt;-72.4&lt;/<span class="keywordtype">xAbsU</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">yV</span>&gt;-40.0&lt;/<span class="keywordtype">yV</span>&gt;</div>

@@ -183,17 +183,19 @@ Adding a system plugin</h1>
 </div><!-- fragment --><p>And run Gazebo:</p>
 <div class="fragment"><div class="line">gz sim -r ~/gazebo_maritime/worlds/buoyant_turtle.sdf</div>
 </div><!-- fragment --><p>As you just observed, we failed in our goal and the turtle behaved as if it was moving on ice. Now, let's add hydrodynamics.</p>
-<p>Uncomment the following block from <code>buoyant_turtle.sdf</code>:</p>
+<p>First, add <code>&lt;fluid_added_mass&gt;</code> to the <code>base_link</code>'s <code>&lt;inertial&gt;</code> element in your <code>model.sdf</code> to account for the inertia of the surrounding fluid:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">fluid_added_mass</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">xx</span>&gt;0.04876161&lt;/<span class="keywordtype">xx</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">yy</span>&gt;1.26324739&lt;/<span class="keywordtype">yy</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">zz</span>&gt;1.26324739&lt;/<span class="keywordtype">zz</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">qq</span>&gt;0.3346&lt;/<span class="keywordtype">qq</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">rr</span>&gt;0.3346&lt;/<span class="keywordtype">rr</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">fluid_added_mass</span>&gt;</div>
+</div><!-- fragment --><p>Then, uncomment the following block from <code>buoyant_turtle.sdf</code> to add hydrodynamic damping:</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">plugin</span></div>
 <div class="line">  <span class="keyword">filename</span>=<span class="stringliteral">&quot;gz-sim-hydrodynamics-system&quot;</span></div>
 <div class="line">  <span class="keyword">name</span>=<span class="stringliteral">&quot;gz::sim::systems::Hydrodynamics&quot;</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">link_name</span>&gt;<span class="keyword">base_link</span>&lt;/<span class="keywordtype">link_name</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">xDotU</span>&gt;-0.04876161&lt;/<span class="keywordtype">xDotU</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">yDotV</span>&gt;-1.26324739&lt;/<span class="keywordtype">yDotV</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">zDotW</span>&gt;-1.26324739&lt;/<span class="keywordtype">zDotW</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">kDotP</span>&gt;0&lt;/<span class="keywordtype">kDotP</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">mDotQ</span>&gt;-0.3346&lt;/<span class="keywordtype">mDotQ</span>&gt;</div>
-<div class="line">  &lt;<span class="keywordtype">nDotR</span>&gt;-0.3346&lt;/<span class="keywordtype">nDotR</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">xUabsU</span>&gt;-0.62282&lt;/<span class="keywordtype">xUabsU</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">xU</span>&gt;-5&lt;/<span class="keywordtype">xU</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">yVabsV</span>&gt;-60.127&lt;/<span class="keywordtype">yVabsV</span>&gt;</div>
