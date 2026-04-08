@@ -10,12 +10,23 @@ A release of Gazebo consists of a set of versioned [Gazebo Libraries](/libs){.ex
 
 A Gazebo release follows the form "Gazebo Codename", for example Gazebo Acropolis. The codename is alphabetically increasing, and chosen to fall loosely within the architectural domain.
 
+## Rolling releases
+
+Separate from the dated codename releases listed below, Gazebo also
+publishes a rolling release stream called **rotary**, built continuously
+from the `main` branches of every Gazebo library every night.
+Rotary is not tied to codename or major version and is intended for
+maintainers, CI systems, and early adopters.
+See the [Rotary release](releasing/rotary.md) page for details and
+installation instructions.
+
 ## Release List
 
-| Name                                                     | Date      | EOL date  | Notes |
-|----------------------------------------------------------|-----------|-----------|-------|
-| Kura                                                     | Aug, 2026 | Sep, 2028 |       |
-| [Jetty](https://gazebosim.org/docs/jetty)                | Sep, 2025 | Sep, 2030 | LTS   |
+| Name                                                     | Date      | EOL date  | Notes        |
+|----------------------------------------------------------|-----------|-----------|--------------|
+| [Rotary](releasing/rotary.md)                            | Rolling   | —         | Experimental |
+| Kura                                                     | Aug, 2026 | Sep, 2028 |              |
+| [Jetty](https://gazebosim.org/docs/jetty)                | Sep, 2025 | Sep, 2030 | LTS          |
 | [Ionic](https://gazebosim.org/docs/ionic)                | Sep, 2024 | Sep, 2026 |       |
 | [Harmonic](https://gazebosim.org/docs/harmonic)          | Sep, 2023 | Sep, 2028 | LTS   |
 | [Garden](https://gazebosim.org/docs/garden)              | Sep, 2022 | Nov, 2024 | EOL   |

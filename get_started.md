@@ -32,6 +32,11 @@ installation options:
 * [Gazebo Harmonic (LTS) installation](/docs/harmonic/install){.external} options (EOL 2028 Sep)
 * [Gazebo Fortress (LTS) installation](/docs/fortress/install){.external} options (EOL 2026 Sep)
 
+If you want to test the latest, unreleased Gazebo changes from `main`, see
+the [Rotary release](releasing/rotary.md) documentation. Rotary is a
+rolling release intended for maintainers and early adopters; new users
+should stick to one of the binary releases above.
+
 ## Step 2: Run
 
 After installing Gazebo in Step 1, you can launch Gazebo Sim, a 3D robotics
