@@ -53,9 +53,8 @@ Here's a summary of all checks.
 Platform | Job name | OS | What does it do? | Where dependencies come from?
 --- | --- | --- | --- | ---
 Jenkins | `<library>-ci-pr_any-ubuntu-auto-amd64` | Ubuntu | Compile and run tests using CMake and Make | Stable binaries for stable branches, nightlies for `main`
-Jenkins | `<library>-ci-pr_any-homebrew-amd64` | macOS | Compile and run tests using CMake and Make | Homebrew binaries bottled from `osrf/simulation` tap
-Jenkins | `<library>-ci-pr_any-windows*-amd64` | Windows ([deprecated](https://github.com/gazebo-tooling/release-tools/issues/412)) | Compile and run tests using configure.bat scripts and CMake + Visual Studio directly | External dependencies from custom tarballs
-Jenkins | `<library>-pr-win` | Windows | Compile and run tests using [colcon](https://colcon.readthedocs.io/en/released/#) | External dependencies from [vcpkg](https://docs.microsoft.com/en-us/cpp/build/vcpkg?view=msvc-160), Gazebo dependencies built from source with colcon
+Jenkins | `<library>-ci-pr_any-homebrew-amd64` | macOS | Compile and run tests using CMake and Make | Homebrew formulae from `osrf/simulation` tap (binary bottle of latest stable tag or HEAD from source)
+Jenkins | `<library>-pr-c*win` | Windows | Compile and run tests using [colcon](https://colcon.readthedocs.io/en/released/#) | External dependencies from [conda-forge](https://conda-forge.org/), Gazebo dependencies built from source with colcon
 Jenkins | `<library>-abichecker-any_to_any-ubuntu_auto-amd64` | Ubuntu | Run ABI checker | Stable binaries
 Actions | `Ubuntu CI / Ubuntu * CI` | Ubuntu Bionic and Focal | Compile and run tests using CMake and Make, run code checker and upload coverage results | Stable binaries for stable branches, nightlies for `main`
 Actions | `DCO` | - | Checks that all commits are signed correctly | -
@@ -84,6 +83,10 @@ Notes:
 * For macOS CI, the dependencies and tarball / source branch of each package are
   specified in the [Formula/*.rb](https://github.com/osrf/homebrew-simulation/tree/master/Formula)
   files.
+* For Windows CI, the initial characters in the postfix `-clwin` means ***C***onda ***L***egacy and `-clowin`
+  means ***C***onda ***Legacy*** ***Ogre23***. These legacy enviroments refers to a previous enviroments
+  using `vcpkg` which are replicated in these Conda enviroments. The CI jobs can potentially be [reproduced
+  in a Windows local system](https://github.com/gazebo-tooling/release-tools/blob/master/jenkins-scripts/README.md).
 * For Windows CI, the dependencies and source branch of each package are specified
   in `.yaml` files in the [gazebo-tooling/gazebodistro](https://github.com/gazebo-tooling/gazebodistro)
   repository.
