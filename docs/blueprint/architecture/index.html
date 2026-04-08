@@ -36,8 +36,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=7f76b32a3354e82990f2" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -45,10 +45,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/css/gazebo.css?v=1d42b338" />
   
   <!-- So that users can add custom icons -->
-  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=7f76b32a3354e82990f2"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2" />
 
     <script src="../_static/documentation_options.js?v=c940b5aa"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
@@ -58,12 +58,13 @@
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'architecture';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_version = '0.17.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://gazebosim.org/docs/blueprint/_static/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'blueprint';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
             false;
         </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
     <link rel="canonical" href="https://gazebosim.org/docs/latest/architecture/" />
     <link rel="icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex/" />
@@ -73,14 +74,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="blueprint" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
   </head>
-  
-  
-  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
-
+  <body data-default-mode="">
   
   
   <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
   
   <div id="pst-scroll-pixel-helper"></div>
   
@@ -112,7 +117,7 @@
 </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
   
   <aside aria-label="Version warning" class="bd-header-announcement bd-header-version-warning" style="min-height: 3rem;">
     <div class="bd-header-announcement__content">
@@ -473,7 +478,7 @@ There are many plugin types in the Gazebo framework.
 For example, there are plugins that introduce new physics engines or rendering engines.
 However, for the purpose of this document, any mention of plugins is referring only to Gazebo Sim server and GUI plugins.</p>
 <p>Because they’re loaded at runtime, Gazebo does not need to be recompiled to add or remove plugins.
-Gazebo Sim ships with many plugins by default (<a class="reference external" href="https://gazebosim.org/api/gazebo/4.5/namespaceignition_1_1gazebo_1_1systems.html">Server plugins</a>, <a class="reference external" href="https://gazebosim.org/api/gui/4.2/namespaceignition_1_1gui_1_1plugins.html">Gazebo GUI plugins</a>, <a class="reference external" href="https://gazebosim.org/api/gazebo/4.5/namespaceignition_1_1gazebo.html">Gazebo Sim GUI plugins</a>, and more), all of which are optional and can be removed by the user.
+Gazebo Sim ships with many plugins by default (<a class="reference external" href="https://gazebosim.org/api/gazebo/6/namespaceignition_1_1gazebo_1_1systems.html">Server plugins</a>, <a class="reference external" href="https://gazebosim.org/api/gui/6/namespaceignition_1_1gui_1_1plugins.html">Gazebo GUI plugins</a>, <a class="reference external" href="https://gazebosim.org/api/gazebo/6/namespaceignition_1_1gazebo.html">Gazebo Sim GUI plugins</a>, and more), all of which are optional and can be removed by the user.
 Users can also add more plugins and even write their own plugins that will be compiled into library files.</p>
 <p>Gazebo libraries are modular.
 Plugins let Gazebo Sim utilize other libraries.
@@ -486,13 +491,13 @@ Other such libraries include <a class="reference external" href="https://gazebos
 Many other plugins are optional.
 One common optional plugin is the sensors plugin.
 Both optional and default plugins can be removed or added at any time; Gazebo Sim will continue to run with limited functionality.
-These demos on <a class="reference external" href="https://gazebosim.org/api/gazebo/4.3/server_config.html">Server Configuration</a> and <a class="reference external" href="https://gazebosim.org/api/gazebo/4.3/gui_config.html">GUI Configuration</a> showcase that functionality.</p>
+These demos on <a class="reference external" href="https://gazebosim.org/api/gazebo/6/server_config.html">Server Configuration</a> and <a class="reference external" href="https://gazebosim.org/api/gazebo/6/gui_config.html">GUI Configuration</a> showcase that functionality.</p>
 <p>The simulation process is depicted in the diagram below, and further explained in the Backend and Frontend process sections that follow.</p>
 <p><img alt="Gazebo Sim architecture diagram" src="../_images/GazeboSimArchitecture.svg" /></p>
 <section id="backend-server-process">
 <h2>Backend server process<a class="headerlink" href="#backend-server-process" title="Link to this heading">#</a></h2>
 <p>Gazebo Sim is responsible for loading plugins in the backend, referred to as systems.
-The server runs an entity-component system architecture (see <a class="reference external" href="https://gazebosim.org/api/gazebo/4.2/terminology.html">Gazebo Sim terminology</a>).
+The server runs an entity-component system architecture (see <a class="reference external" href="https://gazebosim.org/api/gazebo/6/terminology.html">Gazebo Sim terminology</a>).
 The backend will usually have multiple systems responsible for everything in the simulation – computing physics, recording logs, receiving user commands, etc.</p>
 <p>Systems act on entities and components of those entities.
 An entity is anything in the simulation scene (a model, link, light, actor, etc.), and components are their characteristics (pose, name, geometry, etc.).
@@ -505,10 +510,10 @@ For example, the physics system shares entities and components with the Gazebo P
 <p>There is a loop running in the backend that runs the systems, where some systems are proposing changes to entities and their components, and other systems are handling and applying those changes.
 This is called the “simulation loop”.
 The Entity Component Manager (ECM) in the backend provides the functionality for the actual querying and updating of the entities and components.</p>
-<p><a class="reference external" href="https://gazebosim.org/api/gazebo/4.5/classignition_1_1gazebo_1_1systems_1_1Physics.html">Physics</a>, <a class="reference external" href="https://gazebosim.org/api/gazebo/4.5/classignition_1_1gazebo_1_1systems_1_1UserCommands.html">User Commands</a>, and <a class="reference external" href="https://gazebosim.org/api/gazebo/4.5/classignition_1_1gazebo_1_1systems_1_1SceneBroadcaster.html">Scene Broadcaster</a> are all systems launched by default in the backend.
-As mentioned earlier, however, even default systems can be added to or removed from the simulation loop (the <a class="reference external" href="https://gazebosim.org/api/gazebo/4.3/server_config.html">Server Configuration</a> tutorial describes how to customize default systems).
+<p><a class="reference external" href="https://gazebosim.org/api/gazebo/6/classignition_1_1gazebo_1_1systems_1_1Physics.html">Physics</a>, <a class="reference external" href="https://gazebosim.org/api/gazebo/6/classignition_1_1gazebo_1_1systems_1_1UserCommands.html">User Commands</a>, and <a class="reference external" href="https://gazebosim.org/api/gazebo/6/classignition_1_1gazebo_1_1systems_1_1SceneBroadcaster.html">Scene Broadcaster</a> are all systems launched by default in the backend.
+As mentioned earlier, however, even default systems can be added to or removed from the simulation loop (the <a class="reference external" href="https://gazebosim.org/api/gazebo/6/server_config.html">Server Configuration</a> tutorial describes how to customize default systems).
 For any other functionality, like sensor data processing for example, an additional system would have to be loaded.
-For example, if you need to generate sensor data that utilizes rendering sensors, you would need to load the <a class="reference external" href="https://gazebosim.org/api/gazebo/4.5/classignition_1_1gazebo_1_1systems_1_1Sensors.html">sensors system</a>.
+For example, if you need to generate sensor data that utilizes rendering sensors, you would need to load the <a class="reference external" href="https://gazebosim.org/api/gazebo/6/classignition_1_1gazebo_1_1systems_1_1Sensors.html">sensors system</a>.
 The visualization of that data, however, is left up to the client side plugins.</p>
 </section>
 <section id="communication-process">
@@ -531,7 +536,7 @@ One such process these plugins may communicate with, for example, is <a class="r
 All of the frontend plugins use the <a class="reference external" href="https://gazebosim.org/libs/gui">Gazebo GUI</a> library.
 The client itself also relies on Gazebo GUI.
 There are visualization plugins that create the windows of the GUI, add buttons and other interactive features, and a 3D scene plugin that utilizes <a class="reference external" href="https://gazebosim.org/libs/rendering">Gazebo Rendering</a> that creates the scene the user sees.</p>
-<p>Frontend plugins typically communicate among themselves using <a class="reference external" href="https://gazebosim.org/api/gui/4.2/namespaceignition_1_1gui_1_1events.html">events</a>.
+<p>Frontend plugins typically communicate among themselves using <a class="reference external" href="https://gazebosim.org/api/gui/6/namespaceignition_1_1gui_1_1events.html">events</a>.
 Events are similar to messages, but they’re processed synchronously.
 For example, the <code class="docutils literal notranslate"><span class="pre">Render</span></code> event is emitted by a 3D scene from it’s rendering thread right before the scene is rendered; this gives other plugins the chance to execute code right at that thread at that moment, which is valuable to edit the 3D scene.
 Other such events are emitted when the user right-clicks or hovers the scene for example.</p>
@@ -566,8 +571,8 @@ User commands receives requests from the GUI and processes them, and adds those 
     class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
-    <ul class="visible nav section-nav flex-column">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backend-server-process">Backend server process</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#communication-process">Communication process</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#frontend-client-process">Frontend client process</a></li>
@@ -603,8 +608,8 @@ User commands receives requests from the GUI and processes them, and adds those 
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=7f76b32a3354e82990f2"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=7f76b32a3354e82990f2"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -637,7 +642,7 @@ User commands receives requests from the GUI and processes them, and adds those 
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.17.0.
 </p></div>
       
     </div>
