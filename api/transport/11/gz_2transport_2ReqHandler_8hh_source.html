@@ -390,7 +390,7 @@
 <div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;      }</div>
 <div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;      this-&gt;reqMsg = _reqMsg-&gt;New();</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;      this-&gt;reqMsg.reset(_reqMsg-&gt;New());</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      this-&gt;reqMsg-&gt;CopyFrom(*_reqMsg);</div>
 <div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    }</div>
 <div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160; </div>
@@ -402,7 +402,7 @@
 <div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;        <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;      }</div>
 <div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; </div>
-<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;      this-&gt;repMsg = _repMsg-&gt;New();</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;      this-&gt;repMsg.reset(_repMsg-&gt;New());</div>
 <div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;      this-&gt;repMsg-&gt;CopyFrom(*_repMsg);</div>
 <div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    }</div>
 <div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
@@ -460,9 +460,9 @@
 <div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;      }</div>
 <div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    }</div>
 <div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160; </div>
-<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="keyword">private</span>: google::protobuf::Message *reqMsg = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;google::protobuf::Message&gt;</a> reqMsg;</div>
 <div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160; </div>
-<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    <span class="keyword">private</span>: google::protobuf::Message *repMsg = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;    <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;google::protobuf::Message&gt;</a> repMsg;</div>
 <div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;  };</div>
 <div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;  }</div>
 <div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;}</div>
@@ -516,6 +516,7 @@
 <div class="ttc" id="aclassignition_1_1transport_1_1IReqHandler_html_a70392b0dc68afaf7a96cf944e4621ad9"><div class="ttname"><a href="classignition_1_1transport_1_1IReqHandler.html#a70392b0dc68afaf7a96cf944e4621ad9">ignition::transport::IReqHandler::Response</a></div><div class="ttdeci">std::string Response() const</div><div class="ttdoc">Get the service response as raw bytes.</div><div class="ttdef"><b>Definition:</b> gz/transport/ReqHandler.hh:81</div></div>
 <div class="ttc" id="aclassignition_1_1transport_1_1IReqHandler_html_a5354af802fae8601371e92907bfaf80f"><div class="ttname"><a href="classignition_1_1transport_1_1IReqHandler.html#a5354af802fae8601371e92907bfaf80f">ignition::transport::IReqHandler::NotifyResult</a></div><div class="ttdeci">virtual void NotifyResult(const std::string &amp;_rep, const bool _result)=0</div><div class="ttdoc">Executes the callback registered for this handler and notify a potential requester waiting on a block...</div></div>
 <div class="ttc" id="aclassignition_1_1transport_1_1ReqHandler_html_a60ac1f92361aac017b2d842c9ef8ce43"><div class="ttname"><a href="classignition_1_1transport_1_1ReqHandler.html#a60ac1f92361aac017b2d842c9ef8ce43">ignition::transport::ReqHandler::CreateMsg</a></div><div class="ttdeci">std::shared_ptr&lt; Rep &gt; CreateMsg(const std::string &amp;_data) const</div><div class="ttdoc">Create a specific protobuf message given its serialized data.</div><div class="ttdef"><b>Definition:</b> gz/transport/ReqHandler.hh:198</div></div>
+<div class="ttc" id="aunique_ptr_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt; google::protobuf::Message &gt;</a></div></div>
 <div class="ttc" id="aclassignition_1_1transport_1_1ReqHandler_3_01google_1_1protobuf_1_1Message_00_01google_1_1protobuf_1_1Message_01_4_html_a1a721fb3283ea6b0b0e5d7639a4e52b0"><div class="ttname"><a href="classignition_1_1transport_1_1ReqHandler_3_01google_1_1protobuf_1_1Message_00_01google_1_1protobuf_1_1Message_01_4.html#a1a721fb3283ea6b0b0e5d7639a4e52b0">ignition::transport::ReqHandler&lt; google::protobuf::Message, google::protobuf::Message &gt;::SetResponse</a></div><div class="ttdeci">void SetResponse(const google::protobuf::Message *_repMsg)</div><div class="ttdoc">Set the REP protobuf message for this handler.</div><div class="ttdef"><b>Definition:</b> gz/transport/ReqHandler.hh:337</div></div>
 <div class="ttc" id="aclassignition_1_1transport_1_1ReqHandler_html_ae5a78e5cf2a1fcce4f2cdf1a24999f14"><div class="ttname"><a href="classignition_1_1transport_1_1ReqHandler.html#ae5a78e5cf2a1fcce4f2cdf1a24999f14">ignition::transport::ReqHandler::ReqTypeName</a></div><div class="ttdeci">virtual std::string ReqTypeName() const</div><div class="ttdoc">Get the message type name used in the service request.</div><div class="ttdef"><b>Definition:</b> gz/transport/ReqHandler.hh:283</div></div>
 <div class="ttc" id="anow_html"><div class="ttname"><a href="http://en.cppreference.com/w/cpp/chrono/steady_clock/now.html">std::chrono::steady_clock::now</a></div><div class="ttdeci">T now(T... args)</div></div>
