@@ -11,7 +11,7 @@ changes before they ship in a named collection.
 Rotary is a rolling, unstable stream. Breakage is expected, and versions
 may change under you on every `apt upgrade` or `brew upgrade`. Rotary is
 **not recommended for production use**. New Gazebo users should install
-one of the binary releases listed in [Releases](releases.md) instead.
+one of the binary releases listed in [Releases](../releases.md) instead.
 :::
 
 ## Package naming
@@ -114,7 +114,7 @@ The initial rollout of rotary brew formulae is tracked in
 There is currently no binary distribution of rotary on Windows. Windows
 users who want to run rotary need to build it from source.
 
-The existing [Source Installation on Windows 10 or 11](../jetty/install_windows_src.md)
+The existing [Source Installation on Windows 10 or 11](../install_windows_src.md)
 guide for Jetty describes the full toolchain (Visual Studio, Pixi,
 `colcon`). The same procedure applies to rotary — the only change is
 the `vcs import` step, which must point at `collection-rotary.yaml` from
