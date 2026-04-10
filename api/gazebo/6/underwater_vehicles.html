@@ -168,28 +168,30 @@ Setting up the thrusters</h1>
 </div><!-- fragment --><p>we should see the model move. The thrusters are governed by the equation on page 246 of Fossen's book. In particular it relates force to rpm as follows: <code>Thrust = fluid_density * RPM^2 * thrust_constant * propeller blade size^4</code>. The plugin takes in commands in newtons. So if you have a different thrust curve you can still use the plugin with some type of adapter script. The thrust constant is normally determined by individual manufacturers. In this case we are using the Tethys's thrust coefficient. you may also build a test rig to measure your thruster's thrust coefficient.</p>
 <h1><a class="anchor" id="autotoc_md302"></a>
 Adding Hydrodynamic behaviour</h1>
-<p>You may notice that the robot now keeps getting faster and faster. This is because there is no drag to oppose the thruster's force. We will be using Fossen's equations which describe the motion of a craft through the water for this. For better understanding of the parameters here, I would refer you to his book. Usually these parameters can be found via fluid simulation programs or experimental tests in a water tub. </p><div class="fragment"><div class="line">&lt;<span class="keywordtype">plugin</span></div>
+<p>You may notice that the robot now keeps getting faster and faster. This is because there is no drag to oppose the thruster's force. We will be using Fossen's equations which describe the motion of a craft through the water for this. For better understanding of the parameters here, I would refer you to his book. Usually these parameters can be found via fluid simulation programs or experimental tests in a water tub.</p>
+<p>Uncomment the following block from <code>buoyant_lrauv.sdf</code> to enable hydrodynamics.</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">plugin</span></div>
 <div class="line"><span class="keyword">filename</span>=<span class="stringliteral">&quot;ignition-gazebo-hydrodynamics-system&quot;</span></div>
 <div class="line"><span class="keyword">name</span>=<span class="stringliteral">&quot;ignition::gazebo::systems::Hydrodynamics&quot;</span>&gt;</div>
-<div class="line">    &lt;<span class="keywordtype">link_name</span>&gt;<span class="keyword">base_link</span>&lt;/<span class="keywordtype">link_name</span>&gt;</div>
-<div class="line">    &lt;<span class="keywordtype">xDotU</span>&gt;-4.876161&lt;/<span class="keywordtype">xDotU</span>&gt;</div>
-<div class="line">    &lt;<span class="keywordtype">yDotV</span>&gt;-126.324739&lt;/<span class="keywordtype">yDotV</span>&gt;</div>
-<div class="line">    &lt;<span class="keywordtype">zDotW</span>&gt;-126.324739&lt;/<span class="keywordtype">zDotW</span>&gt;</div>
-<div class="line">    &lt;<span class="keywordtype">kDotP</span>&gt;0&lt;/<span class="keywordtype">kDotP</span>&gt;</div>
-<div class="line">    &lt;<span class="keywordtype">mDotQ</span>&gt;-33.46&lt;/<span class="keywordtype">mDotQ</span>&gt;</div>
-<div class="line">    &lt;<span class="keywordtype">nDotR</span>&gt;-33.46&lt;/<span class="keywordtype">nDotR</span>&gt;</div>
-<div class="line">    &lt;<span class="keywordtype">xUabsU</span>&gt;-6.2282&lt;/<span class="keywordtype">xUabsU</span>&gt;</div>
-<div class="line">    &lt;<span class="keywordtype">xU</span>&gt;0&lt;/<span class="keywordtype">xU</span>&gt;</div>
-<div class="line">    &lt;<span class="keywordtype">yVabsV</span>&gt;-601.27&lt;/<span class="keywordtype">yVabsV</span>&gt;</div>
-<div class="line">    &lt;<span class="keywordtype">yV</span>&gt;0&lt;/<span class="keywordtype">yV</span>&gt;</div>
-<div class="line">    &lt;<span class="keywordtype">zWabsW</span>&gt;-601.27&lt;/<span class="keywordtype">zWabsW</span>&gt;</div>
-<div class="line">    &lt;<span class="keywordtype">zW</span>&gt;0&lt;/<span class="keywordtype">zW</span>&gt;</div>
-<div class="line">    &lt;<span class="keywordtype">kPabsP</span>&gt;-0.1916&lt;/<span class="keywordtype">kPabsP</span>&gt;</div>
-<div class="line">    &lt;<span class="keywordtype">kP</span>&gt;0&lt;/<span class="keywordtype">kP</span>&gt;</div>
-<div class="line">    &lt;<span class="keywordtype">mQabsQ</span>&gt;-632.698957&lt;/<span class="keywordtype">mQabsQ</span>&gt;</div>
-<div class="line">    &lt;<span class="keywordtype">mQ</span>&gt;0&lt;/<span class="keywordtype">mQ</span>&gt;</div>
-<div class="line">    &lt;<span class="keywordtype">nRabsR</span>&gt;-632.698957&lt;/<span class="keywordtype">nRabsR</span>&gt;</div>
-<div class="line">    &lt;<span class="keywordtype">nR</span>&gt;0&lt;/<span class="keywordtype">nR</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">link_name</span>&gt;<span class="keyword">base_link</span>&lt;/<span class="keywordtype">link_name</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">xDotU</span>&gt;-4.876161&lt;/<span class="keywordtype">xDotU</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">yDotV</span>&gt;-126.324739&lt;/<span class="keywordtype">yDotV</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">zDotW</span>&gt;-126.324739&lt;/<span class="keywordtype">zDotW</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">kDotP</span>&gt;0&lt;/<span class="keywordtype">kDotP</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">mDotQ</span>&gt;-33.46&lt;/<span class="keywordtype">mDotQ</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">nDotR</span>&gt;-33.46&lt;/<span class="keywordtype">nDotR</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">xUabsU</span>&gt;-6.2282&lt;/<span class="keywordtype">xUabsU</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">xU</span>&gt;0&lt;/<span class="keywordtype">xU</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">yVabsV</span>&gt;-601.27&lt;/<span class="keywordtype">yVabsV</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">yV</span>&gt;0&lt;/<span class="keywordtype">yV</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">zWabsW</span>&gt;-601.27&lt;/<span class="keywordtype">zWabsW</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">zW</span>&gt;0&lt;/<span class="keywordtype">zW</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">kPabsP</span>&gt;-0.1916&lt;/<span class="keywordtype">kPabsP</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">kP</span>&gt;0&lt;/<span class="keywordtype">kP</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">mQabsQ</span>&gt;-632.698957&lt;/<span class="keywordtype">mQabsQ</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">mQ</span>&gt;0&lt;/<span class="keywordtype">mQ</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">nRabsR</span>&gt;-632.698957&lt;/<span class="keywordtype">nRabsR</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">nR</span>&gt;0&lt;/<span class="keywordtype">nR</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md303"></a>
 Control surfaces</h1>

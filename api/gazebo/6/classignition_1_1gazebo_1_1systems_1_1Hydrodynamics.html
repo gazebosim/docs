@@ -147,8 +147,7 @@
 </div><!--header-->
 <div class="contents">
 
-<p>This class provides hydrodynamic behaviour for underwater vehicles It is shamelessly based off Brian Bingham's <a href="https://github.com/osrf/vrx">plugin for VRX</a>. which in turn is based of Fossen's equations described in "Guidance and
-Control of Ocean Vehicles" [1]. The class should be used together with the buoyancy plugin to help simulate behaviour of maritime vehicles. <a class="el" href="classignition_1_1gazebo_1_1systems_1_1Hydrodynamics.html" title="This class provides hydrodynamic behaviour for underwater vehicles It is shamelessly based off Brian ...">Hydrodynamics</a> refers to the behaviour of bodies in water. It includes forces like linear and quadratic drag, buoyancy (not provided by this plugin), etc.  
+<p>Hydrodynamic damping and current forces for underwater vehicles.  
  <a href="classignition_1_1gazebo_1_1systems_1_1Hydrodynamics.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Hydrodynamics_8hh_source.html">Hydrodynamics.hh</a>&gt;</code></p>
@@ -176,63 +175,108 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a75d73261228a8127f188edb3aa46fc21 inherit pub_methods_classignition_1_1gazebo_1_1System"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>This class provides hydrodynamic behaviour for underwater vehicles It is shamelessly based off Brian Bingham's <a href="https://github.com/osrf/vrx">plugin for VRX</a>. which in turn is based of Fossen's equations described in "Guidance and
-Control of Ocean Vehicles" [1]. The class should be used together with the buoyancy plugin to help simulate behaviour of maritime vehicles. <a class="el" href="classignition_1_1gazebo_1_1systems_1_1Hydrodynamics.html" title="This class provides hydrodynamic behaviour for underwater vehicles It is shamelessly based off Brian ...">Hydrodynamics</a> refers to the behaviour of bodies in water. It includes forces like linear and quadratic drag, buoyancy (not provided by this plugin), etc. </p>
-<h1><a class="anchor" id="autotoc_md328"></a>
-System Parameters</h1>
-<p>The exact description of these parameters can be found on p. 37 and p. 43 of Fossen's book. They are used to calculate added mass, linear and quadratic drag and coriolis force. </p>
-<h3><a class="anchor" id="autotoc_md329"></a>
-Diagonal terms:</h3>
+<div class="textblock"><p>Hydrodynamic damping and current forces for underwater vehicles. </p>
+<p>Computes linear and quadratic damping (drag) forces in the body frame per Fossen's 6-DOF marine craft model [1][2]. Should be used together with the <a class="el" href="classignition_1_1gazebo_1_1systems_1_1Buoyancy.html" title="A system that simulates buoyancy of objects immersed in fluid. All SDF parameters are optional....">Buoyancy</a> plugin. The relevant terms from Fossen's equation of motion are: </p><pre class="fragment">D(v_r) * v_r
+</pre><p>where v_r = v - v_current is the velocity relative to the fluid in the body frame.</p>
+<p>Based on Brian Bingham's <a href="https://github.com/osrf/vrx">plugin for VRX</a>.</p>
+<h2><a class="anchor" id="autotoc_md328"></a>
+Added Mass and Coriolis</h2>
+<p>Added mass and Coriolis forces are also computed by this plugin via the <code>&lt;xDotU&gt;</code>, <code>&lt;yDotV&gt;</code>, etc. parameters using explicit integration. Note that this formulation is only conditionally stable.</p>
+<h2><a class="anchor" id="autotoc_md329"></a>
+SNAME Naming Convention</h2>
+<p>Damping parameters follow the SNAME (Society of Naval Architects and Marine Engineers) 1950 convention. The first lowercase letter denotes the force/moment axis, and the remaining uppercase letters denote the velocity components:</p>
+<p>| Axis | x (surge) | y (sway) | z (heave) | k (roll) | m (pitch) | n (yaw) | |---&mdash;|--------&mdash;|-------&mdash;|--------&mdash;|-------&mdash;|--------&mdash;| |------&mdash;| | Velocity | U | V | W | P | Q | R |</p>
+<p>For example, <code>&lt;yVabsV&gt;</code> is the quadratic drag on the sway axis due to |V|*V, and <code>&lt;nR&gt;</code> is the linear yaw damping due to yaw rate R.</p>
+<h2><a class="anchor" id="autotoc_md330"></a>
+System Parameters</h2>
+<h3><a class="anchor" id="autotoc_md331"></a>
+Required</h3>
 <ul>
-<li>&lt;xDotU&gt; - Added mass in x direction [kg]</li>
-<li>&lt;yDotV&gt; - Added mass in y direction [kg]</li>
-<li>&lt;zDotW&gt; - Added mass in z direction [kg]</li>
-<li>&lt;kDotP&gt; - Added mass in roll direction [kgm^2]</li>
-<li>&lt;mDotQ&gt; - Added mass in pitch direction [kgm^2]</li>
-<li>&lt;nDotR&gt; - Added mass in yaw direction [kgm^2]</li>
-<li>&lt;xUabsU&gt; - Quadratic damping, 2nd order, x component [kg/m]</li>
-<li>&lt;xU&gt; - Linear damping, 1st order, x component [kg]</li>
-<li>&lt;yVabsV&gt; - Quadratic damping, 2nd order, y component [kg/m]</li>
-<li>&lt;yV&gt; - Linear damping, 1st order, y component [kg]</li>
-<li>&lt;zWabsW&gt; - Quadratic damping, 2nd order, z component [kg/m]</li>
-<li>&lt;zW&gt; - Linear damping, 1st order, z component [kg]</li>
-<li>&lt;kPabsP&gt; - Quadratic damping, 2nd order, roll component [kg/m^2]</li>
-<li>&lt;kP&gt; - Linear damping, 1st order, roll component [kg/m]</li>
-<li>&lt;mQabsQ&gt; - Quadratic damping, 2nd order, pitch component [kg/m^2]</li>
-<li>&lt;mQ&gt; - Linear damping, 1st order, pitch component [kg/m]</li>
-<li>&lt;nRabsR&gt; - Quadratic damping, 2nd order, yaw component [kg/m^2]</li>
-<li>&lt;nR&gt; - Linear damping, 1st order, yaw component [kg/m] </li>
+<li><code>&lt;link_name&gt;</code> - <a class="el" href="classignition_1_1gazebo_1_1Link.html" title="This class provides wrappers around entities and components which are more convenient and straight-fo...">Link</a> to apply hydrodynamic forces to. [string]</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md330"></a>
-Cross terms</h3>
-<p>In general we support cross terms as well. These are terms which act on non-diagonal sides. We use the SNAMe convention of naming search terms. (x, y, z) correspond to the respective axis. (k, m, n) correspond to roll, pitch and yaw. Similarly U, V, W represent velocity vectors in X, Y and Z axis while P, Q, R representangular velocity in roll, pitch and yaw axis respectively.</p><ul>
-<li>Added Mass: &lt;{x|y|z|k|m|n}Dot{U|V|W|P|Q|R}&gt; e.g. &lt;xDotR&gt; Units are either kg or kgm^2 depending on the choice of terms.</li>
-<li>Quadratic Damping With abs term (this is probably what you want): &lt;{x|y|z|k|m|n}{U|V|W|P|Q|R}abs{U|V|W|P|Q|R}&gt; e.g. &lt;xRabsQ&gt; Units are either kg/m or kg/m^2.</li>
-<li>Quadratic Damping (could lead to unwanted oscillations): &lt;{x|y|z|k|m|n}{U|V|W|P|Q|R}{U|V|W|P|Q|R}&gt; e.g. &lt;xRQ&gt; Units are either kg/m or kg/m^2.</li>
-<li>Linear Damping: &lt;{x|y|z|k|m|n}{U|V|W|P|Q|R}&gt;. e.g. &lt;xR&gt; Units are either kg or kg or kg/m. Additionally the system also supports the following parameters:</li>
-<li>&lt;waterDensity&gt; - The density of the fluid its moving in. Defaults to 998kgm^-3. [kgm^-3, deprecated]</li>
-<li>&lt;water_density&gt; - The density of the fluid its moving in. Defaults to 998kgm^-3. [kgm^-3]</li>
-<li>&lt;link_name&gt; - The link of the model that is being subject to hydrodynamic forces. [Required]</li>
-<li>&lt;namespace&gt; - This allows the robot to have an individual namespace for current. This is useful when you have multiple vehicles in different locations and you wish to set the currents of each vehicle separately. If no namespace is given then the plugin listens on the <code>/ocean_current</code> topic for a <code>Vector3d</code> message. Otherwise it listens on <code>/model/{namespace name}/ocean_current</code>.[String, Optional]</li>
-<li>&lt;default_current&gt; - A generic current. [vector3d m/s, optional, default = [0,0,0]m/s]</li>
-<li>&lt;disable_coriolis&gt; - Disable Coriolis force [Boolean, Default: false]</li>
-<li>&lt;disable_added_mass&gt; - Disable Added Mass [Boolean, Default: false]. To be deprecated in Garden.</li>
+<h3><a class="anchor" id="autotoc_md332"></a>
+Damping (Drag)</h3>
+<p>Diagonal terms:</p><ul>
+<li><code>&lt;xU&gt;</code> - Linear damping, surge [kg/s]</li>
+<li><code>&lt;yV&gt;</code> - Linear damping, sway [kg/s]</li>
+<li><code>&lt;zW&gt;</code> - Linear damping, heave [kg/s]</li>
+<li><code>&lt;kP&gt;</code> - Linear damping, roll [kgm^2/s]</li>
+<li><code>&lt;mQ&gt;</code> - Linear damping, pitch [kgm^2/s]</li>
+<li><code>&lt;nR&gt;</code> - Linear damping, yaw [kgm^2/s]</li>
+<li><code>&lt;xUabsU&gt;</code> - Quadratic abs damping, surge [kg/m]</li>
+<li><code>&lt;yVabsV&gt;</code> - Quadratic abs damping, sway [kg/m]</li>
+<li><code>&lt;zWabsW&gt;</code> - Quadratic abs damping, heave [kg/m]</li>
+<li><code>&lt;kPabsP&gt;</code> - Quadratic abs damping, roll [kgm^2/rad^2]</li>
+<li><code>&lt;mQabsQ&gt;</code> - Quadratic abs damping, pitch [kgm^2/rad^2]</li>
+<li><code>&lt;nRabsR&gt;</code> - Quadratic abs damping, yaw [kgm^2/rad^2]</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md331"></a>
-Example</h1>
-<p>An example configuration is provided in the examples folder. The example uses the <a class="el" href="classignition_1_1gazebo_1_1systems_1_1LiftDrag.html" title="The LiftDrag system computes lift and drag forces enabling simulation of aerodynamic robots.">LiftDrag</a> plugin to apply steering controls. It also uses the thruster plugin to propel the craft and the buoyancy plugin for buoyant force. To run the example run. </p><div class="fragment"><div class="line">ign gazebo auv_controls.sdf</div>
+<p>Cross terms and off-diagonal entries follow the same pattern:</p><ul>
+<li>Linear: <code>&lt;{x|y|z|k|m|n}{U|V|W|P|Q|R}&gt;</code> e.g. <code>&lt;xR&gt;</code></li>
+<li>Quadratic abs (recommended): <code>&lt;{x|y|z|k|m|n}{U|V|W|P|Q|R}abs{U|V|W|P|Q|R}&gt;</code> e.g. <code>&lt;xRabsQ&gt;</code></li>
+<li>Quadratic (may cause oscillations): <code>&lt;{x|y|z|k|m|n}{U|V|W|P|Q|R}{U|V|W|P|Q|R}&gt;</code> e.g. <code>&lt;xRQ&gt;</code></li>
+</ul>
+<p>All damping coefficients default to 0.</p>
+<h3><a class="anchor" id="autotoc_md333"></a>
+Added Mass</h3>
+<p>Fossen sign convention (values should be negative):</p><ul>
+<li><code>&lt;xDotU&gt;</code> - Added mass, surge [kg]</li>
+<li><code>&lt;yDotV&gt;</code> - Added mass, sway [kg]</li>
+<li><code>&lt;zDotW&gt;</code> - Added mass, heave [kg]</li>
+<li><code>&lt;kDotP&gt;</code> - Added mass, roll [kgm^2]</li>
+<li><code>&lt;mDotQ&gt;</code> - Added mass, pitch [kgm^2]</li>
+<li><code>&lt;nDotR&gt;</code> - Added mass, yaw [kgm^2]</li>
+<li>Cross terms: <code>&lt;{x|y|z|k|m|n}Dot{U|V|W|P|Q|R}&gt;</code> e.g. <code>&lt;xDotR&gt;</code></li>
+</ul>
+<h3><a class="anchor" id="autotoc_md334"></a>
+Ocean Current</h3>
+<ul>
+<li><code>&lt;default_current&gt;</code> - Constant current velocity in world frame. [gz::math::Vector3d, default: 0 0 0, m/s]</li>
+<li><code>&lt;namespace&gt;</code> - If set, the plugin subscribes to <code>/model/&lt;namespace&gt;/ocean_current</code> instead of <code>/ocean_current</code>. Useful for per-vehicle currents in multi-robot scenarios. [string, optional]</li>
+</ul>
+<p>Currents can also be loaded from data files via the EnvironmentPreload system. If any <code>lookup_current_*</code> tag is present, topic-based currents are ignored:</p><ul>
+<li><code>&lt;lookup_current_x&gt;</code> - CSV column for x current [string]</li>
+<li><code>&lt;lookup_current_y&gt;</code> - CSV column for y current [string]</li>
+<li><code>&lt;lookup_current_z&gt;</code> - CSV column for z current [string]</li>
+</ul>
+<h3><a class="anchor" id="autotoc_md335"></a>
+Feature Flags</h3>
+<ul>
+<li><code>&lt;disable_coriolis&gt;</code> - Disable Coriolis force. [bool, default: false]</li>
+<li><code>&lt;disable_added_mass&gt;</code> - Disable added mass. [bool, default: false]</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md336"></a>
+Example</h2>
+<p>Typical configuration for an AUV (MBARI Tethys LRAUV):</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">plugin</span> <span class="keyword">filename</span>=<span class="stringliteral">&quot;ignition-gazebo-hydrodynamics-system&quot;</span></div>
+<div class="line">        <span class="keyword">name</span>=<span class="stringliteral">&quot;ignition::gazebo::systems::Hydrodynamics&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">link_name</span>&gt;<span class="keyword">base_link</span>&lt;/<span class="keywordtype">link_name</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">xDotU</span>&gt;-4.876161&lt;/<span class="keywordtype">xDotU</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">yDotV</span>&gt;-126.324739&lt;/<span class="keywordtype">yDotV</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">zDotW</span>&gt;-126.324739&lt;/<span class="keywordtype">zDotW</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">kDotP</span>&gt;0&lt;/<span class="keywordtype">kDotP</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">mDotQ</span>&gt;-33.46&lt;/<span class="keywordtype">mDotQ</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">nDotR</span>&gt;-33.46&lt;/<span class="keywordtype">nDotR</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">xUabsU</span>&gt;-6.2282&lt;/<span class="keywordtype">xUabsU</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">yVabsV</span>&gt;-601.27&lt;/<span class="keywordtype">yVabsV</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">zWabsW</span>&gt;-601.27&lt;/<span class="keywordtype">zWabsW</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">kPabsP</span>&gt;-0.1916&lt;/<span class="keywordtype">kPabsP</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">mQabsQ</span>&gt;-632.698957&lt;/<span class="keywordtype">mQabsQ</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">nRabsR</span>&gt;-632.698957&lt;/<span class="keywordtype">nRabsR</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
+</div><!-- fragment --><p>A complete working example is available in <code>examples/worlds/auv_controls.sdf</code>. Run it with: </p><div class="fragment"><div class="line">ign gazebo auv_controls.sdf</div>
 </div><!-- fragment --><p>To control the rudder of the craft run the following </p><div class="fragment"><div class="line">ign topic -t /model/tethys/joint/vertical_fins_joint/0/cmd_pos</div>
 <div class="line">   -m <a class="code" href="namespaceignition.html">ignition</a>.<a class="code" href="namespaceignition_1_1msgs.html">msgs</a>.Double -p <span class="stringliteral">&#39;data: -0.17&#39;</span></div>
 </div><!-- fragment --><p>To apply a thrust you may run the following command </p><div class="fragment"><div class="line">ign topic -t /model/tethys/joint/propeller_joint/cmd_pos</div>
 <div class="line">-m <a class="code" href="namespaceignition.html">ignition</a>.<a class="code" href="namespaceignition_1_1msgs.html">msgs</a>.Double -p <span class="stringliteral">&#39;data: -31&#39;</span></div>
 </div><!-- fragment --><p>The vehicle should move in a circle.</p>
-<h2><a class="anchor" id="autotoc_md332"></a>
+<h2><a class="anchor" id="autotoc_md337"></a>
 Ocean Currents</h2>
 <p>When underwater, vehicles are often subject to ocean currents. The hydrodynamics plugin allows simulation of such currents. We can add a current simply by publishing the following: </p><div class="fragment"><div class="line">ign topic -t /ocean_current -m <a class="code" href="namespaceignition.html">ignition</a>.<a class="code" href="namespaceignition_1_1msgs.html">msgs</a>.Vector3d -p <span class="stringliteral">&#39;x: 1, y:0, z:0&#39;</span></div>
 </div><!-- fragment --><p>You should observe your vehicle slowly drift to the side.</p>
-<h1><a class="anchor" id="autotoc_md333"></a>
-Citations</h1>
-<p>[1] Fossen, Thor I. <em>Guidance and Control of Ocean Vehicles</em>. United Kingdom: Wiley, 1994. </p>
+<h2><a class="anchor" id="autotoc_md338"></a>
+References</h2>
+<p>[1] Fossen, T. I. "Guidance and Control of Ocean Vehicles." Wiley, 1994. [2] Fossen, T. I. "Handbook of Marine Craft Hydrodynamics and
+    Motion Control." Wiley, 2011. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ad814a0fa59e961e63e4e6e1b3934fcc0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad814a0fa59e961e63e4e6e1b3934fcc0">&#9670;&nbsp;</a></span>Hydrodynamics()</h2>
