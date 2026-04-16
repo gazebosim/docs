@@ -79,3 +79,11 @@ Gazebo/ROS integration.
 * [How to use ROS 2 to interact with Gazebo](ros2_integration).
 * [Example of using ROS 2 to load a model and interact with it in Gazebo](ros2_interop).
 * [How to spawn a Gazebo model from ROS 2](ros2_spawn_model).
+---
+## Specialized Transports: Images
+
+While the standard `ros_gz_bridge` handles most ROS 2 message types, Gazebo provides a specialized package optimized specifically for heavy camera sensor data:
+
+* **[`ros_gz_image`](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_image):** Provides a unidirectional bridge for images from Gazebo to ROS 2. It utilizes `image_transport` to publish compressed and uncompressed image streams efficiently.
+
+For performance-critical simulations involving vision or cameras, using this dedicated package is heavily recommended over passing large image arrays through the standard bridge.
