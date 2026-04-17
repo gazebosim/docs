@@ -27,7 +27,7 @@ given [Gazebo release](releases) is needed,
 there is an installation package per release available with all the
 installation options:
 
-* [Gazebo Jetty installation](/docs/jetty/install){.external} options (Expected: EOL 2030 Sep)
+* [Gazebo Jetty installation](/docs/jetty/install){.external} options (Expected: EOL 2031 May)
 * [Gazebo Ionic installation](/docs/ionic/install){.external} options (EOL 2026 Sep)
 * [Gazebo Harmonic (LTS) installation](/docs/harmonic/install){.external} options (EOL 2028 Sep)
 * [Gazebo Fortress (LTS) installation](/docs/fortress/install){.external} options (EOL 2026 Sep)
