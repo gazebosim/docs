@@ -311,6 +311,19 @@ different jobs:
    to run only gz-transport8 tests, the `--packages-select gz-transport8` can
    be added to the default options.
 
+## Reproducing CI locally
+
+Some of the Jenkins builds can be reproduced in a local machine:
+
+* `Linux:` all the Jenkins builds export the `Dockerfile` and `build.sh`
+artifacts used for the builds. There is no yet an automatic way of
+reproducing the build but [there are some instructions and progress tracking
+available in an issue](https://github.com/gazebo-tooling/release-tools/issues/923).
+* `Brew:` TODO
+* `Windows:` there is a Conda local builder for Windows in the release-tools
+repository. See the [README.md](https://github.com/gazebo-tooling/release-tools/blob/master/jenkins-scripts/README.md#conda-local-builder-for-windows)
+in release-tools to know how to use it.
+
 ## Development
 
 All the infrastructure for our CI is in the
