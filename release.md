@@ -84,6 +84,15 @@ stability of the software:
      (see [the homebrew-simulation issue](https://github.com/osrf/homebrew-simulation/issues/1314)
      for more information).
 
+:::{note}
+**rotary**: a rolling release stream built continuously from the `main`
+branches of every Gazebo library, not tied to any codename or major
+version. Rotary binaries are published into the same nightly apt
+repository listed above and are available on macOS via Homebrew. See
+the [Rotary release](releasing/rotary.md) page for an explanation of
+the package naming rules and installation steps.
+:::
+
 ### Metadata for Releasing
 
 All package managers need to define different data fields in order to provide
@@ -238,5 +247,6 @@ It is customary to use nightly binaries for all unreleased package versions.
 :maxdepth: 1
 :titlesonly:
 
+releasing/rotary
 releasing/versioning_pre_nightly
 ```
