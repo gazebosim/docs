@@ -23,7 +23,7 @@ These tutorials cover general concepts to help get you started with Gazebo.
 * [ROS 2 Integration via Bridge](ros2_integration)
 * [ROS 2 Interoperability](ros2_interop)
 * [ROS 2 Integration Template](ros_gz_project_template_guide)
-
+* [ROS 2 Docker Bridge Setup](ros_docker_gz_integration)
 ## Per-library tutorials
 
 See the *API & Tutorials* sections on the [Libraries page](/libs){.external} page for more specific content correlating to each Gazebo library.
