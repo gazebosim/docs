@@ -54,6 +54,21 @@ To reference a file from the root-level `common` directory in a release-specific
 
 Files without the prefix are assumed to be relative to the release directory.
 
+#### Reusing Common Navigation Items (`!include`)
+
+To avoid duplication across versioned `index.yaml` files, you can use the `!include` tag to include shared lists of navigation items from the `common/` directory.
+
+Example:
+```yaml
+- section: Reference
+  children:
+    - !include common/nav_reference.yaml
+    - name: release_notes
+      title: Release Notes
+      file: release_notes.md
+```
+The build script will resolve the `!include` tag and flatten the list, effectively merging the shared items with any release-specific items listed before or after it.
+
 #### Organizational Elements
 
 If an entry in `index.yaml` has children but no `file` entry, it is considered an organizational element. The build script will automatically create a placeholder page for Sphinx to group the children under.

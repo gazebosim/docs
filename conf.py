@@ -99,9 +99,29 @@ def config_init(app: Sphinx, config: Config):
     with open(map_path) as f:
         source_manifest = json.load(f)
 
+    def yaml_include(loader, node):
+        file_path = loader.construct_scalar(node)
+        src_dir = Path(config.gz_root_index_file).parent
+        full_path = src_dir / file_path
+        with open(full_path, 'r') as f:
+            return yaml.safe_load(f)
+
+    yaml.SafeLoader.add_constructor('!include', yaml_include)
+
+    def flatten_navigation(nav_items):
+        flat_list = []
+        for item in nav_items:
+            if isinstance(item, list):
+                flat_list.extend(flatten_navigation(item))
+            else:
+                if 'children' in item and item['children']:
+                    item['children'] = flatten_navigation(item['children'])
+                flat_list.append(item)
+        return flat_list
+
     with open(Path(app.srcdir) / "index.yaml") as f:
         file_name_map.update(
-            create_file_rename_map(yaml.safe_load(f)["pages"])
+            create_file_rename_map(flatten_navigation(yaml.safe_load(f)["pages"]))
         )
 
     config.html_context["file_name_map"] = file_name_map

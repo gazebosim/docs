@@ -26,6 +26,34 @@ import textwrap
 import yaml
 
 
+def yaml_include(loader, node):
+    """Custom constructor for !include tag in YAML."""
+    file_path = loader.construct_scalar(node)
+    src_dir = Path(__file__).parent
+    full_path = src_dir / file_path
+    with open(full_path, 'r') as f:
+        return yaml.safe_load(f)
+
+yaml.SafeLoader.add_constructor('!include', yaml_include)
+
+
+def flatten_navigation(nav_items):
+    """Recursively flatten lists in navigation structure caused by !include.
+
+    This only flattens lists of lists created when !include is used as a list item.
+    It preserves the intentional tree structure defined by 'children' keys.
+    """
+    flat_list = []
+    for item in nav_items:
+        if isinstance(item, list):
+            flat_list.extend(flatten_navigation(item))
+        else:
+            if 'children' in item and item['children']:
+                item['children'] = flatten_navigation(item['children'])
+            flat_list.append(item)
+    return flat_list
+
+
 def _build_sphinx(src_dir, output_dir, variables, extra_args, strict_mode=True):
     """Build arguments for running sphinx-build
 
@@ -137,6 +165,7 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
     # 5. Load navigation
     with open(version_tmp_dir / "index.yaml") as f:
         version_nav_yaml = yaml.safe_load(f)
+        version_nav_yaml['pages'] = flatten_navigation(version_nav_yaml['pages'])
         if not version_nav_yaml or not version_nav_yaml.get("pages"):
             raise RuntimeError(
                 f"{gz_release}/index.yaml is missing a non-empty `pages:` list."
