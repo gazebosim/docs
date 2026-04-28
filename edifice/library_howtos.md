@@ -1,29 +1,11 @@
 # Gazebo Library How-To Guides
 
-# Ignition Tutorials
+See the *API & Tutorials* sections on the [Libraries page](/libs){.external} page for more specific content correlating to each Gazebo library.
 
-These tutorials cover general concepts to help get you started with Ignition.
+The entrypoint library is Sim.
 
+{{ gz_sim_link }}
 
-## ROS integration
+Other libraries:
 
-* [ROS Integration](ros_integration)
-* [ROS 2 Integration](ros2_integration)
-
-## GUI tutorials
-
-* [Understanding the GUI](gui)
-* [Manipulating Models](manipulating_models)
-* [Model Insertion from Fuel](fuel_insert)
-* [Keyboard Shortcuts](hotkeys)
-
-## Basics tutorials
-
-* [Building Your Own Robot](building_robot)
-* [Moving the Robot](moving_robot)
-* [SDF Worlds](sdf_worlds)
-* [Sensors](sensors)
-* [Actors](actors)
-
-
-More specific content correlating to each Ignition library can be found under the *API & Tutorials* sections on the [Libraries page](/libs){.external}.
+{{ libraries_list }}

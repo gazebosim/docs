@@ -120,6 +120,34 @@ def config_init(app: Sphinx, config: Config):
         releases = load_releases(config.gz_root_index_file)
         release_info = releases[config.gz_release]
         app.config.html_context["release_info"] = release_info
+        
+        # Generate libraries list for substitution
+        libraries = release_info.get('libraries', [])
+        sim_version = None
+        for lib in libraries:
+            if lib['name'] == 'sim':
+                sim_version = lib['version']
+                break
+        
+        gz_sim_link = f"- [Sim](/api/sim/{sim_version}/tutorials.html){{.external}}" if sim_version else ""
+        
+        libs_list = []
+        for lib in sorted(libraries, key=lambda l: l['name']):
+            if lib['name'] == 'sim':
+                continue
+            name_cap = lib['name'].capitalize()
+            if lib['name'] == 'sdformat':
+                libs_list.append(f"- [{name_cap}](/api/sdformat/{lib['version']}/){{.external}}")
+            else:
+                libs_list.append(f"- [{name_cap}](/api/{lib['name']}/{lib['version']}/tutorials.html){{.external}}")
+        
+        libs_str = "\n".join(libs_list)
+        
+        config.myst_substitutions = {
+            "gz_sim_link": gz_sim_link,
+            "libraries_list": libs_str,
+        }
+
         app.config.html_context["preferred_release"] = get_preferred_release(releases)
         if release_info.get('eol', False):
             print(f"Disable nitpicky for {release_info['name']}")
