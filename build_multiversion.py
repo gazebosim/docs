@@ -20,12 +20,10 @@ import json
 import os
 import requests
 import shutil
-import textwrap
-import sys
 import subprocess
+import sys
+import textwrap
 import yaml
-
-
 
 
 def _build_sphinx(src_dir, output_dir, variables, extra_args, strict_mode=True):
@@ -103,7 +101,7 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
         if path.is_file():
             rel_path = path.relative_to(common_dir)
             manifest[str(rel_path)] = f"common/{rel_path}"
-            
+
     # Then, add/overwrite with release-specific files.
     for path in Path(version_src_dir).glob('**/*'):
         if path.is_file():
@@ -141,6 +139,10 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
     # 5. Load navigation
     with open(version_tmp_dir / "index.yaml") as f:
         version_nav_yaml = yaml.safe_load(f)
+        if not version_nav_yaml or not version_nav_yaml.get("pages"):
+            raise RuntimeError(
+                f"{gz_release}/index.yaml is missing a non-empty `pages:` list."
+            )
 
     def handle_file_url_rename(file_path, file_url):
         computed_url, ext = os.path.splitext(file_path)
@@ -164,7 +166,6 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
             else:
                 new_file_path = f"{file_url}.md"
                 maybe_hidden = ""
-                print(f"Page {page['name']}: {page['title']} not hidden")
                 with open(version_tmp_dir / new_file_path, "w") as ind_f:
                     ind_f.write(textwrap.dedent(f"""\
                         ---

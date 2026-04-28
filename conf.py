@@ -52,7 +52,7 @@ def setup_file_map(app: Sphinx, pagename: str, templatename: str, context, doctr
         result = context["file_name_map"].get(Path(file_name).stem)
 
         if result:
-            return source_manifest[result]
+            return source_manifest.get(result, file_name)
         # Fallback for non-markdown files or files not in the manifest
         return source_manifest.get(file_name, file_name)
 
