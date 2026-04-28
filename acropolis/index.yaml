@@ -1,29 +1,59 @@
 # This file is an index of the pages to display on the documentation website
-# (https://gazebosim.org/docs). The order of the pages in this file
+# for this specific release. The order of the pages in this file
 # is reflected on the website's left sidebar.
+#
+# For more information about the structure of this file, see the README.md file at the root of the repository.
 #
 # Components of the index:
 #
-# 1. "pages:" The master list of pages
+# "pages:" A list of top-level items, which should be "section"s.
+# Each section has a "section" title and a list of "children" (pages).
 #
-# 2. Each page has a
-#    a. "name:" This should be a short url-friendly and unique name. It will
-#    be used in the website url.
-#
-#    b. "title:" This is a human-friendly title for the page. This title will
-#    be displayed on the website's left side bar.
-#
-#    c. "file:" The markdown file that contains the page's content.
+# Each page has:
+# - "name:" A short url-friendly and unique name used in the website url.
+# - "title:" A human-friendly title displayed on the website's left sidebar.
+# - "file:" The markdown file that contains the page's content.
+#   Prefix with "common:" if the file is in the top-level "common/" directory.
+# - "description:" (Optional) A short description for the page.
+# - "children:" (Optional) A list of sub-pages.
 pages:
-  - name: install
-    title: Install
-    file: install.md
-    description: Citadel installation instructions
-  - name: ros_integration
-    title: ROS Integration
-    file: ros_integration.md
-    description: This tutorial details how to interface with ROS, enabling the ability to use tools such as Rviz for robot or sensor visualization.
-  - name: comparison
-    title: Feature Comparison
-    file: comparison.md
-    description: A list of features present in Gazebo-classic and the status of their migration to Gazebo.
+  - section: Get Started
+    children:
+      - name: getstarted
+        title: Get Started
+        file: common:get_started.md
+        description: Getting started with Gazebo.
+      - name: install
+        title: Install
+        file: install.md
+        description: Citadel installation instructions
+      - name: ros_installation
+        title: ROS/Gazebo Installation
+        file: common:ros_installation.md
+        description: Ros and Gazebo options and combinations
+        children:
+          - name: ros2_gz_vendor_pkgs
+            title: ROS 2 Gazebo Vendor Packages
+            file: common:ros2_gz_vendor_pkgs.md
+            description: Using ROS 2 Gazebo Vendor packages
+  - section: For Users
+    children:
+      - name: how_to_guides
+        title: How-to Guides
+        children:
+          - name: ros_integration
+            title: ROS Integration
+            file: ros_integration.md
+            description: This tutorial details how to interface with ROS, enabling
+              the ability to use tools such as Rviz for robot or sensor visualization.
+  - section: For Developers
+    children:
+      - !include common/nav_for_developers.yaml
+
+  - section: Reference
+    children:
+      - !include common/nav_reference.yaml
+
+  - section: Migration Guides
+    children:
+      - !include common/nav_migration_guides.yaml
