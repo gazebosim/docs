@@ -53,8 +53,6 @@ def _build_sphinx(src_dir, output_dir, variables, extra_args, strict_mode=True):
     subprocess.run(sphinx_args, check=True)
 
 
-
-
 def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
 
     if not gz_release:
