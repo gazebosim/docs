@@ -1,19 +1,23 @@
-# This file is an index of the pages to display on the documentation website
-# (https://gazebosim.org/docs). The order of the pages in this file
-# is reflected on the website's left sidebar.
+# This file is the master manifest and configuration for the documentation website.
+# It defines the releases, their included libraries, and general library metadata
+# used to generate the site content and navigation.
 #
-# Components of the index:
+# For more information about the structure of this file, see the README.md file at the root of the repository.
 #
-
+# Components of the file:
 #
-# 2. Each page has a
-#    a. "name:" This should be a short url-friendly and unique name. It will
-#    be used in the website url.
+# 1. "releases:" A list of releases to display on the website.
+#    Each release has:
+#    - "name:" The name of the release (e.g., jetty, ionic).
+#    - "lts:", "dev:", "eol:", "preferred:": Booleans indicating release status.
+#    - "description:" Support period description.
+#    - "libraries:" A list of libraries included in the release, with their major versions.
+#      This list is used to generate the "Library Reference" navigation in the sidebar
+#      (see build_multiversion.py) and to populate links in "library_howtos.md" 
+#      via MyST substitutions (see conf.py).
 #
-#    b. "title:" This is a human-friendly title for the page. This title will
-#    be displayed on the website's left side bar.
-#
-#    c. "file:" The markdown file that contains the page's content.
+# 2. "library_info:" A dictionary containing descriptions of each library.
+#    This is used to populate the /libs page.
 
 releases:
   - name: jetty
