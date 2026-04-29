@@ -2,7 +2,7 @@
 
 **Rotary** is a rolling release stream of Gazebo built continuously from the
 `main` branches of every Gazebo library. Unlike the dated codename releases
-(Fortress, Harmonic, Jetty, …), rotary has no fixed version: it is built
+(Fortress, Harmonic, Jetty, …), Rotary has no fixed version: it is built
 every night. It is intended for Gazebo maintainers, continuous
 integration systems, and early adopters who want to test unreleased
 changes before they ship in a named collection.
@@ -17,8 +17,8 @@ one of the binary releases listed in [Releases](../releases.md) instead.
 ## Package naming
 
 Wherever a Gazebo package name contains `gz-`, a `rotary-` infix is
-injected to produce the rotary alias. The aliases point to unversioned
-upstream packages, so installing a rotary alias always pulls whatever is
+injected to produce the Rotary alias. The aliases point to unversioned
+upstream packages, so installing a Rotary alias always pulls whatever is
 currently being built from `main`.
 
 ### Ubuntu
@@ -55,7 +55,7 @@ Rotary binaries are published into the existing **nightly** apt repository
 at `http://packages.osrfoundation.org/gazebo/ubuntu-nightly`, so
 the versioning scheme documented in
 [Ubuntu versioning in nightly and prerelease binaries](versioning_pre_nightly.md)
-applies to rotary unchanged.
+applies to Rotary unchanged.
 :::
 
 First install the prerequisite tools:
@@ -66,7 +66,7 @@ sudo apt-get install curl lsb-release gnupg
 ```
 
 Add the OSRF GPG key and configure the **nightly** apt repository (which
-hosts rotary packages):
+hosts Rotary packages):
 
 ```bash
 sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
@@ -83,13 +83,13 @@ sudo apt-get install gz-rotary
 All Rotary libraries should be ready to use and the `gz sim` app ready to
 run.
 
-### Uninstalling rotary
+### Uninstalling Rotary
 
 ```bash
 sudo apt remove gz-rotary && sudo apt autoremove
 ```
 
-## Installing rotary on macOS (Homebrew)
+## Installing Rotary on macOS (Homebrew)
 
 Rotary formulae are published through the
 [`osrf/simulation`](https://github.com/osrf/homebrew-simulation) tap:
@@ -106,13 +106,13 @@ naming scheme, for example:
 brew install gz-rotary-math gz-rotary-sim
 ```
 
-The initial rollout of rotary brew formulae is tracked in
+The initial rollout of Rotary brew formulae is tracked in
 [osrf/homebrew-simulation#3287](https://github.com/osrf/homebrew-simulation/pull/3287).
 
 ## Windows
 
-There is currently no binary distribution of rotary on Windows. Windows
-users who want to run rotary need to build it from source.
+There is currently no binary distribution of Rotary on Windows. Windows
+users who want to run Rotary need to build it from source.
 
 The existing [Source Installation on Windows 10 or 11](../install_windows_src.md)
 guide for Jetty describes the full toolchain (Visual Studio, Pixi,
