@@ -17,14 +17,14 @@ publishes a rolling release stream called **Rotary**, built continuously
 from the `main` branches of every Gazebo library every night.
 Rotary is not tied to codename or major version and is intended for
 maintainers, CI systems, and early adopters.
-See the [Rotary release](releasing/rotary.md) page for details and
+See the [Rotary release](https://gazebosim.org/docs/rotary) page for details and
 installation instructions.
 
 ## Release List
 
 | Name                                                     | Date      | EOL date  | Notes        |
 |----------------------------------------------------------|-----------|-----------|--------------|
-| [Rotary](releasing/rotary.md)                            | Rolling   | —         | Experimental |
+| [Rotary](https://gazebosim.org/docs/rotary)              | Rolling   | —         | Experimental |
 | M                                                        | Mar, 2027 | Nov, 2028 |       |
 | [Jetty](https://gazebosim.org/docs/jetty)                | Sep, 2025 | Sep, 2030 | LTS   |
 | [Ionic](https://gazebosim.org/docs/ionic)                | Sep, 2024 | Sep, 2026 |       |
