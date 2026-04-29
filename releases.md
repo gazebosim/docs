@@ -13,7 +13,7 @@ A Gazebo release follows the form "Gazebo Codename", for example Gazebo Acropoli
 ## Rolling releases
 
 Separate from the dated codename releases listed below, Gazebo also
-publishes a rolling release stream called **rotary**, built continuously
+publishes a rolling release stream called **Rotary**, built continuously
 from the `main` branches of every Gazebo library every night.
 Rotary is not tied to codename or major version and is intended for
 maintainers, CI systems, and early adopters.

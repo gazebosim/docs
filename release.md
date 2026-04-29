@@ -85,7 +85,7 @@ stability of the software:
      for more information).
 
 :::{note}
-**rotary**: a rolling release stream built continuously from the `main`
+**Rotary**: a rolling release stream built continuously from the `main`
 branches of every Gazebo library, not tied to any codename or major
 version. Rotary binaries are published into the same nightly apt
 repository listed above and are available on macOS via Homebrew. See

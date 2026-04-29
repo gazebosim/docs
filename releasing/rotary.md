@@ -21,7 +21,7 @@ injected to produce the rotary alias. The aliases point to unversioned
 upstream packages, so installing a rotary alias always pulls whatever is
 currently being built from `main`.
 
-### Ubuntu / Debian
+### Ubuntu
 
 
 | Regular package        | Rotary alias                    |
@@ -48,13 +48,13 @@ On both Ubuntu and Homebrew, the `gz-rotary` metapackage pulls in the full
 set of rotary libraries, mirroring how `gz-jetty` or `gz-harmonic` work for
 named collections.
 
-## Installing rotary on Ubuntu
+## Installing Rotary on Ubuntu
 
 :::{note}
 Rotary binaries are published into the existing **nightly** apt repository
-at `http://packages.osrfoundation.org/gazebo/{ubuntu,debian}-nightly`, so
+at `http://packages.osrfoundation.org/gazebo/ubuntu-nightly`, so
 the versioning scheme documented in
-[Debian/Ubuntu versioning in nightly and prerelease binaries](versioning_pre_nightly.md)
+[Ubuntu versioning in nightly and prerelease binaries](versioning_pre_nightly.md)
 applies to rotary unchanged.
 :::
 
@@ -74,13 +74,13 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-
 sudo apt-get update
 ```
 
-Then install the rotary metapackage:
+Then install the Rotary metapackage:
 
 ```bash
 sudo apt-get install gz-rotary
 ```
 
-All rotary libraries should be ready to use and the `gz sim` app ready to
+All Rotary libraries should be ready to use and the `gz sim` app ready to
 run.
 
 ### Uninstalling rotary
@@ -116,7 +116,7 @@ users who want to run rotary need to build it from source.
 
 The existing [Source Installation on Windows 10 or 11](../install_windows_src.md)
 guide for Jetty describes the full toolchain (Visual Studio, Pixi,
-`colcon`). The same procedure applies to rotary — the only change is
+`colcon`). The same procedure applies to Rotary — the only change is
 the `vcs import` step, which must point at `collection-rotary.yaml` from
 [gazebo-tooling/gazebodistro](https://github.com/gazebo-tooling/gazebodistro)
 instead of the Jetty collection file:
