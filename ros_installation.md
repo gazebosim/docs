@@ -39,7 +39,7 @@ continued use.
 |                           | **GZ Fortress (LTS)**   | **GZ Harmonic (LTS)**   | **Gz Ionic**    | **Gz Jetty (LTS)**
 |---------------------------|-----------------------  | ----------------------  | --------------- | ------------
 | **ROS 2 Rolling**         | ❌                      | ⚡                       | ⚡               | ✅
-| **ROS 2 Lyrical**         | ❌                      | ⚡                       | ⚡               | ✅
+| **ROS 2 Lyrical (LTS)**   | ❌                      | ⚡                       | ⚡               | ✅
 | **ROS 2 Kilted**          | ❌                      | ⚡                       | ✅              | ❌
 | **ROS 2 Jazzy (LTS)**     | ❌                      | ✅                      | ❌              | ❌
 | **ROS 2 Humble (LTS)**    | ✅                      | ⚡                       | ❌              | ❌
