@@ -32,6 +32,7 @@ from pygments.lexers.shell import BatchLexer
 
 
 sys.path.append(str(Path(__file__).parent))
+import build_utils
 from base_conf import *  # noqa
 
 html_baseurl = f"{html_context['deploy_url']}/docs/latest/"  # noqa
@@ -98,26 +99,8 @@ def config_init(app: Sphinx, config: Config):
     map_path = Path(app.srcdir) / 'source_manifest.json'
     with open(map_path) as f:
         source_manifest = json.load(f)
-
-    def yaml_include(loader, node):
-        file_path = loader.construct_scalar(node)
-        src_dir = Path(config.gz_root_index_file).parent
-        full_path = src_dir / file_path
-        with open(full_path, 'r') as f:
-            return yaml.safe_load(f)
-
-    yaml.SafeLoader.add_constructor('!include', yaml_include)
-
-    def flatten_navigation(nav_items):
-        flat_list = []
-        for item in nav_items:
-            if isinstance(item, list):
-                flat_list.extend(flatten_navigation(item))
-            else:
-                if 'children' in item and item['children']:
-                    item['children'] = flatten_navigation(item['children'])
-                flat_list.append(item)
-        return flat_list
+    build_utils.register_yaml_include(Path(config.gz_root_index_file).parent)
+    flatten_navigation = build_utils.flatten_navigation
 
     with open(Path(app.srcdir) / "index.yaml") as f:
         file_name_map.update(

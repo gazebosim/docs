@@ -25,33 +25,10 @@ import sys
 import textwrap
 import yaml
 
+import build_utils
 
-def yaml_include(loader, node):
-    """Custom constructor for !include tag in YAML."""
-    file_path = loader.construct_scalar(node)
-    src_dir = Path(__file__).parent
-    full_path = src_dir / file_path
-    with open(full_path, 'r') as f:
-        return yaml.safe_load(f)
-
-yaml.SafeLoader.add_constructor('!include', yaml_include)
-
-
-def flatten_navigation(nav_items):
-    """Recursively flatten lists in navigation structure caused by !include.
-
-    This only flattens lists of lists created when !include is used as a list item.
-    It preserves the intentional tree structure defined by 'children' keys.
-    """
-    flat_list = []
-    for item in nav_items:
-        if isinstance(item, list):
-            flat_list.extend(flatten_navigation(item))
-        else:
-            if 'children' in item and item['children']:
-                item['children'] = flatten_navigation(item['children'])
-            flat_list.append(item)
-    return flat_list
+build_utils.register_yaml_include(Path(__file__).parent)
+from build_utils import flatten_navigation
 
 
 def _build_sphinx(src_dir, output_dir, variables, extra_args, strict_mode=True):
@@ -118,6 +95,7 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
         shutil.copytree(root_src_dir / dir, version_tmp_dir / dir, dirs_exist_ok=True)
     shutil.copy2(root_src_dir / "base_conf.py", version_tmp_dir)
     shutil.copy2(root_src_dir / "conf.py", version_tmp_dir)
+    shutil.copy2(root_src_dir / "build_utils.py", version_tmp_dir)
 
     # 4. Generate the source manifest for "Edit on GitHub" links
     manifest = {}
@@ -186,7 +164,12 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
             maybe_hidden = ":hidden:"
             file_url = page["name"]
 
-            # TODO(azeey) Document
+            # If the page references an existing file, resolve its path (stripping the 'common:'
+            # prefix for centralized files) and rename the source file in the temporary directory
+            # if its custom URL path name differs from the underlying filename.
+            #
+            # If no file is specified, this is an organizational parent/container page.
+            # We dynamically generate a placeholder markdown file to host the sub-navigation toctree.
             if "file" in page:
                 file_path = page["file"].removeprefix("common:")
                 new_file_path = handle_file_url_rename(file_path, file_url)
