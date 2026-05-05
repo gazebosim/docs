@@ -8,7 +8,7 @@ paths based on your workflow:
 * **Users**: For those who primarily run Gazebo using standard tools (like `gz
 sim`), edit SDFormat files, use existing plugins, and interact with running
 simulations from the outside — typically by publishing and subscribing to
-topics over Gazebo Transport or ROS."
+topics over Gazebo Transport or ROS.
 * **Developers**: For those who use individual Gazebo libraries (like
 `gz-math`, `sdformat`, or `gz-transport`) directly in their own C++
 applications, or those who are developing custom plugins for the simulator

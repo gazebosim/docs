@@ -165,11 +165,11 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
     # 5. Load navigation
     with open(version_tmp_dir / "index.yaml") as f:
         version_nav_yaml = yaml.safe_load(f)
-        version_nav_yaml['pages'] = flatten_navigation(version_nav_yaml['pages'])
         if not version_nav_yaml or not version_nav_yaml.get("pages"):
             raise RuntimeError(
                 f"{gz_release}/index.yaml is missing a non-empty `pages:` list."
             )
+        version_nav_yaml['pages'] = flatten_navigation(version_nav_yaml['pages'])
 
     def handle_file_url_rename(file_path, file_url):
         computed_url, ext = os.path.splitext(file_path)
@@ -188,7 +188,7 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
 
             # TODO(azeey) Document
             if "file" in page:
-                file_path = page["file"].replace("common:", "")
+                file_path = page["file"].removeprefix("common:")
                 new_file_path = handle_file_url_rename(file_path, file_url)
             else:
                 new_file_path = f"{file_url}.md"

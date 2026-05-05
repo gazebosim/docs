@@ -77,7 +77,7 @@ def create_file_rename_map(nav_yaml_pages):
 
     for page in nav_yaml_pages:
         if "file" in page:
-            file_name_map[page["name"]] = page['file'].replace("common:", "")
+            file_name_map[page["name"]] = page['file'].removeprefix("common:")
 
         children = page.get("children")
         if children:
