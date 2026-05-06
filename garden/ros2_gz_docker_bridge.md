@@ -1,12 +1,12 @@
-# ROS2 + Gazebo Docker Bridge
+# ROS 2 + Gazebo Docker Bridge
 
-A two-container Docker setup for running Gazebo and ROS2 as separate services connected over a custom Docker network, with the ros_gz_bridge handling topic communication between them
+A two-container Docker setup for running Gazebo and ROS 2 as separate services connected over a custom Docker network, with the ros_gz_bridge handling topic communication between them
 
 ---
 
 ## Compatibility
 
-| ROS2 | Gazebo |
+| ROS 2 | Gazebo |
 |---|---|
 | Rolling | Jetty |
 | Kilted | Ionic |
@@ -20,8 +20,8 @@ A two-container Docker setup for running Gazebo and ROS2 as separate services co
  
 - Docker installed and running
 - Both images built:
-  - `gazebo` — from `dockerfile.gazebo`
-  - `ros2` — from your ROS2 Dockerfile
+  - `gazebo` — from your Gazebo Dockerfile
+  - `ros2` — from your ROS 2 Dockerfile
 - `ros-gz-bridge` installed
 
 ---
@@ -87,8 +87,20 @@ export GZ_IP=<ros-ip>
 export GZ_PARTITION=gazebo-container
 source /opt/ros/<ros-distro>/setup.bash
 ```
- 
-> Add these to `~/.bashrc` in each container to be available across sessions.
+
+:::{important}
+Add these to `~/.bashrc` in each container to be available across sessions.
+:::
+
+:::{note}
+When setting `GZ_IP`, use only the IP address without the subnet mask. For example:
+
+```bash
+export GZ_IP=172.21.0.3
+```
+
+Do not include `/16`.
+:::
 
 ---
 
@@ -108,15 +120,7 @@ if you have a `bridge.yaml` config file, you can use it instead of passing topic
 ros2 run ros_gz_bridge parameter_bridge --ros-args -p config_file:=/path/to/bridge.yaml
 ```
 
-a typical `bridge.yaml` looks like this:
-
-```yaml
-- ros_topic_name: /clock
-  gz_topic_name: /clock
-  ros_type_name: rosgraph_msgs/msg/Clock
-  gz_type_name: gz.msgs.Clock
-  direction: GZ_TO_ROS
-```
+See the [ros_gz_bridge examples](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge/examples) for sample configuration files.
 
 ---
 
@@ -134,15 +138,28 @@ gz sim shapes.sdf
 ```bash
 docker exec -it ros2-container bash
 source /opt/ros/<ros-distro>/setup.bash
+```
+
+#### Option 1: Single topic (basic)
+```bash
 ros2 run ros_gz_bridge parameter_bridge \
   /clock@rosgraph_msgs/msg/Clock@gz.msgs.Clock
 ```
- 
-### Terminal 3 — Verify
- 
+
+#### Option 2: Multiple topics
 ```bash
-docker exec -it ros2-container bash
-source /opt/ros/<ros-distro>/setup.bash
+ros2 run ros_gz_bridge parameter_bridge \
+  /clock@rosgraph_msgs/msg/Clock@gz.msgs.Clock \
+  /world/default/model/vehicle/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist \
+  /world/default/model/vehicle/odometry@nav_msgs/msg/Odometry@gz.msgs.Odometry
+```
+
+#### Option 3: Using config file
+```bash
+ros2 run ros_gz_bridge parameter_bridge --ros-args -p config_file:=/path/to/bridge.yaml
+```
+See the [ros_gz_bridge examples](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge/examples) for sample configuration files.
+
 ros2 topic echo /clock
 ```
 if you see something like this :- 
@@ -162,13 +179,3 @@ clock:
 ```
 then the connection between the two docker containers is succesfull
 
----
-
-## Final Network Info
- 
-| Container | IP | Role |
-|---|---|---|
-| `gazebo-container` | `<gz-ip>` | Runs Gazebo simulation |
-| `ros2-container` | `<ros-ip>` | Runs ROS2 + bridge |
- 
-Network name: `ros-link`
