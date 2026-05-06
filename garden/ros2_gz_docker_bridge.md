@@ -159,7 +159,12 @@ ros2 run ros_gz_bridge parameter_bridge \
 ros2 run ros_gz_bridge parameter_bridge --ros-args -p config_file:=/path/to/bridge.yaml
 ```
 See the [ros_gz_bridge examples](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge/examples) for sample configuration files.
+ 
+### Terminal 3 — Verify
 
+```bash
+docker exec -it ros2-container bash
+source /opt/ros/<ros-distro>/setup.bash
 ros2 topic echo /clock
 ```
 if you see something like this :- 
