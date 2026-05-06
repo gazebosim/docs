@@ -345,13 +345,48 @@ For checking that the build process is ongoing as expected:
             to get added to the release team.
         1. Follow the steps of releasing a ROS package to release the vendor
             package
-            <https://docs.ros.org/en/rolling/How-To-Guides/Releasing/Subsequent-Releases.html>
-            * Bump patch versions if the package has already been released for
-              the target ROS distribution. This is almost always what you want
-              to do.
-            * Bump minor version only if the package is being released into
-              `rolling` and if the release happens immediately after a new ROS
-              distribution has been branched off of `rolling`. The intention
-              here is that all release branches (e.g. `jazzy`, `kilted`,
-              `rolling`, etc.) have distinct minor version numbers.
-            * Never bump the major version number.
+            <https://docs.ros.org/en/rolling/How-To-Guides/Releasing/Subsequent-Releases.html>.
+            View the [versioning scheme](#versioning-scheme-for-gazebo-ros-vendor-packages)
+            section for more information.
+
+## Versioning scheme for Gazebo-ROS vendor packages
+
+The Gazebo vendor packages for ROS follow a specific versioning scheme to ensure
+compatibility and proper ordering across different ROS distributions:
+
+* **Patch version:** Bump the patch version if the package has already been
+  released for the target ROS distribution. This is almost always what you want
+  to do.
+* **Minor version:** Bump the minor version in the following cases:
+  1. If the package is being released into `rolling` and if the release happens
+     immediately after a new ROS distribution has been branched off of
+     `rolling`. The intention here is that all release branches (e.g. `jazzy`,
+     `kilted`, `rolling`, etc.) have distinct minor version numbers.
+  2. When the underlying Gazebo package's major version number is bumped (e.g.,
+     moving from `gz-math7` to `gz-math8`). This usually corresponds to a new
+     Gazebo collection release.
+* **Major version:** Never bump the major version number.
+* **Bloom track:** When creating new branches for a vendor package (e.g.
+  branching off `rolling` for a newly released ROS distribution), ensure the
+  bloom track is updated accordingly.
+  **It is critical to check that the correct track is being used when making a
+  release after a new ROS distribution has been branched off of `rolling`.**
+  There are two main cases:
+  1. **Core vendor packages (`gz_cmake_vendor`, `gz_utils_vendor`, and
+     `gz_math_vendor`):** These packages might be released into a new ROS
+     distribution automatically from the `rolling` branch. In this case, a new
+     stable branch should be created for the new ROS distribution, and the
+     bloom track should be updated to point to this new branch. It may be
+     best to edit the `tracks.yaml` file manually in the release repository to
+     ensure that the new track points to the correct branch while the `rolling`
+     track continues to point to the `rolling` branch.
+  2. **Non-core vendor packages:** For these packages, we are responsible for
+     branching off and making the release. The steps are: branch off from
+     `rolling`, then make the release using `bloom-release` with the
+     `--edit-track` flag to update the tracking information for the new
+     distribution. The `rolling` branch should continue to track the `rolling`
+     distribution without any changes.
+
+  Refer to the
+  [bloom documentation](https://docs.ros.org/en/rolling/How-To-Guides/Releasing/Release-Track.html)
+  for more information.
