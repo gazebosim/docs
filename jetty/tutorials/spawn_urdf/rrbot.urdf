@@ -7,12 +7,13 @@
 <robot name="rrbot">
   <!-- Space btw top of beam and the each joint -->
   <!-- ros_control plugin -->
-  <gazebo>
+  <!-- Gazebo-classic plugins are manually commented out -->
+  <!-- gazebo>
     <plugin filename="libgazebo_ros_control.so" name="gazebo_ros_control">
       <robotNamespace>/rrbot</robotNamespace>
       <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
     </plugin>
-  </gazebo>
+  </gazebo -->
   <!-- Link1 -->
   <gazebo reference="link1">
     <material>Gazebo/Orange</material>
@@ -65,10 +66,11 @@
           <stddev>0.01</stddev>
         </noise>
       </ray>
-      <plugin filename="libgazebo_ros_gpu_laser.so" name="gazebo_ros_head_hokuyo_controller">
+      <!-- Gazebo-classic plugins are manually commented out -->
+      <!-- plugin filename="libgazebo_ros_gpu_laser.so" name="gazebo_ros_head_hokuyo_controller">
         <topicName>/rrbot/laser/scan</topicName>
         <frameName>hokuyo_link</frameName>
-      </plugin>
+      </plugin -->
     </sensor>
   </gazebo>
   <!-- camera -->
@@ -95,16 +97,14 @@
           <stddev>0.007</stddev>
         </noise>
       </camera>
-      <plugin filename="libgazebo_ros_camera.so" name="camera_controller">
+      <!-- Gazebo-classic plugins are manually commented out -->
+      <!-- plugin filename="libgazebo_ros_camera.so" name="camera_controller">
         <alwaysOn>true</alwaysOn>
         <updateRate>0.0</updateRate>
         <cameraName>rrbot/camera1</cameraName>
         <imageTopicName>image_raw</imageTopicName>
         <cameraInfoTopicName>camera_info</cameraInfoTopicName>
         <frameName>camera_link_optical</frameName>
-        <!-- setting hackBaseline to anything but 0.0 will cause a misalignment
-            between the gazebo sensor image and the frame it is supposed to
-            be attached to -->
         <hackBaseline>0.0</hackBaseline>
         <distortionK1>0.0</distortionK1>
         <distortionK2>0.0</distortionK2>
@@ -115,7 +115,7 @@
         <Cx>0.0</Cx>
         <Cy>0.0</Cy>
         <focalLength>0.0</focalLength>
-      </plugin>
+      </plugin -->
     </sensor>
   </gazebo>
   <material name="black">
@@ -242,7 +242,10 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry>
-        <mesh filename="package://rrbot_description/meshes/hokuyo.dae"/>
+        <!-- hokuyo.dae is manually replaced by a simple box geom to allow
+             this to spawn without rrbot_description package -->
+        <!-- mesh filename="package://rrbot_description/meshes/hokuyo.dae"/ -->
+        <box>0.1 0.1 0.1</box>
       </geometry>
     </visual>
     <inertial>

@@ -16,35 +16,46 @@
 from pathlib import Path
 from string import Template
 import argparse
-import copy
 import json
 import os
 import requests
 import shutil
-import sys
 import subprocess
+import sys
+import textwrap
 import yaml
 
-additional_shared_directories = ["images", "releasing"]
+import build_utils
+
+build_utils.register_yaml_include(Path(__file__).parent)
+from build_utils import flatten_navigation
 
 
-def _combine_nav(common_nav, release_nav):
-    combined = copy.deepcopy(common_nav)
-    # Release are added after 'get_started'
-    for i, item in enumerate(release_nav):
-        combined.insert(i + 1, item)
-    return combined
+def _build_sphinx(src_dir, output_dir, variables, extra_args, strict_mode=True):
+    """Build arguments for running sphinx-build
 
+    Args:
+        src_dir (str): Source directory
+        output_dir (str): Output directory
+        variables (dict): Dictionary of variables passed with `-D`
+        extra_args (list): Extra arguments forwarded to sphinx
+    """
+    sphinx_args = [
+        "sphinx-build",
+        "--nitpicky",
+        "-b",
+        "dirhtml"]
+    if strict_mode:
+        sphinx_args.append("--fail-on-warning")
 
-def copy_pages(pages, root_src_dir, dst):
-    for page in pages:
-        full_dst = Path(dst) / page["file"]
-        if full_dst.parent != dst:
-            full_dst.parent.mkdir(parents=True, exist_ok=True)
+    sphinx_args.extend([str(src_dir), str(output_dir)])
 
-        shutil.copy2(root_src_dir / page["file"], full_dst)
-        if "children" in page:
-            copy_pages(page["children"], root_src_dir, dst)
+    for key, val in variables.items():
+        sphinx_args.extend(["-D", f"{key}={val}"])
+
+    sphinx_args.extend(extra_args)
+
+    subprocess.run(sphinx_args, check=True)
 
 
 def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
@@ -69,17 +80,41 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
     tmp_dir.mkdir(exist_ok=True)
     version_tmp_dir = tmp_dir / gz_release
 
+    # Start with a clean slate
+    if version_tmp_dir.exists():
+        shutil.rmtree(version_tmp_dir)
+
+    # 1. Copy all common files
+    shutil.copytree(root_src_dir / 'common', version_tmp_dir, dirs_exist_ok=True)
+
+    # 2. Copy release-specific files over the common ones
     shutil.copytree(version_src_dir, version_tmp_dir, dirs_exist_ok=True)
+
+    # 3. Copy sphinx infrastructure files
     for dir in ["_static", "_templates"]:
         shutil.copytree(root_src_dir / dir, version_tmp_dir / dir, dirs_exist_ok=True)
-
     shutil.copy2(root_src_dir / "base_conf.py", version_tmp_dir)
     shutil.copy2(root_src_dir / "conf.py", version_tmp_dir)
+    shutil.copy2(root_src_dir / "build_utils.py", version_tmp_dir)
 
-    for dir in additional_shared_directories:
-        shutil.copytree(root_src_dir / dir, version_tmp_dir / dir, dirs_exist_ok=True)
+    # 4. Generate the source manifest for "Edit on GitHub" links
+    manifest = {}
+    # First, add all common files.
+    common_dir = root_src_dir / 'common'
+    for path in common_dir.glob('**/*'):
+        if path.is_file():
+            rel_path = path.relative_to(common_dir)
+            manifest[str(rel_path)] = f"common/{rel_path}"
 
-    copy_pages(gz_nav_yaml["pages"], root_src_dir, version_tmp_dir)
+    # Then, add/overwrite with release-specific files.
+    for path in Path(version_src_dir).glob('**/*'):
+        if path.is_file():
+            rel_path = path.relative_to(version_src_dir)
+            manifest[str(rel_path)] = f"{gz_release}/{rel_path}"
+
+    manifest_path = version_tmp_dir / 'source_manifest.json'
+    with open(manifest_path, 'w') as f:
+        json.dump(manifest, f, indent=2)
 
     deploy_url = os.environ.get("GZ_DEPLOY_URL", "")
     # Write switcher.json file
@@ -105,78 +140,121 @@ def generate_sources(gz_nav_yaml, root_src_dir, tmp_dir, gz_release):
     static_dir = version_tmp_dir / "_static"
     static_dir.mkdir(exist_ok=True)
     json.dump(switcher, open(static_dir / "switcher.json", "w"))
+    # 5. Load navigation
+    with open(version_tmp_dir / "index.yaml") as f:
+        version_nav_yaml = yaml.safe_load(f)
+        if not version_nav_yaml or not version_nav_yaml.get("pages"):
+            raise RuntimeError(
+                f"{gz_release}/index.yaml is missing a non-empty `pages:` list."
+            )
+        version_nav_yaml['pages'] = flatten_navigation(version_nav_yaml['pages'])
 
     def handle_file_url_rename(file_path, file_url):
         computed_url, ext = os.path.splitext(file_path)
-        # print("renames:", file_path, file_url)
         if file_url != computed_url:
             new_path = file_url + ext
-            # If the file url is inside a directory, we want the new path to end up in the same directory
-            # print("Moving", version_tmp_dir / file_path, version_tmp_dir / new_path)
             shutil.move(version_tmp_dir / file_path, version_tmp_dir / new_path)
             return new_path
         return file_path
 
-    toc_directives = ["{toctree}", ":hidden:", ":maxdepth: 1", ":titlesonly:"]
 
-    with open(version_tmp_dir / "index.yaml") as f:
-        version_nav_yaml = yaml.safe_load(f)
-        combined_nav = _combine_nav(gz_nav_yaml["pages"], version_nav_yaml["pages"])
-
+    def create_toctrees(pages):
         nav_md = []
-        # TODO(azeey) Make this recursive so multiple levels of
-        # 'children' can be supported.
-        for page in combined_nav:
+        for page in pages:
+            maybe_hidden = ":hidden:"
             file_url = page["name"]
-            file_path = page["file"]
 
+            # If the page references an existing file, resolve its path (stripping the 'common:'
+            # prefix for centralized files) and rename the source file in the temporary directory
+            # if its custom URL path name differs from the underlying filename.
+            #
+            # If no file is specified, this is an organizational parent/container page.
+            # We dynamically generate a placeholder markdown file to host the sub-navigation toctree.
+            if "file" in page:
+                file_path = page["file"].removeprefix("common:")
+                new_file_path = handle_file_url_rename(file_path, file_url)
+            else:
+                new_file_path = f"{file_url}.md"
+                maybe_hidden = ""
+                with open(version_tmp_dir / new_file_path, "w") as ind_f:
+                    ind_f.write(textwrap.dedent(f"""\
+                        ---
+                        html_theme.sidebar_secondary.remove: true
+                        ---
+
+                        # {page['title']}
+                        """))
+
+            nav_md.append(f"{page['title']} <{file_url}>")
             children = page.get("children")
-            nav_md.append(f"{page['title']} <{page['name']}>")
-            new_file_path = handle_file_url_rename(file_path, file_url)
-
             if children:
-                child_md = []
-                for child in children:
-                    file_url = child["name"]
-                    file_path = child["file"]
-                    handle_file_url_rename(file_path, file_url)
-                    child_md.append(f"{child['title']} <{file_url}>")
-
+                child_md = create_toctrees(children)
                 with open(version_tmp_dir / new_file_path, "a") as ind_f:
-                    ind_f.write("```")
-                    ind_f.write("\n".join(toc_directives) + "\n")
-                    ind_f.writelines("\n".join(child_md) + "\n")
-                    ind_f.write("```\n")
+                    # Include {toctree} for children below the .md text
+                    ind_f.write(textwrap.dedent(f"""
+                        ```{{toctree}}
+                        :maxdepth: 1
+                        :titlesonly:
+                        {maybe_hidden}
+                        """))
+                    ind_f.write("\n".join(child_md))
+                    ind_f.write("\n```\n")
+        return nav_md
 
-        library_reference_nav = "library_reference_nav"
-        libraries = release_info["libraries"]
-        if libraries:
-            nav_md.append(library_reference_nav)
-            # Add Library Reference
-            with open(version_tmp_dir / f"{library_reference_nav}.md", "w") as ind_f:
-                ind_f.write("# Library Reference\n\n")
-                ind_f.write("```")
-                ind_f.write("{toctree}\n")
-                for library in libraries:
-                    ind_f.write(
-                        f"{library['name']} <https://gazebosim.org/api/{library['name']}/{library['version']}>\n"
-                    )
-                ind_f.write("```\n\n")
+    index_toc ="# Index\n\n"
+    for page in version_nav_yaml["pages"]:
+        if "section" not in page:
+            print(
+                "The top level item in the pages entry of index.yaml should be a 'section'.\n"
+                f"Found {page}"
+            )
+            sys.exit(1)
+        index_toc += textwrap.dedent(f"""\
+        ```{{toctree}}
+        :hidden:
+        :maxdepth: 1
+        :titlesonly:
+        :caption: {page["section"]}
+        """)
 
-        with open(version_tmp_dir / "index.md", "w") as ind_f:
-            ind_f.write(
-                """---
+        nav_md = create_toctrees(page["children"])
+        index_toc += "\n".join(nav_md) + "\n"
+        index_toc += "```\n\n"
+
+    library_reference_nav = "library_reference_nav"
+    libraries = release_info["libraries"]
+    if libraries:
+        index_toc += textwrap.dedent(f"""\
+        ```{{toctree}}
+        :hidden:
+        :maxdepth: 1
+        :titlesonly:
+        :caption: API Reference
+        {library_reference_nav}
+        ```
+        """)
+        # Add Library Reference
+        with open(version_tmp_dir / f"{library_reference_nav}.md", "w") as ind_f:
+            ind_f.write("---\nhtml_theme.sidebar_secondary.remove: true\n---\n\n")
+            ind_f.write("# Library Reference\n\n")
+            ind_f.write("```")
+            ind_f.write("{toctree}\n")
+            for library in libraries:
+                ind_f.write(
+                    f"{library['name']} <https://gazebosim.org/api/{library['name']}/{library['version']}>\n"
+                )
+            ind_f.write("```\n")
+
+    with open(version_tmp_dir / "index.md", "w") as ind_f:
+        ind_f.write(
+            """---
 myst:
     html_meta:
       "http-equiv=refresh": "0; url=getstarted"
 ---
 """
-            )
-            ind_f.write("# Index\n\n")
-            ind_f.write("```")
-            ind_f.write("\n".join(toc_directives) + "\n")
-            ind_f.writelines("\n".join(nav_md) + "\n")
-            ind_f.write("```\n\n")
+        )
+        ind_f.write(index_toc)
 
 
 def get_preferred_release(releases: dict):
@@ -330,14 +408,9 @@ def build_libs(gz_nav_yaml, src_dir, tmp_dir, build_dir):
 
     generate_libs(gz_nav_yaml, libs_dir)
 
-    sphinx_args = [
-        "sphinx-build",
-        "-b",
-        "dirhtml",
-        f"{libs_dir}",
-        f"{build_dir}",
-    ]
-    subprocess.run(sphinx_args)
+    # TODO(azeey) There are a few reference errors in the README files of some
+    # of the libraries, so we can't enable strict_mode yet.
+    _build_sphinx(libs_dir, build_dir, {}, [], strict_mode=False)
 
 
 def main(argv=None):
@@ -395,19 +468,12 @@ def main(argv=None):
     for release in args.releases:
         generate_sources(gz_nav_yaml, src_dir, tmp_dir, release)
         release_build_dir = build_docs_dir / release
-        sphinx_args = [
-            "sphinx-build",
-            "-b",
-            "dirhtml",
-            f"{tmp_dir/release}",
-            f"{release_build_dir }",
-            "-D",
-            f"gz_release={release}",
-            "-D",
-            f"gz_root_index_file={index_yaml}",
-            *unknown_args,
-        ]
-        subprocess.run(sphinx_args)
+        _build_sphinx(
+            tmp_dir / release,
+            release_build_dir,
+            {"gz_release": release, "gz_root_index_file": index_yaml},
+            unknown_args,
+        )
 
     # Handle "latest" and "all"
     release = preferred_release["name"]
@@ -424,19 +490,12 @@ def main(argv=None):
                         f"{pointer_tmp_dir} already exists and is not a symlink"
                     )
 
-            sphinx_args = [
-                "sphinx-build",
-                "-b",
-                "dirhtml",
-                f"{pointer_tmp_dir}",
-                f"{release_build_dir}",
-                "-D",
-                f"gz_release={release}",
-                "-D",
-                f"gz_root_index_file={index_yaml}",
-                *unknown_args,
-            ]
-            subprocess.run(sphinx_args)
+            _build_sphinx(
+                pointer_tmp_dir,
+                release_build_dir,
+                {"gz_release": release, "gz_root_index_file": index_yaml},
+                unknown_args,
+            )
 
         # Create a redirect to "/latest"
         redirect_page = build_docs_dir / "index.html"

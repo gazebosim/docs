@@ -1,165 +1,68 @@
-# This file is an index of the pages to display on the documentation website
-# (https://gazebosim.org/docs). The order of the pages in this file
-# is reflected on the website's left sidebar.
+# This file is the master manifest and configuration for the documentation website.
+# It defines the releases, their included libraries, and general library metadata
+# used to generate the site content and navigation.
 #
-# Components of the index:
+# For more information about the structure of this file, see the README.md file at the root of the repository.
 #
-# 1. "pages:" The master list of pages
+# Components of the file:
 #
-# 2. Each page has a
-#    a. "name:" This should be a short url-friendly and unique name. It will
-#    be used in the website url.
+# 1. "releases:" A list of releases to display on the website.
+#    Each release has:
+#    - "name:" The name of the release (e.g., jetty, ionic).
+#    - "lts:", "dev:", "eol:", "preferred:": Booleans indicating release status.
+#    - "description:" Support period description.
+#    - "libraries:" A list of libraries included in the release, with their major versions.
+#      This list is used to generate the "Library Reference" navigation in the sidebar
+#      (see build_multiversion.py) and to populate links in "library_howtos.md"
+#      via MyST substitutions (see conf.py).
 #
-#    b. "title:" This is a human-friendly title for the page. This title will
-#    be displayed on the website's left side bar.
-#
-#    c. "file:" The markdown file that contains the page's content.
-pages:
-  - name: getstarted
-    title: Get Started
-    file: get_started.md
-    description: Getting started with Gazebo.
+# 2. "library_info:" A dictionary containing descriptions of each library.
+#    This is used to populate the /libs page.
 
-  # --> This is where menu items from index.yaml specific to the selected release is inserted
-
-  - name: ros_installation
-    title: ROS/Gazebo Installation
-    file: ros_installation.md
-    description: Ros and Gazebo options and combinations
-    children:
-      - name: ros2_gz_vendor_pkgs
-        title: ROS 2 Gazebo Vendor Packages
-        file: ros2_gz_vendor_pkgs.md
-        description: Using ROS 2 Gazebo Vendor packages
-  - name: setup_gazebo_in_ci
-    title: Continuous Integration For Gazebo Packages
-    file: setup_gazebo_in_ci.md
-    description: Instruction on using setup-gazebo
-  - name: gazebo_classic_migration
-    title: Gazebo Classic Migration
-    file: gazebo_classic_migration.md
-    description: Guides for migrating from Gazebo Classic to the new Gazebo
-    children:
-    - name: install_gz11_side_by_side
-      title: Installing Gazebo11 side by side with new Gazebo
-      file: install_gz11_side_by_side.md
-      description: How to install gazebo11 and new Gazebo together
-    - name: migrating_gazebo_classic_ros2_packages
-      title: Migration from ROS 2 Gazebo Classic
-      file: migrating_gazebo_classic_ros2_packages.md
-      description: A tutorial on how to migrate a ROS 2 package that uses Gazebo Classic to the new Gazebo
-  - name: roadmap
-    title: Roadmap
-    file: roadmap.md
-    description: Our development plans.
-  - name: release-features
-    title: Release Features
-    file: release_features.md
-    description: Features available in each Gazebo release.
-  - name: releases
-    title: Releases
-    file: releases.md
-    description: Past, current, and future release information.
-  - name: governance 
-    title: Governance
-    file: governance.md
-    description: Governance of the Gazebo project under the OSRA
-  - name: development
-    title: Development
-    file: development.md
-    description: Gazebo development information
-    children:
-      - name: contributing
-        title: Contributing
-        file: contributing.md
-        description: How to contribute to Gazebo.
-      - name: ci
-        title: Continuous Integration
-        file: ci.md
-        description: Continuous Integration overview.
-      - name: release
-        title: Release process
-        file: release.md
-        description: Release process overview.
-      - name: releases-instructions
-        title: Release Instructions
-        file: release_instructions.md
-        description: How Gazebo releases are generated.
-  - name: architecture
-    title: Sim Architecture
-    file: architecture.md
-    description: Gazebo Sim's architecture overview.
-  - name: fuel
-    title: Fuel
-    file: fuel/about.md
-    description: Fuel information
-    children:
-      - name: fuel_content_deletion_policy
-        title: Content Deletion Policy
-        file: fuel/content_deletion_policy.md
-      - name: fuel_contributing_model
-        title: Contributing New Model
-        file: fuel/contributing_model.md
-      - name: fuel_contributing_world
-        title: Contributing New World
-        file: fuel/contributing_world.md
-      - name: fuel_copyright
-        title: Copyright
-        file: fuel/copyright.md
-      - name: fuel_data_policy
-        title: Data and Privacy Policy
-        file: fuel/data_privacy_policy.md
-      - name: fuel_fair_use
-        title: What is Fair Use
-        file: fuel/fair_use.md
-  - name: projects_using_gazebo
-    title: Projects using Gazebo
-    file: projects_using_gazebo.md
-    description: List of projects using Gazebo
 releases:
   - name: jetty
     lts: true
-    dev: true
+    dev: false
     eol: false
-    preferred: false # Only one preferred=true is allowed
-    description: Upcoming release, under development.
+    preferred: true # Only one preferred=true is allowed
+    description: Supported Sep, 2025 to Sep, 2030
     libraries:
       - name: cmake
-        version: 4
+        version: 5
       - name: common
-        version: 6
+        version: 7
       - name: fuel_tools
-        version: 10
-      - name: gui
-        version: 9
-      - name: launch
-        version: 8
-      - name: math
-        version: 8
-      - name: msgs
         version: 11
+      - name: gui
+        version: 10
+      - name: launch
+        version: 9
+      - name: math
+        version: 9
+      - name: msgs
+        version: 12
       - name: physics
-        version: 8
+        version: 9
       - name: plugin
-        version: 3
+        version: 4
       - name: rendering
-        version: 9
+        version: 10
       - name: sensors
-        version: 9
+        version: 10
       - name: sim
-        version: 9
+        version: 10
       - name: tools
         version: 2
       - name: transport
-        version: 14
-      - name: utils
-        version: 3
-      - name: sdformat
         version: 15
+      - name: utils
+        version: 4
+      - name: sdformat
+        version: 16
   - name: ionic
     lts: false
     eol: false
-    preferred: true # Only one preferred=true is allowed
+    preferred: false # Only one preferred=true is allowed
     description: Supported Sep, 2024 to Sep, 2026
     libraries:
       - name: cmake

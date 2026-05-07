@@ -29,15 +29,50 @@ required to go further.
 ## Composition
 
 If you inspect the parameters of the launch files mentioned in the next
-tutorials, you'll notice that we have included in most cases a parameter named
-`use_composition`. When that parameter is set to `True`, the associated ROS
-node will be included within a ROS container. When this happens all the nodes
-live within the same process and can leverage intraprocess communication.
+tutorials, you'll notice that we have included in most cases two parameters
+named `use_composition` and `create_own_container`. When the `use_composition`
+parameter is set to `True`, the associated ROS node will be loaded within a
+ROS container. When this happens, all the nodes within the same ROS container
+share the same process and can leverage intraprocess communication.
 
-Our recommendation is to always set the `use_composition` parameter to `True`.
-That way, the communication between Gazebo and the bridge will be intraprocess.
-If your ROS nodes are also written as composable nodes, make sure that they are
-launched with the `container_node_name` parameter matching the container name
-including Gazebo and the bridge.
+The parameter `create_own_container` only makes sense when `use_composition` is
+set to `True`. This parameter lets you control whether you start a ROS
+container for your composable nodes or you defer to an external ROS container.
 
-You can learn more about ROS composition in [this tutorial](https://docs.ros.org/en/galactic/Tutorials/Intermediate/Composition.html).
+Our recommendation is to always set the `use_composition` parameter to `True`
+and decide if you need to create your own container based on your configuration.
+Typically, if you're only dealing with your own launch files you'll probably set
+`create_own_container` to `True`. On the other hand, if you're using your launch
+files as part of a more complex startup where a ROS container is already
+present, you should set `create_own_container` to `False` and, instead, set the
+parameter `container_name` to the existing container name.
+
+That way, the communication between Gazebo, the bridge, and other potential
+ROS nodes will be intraprocess.
+
+![composition_options](images/composition_options.png)
+
+This figure illustrates the concept of composition. The left diagram captures
+the idea of not using composition. All the three example nodes are standalone
+nodes, and they can talk via interprocess communication using the bridge.
+The center diagram represents the scenario where we can use composition with a ROS container created by a `ros_gz` launch file containing both Gazebo and the bridge, and an additional
+consumer node outside that we cannot control. All communication between Gazebo
+and the bridge is intraprocess and interprocess between the external consumer
+node and the bridge.
+The diagram on the right side is using composition across all nodes but the
+`ros_gz` launch file doesn't start its own container directly. This setup by itself will
+not work until you start an external ROS container (manually or via a separate launch file). In this diagram, the external ROS consumer node starts the
+container. We're using the Nav2 logo as an example of external ROS 2 consumer
+node.
+
+You can learn more about ROS composition in [this tutorial](https://docs.ros.org/en/jazzy/Tutorials/Intermediate/Composition.html).
+
+## What's next?
+
+Here are the next follow-up tutorials that you can check to learn more about
+Gazebo/ROS integration.
+
+* [How to launch Gazebo from ROS 2](ros2_launch_gazebo).
+* [How to use ROS 2 to interact with Gazebo](ros2_integration).
+* [Example of using ROS 2 to load a model and interact with it in Gazebo](ros2_interop).
+* [How to spawn a Gazebo model from ROS 2](ros2_spawn_model).

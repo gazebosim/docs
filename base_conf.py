@@ -35,14 +35,15 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_design",
     "sphinxcontrib.googleanalytics",
+    "sphinxcontrib.mermaid",
     # 'sphinx_sitemap',
 ]
 
 templates_path = ["_templates"]
 
-source_suffix = [
-    ".md",
-]
+source_suffix = {
+    ".md": "markdown"
+}
 
 myst_heading_anchors = 4
 
@@ -63,6 +64,8 @@ myst_enable_extensions = [
     "substitution",
     "tasklist",
 ]
+
+myst_fence_as_directive = ["mermaid"]
 
 nitpicky = True
 # -- Options for HTML output -------------------------------------------------
@@ -95,7 +98,6 @@ html_theme_options = {
     # We have our own version, so we disable the one from the theme.
     "show_version_warning_banner": False,
 }
-
 html_sidebars = {"**": ["gz-sidebar-nav"]}
 
 html_context = {

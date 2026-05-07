@@ -39,7 +39,7 @@ within this tag. Here's an example for launching Gazebo server:
   <arg name="container_name" default="ros_gz_container" />
   <arg name="create_own_container" default="False" />
   <arg name="use_composition" default="False" />
-  <gz_server 
+  <gz_server
     world_sdf_file="$(var world_sdf_file)"
     world_sdf_string="$(var world_sdf_string)"
     container_name="$(var container_name)"
@@ -54,44 +54,49 @@ an option but not strictly necessary as you could decide to hardcode some of the
 values or not even use all the parameters.
 
 ### Python
-Python launch files provide more low-level customization and logic compared to XML launch files. 
-In the following example, the user can specify a world argument to launch an environment for
-the Moon, Mars, or Enceladus. It additionally sets the resource path environment variable and
-sets up empty arrays for topics to be bridged and remapped from Gazebo to ROS 2:
+Python launch files provide more low-level customization and logic compared to XML launch files. For example, you can set environment variables and include Python specific functions and logic.
+In the following example, the user can replace the example package, world, and bridged topic with their own. This is intended as a scaffolding more than something that can be run on its own.
+
 ```python
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import (DeclareLaunchArgument, SetEnvironmentVariable, 
-                            IncludeLaunchDescription, SetLaunchConfiguration)
-from launch.substitutions import PathJoinSubstitution, LaunchConfiguration, TextSubstitution
 from launch_ros.actions import Node
+from launch.actions import SetEnvironmentVariable, IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch.substitutions import PathJoinSubstitution
+from launch_ros.substitutions import FindPackageShare
 
 
 def generate_launch_description():
-    pkg_ros_gz_sim = get_package_share_directory('ros_gz_sim')
-    pkg_spaceros_gz_sim = get_package_share_directory('spaceros_gz_sim')
-    gz_launch_path = PathJoinSubstitution([pkg_ros_gz_sim, 'launch', 'gz_sim.launch.py'])
-    gz_model_path = PathJoinSubstitution([pkg_spaceros_gz_sim, 'models'])
+    ros_gz_sim_pkg_path = get_package_share_directory('ros_gz_sim')
+    example_pkg_path = FindPackageShare('example_package')  # Replace with your own package name
+    gz_launch_path = PathJoinSubstitution([ros_gz_sim_pkg_path, 'launch', 'gz_sim.launch.py'])
 
     return LaunchDescription([
-        DeclareLaunchArgument(
-            'world',
-            default_value='moon',
-            choices=['moon', 'mars', 'enceladus'],
-            description='World to load into Gazebo'
+        SetEnvironmentVariable(
+            'GZ_SIM_RESOURCE_PATH',
+            PathJoinSubstitution([example_pkg_path, 'models'])
         ),
-        SetLaunchConfiguration(name='world_file', 
-                               value=[LaunchConfiguration('world'), 
-                                      TextSubstitution(text='.sdf')]),
-        SetEnvironmentVariable('GZ_SIM_RESOURCE_PATH', gz_model_path),
+        SetEnvironmentVariable(
+            'GZ_SIM_PLUGIN_PATH',
+            PathJoinSubstitution([example_pkg_path, 'plugins'])
+        ),
         IncludeLaunchDescription(
             PythonLaunchDescriptionSource(gz_launch_path),
             launch_arguments={
-                'gz_args': [PathJoinSubstitution([pkg_spaceros_gz_sim, 'worlds',
-                                                  LaunchConfiguration('world_file')])],
+                'gz_args': PathJoinSubstitution([example_pkg_path, 'worlds/example_world.sdf']),  # Replace with your own world file
                 'on_exit_shutdown': 'True'
             }.items(),
+        ),
+
+        # Bridging and remapping Gazebo topics to ROS 2 (replace with your own topics)
+        Node(
+            package='ros_gz_bridge',
+            executable='parameter_bridge',
+            arguments=['/example_imu_topic@sensor_msgs/msg/Imu@gz.msgs.IMU',],
+            remappings=[('/example_imu_topic',
+                         '/remapped_imu_topic'),],
+            output='screen'
         ),
     ])
 ```
@@ -138,3 +143,40 @@ In the above launch files you may notice that the `create_own_container` argumen
 
 More info about `ros_gz_bridge` can be viewed [here](ros2_integration).
 More info about composition can be viewed [here](ros2_overview.md#composition).
+
+## Further Considerations for ROS2 Control
+
+ If you're planning to use `ros2_control` with Gazebo, please take a look at the [example launch files](https://github.com/ros-controls/gz_ros2_control/tree/rolling/gz_ros2_control_demos/launch) in the `gz_ros2_control` repository
+
+ It is essential to publish the `/clock` topic for the `controller_manager` to function correctly:
+
+     gz_bridge = Node(
+         package="ros_gz_bridge",
+         executable="parameter_bridge",
+         arguments=['/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock'],
+         parameters=[{
+             "qos_overrides./tf_static.publisher.durability": "transient_local"
+         }],
+         output="screen",
+     )
+
+If you **do not** publish the `/clock` topic, the `controller_manager` will issue warnings or errors such as:
+
+       [gazebo-1] [WARN] [1744219953.983130822] [controller_manager]: No clock received, using time argument instead! Check your node's clock configuration (use_sim_time parameter) and if a valid clock source is available.
+
+ Timing Issues
+ -------------
+
+ By default, the `controller_manager` launched by `gz_ros2_control` has ``use_sim_time=true``. If for any reason this is set to ``false``, it will fall back to the system clock.
+
+ This results in logs like:
+
+     [gazebo-1] [INFO] [1744209678.974210234] [gz_ros_control]: Loading controller_manager
+     [gazebo-1] [INFO] [1744209679.000651931] [controller_manager]: Using Steady (Monotonic) clock for triggering controller manager cycles.
+
+ Eventually leading to a fatal error:
+
+     [gazebo-1] terminate called after throwing an instance of 'std::runtime_error'
+     [gazebo-1]   what():  can't compare times with different time sources
+
+ Ensure `use_sim_time` is correctly set to `true` when working with simulation time to avoid such mismatches.

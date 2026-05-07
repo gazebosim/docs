@@ -1,6 +1,6 @@
 # Source Installation on macOS
 
-This tutorial will work for macOS BigSur 10.16 and macOS Monterey 12.0.
+This tutorial will work for macOS Ventura, Sonoma, and Sequoia.
 
 ## Install tools
 
@@ -22,7 +22,7 @@ brew update
 
 ### Install compiler requirements
 
-Building Gazebo Libraries require at least Xcode 10 on MacOS Mojave. The Xcode Command Line Tools are sufficient, and can be installed with:
+Building Gazebo Libraries require at least Xcode 14 on MacOS Ventura. The Xcode Command Line Tools are sufficient, and can be installed with:
 
 ```bash
 xcode-select --install
@@ -39,7 +39,9 @@ brew install python3
 ## vcstool and colcon from PyPI
 
 ```bash
-python3 -m pip install -U colcon-common-extensions vcstool
+python3 -m venv $HOME/vcs_colcon_installation
+. $HOME/vcs_colcon_installation/bin/activate
+pip3 install vcstool colcon-common-extensions
 ```
 
 ## Getting the sources
@@ -79,20 +81,7 @@ brew install --cask xquartz
 General dependencies:
 
 ```bash
-brew install assimp boost bullet cmake cppzmq dartsim doxygen eigen fcl ffmpeg flann freeimage freetype gdal gflags google-benchmark gts ipopt jsoncpp libccd libyaml libzzip libzip nlopt ode open-scene-graph ossp-uuid ogre1.9 ogre2.3 pkg-config protobuf qt@5 qwt-qt5 rapidjson ruby tbb tinyxml tinyxml2 urdfdom zeromq
-```
-
-`qt@5` is a "keg only" Homebrew formula and its path must be explicitly configured before building Gazebo:
-
-```bash
-# qt@5
-export CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH:+$CMAKE_PREFIX_PATH:}`brew --prefix qt@5`
-```
-
-Unlink `qt` to avoid conflicts with other versions of qt (e.g. qt6)
-
-```
-brew unlink qt
+brew install assimp boost bullet cli11 cmake cppzmq dartsim doxygen eigen fcl ffmpeg flann freeimage freetype gdal gflags google-benchmark ipopt jsoncpp libccd libyaml libzzip libzip nlopt ode open-scene-graph ossp-uuid ogre1.9 ogre2.3 pkg-config protobuf qt@6 qwt rapidjson ruby tbb tinyxml2 urdfdom zeromq
 ```
 
 ## Building the Gazebo Libraries

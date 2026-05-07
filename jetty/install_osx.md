@@ -1,6 +1,6 @@
 # Binary Installation on MacOS
 
-All the Jetty binaries are available in Monterey and Ventura using the
+All the Jetty binaries are available in Ventura and Sonoma using the
 
 [Homebrew package manager](https://brew.sh/). After installing Homebrew, Gazebo Jetty can be installed running:
 
