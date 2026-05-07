@@ -14,16 +14,36 @@ A Gazebo release follows the form "Gazebo Codename", for example Gazebo Acropoli
 
 | Name                                                     | Date      | EOL date  | Notes |
 |----------------------------------------------------------|-----------|-----------|-------|
-| [Jetty](https://gazebosim.org/docs/jetty)                | Sep, 2025 | Sep, 2030 | LTS   |
+| M                                                        | Mar, 2027 | Nov, 2028 |       |
+| [Jetty](https://gazebosim.org/docs/jetty)                | Sep, 2025 | Sep, 2030 | Long-term support (LTS) |
 | [Ionic](https://gazebosim.org/docs/ionic)                | Sep, 2024 | Sep, 2026 |       |
-| [Harmonic](https://gazebosim.org/docs/harmonic)          | Sep, 2023 | Sep, 2028 | LTS   |
-| [Garden](https://gazebosim.org/docs/garden)              | Sep, 2022 | Nov, 2024 | EOL   |
-| [Fortress](https://gazebosim.org/docs/fortress)          | Sep, 2021 | Sep, 2026 | LTS   |
-| [Edifice](https://gazebosim.org/docs/edifice)            | Mar, 2021 | Mar, 2022 | EOL   |
-| [Dome](https://gazebosim.org/docs/dome)                  | Sep, 2020 | Dec, 2021 | EOL   |
-| [Citadel](https://gazebosim.org/docs/citadel)            | Dec, 2019 | Dec, 2024 | EOL   |
-| [Blueprint](https://gazebosim.org/docs/blueprint)        | May, 2019 | Dec, 2020 | EOL   |
-| [Acropolis](https://gazebosim.org/docs/acropolis)        | Feb, 2019 | Sep, 2019 | EOL   |
+| [Harmonic](https://gazebosim.org/docs/harmonic)          | Sep, 2023 | Sep, 2028 | Long-term support (LTS) |
+| [Garden](https://gazebosim.org/docs/garden)              | Sep, 2022 | Nov, 2024 | End of life (EOL)       |
+| [Fortress](https://gazebosim.org/docs/fortress)          | Sep, 2021 | Sep, 2026 | Long-term support (LTS) |
+| [Edifice](https://gazebosim.org/docs/edifice)            | Mar, 2021 | Mar, 2022 | End of life (EOL)       |
+| [Dome](https://gazebosim.org/docs/dome)                  | Sep, 2020 | Dec, 2021 | End of life (EOL)       |
+| [Citadel](https://gazebosim.org/docs/citadel)            | Dec, 2019 | Dec, 2024 | End of life (EOL)       |
+| [Blueprint](https://gazebosim.org/docs/blueprint)        | May, 2019 | Dec, 2020 | End of life (EOL)       |
+| [Acropolis](https://gazebosim.org/docs/acropolis)        | Feb, 2019 | Sep, 2019 | End of life (EOL)       |
+
+~~~mermaid
+gantt
+    title Gazebo release support dates
+    axisFormat %Y
+    dateFormat  YYYY-MM
+                          
+    M                  :gz_m,      2027-03, 20M
+    Jetty       :crit, :jetty,     2025-09, 5y
+    Ionic       :crit, :ionic,     2024-09, 2y
+    Harmonic    :crit, :harmonic,  2023-09, 5y
+    Garden             :garden,    2022-09, 2024-11
+    Fortress    :crit, :fortress,  2021-09, 5y
+    Edifice            :edifice,   2021-03, 1y
+    Dome               :dome,      2020-09, 2021-12
+    Citadel            :citadel,   2019-12, 5y
+    Blueprint          :blueprint, 2019-05, 2020-12
+    Acropolis          :acropolis, 2019-02, 2019-09
+~~~
 
 ## Library Versions
 

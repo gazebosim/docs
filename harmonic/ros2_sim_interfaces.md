@@ -179,6 +179,14 @@ Both components of the entity will be assigned based on the value of the provide
 This might be resolved in the future. See https://github.com/ros-simulation/simulation_interfaces/issues/18
 :::
 
+:::{warning}
+In Gazebo Harmonic, the twist of an entity is reset back to zero
+after each time step. This is like applying a brake on the entity (see https://github.com/gazebosim/gz-sim/issues/1926).
+Thus, we do not recommend using `SetEntityState` to control the twist. Later versions of
+Gazebo do not have this problem. If you need to control the twist, consider
+using the [VelocityControl](https://gazebosim.org/api/sim/8/classgz_1_1sim_1_1systems_1_1VelocityControl.html) system.
+:::
+
 ## Simulator Information
 
 Some simulators may only support a subset of interfaces. The following services can be used to inspect

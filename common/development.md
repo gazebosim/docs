@@ -5,4 +5,5 @@ released.
 
 * [Continuous Integration](ci)
 * [Contributing](contributing)
+* [Maintainer guidelines](maintainers)
 * [Release process](release)
