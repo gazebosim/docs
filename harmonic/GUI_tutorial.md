@@ -31,6 +31,12 @@ To ensure you're working with Harmonic, include the `--force-version` directive 
 gz sim --force-version 8 shapes.sdf
 ```
 
+:::{note}
+
+The version specified to `--force-version` can be just the major version number or the exact number listed in `--versions`.
+
+:::
+
 ## GUI
 
 After running `shapes.sdf`, you should see the following screen:
