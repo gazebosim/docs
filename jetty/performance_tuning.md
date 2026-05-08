@@ -69,16 +69,10 @@ This gives you a baseline before you start trading fidelity for speed.
 
 ### Make sure Gazebo is using the right GPU
 
-<<<<<<< HEAD
 * On hybrid systems with both integrated and discrete GPUs, Gazebo may start on
   the integrated GPU. Check the active OpenGL renderer with
   `glxinfo | grep "OpenGL"`. [Troubleshooting](troubleshooting) shows how to
   use PRIME render offload or Nvidia performance mode.
-=======
-* On hybrid systems with both integrated and discrete GPUs, Gazebo may start on the integrated GPU.
-  [Troubleshooting](troubleshooting) shows how to use PRIME render offload or
-  Nvidia performance mode.
->>>>>>> origin/jetty/tutorials/performancetuning
 * If Ogre 2 fails to start, check OpenGL support and driver setup before
   assuming the simulation itself is slow.
 
