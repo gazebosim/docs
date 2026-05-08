@@ -40,7 +40,7 @@ This gives you a baseline before you start trading fidelity for speed.
 
 ### Reduce rendering work
 
-* Jetty uses Ogre 2 by default. If you are forcing Ogre 1, compare it with the
+* Gazebo uses Ogre 2 by default. If you are forcing Ogre 1, compare it with the
   default first. If Ogre 2 is unavailable on your machine, [Troubleshooting](troubleshooting)
   explains the OpenGL requirements and how to fall back to `--render-engine ogre`.
 * Reduce expensive visual effects when they are not needed. For example, disable
