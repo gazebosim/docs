@@ -60,7 +60,7 @@ This gives you a baseline before you start trading fidelity for speed.
 
 ### Make sure Gazebo is using the right GPU
 
-* On hybrid Intel / Nvidia systems, Gazebo may start on the integrated GPU.
+* On hybrid systems with both integrated and discrete GPUs, Gazebo may start on the integrated GPU.
   [Troubleshooting](troubleshooting) shows how to use PRIME render offload or
   Nvidia performance mode.
 * If Ogre 2 fails to start, check OpenGL support and driver setup before
