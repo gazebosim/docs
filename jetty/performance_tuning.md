@@ -31,28 +31,37 @@ This gives you a baseline before you start trading fidelity for speed.
 
 * Lower `<update_rate>` for sensors that do not need high-frequency data. See
   [Sensors](sensors).
-* Turn off visualization when you do not need it.
-* For lidar, reduce the number of samples or resolution before increasing scene
-  complexity.
-* If a GPU-backed lidar fits your use case, consider `gpu_lidar` in
-  [Sensors](sensors). Its availability and performance depend on rendering
-  engine support and your GPU / driver setup.
+* If you do not need the GUI, run only the server with
+  `gz sim -s <world.sdf>`. For individual sensors, set
+  `<visualize>false</visualize>` when the GUI view is not needed.
+* For `gpu_lidar` sensors, reduce `<samples>` or `<resolution>` before
+  increasing scene complexity. See [Sensors](sensors). Lidar availability and
+  performance depend on rendering engine support and your GPU / driver setup.
 
 ### Reduce rendering work
 
-* Jetty uses Ogre 2 by default. If you are forcing Ogre 1, compare it with the
+* Gazebo uses Ogre 2 by default. If you are forcing Ogre 1, compare it with the
   default first. If Ogre 2 is unavailable on your machine, [Troubleshooting](troubleshooting)
   explains the OpenGL requirements and how to fall back to `--render-engine ogre`.
 * Reduce expensive visual effects when they are not needed. For example, disable
-  shadow casting on lights with `<cast_shadows>false</cast_shadows>` and prefer
-  simpler materials if rendering is the bottleneck.
-* If your scene uses PBR materials and rendering is the bottleneck, test simpler
-  materials or Ogre 1 as a comparison point. PBR is supported by render engines
-  such as Ogre 2, but it is not free.
+  shadow casting on lights with
+  [`<light><cast_shadows>false</cast_shadows></light>`](http://sdformat.org/spec?ver=1.12&elem=light#light_cast_shadows)
+  or on visuals with
+  [`<visual><cast_shadows>false</cast_shadows></visual>`](http://sdformat.org/spec?ver=1.12&elem=visual#visual_cast_shadows).
+* You can recognize PBR materials by a `<pbr>` block inside a visual's
+  [`<material>`](http://sdformat.org/spec?ver=1.12&elem=material#material_pbr),
+  often with `<metal>` or `<specular>` workflows and texture maps such as
+  `<albedo_map>`, `<normal_map>`, `<metalness_map>`, or `<roughness_map>`. If
+  rendering is the bottleneck, copy the model and replace the PBR block with
+  simpler `<ambient>`, `<diffuse>`, and `<specular>` colors like the examples in
+  [Building your own robot](building_robot), or temporarily remove
+  high-resolution texture maps.
 
 ### Use simpler models
 
 * Reduce triangle counts in imported meshes.
+* Use primitive collision shapes such as boxes, spheres, and cylinders whenever
+  possible. If you need collision meshes, keep them convex and watertight.
 * Keep visual meshes and collision meshes separate so collisions can stay simple
   even when the visual model is detailed.
 * Remove sensors, lights, or plugins from models that are not needed in a given
@@ -60,9 +69,10 @@ This gives you a baseline before you start trading fidelity for speed.
 
 ### Make sure Gazebo is using the right GPU
 
-* On hybrid Intel / Nvidia systems, Gazebo may start on the integrated GPU.
-  [Troubleshooting](troubleshooting) shows how to use PRIME render offload or
-  Nvidia performance mode.
+* On hybrid systems with both integrated and discrete GPUs, Gazebo may start on
+  the integrated GPU. Check the active OpenGL renderer with
+  `glxinfo | grep "OpenGL"`. [Troubleshooting](troubleshooting) shows how to
+  use PRIME render offload or Nvidia performance mode.
 * If Ogre 2 fails to start, check OpenGL support and driver setup before
   assuming the simulation itself is slow.
 

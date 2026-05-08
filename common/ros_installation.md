@@ -36,9 +36,10 @@ This table includes all currently supported versions of ROS and Gazebo. All
 other ROS and Gazebo releases are end of life and we do not recommend their
 continued use.
 
-|                           | **GZ Fortress (LTS)**   | **GZ Harmonic (LTS)**   | **Gz Ionic**    | **Gz Jetty**
+|                           | **GZ Fortress (LTS)**   | **GZ Harmonic (LTS)**   | **Gz Ionic**    | **Gz Jetty (LTS)**
 |---------------------------|-----------------------  | ----------------------  | --------------- | ------------
 | **ROS 2 Rolling**         | ❌                      | ⚡                       | ⚡               | ✅
+| **ROS 2 Lyrical (LTS)**   | ❌                      | ⚡                       | ⚡               | ✅
 | **ROS 2 Kilted**          | ❌                      | ⚡                       | ✅              | ❌
 | **ROS 2 Jazzy (LTS)**     | ❌                      | ✅                      | ❌              | ❌
 | **ROS 2 Humble (LTS)**    | ✅                      | ⚡                       | ❌              | ❌
@@ -111,6 +112,7 @@ of writing the following packages are available on the following hosts:
    * ROS 2 Humble: Gazebo Fortress
    * ROS 2 Jazzy: Gazebo Harmonic (ROS vendor packages)
    * ROS 2 Kilted: Gazebo Ionic (ROS vendor packages)
+   * ROS 2 Lyrical: Gazebo Jetty (ROS vendor packages)
    * ROS 2 Rolling: Gazebo Jetty (ROS vendor packages, changing frequently)
 
  * **packages.osrfoundation.org**
