@@ -10,6 +10,10 @@ When a pull request is merged into the `main` development branch or a stable bra
 When merging a PR that will be backported or forward-ported, you **must use "Rebase and merge"**. This ensures a cleaner git history and properly maintains the original author's commit attribution across branches.
 ```
 
+```{important}
+In the event you need to fix conflicts in a backport, please ask another commiter to review your pull request.
+```
+
 To port a merged PR to other branches, we use Mergify. You can comment on the PR with the `@mergifyio backport <branches...>` command. The tool below helps you quickly generate the correct Mergify command for any given PR by fetching the PR's target branch and looking up all other supported collection branches in [`gz-collections.yaml`](https://github.com/gazebo-tooling/release-tools/blob/master/jenkins-scripts/dsl/gz-collections.yaml).
 
 ```{raw} html
