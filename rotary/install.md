@@ -1,7 +1,9 @@
 # Gazebo Rotary
 
-Gazebo Rotary is the 10th major release of Gazebo. It is a
-long-term release.
+Gazebo Rotary is a Rolling Release stream of Gazebo, built nightly
+from the `main` branches of every Gazebo library. It is intended for
+maintainers, CI systems, and early adopters. **Not recommended for
+production use** — for a stable release see [Releases](releases).
 
 ## Binary installation instructions
 
