@@ -17,7 +17,7 @@ publishes a rolling release stream called **Rotary**, built continuously
 from the `main` branches of every Gazebo library every night.
 Rotary is not tied to codename or major version and is intended for
 maintainers, CI systems, and early adopters.
-See the [Rotary release](https://gazebosim.org/docs/rotary) page for details and
+See the [Rotary release](https://gazebosim.org/docs/rotary/rotary) page for details and
 installation instructions.
 
 ## Release List

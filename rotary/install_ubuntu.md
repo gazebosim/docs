@@ -43,7 +43,7 @@ After configuring the repository (same as above), install the server-only
 package:
 
 ```bash
-sudo apt-get install gz-sim10-server
+sudo apt-get install gz-sim-server
 ```
 
 The server-only package includes the DART physics engine and the core

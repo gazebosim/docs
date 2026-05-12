@@ -40,7 +40,7 @@ ulimit -n 10240
 After installing all the dependencies and starting the build process, you may encounter an error that looks like this:
 
 ```bash
-/Users/user/jetty_ws/src/sdformat/src/parser_urdf.cc:30:10: fatal error: 'urdf_model/model.h' file not found
+/Users/user/workspace/src/sdformat/src/parser_urdf.cc:30:10: fatal error: 'urdf_model/model.h' file not found
 #include <urdf_model/model.h>
          ^~~~~~~~~~~~~~~~~~~~
 1 error generated.
@@ -68,10 +68,10 @@ This command will ignore the system installation of `urdfdom` and use the intern
 When running the `gz sim -s` command, an error like the one below may show up:
 
 ```bash
-Error while loading the library [/Users/rotary/jetty_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib]: dlopen(/Users/rotary/jetty_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib, 5): Library not loaded: @rpath/libIrrXML.dylib
+Error while loading the library [/Users/rotary/workspace/install/lib//libgz-physics-dartsim-plugin.6.dylib]: dlopen(/Users/rotary/workspace/install/lib//libgz-physics-dartsim-plugin.6.dylib, 5): Library not loaded: @rpath/libIrrXML.dylib
   Referenced from: /usr/local/opt/assimp/lib/libassimp.5.dylib
   Reason: image not found
-[Err] [Physics.cc:275] Unable to load the /Users/rotary/jetty_ws/install/lib//libgz-physics6-dartsim-plugin.6.dylib library.
+[Err] [Physics.cc:275] Unable to load the /Users/rotary/workspace/install/lib//libgz-physics-dartsim-plugin.6.dylib library.
 Escalating to SIGKILL on [Gazebo Sim Server]
 ```
 
@@ -87,7 +87,7 @@ export PATH=/usr/local/Cellar/ruby/2.6.5/bin:$PATH
 . ~/.bashrc
 ```
 
-### No rule to make target `'/usr/lib/libm.dylib', needed by 'lib/libgz-physics6-dartsim-plugin.6.1.0.dylib'. Stop.`
+### No rule to make target `'/usr/lib/libm.dylib', needed by 'lib/libgz-physics-dartsim-plugin.6.1.0.dylib'. Stop.`
 Try to run `brew outdated` followed by a `brew upgrade` may fix some of it.
 
 ## Ubuntu

@@ -1,8 +1,7 @@
-<div class="warning">
-WARNING: Current Windows support is experimental.
-</div>
-
 # Source Installation on Windows 10 or 11
+
+::::{warning}
+Windows support on Rotary is highly experimental
 
 OGRE2 rendering capabilities are supported in Windows, and Gazebo GUI
 works in a limited fashion. These functionalities correspond to the currently
@@ -95,7 +94,7 @@ colcon graph
 If that is the case, then you are ready to build the whole set of libraries:
 
 ```bash
-colcon build --cmake-args -DBUILD_TESTING=OFF -DSKIP_SWIG=ON --merge-install --packages-up-to gz-sim gz-tools2
+colcon build --cmake-args -DBUILD_TESTING=OFF -DSKIP_SWIG=ON --merge-install --packages-up-to gz-sim gz-tools
 ```
 Tests are turned off as they are not currently supported on Windows.
 

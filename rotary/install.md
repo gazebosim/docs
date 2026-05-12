@@ -10,8 +10,8 @@ production use** — for a stable release see [Releases](releases).
 Binary installation is the recommended method of installing Gazebo.
 
  * [Binary Installation on Ubuntu](install_ubuntu)
- * [Binary Installation on macOS](install_osx)
- * [Binary Installation on Windows](install_windows)
+ * macOS: no binary distribution; see [source installation on macOS](install_osx_src)
+ * Windows: no binary distribution; see [Source Installation on Windows](install_windows_src).
 
 ## Server-only installation
 
@@ -34,37 +34,17 @@ Source installation is recommended for users planning on altering Gazebo's sourc
 The Rotary collection is composed of many different Gazebo libraries. The
 collection assures that all libraries are compatible and can be used together.
 
-This list of library versions may change up to the release date.
+The best location to know the current versions of the rotary distribution is to
+check [collection-rotary.yaml](https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-rotary.yaml).
 
-| Library name       | Version       |
-| ------------------ |:-------------:|
-|   gz-cmake         |       5.x     |
-|   gz-common        |       7.x     |
-|   gz-fuel-tools    |       11.x     |
-|   gz-sim           |       10.x     |
-|   gz-gui           |       10.x     |
-|   gz-launch        |       9.x     |
-|   gz-math          |       9.x     |
-|   gz-msgs          |      12.x     |
-|   gz-physics       |       9.x     |
-|   gz-plugin        |       4.x     |
-|   gz-rendering     |       10.x     |
-|   gz-sensors       |       10.x     |
-|   gz-tools         |       2.x     |
-|   gz-transport     |      15.x     |
-|   gz-utils         |       4.x     |
-|   sdformat         |      16.x     |
 
 ## Supported platforms
 
-Rotary is planned to be [supported](releases) on the platforms below.
-This list may change up to the release date.
-
 These are the **officially** supported platforms:
 
-* Ubuntu Noble on amd64
-
-Platforms supported at **best-effort** include arm architectures, Windows and
-macOS. See
-[this ticket](https://github.com/gazebo-tooling/release-tools/issues/1158)
-for the full status.
+- **Ubuntu Noble (amd64)** — nightly binary packages at
+  `packages.osrfoundation.org/gazebo/ubuntu-nightly`.
+- **Ubuntu Resolute (amd64)** — nightly binary packages at
+  `packages.osrfoundation.org/gazebo/ubuntu-nightly`.
+- **macOS** — formulae from the [`osrf/simulation`](https://github.com/osrf/homebrew-simulation) Homebrew tap.
+- **Windows** — no binary; build from source.

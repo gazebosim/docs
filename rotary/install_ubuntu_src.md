@@ -92,6 +92,7 @@ Add `packages.osrfoundation.org` to the apt sources list:
 ```bash
 sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-nightly $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-nightly.list > /dev/null
 sudo apt-get update
 ```
 
@@ -111,18 +112,16 @@ and use the following command:
 ```bash
 cd ~/workspace/src
 rosdep install -i --from-path . -y \
-    --skip-keys "gz-cmake3 DART libogre-dev libogre-next-2.3-dev"
+    --skip-keys "gz-cmake3 gz-cmake4 DART libogre-dev libogre-next-2.3-dev"
 ```
 
 The `rosdep` command attempts to install dependencies listed in `package.xml`
 files, but when problems arise the `--skip-keys` argument is used. Explanations
 for its use in the previous line are given below:
 
-* `gz-cmake3`: `gz-tools2` can build from source against
-  [any of `gz-cmake3`, `gz-cmake4`, and `gz-cmake` (v5)](https://github.com/gazebosim/gz-tools/pull/128),
-  and this workspace only contains `gz-cmake` (v5). The `gz-tools2` `package.xml`
-  file only [depends on gz-cmake3](https://github.com/gazebosim/gz-tools/blob/2b228e5b956/package.xml#L13)
-  and since that package is not present, use `--skip-keys gz-cmake3`.
+* `gz-cmake3`: older majors of `gz-cmake` are not present in the Rotary
+  workspace (which tracks main); pass `--skip-keys gz-cmake3 gz-cmake4` to silence
+  rosdep warnings.
 * `DART`: `gz-physics` can build against [dartsim](http://dartsim.github.io),
   which is listed as DART in the [gz-physics package.xml file](https://github.com/gazebosim/gz-physics/blob/main/package.xml#L16).
   This package is not in the workspace, so `DART` is added to the `--skip-keys`
