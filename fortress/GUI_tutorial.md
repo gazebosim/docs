@@ -27,8 +27,14 @@ For example, if you have Fortress and Dome installed, `--versions` might return:
 To ensure you're working with Fortress, include the `--force-version` directive when starting up:
 
 ```bash
-ign gazebo --force-version 6.0.0 shapes.sdf
+ign gazebo --force-version 6 shapes.sdf
 ```
+
+:::{note}
+
+The version specified to `--force-version` can be just the major version number or the exact number listed in `--versions`.
+
+:::
 
 ## GUI
 
