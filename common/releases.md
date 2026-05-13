@@ -26,16 +26,16 @@ installation instructions.
 |----------------------------------------------------------|-----------|-----------|--------------|
 | [Rotary](https://gazebosim.org/docs/rotary)              | Rolling   | —         | Experimental |
 | M                                                        | Mar, 2027 | Nov, 2028 |       |
-| [Jetty](https://gazebosim.org/docs/jetty)                | Sep, 2025 | Sep, 2030 | LTS   |
+| [Jetty](https://gazebosim.org/docs/jetty)                | Sep, 2025 | Sep, 2030 | Long-term support (LTS) |
 | [Ionic](https://gazebosim.org/docs/ionic)                | Sep, 2024 | Sep, 2026 |       |
-| [Harmonic](https://gazebosim.org/docs/harmonic)          | Sep, 2023 | Sep, 2028 | LTS   |
-| [Garden](https://gazebosim.org/docs/garden)              | Sep, 2022 | Nov, 2024 | EOL   |
-| [Fortress](https://gazebosim.org/docs/fortress)          | Sep, 2021 | Sep, 2026 | LTS   |
-| [Edifice](https://gazebosim.org/docs/edifice)            | Mar, 2021 | Mar, 2022 | EOL   |
-| [Dome](https://gazebosim.org/docs/dome)                  | Sep, 2020 | Dec, 2021 | EOL   |
-| [Citadel](https://gazebosim.org/docs/citadel)            | Dec, 2019 | Dec, 2024 | EOL   |
-| [Blueprint](https://gazebosim.org/docs/blueprint)        | May, 2019 | Dec, 2020 | EOL   |
-| [Acropolis](https://gazebosim.org/docs/acropolis)        | Feb, 2019 | Sep, 2019 | EOL   |
+| [Harmonic](https://gazebosim.org/docs/harmonic)          | Sep, 2023 | Sep, 2028 | Long-term support (LTS) |
+| [Garden](https://gazebosim.org/docs/garden)              | Sep, 2022 | Nov, 2024 | End of life (EOL)       |
+| [Fortress](https://gazebosim.org/docs/fortress)          | Sep, 2021 | Sep, 2026 | Long-term support (LTS) |
+| [Edifice](https://gazebosim.org/docs/edifice)            | Mar, 2021 | Mar, 2022 | End of life (EOL)       |
+| [Dome](https://gazebosim.org/docs/dome)                  | Sep, 2020 | Dec, 2021 | End of life (EOL)       |
+| [Citadel](https://gazebosim.org/docs/citadel)            | Dec, 2019 | Dec, 2024 | End of life (EOL)       |
+| [Blueprint](https://gazebosim.org/docs/blueprint)        | May, 2019 | Dec, 2020 | End of life (EOL)       |
+| [Acropolis](https://gazebosim.org/docs/acropolis)        | Feb, 2019 | Sep, 2019 | End of life (EOL)       |
 
 ~~~mermaid
 gantt
