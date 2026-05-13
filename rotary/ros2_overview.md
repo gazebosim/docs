@@ -50,7 +50,7 @@ parameter `container_name` to the existing container name.
 That way, the communication between Gazebo, the bridge, and other potential
 ROS nodes will be intraprocess.
 
-![composition_options](../images/composition_options.png)
+![composition_options](images/composition_options.png)
 
 This figure illustrates the concept of composition. The left diagram captures
 the idea of not using composition. All the three example nodes are standalone
