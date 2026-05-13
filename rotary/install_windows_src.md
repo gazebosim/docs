@@ -1,7 +1,8 @@
 # Source Installation on Windows 10 or 11
 
-::::{warning}
+::: warning
 Windows support on Rotary is highly experimental
+:::
 
 OGRE2 rendering capabilities are supported in Windows, and Gazebo GUI
 works in a limited fashion. These functionalities correspond to the currently

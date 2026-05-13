@@ -2,7 +2,7 @@
 
 **Rotary** is a rolling release stream of Gazebo built continuously from the
 `main` branches of every Gazebo library. Unlike the dated codename releases
-(Fortress, Harmonic, Jetty, …), Rotary has no fixed version: it is built
+(Fortress, Harmonic, Jetty, ...), Rotary has no fixed version: it is built
 every night. It is intended for Gazebo maintainers, continuous
 integration systems, and early adopters who want to test unreleased
 changes before they ship in a named collection.
@@ -11,7 +11,7 @@ changes before they ship in a named collection.
 Rotary is a rolling, unstable stream. Breakage is expected, and versions
 may change under you on every `apt upgrade` or `brew upgrade`. Rotary is
 **not recommended for production use**. New Gazebo users should install
-one of the binary releases listed in [Releases](../releases.md) instead.
+one of the binary releases listed in [Releases](releases) instead.
 :::
 
 ## Package naming
@@ -22,7 +22,6 @@ upstream packages, so installing a Rotary alias always pulls whatever is
 currently being built from `main`.
 
 ### Ubuntu
-
 
 | Regular package        | Rotary alias                    |
 |------------------------|---------------------------------|
@@ -41,7 +40,6 @@ so the rotary alias adds a `gz-rotary-` prefix.
 | `gz-mathN`      | `gz-rotary-math`    |
 | `sdformatN`     | `gz-rotary-sdformat`|
 
-
 ### Umbrella metapackage
 
 On both Ubuntu and Homebrew, the `gz-rotary` metapackage pulls in the full
@@ -54,7 +52,7 @@ named collections.
 Rotary binaries are published into the existing **nightly** apt repository
 at `http://packages.osrfoundation.org/gazebo/ubuntu-nightly`, so
 the versioning scheme documented in
-[Ubuntu versioning in nightly and prerelease binaries](versioning_pre_nightly.md)
+[Ubuntu versioning in nightly and prerelease binaries](releasing/versioning_pre_nightly.md)
 applies to Rotary unchanged.
 :::
 
@@ -66,10 +64,11 @@ sudo apt-get install curl lsb-release gnupg
 ```
 
 Add the OSRF GPG key and configure the **nightly** apt repository (which
-hosts Rotary packages):
+hosts Rotary packages) that needs the stable repository also to work:
 
 ```bash
 sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-nightly $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-nightly.list > /dev/null
 sudo apt-get update
 ```
@@ -114,10 +113,10 @@ The initial rollout of Rotary brew formulae is tracked in
 There is currently no binary distribution of Rotary on Windows. Windows
 users who want to run Rotary need to build it from source.
 
- * Windows: no binary distribution; see [Source Installation on Windows](../install_windows_src.md)
+* Windows: no binary distribution; see [Source Installation on Windows](install_windows_src)
 
- The existing [Source Installation on Windows 10 or 11](../install_windows_src.md)
-guide for Jetty describes the full toolchain (Visual Studio, Pixi,)
+The existing [Source Installation on Windows 10 or 11](install_windows_src)
+guide for Jetty describes the full toolchain (Visual Studio, Pixi,
 `colcon`). The same procedure applies to Rotary — the only change is
 the `vcs import` step, which must point at `collection-rotary.yaml` from
 [gazebo-tooling/gazebodistro](https://github.com/gazebo-tooling/gazebodistro)

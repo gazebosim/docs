@@ -33,7 +33,7 @@ installation options:
 * [Gazebo Fortress (LTS) installation](/docs/fortress/install){.external} options (EOL 2026 Sep)
 
 If you want to test the latest, unreleased Gazebo changes from `main`, see
-the [Rotary release](releasing/rotary.md) documentation. Rotary is a
+the [Rotary release](rotary/rotary.md) documentation. Rotary is a
 rolling release intended for maintainers and early adopters; new users
 should stick to one of the binary releases above.
 
