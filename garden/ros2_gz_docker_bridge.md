@@ -120,7 +120,7 @@ if you have a `bridge.yaml` config file, you can use it instead of passing topic
 ros2 run ros_gz_bridge parameter_bridge --ros-args -p config_file:=/path/to/bridge.yaml
 ```
 
-See the [ros_gz_bridge examples](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge/examples) for sample configuration files.
+See the [ros_gz_bridge](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge) documentation for configuration options.
 
 ---
 
@@ -158,7 +158,7 @@ ros2 run ros_gz_bridge parameter_bridge \
 ```bash
 ros2 run ros_gz_bridge parameter_bridge --ros-args -p config_file:=/path/to/bridge.yaml
 ```
-See the [ros_gz_bridge examples](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge/examples) for sample configuration files.
+See the [ros_gz_bridge](https://github.com/gazebosim/ros_gz/tree/ros2/ros_gz_bridge) documentation for configuration options.
  
 ### Terminal 3 — Verify
 
