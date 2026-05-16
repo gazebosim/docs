@@ -28,8 +28,14 @@ For example, if you have Garden (7.x.x), Fortress (6.x.x) and Edifice (5.x.x) in
 To ensure you're working with Garden, include the `--force-version` directive when starting up:
 
 ```bash
-gz sim --force-version 7.0.0 shapes.sdf
+gz sim --force-version 7 shapes.sdf
 ```
+
+:::{note}
+
+The version specified to `--force-version` can be just the major version number or the exact number listed in `--versions`.
+
+:::
 
 ## GUI
 
