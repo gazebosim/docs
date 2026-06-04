@@ -13,6 +13,7 @@ After installing the homebrew package manager, Ignition Fortress can be installe
 
 ```bash
 brew tap osrf/simulation
+brew trust osrf/simulation
 brew install ignition-fortress
 ```
 

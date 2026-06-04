@@ -6,6 +6,7 @@ All the Jetty binaries are available in Ventura and Sonoma using the
 
 ```bash
 brew tap osrf/simulation
+brew trust osrf/simulation
 brew install gz-jetty
 ```
 

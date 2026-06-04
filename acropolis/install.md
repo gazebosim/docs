@@ -64,6 +64,7 @@ After installing the homebrew package manager, Gazebo Acropolis can be installed
 
 ```bash
 brew tap osrf/simulation
+brew trust osrf/simulation
 brew install gazebo-acropolis
 ```
 
