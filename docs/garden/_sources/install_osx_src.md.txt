@@ -76,6 +76,7 @@ Add `osrf/simulation` to Homebrew formulae
 ```bash
 brew update
 brew tap osrf/simulation
+brew trust osrf/simulation
 ```
 
 Install all dependencies:

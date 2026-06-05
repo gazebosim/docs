@@ -17,6 +17,7 @@ Tools and dependencies for Jetty can be installed using the [Homebrew package ma
 
 ```bash
 brew tap osrf/simulation
+brew trust osrf/simulation
 brew update
 ```
 
