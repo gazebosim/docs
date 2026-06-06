@@ -117,18 +117,12 @@ The initial rollout of Rotary brew formulae is tracked in
 There is currently no binary distribution of Rotary on Windows. Windows
 users who want to run Rotary need to build it from source.
 
-* Windows: no binary distribution; see [Source Installation on Windows](install_windows_src)
-
-The existing [Source Installation on Windows 10 or 11](install_windows_src)
-guide for Jetty describes the full toolchain (Visual Studio, Pixi,
-`colcon`). The same procedure applies to Rotary — the only change is
-the `vcs import` step, which must point at `collection-rotary.yaml` from
+The [Source Installation on Windows 10 or 11](install_windows_src) guide
+describes the full toolchain (Visual Studio, Pixi, `colcon`) and uses the
+Rotary collection file, `collection-rotary.yaml`, from
 [gazebo-tooling/gazebodistro](https://github.com/gazebo-tooling/gazebodistro)
-instead of the Jetty collection file:
+in its `vcs import` step:
 
 ```bash
 vcs import --input https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-rotary.yaml src/
 ```
-
-After the import, continue with the "Building the Gazebo Libraries" step
-of the Jetty Windows source guide unchanged.
