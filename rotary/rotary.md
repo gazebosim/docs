@@ -23,8 +23,8 @@ currently being built from `main`.
 
 ### Ubuntu
 
-The following list of packages in the tables is just an example of the
-package names and examples:
+The package names in the table below are examples illustrating the
+aliasing rule:
 
 
 | Regular package        | Rotary alias                    |
