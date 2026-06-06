@@ -56,7 +56,7 @@ named collections.
 Rotary binaries are published into the existing **nightly** apt repository
 at `http://packages.osrfoundation.org/gazebo/ubuntu-nightly`, so
 the versioning scheme documented in
-[Ubuntu versioning in nightly and prerelease binaries](releasing/versioning_pre_nightly.md)
+[Ubuntu versioning in nightly and prerelease binaries](releasing/versioning_pre_nightly)
 applies to Rotary unchanged.
 :::
 
