@@ -1,5 +1,13 @@
 # ROS 2 integration overview
 
+:::{warning}
+There is no `ros_gz` release paired with Rotary yet. ROS 2 integration with
+Rotary is highly experimental: `ros_gz` can probably be compiled from source
+using its [`ros2` branch](https://github.com/gazebosim/ros_gz/tree/ros2)
+against the Rotary libraries, but expect breakage since Rotary tracks the
+`main` development branches.
+:::
+
 Gazebo can be integrated within a ROS 2 system. Let's start describing the
 different types of integrations that you can achieve between Gazebo and ROS.
 

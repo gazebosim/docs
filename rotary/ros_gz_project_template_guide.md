@@ -83,11 +83,16 @@ This can be automated using colcon environment hooks (shell scripts provided by 
 
 1. Choose a ROS and Gazebo [combination](ros_installation)
 
-   Note: If you're using a specific and unsupported Gazebo version with ROS 2, you might need to set the `GZ_VERSION` environment variable, for example:
-
-   ```bash
-   export GZ_VERSION=rotary
-   ```
+   :::{warning}
+   There is no `ros_gz` release paired with Rotary yet, and `rotary` is not a
+   value recognized by the `GZ_VERSION` environment variable. ROS 2 integration
+   with Rotary is highly experimental: `ros_gz` can probably be compiled from
+   source using its [`ros2` branch](https://github.com/gazebosim/ros_gz/tree/ros2)
+   against the Rotary libraries, but expect breakage since Rotary tracks the
+   `main` development branches. When building your own project against Rotary,
+   adapt the `find_package(gz-sim<N>)` calls in your `CMakeLists.txt` to the
+   versions shipped by Rotary instead of relying on `GZ_VERSION`.
+   :::
 
 2. Install dependencies
 
