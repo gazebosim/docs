@@ -112,7 +112,7 @@ and use the following command:
 ```bash
 cd ~/workspace/src
 rosdep install -i --from-path . -y \
-    --skip-keys "gz-cmake3 gz-cmake4 DART libogre-dev libogre-next-2.3-dev"
+    --skip-keys "DART libogre-dev libogre-next-2.3-dev"
 ```
 
 The `rosdep` command attempts to install dependencies listed in `package.xml`
