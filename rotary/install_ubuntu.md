@@ -52,7 +52,7 @@ The server-only package includes the DART physics engine and the core
 simulation server plugins. To start a headless simulation:
 
 ```bash
-/usr/libexec/gz/sim10/gz-sim-server <world_file.sdf>
+/usr/libexec/gz/sim/gz-sim-server <world_file.sdf>
 ```
 
 :::{note}
