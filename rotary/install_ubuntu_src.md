@@ -119,9 +119,6 @@ The `rosdep` command attempts to install dependencies listed in `package.xml`
 files, but when problems arise the `--skip-keys` argument is used. Explanations
 for its use in the previous line are given below:
 
-* `gz-cmake3`: older majors of `gz-cmake` are not present in the Rotary
-  workspace (which tracks main); pass `--skip-keys gz-cmake3 gz-cmake4` to silence
-  rosdep warnings.
 * `DART`: `gz-physics` can build against [dartsim](http://dartsim.github.io),
   which is listed as DART in the [gz-physics package.xml file](https://github.com/gazebosim/gz-physics/blob/main/package.xml#L16).
   This package is not in the workspace, so `DART` is added to the `--skip-keys`
