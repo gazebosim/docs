@@ -65,6 +65,7 @@ After installing the homebrew package manager, Ignition Blueprint can be install
 
 ```bash
 brew tap osrf/simulation
+brew trust osrf/simulation
 brew install ignition-blueprint
 ```
 

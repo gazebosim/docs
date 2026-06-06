@@ -17,6 +17,7 @@ Tools and dependencies for Harmonic can be installed using the [Homebrew package
 
 ```bash
 brew tap osrf/simulation
+brew trust osrf/simulation
 brew update
 ```
 
