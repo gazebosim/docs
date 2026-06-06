@@ -235,7 +235,7 @@ See [Troubleshooting](troubleshooting.md#ubuntu)
 
 To perform QML debugging you'll need:
 
- - Add `--cmake-args -DDQT_QML_DEBUG` flag to colcon
+ - Add `--cmake-args -DQT_QML_DEBUG` flag to colcon
  - QtCreator
 
 You will need to build Gazebo with:
