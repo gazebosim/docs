@@ -1,6 +1,6 @@
 # Source Installation on Ubuntu
 
-These instructions apply to Ubuntu Noble (24.04).
+These instructions apply to Ubuntu Noble (24.04) and Ubuntu Resolute (26.04).
 
 ## Install tools
 

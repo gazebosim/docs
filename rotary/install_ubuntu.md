@@ -1,6 +1,7 @@
 # Binary Installation on Ubuntu
 
-Rotary binaries are published for Ubuntu Noble (24.04) via the nightly
+Rotary binaries are published for Ubuntu Noble (24.04) and Ubuntu
+Resolute (26.04) via the nightly
 packages repository at `packages.osrfoundation.org`.
 To install all of them, the metapackage `gz-rotary` can be installed.
 
