@@ -1,6 +1,6 @@
 # Source Installation on Windows 10 or 11
 
-::: warning
+:::{warning}
 Windows support on Rotary is highly experimental
 :::
 
