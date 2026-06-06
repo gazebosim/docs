@@ -23,6 +23,10 @@ currently being built from `main`.
 
 ### Ubuntu
 
+The following list of packages in the tables is just an example of the
+package names and examples:
+
+
 | Regular package        | Rotary alias                    |
 |------------------------|---------------------------------|
 | `libgz-cmake-dev`      | `libgz-rotary-cmake-dev`        |
