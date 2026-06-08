@@ -1,4 +1,4 @@
-# ROS 2 + Gazebo Docker Bridge
+# ROS 2 + Gazebo Cross-Container Docker Bridge
 
 A two-container Docker setup for running Gazebo and ROS 2 as separate services connected over a custom Docker network, with the ros_gz_bridge handling topic communication between them
 
@@ -8,6 +8,7 @@ A two-container Docker setup for running Gazebo and ROS 2 as separate services c
 
 | ROS 2 | Gazebo |
 |---|---|
+| Lyrical | Jetty |
 | Rolling | Jetty |
 | Kilted | Ionic |
 | Jazzy | Harmonic |
