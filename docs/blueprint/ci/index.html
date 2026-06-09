@@ -824,10 +824,10 @@ branch of homebrew-simulation and built against the intended branches.</p>
 requests, optionally building dependencies from source and changing other
 configurations for testing.</p>
 <p>One possible reason to trigger CI with custom dependency branches is testing
-changes across repositories. For example, if your <code class="docutils literal notranslate"><span class="pre">ign-gazebo</span></code> pull request
-needs a change from <code class="docutils literal notranslate"><span class="pre">ign-physics</span></code>, you could build a custom branch of <code class="docutils literal notranslate"><span class="pre">ign-physics</span></code>
-from source to check it works with <code class="docutils literal notranslate"><span class="pre">ign-gazebo</span></code> on CI before even opening an
-<code class="docutils literal notranslate"><span class="pre">ign-physics</span></code> pull request, or making a release.</p>
+changes across repositories. For example, if your <code class="docutils literal notranslate"><span class="pre">gz-sim</span></code> pull request
+needs a change from <code class="docutils literal notranslate"><span class="pre">gz-physics</span></code>, you could build a custom branch of <code class="docutils literal notranslate"><span class="pre">gz-physics</span></code>
+from source to check it works with <code class="docutils literal notranslate"><span class="pre">gz-sim</span></code> on CI before even opening an
+<code class="docutils literal notranslate"><span class="pre">gz-physics</span></code> pull request, or making a release.</p>
 <section id="actions">
 <h4>Actions<a class="headerlink" href="#actions" title="Link to this heading">#</a></h4>
 <p>By default, builds are run for every commit based on configuration inside the
@@ -842,11 +842,9 @@ to see what can be configured and how.</p>
 <h4>Jenkins<a class="headerlink" href="#jenkins" title="Link to this heading">#</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">pr_any</span></code> jobs can be triggered manually for any branch by maintainers.
 Go to the job’s page, for example
-<a class="reference external" href="https://build.osrfoundation.org/job/ignition_launch-ci-pr_any-ubuntu_auto-amd64/">gz_launch-ci-pr_any-ubuntu_auto-amd64</a>,
-click on <code class="docutils literal notranslate"><span class="pre">Build</span> <span class="pre">with</span> <span class="pre">Parameters</span></code> to trigger a new build (beware of
-<a class="reference external" href="https://github.com/gazebo-tooling/release-tools/issues/242">this issue</a>
-and use this carefully).</p>
-<p>There are 2 things you’ll want to configure before triggering a build:</p>
+<a class="reference external" href="https://build.osrfoundation.org/job/gz_sim-ci-pr_any-homebrew-arm64/">gz_sim-ci-pr_any-homebrew-arm64</a>,
+click on <code class="docutils literal notranslate"><span class="pre">Build</span> <span class="pre">with</span> <span class="pre">Parameters</span></code> to trigger a new build.</p>
+<p>There are some parameters to configure before triggering a build:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">sha1</span></code>: this is the custom branch you want to build, prefixed by <code class="docutils literal notranslate"><span class="pre">origin/</span></code>.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">RTOOLS_BRANCH</span></code>: a branch in
@@ -855,6 +853,12 @@ custom configuration. For example, see
 <a class="reference external" href="https://github.com/gazebo-tooling/release-tools/commit/28fcb9d8ad66ad0a29ad4d2675c4c451d41fba19">this change</a>
 for building a custom <code class="docutils literal notranslate"><span class="pre">ign-rendering</span></code> branch on
 <a class="reference external" href="https://github.com/gazebosim/gz-rendering/pull/138#issuecomment-692994562">this ign-sensors pull request</a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GAZEBODISTRO_BRANCH</span></code> (windows jobs only): a branch in
+<a class="reference external" href="https://github.com/gazebo-tooling/gazebodistro">gazebodistro</a>
+with custom source branches for dependencies. For example, see the change in
+<a class="reference external" href="https://github.com/gazebo-tooling/gazebodistro/pull/207">gazebodistro#207</a>
+that was required by
+<a class="reference external" href="https://github.com/gazebosim/gz-tools/pull/157">gz-tools#157</a>.</p></li>
 </ul>
 <p>If you want to share the status of your custom build on a pull request,
 click on <code class="docutils literal notranslate"><span class="pre">Embeddable</span> <span class="pre">Build</span> <span class="pre">Status</span></code> and copy the markdown code into the pull
