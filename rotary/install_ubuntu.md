@@ -48,12 +48,6 @@ package:
 sudo apt-get install gz-sim-server
 ```
 
-:::{note}
-The server-only package is an exception to the `gz-rotary-` aliasing rule:
-there is no `gz-rotary-sim-server` alias. The unversioned `gz-sim-server`
-package is built directly from `main`, which is exactly what Rotary tracks.
-:::
-
 The server-only package includes the DART physics engine and the core
 simulation server plugins. To start a headless simulation:
 
