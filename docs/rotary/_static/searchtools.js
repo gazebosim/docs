@@ -1,0 +1,1 @@
+../../../libs/_static/searchtools.js

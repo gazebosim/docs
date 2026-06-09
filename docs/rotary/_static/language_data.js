@@ -1,0 +1,1 @@
+../../../libs/_static/language_data.js

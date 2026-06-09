@@ -1,0 +1,1 @@
+../../../../libs/_static/scripts/pydata-sphinx-theme.js

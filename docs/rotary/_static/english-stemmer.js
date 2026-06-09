@@ -1,0 +1,1 @@
+../../../libs/_static/english-stemmer.js
