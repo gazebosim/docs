@@ -10,10 +10,21 @@ A release of Gazebo consists of a set of versioned [Gazebo Libraries](/libs){.ex
 
 A Gazebo release follows the form "Gazebo Codename", for example Gazebo Acropolis. The codename is alphabetically increasing, and chosen to fall loosely within the architectural domain.
 
+## Rolling releases
+
+Separate from the dated codename releases listed below, Gazebo also
+publishes a rolling release stream called **Rotary**, built continuously
+from the `main` branches of every Gazebo library every night.
+Rotary is not tied to codename or major version and is intended for
+maintainers, CI systems, and early adopters.
+See the [Rotary release](https://gazebosim.org/docs/rotary/rotary) page for details and
+installation instructions.
+
 ## Release List
 
-| Name                                                     | Date      | EOL date  | Notes |
-|----------------------------------------------------------|-----------|-----------|-------|
+| Name                                                     | Date      | EOL date  | Notes        |
+|----------------------------------------------------------|-----------|-----------|--------------|
+| [Rotary](https://gazebosim.org/docs/rotary)              | Rolling   | —         | Experimental |
 | M                                                        | Mar, 2027 | Nov, 2028 |       |
 | [Jetty](https://gazebosim.org/docs/jetty)                | Sep, 2025 | Sep, 2030 | Long-term support (LTS) |
 | [Ionic](https://gazebosim.org/docs/ionic)                | Sep, 2024 | Sep, 2026 |       |
