@@ -228,7 +228,7 @@ associated with the `gz-cmake3` package:
 
 `gzdev repository enable --project=gz-cmake3`
 
-During the Gazebo Garden development period, this packaage was
+During the Gazebo Garden development period, this package was
 [configured by name](https://github.com/gazebo-tooling/gzdev/blob/7fe5d2c5d758c6b0964e9937d6b82150402d14c2/plugins/config/repository.yaml#L28-L33)
 to use stable and nightly binaries.
 It is customary to use nightly binaries for all unreleased package versions.

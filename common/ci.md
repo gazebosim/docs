@@ -219,7 +219,7 @@ was [modified to use the `scpeters/revert_606` branch](https://github.com/osrf/h
 (corresponding to [gz-math#609](https://github.com/gazebosim/gz-math/pull/609)),
 and the `sdformat15` formula was [modified to use the `scpeters/revert_1458` branch](https://github.com/osrf/homebrew-simulation/blob/6bdfaea6c9b5a30fed163c619e1f398b31937514/Formula/sdformat15.rb#L4)
 (corresponding to [sdformat#1459](https://github.com/gazebosim/sdformat/pull/1459)).
-These changes to formulae were commited to the
+These changes to formulae were committed to the
 `ci_matching_branch/revert_math_graph_init` branch (see
 [osrf/homebrew-simulation@6bdfaea6](https://github.com/osrf/homebrew-simulation/pull/2701/commits/6bdfaea6c9b5a30fed163c619e1f398b31937514)).
 To test gz-sim with these branches of gz-math and sdformat, a trivial change
