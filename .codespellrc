@@ -1,0 +1,19 @@
+# Configuration for codespell (https://github.com/codespell-project/codespell)
+#
+# This file is picked up automatically when running `codespell` from the
+# repository root, so both local runs and the GitHub Actions workflow
+# (.github/workflows/codespell.yml) share the same settings.
+#
+# The custom dictionary is NOT listed here because codespell cannot merge a
+# custom dictionary with its built-in one through the config file. It is passed
+# on the command line instead via `-D - -D .codespell/dictionary.txt`.
+
+[codespell]
+# Directories and file types to skip when codespell walks the tree (e.g. a bare
+# `codespell` run). This does NOT affect files passed explicitly on the command
+# line, such as the `git ls-files '*.md'` list used by the workflow. The SVG
+# assets are skipped because their embedded path/font data causes false positives.
+skip = ./.git,./_build,./.build,./.venv,./venv,*.svg,*.svgz,*.png,*.jpg,*.jpeg,*.gif,*.pdf,*.css,*.js,*.json
+
+# Correctly-spelled words that look like typos (proper nouns, product names).
+ignore-words = .codespell/ignore-words.txt

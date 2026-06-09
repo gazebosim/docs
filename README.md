@@ -115,6 +115,15 @@ of Gazebo versions. To build `garden` and `harmonic`:
 python3 build_multiversion.py --release garden harmonic
 ```
 
+## Spell checking
+
+The Markdown documentation is spell-checked with
+[codespell](https://github.com/codespell-project/codespell), run by the GitHub
+Actions workflow [.github/workflows/codespell.yml](.github/workflows/codespell.yml).
+
+For configuration, how to run the check locally, and how to add words, see
+[.codespell/README.md](.codespell/README.md).
+
 ## Library docs
 
 Instructions on how to update all of the library docs is contained in the

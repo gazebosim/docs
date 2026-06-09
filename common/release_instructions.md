@@ -96,7 +96,7 @@ document.
       Stable releases can modify the X, Y or Z directly while prereleases will need to include the preX (X number starts with 1) suffix in the `gz_configure_project`:
 
       ```cmake
-      # first prerelease of a serie, number 1
+      # first prerelease of a series, number 1
       gz_configure_project(VERSION_SUFFIX pre1)
       ```
 
@@ -183,7 +183,7 @@ You will also need the token described in the [credentials
 section](#2-access-and-credentials).
 
 There are a few external dependencies for running release.py. They can be
-esily installed using virtual enviroments and pip:
+easily installed using virtual environments and pip:
 
 ```
 # you can change .releasepy_venv by any directory of your preference
@@ -261,7 +261,7 @@ version, `release.py` needs the `--only-bump-revision-linux` flag.
 Note that the `--source-tarball-uri` parameter is needed with the original tarball
 of the software version. All the tarballs can be found at https://classic.gazebosim.org/distributions
 or the information should appear in the parameters of the Jenkins -debbuilder build that created
-the first version of the sofware.
+the first version of the software.
 
 ```bash
 # Example gz-cmake3 bumped from 3.0.1-1 to 3.0.1-2
