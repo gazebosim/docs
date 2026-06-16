@@ -43,7 +43,7 @@ gantt
     axisFormat %Y
     dateFormat  YYYY-MM
                           
-    M                  :gz_m,      2027-03, 20M
+    M                  :gz_m,      2027-03, 2028-12
     Jetty       :crit, :jetty,     2025-09, 2031-05
     Ionic       :crit, :ionic,     2024-09, 2y
     Harmonic    :crit, :harmonic,  2023-09, 5y
