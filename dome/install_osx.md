@@ -13,6 +13,7 @@ After installing the homebrew package manager, Ignition Dome can be installed ru
 
 ```bash
 brew tap osrf/simulation
+brew trust osrf/simulation
 brew install ignition-dome
 ```
 

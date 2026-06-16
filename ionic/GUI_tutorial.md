@@ -29,8 +29,14 @@ For example, if you have Ionic (9.x.x), Harmonic (8.x.x), Garden (7.x.x), and Fo
 To ensure you're working with Ionic, include the `--force-version` directive when starting up:
 
 ```bash
-gz sim --force-version 9.0.0 shapes.sdf
+gz sim --force-version 9 shapes.sdf
 ```
+
+:::{note}
+
+The version specified to `--force-version` can be just the major version number or the exact number listed in `--versions`.
+
+:::
 
 ## GUI
 
