@@ -15,7 +15,7 @@ without any failures when using their functionalities.
 
 ## Dependency distribution (conda-forge) and the package manager (Pixi)
 
-Binaries for all the dependendencies used by Gazebo can be found in the [conda-forge](https://conda-forge.org/)
+Binaries for all the dependencies used by Gazebo can be found in the [conda-forge](https://conda-forge.org/)
 package repository. The Gazebo buildfarm and these instructions uses the [Pixi](https://pixi.sh/) package manager
 but other package managers for Conda should work like miniforge, mamba, etc.
 
@@ -53,14 +53,14 @@ but other package managers for Conda should work like miniforge, mamba, etc.
    :: inside the gazebo directory
    pixi install
    ```
-   This can take some minutes. After this Pixi can make accesible all the libraries and dependencies
-   installed by providing a shell enviroment:
+   This can take some minutes. After this Pixi can make accessible all the libraries and dependencies
+   installed by providing a shell environment:
    ```bash
    :: inside the gazebo directory
    pixi shell
    ```
    With the Pixi shell environment active (there will be a "(gazebo)" label before the terminal prompt) the Pixi environment
-   is accesible from anywhere in the file system.
+   is accessible from anywhere in the file system.
 
 6. Navigate to where you would like to build the library, create and enter your workspace directory,
    create the `src` directory which will contain the Gazebo source code.
