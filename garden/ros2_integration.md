@@ -3,7 +3,7 @@
 In this tutorial we will learn how to Integrate ROS 2 with Gazebo. We will establish
 communication between them. This can help in many aspects; we can receive data (like joint states, TFs) or commands
 from ROS and apply it to Gazebo and vice versa. This can also help to enable RViz to visualize a robot model
-simulatenously simulated by a Gazebo world.
+simultaneously simulated by a Gazebo world.
 
 ## ros_gz_bridge
 

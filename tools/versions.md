@@ -12,7 +12,7 @@ How to read the columns:
     * **not-released**: No stable release has been made for that major version yet.
 * **Packages**: Whether debian packages for a version are provided by specific repositories. Each letter refers to an Ubuntu release (i.e. B for Bionic, F for Focal, G for Groovy,...). The repositories are the following:
     * **Ubuntu**: https://packages.ubuntu.com/ (official Ubuntu archive packages)
-    * **OSRF**: https://packages.osrfoundation.org/ (offical repository of the Gazebo project)
+    * **OSRF**: https://packages.osrfoundation.org/ (official repository of the Gazebo project)
     * **ROS**: https://packages.ros.org/ (package imported from OSRF repository into ROS)
 * **Gazebo Classic**: What Gazebo classic version requires as dependency that specific version (i.e. 9 for Gazebo 9).
 * **Gazebo**: What Gazebo version uses that specific version (i.e. B for Blueprint).

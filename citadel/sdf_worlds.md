@@ -235,7 +235,7 @@ Instead of building our own models we can use already built ones. [Ignition Fuel
 
 ### Spawning a model
 
-For adding various models from fuel to your world chekout this [tutorial](fuel_insert).
+For adding various models from fuel to your world checkout this [tutorial](fuel_insert).
 
 ### Include the model URI
 
