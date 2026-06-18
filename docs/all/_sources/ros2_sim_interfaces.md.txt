@@ -103,7 +103,9 @@ Spawn a new entity in the simulation at a specific location.
 ```bash
 ros2 service call /gzserver/spawn_entity simulation_interfaces/srv/SpawnEntity "{
   name: 'my_model',
-  uri: '/path/to/model.sdf',
+  entity_resource: {
+    uri: '/path/to/model.sdf'
+  },
   allow_renaming: false,
   initial_pose: {
     pose: {
