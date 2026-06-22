@@ -17,6 +17,7 @@ Tools and dependencies for Rotary can be installed using the [Homebrew package m
 
 ```bash
 brew tap osrf/simulation
+brew trust osrf/simulation
 brew update
 ```
 
