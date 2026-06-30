@@ -95,13 +95,8 @@ without any failures when using their functionalities.
 
 7. Then clone the repositories
    ```bash
-   # CMD
-   curl -sk https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-harmonic.yaml -o collection-harmonic
-   vcs import src < collection-harmonic
-
-   # PowerShell
-   curl https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-harmonic.yaml -o collection-harmonic
-   vcs import --input collection-harmonic src
+   # Both CMD and PowerShell
+   vcs import --input https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-harmonic.yaml src
    ```
 
 ## Building the Gazebo Libraries

@@ -62,21 +62,14 @@ The first step is to create a developer workspace in which `vcstool` and
 
 ```bash
 mkdir -p ~/workspace/src
-cd ~/workspace/src
-```
-
-All the sources of gazebo-harmonic are declared in a yaml file. Download
-it to the workspace:
-
-```bash
-curl -O https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-harmonic.yaml
+cd ~/workspace/
 ```
 
 Use `vcstool` to automatically retrieve all the Gazebo libraries sources from
 their repositories:
 
 ```bash
-vcs import < collection-harmonic.yaml
+vcs import --input https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-harmonic.yaml src
 ```
 
 The src subdirectory should contain all the sources ready to be built.

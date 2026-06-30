@@ -52,18 +52,12 @@ cd ~/workspace/src
 ```
 
 All the sources of ignition-fortress are declared in a yaml file. Download
-it to the workspace:
-
 ```bash
-curl -O https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-fortress.yaml
+vcs import --input https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-fortress.yaml src
 ```
 
 Use `vcstool` to automatically retrieve all the Ignition libraries sources from
-their repositories:
-
-```bash
-vcs import < collection-fortress.yaml
-```
+their repositories.
 
 The src subdirectory should contain all the sources ready to be built.
 
