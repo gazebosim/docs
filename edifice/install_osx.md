@@ -13,6 +13,7 @@ After installing the homebrew package manager, Ignition Edifice can be installed
 
 ```bash
 brew tap osrf/simulation
+brew trust osrf/simulation
 brew install ignition-edifice
 ```
 

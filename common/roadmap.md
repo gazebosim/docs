@@ -211,7 +211,7 @@ Looking for something to work on, or just want to help out? Here are a few
 resources to get you going.
 
 1. [How to contribute](contributing) guide.
-1. [Feature comparision](/docs/citadel/comparison){.external} list. This page lists the
+1. [Feature comparison](/docs/citadel/comparison){.external} list. This page lists the
    feature gaps between Gazebo classic and Gazebo Sim.
 1. Take a look at the various [libraries](/libs){.external}, and the issue tracker
    associated with each.

@@ -64,6 +64,7 @@ After installing the homebrew package manager, Gazebo Acropolis can be installed
 
 ```bash
 brew tap osrf/simulation
+brew trust osrf/simulation
 brew install gazebo-acropolis
 ```
 
@@ -139,7 +140,7 @@ The src subdirectory should contain all the sources ready to be built.
 
 ## Install dependencies
 
-Before compiling it is necessary to install all the dependencies of the diferent
+Before compiling it is necessary to install all the dependencies of the different
 packages that compose the Acropolis collection. Every platform has a different
 method to install software dependencies.
 

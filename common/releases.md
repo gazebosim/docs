@@ -10,16 +10,27 @@ A release of Gazebo consists of a set of versioned [Gazebo Libraries](/libs){.ex
 
 A Gazebo release follows the form "Gazebo Codename", for example Gazebo Acropolis. The codename is alphabetically increasing, and chosen to fall loosely within the architectural domain.
 
+## Rolling releases
+
+Separate from the dated codename releases listed below, Gazebo also
+publishes a rolling release stream called **Rotary**, built continuously
+from the `main` branches of every Gazebo library every night.
+Rotary is not tied to codename or major version and is intended for
+maintainers, CI systems, and early adopters.
+See the [Rotary release](https://gazebosim.org/docs/rotary/rotary) page for details and
+installation instructions.
+
 ## Release List
 
-| Name                                                     | Date      | EOL date  | Notes |
-|----------------------------------------------------------|-----------|-----------|-------|
-| M                                                        | Mar, 2027 | Nov, 2028 |       |
-| [Jetty](https://gazebosim.org/docs/jetty)                | Sep, 2025 | Sep, 2030 | Long-term support (LTS) |
-| [Ionic](https://gazebosim.org/docs/ionic)                | Sep, 2024 | Sep, 2026 |       |
-| [Harmonic](https://gazebosim.org/docs/harmonic)          | Sep, 2023 | Sep, 2028 | Long-term support (LTS) |
+| Name                                                     | Date      | EOL date  | Notes        |
+|----------------------------------------------------------|-----------|-----------|--------------|
+| [Rotary](https://gazebosim.org/docs/rotary)              | Rolling   | —         | Experimental |
+| M                                                        | Mar, 2027 | Dec, 2028 |       |
+| [Jetty](https://gazebosim.org/docs/jetty)                | Sep, 2025 | May, 2031 | Long-term support (LTS) |
+| [Ionic](https://gazebosim.org/docs/ionic)                | Sep, 2024 | Dec, 2026 |       |
+| [Harmonic](https://gazebosim.org/docs/harmonic)          | Sep, 2023 | May, 2029 | Long-term support (LTS) |
 | [Garden](https://gazebosim.org/docs/garden)              | Sep, 2022 | Nov, 2024 | End of life (EOL)       |
-| [Fortress](https://gazebosim.org/docs/fortress)          | Sep, 2021 | Sep, 2026 | Long-term support (LTS) |
+| [Fortress](https://gazebosim.org/docs/fortress)          | Sep, 2021 | May, 2027 | Long-term support (LTS) |
 | [Edifice](https://gazebosim.org/docs/edifice)            | Mar, 2021 | Mar, 2022 | End of life (EOL)       |
 | [Dome](https://gazebosim.org/docs/dome)                  | Sep, 2020 | Dec, 2021 | End of life (EOL)       |
 | [Citadel](https://gazebosim.org/docs/citadel)            | Dec, 2019 | Dec, 2024 | End of life (EOL)       |
@@ -32,12 +43,12 @@ gantt
     axisFormat %Y
     dateFormat  YYYY-MM
                           
-    M                  :gz_m,      2027-03, 20M
-    Jetty       :crit, :jetty,     2025-09, 5y
-    Ionic       :crit, :ionic,     2024-09, 2y
-    Harmonic    :crit, :harmonic,  2023-09, 5y
+    M                  :gz_m,      2027-03, 2028-12
+    Jetty       :crit, :jetty,     2025-09, 2031-05
+    Ionic       :crit, :ionic,     2024-09, 2026-12
+    Harmonic    :crit, :harmonic,  2023-09, 2029-05
     Garden             :garden,    2022-09, 2024-11
-    Fortress    :crit, :fortress,  2021-09, 5y
+    Fortress    :crit, :fortress,  2021-09, 2027-05
     Edifice            :edifice,   2021-03, 1y
     Dome               :dome,      2020-09, 2021-12
     Citadel            :citadel,   2019-12, 5y

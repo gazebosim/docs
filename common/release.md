@@ -84,6 +84,15 @@ stability of the software:
      (see [the homebrew-simulation issue](https://github.com/osrf/homebrew-simulation/issues/1314)
      for more information).
 
+:::{note}
+**Rotary**: a rolling release stream built continuously from the `main`
+branches of every Gazebo library, not tied to any codename or major
+version. Rotary binaries are published into the same nightly apt
+repository listed above. See
+the [Rotary release](/docs/rotary/rotary){.external} page for an explanation of
+the package naming rules and installation steps.
+:::
+
 ### Metadata for Releasing
 
 All package managers need to define different data fields in order to provide
@@ -228,7 +237,7 @@ associated with the `gz-cmake3` package:
 
 `gzdev repository enable --project=gz-cmake3`
 
-During the Gazebo Garden development period, this packaage was
+During the Gazebo Garden development period, this package was
 [configured by name](https://github.com/gazebo-tooling/gzdev/blob/7fe5d2c5d758c6b0964e9937d6b82150402d14c2/plugins/config/repository.yaml#L28-L33)
 to use stable and nightly binaries.
 It is customary to use nightly binaries for all unreleased package versions.

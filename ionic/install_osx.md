@@ -6,6 +6,7 @@ All the Ionic binaries are available in Monterey and Ventura using the
 
 ```bash
 brew tap osrf/simulation
+brew trust osrf/simulation
 brew install gz-ionic
 ```
 

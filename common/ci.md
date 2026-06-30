@@ -219,7 +219,7 @@ was [modified to use the `scpeters/revert_606` branch](https://github.com/osrf/h
 (corresponding to [gz-math#609](https://github.com/gazebosim/gz-math/pull/609)),
 and the `sdformat15` formula was [modified to use the `scpeters/revert_1458` branch](https://github.com/osrf/homebrew-simulation/blob/6bdfaea6c9b5a30fed163c619e1f398b31937514/Formula/sdformat15.rb#L4)
 (corresponding to [sdformat#1459](https://github.com/gazebosim/sdformat/pull/1459)).
-These changes to formulae were commited to the
+These changes to formulae were committed to the
 `ci_matching_branch/revert_math_graph_init` branch (see
 [osrf/homebrew-simulation@6bdfaea6](https://github.com/osrf/homebrew-simulation/pull/2701/commits/6bdfaea6c9b5a30fed163c619e1f398b31937514)).
 To test gz-sim with these branches of gz-math and sdformat, a trivial change
@@ -236,10 +236,10 @@ requests, optionally building dependencies from source and changing other
 configurations for testing.
 
 One possible reason to trigger CI with custom dependency branches is testing
-changes across repositories. For example, if your `ign-gazebo` pull request
-needs a change from `ign-physics`, you could build a custom branch of `ign-physics`
-from source to check it works with `ign-gazebo` on CI before even opening an
-`ign-physics` pull request, or making a release.
+changes across repositories. For example, if your `gz-sim` pull request
+needs a change from `gz-physics`, you could build a custom branch of `gz-physics`
+from source to check it works with `gz-sim` on CI before even opening an
+`gz-physics` pull request, or making a release.
 
 
 #### Actions
@@ -258,12 +258,10 @@ Be sure to revert these changes before merging the pull request.
 
 The `pr_any` jobs can be triggered manually for any branch by maintainers.
 Go to the job's page, for example
-[gz_launch-ci-pr_any-ubuntu_auto-amd64](https://build.osrfoundation.org/job/ignition_launch-ci-pr_any-ubuntu_auto-amd64/),
-click on `Build with Parameters` to trigger a new build (beware of
-[this issue](https://github.com/gazebo-tooling/release-tools/issues/242)
-and use this carefully).
+[gz_sim-ci-pr_any-homebrew-arm64](https://build.osrfoundation.org/job/gz_sim-ci-pr_any-homebrew-arm64/),
+click on `Build with Parameters` to trigger a new build.
 
-There are 2 things you'll want to configure before triggering a build:
+There are some parameters to configure before triggering a build:
 
 * `sha1`: this is the custom branch you want to build, prefixed by `origin/`.
 * `RTOOLS_BRANCH`: a branch in
@@ -272,6 +270,12 @@ custom configuration. For example, see
 [this change](https://github.com/gazebo-tooling/release-tools/commit/28fcb9d8ad66ad0a29ad4d2675c4c451d41fba19)
 for building a custom `ign-rendering` branch on
 [this ign-sensors pull request](https://github.com/gazebosim/gz-rendering/pull/138#issuecomment-692994562).
+* `GAZEBODISTRO_BRANCH` (windows jobs only): a branch in
+[gazebodistro](https://github.com/gazebo-tooling/gazebodistro)
+with custom source branches for dependencies. For example, see the change in
+[gazebodistro#207](https://github.com/gazebo-tooling/gazebodistro/pull/207)
+that was required by
+[gz-tools#157](https://github.com/gazebosim/gz-tools/pull/157).
 
 If you want to share the status of your custom build on a pull request,
 click on `Embeddable Build Status` and copy the markdown code into the pull

@@ -1,0 +1,47 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-workflow.json
+name: Codespell
+
+# Spell-check the Markdown documentation on every pull request and on pushes to
+# master. Only Markdown files are checked; see README.md ("Spell checking") for
+# details and for how to run the exact same check locally.
+on:
+  pull_request:
+    paths:
+      - '**/*.md'
+      - '.codespellrc'
+      - '.codespell/**'
+      - '.github/workflows/codespell.yml'
+  push:
+    branches:
+      - master
+    paths:
+      - '**/*.md'
+      - '.codespellrc'
+      - '.codespell/**'
+      - '.github/workflows/codespell.yml'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  codespell:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install codespell
+        # Always install the latest release so the docs benefit from upstream
+        # dictionary updates. Note this means a new codespell release can start
+        # reporting words it previously missed.
+        run: pip install codespell
+      - name: Spell-check Markdown files
+        # Restrict the check to Markdown files only. `.codespellrc` supplies the
+        # skip list and ignore-words; `-D - -D .codespell/dictionary.txt` keeps
+        # the built-in dictionary and appends the project-specific corrections.
+        run: |
+          git ls-files '*.md' \
+            | xargs codespell -D - -D .codespell/dictionary.txt

@@ -13,6 +13,7 @@ After installing the homebrew package manager, Gazebo Gadrden can be installed r
 
 ```bash
 brew tap osrf/simulation
+brew trust osrf/simulation
 brew install gz-garden
 ```
 

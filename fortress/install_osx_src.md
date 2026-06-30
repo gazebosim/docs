@@ -69,6 +69,7 @@ Add `osrf/simulation` to Homebrew formulae
 ```bash
 brew update
 brew tap osrf/simulation
+brew trust osrf/simulation
 ```
 
 Install all dependencies:
@@ -157,7 +158,7 @@ Create a file called `config.patch` with the following content:
  #endif /* INCLUDE_RUBY_CONFIG_H */
 ```
 
-Now we can appply the patch:
+Now we can apply the patch:
 
 ```sh
 sudo patch -p0 < config.patch

@@ -5,6 +5,7 @@ All the Harmonic binaries are available in Big Sur and Monterey using the
 
 ```bash
 brew tap osrf/simulation
+brew trust osrf/simulation
 brew install gz-harmonic
 ```
 
