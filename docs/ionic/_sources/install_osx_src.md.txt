@@ -53,18 +53,11 @@ mkdir -p ~/workspace/src
 cd ~/workspace/src
 ```
 
-All the sources of gazebo-ionic are declared in a yaml file. Download
-it to the workspace:
-
-```bash
-curl -OL https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-ionic.yaml
-```
-
 Use `vcstool` to automatically retrieve all the Gazebo libraries sources from
 their repositories:
 
 ```bash
-vcs import < collection-ionic.yaml
+vcs import --input https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-ionic.yaml src
 ```
 
 The src subdirectory should contain all the sources ready to be built.
