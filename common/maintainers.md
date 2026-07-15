@@ -14,8 +14,8 @@ need to be carried out by the person who will be running the naming process.
 
 - 4 weeks before release, 3 weeks before community meeting: Start a new column
   in the
-  [Gazebo release names](https://docs.google.com/spreadsheets/d/1dveyz4Oc3akVfmwRcgmYxy9KUuy7b5aRJx6kUgb9gq0/edit?pli=1&gid=0#gid=0) (not public)
-  spreadsheet and invite project committers to start populating the column with
+  [Gazebo release names spreadsheet](https://docs.google.com/spreadsheets/d/1dveyz4Oc3akVfmwRcgmYxy9KUuy7b5aRJx6kUgb9gq0/edit?pli=1&gid=0#gid=0) (not public)
+  and invite project committers to start populating the column with
   potential names for the new release. Remind everyone about the naming theme
   and add a couple of names to the column as examples.
 - 3 weeks before release, 2 weeks before community meeting:
