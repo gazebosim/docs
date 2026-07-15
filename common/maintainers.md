@@ -2,6 +2,58 @@
 
 This document provides guidelines and tools for Gazebo maintainers.
 
+## Gazebo Release name selection
+
+Each year, while preparing to make a new Gazebo release, the PMC selects a new
+name for the following year's release. The release name selection process
+typically starts four weeks before the upcoming (already named) Gazebo release.
+This is so that the new name can be announced in the community meeting which
+will be held for the release demo. The new name will also be included in the
+Discourse post announcing the release. The following is a schedule of tasks that
+need to be carried out by the person who will be running the naming process.
+
+- 4 weeks before release, 3 weeks before community meeting: Start a new column
+  in the
+  [Gazebo release names](https://docs.google.com/spreadsheets/d/1dveyz4Oc3akVfmwRcgmYxy9KUuy7b5aRJx6kUgb9gq0/edit?pli=1&gid=0#gid=0) (not public)
+  spreadsheet and invite project committers to start populating the column with
+  potential names for the new release. Remind everyone about the naming theme
+  and add a couple of names to the column as examples.
+- 3 weeks before release, 2 weeks before community meeting:
+  - During the week's PMC meeting, filter the names taking into account the
+    meaning, trademarks, ease of spelling, ease of searching, etc.
+  - Assuming the filtering is completed, create a poll on Discourse asking the
+    community to vote for their favorite name from the filtered list. Explain
+    that the voting will use a ranked choice system (see
+    [example from Jetty](https://discourse.openrobotics.org/t/name-the-next-gazebo-release-gazebo-k/50040)).
+    The voting should close a day before the community meeting that will be held
+    to present demos from the new release.
+- 2 weeks before the release, 1 week before community meeting:
+  - Remind the community to vote
+- 2 days before community meeting:
+  - Send last reminder to vote
+- 1 day before community meeting:
+  - Record the final name selected by the community.
+
+### Name selection timelines from previous releases
+
+- Jetty -> Gazebo-K timeline
+  - Sept 3 - Asked committers to suggest names
+  - Sept 8 - Discussed during PMC meeting
+  - Sept 12 - [Post on discourse asking the community to vote](https://discourse.openrobotics.org/t/name-the-next-gazebo-release-gazebo-k/50040)
+  - Sept 29 - Voting closed
+    - In most years, the community meeting (release demos) comes before the
+      release. For Jetty, we did it after, so the new name was announced in the
+      Discourse post first.
+  - Sep 30 - [Release](https://discourse.openrobotics.org/t/gazebo-jetty-released/50349)
+  - Oct 1 - [Community meeting (Demo)](https://vimeo.com/1123639071)
+- Ionic -> Gazebo-J timeline
+  - Aug 26 - Asked committers to suggest names
+  - Sep 9 - Discussed during PMC meeting
+  - Sep 9 - [Post on discourse asking the community to vote](https://discourse.openrobotics.org/t/name-the-next-gazebo-release-gazebo-j/48589)
+  - Sep 25 - Voting closed
+  - Sep 25 - [Community meeting (Demo)](https://vimeo.com/1014479065), selected name was announced.
+  - Sep 30 - [Release](https://discourse.openrobotics.org/t/gazebo-ionic-release/49064)
+
 ## Backporting
 
 When a pull request is merged into the `main` development branch or a stable branch, it may be necessary to backport or forward-port it to other supported (non-EOL) collections if it fixes a bug or adds a non-breaking feature. Even when a PR is merged into an older stable branch, we still use the `@mergifyio backport` command to propagate it forward to newer branches including `main`.
