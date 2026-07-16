@@ -1,1 +1,1 @@
-../../cmake/3/dynsections.js
+../../cmake/2/dynsections.js

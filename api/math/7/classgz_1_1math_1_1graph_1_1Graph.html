@@ -177,7 +177,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:af45a5fed211840bfbb142838834bd975"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all vertices that are directly connected with one edge to a given vertex. In other words, this function will return child vertices of the given vertex (all vertices from the given vertex).  <a href="classgz_1_1math_1_1graph_1_1Graph.html#af45a5fed211840bfbb142838834bd975">More...</a><br /></td></tr>
 <tr class="separator:af45a5fed211840bfbb142838834bd975"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac5c3c5d658e6e209bd2df3ba9816488d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacegz_1_1math_1_1graph.html#a227b0188a2c9499b5cd9360568a2fc53">VertexRef_M</a>&lt; V &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#ac5c3c5d658e6e209bd2df3ba9816488d">AdjacentsTo</a> (const <a class="el" href="namespacegz_1_1math_1_1graph.html#a1f7010c44b0824e6e2d08c537522e1a0">VertexId</a> &amp;_vertex) const</td></tr>
-<tr class="memdesc:ac5c3c5d658e6e209bd2df3ba9816488d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all vertices that are directly connected with one edge to a given vertex. In other words, this function will return child vertices of the given vertex (all vertices from the given vertex).  <a href="classgz_1_1math_1_1graph_1_1Graph.html#ac5c3c5d658e6e209bd2df3ba9816488d">More...</a><br /></td></tr>
+<tr class="memdesc:ac5c3c5d658e6e209bd2df3ba9816488d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get all vertices that are directly connected with one edge to a given vertex. In other words, this returns the parent vertices of the given vertex (all vertices i such that the edge (i-&gt;_vertex) exists).  <a href="classgz_1_1math_1_1graph_1_1Graph.html#ac5c3c5d658e6e209bd2df3ba9816488d">More...</a><br /></td></tr>
 <tr class="separator:ac5c3c5d658e6e209bd2df3ba9816488d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adba06ce47e09eccad6f905387ee2f719"><td class="memItemLeft" align="right" valign="top">EdgeType &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#adba06ce47e09eccad6f905387ee2f719">EdgeFromId</a> (const <a class="el" href="namespacegz_1_1math_1_1graph.html#a0e7b937a5acbf171c4256ff5531df014">EdgeId</a> &amp;_id)</td></tr>
 <tr class="memdesc:adba06ce47e09eccad6f905387ee2f719"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a mutable reference to an edge using its Id.  <a href="classgz_1_1math_1_1graph_1_1Graph.html#adba06ce47e09eccad6f905387ee2f719">More...</a><br /></td></tr>
@@ -263,6 +263,7 @@ Protected Attributes</h2></td></tr>
 class gz::math::graph::Graph&lt; V, E, EdgeType &gt;</h3>
 
 <p>A generic graph class. Both vertices and edges can store user information. A vertex could be created passing a custom Id if needed, otherwise it will be chosen internally. The vertices also have a name that could be reused among other vertices if needed. This class supports the use of different edge types (e.g. directed or undirected edges). </p>
+<dl class="section user"><dt>Thread safety</dt><dd>This class is not internally synchronized. Concurrent calls into the same <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html" title="A generic graph class. Both vertices and edges can store user information. A vertex could be created ...">Graph</a> are unsafe; concurrent read-only access from multiple threads is safe only if no thread holds a mutable reference into the graph.</dd></dl>
 <p><b> Example directed graph</b> </p><div class="fragment"><div class="line"><span class="comment">// Create a directed graph that is capable of storing integer data in the</span></div>
 <div class="line"><span class="comment">// vertices and double data on the edges.</span></div>
 <div class="line">graph::DirectedGraph&lt;int, double&gt; graph(</div>
@@ -441,7 +442,7 @@ class gz::math::graph::Graph&lt; V, E, EdgeType &gt;</h3>
 
 <p class="reference">References <a class="elRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a6072871e8b2171f5fc136c763ace483a">gz::math::graph::kNullId</a>, <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#ae5d8b54b2405f303d7b6f91879da183f">Graph&lt; V, E, EdgeType &gt;::LinkEdge()</a>, and <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/move.html">std::move()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#af324bc33f5bb44a19a1e1d2ca2af7ed2">Graph&lt; V, E, EdgeType &gt;::Graph()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a9b92ff00d2f2580a16823994b08a4022">gz::math::graph::BreadthFirstSort()</a>, and <a class="el" href="namespacegz_1_1math_1_1graph.html#a86a9e4cb88f8e7174917cac770fdda3d">gz::math::graph::DepthFirstSort()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#af324bc33f5bb44a19a1e1d2ca2af7ed2">Graph&lt; V, E, EdgeType &gt;::Graph()</a>, and <a class="el" href="namespacegz_1_1math_1_1graph.html#a4f080e7ec56c5ef49bb3ad1a9fdfb000">gz::math::graph::Subgraph()</a>.</p>
 
 </div>
 </div>
@@ -496,9 +497,9 @@ class gz::math::graph::Graph&lt; V, E, EdgeType &gt;</h3>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the new vertex. </dd></dl>
 
-<p class="reference">References <a class="elRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl()</a>, <a class="elRef" href="http://en.cppreference.com/w/cpp/container/multimap/insert.html">multimap&lt; K, T &gt;::insert()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a6072871e8b2171f5fc136c763ace483a">gz::math::graph::kNullId</a>, and <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/pair/make_pair.html">std::make_pair()</a>.</p>
+<p class="reference">References <a class="elRef" href="http://en.cppreference.com/w/cpp/io/manip/endl.html">std::endl()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a6072871e8b2171f5fc136c763ace483a">gz::math::graph::kNullId</a>, and <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/pair/make_pair.html">std::make_pair()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#af324bc33f5bb44a19a1e1d2ca2af7ed2">Graph&lt; V, E, EdgeType &gt;::Graph()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a9b92ff00d2f2580a16823994b08a4022">gz::math::graph::BreadthFirstSort()</a>, and <a class="el" href="namespacegz_1_1math_1_1graph.html#a86a9e4cb88f8e7174917cac770fdda3d">gz::math::graph::DepthFirstSort()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#af324bc33f5bb44a19a1e1d2ca2af7ed2">Graph&lt; V, E, EdgeType &gt;::Graph()</a>, and <a class="el" href="namespacegz_1_1math_1_1graph.html#a4f080e7ec56c5ef49bb3ad1a9fdfb000">gz::math::graph::Subgraph()</a>.</p>
 
 </div>
 </div>
@@ -576,7 +577,7 @@ class gz::math::graph::Graph&lt; V, E, EdgeType &gt;</h3>
 
 <p class="reference">References <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/functional/ref.html">std::cref()</a>, <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#a56e9d57290d978aeef111417f37ada36">Graph&lt; V, E, EdgeType &gt;::EdgeFromId()</a>, <a class="elRef" href="http://en.cppreference.com/w/cpp/container/map/emplace.html">map&lt; K, T &gt;::emplace()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a6072871e8b2171f5fc136c763ace483a">gz::math::graph::kNullId</a>, <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/pair/make_pair.html">std::make_pair()</a>, and <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#a3424c0c193ab38d9f6cf7582a2fa0830">Graph&lt; V, E, EdgeType &gt;::VertexFromId()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#af840ae4a776fa7d1f3003c2400e7a358">Graph&lt; V, E, EdgeType &gt;::AdjacentsFrom()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a9b92ff00d2f2580a16823994b08a4022">gz::math::graph::BreadthFirstSort()</a>, and <a class="el" href="namespacegz_1_1math_1_1graph.html#a86a9e4cb88f8e7174917cac770fdda3d">gz::math::graph::DepthFirstSort()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#af840ae4a776fa7d1f3003c2400e7a358">Graph&lt; V, E, EdgeType &gt;::AdjacentsFrom()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a9b92ff00d2f2580a16823994b08a4022">gz::math::graph::BreadthFirstSort()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a86a9e4cb88f8e7174917cac770fdda3d">gz::math::graph::DepthFirstSort()</a>, and <a class="el" href="namespacegz_1_1math_1_1graph.html#a87a45757e9a4396b27e23a056793d27a">gz::math::graph::DescendantsSet()</a>.</p>
 
 </div>
 </div>
@@ -642,7 +643,7 @@ class gz::math::graph::Graph&lt; V, E, EdgeType &gt;</h3>
 </table>
 </div><div class="memdoc">
 
-<p>Get all vertices that are directly connected with one edge to a given vertex. In other words, this function will return child vertices of the given vertex (all vertices from the given vertex). </p>
+<p>Get all vertices that are directly connected with one edge to a given vertex. In other words, this returns the parent vertices of the given vertex (all vertices i such that the edge (i-&gt;_vertex) exists). </p>
 <p>In an undirected graph, the result of this function will match the result provided by AdjacentsFrom.</p>
 <p>E.g. i is adjacent to j (the given vertex) if there is an edge (i-&gt;j). </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -654,7 +655,7 @@ class gz::math::graph::Graph&lt; V, E, EdgeType &gt;</h3>
 
 <p class="reference">References <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/functional/ref.html">std::cref()</a>, <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#a56e9d57290d978aeef111417f37ada36">Graph&lt; V, E, EdgeType &gt;::EdgeFromId()</a>, <a class="elRef" href="http://en.cppreference.com/w/cpp/container/map/emplace.html">map&lt; K, T &gt;::emplace()</a>, <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#abd602eb002d37ae71e0b00d8ece51bc5">Graph&lt; V, E, EdgeType &gt;::IncidentsTo()</a>, <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/pair/make_pair.html">std::make_pair()</a>, and <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#a3424c0c193ab38d9f6cf7582a2fa0830">Graph&lt; V, E, EdgeType &gt;::VertexFromId()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#af45a5fed211840bfbb142838834bd975">Graph&lt; V, E, EdgeType &gt;::AdjacentsTo()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#af45a5fed211840bfbb142838834bd975">Graph&lt; V, E, EdgeType &gt;::AdjacentsTo()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a9f9898e477b8579fc68bdcc678e7dcaa">gz::math::graph::Ancestors()</a>, and <a class="el" href="namespacegz_1_1math_1_1graph.html#a1c6458c1669c4b06f5b91446efb93a3f">gz::math::graph::IsAncestor()</a>.</p>
 
 </div>
 </div>
@@ -810,7 +811,7 @@ class gz::math::graph::Graph&lt; V, E, EdgeType &gt;</h3>
 
 <p class="reference">References <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/functional/ref.html">std::cref()</a>, <a class="elRef" href="http://en.cppreference.com/w/cpp/container/map/emplace.html">map&lt; K, T &gt;::emplace()</a>, and <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/pair/make_pair.html">std::make_pair()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="namespacegz_1_1math_1_1graph.html#a9b92ff00d2f2580a16823994b08a4022">gz::math::graph::BreadthFirstSort()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a61a448fd0197b5e39056c6178a613619">gz::math::graph::ConnectedComponents()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a86a9e4cb88f8e7174917cac770fdda3d">gz::math::graph::DepthFirstSort()</a>, and <a class="el" href="namespacegz_1_1math_1_1graph.html#a9f5832ba872b12d625d3b7cd48d8144d">gz::math::graph::ToUndirectedGraph()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="namespacegz_1_1math_1_1graph.html#a61a448fd0197b5e39056c6178a613619">gz::math::graph::ConnectedComponents()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a4f080e7ec56c5ef49bb3ad1a9fdfb000">gz::math::graph::Subgraph()</a>, and <a class="el" href="namespacegz_1_1math_1_1graph.html#a9f5832ba872b12d625d3b7cd48d8144d">gz::math::graph::ToUndirectedGraph()</a>.</p>
 
 </div>
 </div>
@@ -1290,7 +1291,7 @@ class gz::math::graph::Graph&lt; V, E, EdgeType &gt;</h3>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>True when the vertex was removed or false otherwise. </dd></dl>
 
-<p class="reference">References <a class="elRef" href="http://en.cppreference.com/w/cpp/container/multimap/equal_range.html">multimap&lt; K, T &gt;::equal_range()</a>, <a class="elRef" href="http://en.cppreference.com/w/cpp/container/multimap/erase.html">multimap&lt; K, T &gt;::erase()</a>, <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#a75226801052d910550bb03bce6df8ab6">Graph&lt; V, E, EdgeType &gt;::IncidentsFrom()</a>, <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#abd602eb002d37ae71e0b00d8ece51bc5">Graph&lt; V, E, EdgeType &gt;::IncidentsTo()</a>, and <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#acded76285173462d9292a6e716854b26">Graph&lt; V, E, EdgeType &gt;::RemoveEdge()</a>.</p>
+<p class="reference">References <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#a75226801052d910550bb03bce6df8ab6">Graph&lt; V, E, EdgeType &gt;::IncidentsFrom()</a>, <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#abd602eb002d37ae71e0b00d8ece51bc5">Graph&lt; V, E, EdgeType &gt;::IncidentsTo()</a>, and <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#acded76285173462d9292a6e716854b26">Graph&lt; V, E, EdgeType &gt;::RemoveEdge()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#a1389cc1b2e80b835230deb2f0a9816a4">Graph&lt; V, E, EdgeType &gt;::RemoveVertex()</a>, and <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#ababc7a882b46052d6e93f235f4cd6f19">Graph&lt; V, E, EdgeType &gt;::RemoveVertices()</a>.</p>
 
@@ -1366,7 +1367,7 @@ class gz::math::graph::Graph&lt; V, E, EdgeType &gt;</h3>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The number of vertices removed. </dd></dl>
 
-<p class="reference">References <a class="elRef" href="http://en.cppreference.com/w/cpp/container/multimap/count.html">multimap&lt; K, T &gt;::count()</a>, <a class="elRef" href="http://en.cppreference.com/w/cpp/container/multimap/find.html">multimap&lt; K, T &gt;::find()</a>, and <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#a56fc2c300e17bb107b5118182dfb0099">Graph&lt; V, E, EdgeType &gt;::RemoveVertex()</a>.</p>
+<p class="reference">References <a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector/push_back.html">vector&lt; T &gt;::push_back()</a>, and <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#a56fc2c300e17bb107b5118182dfb0099">Graph&lt; V, E, EdgeType &gt;::RemoveVertex()</a>.</p>
 
 </div>
 </div>
@@ -1438,7 +1439,7 @@ class gz::math::graph::Graph&lt; V, E, EdgeType &gt;</h3>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A reference to the vertex with Id = _id or NullVertex if not found. </dd></dl>
 
-<p class="reference">Referenced by <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#a1b2df28d5a426724e36fde045a2398bf">Graph&lt; V, E, EdgeType &gt;::AdjacentsFrom()</a>, <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#ac5c3c5d658e6e209bd2df3ba9816488d">Graph&lt; V, E, EdgeType &gt;::AdjacentsTo()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a9b92ff00d2f2580a16823994b08a4022">gz::math::graph::BreadthFirstSort()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a86a9e4cb88f8e7174917cac770fdda3d">gz::math::graph::DepthFirstSort()</a>, <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#a6b0acb17e8c591dea2a66ff7693fcc17">Graph&lt; V, E, EdgeType &gt;::InDegree()</a>, and <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#a13fd44a4e2a43ed903ea48ae9734c8b0">Graph&lt; V, E, EdgeType &gt;::OutDegree()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#a1b2df28d5a426724e36fde045a2398bf">Graph&lt; V, E, EdgeType &gt;::AdjacentsFrom()</a>, <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#ac5c3c5d658e6e209bd2df3ba9816488d">Graph&lt; V, E, EdgeType &gt;::AdjacentsTo()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a9f9898e477b8579fc68bdcc678e7dcaa">gz::math::graph::Ancestors()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a9b92ff00d2f2580a16823994b08a4022">gz::math::graph::BreadthFirstSort()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a86a9e4cb88f8e7174917cac770fdda3d">gz::math::graph::DepthFirstSort()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a87a45757e9a4396b27e23a056793d27a">gz::math::graph::DescendantsSet()</a>, <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#a6b0acb17e8c591dea2a66ff7693fcc17">Graph&lt; V, E, EdgeType &gt;::InDegree()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a1c6458c1669c4b06f5b91446efb93a3f">gz::math::graph::IsAncestor()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#aba75005e9f306f7b7d90e9df3f5ccf5b">gz::math::graph::LowestCommonAncestor()</a>, <a class="el" href="classgz_1_1math_1_1graph_1_1Graph.html#a13fd44a4e2a43ed903ea48ae9734c8b0">Graph&lt; V, E, EdgeType &gt;::OutDegree()</a>, and <a class="el" href="namespacegz_1_1math_1_1graph.html#a4f080e7ec56c5ef49bb3ad1a9fdfb000">gz::math::graph::Subgraph()</a>.</p>
 
 </div>
 </div>
@@ -1470,7 +1471,7 @@ class gz::math::graph::Graph&lt; V, E, EdgeType &gt;</h3>
 
 <p class="reference">References <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/functional/ref.html">std::cref()</a>, <a class="elRef" href="http://en.cppreference.com/w/cpp/container/map/emplace.html">map&lt; K, T &gt;::emplace()</a>, and <a class="elRef" href="http://en.cppreference.com/w/cpp/utility/pair/make_pair.html">std::make_pair()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="namespacegz_1_1math_1_1graph.html#a9b92ff00d2f2580a16823994b08a4022">gz::math::graph::BreadthFirstSort()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a61a448fd0197b5e39056c6178a613619">gz::math::graph::ConnectedComponents()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#a86a9e4cb88f8e7174917cac770fdda3d">gz::math::graph::DepthFirstSort()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#aad10f204b8ee7e8cb0d24b4fa0fa52cb">gz::math::graph::Dijkstra()</a>, and <a class="el" href="namespacegz_1_1math_1_1graph.html#a9f5832ba872b12d625d3b7cd48d8144d">gz::math::graph::ToUndirectedGraph()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="namespacegz_1_1math_1_1graph.html#a61a448fd0197b5e39056c6178a613619">gz::math::graph::ConnectedComponents()</a>, <a class="el" href="namespacegz_1_1math_1_1graph.html#aad10f204b8ee7e8cb0d24b4fa0fa52cb">gz::math::graph::Dijkstra()</a>, and <a class="el" href="namespacegz_1_1math_1_1graph.html#a9f5832ba872b12d625d3b7cd48d8144d">gz::math::graph::ToUndirectedGraph()</a>.</p>
 
 </div>
 </div>

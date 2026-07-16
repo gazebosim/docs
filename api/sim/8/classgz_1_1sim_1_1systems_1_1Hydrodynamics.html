@@ -36,7 +36,7 @@
         <h1 class="project_title">Gazebo Sim</h1>
         <h2>API Reference</h2>
         <div class="version">
-        8.11.0
+        8.14.0
         </div>
       </header>
       <!-- NOTE: If you add a link to a doxygen generated page, then make
@@ -199,25 +199,25 @@ Additional Inherited Members</h2></td></tr>
 <p>Computes linear and quadratic damping (drag) forces in the body frame per Fossen's 6-DOF marine craft model [1][2]. Should be used together with the <a class="el" href="classgz_1_1sim_1_1systems_1_1Buoyancy.html" title="A system that simulates buoyancy of objects immersed in fluid. All SDF parameters are optional....">Buoyancy</a> plugin. The relevant terms from Fossen's equation of motion are: </p><pre class="fragment">D(v_r) * v_r
 </pre><p> where v_r = v - v_current is the velocity relative to the fluid in the body frame.</p>
 <p>Based on Brian Bingham's <a href="https://github.com/osrf/vrx">plugin for VRX</a>.</p>
-<h2><a class="anchor" id="autotoc_md459"></a>
+<h2><a class="anchor" id="autotoc_md460"></a>
 Added Mass and Coriolis</h2>
 <p>When using the <b>DART</b> physics engine, added mass should be specified using the SDF <code>&lt;fluid_added_mass&gt;</code> tag on the link's <code>&lt;inertial&gt;</code> element. DART integrates added mass implicitly (unconditionally stable) and automatically computes the full non-diagonal Coriolis matrix. See: <a href="http://sdformat.org/spec?ver=1.11&elem=link#inertial_fluid_added_mass">http://sdformat.org/spec?ver=1.11&amp;elem=link#inertial_fluid_added_mass</a></p>
 <p>Other physics engines (Bullet, MuJoCo) do not support native added mass. Use the legacy plugin parameters (<code>&lt;xDotU&gt;</code>, etc.) instead.</p>
 <p><b>Do not set added mass in both places simultaneously.</b> If both <code>&lt;fluid_added_mass&gt;</code> and plugin parameters are active, forces are double-counted. The plugin emits an error if this is detected.</p>
 <p>When both <code>&lt;fluid_added_mass&gt;</code> and an ocean current are present, this plugin automatically applies a Coriolis correction so that the Coriolis force uses the relative velocity v_r rather than the absolute velocity v. This correction is zero when there is no current.</p>
-<h2><a class="anchor" id="autotoc_md460"></a>
+<h2><a class="anchor" id="autotoc_md461"></a>
 SNAME Naming Convention</h2>
 <p>Damping parameters follow the SNAME (Society of Naval Architects and Marine Engineers) 1950 convention. The first lowercase letter denotes the force/moment axis, and the remaining uppercase letters denote the velocity components:</p>
 <p>| Axis | x (surge) | y (sway) | z (heave) | k (roll) | m (pitch) | n (yaw) | |---&mdash;|--------&mdash;|-------&mdash;|--------&mdash;|-------&mdash;|--------&mdash;| |------&mdash;| | Velocity | U | V | W | P | Q | R |</p>
 <p>For example, <code>&lt;yVabsV&gt;</code> is the quadratic drag on the sway axis due to |V|*V, and <code>&lt;nR&gt;</code> is the linear yaw damping due to yaw rate R.</p>
-<h2><a class="anchor" id="autotoc_md461"></a>
+<h2><a class="anchor" id="autotoc_md462"></a>
 System Parameters</h2>
-<h3><a class="anchor" id="autotoc_md462"></a>
+<h3><a class="anchor" id="autotoc_md463"></a>
 Required</h3>
 <ul>
 <li><code>&lt;link_name&gt;</code> - <a class="el" href="classgz_1_1sim_1_1Link.html" title="This class provides wrappers around entities and components which are more convenient and straight-fo...">Link</a> to apply hydrodynamic forces to. [string]</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md463"></a>
+<h3><a class="anchor" id="autotoc_md464"></a>
 Damping (Drag)</h3>
 <p>Diagonal terms:</p><ul>
 <li><code>&lt;xU&gt;</code> - Linear damping, surge [kg/s]</li>
@@ -239,7 +239,7 @@ Damping (Drag)</h3>
 <li>Quadratic (may cause oscillations): <code>&lt;{x|y|z|k|m|n}{U|V|W|P|Q|R}{U|V|W|P|Q|R}&gt;</code> e.g. <code>&lt;xRQ&gt;</code></li>
 </ul>
 <p>All damping coefficients default to 0.</p>
-<h3><a class="anchor" id="autotoc_md464"></a>
+<h3><a class="anchor" id="autotoc_md465"></a>
 Added Mass (Deprecated with DART)</h3>
 <p>Plugin-based added mass uses explicit integration, which is only conditionally stable. When using the DART physics engine, migrate to the SDF <code>&lt;fluid_added_mass&gt;</code> tag instead (see above). Other physics engines (Bullet, MuJoCo) do not support native added mass, so plugin-based parameters are the only option.</p>
 <p><b>Do not set added mass in both places simultaneously.</b> If both <code>&lt;fluid_added_mass&gt;</code> and plugin parameters are active, forces are double-counted.</p>
@@ -253,7 +253,7 @@ Added Mass (Deprecated with DART)</h3>
 <li><code>&lt;nDotR&gt;</code> - Added mass, yaw [kgm^2]</li>
 <li>Cross terms: <code>&lt;{x|y|z|k|m|n}Dot{U|V|W|P|Q|R}&gt;</code> e.g. <code>&lt;xDotR&gt;</code></li>
 </ul>
-<h3><a class="anchor" id="autotoc_md465"></a>
+<h3><a class="anchor" id="autotoc_md466"></a>
 Ocean Current</h3>
 <ul>
 <li><code>&lt;default_current&gt;</code> - Constant current velocity in world frame. [<a class="elRef" href="https://gazebosim.org/api/math/7/namespacegz_1_1math.html#a1f05093f5ee1a9ecdd54476792e4c206">gz::math::Vector3d</a>, default: 0 0 0, m/s]</li>
@@ -264,13 +264,13 @@ Ocean Current</h3>
 <li><code>&lt;lookup_current_y&gt;</code> - CSV column for y current [string]</li>
 <li><code>&lt;lookup_current_z&gt;</code> - CSV column for z current [string]</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md466"></a>
+<h3><a class="anchor" id="autotoc_md467"></a>
 Feature Flags</h3>
 <ul>
 <li><code>&lt;disable_coriolis&gt;</code> - Disable the plugin's legacy Coriolis force. Note: does not disable the implicit Coriolis from <code>&lt;fluid_added_mass&gt;</code>. [bool, default: false]</li>
 <li><code>&lt;disable_added_mass&gt;</code> - Disable the plugin's legacy added mass force. [bool, default: false]</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md467"></a>
+<h2><a class="anchor" id="autotoc_md468"></a>
 Example</h2>
 <p>Recommended configuration using <code>&lt;fluid_added_mass&gt;</code> on the link (handled by the physics engine) and this plugin for damping:</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">link</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;base_link&quot;</span>&gt;</div>
@@ -297,7 +297,7 @@ Example</h2>
 <div class="line">  &lt;<span class="keywordtype">nRabsR</span>&gt;-632.698957&lt;/<span class="keywordtype">nRabsR</span>&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
 </div><!-- fragment --><p>A complete working example is available in <code>examples/worlds/auv_controls.sdf</code>. Run it with: </p><div class="fragment"><div class="line"><a class="code" href="namespacegz.html" title="This library is part of the Gazebo project.">gz</a> sim auv_controls.sdf</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md468"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md469"></a>
 References</h2>
 <p>[1] Fossen, T. I. "Guidance and Control of Ocean Vehicles." Wiley, 1994. [2] Fossen, T. I. "Handbook of Marine Craft Hydrodynamics and
     Motion Control." Wiley, 2011. </p>

@@ -36,7 +36,7 @@
         <h1 class="project_title">Gazebo Sim</h1>
         <h2>API Reference</h2>
         <div class="version">
-        10.2.0
+        10.4.0
         </div>
       </header>
       <!-- NOTE: If you add a link to a doxygen generated page, then make
@@ -827,6 +827,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a5a252903d9fe2bb66d78a8a132ede844" id="r_a5a252903d9fe2bb66d78a8a132ede844"><td class="memItemLeft" align="right" valign="top"><a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegz_1_1sim.html#a5a252903d9fe2bb66d78a8a132ede844">entityTypeStr</a> (const <a class="el" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d">Entity</a> &amp;_entity, const <a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html">EntityComponentManager</a> &amp;_ecm)</td></tr>
 <tr class="memdesc:a5a252903d9fe2bb66d78a8a132ede844"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generally, each entity will be of some specific high-level type, such as "world", "sensor", "collision", etc, and one type only.  <br /></td></tr>
 <tr class="separator:a5a252903d9fe2bb66d78a8a132ede844"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f36735b75f569c6276a4b87ccf65727" id="r_a1f36735b75f569c6276a4b87ccf65727"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegz_1_1sim.html#a1f36735b75f569c6276a4b87ccf65727">entityTypeStrView</a> (const <a class="el" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d">Entity</a> &amp;_entity, const <a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html">EntityComponentManager</a> &amp;_ecm)</td></tr>
+<tr class="memdesc:a1f36735b75f569c6276a4b87ccf65727"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generally, each entity will be of some specific high-level type, such as "world", "sensor", "collision", etc, and one type only.  <br /></td></tr>
+<tr class="separator:a1f36735b75f569c6276a4b87ccf65727"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f85ee004d328afce27a7cda86f2baf5" id="r_a7f85ee004d328afce27a7cda86f2baf5"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="elRef" href="https://gazebosim.org/api/math/9/namespacegz_1_1math.html#a1f05093f5ee1a9ecdd54476792e4c206">math::Vector3d</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegz_1_1sim.html#a7f85ee004d328afce27a7cda86f2baf5">getGridFieldCoordinates</a> (const <a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html">EntityComponentManager</a> &amp;_ecm, const <a class="elRef" href="https://gazebosim.org/api/math/9/namespacegz_1_1math.html#a1f05093f5ee1a9ecdd54476792e4c206">math::Vector3d</a> &amp;_worldPosition, const <a class="elRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr</a>&lt; <a class="el" href="structgz_1_1sim_1_1components_1_1EnvironmentalData.html">components::EnvironmentalData</a> &gt; &amp;_gridField)</td></tr>
 <tr class="memdesc:a7f85ee004d328afce27a7cda86f2baf5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get grid field coordinates based on a world position in cartesian coordinate frames.  <br /></td></tr>
 <tr class="separator:a7f85ee004d328afce27a7cda86f2baf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -2440,7 +2443,7 @@ template&lt;&gt; </div>
 <p>Specialized conversion from a projector SDF object to a projector message object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">_in</td><td>Projecotr SDF object. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_in</td><td>Projector SDF object. </td></tr>
   </table>
   </dd>
 </dl>
@@ -4254,6 +4257,49 @@ end
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Lowercase string of entity's type-defining components. </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd>Use entityTypeStrView instead to reduce memory allocations. </dd></dl>
+
+</div>
+</div>
+<a id="a1f36735b75f569c6276a4b87ccf65727" name="a1f36735b75f569c6276a4b87ccf65727"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f36735b75f569c6276a4b87ccf65727">&#9670;&#160;</a></span>entityTypeStrView()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string_view entityTypeStrView </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d">Entity</a> &amp;&#160;</td>
+          <td class="paramname"><em>_entity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html">EntityComponentManager</a> &amp;&#160;</td>
+          <td class="paramname"><em>_ecm</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generally, each entity will be of some specific high-level type, such as "world", "sensor", "collision", etc, and one type only. </p>
+<p>This function returns a lowercase string for each type. For example, "light", "actor", etc.</p>
+<p>In case the entity isn't of any known type, this will return an empty string.</p>
+<p>In case the entity has more than one type, only one of them will be returned. This is not standard usage.</p>
+<p>Note that this is different from component type names.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_entity</td><td>Entity to get the type for. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_ecm</td><td>Immutable reference to ECM. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>ID of entity's type-defining components. </dd></dl>
 
 </div>
@@ -4591,7 +4637,7 @@ end
 <p>Check if input filename of a library is a static plugin or not. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">_filename</td><td>Library filename to check </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_filename</td><td>Library filename to check </td></tr>
   </table>
   </dd>
 </dl>
@@ -4681,7 +4727,7 @@ end
 <p>Compute the axis-aligned bounding box of a mesh. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">_sdfMesh</td><td>Mesh SDF DOM. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_sdfMesh</td><td>Mesh SDF DOM. </td></tr>
   </table>
   </dd>
 </dl>

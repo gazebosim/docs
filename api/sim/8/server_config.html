@@ -36,7 +36,7 @@
         <h1 class="project_title">Gazebo Sim</h1>
         <h2>API Reference</h2>
         <div class="version">
-        8.11.0
+        8.14.0
         </div>
       </header>
       <!-- NOTE: If you add a link to a doxygen generated page, then make
@@ -370,7 +370,23 @@ Environment variable</h3>
 <div class="image">
 <img src="camera_env.gif" alt=""/>
 </div>
- </div></div><!-- contents -->
+<h2><a class="anchor" id="autotoc_md368"></a>
+Parallel PostUpdates</h2>
+<p>By default, the <code>PostUpdate</code> phase of system plugins is executed in parallel using worker threads. This parallel execution is beneficial for worlds with a large number of plugins that perform heavy computational tasks during <code>PostUpdate</code>.</p>
+<p>However, in many typical simulations, most plugins perform trivial tasks on <code>PostUpdate</code>. In these scenarios, the overhead introduced by thread synchronization primitives can become a bottleneck and degrade simulation performance.</p>
+<p>To address this, you can configure <code>PostUpdate</code> functions to run sequentially instead of in parallel and see if it helps increase the Real Time Factor (RTF). This is done by setting the <code>&lt;parallel_postupdates&gt;</code> policy to <code>false</code>:</p>
+<div class="fragment"><div class="line">&lt;?<span class="keyword">xml</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.0&quot;</span> ?&gt;</div>
+<div class="line">&lt;<span class="keywordtype">sdf</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.6&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">world</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;default&quot;</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">gz:policies</span>&gt;</div>
+<div class="line">      &lt;<span class="keywordtype">parallel_postupdates</span>&gt;<span class="keyword">false</span>&lt;/<span class="keywordtype">parallel_postupdates</span>&gt;</div>
+<div class="line">    &lt;/<span class="keywordtype">gz:policies</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">&lt;!-- plugins and models... --&gt;</span></div>
+<div class="line">  &lt;/<span class="keywordtype">world</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">sdf</span>&gt;</div>
+</div><!-- fragment --><p>By default, this policy is set to <code>true</code>. </p>
+</div></div><!-- contents -->
 </div><!-- PageDoc -->
       </div>
     </main>

@@ -36,7 +36,7 @@
         <h1 class="project_title">Gazebo Sim</h1>
         <h2>API Reference</h2>
         <div class="version">
-        8.11.0
+        8.14.0
         </div>
       </header>
       <!-- NOTE: If you add a link to a doxygen generated page, then make
@@ -163,58 +163,67 @@
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#ifndef GZ_SIM_SYSTEMS_STATE_PUBLISHER_HH_</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#define GZ_SIM_SYSTEMS_STATE_PUBLISHER_HH_</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Model_8hh.html">gz/sim/Model.hh</a>&gt;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;<a class="codeRef" href="https://gazebosim.org/api/transport/13/Node_8hh.html">gz/transport/Node.hh</a>&gt;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="System_8hh.html">gz/sim/System.hh</a>&gt;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacegz.html" title="This library is part of the Gazebo project.">gz</a></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>sim</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">// Inline bracket to help doxygen filtering.</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">inline</span> <span class="keyword">namespace </span>GZ_SIM_VERSION_NAMESPACE {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span>systems</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00053"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html">   53</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html" title="The JointStatePublisher system publishes joint state information for a model. The published message t...">JointStatePublisher</a></div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      : <span class="keyword">public</span> <a class="code" href="classgz_1_1sim_1_1System.html" title="Base class for a System.">System</a>,</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keyword">public</span> <a class="code" href="classgz_1_1sim_1_1ISystemConfigure.html" title="Interface for a system that implements optional configuration.">ISystemConfigure</a>,</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;        <span class="keyword">public</span> <a class="code" href="classgz_1_1sim_1_1ISystemPostUpdate.html" title="Interface for a system that uses the PostUpdate phase.">ISystemPostUpdate</a></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  {</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html#aa31609ffffe23e60113249d5713333e5">   59</a></span>&#160;    <span class="keyword">public</span>: <a class="code" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html#aa31609ffffe23e60113249d5713333e5" title="Constructor.">JointStatePublisher</a>();</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html#ae6255296fbd7b10829520fa896a2175c">   62</a></span>&#160;    <span class="keyword">public</span>: <a class="code" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html#ae6255296fbd7b10829520fa896a2175c" title="Destructor.">~JointStatePublisher</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">// Documentation inherited</span></div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html#a668cabcb27d3178b0eb039cbf4eb86bc">   65</a></span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html#a668cabcb27d3178b0eb039cbf4eb86bc" title="Configure the system.">Configure</a>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> &amp;_entity,</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;        <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr&lt;const sdf::Element&gt;</a> &amp;,</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;        <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html" title="The EntityComponentManager constructs, deletes, and returns components and entities....">EntityComponentManager</a> &amp;_ecm, <a class="code" href="classgz_1_1sim_1_1EventManager.html" title="The EventManager is used to send/receive notifications of simulator events.">EventManager</a> &amp;) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="comment">// Documentation inherited</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html#a03fe1e9d56ce1c2204d79b263ed7e078">   70</a></span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html#a03fe1e9d56ce1c2204d79b263ed7e078">PostUpdate</a>(<span class="keyword">const</span> <a class="code" href="structgz_1_1sim_1_1UpdateInfo.html" title="Information passed to systems on the update callback.">UpdateInfo</a> &amp;_info,</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                            <span class="keyword">const</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html" title="The EntityComponentManager constructs, deletes, and returns components and entities....">EntityComponentManager</a> &amp;_ecm) <span class="keyword">final</span>;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keyword">private</span>: <span class="keywordtype">void</span> CreateComponents(<a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html" title="The EntityComponentManager constructs, deletes, and returns components and entities....">EntityComponentManager</a> &amp;_ecm,</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                                   <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">sim::Entity</a> _joint);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keyword">private</span>: <a class="code" href="classgz_1_1sim_1_1Model.html" title="This class provides wrappers around entities and components which are more convenient and straight-fo...">Model</a> model;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">private</span>: <a class="codeRef" href="https://gazebosim.org/api/transport/13/classgz_1_1transport_1_1Node.html">transport::Node</a> node;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;transport::Node::Publisher&gt;</a> modelPub;</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/set.html">std::set&lt;Entity&gt;</a> joints;</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> topic;</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  };</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  }</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &lt;google/protobuf/arena.h&gt;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;chrono&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="Model_8hh.html">gz/sim/Model.hh</a>&gt;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;<a class="codeRef" href="https://gazebosim.org/api/transport/13/Node_8hh.html">gz/transport/Node.hh</a>&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="System_8hh.html">gz/sim/System.hh</a>&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacegz.html" title="This library is part of the Gazebo project.">gz</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span>sim</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">// Inline bracket to help doxygen filtering.</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">inline</span> <span class="keyword">namespace </span>GZ_SIM_VERSION_NAMESPACE {</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">namespace </span>systems</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html">   60</a></span>&#160;  <span class="keyword">class </span><a class="code" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html" title="The JointStatePublisher system publishes joint state information for a model. The published message t...">JointStatePublisher</a></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;      : <span class="keyword">public</span> <a class="code" href="classgz_1_1sim_1_1System.html" title="Base class for a System.">System</a>,</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;        <span class="keyword">public</span> <a class="code" href="classgz_1_1sim_1_1ISystemConfigure.html" title="Interface for a system that implements optional configuration.">ISystemConfigure</a>,</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;        <span class="keyword">public</span> <a class="code" href="classgz_1_1sim_1_1ISystemPostUpdate.html" title="Interface for a system that uses the PostUpdate phase.">ISystemPostUpdate</a></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  {</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html#aa31609ffffe23e60113249d5713333e5">   66</a></span>&#160;    <span class="keyword">public</span>: <a class="code" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html#aa31609ffffe23e60113249d5713333e5" title="Constructor.">JointStatePublisher</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html#ae6255296fbd7b10829520fa896a2175c">   69</a></span>&#160;    <span class="keyword">public</span>: <a class="code" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html#ae6255296fbd7b10829520fa896a2175c" title="Destructor.">~JointStatePublisher</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html#a668cabcb27d3178b0eb039cbf4eb86bc">   72</a></span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html#a668cabcb27d3178b0eb039cbf4eb86bc" title="Configure the system.">Configure</a>(<span class="keyword">const</span> <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">Entity</a> &amp;_entity,</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;        <span class="keyword">const</span> <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/shared_ptr.html">std::shared_ptr&lt;const sdf::Element&gt;</a> &amp;,</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;        <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html" title="The EntityComponentManager constructs, deletes, and returns components and entities....">EntityComponentManager</a> &amp;_ecm, <a class="code" href="classgz_1_1sim_1_1EventManager.html" title="The EventManager is used to send/receive notifications of simulator events.">EventManager</a> &amp;) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="comment">// Documentation inherited</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html#a03fe1e9d56ce1c2204d79b263ed7e078">   77</a></span>&#160;    <span class="keyword">public</span>: <span class="keywordtype">void</span> <a class="code" href="classgz_1_1sim_1_1systems_1_1JointStatePublisher.html#a03fe1e9d56ce1c2204d79b263ed7e078">PostUpdate</a>(<span class="keyword">const</span> <a class="code" href="structgz_1_1sim_1_1UpdateInfo.html" title="Information passed to systems on the update callback.">UpdateInfo</a> &amp;_info,</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                            <span class="keyword">const</span> <a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html" title="The EntityComponentManager constructs, deletes, and returns components and entities....">EntityComponentManager</a> &amp;_ecm) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keyword">private</span>: <span class="keywordtype">void</span> CreateComponents(<a class="code" href="classgz_1_1sim_1_1EntityComponentManager.html" title="The EntityComponentManager constructs, deletes, and returns components and entities....">EntityComponentManager</a> &amp;_ecm,</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                                   <a class="code" href="namespacegz_1_1sim.html#ad83694d867b0e3a9446b535b5dfd208d" title="An Entity identifies a single object in simulation such as a model, link, or light....">sim::Entity</a> _joint);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keyword">private</span>: <a class="code" href="classgz_1_1sim_1_1Model.html" title="This class provides wrappers around entities and components which are more convenient and straight-fo...">Model</a> model;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keyword">private</span>: <a class="codeRef" href="https://gazebosim.org/api/transport/13/classgz_1_1transport_1_1Node.html">transport::Node</a> node;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;transport::Node::Publisher&gt;</a> modelPub;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/container/set.html">std::set&lt;Entity&gt;</a> joints;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keyword">private</span>: <a class="codeRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> topic;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    <span class="keyword">private</span>: std::chrono::steady_clock::duration updatePeriod{0};</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keyword">private</span>: std::chrono::steady_clock::duration lastUpdateTime{0};</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keyword">private</span>: google::protobuf::Arena arena;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  };</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;}</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;}</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;}</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
       </div>
     </main>

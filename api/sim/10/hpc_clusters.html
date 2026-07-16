@@ -36,7 +36,7 @@
         <h1 class="project_title">Gazebo Sim</h1>
         <h2>API Reference</h2>
         <div class="version">
-        10.2.0
+        10.4.0
         </div>
       </header>
       <!-- NOTE: If you add a link to a doxygen generated page, then make
@@ -301,8 +301,7 @@ Low-Level Last Resort (only for adventurous or desperate)</h3>
 <p>First, download .deb or .rpm files of the packages for the version of OS that is running on the GPU node (use <code>cat /etc/*-release</code> to figure it out). To unpack a .deb file, run <code>dpkg-deb -xv file.deb .</code> . To unpack an .rpm file, run <code>rpm2cpio file.rpm | cpio -idmv</code> or <code>rpm2cpio file.rpm | zstd -d | cpio -idmv</code> .</p>
 <p>Next, add the unpacked lib and lib64 folders to <code>LD_LIBRARY_PATH</code> and bin folders to <code>PATH</code>. Then you can use <code>strace</code>, <code>xvfb</code>, <code>virtualgl</code> and <code>glxgears</code> to test which NVidia files are loaded:</p>
 <div class="fragment"><div class="line">LD_LIBRARY_PATH=&quot;`pwd`/usr/lib64:$LD_LIBRARY_PATH&quot; PATH=&quot;`pwd`/usr/bin:$PATH&quot; strace -f -e openat ./opt/VirtualGL/bin/vglrun +v -d /dev/dri/card1 xvfb-run -a glxgears -info 2&gt;&amp;1 | grep -v ENOENT | grep -i nv</div>
-</div><!-- fragment --><p>The command may fail for various reasons, you might need to download recursive dependencies and so on. If your cluster uses e.g. the Lmod modules system, you can provide a part of the dependencies just by typing <code>module load X11</code>. If you can get this working, you would get the definitive answer to which files are needed inside the container. If not, you just have to guess. </p>
-<p><b>Explanation why this worked:</b> The list of files in <code>nvliblist.conf</code> is just a guess. Some might be missing, some <a href="https://github.com/apptainer/apptainer/issues/945#issuecomment-1374524681">are there and shouldn't</a>. If you finish this list manually by adding <code>--bind</code> mounts of the missing files, you will have a working GLX and EGL system inside the container.</p>
+</div><!-- fragment --><p>The command may fail for various reasons, you might need to download recursive dependencies and so on. If your cluster uses e.g. the Lmod modules system, you can provide a part of the dependencies just by typing <code>module load X11</code>. If you can get this working, you would get the definitive answer to which files are needed inside the container. If not, you just have to guess. <b>Explanation why this worked:</b> The list of files in <code>nvliblist.conf</code> is just a guess. Some might be missing, some <a href="https://github.com/apptainer/apptainer/issues/945#issuecomment-1374524681">are there and shouldn't</a>. If you finish this list manually by adding <code>--bind</code> mounts of the missing files, you will have a working GLX and EGL system inside the container.</p>
 <h2><a class="anchor" id="if-nothing-works"></a>
 If Nothing Works</h2>
 <p>If nothing from the above works, it is possible that your cluster has just not configured the GPU resources properly and it doesn't give you the permissions to use the GPUs via the <code>/dev/dri/</code> files, but only through <code>/dev/nvidia?</code>.</p>
