@@ -169,7 +169,7 @@
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;gz/msgs/config.hh&quot;</span></div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;gz/msgs/Export.hh&quot;</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;gz/msgs/detail/dynamic_message_cast.hh&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;<a class="code" href="MessageCastUtils_8hh.html">gz/msgs/MessageCastUtils.hh</a>&quot;</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;gz/utils/ImplPtr.hh&gt;</span></div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacegz_1_1msgs.html">gz::msgs</a> {</div>
@@ -199,7 +199,7 @@
 <div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classgz_1_1msgs_1_1MessageFactory.html#a17d32a7ae60c1eb3ad385eae43c45d33">   73</a></span>            <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;T&gt;</a> <a class="code hl_function" href="classgz_1_1msgs_1_1MessageFactory.html#a17d32a7ae60c1eb3ad385eae43c45d33" title="Create a new instance of a message.">New</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_msgType)</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>            {</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>              <span class="keywordflow">return</span> detail::dynamic_message_cast&lt;T&gt;(New(_msgType));</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>              <span class="keywordflow">return</span> DoDynamicCastMessage&lt;T&gt;(New(_msgType));</div>
 <div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>            }</div>
 </div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
@@ -208,7 +208,7 @@
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classgz_1_1msgs_1_1MessageFactory.html#a5062f161f32a425860e80371dbb8ca58">   84</a></span>            <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/memory/unique_ptr.html">std::unique_ptr&lt;T&gt;</a> <a class="code hl_function" href="classgz_1_1msgs_1_1MessageFactory.html#a5062f161f32a425860e80371dbb8ca58" title="Create a new instance of a message.">New</a>(<span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_msgType,</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>                <span class="keyword">const</span> <a class="code hl_classRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_args)</div>
 <div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>            {</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>              <span class="keywordflow">return</span> detail::dynamic_message_cast&lt;T&gt;(New(_msgType, _args));</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>              <span class="keywordflow">return</span> DoDynamicCastMessage&lt;T&gt;(New(_msgType, _args));</div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>            }</div>
 </div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
