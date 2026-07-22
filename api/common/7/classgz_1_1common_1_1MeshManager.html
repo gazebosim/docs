@@ -36,7 +36,7 @@
         <h1 class="project_title">Gazebo Common</h1>
         <h2>API Reference</h2>
         <div class="version">
-        7.2.0
+        7.3.0
         </div>
       </header>
       <!-- NOTE: If you add a link to a doxygen generated page, then make
@@ -178,6 +178,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a75f4e1f499bf0dcf4777f2132fdd9911" id="r_a75f4e1f499bf0dcf4777f2132fdd9911"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1MeshManager.html#a75f4e1f499bf0dcf4777f2132fdd9911">CreateExtrudedPolyline</a> (const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name, const <a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; <a class="elRef" href="https://gazebosim.org/api/math/9/namespacegz_1_1math.html#aa24c210e370bbcafa705a5ba97a2f025">gz::math::Vector2d</a> &gt; &gt; &amp;_vertices, const double _height)</td></tr>
 <tr class="memdesc:a75f4e1f499bf0dcf4777f2132fdd9911"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an extruded mesh from polylines. The polylines are assumed to be closed and non-intersecting. Delaunay triangulation is applied to create the resulting mesh. If there is more than one polyline, a ray casting algorithm will be used to identify the exterior/interior edges and remove holes from the 2D shape before extrusion.  <br /></td></tr>
 <tr class="separator:a75f4e1f499bf0dcf4777f2132fdd9911"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac80ee8a723a6e32f8c7bbbb595695471" id="r_ac80ee8a723a6e32f8c7bbbb595695471"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1common_1_1Mesh.html">common::Mesh</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1MeshManager.html#ac80ee8a723a6e32f8c7bbbb595695471">CreateMesh</a> (const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name)</td></tr>
+<tr class="memdesc:ac80ee8a723a6e32f8c7bbbb595695471"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an empty mesh and register it by name. If the mesh already exists, returns nullptr.  <br /></td></tr>
+<tr class="separator:ac80ee8a723a6e32f8c7bbbb595695471"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab44014769fb0d791e3cf6fae8ce54110" id="r_ab44014769fb0d791e3cf6fae8ce54110"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1MeshManager.html#ab44014769fb0d791e3cf6fae8ce54110">CreatePlane</a> (const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_name, const <a class="elRef" href="https://gazebosim.org/api/math/9/namespacegz_1_1math.html#ae8167e057ec4d8fdbbbf7d2f96247c5f">gz::math::Planed</a> &amp;_plane, const <a class="elRef" href="https://gazebosim.org/api/math/9/namespacegz_1_1math.html#aa24c210e370bbcafa705a5ba97a2f025">gz::math::Vector2d</a> &amp;_segments, const <a class="elRef" href="https://gazebosim.org/api/math/9/namespacegz_1_1math.html#aa24c210e370bbcafa705a5ba97a2f025">gz::math::Vector2d</a> &amp;_uvTile)</td></tr>
 <tr class="memdesc:ab44014769fb0d791e3cf6fae8ce54110"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create mesh for a plane.  <br /></td></tr>
 <tr class="separator:ab44014769fb0d791e3cf6fae8ce54110"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -272,6 +275,7 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="deprecated"><dt><b><a class="el" href="deprecated.html#_deprecated000001">Deprecated:</a></b></dt><dd>This API requires the user to allocate a <a class="el" href="classgz_1_1common_1_1Mesh.html" title="A 3D mesh.">Mesh</a> object on the heap and "move" it into <a class="el" href="classgz_1_1common_1_1MeshManager.html" title="Maintains and manages all meshes. Supported mesh formats are STL (STLA, STLB), COLLADA,...">MeshManager</a>. However, this is not safe to do across shared library boundaries and may cause segfaults during <a class="el" href="classgz_1_1common_1_1MeshManager.html" title="Maintains and manages all meshes. Supported mesh formats are STL (STLA, STLB), COLLADA,...">MeshManager</a> destruction. Use <a class="el" href="classgz_1_1common_1_1MeshManager.html#ac80ee8a723a6e32f8c7bbbb595695471">CreateMesh</a> instead </dd></dl>
 
 </div>
 </div>
@@ -675,6 +679,33 @@ Additional Inherited Members</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ac80ee8a723a6e32f8c7bbbb595695471" name="ac80ee8a723a6e32f8c7bbbb595695471"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac80ee8a723a6e32f8c7bbbb595695471">&#9670;&#160;</a></span>CreateMesh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1common_1_1Mesh.html">common::Mesh</a> * CreateMesh </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>_name</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Create an empty mesh and register it by name. If the mesh already exists, returns nullptr. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_name</td><td>the name of the new mesh </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a mutable pointer pointing to the newly allocated mesh, or nullptr if the mesh name is already claimed. </dd></dl>
 
 </div>
 </div>
