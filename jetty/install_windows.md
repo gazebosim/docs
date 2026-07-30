@@ -5,7 +5,7 @@ WARNING: Current Windows support is experimental.
 # Binary Installation on Windows 11
 
 Binaries for all the dependencies used by Gazebo can be found in the [conda-forge](https://conda-forge.org/)
-package repository. The Gazebo buildfarm and these instructions uses the [Pixi](https://pixi.sh/) package manager.
+package repository. The Gazebo buildfarm and these instructions use the [Pixi](https://pixi.sh/) package manager.
 
 ## Install dependencies
 
@@ -17,13 +17,13 @@ package repository. The Gazebo buildfarm and these instructions uses the [Pixi](
   Just make sure that the directory does not contain any spaces.
  Open up a command prompt and type the following
    ```bash
-      cd C:\Users\%USERNAME%\ # 
+      cd C:\Users\%USERNAME%\ 
       mkdir gz-ws
       cd gz-ws
       pixi init
    ```
 
-   You should be seeing this
+  You should see this:
 
    ```bash
       ✔ Created C:\Users\USER\ws_gz\pixi.toml
@@ -32,13 +32,13 @@ package repository. The Gazebo buildfarm and these instructions uses the [Pixi](
 3. Prepare the pixi.toml file
    Now that the Pixi environment has been installed, you can add the packaged gazebo binary to it and some necessary environment variables for the QT library.
 
-   Open up the pixi.toml file in your editor by choice or simple notepad.
+   Open up the pixi.toml file in your editor of choice or simple notepad.
 
    ```bash
    notepad pixi.toml
    ```
 
-   Replace `[dependencies]` the following to the pixi.toml file
+   Replace `[dependencies]` with the following in the pixi.toml file
 
    ```
    [target.win-64.activation.env]
@@ -78,9 +78,9 @@ page to start using Gazebo!
 
 ## Uninstalling binary-based gazebo install
 
-Uninstalling the Gazebo binary is as simple as removing the full folder that was created with Pixi enviroment. 
+Uninstalling the Gazebo binary is as simple as removing the full folder that was created with the Pixi environment. 
 
-In a command prompt, navigate to the root directory of where the folder is (depended on the location you choose at the first step), and remove it.
+In a command prompt, navigate to the root directory of where the folder is (depending on the location you chose at the first step), and remove it.
 
    ```bash
       cd C:\Users\%USERNAME%\ 
