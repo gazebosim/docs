@@ -55,14 +55,21 @@ package repository. The Gazebo buildfarm and these instructions uses the [Pixi](
    pixi install
    ```
 
-You should now be able to launch gazebo normally:
+
+You should now be able to launch gazebo normally within a pixi shell:
 
 ```bash
-gz sim --verbose
+pixi shell
+gz sim
 ```
 
-Alternativally launching the server and the client in two different terminales (after sourcing
-in both the install scripts, the pixi shell and the QT env variables):
+or do a pixi run which is the same thing but just one line
+
+```bash
+pixi run gz sim
+```
+
+Alternativally launching the server and the client in two different terminales (the pixi shell and the QT env variables):
 
 ```bash
 # Launch server in one terminal
