@@ -2,69 +2,90 @@
 WARNING: Current Windows support is experimental.
 </div>
 
-# Binary Installation on Windows 10
+# Binary Installation on Windows 11
 
-Most Gazebo packages are available in Windows 10 using the [conda-forge package manager](https://conda-forge.org/),
-and the Gazebo feedstock recipes can be found [here](https://github.com/search?q=org:conda-forge+libgz&type=code).
+Binaries for all the dependencies used by Gazebo can be found in the [conda-forge](https://conda-forge.org/)
+package repository. The Gazebo buildfarm and these instructions uses the [Pixi](https://pixi.sh/) package manager.
 
+## Install dependencies
 
-In order to use `conda-forge`, you will need to
-1. Install a [Conda package management system](https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html).
-   Miniconda suffices. You will likely want to check the box to add `conda` to your `PATH`
-   during the installation process so that you won't have to do this step manually.
+1. Follow the Pixi installer instructions from https://pixi.sh/latest/ to install pixi.
+   Once pixi has been installed, close the terminal session and start it again,
+   which will ensure pixi is on the PATH.
 
-2. Open a Windows command prompt, being sure to have `conda` added to your
-   Windows `PATH` system environment variable (you may also need to open
-   a new command prompt to see any `PATH` changes reflected).
+2. Make a folder to initialize the pixi project. 
+  Just make sure that the directory does not contain any spaces.
+ Open up a command prompt and type the following
+   ```bash
+      cd C:\Users\%USERNAME%\ # 
+      mkdir gz-ws
+      cd gz-ws
+      pixi init
+   ```
 
-  If you did not add Conda to your `PATH` environment variable
-  during Conda installation, you may need to navigate to the
-  location of `condabin` in order to use the `conda` command.
-  To find `condabin`, search for "Anaconda Prompt" in the
-  Windows search field near the Windows button, open it, run
-  `where conda`, and look for a line containing the directory `condabin`.
+   You should be seeing this
 
-3. Create and activate a new Conda environment:
-  ```bash
-  conda create -n gz-env
-  conda activate gz-env
-  ```
-4. Install desired Gazebo packages you want to install based on your application. Packages with the prefix `libgz-`
-   contain only the C++ libraries while the Python bindings are available separately as `gz-<package_name><#>-python`.
-   To install both with a single command use `gz-<package_name><#>`.
-   Thus you can use `gz-sim<#>` to fully install the latest version of Gazebo.
-  ```bash
-  conda install libgz-<package_name><#> --channel conda-forge
-  ```
-  Be sure to replace `<package_name>` with your desired package name (ie, common, msgs, etc.)
-  and `<#>` with the release version.  If left unspecified, `conda-forge` will install the
-  most recently stable release packages.  Be sure to check the
-  [high level install instructions](install) for corresponding version numbers.
+   ```bash
+      ✔ Created C:\Users\USER\ws_gz\pixi.toml
+   ```
 
-**Note**
+3. Prepare the pixi.toml file
+   Now that the pixi environment has been installed, you can add the packaged gazebo binary to it and some necessary environment variables for the QT library.
 
-You can view all available versions of a specific package with:
-```bash
-conda search libgz-<package_name>* --channel conda-forge
-```
-and view their dependencies with
-```bash
-conda search libgz-<package_name>* --channel conda-forge --info
-```
-and install a specific minor version with
-```bash
-conda install libgz-<package_name>=<major>.<minor>.<patch> --channel conda-forge
-```
-where `<major>` is the major release number, `<minor>` is the minor release number, and `<patch` is the patch release number.
+   Open up the pixi.toml file in your editor by choice or simple notepad.
 
-## Uninstalling binary install
+   ```bash
+   notepad pixi.toml
+   ```
 
-If you need to uninstall Gazebo or switch to a source-based install once you
-have already installed the library from binaries, run the following command:
+   Replace `[dependencies]` the following to the pixi.toml file
+
+   ```
+   [target.win-64.activation.env]
+   QT_QPA_PLATFORM_PLUGIN_PATH="%CONDA_PREFIX%\\Library\\lib\\qt6\\plugins\\platforms"
+   QML2_IMPORT_PATH="%CONDA_PREFIX%\\Library\\lib\\qt6\\qml"
+
+   [dependencies]
+   gz-sim = "10.*"
+   ```
+
+   Save and close the pixi.toml file, and then let pixi install and pull all the dependencies
+
+   ```bash
+   pixi install
+   ```
+
+You should now be able to launch gazebo normally:
 
 ```bash
-conda uninstall libgz-<package_name> --channel conda-forge
+gz sim --verbose
 ```
+
+Alternativally launching the server and the client in two different terminales (after sourcing
+in both the install scripts, the pixi shell and the QT env variables):
+
+```bash
+# Launch server in one terminal
+gz sim -s
+
+# In separate terminal, launch gui
+gz sim -g
+```
+
+This is the end of the source install instructions; head back to the [Getting started](getstarted)
+page to start using Gazebo!
+
+
+## Uninstalling binary-based gazebo install
+
+Uninstalling the gazebo binary is as simple as removing the full folder that was created with the pixi.toml and the installed gazebo binaries. 
+
+In a command prompt, navigate to the root directory of where the folder is (dependend on the location you choose at the first step), and remove it.
+
+   ```bash
+      cd C:\Users\%USERNAME%\ 
+      rmdir /s /q gz-ws
+   ```
 
 ## Troubleshooting
 
