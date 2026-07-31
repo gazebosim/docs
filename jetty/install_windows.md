@@ -60,7 +60,7 @@ You should now be able to launch gazebo normally within a pixi shell:
 
 ```bash
 pixi shell
-pixi run gz sim -v4 shapes.sdf
+gz sim -v4 shapes.sdf
 ```
 
 or do a pixi run which is the same thing but just one line:
