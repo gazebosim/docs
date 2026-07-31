@@ -72,7 +72,7 @@ pixi run gz sim -v4 empty.sdf
 > Note, currently just running `gz sim` directly doesn't work due to [this issue](https://github.com/gazebosim/gz-sim/issues/3859), so make sure to to always assign a world sdf file until this has been solved. 
 
 
-This is the end of the source install instructions; head back to the [Getting started](getstarted)
+This is the end of the binary install instructions; head back to the [Getting started](getstarted)
 page to start using Gazebo!
 
 
