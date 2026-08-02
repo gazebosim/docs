@@ -15,10 +15,13 @@ jobs:
         include:
           - ubuntu_distribution: jammy
             gazebo_distribution: harmonic
+            gz_math_version: "7"
           - ubuntu_distribution: noble
             gazebo_distribution: ionic
+            gz_math_version: "8"
           - ubuntu_distribution: noble
             gazebo_distribution: jetty
+            gz_math_version: ""
     steps:
       - uses: ros-tooling/setup-ros@v0.7
       - name: Set up Gazebo
@@ -29,9 +32,7 @@ jobs:
         run: |
           sudo apt-get install -y python3-pip
           pip3 install sphinx furo sphinx-autodoc-typehints
-          sudo apt-get install -y \
-            python3-gz-math${{ matrix.gazebo_distribution == 'harmonic' && '7' || '' }} \
-            || true
+          sudo apt-get install -y python3-gz-math${{ matrix.gz_math_version }} || true
       - name: Checkout docs repo
         uses: actions/checkout@v4
       - name: Build Python API docs
