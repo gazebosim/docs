@@ -55,8 +55,6 @@ package repository. The Gazebo buildfarm and these instructions use the [Pixi](h
    ✔ The default environment has been installed.
    ```
 
-
-
 You should now be able to launch gazebo normally within a pixi shell:
 
 ```bash
@@ -71,13 +69,10 @@ pixi shell
 gz sim -g
 ```
 
-
-> Note, Gazebo Harmonic has a bug that it can not run the simulator in one session, it needs to be launched with the server and gui seperately. This bug has been fixed in later versions of Gazebo (Ionic and up)
-
+> Note, Gazebo Harmonic has a bug that it can not run the simulator in one session, it needs to be launched with the server and gui separately. This bug has been fixed in later versions of Gazebo (Jetty and up)
 
 This is the end of the binary install instructions; head back to the [Getting started](getstarted)
 page to start using Gazebo!
-
 
 ## Uninstalling binary-based gazebo install
 
