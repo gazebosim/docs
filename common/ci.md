@@ -196,6 +196,12 @@ branch of one of these tooling repositories, you can do this by creating
 branches with the same name that starts with `ci_matching_branch/` on both the
 tooling repository and the repository to be tested.
 
+For Homebrew CI, the matching branch is normally detected from the pull request
+source branch name. When manually triggering a `pr_any` Homebrew job, a
+`release-tools` branch passed through `RTOOLS_BRANCH` can also activate the
+matching `osrf/homebrew-simulation` branch if it uses the same
+`ci_matching_branch/*` name.
+
 #### Example: testing with an additional dependency on macOS
 
 In [gz-math#361](https://github.com/gazebosim/gz-math/pull/361), a fix for
@@ -270,6 +276,9 @@ custom configuration. For example, see
 [this change](https://github.com/gazebo-tooling/release-tools/commit/28fcb9d8ad66ad0a29ad4d2675c4c451d41fba19)
 for building a custom `ign-rendering` branch on
 [this ign-sensors pull request](https://github.com/gazebosim/gz-rendering/pull/138#issuecomment-692994562).
+For Homebrew `pr_any` jobs, if `RTOOLS_BRANCH` starts with
+`ci_matching_branch/`, Jenkins also checks out the branch with the same name
+from [osrf/homebrew-simulation](https://github.com/osrf/homebrew-simulation).
 * `GAZEBODISTRO_BRANCH` (windows jobs only): a branch in
 [gazebodistro](https://github.com/gazebo-tooling/gazebodistro)
 with custom source branches for dependencies. For example, see the change in
