@@ -31,6 +31,7 @@ packages available for the platform to use:
 
 |Platform|Gazebo Versions|
 |---|---|
+| Ubuntu 26.04 Resolute | Gazebo Jetty (coming soon, recommended if using ROS 2 Lyrical), [Gazebo Rotary](/docs/rotary/install_ubuntu){.external} (recommended if using ROS 2 Rolling) |
 | Ubuntu 24.04 Noble | [Gazebo Jetty](/docs/jetty/install_ubuntu){.external} (recommended), [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended if using ROS 2 Jazzy) and [Gazebo Ionic](/docs/ionic/install_ubuntu){.external}
 | Ubuntu 22.04 Jammy | [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended) and [Gazebo Fortress](/docs/fortress/install_ubuntu){.external} (recommended if using ROS 2 Humble)
 | Mac Ventura | [Gazebo Harmonic](/docs/harmonic/install_osx){.external} (recommended) and [Gazebo Fortress](/docs/fortress/install_osx){.external}
