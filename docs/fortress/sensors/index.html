@@ -543,15 +543,15 @@ If using ROS, you can see demo launches and bridging configuration for these exa
 <section id="preliminaries">
 <h2>Preliminaries<a class="headerlink" href="#preliminaries" title="Link to this heading">#</a></h2>
 <p>When adding a <code class="docutils literal notranslate"><span class="pre">plugin</span></code> to an SDF file which does not currently contain one, the default plugins are not loaded. Before adding a sensor, make sure to add in a couple of logical defaults to your world so that it is possible to continue to use the GZ GUI:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;sdf</span><span class="w"> </span><span class="na">version=</span><span class="s">&#39;1.9&#39;</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="nt">&lt;world</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;demo&#39;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;sdf</span><span class="w"> </span><span class="na">version=</span><span class="s">'1.9'</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;world</span><span class="w"> </span><span class="na">name=</span><span class="s">'demo'</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;plugin</span>
-<span class="w">        </span><span class="na">filename=</span><span class="s">&quot;ignition-gazebo-physics-system&quot;</span>
-<span class="w">        </span><span class="na">name=</span><span class="s">&quot;ignition::gazebo::systems::Physics&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="na">filename=</span><span class="s">"ignition-gazebo-physics-system"</span>
+<span class="w">        </span><span class="na">name=</span><span class="s">"ignition::gazebo::systems::Physics"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/plugin&gt;</span>
 <span class="w">    </span><span class="nt">&lt;plugin</span>
-<span class="w">        </span><span class="na">filename=</span><span class="s">&quot;ignition-gazebo-scene-broadcaster-system&quot;</span>
-<span class="w">        </span><span class="na">name=</span><span class="s">&quot;ignition::gazebo::systems::SceneBroadcaster&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="na">filename=</span><span class="s">"ignition-gazebo-scene-broadcaster-system"</span>
+<span class="w">        </span><span class="na">name=</span><span class="s">"ignition::gazebo::systems::SceneBroadcaster"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/plugin&gt;</span>
 
 <span class="w">    </span><span class="cm">&lt;!-- ... --&gt;</span>
@@ -566,14 +566,14 @@ and the <code class="docutils literal notranslate"><span class="pre">linear_acce
 <a class="reference external" href="https://github.com/ignitionrobotics/docs/blob/master/fortress/tutorials/moving_robot/moving_robot.sdf">moving_robot.sdf</a> world and modify it. Create a new file
 <code class="docutils literal notranslate"><span class="pre">sensor_tutorial.sdf</span></code> and add the code from <code class="docutils literal notranslate"><span class="pre">moving_robot.sdf</span></code> to it.
 To define the <code class="docutils literal notranslate"><span class="pre">IMU</span></code> sensor add this code under the <code class="docutils literal notranslate"><span class="pre">&lt;world&gt;</span></code> tag:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;libignition-gazebo-imu-system.so&quot;</span>
-<span class="w">        </span><span class="na">name=</span><span class="s">&quot;ignition::gazebo::systems::Imu&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">"libignition-gazebo-imu-system.so"</span>
+<span class="w">        </span><span class="na">name=</span><span class="s">"ignition::gazebo::systems::Imu"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/plugin&gt;</span>
 </pre></div>
 </div>
 <p>This code defines the <code class="docutils literal notranslate"><span class="pre">IMU</span></code> sensor plugin to be used in our world.
 Now we can add the <code class="docutils literal notranslate"><span class="pre">IMU</span></code> sensor to our robot as follows:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;sensor</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;imu_sensor&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;imu&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;sensor</span><span class="w"> </span><span class="na">name=</span><span class="s">"imu_sensor"</span><span class="w"> </span><span class="na">type=</span><span class="s">"imu"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;always_on&gt;</span>1<span class="nt">&lt;/always_on&gt;</span>
 <span class="w">    </span><span class="nt">&lt;update_rate&gt;</span>1<span class="nt">&lt;/update_rate&gt;</span>
 <span class="w">    </span><span class="nt">&lt;visualize&gt;</span>true<span class="nt">&lt;/visualize&gt;</span>
@@ -611,25 +611,25 @@ it touches (contacts) something else. We will build an obstacle (wall)
 and add the contact sensor to it. If the robot hits the obstacle it will
 stop, preventing the robot from damaging itself. Let’s first build the
 obstacle as follows:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;wall&#39;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">name=</span><span class="s">'wall'</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;static&gt;</span>true<span class="nt">&lt;/static&gt;</span>
 <span class="w">    </span><span class="nt">&lt;pose&gt;</span>5<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span><span class="cm">&lt;!--pose relative to the world--&gt;</span>
-<span class="w">    </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;box&#39;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">'box'</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="nt">&lt;pose/&gt;</span>
-<span class="w">        </span><span class="nt">&lt;visual</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;visual&#39;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;visual</span><span class="w"> </span><span class="na">name=</span><span class="s">'visual'</span><span class="nt">&gt;</span>
 <span class="w">            </span><span class="nt">&lt;geometry&gt;</span>
 <span class="w">                </span><span class="nt">&lt;box&gt;</span>
 <span class="w">                    </span><span class="nt">&lt;size&gt;</span>0.5<span class="w"> </span>10.0<span class="w"> </span>2.0<span class="nt">&lt;/size&gt;</span>
 <span class="w">                </span><span class="nt">&lt;/box&gt;</span>
 <span class="w">            </span><span class="nt">&lt;/geometry&gt;</span>
-<span class="w">            </span><span class="cm">&lt;!--let&#39;s add color to our link--&gt;</span>
+<span class="w">            </span><span class="cm">&lt;!--let's add color to our link--&gt;</span>
 <span class="w">            </span><span class="nt">&lt;material&gt;</span>
 <span class="w">                </span><span class="nt">&lt;ambient&gt;</span>0.0<span class="w"> </span>0.0<span class="w"> </span>1.0<span class="w"> </span>1<span class="nt">&lt;/ambient&gt;</span>
 <span class="w">                </span><span class="nt">&lt;diffuse&gt;</span>0.0<span class="w"> </span>0.0<span class="w"> </span>1.0<span class="w"> </span>1<span class="nt">&lt;/diffuse&gt;</span>
 <span class="w">                </span><span class="nt">&lt;specular&gt;</span>0.0<span class="w"> </span>0.0<span class="w"> </span>1.0<span class="w"> </span>1<span class="nt">&lt;/specular&gt;</span>
 <span class="w">            </span><span class="nt">&lt;/material&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/visual&gt;</span>
-<span class="w">        </span><span class="nt">&lt;collision</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;collision&#39;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;collision</span><span class="w"> </span><span class="na">name=</span><span class="s">'collision'</span><span class="nt">&gt;</span>
 <span class="w">            </span><span class="nt">&lt;geometry&gt;</span>
 <span class="w">                </span><span class="nt">&lt;box&gt;</span>
 <span class="w">                    </span><span class="nt">&lt;size&gt;</span>0.5<span class="w"> </span>10.0<span class="w"> </span>2.0<span class="nt">&lt;/size&gt;</span>
@@ -644,13 +644,13 @@ obstacle as follows:</p>
 <p>Now run the world and make sure that the wall appears in the simulation like this:</p>
 <p><img alt="wall_in_world" src="../_images/sensor_wall.png" /></p>
 <p>Let’s add the contact sensor to the wall. As with the <code class="docutils literal notranslate"><span class="pre">IMU</span></code> sensor, we should first define the <code class="docutils literal notranslate"><span class="pre">Contact</span></code> sensor by adding the following code:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;libignition-gazebo-contact-system.so&quot;</span>
-<span class="w">        </span><span class="na">name=</span><span class="s">&quot;ignition::gazebo::systems::Contact&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">"libignition-gazebo-contact-system.so"</span>
+<span class="w">        </span><span class="na">name=</span><span class="s">"ignition::gazebo::systems::Contact"</span><span class="nt">&gt;</span>
 <span class="nt">&lt;/plugin&gt;</span>
 </pre></div>
 </div>
 <p>Now we can add the <code class="docutils literal notranslate"><span class="pre">contact</span></code> sensor to the <code class="docutils literal notranslate"><span class="pre">box</span></code> link of the <code class="docutils literal notranslate"><span class="pre">wall</span></code> model:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;sensor</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;sensor_contact&#39;</span><span class="w"> </span><span class="na">type=</span><span class="s">&#39;contact&#39;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;sensor</span><span class="w"> </span><span class="na">name=</span><span class="s">'sensor_contact'</span><span class="w"> </span><span class="na">type=</span><span class="s">'contact'</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;contact&gt;</span>
 <span class="w">        </span><span class="nt">&lt;collision&gt;</span>collision<span class="nt">&lt;/collision&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/contact&gt;</span>
@@ -659,8 +659,8 @@ obstacle as follows:</p>
 </div>
 <p>The definition of the <code class="docutils literal notranslate"><span class="pre">&lt;sensor&gt;</span></code> is straight forward, we just define the <code class="docutils literal notranslate"><span class="pre">name</span></code> and the <code class="docutils literal notranslate"><span class="pre">type</span></code> of the sensor. And inside the <code class="docutils literal notranslate"><span class="pre">collision</span></code> we define the box link collision name which is <code class="docutils literal notranslate"><span class="pre">collision</span></code>.</p>
 <p>We need also to add the <code class="docutils literal notranslate"><span class="pre">TouchPlugin</span></code> under the <code class="docutils literal notranslate"><span class="pre">wall</span></code> model as follows:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;libignition-gazebo-touchplugin-system.so&quot;</span>
-<span class="w">        </span><span class="na">name=</span><span class="s">&quot;ignition::gazebo::systems::TouchPlugin&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">"libignition-gazebo-touchplugin-system.so"</span>
+<span class="w">        </span><span class="na">name=</span><span class="s">"ignition::gazebo::systems::TouchPlugin"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;target&gt;</span>vehicle_blue<span class="nt">&lt;/target&gt;</span>
 <span class="w">    </span><span class="nt">&lt;namespace&gt;</span>wall<span class="nt">&lt;/namespace&gt;</span>
 <span class="w">    </span><span class="nt">&lt;time&gt;</span>0.001<span class="nt">&lt;/time&gt;</span>
@@ -681,12 +681,12 @@ has been touched. The tags of the plugin are as follows:</p>
 <p>Drive your robot forward to the wall using the keyboard arrow keys. Make sure to start the simulation by hitting the play button, and enable the Key Publisher plugin as well by clicking on the plugins dropdown list (vertical ellipsis), then selecting “Key Publisher”.</p>
 <p>When you hit the bump you should see a message <code class="docutils literal notranslate"><span class="pre">data:</span> <span class="pre">true</span></code> on the terminal where you ran the <code class="docutils literal notranslate"><span class="pre">ign</span> <span class="pre">topic</span> <span class="pre">-e</span> <span class="pre">-t</span> <span class="pre">/wall/touched</span></code>.</p>
 <p>Now we can use the <code class="docutils literal notranslate"><span class="pre">TriggeredPublisher</span></code> plugin to make our robot stop when hits the wall as follows:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;libignition-gazebo-triggered-publisher-system.so&quot;</span>
-<span class="w">        </span><span class="na">name=</span><span class="s">&quot;ignition::gazebo::systems::TriggeredPublisher&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;input</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ignition.msgs.Boolean&quot;</span><span class="w"> </span><span class="na">topic=</span><span class="s">&quot;/wall/touched&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">"libignition-gazebo-triggered-publisher-system.so"</span>
+<span class="w">        </span><span class="na">name=</span><span class="s">"ignition::gazebo::systems::TriggeredPublisher"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;input</span><span class="w"> </span><span class="na">type=</span><span class="s">"ignition.msgs.Boolean"</span><span class="w"> </span><span class="na">topic=</span><span class="s">"/wall/touched"</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="nt">&lt;match&gt;</span>data:<span class="w"> </span>true<span class="nt">&lt;/match&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/input&gt;</span>
-<span class="w">    </span><span class="nt">&lt;output</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ignition.msgs.Twist&quot;</span><span class="w"> </span><span class="na">topic=</span><span class="s">&quot;/cmd_vel&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;output</span><span class="w"> </span><span class="na">type=</span><span class="s">"ignition.msgs.Twist"</span><span class="w"> </span><span class="na">topic=</span><span class="s">"/cmd_vel"</span><span class="nt">&gt;</span>
 <span class="w">        </span>linear:<span class="w"> </span>{x:<span class="w"> </span>0.0},<span class="w"> </span>angular:<span class="w"> </span>{z:<span class="w"> </span>0.0}
 <span class="w">    </span><span class="nt">&lt;/output&gt;</span>
 <span class="nt">&lt;/plugin&gt;</span>
@@ -701,22 +701,22 @@ we can publish an output depending on a received input. So when we receive
 <h2>Lidar sensor<a class="headerlink" href="#lidar-sensor" title="Link to this heading">#</a></h2>
 <p>We don’t want our robot to touch the wall at all because this may cause some damage, so instead of the contact sensor we can use the Lidar. Lidar is an acronym for “light detection and ranging”. This sensor can help us detect obstacles around the robot. We will use it to measure the distance between our robot and the wall.</p>
 <p>First let’s create a frame to fix our lidar to. This should be added inside of the <code class="docutils literal notranslate"><span class="pre">vehicle_blue</span></code> <code class="docutils literal notranslate"><span class="pre">&lt;model&gt;</span></code> tag, since the lidar frame is attached to the robot’s <code class="docutils literal notranslate"><span class="pre">chassis</span></code>:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;frame</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;lidar_frame&quot;</span><span class="w"> </span><span class="na">attached_to=</span><span class="s">&#39;chassis&#39;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;frame</span><span class="w"> </span><span class="na">name=</span><span class="s">"lidar_frame"</span><span class="w"> </span><span class="na">attached_to=</span><span class="s">'chassis'</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;pose&gt;</span>0.8<span class="w"> </span>0<span class="w"> </span>0.5<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
 <span class="nt">&lt;/frame&gt;</span>
 </pre></div>
 </div>
 <p>Then add this plugin under the <code class="docutils literal notranslate"><span class="pre">&lt;world&gt;</span></code> tag, to be able to use the <code class="docutils literal notranslate"><span class="pre">lidar</span></code> sensor:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&lt;plugin</span>
-<span class="w">      </span><span class="na">filename=</span><span class="s">&quot;libignition-gazebo-sensors-system.so&quot;</span>
-<span class="w">      </span><span class="na">name=</span><span class="s">&quot;ignition::gazebo::systems::Sensors&quot;</span><span class="nt">&gt;</span>
+<span class="w">      </span><span class="na">filename=</span><span class="s">"libignition-gazebo-sensors-system.so"</span>
+<span class="w">      </span><span class="na">name=</span><span class="s">"ignition::gazebo::systems::Sensors"</span><span class="nt">&gt;</span>
 <span class="w">      </span><span class="nt">&lt;render_engine&gt;</span>ogre2<span class="nt">&lt;/render_engine&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/plugin&gt;</span>
 </pre></div>
 </div>
 <p>Under the <code class="docutils literal notranslate"><span class="pre">chassis</span></code> link we can add the <code class="docutils literal notranslate"><span class="pre">lidar</span></code> sensor as follows:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;sensor</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;gpu_lidar&#39;</span><span class="w"> </span><span class="na">type=</span><span class="s">&#39;gpu_lidar&#39;</span><span class="nt">&gt;</span>&quot;
-<span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">&#39;lidar_frame&#39;</span><span class="nt">&gt;</span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;sensor</span><span class="w"> </span><span class="na">name=</span><span class="s">'gpu_lidar'</span><span class="w"> </span><span class="na">type=</span><span class="s">'gpu_lidar'</span><span class="nt">&gt;</span>"
+<span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">'lidar_frame'</span><span class="nt">&gt;</span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
 <span class="w">    </span><span class="nt">&lt;topic&gt;</span>lidar<span class="nt">&lt;/topic&gt;</span>
 <span class="w">    </span><span class="nt">&lt;update_rate&gt;</span>10<span class="nt">&lt;/update_rate&gt;</span>
 <span class="w">    </span><span class="nt">&lt;ray&gt;</span>
@@ -808,7 +808,7 @@ You can download the finished node for this demo from <a class="reference extern
 <section id="the-lidar-node">
 <h4>The lidar_node<a class="headerlink" href="#the-lidar-node" title="Link to this heading">#</a></h4>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">ignition</span><span class="o">::</span><span class="n">transport</span><span class="o">::</span><span class="n">Node</span><span class="w"> </span><span class="n">node</span><span class="p">;</span>
-<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">topic_pub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/cmd_vel&quot;</span><span class="p">;</span>
+<span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">topic_pub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"/cmd_vel"</span><span class="p">;</span>
 <span class="n">ignition</span><span class="o">::</span><span class="n">msgs</span><span class="o">::</span><span class="n">Twist</span><span class="w"> </span><span class="n">data</span><span class="p">;</span>
 <span class="k">auto</span><span class="w"> </span><span class="n">pub</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">node</span><span class="p">.</span><span class="n">Advertise</span><span class="o">&lt;</span><span class="n">ignition</span><span class="o">::</span><span class="n">msgs</span><span class="o">::</span><span class="n">Twist</span><span class="o">&gt;</span><span class="p">(</span><span class="n">topic_pub</span><span class="p">);</span>
 </pre></div>
@@ -843,11 +843,11 @@ You can download the finished node for this demo from <a class="reference extern
 If so we publish a message to our car to move forward. Otherwise we make the robot rotate.</p>
 <div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">**</span><span class="n">argv</span><span class="p">)</span>
 <span class="p">{</span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;/lidar&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"/lidar"</span><span class="p">;</span>
 <span class="w">    </span><span class="c1">// Subscribe to a topic by registering a callback.</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">node</span><span class="p">.</span><span class="n">Subscribe</span><span class="p">(</span><span class="n">topic</span><span class="p">,</span><span class="w"> </span><span class="n">cb</span><span class="p">))</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Error subscribing to topic [&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;]&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cerr</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"Error subscribing to topic ["</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">topic</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">"]"</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
 <span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="mi">-1</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
 
@@ -890,13 +890,13 @@ make<span class="w"> </span>lidar_node
 <section id="ignition-launch">
 <h2>Ignition launch<a class="headerlink" href="#ignition-launch" title="Link to this heading">#</a></h2>
 <p>Instead of running two different tasks from two different terminals we can make a launch file which will run the <code class="docutils literal notranslate"><span class="pre">sensor_world</span></code> and the <code class="docutils literal notranslate"><span class="pre">lidar_node</span></code> at the same time. Open your text editor and add the following code.</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&#39;1.0&#39;?&gt;</span>
-<span class="nt">&lt;ignition</span><span class="w"> </span><span class="na">version=</span><span class="s">&#39;1.0&#39;</span><span class="nt">&gt;</span>
-<span class="w">  </span><span class="nt">&lt;executable</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;sensor-world&#39;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version='1.0'?&gt;</span>
+<span class="nt">&lt;ignition</span><span class="w"> </span><span class="na">version=</span><span class="s">'1.0'</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;executable</span><span class="w"> </span><span class="na">name=</span><span class="s">'sensor-world'</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;command&gt;</span>ign<span class="w"> </span>gazebo<span class="w"> </span>sensor_tutorial.sdf<span class="nt">&lt;/command&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/executable&gt;</span>
 
-<span class="w">  </span><span class="nt">&lt;executable</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;lidar_node&#39;</span><span class="nt">&gt;</span>
+<span class="w">  </span><span class="nt">&lt;executable</span><span class="w"> </span><span class="na">name=</span><span class="s">'lidar_node'</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;command&gt;</span>./build/lidar_node<span class="nt">&lt;/command&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/executable&gt;</span>
 

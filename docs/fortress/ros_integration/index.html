@@ -571,19 +571,19 @@ roscore
 <p>Then we start Gazebo.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shell B:</span>
 ign<span class="w"> </span>gazebo<span class="w"> </span>-r<span class="w"> </span>camera_sensor.sdf
-<span class="c1"># if you don&#39;t see the camera image in the Image Display and it stays grey, press the orange refresh button</span>
+<span class="c1"># if you don't see the camera image in the Image Display and it stays grey, press the orange refresh button</span>
 </pre></div>
 </div>
 <p>Gazebo should be running and publishing images over the <code class="docutils literal notranslate"><span class="pre">/camera</span></code> topic.
 Let’s verify it:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shell C:</span>
-ign<span class="w"> </span>topic<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">&quot;^/camera&quot;</span>
+ign<span class="w"> </span>topic<span class="w"> </span>-l<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span><span class="s2">"^/camera"</span>
 </pre></div>
 </div>
 <p>Then we start the parameter bridge with the previous topic. To run the bridge:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Shell D:</span>
 .<span class="w"> </span>/opt/ros/noetic/setup.bash
-<span class="c1"># If installed from source, make sure you&#39;ve sourced the ros-ign packages too</span>
+<span class="c1"># If installed from source, make sure you've sourced the ros-ign packages too</span>
 rosrun<span class="w"> </span>ros_ign_bridge<span class="w"> </span>parameter_bridge<span class="w"> </span>/camera@sensor_msgs/Image@ignition.msgs.Image
 </pre></div>
 </div>

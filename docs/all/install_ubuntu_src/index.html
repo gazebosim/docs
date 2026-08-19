@@ -556,7 +556,7 @@ done above.</p>
 <section id="vcstool-and-colcon-from-apt">
 <h2>vcstool and colcon from apt<a class="headerlink" href="#vcstool-and-colcon-from-apt" title="Link to this heading">#</a></h2>
 <p>An alternative method is to use the <code class="docutils literal notranslate"><span class="pre">.deb</span></code> packages available on Debian or Ubuntu:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;echo &quot;deb http://packages.ros.org/ros2/ubuntu $(lsb_release -sc) main&quot; &gt; /etc/apt/sources.list.d/ros2-latest.list&#39;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">'echo "deb http://packages.ros.org/ros2/ubuntu $(lsb_release -sc) main" &gt; /etc/apt/sources.list.d/ros2-latest.list'</span>
 curl<span class="w"> </span>-s<span class="w"> </span>https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
 sudo<span class="w"> </span>apt-get<span class="w"> </span>update
 sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-vcstool<span class="w"> </span>python3-colcon-common-extensions
@@ -587,14 +587,14 @@ packages that compose the Jetty collection. Every platform has a different
 method to install software dependencies.</p>
 <p>Add <code class="docutils literal notranslate"><span class="pre">packages.osrfoundation.org</span></code> to the apt sources list:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>curl<span class="w"> </span>https://packages.osrfoundation.org/gazebo.gpg<span class="w"> </span>--output<span class="w"> </span>/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
-<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;deb [arch=</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2"> signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable </span><span class="k">$(</span>lsb_release<span class="w"> </span>-cs<span class="k">)</span><span class="s2"> main&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/gazebo-stable.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"deb [arch=</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2"> signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable </span><span class="k">$(</span>lsb_release<span class="w"> </span>-cs<span class="k">)</span><span class="s2"> main"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/gazebo-stable.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
 sudo<span class="w"> </span>apt-get<span class="w"> </span>update
 </pre></div>
 </div>
 <p>The command below must be run from a workspace with the Gazebo source code and will install all dependencies in Ubuntu:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/workspace/src
 sudo<span class="w"> </span>apt<span class="w"> </span>-y<span class="w"> </span>install<span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="k">$(</span>sort<span class="w"> </span>-u<span class="w"> </span><span class="k">$(</span>find<span class="w"> </span>.<span class="w"> </span>-iname<span class="w"> </span><span class="s1">&#39;packages-&#39;</span><span class="sb">`</span>lsb_release<span class="w"> </span>-cs<span class="sb">`</span><span class="s1">&#39;.apt&#39;</span><span class="w"> </span>-o<span class="w"> </span>-iname<span class="w"> </span><span class="s1">&#39;packages.apt&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">&#39;/\.git/&#39;</span><span class="k">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">&#39;/gz\|sdf/d&#39;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">&#39;\n&#39;</span><span class="w"> </span><span class="s1">&#39; &#39;</span><span class="k">)</span>
+<span class="w">  </span><span class="k">$(</span>sort<span class="w"> </span>-u<span class="w"> </span><span class="k">$(</span>find<span class="w"> </span>.<span class="w"> </span>-iname<span class="w"> </span><span class="s1">'packages-'</span><span class="sb">`</span>lsb_release<span class="w"> </span>-cs<span class="sb">`</span><span class="s1">'.apt'</span><span class="w"> </span>-o<span class="w"> </span>-iname<span class="w"> </span><span class="s1">'packages.apt'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">'/\.git/'</span><span class="k">)</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'/gz\|sdf/d'</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tr<span class="w"> </span><span class="s1">'\n'</span><span class="w"> </span><span class="s1">' '</span><span class="k">)</span>
 </pre></div>
 </div>
 <p>Alternatively, if you want to install dependencies using
@@ -603,7 +603,7 @@ ensure that <a class="reference external" href="https://docs.ros.org/en/rolling/
 and use the following command:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>~/workspace/src
 rosdep<span class="w"> </span>install<span class="w"> </span>-i<span class="w"> </span>--from-path<span class="w"> </span>.<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
-<span class="w">    </span>--skip-keys<span class="w"> </span><span class="s2">&quot;gz-cmake3 DART libogre-dev libogre-next-2.3-dev&quot;</span>
+<span class="w">    </span>--skip-keys<span class="w"> </span><span class="s2">"gz-cmake3 DART libogre-dev libogre-next-2.3-dev"</span>
 </pre></div>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">rosdep</span></code> command attempts to install dependencies listed in <code class="docutils literal notranslate"><span class="pre">package.xml</span></code>
@@ -651,11 +651,11 @@ run <code class="docutils literal notranslate"><span class="pre">export</span> <
 </pre></div>
 </div>
 <p>To speed up the build process, you could also disable tests by using</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span><span class="s1">&#39; -DBUILD_TESTING=OFF&#39;</span><span class="w"> </span>--merge-install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span><span class="s1">' -DBUILD_TESTING=OFF'</span><span class="w"> </span>--merge-install
 </pre></div>
 </div>
 <p>To use debuggers activate debug symbols. Gazebo will run slower, but you’ll be able to use GDB:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span><span class="s1">&#39; -DBUILD_TESTING=OFF&#39;</span><span class="w"> </span><span class="s1">&#39; -DCMAKE_BUILD_TYPE=Debug&#39;</span><span class="w"> </span>--merge-install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span><span class="s1">' -DBUILD_TESTING=OFF'</span><span class="w"> </span><span class="s1">' -DCMAKE_BUILD_TYPE=Debug'</span><span class="w"> </span>--merge-install
 </pre></div>
 </div>
 <p>To build a specific package with all its dependent packages:</p>
@@ -714,7 +714,7 @@ free up space, you can delete the entire workspace directory with:</p>
 <li><p>QtCreator</p></li>
 </ul>
 <p>You will need to build Gazebo with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span><span class="s1">&#39; -DQT_QML_DEBUG&#39;</span><span class="w"> </span>--merge-install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span><span class="s1">' -DQT_QML_DEBUG'</span><span class="w"> </span>--merge-install
 </pre></div>
 </div>
 <blockquote>
@@ -745,13 +745,13 @@ QtCreator hooks to the QML Debugging port.</p>
 from it. E.g.</p>
 <div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="c1">// The following:</span>
 <span class="k">const_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span>
-<span class="w">      </span><span class="s">&quot;-qmljsdebugger=port:40000,block,services:DebugMessages,QmlDebugger,&quot;</span>
-<span class="w">      </span><span class="s">&quot;V8Debugger,QmlInspector,DebugTranslation&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="s">"-qmljsdebugger=port:40000,block,services:DebugMessages,QmlDebugger,"</span>
+<span class="w">      </span><span class="s">"V8Debugger,QmlInspector,DebugTranslation"</span><span class="p">)</span>
 
 <span class="c1">// Must become the following</span>
 <span class="k">const_cast</span><span class="o">&lt;</span><span class="kt">char</span><span class="w"> </span><span class="o">*&gt;</span><span class="p">(</span>
-<span class="w">      </span><span class="s">&quot;-qmljsdebugger=port:40000,services:DebugMessages,QmlDebugger,&quot;</span>
-<span class="w">      </span><span class="s">&quot;V8Debugger,QmlInspector,DebugTranslation&quot;</span><span class="p">)</span>
+<span class="w">      </span><span class="s">"-qmljsdebugger=port:40000,services:DebugMessages,QmlDebugger,"</span>
+<span class="w">      </span><span class="s">"V8Debugger,QmlInspector,DebugTranslation"</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>

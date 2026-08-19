@@ -553,10 +553,10 @@ simultaneously simulated by a Gazebo world.</p>
 <p>Have a look at these <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md#example-1a-gazebo-transport-talker-and-ros-2-listener">examples</a>
 explaining how to make communication connections from ROS to Gazebo and vice versa.</p>
 <p>It is also possible to use ROS Launch with the <code class="docutils literal notranslate"><span class="pre">ros_gz_bridge</span></code> and represent the topics in yaml format to be given to the bridge at launch time.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">ros_topic_name</span><span class="p">:</span> <span class="s2">&quot;scan&quot;</span>
-  <span class="n">gz_topic_name</span><span class="p">:</span> <span class="s2">&quot;/scan&quot;</span>
-  <span class="n">ros_type_name</span><span class="p">:</span> <span class="s2">&quot;sensor_msgs/msg/LaserScan&quot;</span>
-  <span class="n">gz_type_name</span><span class="p">:</span> <span class="s2">&quot;gz.msgs.LaserScan&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="n">ros_topic_name</span><span class="p">:</span> <span class="s2">"scan"</span>
+  <span class="n">gz_topic_name</span><span class="p">:</span> <span class="s2">"/scan"</span>
+  <span class="n">ros_type_name</span><span class="p">:</span> <span class="s2">"sensor_msgs/msg/LaserScan"</span>
+  <span class="n">gz_type_name</span><span class="p">:</span> <span class="s2">"gz.msgs.LaserScan"</span>
   <span class="n">direction</span><span class="p">:</span> <span class="n">GZ_TO_ROS</span>  <span class="c1"># BIDIRECTIONAL or ROS_TO_GZ</span>
 </pre></div>
 </div>
@@ -598,7 +598,7 @@ from the source code to know all the different parameters accepted by this
 launch file.</p>
 <p>QOS Overrides:</p>
 <p>QOS overrides can be passed as extra parameters to the bridge using the <code class="docutils literal notranslate"><span class="pre">bridge_params</span></code> argument of the launch file. An example of this:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>ros_gz_bridge<span class="w"> </span>ros_gz_bridge.launch.py<span class="w"> </span>bridge_name:<span class="o">=</span>ros_gz_bridge<span class="w"> </span>config_file:<span class="o">=</span>&lt;path_to_your_YAML_file&gt;<span class="w"> </span>bridge_params:<span class="o">={</span><span class="s1">&#39;qos_overrides./topic_name.publisher.durability&#39;</span>:<span class="w"> </span><span class="s1">&#39;transient_local&#39;</span>,<span class="w"> </span><span class="s1">&#39;qos_overrides./another_topic_name.publisher.durability&#39;</span>:<span class="w"> </span><span class="s1">&#39;transient_local&#39;</span><span class="o">}</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>launch<span class="w"> </span>ros_gz_bridge<span class="w"> </span>ros_gz_bridge.launch.py<span class="w"> </span>bridge_name:<span class="o">=</span>ros_gz_bridge<span class="w"> </span>config_file:<span class="o">=</span>&lt;path_to_your_YAML_file&gt;<span class="w"> </span>bridge_params:<span class="o">={</span><span class="s1">'qos_overrides./topic_name.publisher.durability'</span>:<span class="w"> </span><span class="s1">'transient_local'</span>,<span class="w"> </span><span class="s1">'qos_overrides./another_topic_name.publisher.durability'</span>:<span class="w"> </span><span class="s1">'transient_local'</span><span class="o">}</span>
 </pre></div>
 </div>
 <p>You can omit the following from what you pass to <code class="docutils literal notranslate"><span class="pre">bridge_params</span></code>: <code class="docutils literal notranslate"><span class="pre">{}</span></code>, <code class="docutils literal notranslate"> </code>, <code class="docutils literal notranslate"><span class="pre">&quot;</span></code>, <code class="docutils literal notranslate"><span class="pre">'</span></code>.</p>
@@ -611,11 +611,11 @@ purpose we have created the <code class="docutils literal notranslate"><span cla
 XML or YAML launch file. In this case, the arguments are passed as attributes
 within this tag. Here’s a simplified example, a more comprehensive example can be viewed <a class="reference external" href="https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/launch/ros_gz_bridge.launch">here</a>:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;launch&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;bridge_name&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;config_file&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"bridge_name"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"config_file"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;ros_gz_bridge</span>
-<span class="w">    </span><span class="na">bridge_name=</span><span class="s">&quot;$(var bridge_name)&quot;</span>
-<span class="w">    </span><span class="na">config_file=</span><span class="s">&quot;$(var config_file)&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="na">bridge_name=</span><span class="s">"$(var bridge_name)"</span>
+<span class="w">    </span><span class="na">config_file=</span><span class="s">"$(var config_file)"</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/ros_gz_bridge&gt;</span>
 <span class="nt">&lt;/launch&gt;</span>
 </pre></div>
@@ -636,22 +636,22 @@ Python, a more comprehensive example can be viewed <a class="reference external"
 
 <span class="k">def</span><span class="w"> </span><span class="nf">generate_launch_description</span><span class="p">():</span>
 
-    <span class="n">bridge_name</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">&#39;bridge_name&#39;</span><span class="p">)</span>
-    <span class="n">config_file</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">&#39;config_file&#39;</span><span class="p">)</span>
+    <span class="n">bridge_name</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">'bridge_name'</span><span class="p">)</span>
+    <span class="n">config_file</span> <span class="o">=</span> <span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">'config_file'</span><span class="p">)</span>
 
     <span class="n">declare_bridge_name_cmd</span> <span class="o">=</span> <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
-        <span class="s1">&#39;bridge_name&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Name of ros_gz_bridge node&#39;</span>
+        <span class="s1">'bridge_name'</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">'Name of ros_gz_bridge node'</span>
     <span class="p">)</span>
 
     <span class="n">declare_config_file_cmd</span> <span class="o">=</span> <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
-        <span class="s1">&#39;config_file&#39;</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;YAML config file&#39;</span>
+        <span class="s1">'config_file'</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">'YAML config file'</span>
     <span class="p">)</span>
 
     <span class="c1"># Create the launch description and populate</span>
     <span class="n">ld</span> <span class="o">=</span> <span class="n">LaunchDescription</span><span class="p">([</span>
         <span class="n">RosGzBridge</span><span class="p">(</span>
-            <span class="n">bridge_name</span><span class="o">=</span><span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">&#39;bridge_name&#39;</span><span class="p">),</span>
-            <span class="n">config_file</span><span class="o">=</span><span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">&#39;config_file&#39;</span><span class="p">),</span>
+            <span class="n">bridge_name</span><span class="o">=</span><span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">'bridge_name'</span><span class="p">),</span>
+            <span class="n">config_file</span><span class="o">=</span><span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">'config_file'</span><span class="p">),</span>
         <span class="p">),</span>
     <span class="p">])</span>
 
@@ -706,11 +706,11 @@ Read more about <code class="docutils literal notranslate"><span class="pre">sdf
 </div>
 <p>Start the simulation in Gazebo and wait a few seconds for TFs to be published.</p>
 <p>In another terminal, send either ROS or Gazebo commands for the vehicle to move in circles:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gz<span class="w"> </span>topic<span class="w"> </span>-t<span class="w"> </span><span class="s2">&quot;/model/vehicle/cmd_vel&quot;</span><span class="w"> </span>-m<span class="w"> </span>gz.msgs.Twist<span class="w"> </span>-p<span class="w"> </span><span class="s2">&quot;linear: {x: 1.0}, angular: {z: -0.1}&quot;</span>
-ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/model/vehicle/cmd_vel<span class="w"> </span>geometry_msgs/msg/Twist<span class="w"> </span><span class="s2">&quot;{linear: {x: 5.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -0.1}}</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gz<span class="w"> </span>topic<span class="w"> </span>-t<span class="w"> </span><span class="s2">"/model/vehicle/cmd_vel"</span><span class="w"> </span>-m<span class="w"> </span>gz.msgs.Twist<span class="w"> </span>-p<span class="w"> </span><span class="s2">"linear: {x: 0.5}, angular: {z: -0.1}"</span>
+ros2<span class="w"> </span>topic<span class="w"> </span>pub<span class="w"> </span>/model/vehicle/cmd_vel<span class="w"> </span>geometry_msgs/msg/Twist<span class="w"> </span><span class="s2">"{linear: {x:0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -0.1}}</span>
 </pre></div>
 </div>
-<p>And verify the vehicle matching its trajectory in Gazebo and RViz.</p>
+<p>And verify the vehicle matching its trajectory in Gazebo and RViz. Note that the sim here is running 5 times faster than real time</p>
 <p><img alt="gz_rviz" src="../_images/gz_rviz.gif" /></p>
 <p>For more details on implementation of this demo see <a class="reference internal" href="../ros2_interop/"><span class="doc std std-doc">ROS 2 Interoperability</span></a>.</p>
 </section>

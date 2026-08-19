@@ -536,34 +536,34 @@
 <section id="building-a-world">
 <h2>Building a world<a class="headerlink" href="#building-a-world" title="Link to this heading">#</a></h2>
 <p>We will start by building a simple world and then build our robot in it. Open a new file and copy the following code to it.</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version=&quot;1.0&quot; ?&gt;</span>
-<span class="nt">&lt;sdf</span><span class="w"> </span><span class="na">version=</span><span class="s">&quot;1.7&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;world</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;car_world&quot;</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;physics</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;1ms&quot;</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ignored&quot;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version="1.0" ?&gt;</span>
+<span class="nt">&lt;sdf</span><span class="w"> </span><span class="na">version=</span><span class="s">"1.7"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;world</span><span class="w"> </span><span class="na">name=</span><span class="s">"car_world"</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;physics</span><span class="w"> </span><span class="na">name=</span><span class="s">"1ms"</span><span class="w"> </span><span class="na">type=</span><span class="s">"ignored"</span><span class="nt">&gt;</span>
 <span class="w">            </span><span class="nt">&lt;max_step_size&gt;</span>0.001<span class="nt">&lt;/max_step_size&gt;</span>
 <span class="w">            </span><span class="nt">&lt;real_time_factor&gt;</span>1.0<span class="nt">&lt;/real_time_factor&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/physics&gt;</span>
 <span class="w">        </span><span class="nt">&lt;plugin</span>
-<span class="w">            </span><span class="na">filename=</span><span class="s">&quot;libignition-gazebo-physics-system.so&quot;</span>
-<span class="w">            </span><span class="na">name=</span><span class="s">&quot;ignition::gazebo::systems::Physics&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="na">filename=</span><span class="s">"libignition-gazebo-physics-system.so"</span>
+<span class="w">            </span><span class="na">name=</span><span class="s">"ignition::gazebo::systems::Physics"</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/plugin&gt;</span>
 <span class="w">        </span><span class="nt">&lt;plugin</span>
-<span class="w">            </span><span class="na">filename=</span><span class="s">&quot;libignition-gazebo-user-commands-system.so&quot;</span>
-<span class="w">            </span><span class="na">name=</span><span class="s">&quot;ignition::gazebo::systems::UserCommands&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="na">filename=</span><span class="s">"libignition-gazebo-user-commands-system.so"</span>
+<span class="w">            </span><span class="na">name=</span><span class="s">"ignition::gazebo::systems::UserCommands"</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/plugin&gt;</span>
 <span class="w">        </span><span class="nt">&lt;plugin</span>
-<span class="w">            </span><span class="na">filename=</span><span class="s">&quot;libignition-gazebo-scene-broadcaster-system.so&quot;</span>
-<span class="w">            </span><span class="na">name=</span><span class="s">&quot;ignition::gazebo::systems::SceneBroadcaster&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="na">filename=</span><span class="s">"libignition-gazebo-scene-broadcaster-system.so"</span>
+<span class="w">            </span><span class="na">name=</span><span class="s">"ignition::gazebo::systems::SceneBroadcaster"</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/plugin&gt;</span>
 
-<span class="w">        </span><span class="nt">&lt;gui</span><span class="w"> </span><span class="na">fullscreen=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;gui</span><span class="w"> </span><span class="na">fullscreen=</span><span class="s">"0"</span><span class="nt">&gt;</span>
 
 <span class="w">            </span><span class="cm">&lt;!-- 3D scene --&gt;</span>
-<span class="w">            </span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;GzScene3D&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;3D View&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">"GzScene3D"</span><span class="w"> </span><span class="na">name=</span><span class="s">"3D View"</span><span class="nt">&gt;</span>
 <span class="w">                </span><span class="nt">&lt;ignition-gui&gt;</span>
 <span class="w">                </span><span class="nt">&lt;title&gt;</span>3D<span class="w"> </span>View<span class="nt">&lt;/title&gt;</span>
-<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;bool&quot;</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;showTitleBar&quot;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
-<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;string&quot;</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;state&quot;</span><span class="nt">&gt;</span>docked<span class="nt">&lt;/property&gt;</span>
+<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">"bool"</span><span class="w"> </span><span class="na">key=</span><span class="s">"showTitleBar"</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
+<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">"string"</span><span class="w"> </span><span class="na">key=</span><span class="s">"state"</span><span class="nt">&gt;</span>docked<span class="nt">&lt;/property&gt;</span>
 <span class="w">                </span><span class="nt">&lt;/ignition-gui&gt;</span>
 
 <span class="w">                </span><span class="nt">&lt;engine&gt;</span>ogre2<span class="nt">&lt;/engine&gt;</span>
@@ -573,19 +573,19 @@
 <span class="w">            </span><span class="nt">&lt;/plugin&gt;</span>
 
 <span class="w">            </span><span class="cm">&lt;!-- World control --&gt;</span>
-<span class="w">            </span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;WorldControl&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;World control&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">"WorldControl"</span><span class="w"> </span><span class="na">name=</span><span class="s">"World control"</span><span class="nt">&gt;</span>
 <span class="w">                </span><span class="nt">&lt;ignition-gui&gt;</span>
 <span class="w">                </span><span class="nt">&lt;title&gt;</span>World<span class="w"> </span>control<span class="nt">&lt;/title&gt;</span>
-<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;bool&quot;</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;showTitleBar&quot;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
-<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;bool&quot;</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;resizable&quot;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
-<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;double&quot;</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;height&quot;</span><span class="nt">&gt;</span>72<span class="nt">&lt;/property&gt;</span>
-<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;double&quot;</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;width&quot;</span><span class="nt">&gt;</span>121<span class="nt">&lt;/property&gt;</span>
-<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;double&quot;</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;z&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/property&gt;</span>
+<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">"bool"</span><span class="w"> </span><span class="na">key=</span><span class="s">"showTitleBar"</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
+<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">"bool"</span><span class="w"> </span><span class="na">key=</span><span class="s">"resizable"</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
+<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">"double"</span><span class="w"> </span><span class="na">key=</span><span class="s">"height"</span><span class="nt">&gt;</span>72<span class="nt">&lt;/property&gt;</span>
+<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">"double"</span><span class="w"> </span><span class="na">key=</span><span class="s">"width"</span><span class="nt">&gt;</span>121<span class="nt">&lt;/property&gt;</span>
+<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">"double"</span><span class="w"> </span><span class="na">key=</span><span class="s">"z"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/property&gt;</span>
 
-<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;string&quot;</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;state&quot;</span><span class="nt">&gt;</span>floating<span class="nt">&lt;/property&gt;</span>
-<span class="w">                </span><span class="nt">&lt;anchors</span><span class="w"> </span><span class="na">target=</span><span class="s">&quot;3D View&quot;</span><span class="nt">&gt;</span>
-<span class="w">                    </span><span class="nt">&lt;line</span><span class="w"> </span><span class="na">own=</span><span class="s">&quot;left&quot;</span><span class="w"> </span><span class="na">target=</span><span class="s">&quot;left&quot;</span><span class="nt">/&gt;</span>
-<span class="w">                    </span><span class="nt">&lt;line</span><span class="w"> </span><span class="na">own=</span><span class="s">&quot;bottom&quot;</span><span class="w"> </span><span class="na">target=</span><span class="s">&quot;bottom&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">"string"</span><span class="w"> </span><span class="na">key=</span><span class="s">"state"</span><span class="nt">&gt;</span>floating<span class="nt">&lt;/property&gt;</span>
+<span class="w">                </span><span class="nt">&lt;anchors</span><span class="w"> </span><span class="na">target=</span><span class="s">"3D View"</span><span class="nt">&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;line</span><span class="w"> </span><span class="na">own=</span><span class="s">"left"</span><span class="w"> </span><span class="na">target=</span><span class="s">"left"</span><span class="nt">/&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;line</span><span class="w"> </span><span class="na">own=</span><span class="s">"bottom"</span><span class="w"> </span><span class="na">target=</span><span class="s">"bottom"</span><span class="nt">/&gt;</span>
 <span class="w">                </span><span class="nt">&lt;/anchors&gt;</span>
 <span class="w">                </span><span class="nt">&lt;/ignition-gui&gt;</span>
 
@@ -597,19 +597,19 @@
 <span class="w">            </span><span class="nt">&lt;/plugin&gt;</span>
 
 <span class="w">            </span><span class="cm">&lt;!-- World statistics --&gt;</span>
-<span class="w">            </span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;WorldStats&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;World stats&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">"WorldStats"</span><span class="w"> </span><span class="na">name=</span><span class="s">"World stats"</span><span class="nt">&gt;</span>
 <span class="w">                </span><span class="nt">&lt;ignition-gui&gt;</span>
 <span class="w">                </span><span class="nt">&lt;title&gt;</span>World<span class="w"> </span>stats<span class="nt">&lt;/title&gt;</span>
-<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;bool&quot;</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;showTitleBar&quot;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
-<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;bool&quot;</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;resizable&quot;</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
-<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;double&quot;</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;height&quot;</span><span class="nt">&gt;</span>110<span class="nt">&lt;/property&gt;</span>
-<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;double&quot;</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;width&quot;</span><span class="nt">&gt;</span>290<span class="nt">&lt;/property&gt;</span>
-<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;double&quot;</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;z&quot;</span><span class="nt">&gt;</span>1<span class="nt">&lt;/property&gt;</span>
+<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">"bool"</span><span class="w"> </span><span class="na">key=</span><span class="s">"showTitleBar"</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
+<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">"bool"</span><span class="w"> </span><span class="na">key=</span><span class="s">"resizable"</span><span class="nt">&gt;</span>false<span class="nt">&lt;/property&gt;</span>
+<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">"double"</span><span class="w"> </span><span class="na">key=</span><span class="s">"height"</span><span class="nt">&gt;</span>110<span class="nt">&lt;/property&gt;</span>
+<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">"double"</span><span class="w"> </span><span class="na">key=</span><span class="s">"width"</span><span class="nt">&gt;</span>290<span class="nt">&lt;/property&gt;</span>
+<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">"double"</span><span class="w"> </span><span class="na">key=</span><span class="s">"z"</span><span class="nt">&gt;</span>1<span class="nt">&lt;/property&gt;</span>
 
-<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;string&quot;</span><span class="w"> </span><span class="na">key=</span><span class="s">&quot;state&quot;</span><span class="nt">&gt;</span>floating<span class="nt">&lt;/property&gt;</span>
-<span class="w">                </span><span class="nt">&lt;anchors</span><span class="w"> </span><span class="na">target=</span><span class="s">&quot;3D View&quot;</span><span class="nt">&gt;</span>
-<span class="w">                    </span><span class="nt">&lt;line</span><span class="w"> </span><span class="na">own=</span><span class="s">&quot;right&quot;</span><span class="w"> </span><span class="na">target=</span><span class="s">&quot;right&quot;</span><span class="nt">/&gt;</span>
-<span class="w">                    </span><span class="nt">&lt;line</span><span class="w"> </span><span class="na">own=</span><span class="s">&quot;bottom&quot;</span><span class="w"> </span><span class="na">target=</span><span class="s">&quot;bottom&quot;</span><span class="nt">/&gt;</span>
+<span class="w">                </span><span class="nt">&lt;property</span><span class="w"> </span><span class="na">type=</span><span class="s">"string"</span><span class="w"> </span><span class="na">key=</span><span class="s">"state"</span><span class="nt">&gt;</span>floating<span class="nt">&lt;/property&gt;</span>
+<span class="w">                </span><span class="nt">&lt;anchors</span><span class="w"> </span><span class="na">target=</span><span class="s">"3D View"</span><span class="nt">&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;line</span><span class="w"> </span><span class="na">own=</span><span class="s">"right"</span><span class="w"> </span><span class="na">target=</span><span class="s">"right"</span><span class="nt">/&gt;</span>
+<span class="w">                    </span><span class="nt">&lt;line</span><span class="w"> </span><span class="na">own=</span><span class="s">"bottom"</span><span class="w"> </span><span class="na">target=</span><span class="s">"bottom"</span><span class="nt">/&gt;</span>
 <span class="w">                </span><span class="nt">&lt;/anchors&gt;</span>
 <span class="w">                </span><span class="nt">&lt;/ignition-gui&gt;</span>
 
@@ -622,12 +622,12 @@
 <span class="w">            </span><span class="nt">&lt;/plugin&gt;</span>
 
 <span class="w">            </span><span class="cm">&lt;!-- Entity tree --&gt;</span>
-<span class="w">            </span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;EntityTree&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;Entity tree&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">"EntityTree"</span><span class="w"> </span><span class="na">name=</span><span class="s">"Entity tree"</span><span class="nt">&gt;</span>
 <span class="w">            </span><span class="nt">&lt;/plugin&gt;</span>
 
 <span class="w">        </span><span class="nt">&lt;/gui&gt;</span>
 
-<span class="w">        </span><span class="nt">&lt;light</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;directional&quot;</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;sun&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;light</span><span class="w"> </span><span class="na">type=</span><span class="s">"directional"</span><span class="w"> </span><span class="na">name=</span><span class="s">"sun"</span><span class="nt">&gt;</span>
 <span class="w">            </span><span class="nt">&lt;cast_shadows&gt;</span>true<span class="nt">&lt;/cast_shadows&gt;</span>
 <span class="w">            </span><span class="nt">&lt;pose&gt;</span>0<span class="w"> </span>0<span class="w"> </span>10<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
 <span class="w">            </span><span class="nt">&lt;diffuse&gt;</span>0.8<span class="w"> </span>0.8<span class="w"> </span>0.8<span class="w"> </span>1<span class="nt">&lt;/diffuse&gt;</span>
@@ -641,17 +641,17 @@
 <span class="w">            </span><span class="nt">&lt;direction&gt;</span>-0.5<span class="w"> </span>0.1<span class="w"> </span>-0.9<span class="nt">&lt;/direction&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/light&gt;</span>
 
-<span class="w">        </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ground_plane&quot;</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">name=</span><span class="s">"ground_plane"</span><span class="nt">&gt;</span>
 <span class="w">            </span><span class="nt">&lt;static&gt;</span>true<span class="nt">&lt;/static&gt;</span>
-<span class="w">            </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;link&quot;</span><span class="nt">&gt;</span>
-<span class="w">                </span><span class="nt">&lt;collision</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;collision&quot;</span><span class="nt">&gt;</span>
+<span class="w">            </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">"link"</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;collision</span><span class="w"> </span><span class="na">name=</span><span class="s">"collision"</span><span class="nt">&gt;</span>
 <span class="w">                </span><span class="nt">&lt;geometry&gt;</span>
 <span class="w">                    </span><span class="nt">&lt;plane&gt;</span>
 <span class="w">                    </span><span class="nt">&lt;normal&gt;</span>0<span class="w"> </span>0<span class="w"> </span>1<span class="nt">&lt;/normal&gt;</span>
 <span class="w">                    </span><span class="nt">&lt;/plane&gt;</span>
 <span class="w">                </span><span class="nt">&lt;/geometry&gt;</span>
 <span class="w">                </span><span class="nt">&lt;/collision&gt;</span>
-<span class="w">                </span><span class="nt">&lt;visual</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;visual&quot;</span><span class="nt">&gt;</span>
+<span class="w">                </span><span class="nt">&lt;visual</span><span class="w"> </span><span class="na">name=</span><span class="s">"visual"</span><span class="nt">&gt;</span>
 <span class="w">                </span><span class="nt">&lt;geometry&gt;</span>
 <span class="w">                    </span><span class="nt">&lt;plane&gt;</span>
 <span class="w">                    </span><span class="nt">&lt;normal&gt;</span>0<span class="w"> </span>0<span class="w"> </span>1<span class="nt">&lt;/normal&gt;</span>
@@ -680,8 +680,8 @@
 <p>Under the <code class="docutils literal notranslate"><span class="pre">&lt;/model&gt;</span></code> tag we will add our robot model as follows:</p>
 <section id="defining-the-model">
 <h3>Defining the model<a class="headerlink" href="#defining-the-model" title="Link to this heading">#</a></h3>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;vehicle_blue&#39;</span><span class="w"> </span><span class="na">canonical_link=</span><span class="s">&#39;chassis&#39;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">&#39;world&#39;</span><span class="nt">&gt;</span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;model</span><span class="w"> </span><span class="na">name=</span><span class="s">'vehicle_blue'</span><span class="w"> </span><span class="na">canonical_link=</span><span class="s">'chassis'</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">'world'</span><span class="nt">&gt;</span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
 </pre></div>
 </div>
 <p>Here we define the name of our model <code class="docutils literal notranslate"><span class="pre">vehicle_blue</span></code>, which should be a unique name among its siblings (other tags or models on the same level).
@@ -697,8 +697,8 @@ We set them to zeros which makes the two frames (the model and the world) identi
 <p>Every model is a group of <code class="docutils literal notranslate"><span class="pre">links</span></code> (can be just one link) connected together with <code class="docutils literal notranslate"><span class="pre">joints</span></code>.</p>
 <section id="chassis">
 <h3>Chassis<a class="headerlink" href="#chassis" title="Link to this heading">#</a></h3>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;chassis&#39;</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">&#39;__model__&#39;</span><span class="nt">&gt;</span>0.5<span class="w"> </span>0<span class="w"> </span>0.4<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">'chassis'</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">'__model__'</span><span class="nt">&gt;</span>0.5<span class="w"> </span>0<span class="w"> </span>0.4<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
 </pre></div>
 </div>
 <p>We define the first link, the <code class="docutils literal notranslate"><span class="pre">chassis</span></code> of our car and it’s pose relative to the <code class="docutils literal notranslate"><span class="pre">model</span></code>.</p>
@@ -721,13 +721,13 @@ We set them to zeros which makes the two frames (the model and the world) identi
 </section>
 <section id="visual-and-collision">
 <h4>Visual and collision<a class="headerlink" href="#visual-and-collision" title="Link to this heading">#</a></h4>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&lt;visual</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;visual&#39;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&lt;visual</span><span class="w"> </span><span class="na">name=</span><span class="s">'visual'</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="nt">&lt;geometry&gt;</span>
 <span class="w">            </span><span class="nt">&lt;box&gt;</span>
 <span class="w">                </span><span class="nt">&lt;size&gt;</span>2.0<span class="w"> </span>1.0<span class="w"> </span>0.5<span class="nt">&lt;/size&gt;</span>
 <span class="w">            </span><span class="nt">&lt;/box&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/geometry&gt;</span>
-<span class="w">        </span><span class="cm">&lt;!--let&#39;s add color to our link--&gt;</span>
+<span class="w">        </span><span class="cm">&lt;!--let's add color to our link--&gt;</span>
 <span class="w">        </span><span class="nt">&lt;material&gt;</span>
 <span class="w">            </span><span class="nt">&lt;ambient&gt;</span>0.0<span class="w"> </span>0.0<span class="w"> </span>1.0<span class="w"> </span>1<span class="nt">&lt;/ambient&gt;</span>
 <span class="w">            </span><span class="nt">&lt;diffuse&gt;</span>0.0<span class="w"> </span>0.0<span class="w"> </span>1.0<span class="w"> </span>1<span class="nt">&lt;/diffuse&gt;</span>
@@ -740,7 +740,7 @@ We set them to zeros which makes the two frames (the model and the world) identi
 We define the shape of our link inside the <code class="docutils literal notranslate"><span class="pre">&lt;geometry&gt;</span></code> tag as a <code class="docutils literal notranslate"><span class="pre">&lt;box&gt;</span></code> (cuboid) and then specify the three dimensions (in meters) of this box inside the <code class="docutils literal notranslate"><span class="pre">&lt;size&gt;</span></code> tag.
 Then, inside the <code class="docutils literal notranslate"><span class="pre">&lt;material&gt;</span></code> tag we define the material of our link.
 Here we defined the <code class="docutils literal notranslate"><span class="pre">&lt;ambient&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;diffuse&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">&lt;specular&gt;</span></code> colors in a set of four numbers red/green/blue/alpha each in range [0, 1].</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">&lt;collision</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;collision&#39;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">        </span><span class="nt">&lt;collision</span><span class="w"> </span><span class="na">name=</span><span class="s">'collision'</span><span class="nt">&gt;</span>
 <span class="w">            </span><span class="nt">&lt;geometry&gt;</span>
 <span class="w">                </span><span class="nt">&lt;box&gt;</span>
 <span class="w">                    </span><span class="nt">&lt;size&gt;</span>2.0<span class="w"> </span>1.0<span class="w"> </span>0.5<span class="nt">&lt;/size&gt;</span>
@@ -766,8 +766,8 @@ You should see three axes like this:</p>
 <section id="left-wheel">
 <h3>Left wheel<a class="headerlink" href="#left-wheel" title="Link to this heading">#</a></h3>
 <p>Let’s add wheels to our robot. The following code goes after the <code class="docutils literal notranslate"><span class="pre">&lt;/link&gt;</span></code> tag and before the <code class="docutils literal notranslate"><span class="pre">&lt;/model&gt;</span></code> tag. All the links and joints belonging to the same model should be defined before the <code class="docutils literal notranslate"><span class="pre">&lt;/model&gt;</span></code>.</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;left_wheel&#39;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">&quot;chassis&quot;</span><span class="nt">&gt;</span>-0.5<span class="w"> </span>0.6<span class="w"> </span>0<span class="w"> </span>-1.5707<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">'left_wheel'</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">"chassis"</span><span class="nt">&gt;</span>-0.5<span class="w"> </span>0.6<span class="w"> </span>0<span class="w"> </span>-1.5707<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
 <span class="w">    </span><span class="nt">&lt;inertial&gt;</span>
 <span class="w">        </span><span class="nt">&lt;mass&gt;</span>1<span class="nt">&lt;/mass&gt;</span>
 <span class="w">        </span><span class="nt">&lt;inertia&gt;</span>
@@ -788,7 +788,7 @@ That’s why we defined the orientation value as <code class="docutils literal n
 Then we defined the <code class="docutils literal notranslate"><span class="pre">inertial</span></code> properties of the wheel, the <code class="docutils literal notranslate"><span class="pre">mass</span></code> and the <code class="docutils literal notranslate"><span class="pre">inertia</span></code> matrix.</p>
 <section id="visualization-and-collision">
 <h4>Visualization and Collision<a class="headerlink" href="#visualization-and-collision" title="Link to this heading">#</a></h4>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&lt;visual</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;visual&#39;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&lt;visual</span><span class="w"> </span><span class="na">name=</span><span class="s">'visual'</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="nt">&lt;geometry&gt;</span>
 <span class="w">            </span><span class="nt">&lt;cylinder&gt;</span>
 <span class="w">                </span><span class="nt">&lt;radius&gt;</span>0.4<span class="nt">&lt;/radius&gt;</span>
@@ -801,7 +801,7 @@ Then we defined the <code class="docutils literal notranslate"><span class="pre"
 <span class="w">            </span><span class="nt">&lt;specular&gt;</span>1.0<span class="w"> </span>0.0<span class="w"> </span>0.0<span class="w"> </span>1<span class="nt">&lt;/specular&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/material&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/visual&gt;</span>
-<span class="w">    </span><span class="nt">&lt;collision</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;collision&#39;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;collision</span><span class="w"> </span><span class="na">name=</span><span class="s">'collision'</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="nt">&lt;geometry&gt;</span>
 <span class="w">            </span><span class="nt">&lt;cylinder&gt;</span>
 <span class="w">                </span><span class="nt">&lt;radius&gt;</span>0.4<span class="nt">&lt;/radius&gt;</span>
@@ -820,8 +820,8 @@ Save the file and run the world again, our model should look like this:</p>
 <section id="right-wheel">
 <h3>Right wheel<a class="headerlink" href="#right-wheel" title="Link to this heading">#</a></h3>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!--The same as left wheel but with different position--&gt;</span>
-<span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;right_wheel&#39;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">&quot;chassis&quot;</span><span class="nt">&gt;</span>-0.5<span class="w"> </span>-0.6<span class="w"> </span>0<span class="w"> </span>-1.5707<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span><span class="w"> </span><span class="cm">&lt;!--angles are in radian--&gt;</span>
+<span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">'right_wheel'</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">"chassis"</span><span class="nt">&gt;</span>-0.5<span class="w"> </span>-0.6<span class="w"> </span>0<span class="w"> </span>-1.5707<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span><span class="w"> </span><span class="cm">&lt;!--angles are in radian--&gt;</span>
 <span class="w">    </span><span class="nt">&lt;inertial&gt;</span>
 <span class="w">        </span><span class="nt">&lt;mass&gt;</span>1<span class="nt">&lt;/mass&gt;</span>
 <span class="w">        </span><span class="nt">&lt;inertia&gt;</span>
@@ -833,7 +833,7 @@ Save the file and run the world again, our model should look like this:</p>
 <span class="w">            </span><span class="nt">&lt;izz&gt;</span>0.08<span class="nt">&lt;/izz&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/inertia&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/inertial&gt;</span>
-<span class="w">    </span><span class="nt">&lt;visual</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;visual&#39;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;visual</span><span class="w"> </span><span class="na">name=</span><span class="s">'visual'</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="nt">&lt;geometry&gt;</span>
 <span class="w">            </span><span class="nt">&lt;cylinder&gt;</span>
 <span class="w">                </span><span class="nt">&lt;radius&gt;</span>0.4<span class="nt">&lt;/radius&gt;</span>
@@ -846,7 +846,7 @@ Save the file and run the world again, our model should look like this:</p>
 <span class="w">            </span><span class="nt">&lt;specular&gt;</span>1.0<span class="w"> </span>0.0<span class="w"> </span>0.0<span class="w"> </span>1<span class="nt">&lt;/specular&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/material&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/visual&gt;</span>
-<span class="w">    </span><span class="nt">&lt;collision</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;collision&#39;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;collision</span><span class="w"> </span><span class="na">name=</span><span class="s">'collision'</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="nt">&lt;geometry&gt;</span>
 <span class="w">            </span><span class="nt">&lt;cylinder&gt;</span>
 <span class="w">                </span><span class="nt">&lt;radius&gt;</span>0.4<span class="nt">&lt;/radius&gt;</span>
@@ -867,7 +867,7 @@ Save the file and run the world again, our model should look like this:</p>
 <li><p><code class="docutils literal notranslate"><span class="pre">attached_to</span></code>: the name of the frame or the link to which this frame is attached.</p></li>
 </ul>
 <p>Let’s add a frame for our caster wheel as follows:</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;frame</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;caster_frame&quot;</span><span class="w"> </span><span class="na">attached_to=</span><span class="s">&#39;chassis&#39;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;frame</span><span class="w"> </span><span class="na">name=</span><span class="s">"caster_frame"</span><span class="w"> </span><span class="na">attached_to=</span><span class="s">'chassis'</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;pose&gt;</span>0.8<span class="w"> </span>0<span class="w"> </span>-0.2<span class="w"> </span>0<span class="w"> </span>0<span class="w"> </span>0<span class="nt">&lt;/pose&gt;</span>
 <span class="nt">&lt;/frame&gt;</span>
 </pre></div>
@@ -878,8 +878,8 @@ We didn’t use the <code class="docutils literal notranslate"><span class="pre"
 <section id="caster-wheel">
 <h3>Caster wheel<a class="headerlink" href="#caster-wheel" title="Link to this heading">#</a></h3>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!--caster wheel--&gt;</span>
-<span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;caster&#39;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">&#39;caster_frame&#39;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;link</span><span class="w"> </span><span class="na">name=</span><span class="s">'caster'</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">'caster_frame'</span><span class="nt">/&gt;</span>
 <span class="w">    </span><span class="nt">&lt;inertial&gt;</span>
 <span class="w">        </span><span class="nt">&lt;mass&gt;</span>1<span class="nt">&lt;/mass&gt;</span>
 <span class="w">        </span><span class="nt">&lt;inertia&gt;</span>
@@ -891,7 +891,7 @@ We didn’t use the <code class="docutils literal notranslate"><span class="pre"
 <span class="w">            </span><span class="nt">&lt;izz&gt;</span>0.016<span class="nt">&lt;/izz&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/inertia&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/inertial&gt;</span>
-<span class="w">    </span><span class="nt">&lt;visual</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;visual&#39;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;visual</span><span class="w"> </span><span class="na">name=</span><span class="s">'visual'</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="nt">&lt;geometry&gt;</span>
 <span class="w">            </span><span class="nt">&lt;sphere&gt;</span>
 <span class="w">                </span><span class="nt">&lt;radius&gt;</span>0.2<span class="nt">&lt;/radius&gt;</span>
@@ -903,7 +903,7 @@ We didn’t use the <code class="docutils literal notranslate"><span class="pre"
 <span class="w">            </span><span class="nt">&lt;specular&gt;</span>0.0<span class="w"> </span>1<span class="w"> </span>0.0<span class="w"> </span>1<span class="nt">&lt;/specular&gt;</span>
 <span class="w">        </span><span class="nt">&lt;/material&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/visual&gt;</span>
-<span class="w">    </span><span class="nt">&lt;collision</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;collision&#39;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;collision</span><span class="w"> </span><span class="na">name=</span><span class="s">'collision'</span><span class="nt">&gt;</span>
 <span class="w">        </span><span class="nt">&lt;geometry&gt;</span>
 <span class="w">            </span><span class="nt">&lt;sphere&gt;</span>
 <span class="w">                </span><span class="nt">&lt;radius&gt;</span>0.2<span class="nt">&lt;/radius&gt;</span>
@@ -924,8 +924,8 @@ The joint tag connects two links together and defines how they will move with re
 Inside the <code class="docutils literal notranslate"><span class="pre">&lt;joint&gt;</span></code> tag we need to define the two links to connect and their relations(way of movement).</p>
 <section id="left-wheel-joint">
 <h4>Left wheel joint<a class="headerlink" href="#left-wheel-joint" title="Link to this heading">#</a></h4>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;left_wheel_joint&#39;</span><span class="w"> </span><span class="na">type=</span><span class="s">&#39;revolute&#39;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">&#39;left_wheel&#39;</span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">'left_wheel_joint'</span><span class="w"> </span><span class="na">type=</span><span class="s">'revolute'</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">'left_wheel'</span><span class="nt">/&gt;</span>
 </pre></div>
 </div>
 <p>Our first joint is the <code class="docutils literal notranslate"><span class="pre">left_wheel_joint</span></code>.
@@ -940,7 +940,7 @@ The pose of the joint is the same as the child link frame, which is the <code cl
 Here we connect the <code class="docutils literal notranslate"><span class="pre">chassis</span></code> with the <code class="docutils literal notranslate"><span class="pre">left_wheel</span></code>.
 <code class="docutils literal notranslate"><span class="pre">chassis</span></code> is the parent link and <code class="docutils literal notranslate"><span class="pre">left_wheel</span></code> is the child link.</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="nt">&lt;axis&gt;</span>
-<span class="w">        </span><span class="nt">&lt;xyz</span><span class="w"> </span><span class="na">expressed_in=</span><span class="s">&#39;__model__&#39;</span><span class="nt">&gt;</span>0<span class="w"> </span>1<span class="w"> </span>0<span class="nt">&lt;/xyz&gt;</span><span class="w"> </span><span class="cm">&lt;!--can be defined as any frame or even arbitrary frames--&gt;</span>
+<span class="w">        </span><span class="nt">&lt;xyz</span><span class="w"> </span><span class="na">expressed_in=</span><span class="s">'__model__'</span><span class="nt">&gt;</span>0<span class="w"> </span>1<span class="w"> </span>0<span class="nt">&lt;/xyz&gt;</span><span class="w"> </span><span class="cm">&lt;!--can be defined as any frame or even arbitrary frames--&gt;</span>
 <span class="w">        </span><span class="nt">&lt;limit&gt;</span>
 <span class="w">            </span><span class="nt">&lt;lower&gt;</span>-1.79769e+308<span class="nt">&lt;/lower&gt;</span><span class="w">    </span><span class="cm">&lt;!--negative infinity--&gt;</span>
 <span class="w">            </span><span class="nt">&lt;upper&gt;</span>1.79769e+308<span class="nt">&lt;/upper&gt;</span><span class="w">     </span><span class="cm">&lt;!--positive infinity--&gt;</span>
@@ -959,12 +959,12 @@ For the revolute joint we need to define the <code class="docutils literal notra
 <h4>Right wheel joint<a class="headerlink" href="#right-wheel-joint" title="Link to this heading">#</a></h4>
 <p>The <code class="docutils literal notranslate"><span class="pre">right_wheel_joint</span></code> is very similar except for the pose of the joint.
 This joint connects the <code class="docutils literal notranslate"><span class="pre">right_wheel</span></code> with the <code class="docutils literal notranslate"><span class="pre">chassis</span></code>.</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;right_wheel_joint&#39;</span><span class="w"> </span><span class="na">type=</span><span class="s">&#39;revolute&#39;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">&#39;right_wheel&#39;</span><span class="nt">/&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">'right_wheel_joint'</span><span class="w"> </span><span class="na">type=</span><span class="s">'revolute'</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;pose</span><span class="w"> </span><span class="na">relative_to=</span><span class="s">'right_wheel'</span><span class="nt">/&gt;</span>
 <span class="w">    </span><span class="nt">&lt;parent&gt;</span>chassis<span class="nt">&lt;/parent&gt;</span>
 <span class="w">    </span><span class="nt">&lt;child&gt;</span>right_wheel<span class="nt">&lt;/child&gt;</span>
 <span class="w">    </span><span class="nt">&lt;axis&gt;</span>
-<span class="w">        </span><span class="nt">&lt;xyz</span><span class="w"> </span><span class="na">expressed_in=</span><span class="s">&#39;__model__&#39;</span><span class="nt">&gt;</span>0<span class="w"> </span>1<span class="w"> </span>0<span class="nt">&lt;/xyz&gt;</span>
+<span class="w">        </span><span class="nt">&lt;xyz</span><span class="w"> </span><span class="na">expressed_in=</span><span class="s">'__model__'</span><span class="nt">&gt;</span>0<span class="w"> </span>1<span class="w"> </span>0<span class="nt">&lt;/xyz&gt;</span>
 <span class="w">        </span><span class="nt">&lt;limit&gt;</span>
 <span class="w">            </span><span class="nt">&lt;lower&gt;</span>-1.79769e+308<span class="nt">&lt;/lower&gt;</span><span class="w">    </span><span class="cm">&lt;!--negative infinity--&gt;</span>
 <span class="w">            </span><span class="nt">&lt;upper&gt;</span>1.79769e+308<span class="nt">&lt;/upper&gt;</span><span class="w">     </span><span class="cm">&lt;!--positive infinity--&gt;</span>
@@ -978,7 +978,7 @@ This joint connects the <code class="docutils literal notranslate"><span class="
 <h4>Caster wheel joint<a class="headerlink" href="#caster-wheel-joint" title="Link to this heading">#</a></h4>
 <p>For the caster we need a different type of joint (connection).
 We used <code class="docutils literal notranslate"><span class="pre">type='ball'</span></code> which gives 3 rotational degrees of freedom.</p>
-<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">&#39;caster_wheel&#39;</span><span class="w"> </span><span class="na">type=</span><span class="s">&#39;ball&#39;</span><span class="nt">&gt;</span>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;joint</span><span class="w"> </span><span class="na">name=</span><span class="s">'caster_wheel'</span><span class="w"> </span><span class="na">type=</span><span class="s">'ball'</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;parent&gt;</span>chassis<span class="nt">&lt;/parent&gt;</span>
 <span class="w">    </span><span class="nt">&lt;child&gt;</span>caster<span class="nt">&lt;/child&gt;</span>
 <span class="nt">&lt;/joint&gt;</span>

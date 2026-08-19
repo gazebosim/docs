@@ -543,7 +543,7 @@ The colcon tool is available on all platforms using pip (or pip3, if pip fails).
 <h2>Python3 from homebrew<a class="headerlink" href="#python3-from-homebrew" title="Link to this heading">#</a></h2>
 <p>Tools and dependencies for Garden can be installed using the <a class="reference external" href="https://brew.sh/">homebrew package manager</a>.
 The homebrew tool can be installed by entering the following in a terminal:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/master/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">"</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/master/install.sh<span class="k">)</span><span class="s2">"</span>
 </pre></div>
 </div>
 <p>Garden is compatible with Python3; it can be installed by running the following in a terminal:</p>
@@ -631,7 +631,7 @@ Xcode from the Apple App Store (installing the full app may take over an hour).<
 <span class="gi">+#endif  // #if __cplusplus &gt; 199711L</span>
 <span class="gi">+</span>
 <span class="w"> </span>#if defined(__cplusplus)
-<span class="w"> </span>extern &quot;C&quot; {
+<span class="w"> </span>extern "C" {
 <span class="w"> </span>#if 0
 </pre></div>
 </div>
@@ -646,13 +646,13 @@ Xcode from the Apple App Store (installing the full app may take over an hour).<
 <div class="highlight-diff notranslate"><div class="highlight"><pre><span></span><span class="gd">--- config.h    2019-12-16 18:19:13.000000000 +0100</span>
 <span class="gi">+++ /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Ruby.framework/Headers/ruby/ruby/config.h</span>
 <span class="gu">@@ -410,6 +410,6 @@</span>
-<span class="w"> </span>#define RUBY_PLATFORM_CPU &quot;x86_64&quot;
+<span class="w"> </span>#define RUBY_PLATFORM_CPU "x86_64"
 <span class="w"> </span>#endif /* defined __x86_64__ &amp;&amp;! defined RUBY_PLATFORM_CPU */
-<span class="w"> </span>#define RUBY_PLATFORM_OS &quot;darwin19&quot;
-<span class="gd">-#define RUBY_ARCH&quot;universal-&quot;RUBY_PLATFORM_OS</span>
-<span class="gd">-#define RUBY_PLATFORM&quot;universal.&quot;RUBY_PLATFORM_CPU&quot;-&quot;RUBY_PLATFORM_OS</span>
-<span class="gi">+#define RUBY_ARCH &quot;universal-&quot; RUBY_PLATFORM_OS</span>
-<span class="gi">+#define RUBY_PLATFORM &quot;universal.&quot; RUBY_PLATFORM_CPU &quot;-&quot; RUBY_PLATFORM_OS</span>
+<span class="w"> </span>#define RUBY_PLATFORM_OS "darwin19"
+<span class="gd">-#define RUBY_ARCH"universal-"RUBY_PLATFORM_OS</span>
+<span class="gd">-#define RUBY_PLATFORM"universal."RUBY_PLATFORM_CPU"-"RUBY_PLATFORM_OS</span>
+<span class="gi">+#define RUBY_ARCH "universal-" RUBY_PLATFORM_OS</span>
+<span class="gi">+#define RUBY_PLATFORM "universal." RUBY_PLATFORM_CPU "-" RUBY_PLATFORM_OS</span>
 <span class="w"> </span>#endif /* INCLUDE_RUBY_CONFIG_H */
 </pre></div>
 </div>
@@ -686,7 +686,7 @@ to build the whole set of libraries:</p>
 </pre></div>
 </div>
 <p>To use debuggers activate debug symbols. Gazebo will run slower, but you’ll be able to use <code class="docutils literal notranslate"><span class="pre">lldb</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span><span class="s1">&#39; -DBUILD_TESTING=OFF&#39;</span><span class="w"> </span><span class="s1">&#39; -DCMAKE_BUILD_TYPE=Debug&#39;</span><span class="w"> </span>--merge-install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span><span class="s1">' -DBUILD_TESTING=OFF'</span><span class="w"> </span><span class="s1">' -DCMAKE_BUILD_TYPE=Debug'</span><span class="w"> </span>--merge-install
 </pre></div>
 </div>
 <p>To build a specific package with all its dependent packages:</p>

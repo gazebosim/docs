@@ -544,8 +544,8 @@ can be differentially driven. Let’s setup the plugin on our robot. Open
 the <code class="docutils literal notranslate"><span class="pre">building_robot.sdf</span></code> and add the following code within the <code class="docutils literal notranslate"><span class="pre">vehicle_blue</span></code>
 model tags.</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;plugin</span>
-<span class="w">    </span><span class="na">filename=</span><span class="s">&quot;libignition-gazebo-diff-drive-system.so&quot;</span>
-<span class="w">    </span><span class="na">name=</span><span class="s">&quot;ignition::gazebo::systems::DiffDrive&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="na">filename=</span><span class="s">"libignition-gazebo-diff-drive-system.so"</span>
+<span class="w">    </span><span class="na">name=</span><span class="s">"ignition::gazebo::systems::DiffDrive"</span><span class="nt">&gt;</span>
 <span class="w">    </span><span class="nt">&lt;left_joint&gt;</span>left_wheel_joint<span class="nt">&lt;/left_joint&gt;</span>
 <span class="w">    </span><span class="nt">&lt;right_joint&gt;</span>right_wheel_joint<span class="nt">&lt;/right_joint&gt;</span>
 <span class="w">    </span><span class="nt">&lt;wheel_separation&gt;</span>1.2<span class="nt">&lt;/wheel_separation&gt;</span>
@@ -609,12 +609,12 @@ The <code class="docutils literal notranslate"><span class="pre">TriggeredPublis
 <p>The <code class="docutils literal notranslate"><span class="pre">TriggeredPublisher</span></code> plugin publishes a user specified message on an output topic in response to an input message that matches user specified criteria.
 Let’s add the following code under the <code class="docutils literal notranslate"><span class="pre">&lt;world&gt;</span></code> tag:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- Moving Forward--&gt;</span>
-<span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;libignition-gazebo-triggered-publisher-system.so&quot;</span>
-<span class="w">        </span><span class="na">name=</span><span class="s">&quot;ignition::gazebo::systems::TriggeredPublisher&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;input</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ignition.msgs.Int32&quot;</span><span class="w"> </span><span class="na">topic=</span><span class="s">&quot;/keyboard/keypress&quot;</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;match</span><span class="w"> </span><span class="na">field=</span><span class="s">&quot;data&quot;</span><span class="nt">&gt;</span>16777235<span class="nt">&lt;/match&gt;</span>
+<span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">"libignition-gazebo-triggered-publisher-system.so"</span>
+<span class="w">        </span><span class="na">name=</span><span class="s">"ignition::gazebo::systems::TriggeredPublisher"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;input</span><span class="w"> </span><span class="na">type=</span><span class="s">"ignition.msgs.Int32"</span><span class="w"> </span><span class="na">topic=</span><span class="s">"/keyboard/keypress"</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;match</span><span class="w"> </span><span class="na">field=</span><span class="s">"data"</span><span class="nt">&gt;</span>16777235<span class="nt">&lt;/match&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/input&gt;</span>
-<span class="w">    </span><span class="nt">&lt;output</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ignition.msgs.Twist&quot;</span><span class="w"> </span><span class="na">topic=</span><span class="s">&quot;/cmd_vel&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;output</span><span class="w"> </span><span class="na">type=</span><span class="s">"ignition.msgs.Twist"</span><span class="w"> </span><span class="na">topic=</span><span class="s">"/cmd_vel"</span><span class="nt">&gt;</span>
 <span class="w">        </span>linear:<span class="w"> </span>{x:<span class="w"> </span>0.5},<span class="w"> </span>angular:<span class="w"> </span>{z:<span class="w"> </span>0.0}
 <span class="w">    </span><span class="nt">&lt;/output&gt;</span>
 <span class="nt">&lt;/plugin&gt;</span>
@@ -647,12 +647,12 @@ It accepts messages of type <code class="docutils literal notranslate"><span cla
 <p>We will add the <code class="docutils literal notranslate"><span class="pre">Triggered</span> <span class="pre">publisher</span></code> plugin for each arrow key.
 For example, the Down arrow:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cm">&lt;!-- Moving Backward--&gt;</span>
-<span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">&quot;libignition-gazebo-triggered-publisher-system.so&quot;</span>
-<span class="w">        </span><span class="na">name=</span><span class="s">&quot;ignition::gazebo::systems::TriggeredPublisher&quot;</span><span class="nt">&gt;</span>
-<span class="w">    </span><span class="nt">&lt;input</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ignition.msgs.Int32&quot;</span><span class="w"> </span><span class="na">topic=</span><span class="s">&quot;/keyboard/keypress&quot;</span><span class="nt">&gt;</span>
-<span class="w">        </span><span class="nt">&lt;match</span><span class="w"> </span><span class="na">field=</span><span class="s">&quot;data&quot;</span><span class="nt">&gt;</span>16777237<span class="nt">&lt;/match&gt;</span>
+<span class="nt">&lt;plugin</span><span class="w"> </span><span class="na">filename=</span><span class="s">"libignition-gazebo-triggered-publisher-system.so"</span>
+<span class="w">        </span><span class="na">name=</span><span class="s">"ignition::gazebo::systems::TriggeredPublisher"</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;input</span><span class="w"> </span><span class="na">type=</span><span class="s">"ignition.msgs.Int32"</span><span class="w"> </span><span class="na">topic=</span><span class="s">"/keyboard/keypress"</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nt">&lt;match</span><span class="w"> </span><span class="na">field=</span><span class="s">"data"</span><span class="nt">&gt;</span>16777237<span class="nt">&lt;/match&gt;</span>
 <span class="w">    </span><span class="nt">&lt;/input&gt;</span>
-<span class="w">    </span><span class="nt">&lt;output</span><span class="w"> </span><span class="na">type=</span><span class="s">&quot;ignition.msgs.Twist&quot;</span><span class="w"> </span><span class="na">topic=</span><span class="s">&quot;/cmd_vel&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nt">&lt;output</span><span class="w"> </span><span class="na">type=</span><span class="s">"ignition.msgs.Twist"</span><span class="w"> </span><span class="na">topic=</span><span class="s">"/cmd_vel"</span><span class="nt">&gt;</span>
 <span class="w">        </span>linear:<span class="w"> </span>{x:<span class="w"> </span>-0.5},<span class="w"> </span>angular:<span class="w"> </span>{z:<span class="w"> </span>0.0}
 <span class="w">    </span><span class="nt">&lt;/output&gt;</span>
 <span class="nt">&lt;/plugin&gt;</span>

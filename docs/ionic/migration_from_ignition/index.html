@@ -1035,10 +1035,10 @@ Replace: gz/
 <h4>Migrate Headers and Sources<a class="headerlink" href="#migrate-headers-and-sources" title="Link to this heading">#</a></h4>
 <p>Sweeping checks everywhere (pay special attention to reviewing these!)</p>
 <p><strong>Headers</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Find</span><span class="p">:</span> <span class="c1">#include\s*([&lt;&quot;])ign(ition)?/gazebo</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Find</span><span class="p">:</span> <span class="c1">#include\s*([&lt;"])ign(ition)?/gazebo</span>
 <span class="n">Replace</span><span class="p">:</span> <span class="c1">#include \1gz/sim</span>
 
-<span class="n">Find</span><span class="p">:</span> <span class="c1">#include\s*([&lt;&quot;])ign(ition)?/</span>
+<span class="n">Find</span><span class="p">:</span> <span class="c1">#include\s*([&lt;"])ign(ition)?/</span>
 <span class="n">Replace</span><span class="p">:</span> <span class="c1">#include \1gz/</span>
 
 <span class="o">//</span> <span class="n">Note</span><span class="p">:</span> <span class="n">You</span> <span class="n">should</span> <span class="n">be</span> <span class="n">wary</span> <span class="n">of</span> <span class="n">the</span> <span class="n">IGNITION</span> <span class="n">GAZEBO</span> <span class="n">case</span> <span class="k">for</span> <span class="n">the</span> <span class="n">following</span>
@@ -1098,19 +1098,19 @@ Use <code class="docutils literal notranslate"><span class="pre">gz</span></code
 <p>You may add the following script to your <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code> file to redirect any <code class="docutils literal notranslate"><span class="pre">ign</span></code> calls to <code class="docutils literal notranslate"><span class="pre">gz</span></code>, so you won’t have to migrate all of your scripts (that are still using <code class="docutils literal notranslate"><span class="pre">ign</span></code>), though it is still recommended to make the migration.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>ign<span class="o">()</span><span class="w"> </span><span class="o">{</span>
 <span class="w">  </span><span class="k">if</span><span class="w"> </span>which<span class="w"> </span>ign<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">    </span><span class="k">$(</span>which<span class="w"> </span>ign<span class="k">)</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="k">$(</span>which<span class="w"> </span>ign<span class="k">)</span><span class="w"> </span><span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span>
 <span class="w">  </span><span class="k">else</span>
 <span class="w">    </span><span class="k">if</span><span class="w"> </span>which<span class="w"> </span>gz<span class="w"> </span><span class="p">&amp;</span>&gt;<span class="w"> </span>/dev/null<span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">      </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[DEPRECATED] ign is deprecated! Please use gz instead!&quot;</span>
-<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;gazebo&quot;</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
-<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[DEPRECATED] The gazebo verb is deprecated! Please use sim instead!&quot;</span>
+<span class="w">      </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"[DEPRECATED] ign is deprecated! Please use gz instead!"</span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">"gazebo"</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">        </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"[DEPRECATED] The gazebo verb is deprecated! Please use sim instead!"</span>
 <span class="w">        </span><span class="nb">shift</span>
-<span class="w">        </span><span class="k">$(</span>which<span class="w"> </span>gz<span class="k">)</span><span class="w"> </span>sim<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+<span class="w">        </span><span class="k">$(</span>which<span class="w"> </span>gz<span class="k">)</span><span class="w"> </span>sim<span class="w"> </span><span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span>
 <span class="w">      </span><span class="k">else</span>
-<span class="w">        </span><span class="k">$(</span>which<span class="w"> </span>gz<span class="k">)</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+<span class="w">        </span><span class="k">$(</span>which<span class="w"> </span>gz<span class="k">)</span><span class="w"> </span><span class="s2">"</span><span class="nv">$@</span><span class="s2">"</span>
 <span class="w">      </span><span class="k">fi</span>
 <span class="w">    </span><span class="k">else</span>
-<span class="w">      </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;[ERROR] It seems like you don&#39;t have Gazebo installed!&quot;</span>
+<span class="w">      </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"[ERROR] It seems like you don't have Gazebo installed!"</span>
 <span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="m">1</span>
 <span class="w">    </span><span class="k">fi</span>
 <span class="w">  </span><span class="k">fi</span>

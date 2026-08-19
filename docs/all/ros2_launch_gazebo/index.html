@@ -547,17 +547,17 @@ purpose we have created the custom <code class="docutils literal notranslate"><s
 XML launch file. In this case, the arguments are passed as attributes
 within this tag. Here’s an example for launching Gazebo server:</p>
 <div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;launch&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;world_sdf_file&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;empty.sdf&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;world_sdf_string&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;container_name&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;ros_gz_container&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;create_own_container&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;False&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
-<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;use_composition&quot;</span><span class="w"> </span><span class="na">default=</span><span class="s">&quot;False&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"world_sdf_file"</span><span class="w"> </span><span class="na">default=</span><span class="s">"empty.sdf"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"world_sdf_string"</span><span class="w"> </span><span class="na">default=</span><span class="s">""</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"container_name"</span><span class="w"> </span><span class="na">default=</span><span class="s">"ros_gz_container"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"create_own_container"</span><span class="w"> </span><span class="na">default=</span><span class="s">"False"</span><span class="w"> </span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;arg</span><span class="w"> </span><span class="na">name=</span><span class="s">"use_composition"</span><span class="w"> </span><span class="na">default=</span><span class="s">"False"</span><span class="w"> </span><span class="nt">/&gt;</span>
 <span class="w">  </span><span class="nt">&lt;gz_server</span>
-<span class="w">    </span><span class="na">world_sdf_file=</span><span class="s">&quot;$(var world_sdf_file)&quot;</span>
-<span class="w">    </span><span class="na">world_sdf_string=</span><span class="s">&quot;$(var world_sdf_string)&quot;</span>
-<span class="w">    </span><span class="na">container_name=</span><span class="s">&quot;$(var container_name)&quot;</span>
-<span class="w">    </span><span class="na">create_own_container=</span><span class="s">&quot;$(var create_own_container)&quot;</span>
-<span class="w">    </span><span class="na">use_composition=</span><span class="s">&quot;$(var use_composition)&quot;</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="na">world_sdf_file=</span><span class="s">"$(var world_sdf_file)"</span>
+<span class="w">    </span><span class="na">world_sdf_string=</span><span class="s">"$(var world_sdf_string)"</span>
+<span class="w">    </span><span class="na">container_name=</span><span class="s">"$(var container_name)"</span>
+<span class="w">    </span><span class="na">create_own_container=</span><span class="s">"$(var create_own_container)"</span>
+<span class="w">    </span><span class="na">use_composition=</span><span class="s">"$(var use_composition)"</span><span class="nt">&gt;</span>
 <span class="w">  </span><span class="nt">&lt;/gz_server&gt;</span>
 <span class="nt">&lt;/launch&gt;</span>
 </pre></div>
@@ -580,35 +580,35 @@ In the following example, the user can replace the example package, world, and b
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">generate_launch_description</span><span class="p">():</span>
-    <span class="n">ros_gz_sim_pkg_path</span> <span class="o">=</span> <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s1">&#39;ros_gz_sim&#39;</span><span class="p">)</span>
-    <span class="n">example_pkg_path</span> <span class="o">=</span> <span class="n">FindPackageShare</span><span class="p">(</span><span class="s1">&#39;example_package&#39;</span><span class="p">)</span>  <span class="c1"># Replace with your own package name</span>
-    <span class="n">gz_launch_path</span> <span class="o">=</span> <span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">ros_gz_sim_pkg_path</span><span class="p">,</span> <span class="s1">&#39;launch&#39;</span><span class="p">,</span> <span class="s1">&#39;gz_sim.launch.py&#39;</span><span class="p">])</span>
+    <span class="n">ros_gz_sim_pkg_path</span> <span class="o">=</span> <span class="n">get_package_share_directory</span><span class="p">(</span><span class="s1">'ros_gz_sim'</span><span class="p">)</span>
+    <span class="n">example_pkg_path</span> <span class="o">=</span> <span class="n">FindPackageShare</span><span class="p">(</span><span class="s1">'example_package'</span><span class="p">)</span>  <span class="c1"># Replace with your own package name</span>
+    <span class="n">gz_launch_path</span> <span class="o">=</span> <span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">ros_gz_sim_pkg_path</span><span class="p">,</span> <span class="s1">'launch'</span><span class="p">,</span> <span class="s1">'gz_sim.launch.py'</span><span class="p">])</span>
 
     <span class="k">return</span> <span class="n">LaunchDescription</span><span class="p">([</span>
         <span class="n">SetEnvironmentVariable</span><span class="p">(</span>
-            <span class="s1">&#39;GZ_SIM_RESOURCE_PATH&#39;</span><span class="p">,</span>
-            <span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">example_pkg_path</span><span class="p">,</span> <span class="s1">&#39;models&#39;</span><span class="p">])</span>
+            <span class="s1">'GZ_SIM_RESOURCE_PATH'</span><span class="p">,</span>
+            <span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">example_pkg_path</span><span class="p">,</span> <span class="s1">'models'</span><span class="p">])</span>
         <span class="p">),</span>
         <span class="n">SetEnvironmentVariable</span><span class="p">(</span>
-            <span class="s1">&#39;GZ_SIM_PLUGIN_PATH&#39;</span><span class="p">,</span>
-            <span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">example_pkg_path</span><span class="p">,</span> <span class="s1">&#39;plugins&#39;</span><span class="p">])</span>
+            <span class="s1">'GZ_SIM_PLUGIN_PATH'</span><span class="p">,</span>
+            <span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">example_pkg_path</span><span class="p">,</span> <span class="s1">'plugins'</span><span class="p">])</span>
         <span class="p">),</span>
         <span class="n">IncludeLaunchDescription</span><span class="p">(</span>
             <span class="n">PythonLaunchDescriptionSource</span><span class="p">(</span><span class="n">gz_launch_path</span><span class="p">),</span>
             <span class="n">launch_arguments</span><span class="o">=</span><span class="p">{</span>
-                <span class="s1">&#39;gz_args&#39;</span><span class="p">:</span> <span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">example_pkg_path</span><span class="p">,</span> <span class="s1">&#39;worlds/example_world.sdf&#39;</span><span class="p">]),</span>  <span class="c1"># Replace with your own world file</span>
-                <span class="s1">&#39;on_exit_shutdown&#39;</span><span class="p">:</span> <span class="s1">&#39;True&#39;</span>
+                <span class="s1">'gz_args'</span><span class="p">:</span> <span class="n">PathJoinSubstitution</span><span class="p">([</span><span class="n">example_pkg_path</span><span class="p">,</span> <span class="s1">'worlds/example_world.sdf'</span><span class="p">]),</span>  <span class="c1"># Replace with your own world file</span>
+                <span class="s1">'on_exit_shutdown'</span><span class="p">:</span> <span class="s1">'True'</span>
             <span class="p">}</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span>
         <span class="p">),</span>
 
         <span class="c1"># Bridging and remapping Gazebo topics to ROS 2 (replace with your own topics)</span>
         <span class="n">Node</span><span class="p">(</span>
-            <span class="n">package</span><span class="o">=</span><span class="s1">&#39;ros_gz_bridge&#39;</span><span class="p">,</span>
-            <span class="n">executable</span><span class="o">=</span><span class="s1">&#39;parameter_bridge&#39;</span><span class="p">,</span>
-            <span class="n">arguments</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;/example_imu_topic@sensor_msgs/msg/Imu@gz.msgs.IMU&#39;</span><span class="p">,],</span>
-            <span class="n">remappings</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;/example_imu_topic&#39;</span><span class="p">,</span>
-                         <span class="s1">&#39;/remapped_imu_topic&#39;</span><span class="p">),],</span>
-            <span class="n">output</span><span class="o">=</span><span class="s1">&#39;screen&#39;</span>
+            <span class="n">package</span><span class="o">=</span><span class="s1">'ros_gz_bridge'</span><span class="p">,</span>
+            <span class="n">executable</span><span class="o">=</span><span class="s1">'parameter_bridge'</span><span class="p">,</span>
+            <span class="n">arguments</span><span class="o">=</span><span class="p">[</span><span class="s1">'/example_imu_topic@sensor_msgs/msg/Imu@gz.msgs.IMU'</span><span class="p">,],</span>
+            <span class="n">remappings</span><span class="o">=</span><span class="p">[(</span><span class="s1">'/example_imu_topic'</span><span class="p">,</span>
+                         <span class="s1">'/remapped_imu_topic'</span><span class="p">),],</span>
+            <span class="n">output</span><span class="o">=</span><span class="s1">'screen'</span>
         <span class="p">),</span>
     <span class="p">])</span>
 </pre></div>
@@ -623,13 +623,13 @@ In the following example, the user can replace the example package, world, and b
 <span class="k">def</span><span class="w"> </span><span class="nf">generate_launch_description</span><span class="p">():</span>
 
     <span class="n">declare_world_sdf_file_cmd</span> <span class="o">=</span> <span class="n">DeclareLaunchArgument</span><span class="p">(</span>
-        <span class="s1">&#39;world_sdf_file&#39;</span><span class="p">,</span> <span class="n">default_value</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Path to the SDF world file&#39;</span><span class="p">)</span>
+        <span class="s1">'world_sdf_file'</span><span class="p">,</span> <span class="n">default_value</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">'Path to the SDF world file'</span><span class="p">)</span>
 
     <span class="c1"># Create the launch description and populate</span>
     <span class="n">ld</span> <span class="o">=</span> <span class="n">LaunchDescription</span><span class="p">([</span>
         <span class="n">GzServer</span><span class="p">(</span>
-            <span class="n">world_sdf_file</span><span class="o">=</span><span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">&#39;world_sdf_file&#39;</span><span class="p">)</span>
+            <span class="n">world_sdf_file</span><span class="o">=</span><span class="n">LaunchConfiguration</span><span class="p">(</span><span class="s1">'world_sdf_file'</span><span class="p">)</span>
         <span class="p">),</span>
     <span class="p">])</span>
 
@@ -658,18 +658,18 @@ More info about composition can be viewed <a class="reference internal" href="..
 <p>If you’re planning to use <code class="docutils literal notranslate"><span class="pre">ros2_control</span></code> with Gazebo, please take a look at the <a class="reference external" href="https://github.com/ros-controls/gz_ros2_control/tree/rolling/gz_ros2_control_demos/launch">example launch files</a> in the <code class="docutils literal notranslate"><span class="pre">gz_ros2_control</span></code> repository</p>
 <p>It is essential to publish the <code class="docutils literal notranslate"><span class="pre">/clock</span></code> topic for the <code class="docutils literal notranslate"><span class="pre">controller_manager</span></code> to function correctly:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span> gz_bridge = Node(
-     package=&quot;ros_gz_bridge&quot;,
-     executable=&quot;parameter_bridge&quot;,
-     arguments=[&#39;/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock&#39;],
+     package="ros_gz_bridge",
+     executable="parameter_bridge",
+     arguments=['/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock'],
      parameters=[{
-         &quot;qos_overrides./tf_static.publisher.durability&quot;: &quot;transient_local&quot;
+         "qos_overrides./tf_static.publisher.durability": "transient_local"
      }],
-     output=&quot;screen&quot;,
+     output="screen",
  )
 </pre></div>
 </div>
 <p>If you <strong>do not</strong> publish the <code class="docutils literal notranslate"><span class="pre">/clock</span></code> topic, the <code class="docutils literal notranslate"><span class="pre">controller_manager</span></code> will issue warnings or errors such as:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   [gazebo-1] [WARN] [1744219953.983130822] [controller_manager]: No clock received, using time argument instead! Check your node&#39;s clock configuration (use_sim_time parameter) and if a valid clock source is available.
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>   [gazebo-1] [WARN] [1744219953.983130822] [controller_manager]: No clock received, using time argument instead! Check your node's clock configuration (use_sim_time parameter) and if a valid clock source is available.
 </pre></div>
 </div>
 </section>
@@ -682,8 +682,8 @@ More info about composition can be viewed <a class="reference internal" href="..
 </pre></div>
 </div>
 <p>Eventually leading to a fatal error:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> [gazebo-1] terminate called after throwing an instance of &#39;std::runtime_error&#39;
- [gazebo-1]   what():  can&#39;t compare times with different time sources
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span> [gazebo-1] terminate called after throwing an instance of 'std::runtime_error'
+ [gazebo-1]   what():  can't compare times with different time sources
 </pre></div>
 </div>
 <p>Ensure <code class="docutils literal notranslate"><span class="pre">use_sim_time</span></code> is correctly set to <code class="docutils literal notranslate"><span class="pre">true</span></code> when working with simulation time to avoid such mismatches.</p>
