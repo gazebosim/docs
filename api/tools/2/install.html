@@ -36,7 +36,7 @@
         <h1 class="project_title">Gazebo Tools</h1>
         <h2>API Reference</h2>
         <div class="version">
-        2.0.3
+        2.0.4
         </div>
       </header>
       <!-- NOTE: If you add a link to a doxygen generated page, then make
@@ -138,14 +138,14 @@
   <div class="headertitle"><div class="title">Installation</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><h2><a class="anchor" id="autotoc_md0"></a>
+<div class="textblock"><h2><a class="anchor" id="overview"></a>
 Overview</h2>
 <p>These instructions are for installing only Gazebo Tools. If you're interested in using all the Gazebo libraries, check out this <a href="https://gazebosim.org/docs/latest/install">Gazebo installation</a>.</p>
 <p>We recommend following the Binary Installation instructions to get up and running as quickly and painlessly as possible.</p>
 <p>The Source Installation instructions should be used if you need the very latest software improvements, you need to modify the code, or you plan to make a contribution.</p>
-<h1><a class="anchor" id="autotoc_md1"></a>
+<h1><a class="anchor" id="binary-installation"></a>
 Binary Installation</h1>
-<h2><a class="anchor" id="autotoc_md2"></a>
+<h2><a class="anchor" id="ubuntu-linux"></a>
 Ubuntu Linux</h2>
 <p>Setup your computer to accept software from <em>packages.osrfoundation.org</em>: </p><div class="fragment"><div class="line">sudo sh -c &#39;echo &quot;deb http://packages.osrfoundation.org/gazebo/ubuntu-stable `lsb_release -cs` main&quot; &gt; /etc/apt/sources.list.d/gazebo-stable.list&#39;</div>
 </div><!-- fragment --><p>Setup keys: </p><div class="fragment"><div class="line">sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg</div>
@@ -154,38 +154,38 @@ Ubuntu Linux</h2>
 </div><!-- fragment --><p>Install Gazebo Tools: </p><div class="fragment"><div class="line">sudo apt-get update</div>
 <div class="line">sudo apt-get install libgz-tools&lt;#&gt;-dev</div>
 </div><!-- fragment --><p>Be sure to replace <code>&lt;#&gt;</code> with a number value, such as 1 or 2, depending on which version you need.</p>
-<h3><a class="anchor" id="autotoc_md3"></a>
+<h3><a class="anchor" id="macos"></a>
 macOS</h3>
 <p>On macOS, add OSRF packages: </p><div class="fragment"><div class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div>
 <div class="line">brew tap osrf/simulation</div>
 </div><!-- fragment --><p>Install Gazebo Tools: </p><div class="fragment"><div class="line">brew install gz-tools&lt;#&gt;</div>
 </div><!-- fragment --><p>Be sure to replace <code>&lt;#&gt;</code> with a number value, such as 1 or 2, depending on which version you need.</p>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="windows"></a>
 Windows</h2>
 <p>Install <a href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html">Conda package management system</a>. Miniconda suffices.</p>
 <p>Create if necessary, and activate a Conda environment: </p><div class="fragment"><div class="line">conda create -n gz-ws</div>
 <div class="line">conda activate gz-ws</div>
 </div><!-- fragment --><p>Install: </p><div class="fragment"><div class="line">conda install libgz-tools&lt;#&gt; --channel conda-forge</div>
 </div><!-- fragment --><p>Be sure to replace <code>&lt;#&gt;</code> with a number value, such as 1 or 2, depending on which version you need.</p>
-<h1><a class="anchor" id="autotoc_md5"></a>
+<h1><a class="anchor" id="source-installation"></a>
 Source Installation</h1>
 <p>Source installation can be performed by first installing the necessary prerequisites followed by building from source.</p>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<h2><a class="anchor" id="prerequisites"></a>
 Prerequisites</h2>
 <p>Gazebo Tools requires:</p>
 <ul>
 <li><a href="https://gazebosim.org/libs/cmake">Gazebo CMake</a></li>
 <li><a href="https://www.ruby-lang.org/">Ruby</a>. Refer to the <a href="https://www.ruby-lang.org/downloads/">Ruby Documentation</a> for installation instructions. On Ubuntu systems <code>apt-get</code> can be used to install Ubuntu Package <code>ruby-dev</code>:</li>
 </ul>
-<h3><a class="anchor" id="autotoc_md7"></a>
+<h3><a class="anchor" id="ubuntu-linux-1"></a>
 Ubuntu Linux</h3>
 <div class="fragment"><div class="line">sudo apt-get install ruby-dev libgz-cmake&lt;#&gt;-dev</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md8"></a>
+</div><!-- fragment --><h3><a class="anchor" id="windows-10"></a>
 Windows 10</h3>
 <p>First, follow the <a href="https://github.com/gazebosim/gz-cmake">gz-cmake</a> tutorial for installing Conda, Visual Studio, CMake, and other prerequisites, and also for creating a Conda environment.</p>
-<h2><a class="anchor" id="autotoc_md9"></a>
+<h2><a class="anchor" id="building-from-source"></a>
 Building from Source</h2>
-<h3><a class="anchor" id="autotoc_md10"></a>
+<h3><a class="anchor" id="ubuntu"></a>
 Ubuntu</h3>
 <ol type="1">
 <li>Install tools <div class="fragment"><div class="line">sudo apt install -y build-essential cmake git gnupg lsb-release wget</div>
@@ -204,7 +204,7 @@ Ubuntu</h3>
 <li>Optionally, install <div class="fragment"><div class="line">sudo make install</div>
 </div><!-- fragment --></li>
 </ol>
-<h3><a class="anchor" id="autotoc_md11"></a>
+<h3><a class="anchor" id="macos-1"></a>
 macOS</h3>
 <ol type="1">
 <li>Clone the repository <div class="fragment"><div class="line">git clone https://github.com/gazebosim/gz-tools -b gz-tools&lt;#&gt;</div>
@@ -220,7 +220,7 @@ macOS</h3>
 <li>Optionally, install <div class="fragment"><div class="line">sudo make install</div>
 </div><!-- fragment --></li>
 </ol>
-<h3><a class="anchor" id="autotoc_md12"></a>
+<h3><a class="anchor" id="windows-1"></a>
 Windows</h3>
 <ol type="1">
 <li>Navigate to <code>condabin</code> if necessary to use the <code>conda</code> command (i.e., if Conda is not in your <code>PATH</code> environment variable. You can find the location of <code>condabin</code> in Anaconda Prompt, <code>where conda</code>). Activate the Conda environment created in the prerequisites: <div class="fragment"><div class="line">conda activate gz-ws</div>
@@ -242,7 +242,7 @@ Windows</h3>
 <li>Optionally, install <div class="fragment"><div class="line">cmake --install . --config Release</div>
 </div><!-- fragment --></li>
 </ol>
-<h1><a class="anchor" id="autotoc_md13"></a>
+<h1><a class="anchor" id="documentation"></a>
 Documentation</h1>
 <p>API and tutorials can be found at <a href="https://gazebosim.org/libs/tools">https://gazebosim.org/libs/tools</a>.</p>
 <p>You can also generate the documentation from a clone of this repository by following these steps.</p>
@@ -256,7 +256,7 @@ Documentation</h1>
 <li>View the documentation by running the following command from the build directory. <div class="fragment"><div class="line">firefox doxygen/html/index.html</div>
 </div><!-- fragment --></li>
 </ol>
-<h1><a class="anchor" id="autotoc_md14"></a>
+<h1><a class="anchor" id="testing"></a>
 Testing</h1>
 <p>Follow these steps to run tests and static code analysis in your clone of this repository.</p>
 <ol type="1">

@@ -165,6 +165,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4d284970cc1bf6c7d4ed8b89f3e736e1" id="r_a4d284970cc1bf6c7d4ed8b89f3e736e1"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="classgz_1_1math_1_1Vector3.html">Vector3</a>&lt; <a class="el" href="classgz_1_1math_1_1Matrix6.html">Precision</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Cylinder.html#a4d284970cc1bf6c7d4ed8b89f3e736e1">CenterOfVolumeBelow</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Plane.html">Plane</a>&lt; <a class="el" href="classgz_1_1math_1_1Matrix6.html">Precision</a> &gt; &amp;<a class="el" href="classgz_1_1math_1_1Matrix6.html">_plane</a>) <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
 <tr class="memdesc:a4d284970cc1bf6c7d4ed8b89f3e736e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Center of volume below the plane. This is useful for example when calculating where buoyancy should be applied.  <br /></td></tr>
 <tr class="separator:a4d284970cc1bf6c7d4ed8b89f3e736e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0ce7b1ec0ea5a42837ea308b2e03907" id="r_aa0ce7b1ec0ea5a42837ea308b2e03907"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Vector3.html">Vector3</a>&lt; <a class="el" href="classgz_1_1math_1_1Matrix6.html">Precision</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Cylinder.html#aa0ce7b1ec0ea5a42837ea308b2e03907">Centroid</a> () <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
+<tr class="memdesc:aa0ce7b1ec0ea5a42837ea308b2e03907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the centroid of the cylinder. It coincides with the origin of the reference frame defined in the class description.  <br /></td></tr>
+<tr class="separator:aa0ce7b1ec0ea5a42837ea308b2e03907"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a560a2db51aebac4ed15060f4bc62e650" id="r_a560a2db51aebac4ed15060f4bc62e650"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Matrix6.html">Precision</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Cylinder.html#a560a2db51aebac4ed15060f4bc62e650">DensityFromMass</a> (<a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">Precision</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">_mass</a>) <a class="el" href="classgz_1_1math_1_1Matrix6.html">const</a></td></tr>
 <tr class="memdesc:a560a2db51aebac4ed15060f4bc62e650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the cylinder's density given a mass value. The cylinder is assumed to be solid with uniform density. This function requires the cylinder's radius and length to be set to values greater than zero. The <a class="el" href="classgz_1_1math_1_1Material.html" title="Contains information about a single material.">Material</a> of the cylinder is ignored.  <br /></td></tr>
 <tr class="separator:a560a2db51aebac4ed15060f4bc62e650"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -214,7 +217,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;<a class="el" href="classgz_1_1math_1_1Matrix6.html">typename</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">Precision</a>&gt;<br />
 class gz::math::Cylinder&lt; Precision &gt;</div><p>A representation of a cylinder. </p>
-<p>The cylinder class supports defining a cylinder with a radius, length, rotational offset, and material properties. Radius and length are in meters. See <a class="el" href="classgz_1_1math_1_1Material.html" title="Contains information about a single material.">Material</a> for more on material properties. By default, a cylinder's length is aligned with the Z axis. The rotational offset encodes a rotation from the z axis. </p>
+<p>The cylinder class supports defining a cylinder with a radius, length, rotational offset, and material properties. Radius and length are in meters. See <a class="el" href="classgz_1_1math_1_1Material.html" title="Contains information about a single material.">Material</a> for more on material properties. A reference frame is defined with an origin at the geometric center of the cylinder, with XYZ coordinate axes defined with the Z axis parallel to the axis of symmetry. This frame is consistent with the SDFormat cylinder shape. The rotational offset encodes an additional rotation of the cylinder relative to this frame. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4d9942a8b357f47f4dfa97104e969479" name="a4d9942a8b357f47f4dfa97104e969479"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4d9942a8b357f47f4dfa97104e969479">&#9670;&#160;</a></span>Cylinder() <span class="overload">[1/3]</span></h2>
@@ -371,6 +374,28 @@ template&lt;<a class="el" href="classgz_1_1math_1_1Matrix6.html">typename</a> <a
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The center of volume if there is anything below the plane, otherwise return a std::nullopt. Expressed in the cylinder's reference frame. </dd></dl>
+
+</div>
+</div>
+<a id="aa0ce7b1ec0ea5a42837ea308b2e03907" name="aa0ce7b1ec0ea5a42837ea308b2e03907"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0ce7b1ec0ea5a42837ea308b2e03907">&#9670;&#160;</a></span>Centroid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="classgz_1_1math_1_1Matrix6.html">typename</a> <a class="el" href="classgz_1_1math_1_1Matrix6.html">Precision</a> &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Vector3.html">Vector3</a>&lt; <a class="el" href="classgz_1_1math_1_1Matrix6.html">Precision</a> &gt; Centroid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the centroid of the cylinder. It coincides with the origin of the reference frame defined in the class description. </p>
+<dl class="section return"><dt>Returns</dt><dd>The centroid, in the cylinder's reference frame: the zero vector. </dd></dl>
 
 </div>
 </div>

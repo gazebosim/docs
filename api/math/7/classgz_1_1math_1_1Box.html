@@ -172,6 +172,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a40b06390baad683aa37a1c3aa437f741"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="classgz_1_1math_1_1Vector3.html">Vector3</a>&lt; Precision &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Box.html#a40b06390baad683aa37a1c3aa437f741">CenterOfVolumeBelow</a> (const <a class="el" href="classgz_1_1math_1_1Plane.html">Plane</a>&lt; Precision &gt; &amp;_plane) const</td></tr>
 <tr class="memdesc:a40b06390baad683aa37a1c3aa437f741"><td class="mdescLeft">&#160;</td><td class="mdescRight">Center of volume below the plane. This is useful when calculating where buoyancy should be applied, for example.  <a href="classgz_1_1math_1_1Box.html#a40b06390baad683aa37a1c3aa437f741">More...</a><br /></td></tr>
 <tr class="separator:a40b06390baad683aa37a1c3aa437f741"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5f6de082f7a2bb58ec916454b6c723f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1math_1_1Vector3.html">Vector3</a>&lt; Precision &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Box.html#af5f6de082f7a2bb58ec916454b6c723f">Centroid</a> () const</td></tr>
+<tr class="memdesc:af5f6de082f7a2bb58ec916454b6c723f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the centroid of the box. It coincides with the origin of the reference frame defined in the class description.  <a href="classgz_1_1math_1_1Box.html#af5f6de082f7a2bb58ec916454b6c723f">More...</a><br /></td></tr>
+<tr class="separator:af5f6de082f7a2bb58ec916454b6c723f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a560a2db51aebac4ed15060f4bc62e650"><td class="memItemLeft" align="right" valign="top">Precision&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1math_1_1Box.html#a560a2db51aebac4ed15060f4bc62e650">DensityFromMass</a> (const Precision _mass) const</td></tr>
 <tr class="memdesc:a560a2db51aebac4ed15060f4bc62e650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the box's density given a mass value. The box is assumed to be solid with uniform density. This function requires the box's size to be set to values greater than zero. The <a class="el" href="classgz_1_1math_1_1Material.html" title="Contains information about a single material.">Material</a> of the box is ignored.  <a href="classgz_1_1math_1_1Box.html#a560a2db51aebac4ed15060f4bc62e650">More...</a><br /></td></tr>
 <tr class="separator:a560a2db51aebac4ed15060f4bc62e650"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -225,6 +228,7 @@ class gz::math::Box&lt; Precision &gt;</h3>
 <p>A representation of a box. All units are in meters. </p>
 <p>The box class supports defining a size and material properties. See <a class="el" href="classgz_1_1math_1_1Material.html" title="Contains information about a single material.">Material</a> for more on material properties.</p>
 <p>By default, a box's size (length, width, and height) is zero.</p>
+<p>A reference frame is defined with an origin at the geometric center of the box, with XYZ coordinate axes perpendicular to each face. The XYZ components of the size vector are the dimensions of the box parallel to the corresponding coordinate axes. This frame is consistent with the SDFormat box shape.</p>
 <p>See <a class="el" href="classgz_1_1math_1_1AxisAlignedBox.html" title="Mathematical representation of a box that is aligned along an X,Y,Z axis.">AxisAlignedBox</a> for an axis aligned box implementation. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab35f0568f1775ad9ae0b7c63c47f0362"></a>
@@ -460,6 +464,26 @@ class gz::math::Box&lt; Precision &gt;</h3>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Center of volume, in box's frame. </dd></dl>
+
+</div>
+</div>
+<a id="af5f6de082f7a2bb58ec916454b6c723f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5f6de082f7a2bb58ec916454b6c723f">&#9670;&nbsp;</a></span>Centroid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classgz_1_1math_1_1Vector3.html">Vector3</a>&lt;Precision&gt; Centroid </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the centroid of the box. It coincides with the origin of the reference frame defined in the class description. </p>
+<dl class="section return"><dt>Returns</dt><dd>The centroid, in the box's reference frame: the zero vector. </dd></dl>
 
 </div>
 </div>
