@@ -218,11 +218,11 @@ Start the simulation in Gazebo and wait a few seconds for TFs to be published.
 In another terminal, send either ROS or Gazebo commands for the vehicle to move in circles:
 
 ```bash
-gz topic -t "/model/vehicle/cmd_vel" -m gz.msgs.Twist -p "linear: {x: 1.0}, angular: {z: -0.1}"
-ros2 topic pub /model/vehicle/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 5.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -0.1}}
+gz topic -t "/model/vehicle/cmd_vel" -m gz.msgs.Twist -p "linear: {x: 0.5}, angular: {z: -0.1}"
+ros2 topic pub /model/vehicle/cmd_vel geometry_msgs/msg/Twist "{linear: {x:0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -0.1}}
 ```
 
-And verify the vehicle matching its trajectory in Gazebo and RViz.
+And verify the vehicle matching its trajectory in Gazebo and RViz. Note that the sim here is running 5 times faster than real time
 
 ![gz_rviz](tutorials/ros2_integration/gz_rviz.gif)
 
