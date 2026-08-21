@@ -17,7 +17,7 @@
         gtag('config', 'G-JKS50SX85K');
     </script>
     
-    <title>Binary Installation on Windows 10 &#8212; Gazebo harmonic documentation</title>
+    <title>Binary Installation on Windows 10/11 &#8212; Gazebo harmonic documentation</title>
   
   
   
@@ -511,7 +511,7 @@
     
     <li class="breadcrumb-item"><a href="../install/" class="nav-link">Gazebo Harmonic</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Binary Installation on Windows 10</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Binary Installation on Windows 10/11</span></li>
   </ul>
 </nav>
 </div>
@@ -531,64 +531,73 @@
   <div class="warning">
 WARNING: Current Windows support is experimental.
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="binary-installation-on-windows-10">
-<h1>Binary Installation on Windows 10<a class="headerlink" href="#binary-installation-on-windows-10" title="Link to this heading">#</a></h1>
-<p>Most Gazebo packages are available in Windows 10 using the <a class="reference external" href="https://conda-forge.org/">conda-forge package manager</a>,
-and the Gazebo feedstock recipes can be found <a class="reference external" href="https://github.com/search?q=org:conda-forge+libgz&amp;type=code">here</a>.</p>
-<p>In order to use <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code>, you will need to</p>
-<ol class="arabic simple">
-<li><p>Install a <a class="reference external" href="https://docs.conda.io/projects/conda/en/latest/user-guide/install/download.html">Conda package management system</a>.
-Miniconda suffices. You will likely want to check the box to add <code class="docutils literal notranslate"><span class="pre">conda</span></code> to your <code class="docutils literal notranslate"><span class="pre">PATH</span></code>
-during the installation process so that you won’t have to do this step manually.</p></li>
-<li><p>Open a Windows command prompt, being sure to have <code class="docutils literal notranslate"><span class="pre">conda</span></code> added to your
-Windows <code class="docutils literal notranslate"><span class="pre">PATH</span></code> system environment variable (you may also need to open
-a new command prompt to see any <code class="docutils literal notranslate"><span class="pre">PATH</span></code> changes reflected).</p></li>
+<section class="tex2jax_ignore mathjax_ignore" id="binary-installation-on-windows-10-11">
+<h1>Binary Installation on Windows 10/11<a class="headerlink" href="#binary-installation-on-windows-10-11" title="Link to this heading">#</a></h1>
+<p>Binaries for all the dependencies used by Gazebo can be found in the <a class="reference external" href="https://conda-forge.org/">conda-forge</a>
+package repository. The Gazebo buildfarm and these instructions use the <a class="reference external" href="https://pixi.sh/">Pixi</a> package manager.</p>
+<section id="install-dependencies">
+<h2>Install dependencies<a class="headerlink" href="#install-dependencies" title="Link to this heading">#</a></h2>
+<ol class="arabic">
+<li><p>Follow the Pixi installer instructions from <a class="reference external" href="https://pixi.sh/latest/">https://pixi.sh/latest/</a> to install pixi.
+Once pixi has been installed, close the terminal session and start it again,
+which will ensure pixi is on the PATH.</p></li>
+<li><p>Make a folder to initialize the Pixi project.
+Just make sure that the directory does not contain any spaces.
+Open up a command prompt and type the following</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="nb">cd</span><span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\%</span>USERNAME%<span class="se">\ </span>
+<span class="w">   </span>mkdir<span class="w"> </span>gz-ws
+<span class="w">   </span><span class="nb">cd</span><span class="w"> </span>gz-ws
+<span class="w">   </span>pixi<span class="w"> </span>init
+</pre></div>
+</div>
+<p>You should see this:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">   </span>✔<span class="w"> </span>Created<span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\U</span>SER<span class="se">\w</span>s_gz<span class="se">\p</span>ixi.toml
+</pre></div>
+</div>
+</li>
+<li><p>Prepare the pixi.toml file
+Now that the Pixi environment has been installed, you can add the packaged gazebo binary to it and some necessary environment variables for the QT library.</p>
+<p>Open up the pixi.toml file in your editor of choice or simple notepad.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>notepad<span class="w"> </span>pixi.toml
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">[dependencies]</span></code> with the following in the pixi.toml file</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">dependencies</span><span class="p">]</span>
+<span class="n">gz</span><span class="o">-</span><span class="n">sim</span> <span class="o">=</span> <span class="s2">"8.*"</span>
+</pre></div>
+</div>
+<p>Save and close the pixi.toml file, and then let Pixi pull all the dependencies and install Gazebo</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>install
+</pre></div>
+</div>
+<p>You should be seeing this</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>✔ The default environment has been installed.
+</pre></div>
+</div>
+</li>
 </ol>
-<p>If you did not add Conda to your <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment variable
-during Conda installation, you may need to navigate to the
-location of <code class="docutils literal notranslate"><span class="pre">condabin</span></code> in order to use the <code class="docutils literal notranslate"><span class="pre">conda</span></code> command.
-To find <code class="docutils literal notranslate"><span class="pre">condabin</span></code>, search for “Anaconda Prompt” in the
-Windows search field near the Windows button, open it, run
-<code class="docutils literal notranslate"><span class="pre">where</span> <span class="pre">conda</span></code>, and look for a line containing the directory <code class="docutils literal notranslate"><span class="pre">condabin</span></code>.</p>
-<ol class="arabic simple" start="3">
-<li><p>Create and activate a new Conda environment:</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>gz-env
-conda<span class="w"> </span>activate<span class="w"> </span>gz-env
+<p>You should now be able to launch gazebo normally within a pixi shell:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>shell
+gz<span class="w"> </span>sim<span class="w"> </span>-v4<span class="w"> </span>-s<span class="w"> </span>shapes.sdf
 </pre></div>
 </div>
-<ol class="arabic simple" start="4">
-<li><p>Install desired Gazebo packages you want to install based on your application. Packages with the prefix <code class="docutils literal notranslate"><span class="pre">libgz-</span></code>
-contain only the C++ libraries while the Python bindings are available separately as <code class="docutils literal notranslate"><span class="pre">gz-&lt;package_name&gt;&lt;#&gt;-python</span></code>.
-To install both with a single command use <code class="docutils literal notranslate"><span class="pre">gz-&lt;package_name&gt;&lt;#&gt;</span></code>.
-Thus you can use <code class="docutils literal notranslate"><span class="pre">gz-sim&lt;#&gt;</span></code> to fully install the latest version of Gazebo.</p></li>
-</ol>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>libgz-&lt;package_name&gt;&lt;<span class="c1">#&gt; --channel conda-forge</span>
+<p>And in a second terminal</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>shell
+gz<span class="w"> </span>sim<span class="w"> </span>-g
 </pre></div>
 </div>
-<p>Be sure to replace <code class="docutils literal notranslate"><span class="pre">&lt;package_name&gt;</span></code> with your desired package name (ie, common, msgs, etc.)
-and <code class="docutils literal notranslate"><span class="pre">&lt;#&gt;</span></code> with the release version.  If left unspecified, <code class="docutils literal notranslate"><span class="pre">conda-forge</span></code> will install the
-most recently stable release packages.  Be sure to check the
-<a class="reference internal" href="../install/"><span class="doc std std-doc">high level install instructions</span></a> for corresponding version numbers.</p>
-<p><strong>Note</strong></p>
-<p>You can view all available versions of a specific package with:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>search<span class="w"> </span>libgz-&lt;package_name&gt;*<span class="w"> </span>--channel<span class="w"> </span>conda-forge
-</pre></div>
-</div>
-<p>and view their dependencies with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>search<span class="w"> </span>libgz-&lt;package_name&gt;*<span class="w"> </span>--channel<span class="w"> </span>conda-forge<span class="w"> </span>--info
-</pre></div>
-</div>
-<p>and install a specific minor version with</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>install<span class="w"> </span>libgz-&lt;package_name&gt;<span class="o">=</span>&lt;major&gt;.&lt;minor&gt;.&lt;patch&gt;<span class="w"> </span>--channel<span class="w"> </span>conda-forge
-</pre></div>
-</div>
-<p>where <code class="docutils literal notranslate"><span class="pre">&lt;major&gt;</span></code> is the major release number, <code class="docutils literal notranslate"><span class="pre">&lt;minor&gt;</span></code> is the minor release number, and <code class="docutils literal notranslate"><span class="pre">&lt;patch</span></code> is the patch release number.</p>
-<section id="uninstalling-binary-install">
-<h2>Uninstalling binary install<a class="headerlink" href="#uninstalling-binary-install" title="Link to this heading">#</a></h2>
-<p>If you need to uninstall Gazebo or switch to a source-based install once you
-have already installed the library from binaries, run the following command:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>uninstall<span class="w"> </span>libgz-&lt;package_name&gt;<span class="w"> </span>--channel<span class="w"> </span>conda-forge
+<blockquote>
+<div><p>Note, Gazebo Harmonic has a bug that it can not run the simulator in one session, it needs to be launched with the server and gui separately. This bug has been fixed in later versions of Gazebo (Jetty and up)</p>
+</div></blockquote>
+<p>This is the end of the binary install instructions; head back to the <a class="reference internal" href="../getstarted/"><span class="doc std std-doc">Getting started</span></a>
+page to start using Gazebo!</p>
+</section>
+<section id="uninstalling-binary-based-gazebo-install">
+<h2>Uninstalling binary-based gazebo install<a class="headerlink" href="#uninstalling-binary-based-gazebo-install" title="Link to this heading">#</a></h2>
+<p>Uninstalling the Gazebo binary is as simple as removing the full folder that was created with the Pixi environment.</p>
+<p>In a command prompt, navigate to the root directory of where the folder is (depending on the location you chose at the first step), and remove it.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">   </span><span class="nb">cd</span><span class="w"> </span>C:<span class="se">\U</span>sers<span class="se">\%</span>USERNAME%<span class="se">\ </span>
+<span class="w">   </span>rmdir<span class="w"> </span>/s<span class="w"> </span>/q<span class="w"> </span>gz-ws
 </pre></div>
 </div>
 </section>
@@ -621,7 +630,8 @@ have already installed the library from binaries, run the following command:</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uninstalling-binary-install">Uninstalling binary install</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-dependencies">Install dependencies</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uninstalling-binary-based-gazebo-install">Uninstalling binary-based gazebo install</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#troubleshooting">Troubleshooting</a></li>
 </ul>
   </nav></div>
