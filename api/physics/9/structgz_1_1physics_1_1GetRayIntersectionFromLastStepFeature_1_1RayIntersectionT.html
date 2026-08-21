@@ -142,6 +142,7 @@
   <div class="summary">
 <a href="structgz_1_1physics_1_1GetRayIntersectionFromLastStepFeature_1_1RayIntersectionT-members.html">List of all members</a> &#124;
 <a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a>  </div>
   <div class="headertitle"><div class="title">GetRayIntersectionFromLastStepFeature::RayIntersectionT&lt; PolicyT &gt; Struct Template Reference</div></div>
 </div><!--header-->
@@ -156,10 +157,16 @@ Public Types</h2></td></tr>
 <tr class="memitem:a2e9ad3584981b24b58d978c4335af6fe" id="r_a2e9ad3584981b24b58d978c4335af6fe"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgz_1_1physics_1_1GetRayIntersectionFromLastStepFeature_1_1RayIntersectionT.html#a2e9ad3584981b24b58d978c4335af6fe">VectorType</a> = typename <a class="el" href="structgz_1_1physics_1_1FromPolicy.html">FromPolicy</a>&lt; PolicyT &gt;::template Use&lt; <a class="el" href="namespacegz_1_1physics.html#a0691de79072243de2344d7130dc4d0ee">LinearVector</a> &gt;</td></tr>
 <tr class="separator:a2e9ad3584981b24b58d978c4335af6fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a33c171c273d906e8f5ce4b86b242c4b9" id="r_a33c171c273d906e8f5ce4b86b242c4b9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgz_1_1physics_1_1GetRayIntersectionFromLastStepFeature_1_1RayIntersectionT.html#a33c171c273d906e8f5ce4b86b242c4b9">IsHit</a> () const</td></tr>
+<tr class="memdesc:a33c171c273d906e8f5ce4b86b242c4b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if the ray intersected an object.  <br /></td></tr>
+<tr class="separator:a33c171c273d906e8f5ce4b86b242c4b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a975b9be44e1828a276f1bfcff973690f" id="r_a975b9be44e1828a276f1bfcff973690f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgz_1_1physics_1_1GetRayIntersectionFromLastStepFeature_1_1RayIntersectionT.html#a425d6b0d2c345e02ed753f0a2e55d6ed">Scalar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgz_1_1physics_1_1GetRayIntersectionFromLastStepFeature_1_1RayIntersectionT.html#a975b9be44e1828a276f1bfcff973690f">fraction</a></td></tr>
-<tr class="memdesc:a975b9be44e1828a276f1bfcff973690f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The fraction of the ray length at the intersection/hit point.  <br /></td></tr>
+<tr class="memdesc:a975b9be44e1828a276f1bfcff973690f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The fraction of the ray length at the intersection/hit point. NaN if no object in range. Note: gz-physics10 changed the miss value to +INF (REP-117). gz-physics9 intentionally retains NaN for API compatibility. Use <a class="el" href="structgz_1_1physics_1_1GetRayIntersectionFromLastStepFeature_1_1RayIntersectionT.html#a33c171c273d906e8f5ce4b86b242c4b9" title="Returns true if the ray intersected an object.">IsHit()</a> — it is correct under both conventions.  <br /></td></tr>
 <tr class="separator:a975b9be44e1828a276f1bfcff973690f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9bb8e77de34edafac16cfc4fe8879938" id="r_a9bb8e77de34edafac16cfc4fe8879938"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structgz_1_1physics_1_1GetRayIntersectionFromLastStepFeature_1_1RayIntersectionT.html#a2e9ad3584981b24b58d978c4335af6fe">VectorType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structgz_1_1physics_1_1GetRayIntersectionFromLastStepFeature_1_1RayIntersectionT.html#a9bb8e77de34edafac16cfc4fe8879938">normal</a></td></tr>
 <tr class="memdesc:a9bb8e77de34edafac16cfc4fe8879938"><td class="mdescLeft">&#160;</td><td class="mdescRight">The normal at the hit point in the world coordinates.  <br /></td></tr>
@@ -201,6 +208,38 @@ template&lt;typename PolicyT &gt; </div>
 
 </div>
 </div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a33c171c273d906e8f5ce4b86b242c4b9" name="a33c171c273d906e8f5ce4b86b242c4b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a33c171c273d906e8f5ce4b86b242c4b9">&#9670;&#160;</a></span>IsHit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename PolicyT &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool IsHit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns true if the ray intersected an object. </p>
+
+<p class="reference">References <a class="el" href="structgz_1_1physics_1_1GetRayIntersectionFromLastStepFeature_1_1RayIntersectionT.html#a975b9be44e1828a276f1bfcff973690f">GetRayIntersectionFromLastStepFeature::RayIntersectionT&lt; PolicyT &gt;::fraction</a>, and <a class="elRef" href="http://en.cppreference.com/w/cpp/numeric/math/isfinite.html">std::isfinite()</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
 <a id="a975b9be44e1828a276f1bfcff973690f" name="a975b9be44e1828a276f1bfcff973690f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a975b9be44e1828a276f1bfcff973690f">&#9670;&#160;</a></span>fraction</h2>
@@ -216,7 +255,9 @@ template&lt;typename PolicyT &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>The fraction of the ray length at the intersection/hit point. </p>
+<p>The fraction of the ray length at the intersection/hit point. NaN if no object in range. Note: gz-physics10 changed the miss value to +INF (REP-117). gz-physics9 intentionally retains NaN for API compatibility. Use <a class="el" href="structgz_1_1physics_1_1GetRayIntersectionFromLastStepFeature_1_1RayIntersectionT.html#a33c171c273d906e8f5ce4b86b242c4b9" title="Returns true if the ray intersected an object.">IsHit()</a> — it is correct under both conventions. </p>
+
+<p class="reference">Referenced by <a class="el" href="structgz_1_1physics_1_1GetRayIntersectionFromLastStepFeature_1_1RayIntersectionT.html#a33c171c273d906e8f5ce4b86b242c4b9">GetRayIntersectionFromLastStepFeature::RayIntersectionT&lt; PolicyT &gt;::IsHit()</a>.</p>
 
 </div>
 </div>
