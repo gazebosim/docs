@@ -23,7 +23,7 @@ package repository. The Gazebo buildfarm and these instructions use the [Pixi](h
       pixi init
    ```
 
-  You should see this:
+   You should see this:
 
    ```bash
       ✔ Created C:\Users\USER\ws_gz\pixi.toml
@@ -55,6 +55,11 @@ package repository. The Gazebo buildfarm and these instructions use the [Pixi](h
    pixi install
    ```
 
+   You should be seeing this
+
+   ```
+   ✔ The default environment has been installed.
+   ```
 
 You should now be able to launch gazebo normally within a pixi shell:
 
@@ -62,19 +67,15 @@ You should now be able to launch gazebo normally within a pixi shell:
 pixi shell
 gz sim -v4 shapes.sdf
 ```
-
 or do a pixi run which is the same thing but just one line:
 
 ```bash
 pixi run gz sim -v4 empty.sdf
 ```
-
 > Note, currently just running `gz sim` directly doesn't work due to [this issue](https://github.com/gazebosim/gz-sim/issues/3859), so make sure to to always assign a world sdf file until this has been solved. 
-
 
 This is the end of the binary install instructions; head back to the [Getting started](getstarted)
 page to start using Gazebo!
-
 
 ## Uninstalling binary-based gazebo install
 
