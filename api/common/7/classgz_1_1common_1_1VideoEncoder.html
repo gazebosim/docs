@@ -183,7 +183,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a55e3737a078bb44592d4297ba82bac58" id="r_a55e3737a078bb44592d4297ba82bac58"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1VideoEncoder.html#a55e3737a078bb44592d4297ba82bac58">Start</a> (const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_format, const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_filename, const unsigned int _width, const unsigned int _height, const unsigned int _fps, const unsigned int _bitRate, const bool _allowHwAccel)</td></tr>
 <tr class="memdesc:a55e3737a078bb44592d4297ba82bac58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the encoder. This should be called once. Add new frames to the video using the AddFrame function. Use SaveToFile when the video is complete.  <br /></td></tr>
 <tr class="separator:a55e3737a078bb44592d4297ba82bac58"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab409f17ea63714c450e2befaaa3a7eb7" id="r_ab409f17ea63714c450e2befaaa3a7eb7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1VideoEncoder.html#ab409f17ea63714c450e2befaaa3a7eb7">Start</a> (const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_format, const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_filename, unsigned int _width, unsigned int _height, unsigned int _fps, unsigned int _bitRate, const <a class="el" href="classgz_1_1common_1_1FlagSet.html">FlagSet</a>&lt; HWEncoderType &gt; &amp;_allowedHwAccel, const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_hwAccelDevice=&quot;&quot;, std::optional&lt; bool &gt; _useHwSurface={})</td></tr>
+<tr class="memitem:ab409f17ea63714c450e2befaaa3a7eb7" id="r_ab409f17ea63714c450e2befaaa3a7eb7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1VideoEncoder.html#ab409f17ea63714c450e2befaaa3a7eb7">Start</a> (const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_format, const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_filename, unsigned int _width, unsigned int _height, unsigned int _fps, unsigned int _bitRate, const <a class="el" href="classgz_1_1common_1_1FlagSet.html">FlagSet</a>&lt; <a class="el" href="namespacegz_1_1common.html#a60fb82e85c3285c7e4d245b1a446966d">HWEncoderType</a> &gt; &amp;_allowedHwAccel, const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_hwAccelDevice=&quot;&quot;, std::optional&lt; bool &gt; _useHwSurface={})</td></tr>
 <tr class="memdesc:ab409f17ea63714c450e2befaaa3a7eb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the encoder. This should be called once. Add new frames to the video using the AddFrame function. Use SaveToFile when the video is complete.  <br /></td></tr>
 <tr class="separator:ab409f17ea63714c450e2befaaa3a7eb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53cd2c1e274d97938a50ef177ec76081" id="r_a53cd2c1e274d97938a50ef177ec76081"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1VideoEncoder.html#a53cd2c1e274d97938a50ef177ec76081">Start</a> (const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_format=&quot;mp4&quot;, const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_filename=&quot;&quot;, const unsigned int _width=1280, const unsigned int _height=720, const unsigned int _fps=25, const unsigned int _bitRate=0)</td></tr>
@@ -499,17 +499,12 @@ Public Member Functions</h2></td></tr>
 <p>Start the encoder. This should be called once. Add new frames to the video using the AddFrame function. Use SaveToFile when the video is complete. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_format</td><td>String that represents the video type. Supported types include: "avi", "ogv", "mp4", "v4l2". If using "v4l2", you must also specify a filename. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_filename</td><td>Name of the file that stores the video while it is being created. This is a temporary file when recording to disk, or a video4linux loopback device like /dev/video0 when the format is "v4l2". If blank, a default temporary file is used. However, the "v4l2" format must be accompanied with a video loopback device filename. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">_width</td><td>Width in pixels of the output video. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">_height</td><td>Height in pixels of the output video. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">_format</td><td>String that represents the video type. Supported types include: "avi", "ogv", mp4", "v4l2". If using
-"v4l2", you must also specify a _filename.
-@param [in] _bitRate Bit rate to encode the video. A value of zero
-will cause this function to automatically compute a bitrate.
-@param [in] _filename Name of the file that stores the video while it
-is being created. This is a temporary file when recording to
-disk, or a video4linux loopback device like /dev/video0 when
-the _format is "v4l2". If blank, a default temporary file is used.
-However, the "v4l2" _format must be accompanied with a video loopback device filename. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_fps</td><td>Frame rate of the output video in frames per second. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_bitRate</td><td>Bit rate to encode the video. A value of zero will cause this function to automatically compute a bitrate. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">_allowHwAccel</td><td>If true, HW acceleration settings are read from environment variables (see the other <a class="el" href="classgz_1_1common_1_1VideoEncoder.html#a53cd2c1e274d97938a50ef177ec76081" title="Start the encoder. This should be called once. Add new frames to the video using the AddFrame functio...">Start()</a> overload for the loading mechanism description). If set to false, only SW encoding will be done. </td></tr>
   </table>
   </dd>
@@ -563,7 +558,7 @@ However, the "v4l2" _format must be accompanied with a video loopback device fil
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classgz_1_1common_1_1FlagSet.html">FlagSet</a>&lt; HWEncoderType &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classgz_1_1common_1_1FlagSet.html">FlagSet</a>&lt; <a class="el" href="namespacegz_1_1common.html#a60fb82e85c3285c7e4d245b1a446966d">HWEncoderType</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>_allowedHwAccel</em>, </td>
         </tr>
         <tr>
@@ -589,19 +584,15 @@ However, the "v4l2" _format must be accompanied with a video loopback device fil
 <p>Start the encoder. This should be called once. Add new frames to the video using the AddFrame function. Use SaveToFile when the video is complete. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_format</td><td>String that represents the video type. Supported types include: "avi", "ogv", "mp4", "v4l2". If using "v4l2", you must also specify a filename. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_filename</td><td>Name of the file that stores the video while it is being created. This is a temporary file when recording to disk, or a video4linux loopback device like /dev/video0 when the format is "v4l2". If blank, a default temporary file is used. However, the "v4l2" format must be accompanied with a video loopback device filename. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">_width</td><td>Width in pixels of the output video. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">_height</td><td>Height in pixels of the output video. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">_format</td><td>String that represents the video type. Supported types include: "avi", "ogv", mp4", "v4l2". If using
-"v4l2", you must also specify a _filename.
-@param [in] _bitRate Bit rate to encode the video. A value of zero
-will cause this function to automatically compute a bitrate.
-@param [in] _filename Name of the file that stores the video while it
-is being created. This is a temporary file when recording to
-disk, or a video4linux loopback device like /dev/video0 when
-the _format is "v4l2". If blank, a default temporary file is used.
-However, the "v4l2" _format must be accompanied with a video loopback device filename. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_fps</td><td>Frame rate of the output video in frames per second. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_bitRate</td><td>Bit rate to encode the video. A value of zero will cause this function to automatically compute a bitrate. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">_allowedHwAccel</td><td>Allowed HW acceleration frameworks to probe (as a bitmask of values of HWAccelerationDevice enum). Set to HWAccelerationDevice::NONE to force software encoding only. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">_hwAccelDevice</td><td>If nonempty, specifies the HW device to use for encoding. If empty, the framework search method will look for some default devices. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_useHwSurface</td><td>If set, specifies whether the HW encoder should explicitly upload frames to the GPU (true) or leave that to the internals of the codec (false). If unset, a HW-specific default is used that was experimentally found to be faster. </td></tr>
   </table>
   </dd>
 </dl>
@@ -662,17 +653,12 @@ However, the "v4l2" _format must be accompanied with a video loopback device fil
 <p>Start the encoder. This should be called once. Add new frames to the video using the AddFrame function. Use SaveToFile when the video is complete. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_format</td><td>String that represents the video type. Supported types include: "avi", "ogv", "mp4", "v4l2". If using "v4l2", you must also specify a filename. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_filename</td><td>Name of the file that stores the video while it is being created. This is a temporary file when recording to disk, or a video4linux loopback device like /dev/video0 when the format is "v4l2". If blank, a default temporary file is used. However, the "v4l2" format must be accompanied with a video loopback device filename. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">_width</td><td>Width in pixels of the output video. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">_height</td><td>Height in pixels of the output video. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">_format</td><td>String that represents the video type. Supported types include: "avi", "ogv", mp4", "v4l2". If using
-"v4l2", you must also specify a _filename.
-@param [in] _bitRate Bit rate to encode the video. A value of zero
-will cause this function to automatically compute a bitrate.
-@param [in] _filename Name of the file that stores the video while it
-is being created. This is a temporary file when recording to
-disk, or a video4linux loopback device like /dev/video0 when
-the _format is "v4l2". If blank, a default temporary file is used.
-However, the "v4l2" _format must be accompanied with a video loopback device filename. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_fps</td><td>Frame rate of the output video in frames per second. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_bitRate</td><td>Bit rate to encode the video. A value of zero will cause this function to automatically compute a bitrate. </td></tr>
   </table>
   </dd>
 </dl>
