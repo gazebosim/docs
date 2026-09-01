@@ -320,7 +320,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a09b6650a35dcfad315ced8cfc90429a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Request an entity deletion. This will insert the request into a queue. The queue is processed toward the end of a simulation update step.  <br /></td></tr>
 <tr class="separator:a09b6650a35dcfad315ced8cfc90429a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac49e362ab68e472d9dc65d8eb7c79123" id="r_ac49e362ab68e472d9dc65d8eb7c79123"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#ac49e362ab68e472d9dc65d8eb7c79123">ResetTo</a> (const <a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html">EntityComponentManager</a> &amp;_other)</td></tr>
-<tr class="memdesc:ac49e362ab68e472d9dc65d8eb7c79123"><td class="mdescLeft">&#160;</td><td class="mdescRight">Given a diff, apply it to this ECM. Note that for removed entities, this would mark them for removal instead of actually removing the entities.  <br /></td></tr>
+<tr class="memdesc:ac49e362ab68e472d9dc65d8eb7c79123"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset this ECM back to the state captured in <code>_other</code>, reconciling any entities that were added or removed since <code>_other</code> was taken. This is the operation used to implement world reset/rewind.  <br /></td></tr>
 <tr class="separator:ac49e362ab68e472d9dc65d8eb7c79123"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a46f812c07983a72d84430c96b7750da9" id="r_a46f812c07983a72d84430c96b7750da9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#a46f812c07983a72d84430c96b7750da9">SetAllComponentsUnchanged</a> ()</td></tr>
 <tr class="memdesc:a46f812c07983a72d84430c96b7750da9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mark all components as not changed.  <br /></td></tr>
@@ -938,6 +938,7 @@ template&lt;typename ComponentTypeT &gt; </div>
 
 <p>Copies the contents of <code>_fromEcm</code> into this object. </p>
 <dl class="section note"><dt>Note</dt><dd>This is a member function instead of a copy constructor so that it can have additional parameters if the need arises in the future. Additionally, not every data member is copied making its behavior different from what would be expected from a copy constructor. </dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>This rebuilds the underlying component storage: every existing component is destroyed and replaced by a freshly allocated clone. Any raw component pointer previously obtained from this ECM (e.g. via <a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#af1c0607e1afe189a4e2c19a8941c1dd9" title="Get a component assigned to an entity based on a component type.">Component()</a>) is therefore left dangling and must be re-fetched after this call. Dereferencing a stale pointer is undefined behavior. </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">_fromEcm</td><td>Object to copy from </td></tr>
@@ -1980,7 +1981,8 @@ template&lt;typename ComponentTypeT &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Given a diff, apply it to this ECM. Note that for removed entities, this would mark them for removal instead of actually removing the entities. </p>
+<p>Reset this ECM back to the state captured in <code>_other</code>, reconciling any entities that were added or removed since <code>_other</code> was taken. This is the operation used to implement world reset/rewind. </p>
+<dl class="section warning"><dt>Warning</dt><dd>This rebuilds the underlying component storage via <a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#add5a50bb5dea520f481e1f2c4edb1c7e" title="Copies the contents of _fromEcm into this object.">CopyFrom()</a>. Any raw component pointer obtained from this ECM before the reset (e.g. via <a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html#af1c0607e1afe189a4e2c19a8941c1dd9" title="Get a component assigned to an entity based on a component type.">Component()</a>) is invalidated and must be re-fetched afterwards. Holding such a pointer across a reset and dereferencing it is undefined behavior (see issue <a href="https://github.com/gazebosim/gz-sim/issues/3635">https://github.com/gazebosim/gz-sim/issues/3635</a>). </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">_other</td><td>Original <a class="el" href="classgz_1_1sim_1_1EntityComponentManager.html" title="The EntityComponentManager constructs, deletes, and returns components and entities....">EntityComponentManager</a> from which the diff was computed. </td></tr>
