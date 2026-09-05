@@ -1,0 +1,84 @@
+name: Deploy Python API Docs
+on:
+  schedule:
+    - cron: '0 7 * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    name: 'Build Python API Docs (${{ matrix.gazebo_distribution }})'
+    runs-on: ubuntu-latest
+    container:
+      image: ubuntu:${{ matrix.ubuntu_distribution }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - ubuntu_distribution: jammy
+            gazebo_distribution: harmonic
+            gz_math_version: "7"
+          - ubuntu_distribution: noble
+            gazebo_distribution: ionic
+            gz_math_version: "8"
+          - ubuntu_distribution: noble
+            gazebo_distribution: jetty
+            gz_math_version: ""
+    steps:
+      - uses: ros-tooling/setup-ros@v0.7
+      - name: Set up Gazebo
+        uses: gazebo-tooling/setup-gazebo@v0.3.0
+        with:
+          required-gazebo-distributions: ${{ matrix.gazebo_distribution }}
+      - name: Install Python bindings and Sphinx
+        run: |
+          sudo apt-get install -y python3-pip
+          pip3 install sphinx furo sphinx-autodoc-typehints
+          sudo apt-get install -y python3-gz-math${{ matrix.gz_math_version }} || true
+      - name: Checkout docs repo
+        uses: actions/checkout@v4
+      - name: Build Python API docs
+        run: |
+          python3 tools/build_python_docs.py \
+            --distro ${{ matrix.gazebo_distribution }} \
+            --output python-api-build
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: python-api-docs-${{ matrix.gazebo_distribution }}
+          path: python-api-build
+          if-no-files-found: warn
+          include-hidden-files: 'true'
+  upload:
+    name: Upload Python docs to production
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        id: download
+        with:
+          path: .python-api-docs
+          pattern: python-api-docs-*
+          merge-multiple: false
+      - name: Install Python
+        run: |
+          sudo apt-get install -y python3-yaml
+      - run: python3 tools/restructure_python_artifacts.py --input ${{steps.download.outputs.download-path}} .python-api-out
+      - uses: actions/upload-artifact@v4
+        with:
+          name: python-api-docs
+          path: .python-api-out/*
+          if-no-files-found: warn
+          include-hidden-files: 'true'
+      - name: Commit
+        if: github.ref == 'refs/heads/master'
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: ./.python-api-out
+          target-folder: api/python
+          clean: false
