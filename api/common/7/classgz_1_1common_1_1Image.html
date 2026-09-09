@@ -225,6 +225,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac3639f0400edfcff1f96ca959798d65f" id="r_ac3639f0400edfcff1f96ca959798d65f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1Image.html#ac3639f0400edfcff1f96ca959798d65f">Load</a> (const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_filename)</td></tr>
 <tr class="memdesc:ac3639f0400edfcff1f96ca959798d65f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load an image. Return 0 on success.  <br /></td></tr>
 <tr class="separator:ac3639f0400edfcff1f96ca959798d65f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93a1ecbec6bff9c23be448e41e1ecbcd" id="r_a93a1ecbec6bff9c23be448e41e1ecbcd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1Image.html#a93a1ecbec6bff9c23be448e41e1ecbcd">Load</a> (const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_filename, std::optional&lt; <a class="el" href="classgz_1_1common_1_1Image.html#a9496e0bc625b8919caa580b65f5dd227">PixelFormatType</a> &gt; _outputFormat)</td></tr>
+<tr class="memdesc:a93a1ecbec6bff9c23be448e41e1ecbcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load an image, decoding it to a specific pixel format. Passing <a class="el" href="classgz_1_1common_1_1Image.html#a9496e0bc625b8919caa580b65f5dd227ab156bd5815be26236de6282a63630f76">PixelFormatType::RGBA_INT8</a> decodes straight to 8-bit RGBA in a single pass, which is faster than <a class="el" href="classgz_1_1common_1_1Image.html#ac3639f0400edfcff1f96ca959798d65f" title="Load an image. Return 0 on success.">Load()</a> followed by <a class="el" href="classgz_1_1common_1_1Image.html#ad11c17b557d3cc49535008441b963133" title="Get the RGBA data from the image. This will add an alpha channel if one is not present.">RGBAData()</a> for textures destined for RGBA upload: it avoids a second channel conversion and lets the decoder write 4-wide RGBA more efficiently than packed RGB. The loaded image then reports 4 channels (RGBA_INT8) with opaque alpha added when the source has none, and any source format (8/16-bit or HDR) down-converted to 8-bit RGBA. Passing std::nullopt loads in the source's native format (equivalent to Load(_filename)). Only the native format and RGBA_INT8 are currently supported.  <br /></td></tr>
+<tr class="separator:a93a1ecbec6bff9c23be448e41e1ecbcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a72f0c3750ac1fbfe9daf68fc444740ac" id="r_a72f0c3750ac1fbfe9daf68fc444740ac"><td class="memItemLeft" align="right" valign="top"><a class="elRef" href="https://gazebosim.org/api/math/9/classgz_1_1math_1_1Color.html">math::Color</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1Image.html#a72f0c3750ac1fbfe9daf68fc444740ac">MaxColor</a> () const</td></tr>
 <tr class="memdesc:a72f0c3750ac1fbfe9daf68fc444740ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the max color.  <br /></td></tr>
 <tr class="separator:a72f0c3750ac1fbfe9daf68fc444740ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -251,6 +254,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a2859f7dddfc61dff6493a0df9d6c4b87" id="r_a2859f7dddfc61dff6493a0df9d6c4b87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1Image.html#a2859f7dddfc61dff6493a0df9d6c4b87">SavePNGToBuffer</a> (<a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; unsigned char &gt; &amp;_buffer)</td></tr>
 <tr class="memdesc:a2859f7dddfc61dff6493a0df9d6c4b87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the PNG image in a buffer.  <br /></td></tr>
 <tr class="separator:a2859f7dddfc61dff6493a0df9d6c4b87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44bff047de75d2ecc53ac032f1c7dd9c" id="r_a44bff047de75d2ecc53ac032f1c7dd9c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1Image.html#a44bff047de75d2ecc53ac032f1c7dd9c">SetFromCompressedData</a> (const unsigned char *_data, unsigned int _size, <a class="el" href="classgz_1_1common_1_1Image.html#a9496e0bc625b8919caa580b65f5dd227">Image::PixelFormatType</a> _inputFormat, std::optional&lt; <a class="el" href="classgz_1_1common_1_1Image.html#a9496e0bc625b8919caa580b65f5dd227">PixelFormatType</a> &gt; _outputFormat)</td></tr>
+<tr class="memdesc:a44bff047de75d2ecc53ac032f1c7dd9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the image from compressed (i.e. png/jpeg) data, decoding it to a specific pixel format. Passing <a class="el" href="classgz_1_1common_1_1Image.html#a9496e0bc625b8919caa580b65f5dd227ab156bd5815be26236de6282a63630f76">PixelFormatType::RGBA_INT8</a> decodes straight to 8-bit RGBA in a single pass; std::nullopt decodes to the source's native format (equivalent to the 3-argument overload).  <br /></td></tr>
+<tr class="separator:a44bff047de75d2ecc53ac032f1c7dd9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad75ca32a3eb4de01422c07d2b74cca1d" id="r_ad75ca32a3eb4de01422c07d2b74cca1d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1common_1_1Image.html#ad75ca32a3eb4de01422c07d2b74cca1d">SetFromCompressedData</a> (unsigned char *_data, unsigned int _size, <a class="el" href="classgz_1_1common_1_1Image.html#a9496e0bc625b8919caa580b65f5dd227">Image::PixelFormatType</a> _format)</td></tr>
 <tr class="memdesc:ad75ca32a3eb4de01422c07d2b74cca1d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the image from compressed (i.e. png) data.  <br /></td></tr>
 <tr class="separator:ad75ca32a3eb4de01422c07d2b74cca1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -663,7 +669,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="ac3639f0400edfcff1f96ca959798d65f" name="ac3639f0400edfcff1f96ca959798d65f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac3639f0400edfcff1f96ca959798d65f">&#9670;&#160;</a></span>Load()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3639f0400edfcff1f96ca959798d65f">&#9670;&#160;</a></span>Load() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -682,6 +688,44 @@ template&lt;typename T &gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">_filename</td><td>the path to the image file </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 when the operation succeeds to open a file or -1 when fails. </dd></dl>
+
+</div>
+</div>
+<a id="a93a1ecbec6bff9c23be448e41e1ecbcd" name="a93a1ecbec6bff9c23be448e41e1ecbcd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93a1ecbec6bff9c23be448e41e1ecbcd">&#9670;&#160;</a></span>Load() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Load </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;&#160;</td>
+          <td class="paramname"><em>_filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::optional&lt; <a class="el" href="classgz_1_1common_1_1Image.html#a9496e0bc625b8919caa580b65f5dd227">PixelFormatType</a> &gt;&#160;</td>
+          <td class="paramname"><em>_outputFormat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Load an image, decoding it to a specific pixel format. Passing <a class="el" href="classgz_1_1common_1_1Image.html#a9496e0bc625b8919caa580b65f5dd227ab156bd5815be26236de6282a63630f76">PixelFormatType::RGBA_INT8</a> decodes straight to 8-bit RGBA in a single pass, which is faster than <a class="el" href="classgz_1_1common_1_1Image.html#ac3639f0400edfcff1f96ca959798d65f" title="Load an image. Return 0 on success.">Load()</a> followed by <a class="el" href="classgz_1_1common_1_1Image.html#ad11c17b557d3cc49535008441b963133" title="Get the RGBA data from the image. This will add an alpha channel if one is not present.">RGBAData()</a> for textures destined for RGBA upload: it avoids a second channel conversion and lets the decoder write 4-wide RGBA more efficiently than packed RGB. The loaded image then reports 4 channels (RGBA_INT8) with opaque alpha added when the source has none, and any source format (8/16-bit or HDR) down-converted to 8-bit RGBA. Passing std::nullopt loads in the source's native format (equivalent to Load(_filename)). Only the native format and RGBA_INT8 are currently supported. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_filename</td><td>the path to the image file </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_outputFormat</td><td>Desired output pixel format, or std::nullopt for the source's native format. </td></tr>
   </table>
   </dd>
 </dl>
@@ -914,8 +958,60 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a id="a44bff047de75d2ecc53ac032f1c7dd9c" name="a44bff047de75d2ecc53ac032f1c7dd9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44bff047de75d2ecc53ac032f1c7dd9c">&#9670;&#160;</a></span>SetFromCompressedData() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void SetFromCompressedData </td>
+          <td>(</td>
+          <td class="paramtype">const unsigned char *&#160;</td>
+          <td class="paramname"><em>_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>_size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classgz_1_1common_1_1Image.html#a9496e0bc625b8919caa580b65f5dd227">Image::PixelFormatType</a>&#160;</td>
+          <td class="paramname"><em>_inputFormat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::optional&lt; <a class="el" href="classgz_1_1common_1_1Image.html#a9496e0bc625b8919caa580b65f5dd227">PixelFormatType</a> &gt;&#160;</td>
+          <td class="paramname"><em>_outputFormat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the image from compressed (i.e. png/jpeg) data, decoding it to a specific pixel format. Passing <a class="el" href="classgz_1_1common_1_1Image.html#a9496e0bc625b8919caa580b65f5dd227ab156bd5815be26236de6282a63630f76">PixelFormatType::RGBA_INT8</a> decodes straight to 8-bit RGBA in a single pass; std::nullopt decodes to the source's native format (equivalent to the 3-argument overload). </p>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classgz_1_1common_1_1Image.html#ac3639f0400edfcff1f96ca959798d65f" title="Load an image. Return 0 on success.">Load</a>. Only the native format and <a class="el" href="classgz_1_1common_1_1Image.html#a9496e0bc625b8919caa580b65f5dd227ab156bd5815be26236de6282a63630f76">RGBA_INT8</a> are currently supported. </dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_data</td><td>Pointer to the compressed image data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_size</td><td>Size of the buffer </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_inputFormat</td><td>Pixel format of the provided (compressed) data </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_outputFormat</td><td>Desired output pixel format, or std::nullopt for the source's native format. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ad75ca32a3eb4de01422c07d2b74cca1d" name="ad75ca32a3eb4de01422c07d2b74cca1d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad75ca32a3eb4de01422c07d2b74cca1d">&#9670;&#160;</a></span>SetFromCompressedData()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ad75ca32a3eb4de01422c07d2b74cca1d">&#9670;&#160;</a></span>SetFromCompressedData() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
