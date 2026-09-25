@@ -101,7 +101,9 @@ colcon graph
 If that is the case, then you are ready
 to build the whole set of libraries:
 
-Note if you are on an ARM based Apple Silicon Mac machine (M based chips etc.), you may need to set a couple more cmake args:
+:::{important}
+If you are on an ARM based Apple Silicon Mac machine (M based chips etc.), you may need to set `-DCMAKE_MACOSX_RPATH=FALSE` and `-DCMAKE_INSTALL_NAME_DIR=$(pwd)/install/lib`
+:::
 
 ```bash
 colcon build --cmake-args -DCMAKE_MACOSX_RPATH=FALSE -DCMAKE_INSTALL_NAME_DIR=$(pwd)/install/lib --merge-install
