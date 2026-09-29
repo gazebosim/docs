@@ -11,7 +11,7 @@ The package `ros_gz_sim` contains a launch file named
 existing simulation. Here's an example:
 
 ```bash
-ros2 launch ros_gz_sim gz_spawn_model.launch.py world:=empty file:=$(ros2 pkg prefix --share ros_gz_sim_demos)/models/vehicle/model.sdf entity_name:=my_vehicle x:=5.0 y:=5.0 z:=0.5
+ros2 launch ros_gz_sim gz_spawn_model.launch.py world:=empty file:=$(ros2 pkg prefix --share ros_gz_sim_demos)/models/vehicle/model.sdf entity_name:=my_vehicle entity_namespace:=my_vehicle x:=5.0 y:=5.0 z:=0.5
 ```
 
 Check [this block](https://github.com/gazebosim/ros_gz/blob/cadae1c8323a74395c09a37e3de4c669c8c09d4f/ros_gz_sim/launch/ros_gz_spawn_model.launch.py#L33-L44)
@@ -32,6 +32,7 @@ within this tag. Here's an example:
   <arg name="model_string" default="" />
   <arg name="topic" default="" />
   <arg name="entity_name" default="" />
+  <arg name="entity_namespace" default=""/>
   <arg name="allow_renaming" default="False" />
   <arg name="x" default="" />
   <arg name="y" default="" />
@@ -45,6 +46,7 @@ within this tag. Here's an example:
     model_string="$(var model_string)"
     topic="$(var topic)"
     entity_name="$(var entity_name)"
+    entity_namespace="$(var entity_namespace)"
     allow_renaming="$(var allow_renaming)"
     x="$(var x)"
     y="$(var y)"
@@ -68,7 +70,7 @@ An example launch file for Python can be viewed [here](https://github.com/gazebo
 
 Example command for directly using these launch files from the terminal:
 ```bash
-ros2 launch ros_gz_sim ros_gz_spawn_model.launch.py world:=empty file:=$(ros2 pkg prefix --share ros_gz_sim_demos)/models/vehicle/model.sdf entity_name:=my_vehicle x:=5.0 y:=5.0 z:=0.5 bridge_name:=ros_gz_bridge config_file:=<path_to_your_YAML_file>
+ros2 launch ros_gz_sim ros_gz_spawn_model.launch.py world:=empty file:=$(ros2 pkg prefix --share ros_gz_sim_demos)/models/vehicle/model.sdf entity_name:=my_vehicle entity_namespace:=my_vehicle x:=5.0 y:=5.0 z:=0.5 bridge_name:=ros_gz_bridge config_file:=<path_to_your_YAML_file>
 ```
 
 More info about `ros_gz_bridge` can be viewed [here](ros2_integration).

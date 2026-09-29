@@ -98,7 +98,7 @@ The following interfaces are used to create or remove entities in the simulation
 
 ### SpawnEntity Service
 
-Spawn a new entity in the simulation at a specific location.
+Spawn a new entity in the simulation at a specific location and with a specific entity namespace.
 
 ```bash
 ros2 service call /gzserver/spawn_entity simulation_interfaces/srv/SpawnEntity "{
@@ -106,6 +106,7 @@ ros2 service call /gzserver/spawn_entity simulation_interfaces/srv/SpawnEntity "
   entity_resource: {
     uri: '/path/to/model.sdf'
   },
+  entity_namespace: 'my_model',
   allow_renaming: false,
   initial_pose: {
     pose: {
@@ -201,5 +202,4 @@ ros2 service call /gzserver/get_simulator_features simulation_interfaces/srv/Get
 ## Known Limitations
 
 - Only an empty string or "world" can be used in the `frame_id` field of `PoseStamped` messages. We plan to add support for using frames known to `Tf` in the future.
-- Entity namespaces are not supported by the `SpawnEntity` service.
 - When spawning an entity, if `SpawnEntity.allow_renaming` is set to `true` and a rename occurs in Gazebo, the new name is not returned in the `Result` object return by the `SpawnEntity` service.
