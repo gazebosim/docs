@@ -296,15 +296,18 @@ You should see the model in the origin of the world.
 
 You can also set its coordinates using the `<pose>` tag.
 If you want to spawn multiple instances of the same model you must give them different names with the `<name>` tag.
+If you want to set a namespace for the included model, you can use the `<namespace>` tag to override the namespace defined by the model referenced by `<uri>`, or to add one if no namespace is defined. The `{name}` placeholder can be used to refer to the final model name.
 
 ```
     <include>
         <name>Coke0</name>
+        <namespace>robot</namespace>
         <pose>0 0 0 0 0 0</pose>
         <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke</uri>
     </include>
     <include>
         <name>Coke1</name>
+        <namespace>{name}_robot</namespace>
         <pose>0 0.1 0 0 0 0</pose>
         <uri>https://fuel.gazebosim.org/1.0/OpenRobotics/models/Coke</uri>
     </include>

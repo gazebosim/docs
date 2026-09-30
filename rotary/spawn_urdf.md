@@ -13,8 +13,7 @@ If you are looking for a URDF file to use, you can use the [`rrbot.urdf`](https:
 If you have a `xacro` representation of a robot model, you can turn the `xacro` file into a `URDF` file using the [`xacro`](https://index.ros.org/p/xacro/) package: see [this tutorial](https://docs.ros.org/en/humble/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.html) for more information.
 
 ## Spawning the URDF
-
-To spawn a URDF model in Gazebo Sim, we will start a world and make use of the world's `create` service, which uses the [EntityFactory](https://gazebosim.org/api/msgs/9/entity__factory_8pb_8h.html) message type.
+To spawn a URDF model in Gazebo Sim, we will start a world and make use of the world's `create` service, which uses the [EntityFactory](https://github.com/gazebosim/gz-msgs/blob/main/proto/gz/msgs/entity_factory.proto) message type.
 
 Start by launching an empty world in Gazebo Sim:
 ```bash
@@ -44,7 +43,7 @@ The [libsdformat](https://gazebosim.org/libs/sdformat) library will then interna
 
 The following command spawns the URDF file `model.urdf` into the Gazebo Sim world as a model named `urdf_model`:
 ```bash
-gz service -s /world/empty/create --reqtype gz.msgs.EntityFactory --reptype gz.msgs.Boolean --timeout 1000 --req 'sdf_filename: "/path/to/model.urdf", name: "urdf_model"'
+gz service -s /world/empty/create --reqtype gz.msgs.EntityFactory --reptype gz.msgs.Boolean --timeout 1000 --req 'sdf_filename: "/path/to/model.urdf", name: "urdf_model", namespace: "robot"'
 ```
 
 If `model.urdf` is the URDF representation of [`rrbot.urdf`](https://github.com/gazebosim/docs/blob/master/rotary/tutorials/spawn_urdf/rrbot.urdf) in the `gazebo_ros_demos` package, executing the service call above should result in a simulation that now looks like this:
