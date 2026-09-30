@@ -91,7 +91,7 @@ Under the `</model>` tag we will add our robot model as follows:
 ### Defining the model
 
 ```xml
-<model name='vehicle_blue' namespace='vehicle_blue' canonical_link='chassis'>
+<model name='vehicle_blue' namespace='{name}_robot' canonical_link='chassis'>
     <pose relative_to='world'>0 0 0 0 0 0</pose>
 ```
 

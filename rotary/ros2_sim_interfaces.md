@@ -106,7 +106,7 @@ ros2 service call /gzserver/spawn_entity simulation_interfaces/srv/SpawnEntity "
   entity_resource: {
     uri: '/path/to/model.sdf'
   },
-  entity_namespace: 'my_model',
+  entity_namespace: 'robot',
   allow_renaming: false,
   initial_pose: {
     pose: {
