@@ -742,6 +742,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1rendering_1_1ParticleEmitter.html">ParticleEmitter</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class to manage a particle emitter.  <a href="classgz_1_1rendering_1_1ParticleEmitter.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1rendering_1_1PixelBuffer.html">PixelBuffer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Non owning, writable view of a caller owned pixel buffer.  <a href="classgz_1_1rendering_1_1PixelBuffer.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1rendering_1_1PixelUtil.html">PixelUtil</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Provides supporting functions for PixelFormat enum.  <a href="classgz_1_1rendering_1_1PixelUtil.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1578,6 +1581,9 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ae3a955e3ec831535bcae63742cb879d0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegz_1_1rendering.html#ae3a955e3ec831535bcae63742cb879d0">convertRGBToBayer</a> (const <a class="el" href="classgz_1_1rendering_1_1Image.html">Image</a> &amp;_image, const <a class="el" href="classgz_1_1rendering_1_1PixelBuffer.html">PixelBuffer</a> &amp;_bayer)</td></tr>
+<tr class="memdesc:ae3a955e3ec831535bcae63742cb879d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert an RGB image into an existing Bayer buffer. Unlike the overload that returns a new image, this one writes into memory the caller provides, so it also works for buffers the caller owns.  <a href="namespacegz_1_1rendering.html#ae3a955e3ec831535bcae63742cb879d0">More...</a><br /></td></tr>
+<tr class="separator:ae3a955e3ec831535bcae63742cb879d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34953a841d6c0785b23d8dd01f190e1e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1rendering_1_1Image.html">Image</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacegz_1_1rendering.html#a34953a841d6c0785b23d8dd01f190e1e">convertRGBToBayer</a> (const <a class="el" href="classgz_1_1rendering_1_1Image.html">Image</a> &amp;_image, <a class="el" href="namespacegz_1_1rendering.html#a60883d4958a60b91661e97027a85072a">PixelFormat</a> _bayerFormat)</td></tr>
 <tr class="memdesc:a34953a841d6c0785b23d8dd01f190e1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">convert an RGB image data into bayer image data  <a href="namespacegz_1_1rendering.html#a34953a841d6c0785b23d8dd01f190e1e">More...</a><br /></td></tr>
 <tr class="separator:a34953a841d6c0785b23d8dd01f190e1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -5667,8 +5673,46 @@ Variables</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ae3a955e3ec831535bcae63742cb879d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3a955e3ec831535bcae63742cb879d0">&#9670;&nbsp;</a></span>convertRGBToBayer() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool gz::rendering::convertRGBToBayer </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classgz_1_1rendering_1_1Image.html">Image</a> &amp;&#160;</td>
+          <td class="paramname"><em>_image</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classgz_1_1rendering_1_1PixelBuffer.html">PixelBuffer</a> &amp;&#160;</td>
+          <td class="paramname"><em>_bayer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert an RGB image into an existing Bayer buffer. Unlike the overload that returns a new image, this one writes into memory the caller provides, so it also works for buffers the caller owns. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_image</td><td>Input image in PF_R8G8B8 format </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">_bayer</td><td>Destination buffer. It must be valid, have the same dimensions as _image and one of the Bayer pixel formats. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True on success. False if the buffer is invalid or the formats or dimensions do not match, in which case the destination is left untouched. </dd></dl>
+
+</div>
+</div>
 <a id="a34953a841d6c0785b23d8dd01f190e1e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a34953a841d6c0785b23d8dd01f190e1e">&#9670;&nbsp;</a></span>convertRGBToBayer()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a34953a841d6c0785b23d8dd01f190e1e">&#9670;&nbsp;</a></span>convertRGBToBayer() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
