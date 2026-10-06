@@ -43,7 +43,7 @@ The [libsdformat](https://gazebosim.org/libs/sdformat) library will then interna
 
 The following command spawns the URDF file `model.urdf` into the Gazebo Sim world as a model named `urdf_model`:
 ```bash
-gz service -s /world/empty/create --reqtype gz.msgs.EntityFactory --reptype gz.msgs.Boolean --timeout 1000 --req 'sdf_filename: "/path/to/model.urdf", name: "urdf_model", namespace: "robot"'
+gz service -s /world/empty/create --reqtype gz.msgs.EntityFactory --reptype gz.msgs.Boolean --timeout 1000 --req 'sdf_filename: "/path/to/model.urdf", name: "urdf_model", entity_namespace: "robot"'
 ```
 
 If `model.urdf` is the URDF representation of [`rrbot.urdf`](https://github.com/gazebosim/docs/blob/master/rotary/tutorials/spawn_urdf/rrbot.urdf) in the `gazebo_ros_demos` package, executing the service call above should result in a simulation that now looks like this:
