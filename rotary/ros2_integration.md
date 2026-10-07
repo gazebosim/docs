@@ -159,7 +159,8 @@ def generate_launch_description():
 
 `ros_gz_bridge` can automatically discover compatible ROS 2 and Gazebo topics and services and create bridges for them as matching endpoints appear.
 
-Automated bridging is disabled by default. Enable it with the `automated_bridge.enable` ROS parameter:
+Automated bridging is disabled by default.
+Enable it with the `automated_bridge.enable` ROS parameter:
 
 ```bash
 ros2 run ros_gz_bridge parameter_bridge --ros-args \
@@ -174,12 +175,16 @@ ros2 run ros_gz_bridge parameter_bridge --ros-args \
   -p "automated_bridge.exclude_patterns:=['/clock', '/world/.*/stats']"
 ```
 
-Automated and manually configured bridges can be used together. Manually configured bridges are processed first. Automated bridging then discovers and creates bridges only for interfaces that are not already bridged.
+Automated and manually configured bridges can be used together.
+Manually configured bridges are processed first.
+Automated bridging then discovers and creates bridges only for interfaces that are not already bridged.
 
 See the [`ros_gz_bridge` automated bridging example](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_bridge/README.md#example-9-automated-bridging)
 for ROS parameter YAML, XML launch, and Python launch examples.
 
-**Note:** CLI tools such as `ros2 topic echo` and `gz topic -e` may not work as expected when used as endpoints to trigger automated bridging. `ros2 topic echo` may fail if no ROS publisher exists yet, before the automated bridge is created. `gz topic -e` creates a raw subscription whose discovered Gazebo message type is `google.protobuf.Message`, so the automated bridge cannot determine the corresponding ROS-Gazebo type mapping.
+**Note:** CLI tools such as `ros2 topic echo` and `gz topic -e` may not work as expected when used as endpoints to trigger automated bridging.
+`ros2 topic echo` may fail if no ROS publisher exists yet, before the automated bridge is created.
+`gz topic -e` creates a raw subscription whose discovered Gazebo message type is `google.protobuf.Message`, so the automated bridge cannot determine the corresponding ROS-Gazebo type mapping.
 
 ## Publish key strokes to ROS
 
