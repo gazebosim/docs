@@ -182,6 +182,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac2c0db89ad2896ca461e6ae88db387c9"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classignition_1_1rendering_1_1Camera.html#ac2c0db89ad2896ca461e6ae88db387c9">Copy</a> (<a class="el" href="classignition_1_1rendering_1_1Image.html">Image</a> &amp;_image) const =0</td></tr>
 <tr class="memdesc:ac2c0db89ad2896ca461e6ae88db387c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the last rendered image to the given image buffer. This function can be called multiple times after PostRender has been called, without rendering the scene again. Calling this function before a single image has been rendered will have undefined behavior.  <a href="classignition_1_1rendering_1_1Camera.html#ac2c0db89ad2896ca461e6ae88db387c9">More...</a><br /></td></tr>
 <tr class="separator:ac2c0db89ad2896ca461e6ae88db387c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34ca75cd7052c09847b5230af0c087ea"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classignition_1_1rendering_1_1Camera.html#a34ca75cd7052c09847b5230af0c087ea">CopyTo</a> (const <a class="el" href="classignition_1_1rendering_1_1PixelBuffer.html">PixelBuffer</a> &amp;_buffer) const</td></tr>
+<tr class="memdesc:a34ca75cd7052c09847b5230af0c087ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes the last rendered image into a caller owned buffer, for example a message payload, without an intermediate copy. Like Copy, this can be called any number of times after PostRender. The buffer must match the camera's image size and be at least _buffer.MemorySize() bytes. Nothing keeps a pointer to the buffer once this call returns.  <a href="classignition_1_1rendering_1_1Camera.html#a34ca75cd7052c09847b5230af0c087ea">More...</a><br /></td></tr>
+<tr class="separator:a34ca75cd7052c09847b5230af0c087ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9ca742cb4bcad4bc374f837aa8516ecb"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="classignition_1_1rendering_1_1Image.html">Image</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classignition_1_1rendering_1_1Camera.html#a9ca742cb4bcad4bc374f837aa8516ecb">CreateImage</a> () const =0</td></tr>
 <tr class="memdesc:a9ca742cb4bcad4bc374f837aa8516ecb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Created an empty image buffer for capturing images. The resulting image will have sufficient memory allocated for subsequent calls to this camera's Capture function. However, any changes to this cameras properties may invalidate the condition.  <a href="classignition_1_1rendering_1_1Camera.html#a9ca742cb4bcad4bc374f837aa8516ecb">More...</a><br /></td></tr>
 <tr class="separator:a9ca742cb4bcad4bc374f837aa8516ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -768,6 +771,33 @@ Public Member Functions</h2></td></tr>
 </dl>
 
 <p>Implemented in <a class="el" href="classignition_1_1rendering_1_1BaseCamera.html#a17b9b63514c27c8e4fd4333e8483719f">BaseCamera&lt; T &gt;</a>, <a class="el" href="classignition_1_1rendering_1_1BaseCamera.html#a17b9b63514c27c8e4fd4333e8483719f">BaseCamera&lt; Ogre2Sensor &gt;</a>, and <a class="el" href="classignition_1_1rendering_1_1BaseCamera.html#a17b9b63514c27c8e4fd4333e8483719f">BaseCamera&lt; OgreSensor &gt;</a>.</p>
+
+</div>
+</div>
+<a id="a34ca75cd7052c09847b5230af0c087ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34ca75cd7052c09847b5230af0c087ea">&#9670;&nbsp;</a></span>CopyTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CopyTo </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classignition_1_1rendering_1_1PixelBuffer.html">PixelBuffer</a> &amp;&#160;</td>
+          <td class="paramname"><em>_buffer</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Writes the last rendered image into a caller owned buffer, for example a message payload, without an intermediate copy. Like Copy, this can be called any number of times after PostRender. The buffer must match the camera's image size and be at least _buffer.MemorySize() bytes. Nothing keeps a pointer to the buffer once this call returns. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_buffer</td><td>Where to write the frame </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if the frame was written. False, with an error logged and the buffer untouched, if the buffer is invalid or does not match the camera's image size. </dd></dl>
 
 </div>
 </div>
