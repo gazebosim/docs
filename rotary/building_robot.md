@@ -97,7 +97,10 @@ Under the `</model>` tag we will add our robot model as follows:
 
 Here we define the name of our model `vehicle_blue`, which should be a unique name among its siblings (other tags or models on the same level).
 
-The optional `namespace` attribute adds a namespace prefix to topic and service names associated with this model and its descendants. It support the `{name}` placeholder, which follows the entity's final name and is replaced with that name when the namespace is resolved. For nested models, namespaces are resolved by searching up the model hierarchy until an absolute namespace (beginning with `/`) is found or the top level is reached. Absolute topic and service names are left unchanged.
+The optional `namespace` attribute adds a namespace prefix to topic and service names associated with this model and its descendants.
+It support the `{name}` placeholder, which follows the entity's final name and is replaced with that name when the namespace is resolved.
+For nested models, namespaces are resolved by searching up the model hierarchy until an absolute namespace (beginning with `/`) is found or the top level is reached.
+Absolute topic and service names are left unchanged.
 
 Each model may have one link designated as the `canonical_link`, the implicit frame of the model is attached to this link. If not defined, the first `<link>` will be chosen as the canonical link.
 The `<pose>` tag is used to define the position and orientation of our model and the `relative_to` attribute is used to define the pose of the model relative to any other frame.
