@@ -189,26 +189,45 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A comms model that simulates communication using radio frequency (RF) devices. The model uses a log-distance path loss function. </p>
 <p>This communication model has been ported from: <a href="https://github.com/osrf/subt">https://github.com/osrf/subt</a> .</p>
+<h2><a class="anchor" id="autotoc_md362"></a>
+System Parameters</h2>
 <p>This system can be configured with the following SDF parameters:</p>
+<p>Optional parameters:</p>
 <ul>
-<li>Optional parameters: &lt;range_config&gt; Element used to capture the range configuration based on a log-normal distribution. This block can contain any of the next parameters:<ul>
-<li>&lt;max_range&gt;: Hard limit on range (meters). No communication will happen beyond this range. Default is 50.</li>
-<li>&lt;fading_exponent&gt;: Fading exponent used in the normal distribution. Default is 2.5.</li>
-<li>&lt;l0&gt;: Path loss at the reference distance (1 meter) in dBm. Default is 40.</li>
-<li>&lt;sigma&gt;: Standard deviation of the normal distribution. Default is 10.</li>
+<li><code>&lt;range_config&gt;</code>: Element used to capture the range configuration based on a log-normal distribution. This block can contain any of the next parameters:<ul>
+<li><code>&lt;max_range&gt;</code>: Hard limit on range (meters). No communication will happen beyond this range. Default is 50.</li>
+<li><code>&lt;fading_exponent&gt;</code>: Fading exponent used in the normal distribution. Default is 2.5.</li>
+<li><code>&lt;l0&gt;</code>: Path loss at the reference distance (1 meter) in dBm. Default is 40.</li>
+<li><code>&lt;sigma&gt;</code>: Standard deviation of the normal distribution. Default is 10.</li>
+</ul>
+</li>
+<li><code>&lt;radio_config&gt;</code>: Element used to capture the radio configuration. This block can contain any of the next parameters:<ul>
+<li><code>&lt;capacity&gt;</code>: Capacity of radio in bits-per-second. Default is 54000000 (54 Mbps).</li>
+<li><code>&lt;tx_power&gt;</code>: Transmitter power in dBm. Default is 27dBm (500mW).</li>
+<li><code>&lt;noise_floor&gt;</code>: Noise floor in dBm. Default is -90dBm.</li>
+<li><code>&lt;modulation&gt;</code>: Supported modulations: ["QPSK"]. Default is "QPSK".</li>
 </ul>
 </li>
 </ul>
-<p>&lt;radio_config&gt; Element used to capture the radio configuration. This block can contain any of the next parameters:</p><ul>
-<li>&lt;capacity&gt;: Capacity of radio in bits-per-second. Default is 54000000 (54 Mbps).</li>
-<li>&lt;tx_power&gt;: Transmitter power in dBm. Default is 27dBm (500mW).</li>
-<li>&lt;noise_floor&gt;: Noise floor in dBm. Default is -90dBm.</li>
-<li>&lt;modulation&gt;: Supported modulations: ["QPSK"]. Default is "QPSK".</li>
-</ul>
-<p>Here's an example: &lt;plugin
-  filename="ignition-gazebo-rf-comms-system"
-  name="ignition::gazebo::systems::RFComms"&gt; &lt;range_config&gt; &lt;max_range&gt;500000.0&lt;/max_range&gt; &lt;fading_exponent&gt;1.5&lt;/fading_exponent&gt; &lt;l0&gt;40&lt;/l0&gt; &lt;sigma&gt;10.0&lt;/sigma&gt; &lt;/range_config&gt; &lt;radio_config&gt; &lt;capacity&gt;1000000&lt;/capacity&gt; &lt;tx_power&gt;20&lt;/tx_power&gt; &lt;noise_floor&gt;-90&lt;/noise_floor&gt; &lt;modulation&gt;QPSK&lt;/modulation&gt; &lt;/radio_config&gt; &lt;/plugin&gt; </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2><a class="anchor" id="autotoc_md363"></a>
+Example</h2>
+<p>Here's an example: </p><div class="fragment"><div class="line">&lt;plugin</div>
+<div class="line">  filename=<span class="stringliteral">&quot;ignition-gazebo-rf-comms-system&quot;</span></div>
+<div class="line">  name=<span class="stringliteral">&quot;ignition::gazebo::systems::RFComms&quot;</span>&gt;</div>
+<div class="line">  &lt;range_config&gt;</div>
+<div class="line">    &lt;max_range&gt;500000.0&lt;/max_range&gt;</div>
+<div class="line">    &lt;fading_exponent&gt;1.5&lt;/fading_exponent&gt;</div>
+<div class="line">    &lt;l0&gt;40&lt;/l0&gt;</div>
+<div class="line">    &lt;sigma&gt;10.0&lt;/sigma&gt;</div>
+<div class="line">  &lt;/range_config&gt;</div>
+<div class="line">  &lt;radio_config&gt;</div>
+<div class="line">    &lt;capacity&gt;1000000&lt;/capacity&gt;</div>
+<div class="line">    &lt;tx_power&gt;20&lt;/tx_power&gt;</div>
+<div class="line">    &lt;noise_floor&gt;-90&lt;/noise_floor&gt;</div>
+<div class="line">    &lt;modulation&gt;QPSK&lt;/modulation&gt;</div>
+<div class="line">  &lt;/radio_config&gt;</div>
+<div class="line">&lt;/plugin&gt;</div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af488e050e2697a858e81266909537344"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af488e050e2697a858e81266909537344">&#9670;&nbsp;</a></span>RFComms()</h2>
 

@@ -147,7 +147,7 @@
 </div><!--header-->
 <div class="contents">
 
-<p>A system that updates wheel slip parameters based on linear wheel spin velocity (radius * spin rate). It currently assumes that the fdir1 friction parameter is set parallel to the joint axis (often [0 0 1]) and that the link origin is on the joint axis. The slip parameter is a Force-Dependent Slip (slip1, slip2) and it has units of velocity / force (m / s / N), similar to the inverse of a viscous damping coefficient. The slip_compliance parameters specified in this plugin are unitless, representing the lateral or longitudinal slip ratio (see <a href="https://en.wikipedia.org/wiki/Slip_(vehicle_dynamics)">https://en.wikipedia.org/wiki/Slip_(vehicle_dynamics)</a> ) to tangential force ratio (tangential / normal force). Note that the maximum force ratio is the friction coefficient. At each time step, these compliances are multiplied by the linear wheel spin velocity and divided by the wheel_normal_force parameter specified below in order to match the units of the slip parameters.  
+<p>A system that updates wheel slip parameters based on linear wheel spin velocity (radius * spin rate).  
  <a href="classignition_1_1gazebo_1_1systems_1_1WheelSlip.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="WheelSlip_8hh_source.html">WheelSlip.hh</a>&gt;</code></p>
@@ -174,46 +174,54 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a75d73261228a8127f188edb3aa46fc21 inherit pub_methods_classignition_1_1gazebo_1_1System"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A system that updates wheel slip parameters based on linear wheel spin velocity (radius * spin rate). It currently assumes that the fdir1 friction parameter is set parallel to the joint axis (often [0 0 1]) and that the link origin is on the joint axis. The slip parameter is a Force-Dependent Slip (slip1, slip2) and it has units of velocity / force (m / s / N), similar to the inverse of a viscous damping coefficient. The slip_compliance parameters specified in this plugin are unitless, representing the lateral or longitudinal slip ratio (see <a href="https://en.wikipedia.org/wiki/Slip_(vehicle_dynamics)">https://en.wikipedia.org/wiki/Slip_(vehicle_dynamics)</a> ) to tangential force ratio (tangential / normal force). Note that the maximum force ratio is the friction coefficient. At each time step, these compliances are multiplied by the linear wheel spin velocity and divided by the wheel_normal_force parameter specified below in order to match the units of the slip parameters. </p>
-<p>A graphical interpretation of these parameters is provided below for a positive value of slip compliance. The horizontal axis corresponds to the slip ratio at the wheel, and the vertical axis corresponds to the tangential force ratio (tangential / normal force). As wheel slip increases, the tangential force increases until it reaches the maximum set by the friction coefficient. The slip compliance corresponds to the inverse of the slope of the force before it reaches the maximum value. A slip compliance of 0 corresponds to a completely vertical portion of the plot below. As slip compliance increases, the slope decreases. </p><pre class="fragment">     |                                            .
-     |      _________ friction coefficient        .
-     |     /                                      .
-     |    /|                                      .
-     |   /-┘ slope is inverse of                  .
-     |  /    slip compliance                      .
-     | /                                          .
-     |/                                           .
-   --+-------------------------- slipRatio
-     |
-
- &lt;plugin filename="libignition-gazebo-wheel-slip-system.so"
-  name="gz::sim::systems::WheelSlip"&gt;
-   &lt;wheel link_name="wheel_front_left"&gt;
-     &lt;slip_compliance_lateral&gt;0&lt;/slip_compliance_lateral&gt;
-     &lt;slip_compliance_longitudinal&gt;0.1&lt;/slip_compliance_longitudinal&gt;
-     &lt;wheel_normal_force&gt;100&lt;/wheel_normal_force&gt;
-     &lt;wheel_radius&gt;0.1651&lt;/wheel_radius&gt;
-   &lt;/wheel&gt;
-   &lt;wheel link_name="wheel_front_right"&gt;
-     &lt;slip_compliance_lateral&gt;0&lt;/slip_compliance_lateral&gt;
-     &lt;slip_compliance_longitudinal&gt;0.1&lt;/slip_compliance_longitudinal&gt;
-     &lt;wheel_normal_force&gt;100&lt;/wheel_normal_force&gt;
-     &lt;wheel_radius&gt;0.1651&lt;/wheel_radius&gt;
-   &lt;/wheel&gt;
-   &lt;wheel link_name="wheel_rear_left"&gt;
-     &lt;slip_compliance_lateral&gt;0&lt;/slip_compliance_lateral&gt;
-     &lt;slip_compliance_longitudinal&gt;0.1&lt;/slip_compliance_longitudinal&gt;
-     &lt;wheel_normal_force&gt;80&lt;/wheel_normal_force&gt;
-     &lt;wheel_radius&gt;0.1651&lt;/wheel_radius&gt;
-   &lt;/wheel&gt;
-   &lt;wheel link_name="wheel_rear_right"&gt;
-     &lt;slip_compliance_lateral&gt;0&lt;/slip_compliance_lateral&gt;
-     &lt;slip_compliance_longitudinal&gt;0.1&lt;/slip_compliance_longitudinal&gt;
-     &lt;wheel_normal_force&gt;80&lt;/wheel_normal_force&gt;
-     &lt;wheel_radius&gt;0.1651&lt;/wheel_radius&gt;
-   &lt;/wheel&gt;
- &lt;/plugin&gt;
-</pre> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<div class="textblock"><p>A system that updates wheel slip parameters based on linear wheel spin velocity (radius * spin rate). </p>
+<h2><a class="anchor" id="autotoc_md384"></a>
+System parameters</h2>
+<p>It currently assumes that the <code>fdir1</code> friction parameter is set parallel to the joint axis (often [0 0 1]) and that the link origin is on the joint axis.</p>
+<p>The <code>slip</code> parameter is a Force-Dependent Slip (slip1, slip2) and it has units of velocity / force (m / s / N), similar to the inverse of a viscous damping coefficient.</p>
+<p>The <code>slip_compliance</code> parameters specified in this plugin are unitless, representing the lateral or longitudinal slip ratio (see <a href="https://en.wikipedia.org/wiki/Slip_(vehicle_dynamics)">https://en.wikipedia.org/wiki/Slip_(vehicle_dynamics)</a> ) to tangential force ratio (tangential / normal force).</p>
+<p>Note that the maximum force ratio is the friction coefficient. At each time step, these compliances are multiplied by the linear wheel spin velocity and divided by the <code>wheel_normal_force</code> parameter specified below in order to match the units of the slip parameters.</p>
+<p>A graphical interpretation of these parameters is provided below for a positive value of slip compliance. The horizontal axis corresponds to the slip ratio at the wheel, and the vertical axis corresponds to the tangential force ratio (tangential / normal force).</p>
+<p>As wheel slip increases, the tangential force increases until it reaches the maximum set by the friction coefficient. The slip compliance corresponds to the inverse of the slope of the force before it reaches the maximum value. A slip compliance of 0 corresponds to a completely vertical portion of the plot below. As slip compliance increases, the slope decreases. </p><div class="fragment"><div class="line">  |                                            .</div>
+<div class="line">  |      <span class="keyword">_________</span> <span class="keyword">friction</span> <span class="keyword">coefficient</span>        .</div>
+<div class="line">  |     /                                      .</div>
+<div class="line">  |    /|                                      .</div>
+<div class="line">  |   /-<span class="keyword">┘</span> <span class="keyword">slope</span> <span class="keyword">is</span> <span class="keyword">inverse</span> <span class="keyword">of</span>                  .</div>
+<div class="line">  |  /    <span class="keyword">slip</span> <span class="keyword">compliance</span>                      .</div>
+<div class="line">  | /                                          .</div>
+<div class="line">  |/                                           .</div>
+<div class="line">--+-------------------------- <span class="keyword">slipRatio</span></div>
+<div class="line">  |</div>
+</div><!-- fragment --> <h2><a class="anchor" id="autotoc_md385"></a>
+Examples</h2>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">plugin</span> <span class="keyword">filename</span>=<span class="stringliteral">&quot;ignition-gazebo-wheel-slip-system&quot;</span></div>
+<div class="line"> <span class="keyword">name</span>=<span class="stringliteral">&quot;gz::sim::systems::WheelSlip&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">wheel</span> <span class="keyword">link_name</span>=<span class="stringliteral">&quot;wheel_front_left&quot;</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">slip_compliance_lateral</span>&gt;0&lt;/<span class="keywordtype">slip_compliance_lateral</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">slip_compliance_longitudinal</span>&gt;0.1&lt;/<span class="keywordtype">slip_compliance_longitudinal</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">wheel_normal_force</span>&gt;100&lt;/<span class="keywordtype">wheel_normal_force</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">wheel_radius</span>&gt;0.1651&lt;/<span class="keywordtype">wheel_radius</span>&gt;</div>
+<div class="line">  &lt;/<span class="keywordtype">wheel</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">wheel</span> <span class="keyword">link_name</span>=<span class="stringliteral">&quot;wheel_front_right&quot;</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">slip_compliance_lateral</span>&gt;0&lt;/<span class="keywordtype">slip_compliance_lateral</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">slip_compliance_longitudinal</span>&gt;0.1&lt;/<span class="keywordtype">slip_compliance_longitudinal</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">wheel_normal_force</span>&gt;100&lt;/<span class="keywordtype">wheel_normal_force</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">wheel_radius</span>&gt;0.1651&lt;/<span class="keywordtype">wheel_radius</span>&gt;</div>
+<div class="line">  &lt;/<span class="keywordtype">wheel</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">wheel</span> <span class="keyword">link_name</span>=<span class="stringliteral">&quot;wheel_rear_left&quot;</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">slip_compliance_lateral</span>&gt;0&lt;/<span class="keywordtype">slip_compliance_lateral</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">slip_compliance_longitudinal</span>&gt;0.1&lt;/<span class="keywordtype">slip_compliance_longitudinal</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">wheel_normal_force</span>&gt;80&lt;/<span class="keywordtype">wheel_normal_force</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">wheel_radius</span>&gt;0.1651&lt;/<span class="keywordtype">wheel_radius</span>&gt;</div>
+<div class="line">  &lt;/<span class="keywordtype">wheel</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">wheel</span> <span class="keyword">link_name</span>=<span class="stringliteral">&quot;wheel_rear_right&quot;</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">slip_compliance_lateral</span>&gt;0&lt;/<span class="keywordtype">slip_compliance_lateral</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">slip_compliance_longitudinal</span>&gt;0.1&lt;/<span class="keywordtype">slip_compliance_longitudinal</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">wheel_normal_force</span>&gt;80&lt;/<span class="keywordtype">wheel_normal_force</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">wheel_radius</span>&gt;0.1651&lt;/<span class="keywordtype">wheel_radius</span>&gt;</div>
+<div class="line">  &lt;/<span class="keywordtype">wheel</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a2e254c240bf02738e385dcb3e9539810"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2e254c240bf02738e385dcb3e9539810">&#9670;&nbsp;</a></span>WheelSlip()</h2>
 

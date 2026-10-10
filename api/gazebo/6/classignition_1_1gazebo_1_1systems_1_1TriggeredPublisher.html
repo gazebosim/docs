@@ -182,12 +182,12 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The triggered publisher system publishes a user specified message on an output topic in response to an input message that matches user specified criteria. It can also call a user specified service as an output in response to an input message. It currently supports blocking service call. An optional simulation time delay can be used delay message publication. </p>
-<h2><a class="anchor" id="autotoc_md366"></a>
+<h2><a class="anchor" id="autotoc_md375"></a>
 System Parameters</h2>
 <ul>
-<li><code>&lt;input&gt;</code> The tag contains the input message type, topic and matcher information.<ul>
+<li><code>&lt;input&gt;</code>: The tag contains the input message type, topic and matcher information.<ul>
 <li>Attributes:<ul>
-<li><code>type</code>: Input message type (eg. <code>ignition.msgs.Boolean</code>)</li>
+<li><code>type</code>: Input message type (e.g. <code>ignition.msgs.Boolean</code>)</li>
 <li><code>topic</code>: Input message topic name</li>
 </ul>
 </li>
@@ -205,7 +205,7 @@ System Parameters</h2>
 </li>
 <li><code>&lt;output&gt;</code>: Contains configuration for output messages: Multiple <code>&lt;output&gt;</code> tags are possible. A message will be published on each output topic for each input that matches.<ul>
 <li>Attributes:<ul>
-<li><code>type</code>: Output message type (eg. <code>ignition.msgs.Boolean</code>)</li>
+<li><code>type</code>: Output message type (e.g. <code>ignition.msgs.Boolean</code>)</li>
 <li><code>topic</code>: Output message topic name</li>
 </ul>
 </li>
@@ -215,17 +215,19 @@ System Parameters</h2>
 <li><code>&lt;delay_ms&gt;</code>: Integer number of milliseconds, in simulation time, to delay publication.</li>
 <li><code>&lt;service&gt;</code>: Contains configuration for service to call: Multiple <code>&lt;service&gt;</code> tags are possible. A service will be called for each input that matches.<ul>
 <li>Attributes:<ul>
-<li><code>name</code>: Service name (eg. <code>/world/triggered_publisher/set_pose</code>)</li>
+<li><code>name</code>: Service name (e.g. <code>/world/triggered_publisher/set_pose</code>)</li>
 <li><code>timeout</code>: Service timeout</li>
-<li><code>reqType</code>: Service request message type (eg. ignition.msgs.Pose)</li>
-<li><code>repType</code>: Service response message type (eg. ignition.msgs.Empty)</li>
+<li><code>reqType</code>: Service request message type (e.g. ignition.msgs.Pose)</li>
+<li><code>repType</code>: Service response message type (e.g. ignition.msgs.Empty)</li>
 <li><code>reqMsg</code>: String used to construct the service protobuf message.</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<p>Examples:</p><ol type="1">
+<h2><a class="anchor" id="autotoc_md376"></a>
+Examples</h2>
+<ol type="1">
 <li>Any receipt of a Boolean messages on the input topic triggers an output <div class="fragment"><div class="line">&lt;<span class="keywordtype">plugin</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">input</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;ignition.msgs.Boolean&quot;</span> <span class="keyword">topic</span>=<span class="stringliteral">&quot;/input_topic&quot;</span>/&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">output</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;ignition.msgs.Empty&quot;</span> <span class="keyword">topic</span>=<span class="stringliteral">&quot;/output_topic&quot;</span>/&gt;</div>
@@ -256,7 +258,7 @@ System Parameters</h2>
 <div class="line">  &lt;/<span class="keywordtype">input</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">output</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;ignition.msgs.Empty&quot;</span> <span class="keyword">topic</span>=<span class="stringliteral">&quot;/output_topic&quot;</span>/&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md367"></a>
+</div><!-- fragment --><h3><a class="anchor" id="autotoc_md377"></a>
 Repeated Fields</h3>
 <p>When a field matcher is used with repeated fields, the content of the repeated field is treated as a set and the comparison operator is set containment. For example, the <code>data</code> field of <code>ignition.msgs.Int32_V</code> is a repeated Int32 message. To match an input that contains the values 1 and 2 the following matcher can be used: </p><div class="fragment"><div class="line">&lt;<span class="keywordtype">plugin</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">input</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;ignition.msgs.Int32_V&quot;</span> <span class="keyword">topic</span>=<span class="stringliteral">&quot;/input_topic&quot;</span>&gt;</div>
@@ -274,8 +276,8 @@ Repeated Fields</h3>
 <div class="line">  &lt;/<span class="keywordtype">input</span>&gt;</div>
 <div class="line">  &lt;<span class="keywordtype">output</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;ignition.msgs.Empty&quot;</span> <span class="keyword">topic</span>=<span class="stringliteral">&quot;/output_topic&quot;</span>/&gt;</div>
 <div class="line">&lt;/<span class="keywordtype">plugin</span>&gt;</div>
-</div><!-- fragment --><h3><a class="anchor" id="autotoc_md368"></a>
-Limitations</h3>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md378"></a>
+Limitations</h2>
 <p>The current implementation of this system does not support specifying a subfield of a repeated field in the "field" attribute. i.e, if <code>field="f1.f2"</code>, <code>f1</code> cannot be a repeated field. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a8b4853acddb71ed23c7f8f2b4be1097a"></a>

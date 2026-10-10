@@ -176,25 +176,43 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A plugin for setting shaders to a visual and its params. </p>
-<p>Plugin parameters:</p>
-<p>&lt;shader&gt; Shader to use - can be repeated to specify shader programs written in different languages. Attributes: language - Shader language. Possible values: glsl, metal Default to glsl if not specified &lt;vertex&gt; Path to vertex program &lt;fragment&gt; Path to fragment program  Shader parameter - can be repeated within plugin SDF element &lt;name&gt; Name of uniform variable bound to the shader &lt;shader&gt; Type of shader, i.e. vertex, fragment &lt;type&gt; Variable type: float, int, float_array, int_array </p>
-<p>Value to set the shader parameter to. The vallue string can be an int, float, or a space delimited array of ints or floats. It can also be 'TIME', in which case the value will be bound to sim time.</p>
-<p>Example usage:</p>
-<pre class="fragment">///     &lt;plugin filename="ignition-gazebo-shader-param-system"
-///             name="ignition::gazebo::systems::ShaderParam"&gt;
-///        &lt;shader language='glsl'&gt;
-///          &lt;vertex&gt;materials/my_vs.glsl&lt;/vertex&gt;
-///          &lt;fragment&gt;materials/my_fs.glsl&lt;/fragment&gt;
-///        &lt;/shader&gt;
-///        &lt;!-- Sets a fragment shader variable named "ambient" to red --&gt;
-///        &lt;param&gt;
-///          &lt;name&gt;ambient&lt;/name&gt;
-///          &lt;shader&gt;fragment&lt;/shader&gt;
-///          &lt;type&gt;float_array&lt;/type&gt;
-///          &lt;value&gt;1.0 0.0 0.0 1.0&lt;/value&gt;
-///        &lt;/param&gt;
-///    &lt;/plugin&gt;
-/// </pre> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<h2><a class="anchor" id="autotoc_md365"></a>
+System Parameters</h2>
+<ul>
+<li><code>&lt;shader&gt;</code>: Shader to use - can be repeated to specify shader programs written in different languages.<ul>
+<li>Attributes:<ul>
+<li><code>language</code>: Shader language. Possible values: glsl, metal Default to glsl if not specified</li>
+</ul>
+</li>
+<li><code>&lt;vertex&gt;</code>: Path to vertex program</li>
+<li><code>&lt;fragment&gt;</code>: Path to fragment program</li>
+</ul>
+</li>
+<li><code>&lt;param&gt;</code>: Shader parameter - can be repeated within plugin SDF element<ul>
+<li><code>&lt;name&gt;</code>: Name of uniform variable bound to the shader</li>
+<li><code>&lt;shader&gt;</code>: Type of shader, i.e. vertex, fragment</li>
+<li><code>&lt;type&gt;</code>: Variable type: float, int, float_array, int_array</li>
+<li><code>&lt;value&gt;</code>: Value to set the shader parameter to. The vallue string can be an int, float, or a space delimited array of ints or floats. It can also be "TIME", in which case the value will be bound to sim time.</li>
+</ul>
+</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md366"></a>
+Example</h2>
+<div class="fragment"><div class="line">&lt;plugin filename=<span class="stringliteral">&quot;ignition-gazebo-shader-param-system&quot;</span></div>
+<div class="line">        name=<span class="stringliteral">&quot;ignition::gazebo::systems::ShaderParam&quot;</span>&gt;</div>
+<div class="line">  &lt;shader language=<span class="stringliteral">&#39;glsl&#39;</span>&gt;</div>
+<div class="line">    &lt;vertex&gt;materials/my_vs.glsl&lt;/vertex&gt;</div>
+<div class="line">    &lt;fragment&gt;materials/my_fs.glsl&lt;/fragment&gt;</div>
+<div class="line">  &lt;/shader&gt;</div>
+<div class="line">  &lt;!-- Sets a fragment shader variable named <span class="stringliteral">&quot;ambient&quot;</span> to red --&gt;</div>
+<div class="line">  &lt;param&gt;</div>
+<div class="line">    &lt;name&gt;ambient&lt;/name&gt;</div>
+<div class="line">    &lt;shader&gt;fragment&lt;/shader&gt;</div>
+<div class="line">    &lt;type&gt;float_array&lt;/type&gt;</div>
+<div class="line">    &lt;value&gt;1.0 0.0 0.0 1.0&lt;/value&gt;</div>
+<div class="line">  &lt;/param&gt;</div>
+<div class="line">&lt;/plugin&gt;</div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a61e192bfde1de4320a85e33f28a10524"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a61e192bfde1de4320a85e33f28a10524">&#9670;&nbsp;</a></span>ShaderParam()</h2>
 

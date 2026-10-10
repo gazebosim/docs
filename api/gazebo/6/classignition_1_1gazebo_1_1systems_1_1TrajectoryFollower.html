@@ -179,12 +179,65 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A plugin that scripts the movement of a model based on waypoints. Note that at this point, the trajectory is always in 2D (x, y). The plugin applies a torque until the model is aligned with the next waypoint. Then, it applies a force until the model is close enough to the waypoint. </p>
 <p>This plugin loads a set of waypoints via SDF and traverse the waypoints in sequence. The movement is generated applying force and torque to one of of the model links. It's also possible to loop through the waypoints for generating a never ending trajectory. Waypoints may be inserted manually via the &lt;waypoints&gt; element, or generated relative to the model's initial position via the &lt;line&gt; or &lt;circle&gt; elements. Only one of these options should be used.</p>
-<p>This plugin requires the following SDF parameters:</p><ul>
-<li>Required parameters: &lt;link_name&gt;: The name of the link within the model where the force/torque will be applied when moving the vehicle.</li>
-<li>Optional parameters: &lt;loop&gt;: When true, all waypoints will be visited continously in a circular pattern. If false, the model will stop when the last waypoint is reached. Note, that if the vehicle moves, it will still try to reach the very last waypoint. &lt;waypoints&gt;: Element specifying the set of waypoints that the the model should navigate through. This block should contain at least one of these blocks: &lt;waypoint&gt;: This block should contain the X, Y of a waypoint. &lt;range_tolerance&gt;: The current waypoint is considered reached if the distance to it is within +- this tolerance (m). The default value is 0.5m. &lt;bearing_tolerance&gt;: If the bearing to the current waypoint is within +- this tolerance, a torque won't be applied (degree) The default value is 2 deg. &lt;zero_vel_on_bearing_reached&gt;: Force angular velocity to be zero when target bearing is reached. Default is false. Note: this is an experimental parameter and may be removed in the future. &lt;force&gt;: The force to apply at every plugin iteration in the X direction of the link (N). The default value is 60. &lt;torque&gt;: The torque to apply at every plugin iteration in the Yaw direction of the link (Nm). The default value is 50. &lt;line&gt;: Element that indicates the model should travel in "line" mode. The block should contain the relative direction and distance from the initial position in which the vehicle should move, specified in the world frame. &lt;direction&gt;: Relative direction (radians) in the world frame for the vehicle to travel. &lt;length&gt;: Distance (meters) for the vehicle to travel. &lt;circle&gt;: Element that indicates the model should travel in "circle" mode. The block should contain the desired radius of the circle about the vehicle's initial position &lt;radius&gt;: Radius (meters) of circular path to travel.</li>
+<h2><a class="anchor" id="autotoc_md374"></a>
+System Parameters</h2>
+<p>This plugin requires the following SDF parameters:</p>
+<p>Required parameters:</p>
+<ul>
+<li><code>&lt;link_name&gt;</code>: The name of the link within the model where the force/torque will be applied when moving the vehicle.</li>
 </ul>
-<p>Here are three examples: </p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<p>Optional parameters:</p>
+<ul>
+<li><code>&lt;loop&gt;</code>: When true, all waypoints will be visited continously in a circular pattern. If false, the model will stop when the last waypoint is reached. Note, that if the vehicle moves, it will still try to reach the very last waypoint.</li>
+<li><code>&lt;waypoints&gt;</code>: Element specifying the set of waypoints that the the model should navigate through. This block should contain at least one of these blocks:<ul>
+<li><code>&lt;waypoint&gt;</code>: This block should contain the X, Y of a waypoint.</li>
+</ul>
+</li>
+<li><code>&lt;range_tolerance&gt;</code>: The current waypoint is considered reached if the distance to it is within +- this tolerance (m). The default value is 0.5m.</li>
+<li><code>&lt;bearing_tolerance&gt;</code>: If the bearing to the current waypoint is within +- this tolerance, a torque won't be applied (degree). The default value is 2 deg.</li>
+<li><code>&lt;zero_vel_on_bearing_reached&gt;</code>: Force angular velocity to be zero when target bearing is reached. Default is false. Note: this is an experimental parameter and may be removed in the future.</li>
+<li><code>&lt;force&gt;</code>: The force to apply at every plugin iteration in the X direction of the link (N). The default value is 60.</li>
+<li><code>&lt;torque&gt;</code>: The torque to apply at every plugin iteration in the Yaw direction of the link (Nm). The default value is 50.</li>
+<li><code>&lt;line&gt;</code>: Element that indicates the model should travel in "line" mode. The block should contain the relative direction and distance from the initial position in which the vehicle should move, specified in the world frame.<ul>
+<li><code>&lt;direction&gt;</code>: Relative direction (radians) in the world frame for the vehicle to travel.</li>
+<li><code>&lt;length&gt;</code>: Distance (meters) for the vehicle to travel.</li>
+</ul>
+</li>
+<li><code>&lt;circle&gt;</code>: Element that indicates the model should travel in "circle" mode. The block should contain the desired radius of the circle about the vehicle's initial position<ul>
+<li><code>&lt;radius&gt;</code>: Radius (meters) of circular path to travel.</li>
+</ul>
+</li>
+</ul>
+<p>Here are three examples: </p><div class="fragment"><div class="line">&lt;plugin</div>
+<div class="line">  filename=<span class="stringliteral">&quot;ignition-gazebo-trajectory-follower-system&quot;</span></div>
+<div class="line">  name=<span class="stringliteral">&quot;ignition::gazebo::systems::TrajectoryFollower&quot;</span>&gt;</div>
+<div class="line">  &lt;link_name&gt;base_link&lt;/link_name&gt;</div>
+<div class="line">  &lt;loop&gt;<span class="keyword">true</span>&lt;/loop&gt;</div>
+<div class="line">  &lt;waypoints&gt;</div>
+<div class="line">    &lt;waypoint&gt;25 0&lt;/waypoint&gt;</div>
+<div class="line">    &lt;waypoint&gt;15 0&lt;/waypoint&gt;</div>
+<div class="line">  &lt;/waypoints&gt;</div>
+<div class="line">&lt;/plugin&gt;</div>
+<div class="line">&lt;plugin</div>
+<div class="line">  filename=<span class="stringliteral">&quot;ignition-gazebo-trajectory-follower-system&quot;</span></div>
+<div class="line">  name=<span class="stringliteral">&quot;ignition::gazebo::systems::TrajectoryFollower&quot;</span>&gt;</div>
+<div class="line">  &lt;link_name&gt;base_link&lt;/link_name&gt;</div>
+<div class="line">  &lt;loop&gt;<span class="keyword">true</span>&lt;/loop&gt;</div>
+<div class="line">  &lt;line&gt;</div>
+<div class="line">    &lt;direction&gt;0&lt;/direction&gt;</div>
+<div class="line">    &lt;length&gt;5&lt;/length&gt;</div>
+<div class="line">  &lt;/line&gt;</div>
+<div class="line">&lt;/plugin&gt;</div>
+<div class="line">&lt;plugin</div>
+<div class="line">  filename=<span class="stringliteral">&quot;ignition-gazebo-trajectory-follower-system&quot;</span></div>
+<div class="line">  name=<span class="stringliteral">&quot;ignition::gazebo::systems::TrajectoryFollower&quot;</span>&gt;</div>
+<div class="line">  &lt;link_name&gt;base_link&lt;/link_name&gt;</div>
+<div class="line">  &lt;loop&gt;<span class="keyword">true</span>&lt;/loop&gt;</div>
+<div class="line">  &lt;circle&gt;</div>
+<div class="line">    &lt;radius&gt;2&lt;/radius&gt;</div>
+<div class="line">  &lt;/circle&gt;</div>
+<div class="line">&lt;/plugin&gt;</div>
+</div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7df1b80f5a4f88a97314129ced6c4452"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7df1b80f5a4f88a97314129ced6c4452">&#9670;&nbsp;</a></span>TrajectoryFollower()</h2>
 

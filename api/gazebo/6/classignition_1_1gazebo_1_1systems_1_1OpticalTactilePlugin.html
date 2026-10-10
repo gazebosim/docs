@@ -178,16 +178,24 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Plugin that implements an optical tactile sensor. </p>
-<p>It requires that contact sensor and depth camera be placed in at least one link on the model on which this plugin is attached. TODO: Currently, the contacts returned from the physics engine (which tends to be sparse) and the normal forces separately computed from the depth camera (which is dense, resolution adjustable) are disjoint. It is left as future work to combine the two sets of data.</p>
-<p>Parameters:</p>
-<p>&lt;enabled&gt; Set this to true so the plugin works from the start and doesn't need to be enabled. This element is optional, and the default value is true.</p>
-<p>&lt;namespace&gt; Namespace for transport topics/services. If there are more than one optical tactile plugins, their namespaces should be different. This element is optional, and the default value is "optical_tactile_sensor". /&lt;namespace&gt;/enable : Service used to enable and disable the plugin. /&lt;namespace&gt;/normal_forces : Topic where a message is published each time the normal forces are computed</p>
-<p>&lt;visualization_resolution&gt; Number n of pixels to skip when visualizing the forces. One vector representing a normal force is computed for every nth pixel. This element must be positive and it is optional. The default value is 30.</p>
-<p>&lt;force_length&gt; Length in meters of the forces visualized if &lt;visualize_forces&gt; is set to true. This parameter is optional, and the default value is 0.01.</p>
-<p>&lt;extended_sensing&gt; Extended sensing distance in meters. The sensor will output data coming from its collision geometry plus this distance. This element is optional, and the default value is 0.001.</p>
-<p>&lt;visualize_sensor&gt; Whether to visualize the sensor or not. This element is optional, and the default value is false.</p>
-<p>&lt;visualize_contacts&gt; Whether to visualize the contacts from the contact sensor based on physics. This element is optional, and the default value is false.</p>
-<p>&lt;visualize_forces&gt; Whether to visualize normal forces computed from the depth camera. This element is optional, and the default value is false. </p>
+<p>It requires that contact sensor and depth camera be placed in at least one link on the model on which this plugin is attached.</p>
+<dl class="todo"><dt><b><a class="el" href="todo.html#_todo000006">Todo:</a></b></dt><dd>(anyone) Currently, the contacts returned from the physics engine (which tends to be sparse) and the normal forces separately computed from the depth camera (which is dense, resolution adjustable) are disjoint. It is left as future work to combine the two sets of data.</dd></dl>
+<h2><a class="anchor" id="autotoc_md358"></a>
+System Parameters</h2>
+<ul>
+<li><code>&lt;enabled&gt;</code>: Set this to true so the plugin works from the start and doesn't need to be enabled. This element is optional, and the default value is true.</li>
+<li><code>&lt;namespace&gt;</code>: Namespace for transport topics/services. If there are more than one optical tactile plugins, their namespaces should be different. This element is optional, and the default value is "optical_tactile_sensor".<ul>
+<li><code>/&lt;namespace&gt;/enable</code>: Service used to enable and disable the plugin.</li>
+<li><code>/&lt;namespace&gt;/normal_forces</code>: Topic where a message is published each time the normal forces are computed</li>
+</ul>
+</li>
+<li><code>&lt;visualization_resolution&gt;</code>: Number n of pixels to skip when visualizing the forces. One vector representing a normal force is computed for every nth pixel. This element must be positive and it is optional. The default value is 30.</li>
+<li><code>&lt;force_length&gt;</code>: Length in meters of the forces visualized if &lt;visualize_forces&gt; is set to true. This parameter is optional, and the default value is 0.01.</li>
+<li><code>&lt;extended_sensing&gt;</code>: Extended sensing distance in meters. The sensor will output data coming from its collision geometry plus this distance. This element is optional, and the default value is 0.001.</li>
+<li><code>&lt;visualize_sensor&gt;</code>: Whether to visualize the sensor or not. This element is optional, and the default value is false.</li>
+<li><code>&lt;visualize_contacts&gt;</code>: Whether to visualize the contacts from the contact sensor based on physics. This element is optional, and the default value is false.</li>
+<li><code>&lt;visualize_forces&gt;</code>: Whether to visualize normal forces computed from the depth camera. This element is optional, and the default value is false. </li>
+</ul>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1eb22ed286abcc827f00de3500a42818"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1eb22ed286abcc827f00de3500a42818">&#9670;&nbsp;</a></span>OpticalTactilePlugin()</h2>
