@@ -47,7 +47,7 @@ The four creation methods used in the demo are:
 | --- | --- | --- |
 | `vehicle` | `<model>` in the world SDF | `namespace="robot1_ns"` |
 | `robot2` | `<include>` in the world SDF | `<namespace>{name}_ns</namespace>` |
-| `robot3` | `ros_gz_sim create` | `-ns {name}_ns` |
+| `robot3` | `ros_gz_sim create` | `-entity_namespace {name}_ns` |
 | `robot4` | `gz_spawn_model` | `entity_namespace="'{name}_ns'"` |
 
 All model creation methods support the `{name}` placeholder in namespaces.
