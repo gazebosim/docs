@@ -6,6 +6,12 @@ how to interface with [ROS](http://www.ros.org/), enabling the ability to use
 tools such as [Rviz](http://wiki.ros.org/rviz) for robot or sensor
 visualization.
 
+:::{warning}
+ROS 1 reached its end of life with ROS Noetic in May 2025. This page is kept
+for reference only. For new projects use ROS 2, see
+[ROS 2 integration via bridge](ros2_integration).
+:::
+
 > **Important**: The packages documented here used to have the `ros1_` prefix
 > instead of `ros_`. Please update your code accordingly in order to avoid
 > adverse effects.

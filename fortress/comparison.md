@@ -271,8 +271,10 @@ ROS integration through the
 
 Supported versions:
 
-* ROS 1 Melodic (from source) / Noetic (from source)
-* ROS 2 Galactic (from source) / Humble (binaries)
+* ROS 2 Humble (from binaries)
+
+See [Installing Gazebo with ROS](ros_installation) for all the supported
+combinations of ROS and Gazebo.
 
 ## Platforms
 

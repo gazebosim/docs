@@ -4,7 +4,12 @@
 
 This tutorial affects the Gazebo Classic users on Ubuntu `Jammy` (latest
 Ubuntu release were Gazebo Classic packages supported by the Gazebo team)
-that plan on migrating code to new Gazebo `Fortress`, `Garden` or `Harmonic.`
+that plan on migrating code to new Gazebo `Fortress` or `Harmonic` (the
+Gazebo releases officially supported on Ubuntu `Jammy`). Newer Gazebo
+releases like `Ionic` or `Jetty` require Ubuntu `Noble` or later.
+
+Gazebo Classic reached end of life in January 2025 and does not receive
+updates anymore.
 
 There is no guarantee that the Gazebo Classic version detailed in this document
 will be updated in any case. Please consider the migration to the new Gazebo
@@ -14,7 +19,7 @@ as the recommended alternative.
 
 New versions of Gazebo can not be installed together with Gazebo Classic 
 (aka `gazebo11`) since both use the `gz` command line tool. Trying to 
-install `gz-garden` or `gz-harmonic` from `packages.osrfoundation.org` 
+install `gz-harmonic` from `packages.osrfoundation.org` 
 on a system that already has gazebo-classic installed from binaries 
 will cause gazebo-classic and its dependencies to be uninstalled.
 
@@ -64,7 +69,7 @@ sudo apt-get install gazebo11
 ```
 
 If `gazebo11` was installed before, it will be upgraded to the version in the
-PPA. From this point, a new Gazebo installation for `fortress`, `garden` or
+PPA. From this point, a new Gazebo installation for `fortress` or
 `harmonic` can be executed.
 
 If a new Gazebo installation was installed before, the `gazebo11-gz-cli` package

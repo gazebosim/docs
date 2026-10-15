@@ -31,19 +31,18 @@ packages available for the platform to use:
 
 |Platform|Gazebo Versions|
 |---|---|
-| Ubuntu 26.04 Resolute | Gazebo Jetty (coming soon, recommended if using ROS 2 Lyrical), [Gazebo Rotary](/docs/rotary/install_ubuntu){.external} (recommended if using ROS 2 Rolling) |
-| Ubuntu 24.04 Noble | [Gazebo Jetty](/docs/jetty/install_ubuntu){.external} (recommended), [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended if using ROS 2 Jazzy) and [Gazebo Ionic](/docs/ionic/install_ubuntu){.external}
+| Ubuntu 26.04 Resolute | [Gazebo Jetty](/docs/jetty/install_ubuntu){.external} (recommended, also if using ROS 2 Lyrical) and [Gazebo Rotary](/docs/rotary/install_ubuntu){.external} (recommended if using ROS 2 Rolling)
+| Ubuntu 24.04 Noble | [Gazebo Jetty](/docs/jetty/install_ubuntu){.external} (recommended), [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended if using ROS 2 Jazzy) and [Gazebo Ionic](/docs/ionic/install_ubuntu){.external} (recommended if using ROS 2 Kilted)
 | Ubuntu 22.04 Jammy | [Gazebo Harmonic](/docs/harmonic/install_ubuntu){.external} (recommended) and [Gazebo Fortress](/docs/fortress/install_ubuntu){.external} (recommended if using ROS 2 Humble)
-| Mac Ventura | [Gazebo Harmonic](/docs/harmonic/install_osx){.external} (recommended) and [Gazebo Fortress](/docs/fortress/install_osx){.external}
-| Mac Monterey | [Gazebo Harmonic](/docs/harmonic/install_osx){.external} (recommended) and [Gazebo Fortress](/docs/fortress/install_osx){.external}
-| Windows | Support via Conda-Forge is not fully functional, as there are known runtime issues [see this issue for details](https://github.com/gazebosim/gz-sim/issues/168).
+| macOS Sequoia arm64 (until August 2027) | [Gazebo Jetty](/docs/jetty/install_osx){.external} (recommended), [Gazebo Ionic](/docs/ionic/install_osx){.external}, [Gazebo Harmonic](/docs/harmonic/install_osx){.external} and [Gazebo Fortress](/docs/fortress/install_osx){.external}
+| Windows | Experimental support for [Gazebo Jetty](/docs/jetty/install_windows){.external} via conda-forge and Pixi. There are known runtime issues, [see this issue for details](https://github.com/gazebosim/gz-sim/issues/168).
 
 If the desired platform is not listed above or if a particular feature in a
 given [Gazebo release](releases) is needed,
 there is an installation package per release available with all the
 installation options:
 
-* [Gazebo Jetty installation](/docs/jetty/install){.external} options (Expected: EOL 2031 May)
+* [Gazebo Jetty (LTS) installation](/docs/jetty/install){.external} options (EOL 2031 May)
 * [Gazebo Ionic installation](/docs/ionic/install){.external} options (EOL 2026 Dec)
 * [Gazebo Harmonic (LTS) installation](/docs/harmonic/install){.external} options (EOL 2029 May)
 * [Gazebo Fortress (LTS) installation](/docs/fortress/install){.external} options (EOL 2027 May)
@@ -114,12 +113,13 @@ custom SDF file.
 ## Step 4: Explore and learn
 
 This tutorial has covered the basics of getting started with Gazebo.
-There are more [versioned tutorials](/docs/citadel/tutorials){.external}
+There are more [versioned tutorials](/docs/latest/tutorials){.external}
 covering the basics of the GUI, creating worlds and robots, and more.
 
 Each [Gazebo library](/libs){.external} also has a set of tutorials and
 examples. Explore these resources, and don't forget to ask questions and
-find solutions at [answers.gazebosim.org](http://answers.gazebosim.org).
+find solutions at [Robotics Stack Exchange](https://robotics.stackexchange.com/)
+(see [Support](support) for other channels).
 
 ## macOS
 
