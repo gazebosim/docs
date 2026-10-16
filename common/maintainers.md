@@ -59,7 +59,7 @@ need to be carried out by the person who will be running the naming process.
 When a pull request is merged into the `main` development branch or a stable branch, it may be necessary to backport or forward-port it to other supported (non-EOL) collections if it fixes a bug or adds a non-breaking feature. Even when a PR is merged into an older stable branch, we still use the `@mergifyio backport` command to propagate it forward to newer branches including `main`.
 
 ```{important}
-When merging a PR that will be backported or forward-ported, two merge strategies are possible:
+When merging backport PRs, two merge strategies are possible:
 1. If the backport is clean, i.e, no conflicts, use **Rebase and merge**. This ensures a cleaner git history and properly maintains the original author's commit attribution across branches.
 1. If you had to resolve conflicts, use **Squash and merge** so that the commit history and changelog entries point to the PR with the changes that resolved the conflicts.
 ```
@@ -245,6 +245,8 @@ To avoid unnecessary review bottlenecks across the repository collection:
   other committers, provided CI passes (with exceptions for flaky tests and other
   known CI failures).
 - **Waiting Window**:
-  Committers should observe a short waiting window (up to 24 hours) after
-  opening the bump PRs before merging, giving team members an opportunity to
-  raise any concerns or coordinate dependent release tasks.
+  Committers should observe a waiting window of at least 4 hours after opening
+  the bump PRs before merging, giving team members an opportunity to raise any
+  concerns or coordinate dependent release tasks. If the PRs get approvals, the
+  committer is free to skip the waiting window and proceed with making the
+  prereleases immediately.
