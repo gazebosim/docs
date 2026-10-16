@@ -59,12 +59,36 @@ need to be carried out by the person who will be running the naming process.
 When a pull request is merged into the `main` development branch or a stable branch, it may be necessary to backport or forward-port it to other supported (non-EOL) collections if it fixes a bug or adds a non-breaking feature. Even when a PR is merged into an older stable branch, we still use the `@mergifyio backport` command to propagate it forward to newer branches including `main`.
 
 ```{important}
-When merging a PR that will be backported or forward-ported, you **must use "Rebase and merge"**. This ensures a cleaner git history and properly maintains the original author's commit attribution across branches.
+When merging backport PRs, two merge strategies are possible:
+1. If the backport is clean, i.e, no conflicts, use **Rebase and merge**. This ensures a cleaner git history and properly maintains the original author's commit attribution across branches.
+1. If you had to resolve conflicts, use **Squash and merge** so that the commit history and changelog entries point to the PR with the changes that resolved the conflicts.
 ```
 
 ```{important}
 In the event you need to fix conflicts in a backport, please ask another committer to review your pull request.
 ```
+
+### Backport Timing and Downstream Testing
+
+Committers are permitted to self-approve and merge clean backports that have
+no merge conflicts and passing CI (with exceptions for flaky tests and other
+known CI failures).
+However, committers should weigh the tradeoff between backport velocity and
+the stability of downstream packages on release branches.
+
+If a feature, deprecation, or bug fix spans multiple pull requests or affects
+multiple Gazebo libraries (such as coordinated changes across `gz-rendering`
+and `gz-sensors`), backporting individual PRs immediately can cause transient
+build or test breakages on stable branches before the full set of changes is
+available.
+In these scenarios, committers should pause backports until all related pull
+requests have merged into the `main` development branch and continuous
+integration has had an opportunity to validate downstream packages.
+Once the complete set of changes is verified on `main`, the backports should
+be applied sequentially or in a coordinated manner to the targeted stable
+branches.
+
+### Using Mergify
 
 To port a merged PR to other branches, we use Mergify. You can comment on the PR with the `@mergifyio backport <branches...>` command. The tool below helps you quickly generate the correct Mergify command for any given PR by fetching the PR's target branch and looking up all other supported collection branches in [`gz-collections.yaml`](https://github.com/gazebo-tooling/release-tools/blob/master/jenkins-scripts/dsl/gz-collections.yaml).
 
@@ -204,3 +228,25 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 ```
+
+## Review Policy for Prerelease Version Bumps
+
+During release preparation or ongoing collection development (such as preparing
+prereleases on Rotary), committers regularly open pull requests to bump
+prerelease version suffixes (e.g., `X.Y.Z~pre1` to `X.Y.Z~pre2`).
+To avoid unnecessary review bottlenecks across the repository collection:
+
+- **Advance Notice**:
+  Committers planning a set of prerelease version bumps should announce their
+  intention ahead of time to the team (e.g., in the Gazebo PMC Zulip channel).
+- **Waiving Individual PR Reviews**:
+  Once announced, pull requests that strictly bump prerelease versions and
+  update related packaging metadata do not require formal review approvals from
+  other committers, provided CI passes (with exceptions for flaky tests and other
+  known CI failures).
+- **Waiting Window**:
+  Committers should observe a waiting window of at least 4 hours after opening
+  the bump PRs before merging, giving team members an opportunity to raise any
+  concerns or coordinate dependent release tasks. If the PRs get approvals, the
+  committer is free to skip the waiting window and proceed with making the
+  prereleases immediately.
