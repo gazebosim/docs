@@ -1,7 +1,9 @@
 # Binary Installation on MacOS
 
-All the Fortress binaries are available in Catalina and BigSur using the
-[homebrew package manager](https://brew.sh/).
+Pre-built Fortress binaries (bottles) are available for macOS Sequoia on Apple
+Silicon (arm64) using the [Homebrew package manager](https://brew.sh/). On
+other macOS versions Homebrew builds the packages from source, which can take
+a long time.
 
 The homebrew tool can be installed using:
 

@@ -109,10 +109,10 @@ python3 -m http.server 8000 -d .build
 This will serve the website on <http://localhost:8000>
 
 For quicker iteration, you can build the documentation for a subset
-of Gazebo versions. To build `garden` and `harmonic`:
+of Gazebo versions. To build `harmonic` and `jetty`:
 
 ```bash
-python3 build_multiversion.py --release garden harmonic
+python3 build_multiversion.py --release harmonic jetty
 ```
 
 ## Spell checking
