@@ -35,8 +35,8 @@
   </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=18bd87630a240e9c25be" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -44,10 +44,10 @@
     <link rel="stylesheet" type="text/css" href="../_static/css/gazebo.css?v=1d42b338" />
   
   <!-- So that users can add custom icons -->
-  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <script defer src="../_static/scripts/fontawesome.js?digest=18bd87630a240e9c25be"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be" />
 
     <script src="../_static/documentation_options.js?v=01021b79"></script>
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
@@ -57,7 +57,7 @@
     <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'maintainers';</script>
     <script>
-        DOCUMENTATION_OPTIONS.theme_version = '0.22.0';
+        DOCUMENTATION_OPTIONS.theme_version = '0.23.0';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://gazebosim.org/docs/jetty/_static/switcher.json';
         DOCUMENTATION_OPTIONS.theme_switcher_version_match = 'jetty';
         DOCUMENTATION_OPTIONS.show_version_warning_banner =
@@ -71,6 +71,7 @@
     <link rel="next" title="Gazebo Continuous Integration" href="../ci/" />
     <link rel="prev" title="Contributing to Gazebo" href="../contributing/" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="color-scheme" content="light dark"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="jetty" />
   
@@ -600,12 +601,37 @@ Discourse post first.</p></li>
 <p>When a pull request is merged into the <code class="docutils literal notranslate"><span class="pre">main</span></code> development branch or a stable branch, it may be necessary to backport or forward-port it to other supported (non-EOL) collections if it fixes a bug or adds a non-breaking feature. Even when a PR is merged into an older stable branch, we still use the <code class="docutils literal notranslate"><span class="pre">&#64;mergifyio</span> <span class="pre">backport</span></code> command to propagate it forward to newer branches including <code class="docutils literal notranslate"><span class="pre">main</span></code>.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>When merging a PR that will be backported or forward-ported, you <strong>must use “Rebase and merge”</strong>. This ensures a cleaner git history and properly maintains the original author’s commit attribution across branches.</p>
+<p>When merging backport PRs, two merge strategies are possible:</p>
+<ol class="arabic simple">
+<li><p>If the backport is clean, i.e, no conflicts, use <strong>Rebase and merge</strong>. This ensures a cleaner git history and properly maintains the original author’s commit attribution across branches.</p></li>
+<li><p>If you had to resolve conflicts, use <strong>Squash and merge</strong> so that the commit history and changelog entries point to the PR with the changes that resolved the conflicts.</p></li>
+</ol>
 </div>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>In the event you need to fix conflicts in a backport, please ask another committer to review your pull request.</p>
 </div>
+<section id="backport-timing-and-downstream-testing">
+<h3>Backport Timing and Downstream Testing<a class="headerlink" href="#backport-timing-and-downstream-testing" title="Link to this heading">#</a></h3>
+<p>Committers are permitted to self-approve and merge clean backports that have
+no merge conflicts and passing CI (with exceptions for flaky tests and other
+known CI failures).
+However, committers should weigh the tradeoff between backport velocity and
+the stability of downstream packages on release branches.</p>
+<p>If a feature, deprecation, or bug fix spans multiple pull requests or affects
+multiple Gazebo libraries (such as coordinated changes across <code class="docutils literal notranslate"><span class="pre">gz-rendering</span></code>
+and <code class="docutils literal notranslate"><span class="pre">gz-sensors</span></code>), backporting individual PRs immediately can cause transient
+build or test breakages on stable branches before the full set of changes is
+available.
+In these scenarios, committers should pause backports until all related pull
+requests have merged into the <code class="docutils literal notranslate"><span class="pre">main</span></code> development branch and continuous
+integration has had an opportunity to validate downstream packages.
+Once the complete set of changes is verified on <code class="docutils literal notranslate"><span class="pre">main</span></code>, the backports should
+be applied sequentially or in a coordinated manner to the targeted stable
+branches.</p>
+</section>
+<section id="using-mergify">
+<h3>Using Mergify<a class="headerlink" href="#using-mergify" title="Link to this heading">#</a></h3>
 <p>To port a merged PR to other branches, we use Mergify. You can comment on the PR with the <code class="docutils literal notranslate"><span class="pre">&#64;mergifyio</span> <span class="pre">backport</span> <span class="pre">&lt;branches...&gt;</span></code> command. The tool below helps you quickly generate the correct Mergify command for any given PR by fetching the PR’s target branch and looking up all other supported collection branches in <a class="reference external" href="https://github.com/gazebo-tooling/release-tools/blob/master/jenkins-scripts/dsl/gz-collections.yaml"><code class="docutils literal notranslate"><span class="pre">gz-collections.yaml</span></code></a>.</p>
 <style>
   /* Custom placeholder styling */
@@ -742,6 +768,30 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script></section>
 </section>
+<section id="review-policy-for-prerelease-version-bumps">
+<h2>Review Policy for Prerelease Version Bumps<a class="headerlink" href="#review-policy-for-prerelease-version-bumps" title="Link to this heading">#</a></h2>
+<p>During release preparation or ongoing collection development (such as preparing
+prereleases on Rotary), committers regularly open pull requests to bump
+prerelease version suffixes (e.g., <code class="docutils literal notranslate"><span class="pre">X.Y.Z~pre1</span></code> to <code class="docutils literal notranslate"><span class="pre">X.Y.Z~pre2</span></code>).
+To avoid unnecessary review bottlenecks across the repository collection:</p>
+<ul class="simple">
+<li><p><strong>Advance Notice</strong>:
+Committers planning a set of prerelease version bumps should announce their
+intention ahead of time to the team (e.g., in the Gazebo PMC Zulip channel).</p></li>
+<li><p><strong>Waiving Individual PR Reviews</strong>:
+Once announced, pull requests that strictly bump prerelease versions and
+update related packaging metadata do not require formal review approvals from
+other committers, provided CI passes (with exceptions for flaky tests and other
+known CI failures).</p></li>
+<li><p><strong>Waiting Window</strong>:
+Committers should observe a waiting window of at least 4 hours after opening
+the bump PRs before merging, giving team members an opportunity to raise any
+concerns or coordinate dependent release tasks. If the PRs get approvals, the
+committer is free to skip the waiting window and proceed with making the
+prereleases immediately.</p></li>
+</ul>
+</section>
+</section>
 
 
                 </article>
@@ -770,7 +820,12 @@ document.addEventListener('DOMContentLoaded', () => {
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#name-selection-timelines-from-previous-releases">Name selection timelines from previous releases</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backporting">Backporting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#backporting">Backporting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#backport-timing-and-downstream-testing">Backport Timing and Downstream Testing</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#using-mergify">Using Mergify</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#review-policy-for-prerelease-version-bumps">Review Policy for Prerelease Version Bumps</a></li>
 </ul>
   </nav></div>
 
@@ -803,8 +858,8 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
-<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+  <script defer src="../_static/scripts/bootstrap.js?digest=18bd87630a240e9c25be"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=18bd87630a240e9c25be"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -836,7 +891,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="footer-item">
 <p class="theme-version">
   <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.23.0.
 </p></div>
       
     </div>
