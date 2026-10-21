@@ -82,7 +82,7 @@ Automated bridging does not need to handle every discovered topic or service.
 `The automated_bridge.include_patterns` and `automated_bridge.exclude_patterns` parameters can be used to control which interfaces are considered for automated bridging.
 For example, you may only want to bridge interfaces associated with a specific robot, or exclude image topics that may be bridged by another process for performance reasons or handled with `ros_gz_image` instead.
 
-Both parameters support regular expressions.
+Both parameters support [regular expression](https://en.wikipedia.org/wiki/Regular_expression).
 If `include_patterns` is specified, only matching topics and services are considered. The `exclude_patterns` parameter can be used to skip specific interfaces, even if they match an include pattern.
 
 In this demo, `/robot.*` limits automated bridging to topics and services whose names start with `/robot`, while `.*camera.*` excludes those whose names contain `camera`.
