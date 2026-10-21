@@ -167,12 +167,17 @@ ros2 run ros_gz_bridge parameter_bridge --ros-args \
   -p automated_bridge.enable:=true
 ```
 
-Topics or services can be excluded from automated bridging with the optional `automated_bridge.exclude_patterns` parameter, which accepts regular expressions:
+The optional `automated_bridge.include_patterns` and `automated_bridge.exclude_patterns` parameters can be used to control which topics and services are considered for automated bridging.
+If `include_patterns` is specified, only matching topics and services are considered for automated bridging.
+Otherwise, all topics and services are considered.
+The `exclude_patterns` parameter can be used to skip specific interfaces, even if they match an include pattern.
+Both parameters accept [regular expression](https://en.wikipedia.org/wiki/Regular_expression):
 
 ```bash
 ros2 run ros_gz_bridge parameter_bridge --ros-args \
   -p automated_bridge.enable:=true \
-  -p "automated_bridge.exclude_patterns:=['/clock', '/world/.*/stats']"
+  -p "automated_bridge.include_patterns:=['/robot.*']" \
+  -p "automated_bridge.exclude_patterns:=['.*camera.*']"
 ```
 
 Automated and manually configured bridges can be used together.
