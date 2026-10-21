@@ -72,17 +72,21 @@ The demo launch file starts `ros_gz_bridge` with automated bridging enabled:
   config_file="$(find-pkg-share ros_gz_sim_demos)/config/multi_robot.yaml"
   use_composition="True">
   <param name="automated_bridge.enable" value="true" />
+  <param name="automated_bridge.include_patterns"
+         value="['/robot.*']" />
   <param name="automated_bridge.exclude_patterns"
          value="['.*camera.*']" />
 </ros_gz_bridge>
 ```
-
 Automated bridging does not need to handle every discovered topic or service.
-The `automated_bridge.exclude_patterns` parameter can be used to skip topics or services that should be handled separately.
-For example, image topics may be bridged by another process for performance reasons, or handled with `ros_gz_image` instead.
+`The automated_bridge.include_patterns` and `automated_bridge.exclude_patterns` parameters can be used to control which interfaces are considered for automated bridging.
+For example, you may only want to bridge interfaces associated with a specific robot, or exclude image topics that may be bridged by another process for performance reasons or handled with `ros_gz_image` instead.
 
-The `automated_bridge.exclude_patterns` parameter supports regular expression matching.
-In this demo, `.*camera.*` excludes every discovered topic or service whose name contains `camera`, so these topics and services will be skipped by automated bridging even if corresponding endpoints are discovered on both ROS 2 and Gazebo.
+Both parameters support regular expressions.
+If `include_patterns` is specified, only matching topics and services are considered. The `exclude_patterns` parameter can be used to skip specific interfaces, even if they match an include pattern.
+
+In this demo, `/robot.*` limits automated bridging to topics and services whose names start with `/robot`, while `.*camera.*` excludes those whose names contain `camera`.
+As a result, only interfaces that satisfy both conditions are considered for automated bridging, even if other compatible endpoints are discovered on both ROS 2 and Gazebo.
 
 Manually configured bridges are processed first, and automated bridging does not create a duplicate bridge for an interface that is already bridged.
 In this demo, the [multi_robot.yaml](https://github.com/gazebosim/ros_gz/blob/ros2/ros_gz_sim_demos/config/multi_robot.yaml) configuration file defines one explicit bridge, from Gazebo `/clock` to ROS 2 `/clock`.
