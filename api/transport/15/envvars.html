@@ -190,6 +190,12 @@ Overview</h2>
 <li><b>GZ_TRANSPORT_ZENOH_CONFIG_OVERRIDE</b><ul>
 <li><em>Value allowed</em>: Semicolon-separated <code>key=value</code> pairs</li>
 <li><em>Description</em>: Override specific Zenoh configuration parameters after loading the config file (or defaults). Keys are Zenoh config paths and values are JSON5 literals. Applied after <code>ZENOH_CONFIG</code> is loaded, so overrides take priority. Example: <code>GZ_TRANSPORT_ZENOH_CONFIG_OVERRIDE="transport/link/tx/queue/size/data=8;transport/shared_memory/enabled=true"</code></li>
+<li><em>Shared memory</em>: Zenoh moves payloads between processes on the same host through shared memory when the library was built with SHM support. It is governed entirely by Zenoh configuration keys, so it is tuned through <code>ZENOH_CONFIG</code> or this variable:<ul>
+<li><code>transport/shared_memory/enabled</code> (default <code>true</code>): set to <code>false</code> to disable shared memory altogether.</li>
+<li><code>transport/shared_memory/transport_optimization/pool_size</code> (bytes, gz-transport default <code>50331648</code>, 48 MiB): size of the per-process SHM pool. Zenoh's own default is 16 MiB; gz-transport raises it in its built-in configuration so a few multi-megabyte messages can be in flight at once. A <code>ZENOH_CONFIG</code> file keeps its own value.</li>
+<li><code>transport/shared_memory/transport_optimization/message_size_threshold</code> (bytes, default <code>3072</code>): payloads at or above this size go through shared memory, smaller ones through the regular transport. gz-transport serializes messages at or above the threshold directly into the pool. When the pool is exhausted or shared memory is unavailable, delivery falls back to the network path automatically.</li>
+</ul>
+</li>
 <li><em>Available in backend:</em>: zenoh</li>
 </ul>
 </li>
@@ -236,6 +242,12 @@ Overview</h2>
 <li><em>Value allowed</em>: 1/0</li>
 <li><em>Description</em>: Show debug information.</li>
 <li><em>Available in backend:</em>: zeromq, zenoh</li>
+</ul>
+</li>
+<li><b>RUST_LOG</b><ul>
+<li><em>Value allowed</em>: A Rust <code>env_logger</code> filter, e.g. <code>info</code>, <code>debug</code> or <code>zenoh_shm=trace</code></li>
+<li><em>Description</em>: Enables Zenoh's internal logging on stderr. Not set by default, so Zenoh stays silent. <code>RUST_LOG=zenoh_shm=trace</code> shows when a payload travels through shared memory.</li>
+<li><em>Available in backend:</em>: zenoh</li>
 </ul>
 </li>
 <li><b>ZENOH_CONFIG</b><ul>

@@ -271,6 +271,9 @@ Addresses_M&lt;Pub&gt; &amp;_publishers) const.  <br /></td></tr>
 <tr class="memitem:ab6bea29832d73ef9912d01a98ea42a19" id="r_ab6bea29832d73ef9912d01a98ea42a19"><td class="memItemLeft" align="right" valign="top">std::optional&lt; <a class="el" href="classgz_1_1transport_1_1TopicStatistics.html">TopicStatistics</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1transport_1_1NodeShared.html#ab6bea29832d73ef9912d01a98ea42a19">TopicStats</a> (const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_topic) const</td></tr>
 <tr class="memdesc:ab6bea29832d73ef9912d01a98ea42a19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current statistics for a topic. <a class="el" href="classgz_1_1transport_1_1Statistics.html" title="Computes the rolling average, min, max, and standard deviation for a set of samples.">Statistics</a> must have been enabled using the EnableStatistics function, otherwise the return value will be std::nullopt.  <br /></td></tr>
 <tr class="separator:ab6bea29832d73ef9912d01a98ea42a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46f1ef330d7c177f85d9a929b001045f" id="r_a46f1ef330d7c177f85d9a929b001045f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1transport_1_1NodeShared.html#a46f1ef330d7c177f85d9a929b001045f">TriggerCallbacks</a> (const <a class="el" href="classgz_1_1transport_1_1MessageInfo.html">MessageInfo</a> &amp;_info, const char *_msgData, <a class="elRef" href="http://en.cppreference.com/w/cpp/types/size_t.html">std::size_t</a> _msgSize, const <a class="el" href="structgz_1_1transport_1_1NodeShared_1_1HandlerInfo.html">HandlerInfo</a> &amp;_handlerInfo)</td></tr>
+<tr class="memdesc:a46f1ef330d7c177f85d9a929b001045f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call the <a class="el" href="classgz_1_1transport_1_1SubscriptionHandler.html" title="It creates a subscription handler for a specific protobuf message. &#39;T&#39; is the Protobuf message type t...">SubscriptionHandler</a> callbacks from a raw buffer. Avoids constructing a <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> from the data, enabling zero-copy when the buffer comes directly from Zenoh SHM via get_contiguous_view.  <br /></td></tr>
+<tr class="separator:a46f1ef330d7c177f85d9a929b001045f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39525c8620fbc8b83b350328db85f83b" id="r_a39525c8620fbc8b83b350328db85f83b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1transport_1_1NodeShared.html#a39525c8620fbc8b83b350328db85f83b">TriggerCallbacks</a> (const <a class="el" href="classgz_1_1transport_1_1MessageInfo.html">MessageInfo</a> &amp;_info, const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_msgData, const <a class="el" href="structgz_1_1transport_1_1NodeShared_1_1HandlerInfo.html">HandlerInfo</a> &amp;_handlerInfo)</td></tr>
 <tr class="memdesc:a39525c8620fbc8b83b350328db85f83b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Call the <a class="el" href="classgz_1_1transport_1_1SubscriptionHandler.html" title="It creates a subscription handler for a specific protobuf message. &#39;T&#39; is the Protobuf message type t...">SubscriptionHandler</a> callbacks (local and raw) for this <a class="el" href="classgz_1_1transport_1_1NodeShared.html" title="Private data for the Node class. This class should not be directly used. You should use the Node clas...">NodeShared</a>.  <br /></td></tr>
 <tr class="separator:a39525c8620fbc8b83b350328db85f83b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1377,8 +1380,59 @@ Addresses_M&lt;Pub&gt; &amp;_publishers) const  </dd></dl>
 
 </div>
 </div>
+<a id="a46f1ef330d7c177f85d9a929b001045f" name="a46f1ef330d7c177f85d9a929b001045f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46f1ef330d7c177f85d9a929b001045f">&#9670;&#160;</a></span>TriggerCallbacks() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void TriggerCallbacks </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classgz_1_1transport_1_1MessageInfo.html">MessageInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>_info</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>_msgData</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="elRef" href="http://en.cppreference.com/w/cpp/types/size_t.html">std::size_t</a>&#160;</td>
+          <td class="paramname"><em>_msgSize</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structgz_1_1transport_1_1NodeShared_1_1HandlerInfo.html">HandlerInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>_handlerInfo</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Call the <a class="el" href="classgz_1_1transport_1_1SubscriptionHandler.html" title="It creates a subscription handler for a specific protobuf message. &#39;T&#39; is the Protobuf message type t...">SubscriptionHandler</a> callbacks from a raw buffer. Avoids constructing a <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> from the data, enabling zero-copy when the buffer comes directly from Zenoh SHM via get_contiguous_view. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">_info</td><td>Message information. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_msgData</td><td>Pointer to the serialized data. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_msgSize</td><td>Number of bytes in _msgData. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">_handlerInfo</td><td>Information for the handlers of this node. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a39525c8620fbc8b83b350328db85f83b" name="a39525c8620fbc8b83b350328db85f83b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39525c8620fbc8b83b350328db85f83b">&#9670;&#160;</a></span>TriggerCallbacks()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a39525c8620fbc8b83b350328db85f83b">&#9670;&#160;</a></span>TriggerCallbacks() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
