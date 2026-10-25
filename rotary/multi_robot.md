@@ -3,6 +3,8 @@
 This tutorial shows how to create multiple robots from the same robot SDF file using namespaces to isolate their topics and services.
 It also shows how automated bridging can discover and bridge matching ROS 2 and Gazebo interfaces without requiring a separate bridge configuration for each robot.
 
+For a more detailed explanation of these features, watch the community meeting talk [Scalable Multi-Robot Simulation in ROS 2 and Gazebo](https://www.youtube.com/watch?v=ifLc6wbPQZY).
+
 ## Start the demo
 
 Run:
