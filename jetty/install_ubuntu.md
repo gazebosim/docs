@@ -1,6 +1,6 @@
 # Binary Installation on Ubuntu
 
-Jetty binaries are provided for Ubuntu Noble (24.04). The
+Jetty binaries are provided for Ubuntu Noble (24.04) and Ubuntu Resolute (26.04). The
 Jetty binaries are hosted in the packages.osrfoundation.org repository.
 To install all of them, the metapackage `gz-jetty` can be installed.
 

@@ -1,6 +1,6 @@
 # Source Installation on macOS
 
-This tutorial will work for macOS Ventura, Sonoma, and Sequoia.
+This tutorial will work for macOS Sequoia on Apple Silicon (arm64).
 
 ## Install tools
 
@@ -23,7 +23,7 @@ brew update
 
 ### Install compiler requirements
 
-Building Gazebo Libraries require at least Xcode 14 on MacOS Ventura. The Xcode Command Line Tools are sufficient, and can be installed with:
+Building Gazebo Libraries requires the Xcode Command Line Tools for your version of macOS. They can be installed with:
 
 ```bash
 xcode-select --install

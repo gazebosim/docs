@@ -28,9 +28,9 @@ addition, the vendor packages provide CMake shims that make it possible to use
 CMake targets without version numbers.
 
 Each release of ROS 2 is paired with a specific release of Gazebo. For ROS 2
-Jazzy, the vendor packages contain Gazebo libraries from the Harmonic release.
-For ROS 2 K-turtle (next release), the vendor packages will contain Gazebo
-Ionic. This default pairing is found in the
+Jazzy, the vendor packages contain Gazebo libraries from the Harmonic release,
+for ROS 2 Kilted they contain Gazebo Ionic and for ROS 2 Lyrical they contain
+Gazebo Jetty. This default pairing is found in the
 [ROS installation instructions](ros_installation)
 
 The following is a table of all vendor packages and the underlying Gazebo

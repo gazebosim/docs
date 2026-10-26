@@ -1,8 +1,11 @@
 # Binary Installation on MacOS
 
-All the Ionic binaries are available in Monterey and Ventura using the
+Pre-built Ionic binaries (bottles) are available for macOS Sequoia on Apple
+Silicon (arm64) using the [Homebrew package manager](https://brew.sh/). On
+other macOS versions Homebrew builds the packages from source, which can take
+a long time.
 
-[Homebrew package manager](https://brew.sh/). After installing Homebrew, Gazebo Ionic can be installed running:
+After installing Homebrew, Gazebo Ionic can be installed running:
 
 ```bash
 brew tap osrf/simulation
