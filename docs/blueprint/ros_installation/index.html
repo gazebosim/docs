@@ -534,10 +534,14 @@ benefit of not modifying your host OS and allowing you to roll back your
 mistakes.</p>
 <p>At the time of writing, our recommendation is that new users install:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://www.releases.ubuntu.com/noble/">Ubuntu Noble 24.04</a></p></li>
-<li><p><a class="reference external" href="https://www.ros.org/reps/rep-2000.html#jazzy-jalisco-may-2024-may-2029">ROS 2 Jazzy Jalisco</a></p></li>
-<li><p><a class="reference external" href="https://gazebosim.org/docs/harmonic/install">Gazebo Harmonic</a></p></li>
+<li><p><a class="reference external" href="https://releases.ubuntu.com/resolute/">Ubuntu Resolute 26.04</a></p></li>
+<li><p><a class="reference external" href="https://docs.ros.org/en/lyrical/Releases/Release-Lyrical-Luth.html">ROS 2 Lyrical Luth</a></p></li>
+<li><p><a class="reference external" href="https://gazebosim.org/docs/jetty/install">Gazebo Jetty</a></p></li>
 </ul>
+<p>Users that cannot move to Ubuntu Resolute yet can use the previous LTS
+combination: <a class="reference external" href="https://www.releases.ubuntu.com/noble/">Ubuntu Noble 24.04</a>,
+<a class="reference external" href="https://www.ros.org/reps/rep-2000.html#jazzy-jalisco-may-2024-may-2029">ROS 2 Jazzy Jalisco</a>
+and <a class="reference external" href="https://gazebosim.org/docs/harmonic/install">Gazebo Harmonic</a>.</p>
 </section>
 <section id="summary-of-compatible-ros-and-gazebo-combinations">
 <h2>Summary of Compatible ROS and Gazebo Combinations<a class="headerlink" href="#summary-of-compatible-ros-and-gazebo-combinations" title="Link to this heading">#</a></h2>
@@ -554,35 +558,42 @@ continued use.</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p><strong>ROS 2 Rolling</strong></p></td>
+<tr class="row-even"><td><p><strong>ROS 2 Lyrical (LTS)</strong></p></td>
 <td><p>❌</p></td>
 <td><p>⚡</p></td>
 <td><p>⚡</p></td>
 <td><p>✅</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>ROS 2 Lyrical (LTS)</strong></p></td>
-<td><p>❌</p></td>
-<td><p>⚡</p></td>
-<td><p>⚡</p></td>
-<td><p>✅</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>ROS 2 Kilted</strong></p></td>
+<tr class="row-odd"><td><p><strong>ROS 2 Kilted</strong></p></td>
 <td><p>❌</p></td>
 <td><p>⚡</p></td>
 <td><p>✅</p></td>
 <td><p>❌</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>ROS 2 Jazzy (LTS)</strong></p></td>
+<tr class="row-even"><td><p><strong>ROS 2 Jazzy (LTS)</strong></p></td>
 <td><p>❌</p></td>
 <td><p>✅</p></td>
 <td><p>❌</p></td>
 <td><p>❌</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>ROS 2 Humble (LTS)</strong></p></td>
+<tr class="row-odd"><td><p><strong>ROS 2 Humble (LTS)</strong></p></td>
 <td><p>✅</p></td>
 <td><p>⚡</p></td>
 <td><p>❌</p></td>
 <td><p>❌</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p><strong>GZ Rotary (rolling)</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>ROS 2 Rolling</strong> (*)</p></td>
+<td><p>✅</p></td>
 </tr>
 </tbody>
 </table>
@@ -593,17 +604,17 @@ continued use.</p>
 <li><p>⚡ - Possible, <em>but use with caution</em>. These combinations of ROS and Gazebo can
 be made to work together, but some effort is required.</p></li>
 </ul>
-</section>
-<section id="installing-the-default-gazebo-ros-pairing">
-<h2>Installing the Default Gazebo/ROS Pairing<a class="headerlink" href="#installing-the-default-gazebo-ros-pairing" title="Link to this heading">#</a></h2>
+<p>(*) ROS 2 Rolling tracks the development of the next Gazebo release: its
+vendor packages contain prereleases of the Gazebo libraries built from the
+<code class="docutils literal notranslate"><span class="pre">main</span></code> branches, the same code used by <a class="reference external" href="https://gazebosim.org/docs/rotary/rotary">Gazebo Rotary</a>.</p>
 <p>If you are planning on using a specific version of ROS and don’t have a reason
 to use a specific version of Gazebo, we recommend using the default version of
 Gazebo available from the ROS repository when installing <code class="docutils literal notranslate"><span class="pre">ros_gz</span></code>. You can find
 instructions on adding the ROS repository to your system in the
-<a class="reference external" href="https://docs.ros.org/en/humble/Installation/Alternatives/Ubuntu-Development-Setup.html#add-the-ros-2-apt-repository">ROS documentation</a>.
+<a class="reference external" href="https://docs.ros.org/en/lyrical/Get-Started/Installation/Ubuntu-Install-Debs.html#set-up-your-system">ROS documentation</a>.
 The following command will install the correct version of Gazebo and <code class="docutils literal notranslate"><span class="pre">ros_gz</span></code>
 for your ROS installation on a Linux system. You should replace <code class="docutils literal notranslate"><span class="pre">${ROS_DISTRO}</span></code>
-with your ROS distribution (e.g. <code class="docutils literal notranslate"><span class="pre">humble</span></code>, <code class="docutils literal notranslate"><span class="pre">rolling</span></code>, <code class="docutils literal notranslate"><span class="pre">noetic</span></code>, etc).</p>
+with your ROS distribution (e.g. <code class="docutils literal notranslate"><span class="pre">lyrical</span></code>, <code class="docutils literal notranslate"><span class="pre">jazzy</span></code>, <code class="docutils literal notranslate"><span class="pre">humble</span></code>, <code class="docutils literal notranslate"><span class="pre">rolling</span></code>, etc).</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ros-<span class="si">${</span><span class="nv">ROS_DISTRO</span><span class="si">}</span>-ros-gz
 </pre></div>
 </div>
@@ -627,14 +638,14 @@ users.
 <h2>Specific ROS and Gazebo Pairings<a class="headerlink" href="#specific-ros-and-gazebo-pairings" title="Link to this heading">#</a></h2>
 <p>Gazebo is an independent project like Boost, Ogre, and many other projects used
 by ROS. Usually, the latest version of Gazebo is available at the beginning of
-each ROS release cycle (for example Gazebo Fortress for ROS 2 Humble). This
+each ROS release cycle (for example Gazebo Jetty for ROS 2 Lyrical). This
 version of Gazebo is selected as the official Gazebo release for that ROS Distro
 and is fully integrated, tested, and supported for the life of the ROS
 distribution.</p>
 <p>Note that all Gazebo libraries follow the <a class="reference external" href="http://semver.org/">semantic
 versioning</a> philosophy for ABI stability. All Gazebo
-versions that have the same major number (<code class="docutils literal notranslate"><span class="pre">gz-sim7_7.0.0</span></code>, <code class="docutils literal notranslate"><span class="pre">gz-sim7_7.1.0</span></code>,
-<code class="docutils literal notranslate"><span class="pre">gz-sim7_7.0.1</span></code>, …) are binary compatible and thus interchangeable with a
+versions that have the same major number (<code class="docutils literal notranslate"><span class="pre">gz-sim10_10.0.0</span></code>, <code class="docutils literal notranslate"><span class="pre">gz-sim10_10.1.0</span></code>,
+<code class="docutils literal notranslate"><span class="pre">gz-sim10_10.0.1</span></code>, …) are binary compatible and thus interchangeable with a
 given ROS distro.</p>
 <section id="installing-gazebo">
 <h3>Installing Gazebo<a class="headerlink" href="#installing-gazebo" title="Link to this heading">#</a></h3>
@@ -652,7 +663,7 @@ of writing the following packages are available on the following hosts:</p>
 <li><p>ROS 2 Jazzy: Gazebo Harmonic (ROS vendor packages)</p></li>
 <li><p>ROS 2 Kilted: Gazebo Ionic (ROS vendor packages)</p></li>
 <li><p>ROS 2 Lyrical: Gazebo Jetty (ROS vendor packages)</p></li>
-<li><p>ROS 2 Rolling: Gazebo Jetty (ROS vendor packages, changing frequently)</p></li>
+<li><p>ROS 2 Rolling: prereleases of the next Gazebo release built from <code class="docutils literal notranslate"><span class="pre">main</span></code> (ROS vendor packages, changing frequently)</p></li>
 </ul>
 </li>
 <li><p><strong><a class="reference external" href="http://packages.osrfoundation.org">packages.osrfoundation.org</a></strong></p>
@@ -714,8 +725,8 @@ repository.</p></li>
 <section id="using-the-latest-gazebo-source-code-for-a-gazebo-distribution">
 <h2>Using the Latest Gazebo Source Code for a Gazebo Distribution<a class="headerlink" href="#using-the-latest-gazebo-source-code-for-a-gazebo-distribution" title="Link to this heading">#</a></h2>
 <p>The Gazebo team usually backports and releases new versions of each of the
-supported Gazebo releases and libraries (i.e: bumping <code class="docutils literal notranslate"><span class="pre">gz-sim</span> <span class="pre">7.0.0</span></code> to gz-sim
-<code class="docutils literal notranslate"><span class="pre">7.1.0</span></code>). These updates are hosted first in the <code class="docutils literal notranslate"><span class="pre">packages.osrfoundation.org</span></code>
+supported Gazebo releases and libraries (i.e: bumping <code class="docutils literal notranslate"><span class="pre">gz-sim</span> <span class="pre">10.0.0</span></code> to gz-sim
+<code class="docutils literal notranslate"><span class="pre">10.1.0</span></code>). These updates are hosted first in the <code class="docutils literal notranslate"><span class="pre">packages.osrfoundation.org</span></code>
 repository. The ROS repository syncs from the <code class="docutils literal notranslate"><span class="pre">osrfoundation.org</span></code> repository
 frequently but versions can be different.</p>
 <p>Getting the latest versions of the Gazebo libraries and simulator is as easy
@@ -759,13 +770,13 @@ debian packages the ones installed by the package manager (usually apt).</p>
 <h4>Where I can find the different features implemented on each Gazebo version?<a class="headerlink" href="#where-i-can-find-the-different-features-implemented-on-each-gazebo-version" title="Link to this heading">#</a></h4>
 <p>The best place is the Gazebo web page that hosts a list of the
 <a class="reference internal" href="../release-features/"><span class="doc std std-doc">main features available in each Gazebo distribution</span></a>.</p>
-<p>Some notes are regularly posted on the <a class="reference external" href="https://community.gazebosim.org/tags/c/release-announcements-and-discussions/10/release">Gazebo community
-site</a>
+<p>Some notes are regularly posted on the <a class="reference external" href="https://discourse.openrobotics.org/c/gazebo/95">Gazebo category of the Open Robotics
+Discourse</a>
 and special posts and videos are also posted there when a new release is out:
 See the one for
-<a class="reference external" href="https://community.gazebosim.org/t/gazebo-garden-release/1627">Garden</a> or the
+<a class="reference external" href="https://discourse.openrobotics.org/t/gazebo-jetty-released/50349">Jetty</a> or the
 one for
-<a class="reference external" href="https://community.gazebosim.org/t/ignition-fortress-release/1127">Fortress</a> as
+<a class="reference external" href="https://discourse.openrobotics.org/t/gazebo-harmonic-release/48175">Harmonic</a> as
 examples.</p>
 <p>Additionally, when navigating through the different versions of Gazebo there is a menu item
 called “<a class="reference internal" href="../comparison/"><span class="doc std std-doc">Feature Comparison</span></a>” which provides a comparison with the features of Gazebo-Classic.
@@ -801,8 +812,7 @@ In the top right corner of the <a class="reference external" href="https://gazeb
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#picking-the-correct-versions-of-ros-gazebo">Picking the “Correct” Versions of ROS &amp; Gazebo</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-compatible-ros-and-gazebo-combinations">Summary of Compatible ROS and Gazebo Combinations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-the-default-gazebo-ros-pairing">Installing the Default Gazebo/ROS Pairing</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summary-of-compatible-ros-and-gazebo-combinations">Summary of Compatible ROS and Gazebo Combinations</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ros-2-gazebo-vendor-packages">ROS 2 Gazebo Vendor packages</a></li>
 </ul>
 </li>
@@ -870,7 +880,7 @@ In the top right corner of the <a class="reference external" href="https://gazeb
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
   </p>
 </div>
       

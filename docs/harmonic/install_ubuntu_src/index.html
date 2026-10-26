@@ -540,10 +540,6 @@ although other ways of correctly getting and building the sources are also possi
 <p>To compile all the different libraries and gz-sim in the right order
 <a class="reference external" href="https://colcon.readthedocs.io/en/released/">colcon</a> is recommended.
 The colcon tool is available on all platforms using pip (or pip3, if pip fails).</p>
-<p>Some tools require Python 3.5 (or higher) which is not the default option on some
-platforms (like Ubuntu Focal). The Python
-<a class="reference external" href="https://virtualenv.pypa.io/en/latest/">virtualenv</a> could be a useful solution in
-cases where the default option cannot be easily changed.</p>
 </section>
 <section id="generic-tools">
 <h2>Generic tools<a class="headerlink" href="#generic-tools" title="Link to this heading">#</a></h2>
@@ -567,8 +563,8 @@ done above.</p>
 <section id="vcstool-and-colcon-from-apt">
 <h2>vcstool and colcon from apt<a class="headerlink" href="#vcstool-and-colcon-from-apt" title="Link to this heading">#</a></h2>
 <p>An alternative method is to use the <code class="docutils literal notranslate"><span class="pre">.deb</span></code> packages available on Debian or Ubuntu:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>sh<span class="w"> </span>-c<span class="w"> </span><span class="s1">'echo "deb http://packages.ros.org/ros2/ubuntu $(lsb_release -sc) main" &gt; /etc/apt/sources.list.d/ros2-latest.list'</span>
-curl<span class="w"> </span>-s<span class="w"> </span>https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/ros/rosdistro/master/ros.key<span class="w"> </span>-o<span class="w"> </span>/usr/share/keyrings/ros-archive-keyring.gpg
+<span class="nb">echo</span><span class="w"> </span><span class="s2">"deb [arch=</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2"> signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu </span><span class="k">$(</span>lsb_release<span class="w"> </span>-sc<span class="k">)</span><span class="s2"> main"</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/ros2-latest.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
 sudo<span class="w"> </span>apt-get<span class="w"> </span>update
 sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-vcstool<span class="w"> </span>python3-colcon-common-extensions
 </pre></div>
@@ -819,7 +815,7 @@ from it. E.g.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.1.
   </p>
 </div>
       
