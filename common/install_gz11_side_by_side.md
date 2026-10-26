@@ -6,7 +6,7 @@ This tutorial affects the Gazebo Classic users on Ubuntu `Jammy` (latest
 Ubuntu release were Gazebo Classic packages supported by the Gazebo team)
 that plan on migrating code to new Gazebo `Fortress` or `Harmonic` (the
 Gazebo releases officially supported on Ubuntu `Jammy`). Newer Gazebo
-releases like `Ionic` or `Jetty` require Ubuntu `Noble` or later.
+releases like `Jetty` require Ubuntu `Noble` or later.
 
 Gazebo Classic reached end of life in January 2025 and does not receive
 updates anymore.

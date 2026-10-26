@@ -17,11 +17,10 @@ gz sim shapes.sdf
 
 `gz sim` will run the latest version of Gazebo you have installed.
 You can check if you have more than one version of Gazebo installed by running `gz sim --versions`.
-For example, if you have Jetty (10.x.x), Ionic (9.x.x) and Harmonic (8.x.x) installed, `--versions` might return:
+For example, if you have Jetty (10.x.x) and Harmonic (8.x.x) installed, `--versions` might return:
 
 ```bash
 10.0.0
-9.0.0
 8.0.0
 ```
 
