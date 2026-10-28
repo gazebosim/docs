@@ -18,6 +18,38 @@ Source installation is recommended for users planning on altering Ignition's sou
  * [Source Installation on macOS](install_osx_src)
  * [Source Installation on Windows](install_windows_src)
 
+## Building documentation
+
+After completing a source installation, you can build the documentation for
+the Ignition libraries from the root of the workspace.
+
+Install Doxygen and the documentation dependencies. On Ubuntu:
+
+```bash
+sudo apt-get install -y doxygen graphviz
+```
+
+**Note:** Building documentation for `sdformat` requires the additional
+`texlive-latex-extra` package. Install the documentation dependencies with:
+
+```bash
+sudo apt-get install -y doxygen graphviz texlive-latex-extra
+```
+
+Then run:
+
+```bash
+colcon build --merge-install \
+  --cmake-args -DBUILD_DOCS=ON -DBUILD_TESTING=OFF \
+  --cmake-target doc
+```
+
+The generated documentation for each library can be found under:
+
+```text
+build/<package>/doxygen/html/
+```
+
 ## Dockerized Development Environment instructions
 
 Dockerized development environment is only recommended for advanced users familiar with Docker or Ignition contributors (advanced).
