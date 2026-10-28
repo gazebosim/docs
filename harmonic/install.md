@@ -56,8 +56,6 @@ Source installation is recommended for users planning on altering Gazebo's sourc
 The Harmonic collection is composed of many different Gazebo libraries. The
 collection assures that all libraries are compatible and can be used together.
 
-This list of library versions may change up to the release date.
-
 | Library name       | Version       |
 | ------------------ |:-------------:|
 |   gz-cmake         |       3.x     |

@@ -87,9 +87,10 @@ Fortress is [supported](releases) on the platforms below.
 
 These are the **officially** supported platforms:
 
-* Ubuntu Bionic on amd64/i386
-* Ubuntu Focal on amd64
 * Ubuntu Jammy on amd64
+
+Ubuntu Bionic and Ubuntu Focal were also supported in the past. Both have
+reached their end of life and no longer receive Fortress updates.
 
 Platforms supported at **best-effort** include arm architectures, Windows and
 macOS. See

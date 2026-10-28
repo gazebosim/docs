@@ -57,9 +57,9 @@ Jenkins | `<library>-ci-pr_any-homebrew-amd64` | macOS | Compile and run tests u
 Jenkins | `<library>-ci-pr_any-windows*-amd64` | Windows ([deprecated](https://github.com/gazebo-tooling/release-tools/issues/412)) | Compile and run tests using configure.bat scripts and CMake + Visual Studio directly | External dependencies from custom tarballs
 Jenkins | `<library>-pr-win` | Windows | Compile and run tests using [colcon](https://colcon.readthedocs.io/en/released/#) | External dependencies from [vcpkg](https://docs.microsoft.com/en-us/cpp/build/vcpkg?view=msvc-160), Gazebo dependencies built from source with colcon
 Jenkins | `<library>-abichecker-any_to_any-ubuntu_auto-amd64` | Ubuntu | Run ABI checker | Stable binaries
-Actions | `Ubuntu CI / Ubuntu * CI` | Ubuntu Bionic and Focal | Compile and run tests using CMake and Make, run code checker and upload coverage results | Stable binaries for stable branches, nightlies for `main`
+Actions | `Ubuntu CI / Ubuntu * CI` | Ubuntu Jammy, Noble or Resolute (depending on the branch) | Compile and run tests using CMake and Make, run code checker and upload coverage results | Stable binaries for stable branches, nightlies for `main`
 Actions | `DCO` | - | Checks that all commits are signed correctly | -
-Actions | `PR Collection Labeler` | - | Adds collection labels (i.e. Blueprint, Citadel...) according to the target branch | -
+Actions | `PR Collection Labeler` | - | Adds collection labels according to the target branch | -
 Actions | `Ticket opened` | - | Adds the pull request to the [Core development board](https://github.com/orgs/gazebosim/projects/3) | -
 Actions | `codecov/*` | - | Checks that the test coverage hasn't been reduced | -
 
@@ -72,8 +72,9 @@ Notes:
     * `push`: Runs for every commit pushed to the official repository. These don't
       run for forks. Pull requests from the official repository will have
       both `push` and `pull_request`.
-* Only the `Bionic` Action uploads coverage results to Codecov, so we have a
-  single coverage result for each branch.
+* On branches with coverage enabled, only one of the Ubuntu Actions (i.e. `Jammy`)
+  uploads coverage results to Codecov, so we have a single coverage result for
+  each branch.
 * There's some overlap between Jenkins and Actions jobs for Ubuntu, but they
   have some differences. Some Jenkins jobs run with on GPU machines and
   provides a nice interface to introspect builds. On the other hand, Actions

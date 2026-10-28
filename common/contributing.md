@@ -70,7 +70,7 @@ Documents describing the architecture of Gazebo are listed here:
 
 **Before Submitting a Bug Report**
 
-1. Check the [questions and answers forum](http://answers.gazebosim.org). Your issue may have already been resolved.
+1. Check [Robotics Stack Exchange](https://robotics.stackexchange.com/questions/tagged/gazebo) and the [Gazebo Answers archive](https://answers.gazebosim.org). Your issue may have already been resolved.
 2. Determine [the repository](contributing.md#repository-list) which should receive the problem.
 3. Search the repository's issues to see if the same or similar problem has
    been opened. If it has and the issue is still open, then add a comment to
@@ -194,7 +194,7 @@ get acquainted with this development process.
         sudo apt-get install cppcheck
 
     To check your code, run the following script from the `build` folder of the project that you're working on.
-    If you're working on *gz-math*, for instance, the path for the folder should be something similar to `~/citadel_ws/build/gz-math6`.
+    If you're working on *gz-math*, for instance, the path for the folder should be something similar to `~/workspace/build/gz-math9`.
     The path example is assuming you followed [our installation instructions](install) using colcon.
 
     Then, run the script inside this folder:
@@ -345,7 +345,7 @@ During weekly simulation meetings, the team:
 
 When opening a pull-request:
 
-* **Labels** according to the targeted collection(s) (blueprint, citadel, etc) will be added automatically
+* **Labels** according to the targeted collection(s) (harmonic, jetty, etc) will be added automatically
 * Add yourself as the **assignee**
 
   * Maintainers of each repo will be also automatically assigned
