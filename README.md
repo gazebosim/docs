@@ -109,11 +109,20 @@ python3 -m http.server 8000 -d .build
 This will serve the website on <http://localhost:8000>
 
 For quicker iteration, you can build the documentation for a subset
-of Gazebo versions. To build `garden` and `harmonic`:
+of Gazebo versions. To build `harmonic` and `jetty`:
 
 ```bash
-python3 build_multiversion.py --release garden harmonic
+python3 build_multiversion.py --release harmonic jetty
 ```
+
+## Spell checking
+
+The Markdown documentation is spell-checked with
+[codespell](https://github.com/codespell-project/codespell), run by the GitHub
+Actions workflow [.github/workflows/codespell.yml](.github/workflows/codespell.yml).
+
+For configuration, how to run the check locally, and how to add words, see
+[.codespell/README.md](.codespell/README.md).
 
 ## Library docs
 

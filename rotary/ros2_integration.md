@@ -3,7 +3,7 @@
 In this tutorial we will learn how to use ROS 2 to communicate with Gazebo. 
 This can help in many aspects; we can receive data (like joint states, TFs) or commands
 from ROS and apply it to Gazebo and vice versa. This can also help to enable RViz to visualize a robot model
-simulatenously simulated by a Gazebo world.
+simultaneously simulated by a Gazebo world.
 
 ## ros_gz_bridge
 
@@ -218,11 +218,11 @@ Start the simulation in Gazebo and wait a few seconds for TFs to be published.
 In another terminal, send either ROS or Gazebo commands for the vehicle to move in circles:
 
 ```bash
-gz topic -t "/model/vehicle/cmd_vel" -m gz.msgs.Twist -p "linear: {x: 1.0}, angular: {z: -0.1}"
-ros2 topic pub /model/vehicle/cmd_vel geometry_msgs/msg/Twist "{linear: {x: 5.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -0.1}}
+gz topic -t "/model/vehicle/cmd_vel" -m gz.msgs.Twist -p "linear: {x: 0.5}, angular: {z: -0.1}"
+ros2 topic pub /model/vehicle/cmd_vel geometry_msgs/msg/Twist "{linear: {x:0.5, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: -0.1}}
 ```
 
-And verify the vehicle matching its trajectory in Gazebo and RViz.
+And verify the vehicle matching its trajectory in Gazebo and RViz. Note that the sim here is running 5 times faster than real time
 
 ![gz_rviz](tutorials/ros2_integration/gz_rviz.gif)
 
@@ -233,7 +233,7 @@ For more details on implementation of this demo see [ROS 2 Interoperability](ros
 The [ROS 2 Simulation Interfaces](https://github.com/ros-simulation/simulation_interfaces)
 are a set of standard ROS 2 service, message and action
 definitions for controlling and interacting with simulation environments. They are
-simulator agnostic, which means the same interfacs can be implemented in different
+simulator agnostic, which means the same interfaces can be implemented in different
 simulators while keeping the API consistent.
 
 Gazebo implements these interfaces, enabling you to,

@@ -1,7 +1,11 @@
 # Binary Installation on macOS
 
-All the Harmonic binaries are available in Big Sur and Monterey using the
-[Homebrew package manager](https://brew.sh/). After installing Homebrew, Gazebo Harmonic can be installed running:
+Pre-built Harmonic binaries (bottles) are available for macOS Sequoia on Apple
+Silicon (arm64) using the [Homebrew package manager](https://brew.sh/). On
+other macOS versions Homebrew builds the packages from source, which can take
+a long time.
+
+After installing Homebrew, Gazebo Harmonic can be installed running:
 
 ```bash
 brew tap osrf/simulation

@@ -70,7 +70,7 @@ Documents describing the architecture of Gazebo are listed here:
 
 **Before Submitting a Bug Report**
 
-1. Check the [questions and answers forum](http://answers.gazebosim.org). Your issue may have already been resolved.
+1. Check [Robotics Stack Exchange](https://robotics.stackexchange.com/questions/tagged/gazebo) and the [Gazebo Answers archive](https://answers.gazebosim.org). Your issue may have already been resolved.
 2. Determine [the repository](contributing.md#repository-list) which should receive the problem.
 3. Search the repository's issues to see if the same or similar problem has
    been opened. If it has and the issue is still open, then add a comment to
@@ -161,15 +161,13 @@ get acquainted with this development process.
    - An important thing to do is create a remote pointing to the [upstream remote repository](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/configuring-a-remote-for-a-fork). This way, you can always check for modifications on the original repository and **always** keep your fork repository up to date.
 
 1. **Choose a base branch.**
-   - If your changes will break API or ABI, then base your new branch off of `main`.
-   - If you are making interdependent changes to multiple repositories without
-     breaking API or ABI, it is also recommended to base your new branches off of `main`
-     to simplify automated testing of the changes and the review process. Your
-     changes may be backported to an existing release once all the changes
-     have been merged.
-   - If your changes don't break
-   API/ABI and you would like them to be released to an existing release
-   with major version `N`, then use branch `gz-<library>N` as the base.
+   - Use `main` as your base branch. This is the branch that is automatically
+   selected in the Github UI when creating a pull request. Once your code is
+   merged, the maintainers will backport the changes to all supported stable
+   branches.
+   - If your change only affects an existing release with major version N
+   (e.g. a fix for a bug that only exists in that release), then use branch
+   `gz-<library>N` or `sdfN` as the base
 
 1. **Work out of a branch** Always work out of a new branch, one that is not
    a release / main branch. This is a good habit to get in, and will make
@@ -196,7 +194,7 @@ get acquainted with this development process.
         sudo apt-get install cppcheck
 
     To check your code, run the following script from the `build` folder of the project that you're working on.
-    If you're working on *gz-math*, for instance, the path for the folder should be something similar to `~/citadel_ws/build/gz-math6`.
+    If you're working on *gz-math*, for instance, the path for the folder should be something similar to `~/workspace/build/gz-math9`.
     The path example is assuming you followed [our installation instructions](install) using colcon.
 
     Then, run the script inside this folder:
@@ -347,7 +345,7 @@ During weekly simulation meetings, the team:
 
 When opening a pull-request:
 
-* **Labels** according to the targeted collection(s) (blueprint, citadel, etc) will be added automatically
+* **Labels** according to the targeted collection(s) (harmonic, jetty, etc) will be added automatically
 * Add yourself as the **assignee**
 
   * Maintainers of each repo will be also automatically assigned

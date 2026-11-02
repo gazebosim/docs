@@ -147,7 +147,7 @@ The src subdirectory should contain all the sources ready to be built.
 
 ## Install dependencies
 
-Before compiling it is necessary to install all the dependencies of the diferent
+Before compiling it is necessary to install all the dependencies of the different
 packages that compose the Blueprint collection. Every platform has a different
 method to install software dependencies.
 

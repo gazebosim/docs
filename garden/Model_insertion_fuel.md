@@ -72,7 +72,7 @@ There are a few different ways to spawn a model into the simulation.
     
     ![spawn](tutorials/fuel_insert/husky.gif)
 
-4. **Downloading the code to permanently add a Fuel model to your custum SDF file.**
+4. **Downloading the code to permanently add a Fuel model to your custom SDF file.**
 
     If you prefer to add a Fuel model permanently to an `sdf` file, you can just as easily download the code by clicking the download-arrow icon to the right of the model's image.
     Kook at the tutorial on [SDF Worlds](sdf_worlds) for more information on how to construct a custom world SDF file.

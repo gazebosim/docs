@@ -52,18 +52,11 @@ mkdir -p ~/workspace/src
 cd ~/workspace/src
 ```
 
-All the sources of gazebo-garden are declared in a yaml file. Download
-it to the workspace:
-
-```bash
-curl -O https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-garden.yaml
-```
-
 Use `vcstool` to automatically retrieve all the Gazebo libraries sources from
 their repositories:
 
 ```bash
-vcs import < collection-garden.yaml
+vcs import --input https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-garden.yaml src
 ```
 
 The src subdirectory should contain all the sources ready to be built.
@@ -165,7 +158,7 @@ Create a file called `config.patch` with the following content:
  #endif /* INCLUDE_RUBY_CONFIG_H */
 ```
 
-Now we can appply the patch:
+Now we can apply the patch:
 
 ```sh
 sudo patch -p0 < config.patch

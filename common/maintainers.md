@@ -2,17 +2,93 @@
 
 This document provides guidelines and tools for Gazebo maintainers.
 
+## Gazebo Release name selection
+
+Each year, while preparing to make a new Gazebo release, the PMC selects a new
+name for the following year's release. The release name selection process
+typically starts four weeks before the upcoming (already named) Gazebo release.
+This is so that the new name can be announced in the community meeting which
+will be held for the release demo. The new name will also be included in the
+Discourse post announcing the release. The following is a schedule of tasks that
+need to be carried out by the person who will be running the naming process.
+
+- 4 weeks before release, 3 weeks before community meeting: Start a new column
+  in the
+  [Gazebo release names spreadsheet](https://docs.google.com/spreadsheets/d/1dveyz4Oc3akVfmwRcgmYxy9KUuy7b5aRJx6kUgb9gq0/edit?pli=1&gid=0#gid=0) (not public)
+  and invite project committers to start populating the column with
+  potential names for the new release. Remind everyone about the naming theme
+  and add a couple of names to the column as examples.
+- 3 weeks before release, 2 weeks before community meeting:
+  - During the week's PMC meeting, filter the names taking into account the
+    meaning, trademarks, ease of spelling, ease of searching, etc.
+  - Assuming the filtering is completed, create a poll on Discourse asking the
+    community to vote for their favorite name from the filtered list. Explain
+    that the voting will use a ranked choice system (see
+    [example from Jetty](https://discourse.openrobotics.org/t/name-the-next-gazebo-release-gazebo-k/50040)).
+    The voting should close a day before the community meeting that will be held
+    to present demos from the new release.
+- 2 weeks before the release, 1 week before community meeting:
+  - Remind the community to vote
+- 2 days before community meeting:
+  - Send last reminder to vote
+- 1 day before community meeting:
+  - Record the final name selected by the community.
+
+### Name selection timelines from previous releases
+
+- Jetty -> Gazebo-K timeline
+  - Sept 3 - Asked committers to suggest names
+  - Sept 8 - Discussed during PMC meeting
+  - Sept 12 - [Post on discourse asking the community to vote](https://discourse.openrobotics.org/t/name-the-next-gazebo-release-gazebo-k/50040)
+  - Sept 29 - Voting closed
+    - In most years, the community meeting (release demos) comes before the
+      release. For Jetty, we did it after, so the new name was announced in the
+      Discourse post first.
+  - Sep 30 - [Release](https://discourse.openrobotics.org/t/gazebo-jetty-released/50349)
+  - Oct 1 - [Community meeting (Demo)](https://vimeo.com/1123639071)
+- Ionic -> Gazebo-J timeline
+  - Aug 26 - Asked committers to suggest names
+  - Sep 9 - Discussed during PMC meeting
+  - Sep 9 - [Post on discourse asking the community to vote](https://discourse.openrobotics.org/t/name-the-next-gazebo-release-gazebo-j/48589)
+  - Sep 25 - Voting closed
+  - Sep 25 - [Community meeting (Demo)](https://vimeo.com/1014479065), selected name was announced.
+  - Sep 30 - [Release](https://discourse.openrobotics.org/t/gazebo-ionic-release/49064)
+
 ## Backporting
 
 When a pull request is merged into the `main` development branch or a stable branch, it may be necessary to backport or forward-port it to other supported (non-EOL) collections if it fixes a bug or adds a non-breaking feature. Even when a PR is merged into an older stable branch, we still use the `@mergifyio backport` command to propagate it forward to newer branches including `main`.
 
 ```{important}
-When merging a PR that will be backported or forward-ported, you **must use "Rebase and merge"**. This ensures a cleaner git history and properly maintains the original author's commit attribution across branches.
+When merging backport PRs, two merge strategies are possible:
+1. If the backport is clean, i.e, no conflicts, use **Rebase and merge**. This ensures a cleaner git history and properly maintains the original author's commit attribution across branches.
+1. If you had to resolve conflicts, use **Squash and merge** so that the commit history and changelog entries point to the PR with the changes that resolved the conflicts.
 ```
 
 ```{important}
-In the event you need to fix conflicts in a backport, please ask another commiter to review your pull request.
+In the event you need to fix conflicts in a backport, please ask another committer to review your pull request.
 ```
+
+### Backport Timing and Downstream Testing
+
+Committers are permitted to self-approve and merge clean backports that have
+no merge conflicts and passing CI (with exceptions for flaky tests and other
+known CI failures).
+However, committers should weigh the tradeoff between backport velocity and
+the stability of downstream packages on release branches.
+
+If a feature, deprecation, or bug fix spans multiple pull requests or affects
+multiple Gazebo libraries (such as coordinated changes across `gz-rendering`
+and `gz-sensors`), backporting individual PRs immediately can cause transient
+build or test breakages on stable branches before the full set of changes is
+available.
+In these scenarios, committers should pause backports until all related pull
+requests have merged into the `main` development branch and continuous
+integration has had an opportunity to validate downstream packages.
+Once the complete set of changes is verified on `main`, the backports should
+be applied sequentially or in a coordinated manner to the targeted stable
+branches.
+
+### Using Mergify
 
 To port a merged PR to other branches, we use Mergify. You can comment on the PR with the `@mergifyio backport <branches...>` command. The tool below helps you quickly generate the correct Mergify command for any given PR by fetching the PR's target branch and looking up all other supported collection branches in [`gz-collections.yaml`](https://github.com/gazebo-tooling/release-tools/blob/master/jenkins-scripts/dsl/gz-collections.yaml).
 
@@ -152,3 +228,25 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 ```
+
+## Review Policy for Prerelease Version Bumps
+
+During release preparation or ongoing collection development (such as preparing
+prereleases on Rotary), committers regularly open pull requests to bump
+prerelease version suffixes (e.g., `X.Y.Z~pre1` to `X.Y.Z~pre2`).
+To avoid unnecessary review bottlenecks across the repository collection:
+
+- **Advance Notice**:
+  Committers planning a set of prerelease version bumps should announce their
+  intention ahead of time to the team (e.g., in the Gazebo PMC Zulip channel).
+- **Waiving Individual PR Reviews**:
+  Once announced, pull requests that strictly bump prerelease versions and
+  update related packaging metadata do not require formal review approvals from
+  other committers, provided CI passes (with exceptions for flaky tests and other
+  known CI failures).
+- **Waiting Window**:
+  Committers should observe a waiting window of at least 4 hours after opening
+  the bump PRs before merging, giving team members an opportunity to raise any
+  concerns or coordinate dependent release tasks. If the PRs get approvals, the
+  committer is free to skip the waiting window and proceed with making the
+  prereleases immediately.

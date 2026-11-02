@@ -1,6 +1,6 @@
 # Source Installation on macOS
 
-This tutorial will work for macOS Ventura, Sonoma, and Sequoia.
+This tutorial will work for macOS Sequoia on Apple Silicon (arm64).
 
 ## Install tools
 
@@ -17,12 +17,13 @@ Tools and dependencies for Rotary can be installed using the [Homebrew package m
 
 ```bash
 brew tap osrf/simulation
+brew trust osrf/simulation
 brew update
 ```
 
 ### Install compiler requirements
 
-Building Gazebo Libraries require at least Xcode 14 on MacOS Ventura. The Xcode Command Line Tools are sufficient, and can be installed with:
+Building Gazebo Libraries requires the Xcode Command Line Tools for your version of macOS. They can be installed with:
 
 ```bash
 xcode-select --install
@@ -81,7 +82,7 @@ brew install --cask xquartz
 General dependencies:
 
 ```bash
-brew install assimp boost bullet cli11 cmake cppzmq dartsim doxygen eigen fcl ffmpeg flann freeimage freetype gdal gflags google-benchmark ipopt jsoncpp libccd libyaml libzzip libzip nlopt ode open-scene-graph ossp-uuid ogre1.9 ogre2.3 pkg-config protobuf qt@6 qwt rapidjson ruby tbb tinyxml2 urdfdom zeromq
+brew install assimp boost bullet cli11 cmake cppzmq dartsim doxygen eigen fcl ffmpeg flann freeimage freetype gdal gflags google-benchmark ipopt jsoncpp libccd libyaml libzzip libzip nlopt ode open-scene-graph ossp-uuid ogre1.9 gz-rotary-ogre2.3-vendor pkg-config protobuf qt@6 qwt rapidjson ruby tbb tinyxml2 urdfdom zeromq
 ```
 
 ## Building the Gazebo Libraries

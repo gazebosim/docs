@@ -3,7 +3,7 @@
 In this tutorial we will learn how to use ROS 2 to communicate with Gazebo. 
 This can help in many aspects; we can receive data (like joint states, TFs) or commands
 from ROS and apply it to Gazebo and vice versa. This can also help to enable RViz to visualize a robot model
-simulatenously simulated by a Gazebo world.
+simultaneously simulated by a Gazebo world.
 
 ## ros_gz_bridge
 
@@ -233,7 +233,7 @@ For more details on implementation of this demo see [ROS 2 Interoperability](ros
 The [ROS 2 Simulation Interfaces](https://github.com/ros-simulation/simulation_interfaces)
 are a set of standard ROS 2 service, message and action
 definitions for controlling and interacting with simulation environments. They are
-simulator agnostic, which means the same interfacs can be implemented in different
+simulator agnostic, which means the same interfaces can be implemented in different
 simulators while keeping the API consistent.
 
 Gazebo implements these interfaces, enabling you to,

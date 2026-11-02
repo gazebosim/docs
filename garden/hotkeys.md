@@ -28,9 +28,9 @@
 
   <tr><td>Constrain along axis</td><td>x/y/z</td><td>hold key while manipulating a model to constrain movement along that axis</td></tr>
 
-  <tr><td>Snap when rotating</td><td>Ctrl + drag</td><td>hold Ctrl while rotating a model to rotate in customizable increments (default is 45° but can be changed from Tranform Control GUI)</td></tr>
+  <tr><td>Snap when rotating</td><td>Ctrl + drag</td><td>hold Ctrl while rotating a model to rotate in customizable increments (default is 45° but can be changed from Transform Control GUI)</td></tr>
 
-  <tr><td>Snap when translating</td><td>Ctrl + drag</td><td>hold Ctrl while translating a model to move in customizable increments (default is 1m but can be changed from Tranform Control GUI)</td></tr>
+  <tr><td>Snap when translating</td><td>Ctrl + drag</td><td>hold Ctrl while translating a model to move in customizable increments (default is 1m but can be changed from Transform Control GUI)</td></tr>
 
   <tr><td>Align to world frame</td><td>Shift</td><td>hold Shift while manipulating a model to temporarily align axis its to the world frame</td></tr>
 

@@ -1,6 +1,6 @@
 # Source Installation on macOS
 
-This tutorial will work for macOS BigSur 10.16 and macOS Monterey 12.0.
+This tutorial will work for macOS Sequoia on Apple Silicon (arm64).
 
 ## Install tools
 
@@ -23,7 +23,7 @@ brew update
 
 ### Install compiler requirements
 
-Building Gazebo Libraries require at least Xcode 10 on MacOS Mojave. The Xcode Command Line Tools are sufficient, and can be installed with:
+Building Gazebo Libraries requires the Xcode Command Line Tools for your version of macOS. They can be installed with:
 
 ```bash
 xcode-select --install
@@ -53,18 +53,11 @@ mkdir -p ~/workspace/src
 cd ~/workspace/src
 ```
 
-All the sources of gazebo-harmonic are declared in a yaml file. Download
-it to the workspace:
-
-```bash
-curl -OL https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-harmonic.yaml
-```
-
 Use `vcstool` to automatically retrieve all the Gazebo libraries sources from
 their repositories:
 
 ```bash
-vcs import < collection-harmonic.yaml
+vcs import --input https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-harmonic.yaml src
 ```
 
 The src subdirectory should contain all the sources ready to be built.
@@ -80,7 +73,7 @@ brew install --cask xquartz
 General dependencies:
 
 ```bash
-brew install assimp boost bullet cmake cppzmq dartsim doxygen eigen fcl ffmpeg flann freeimage freetype gdal gflags google-benchmark gts ipopt jsoncpp libccd libyaml libzzip libzip nlopt ode open-scene-graph ossp-uuid ogre1.9 ogre2.3 pkg-config protobuf qt@5 qwt-qt5 rapidjson ruby tbb tinyxml tinyxml2 urdfdom zeromq
+brew install assimp boost bullet cmake cppzmq dartsim doxygen eigen fcl ffmpeg flann freeimage freetype gdal gflags google-benchmark gts ipopt jsoncpp libccd libyaml libzzip libzip nlopt ode open-scene-graph ossp-uuid ogre1.9 ogre2.3-with-freeimage pkg-config protobuf qt@5 qwt-qt5 rapidjson ruby tbb tinyxml tinyxml2 urdfdom zeromq
 ```
 
 `qt@5` is a "keg only" Homebrew formula and its path must be explicitly configured before building Gazebo:

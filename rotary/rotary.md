@@ -99,6 +99,7 @@ Rotary formulae are published through the
 
 ```bash
 brew tap osrf/simulation
+brew trust osrf/simulation
 brew install gz-rotary
 ```
 

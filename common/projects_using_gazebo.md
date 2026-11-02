@@ -37,3 +37,4 @@ please open a pull request by clicking on the "Edit on Github" link.
 
 ## Gazebo Plugins
 
+- **gz_sim_spray_painting_plugin**: A Gazebo plugin that simulates spray painting through ray-casting and particle emitter visual effects. This plugin will help you visualize your paint coverage for your autonomous spray painting applications. [{octicon}`globe` link](https://github.com/topguns837/gz_sim_spray_painting_plugin)

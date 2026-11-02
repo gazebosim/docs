@@ -67,13 +67,8 @@ You will still be able to use `TPE` as a physics engine
 
 7. Then clone the repositories
   ```bash
-    # CMD
-    curl -sk https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-fortress.yaml -o collection-fortress
-    vcs import src < collection-fortress
-
-    # PowerShell
-    curl https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-fortress.yaml -o collection-fortress
-    vcs import --input collection-fortress src
+    # Both CMD and PowerShell
+    vcs import --input https://raw.githubusercontent.com/ignition-tooling/gazebodistro/master/collection-fortress.yaml src
   ```
 
 ## Building the Ignition Libraries

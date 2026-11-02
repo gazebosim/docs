@@ -95,13 +95,8 @@ without any failures when using their functionalities.
 
 7. Then clone the repositories
    ```bash
-   # CMD
-   curl -sk https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-ionic.yaml -o collection-ionic
-   vcs import src < collection-ionic
-
-   # PowerShell
-   curl https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-ionic.yaml -o collection-ionic
-   vcs import --input collection-ionic src
+   # Both CMD and PowerShell
+   vcs import --input https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-ionic.yaml src
    ```
 
 ## Building the Gazebo Libraries

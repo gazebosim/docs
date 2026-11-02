@@ -34,7 +34,7 @@ In this guide, you will learn how to use the `ros_gz_project_template` to create
 
 At this point you'll have the following packages in your project:
 
-* `ros_gz_example_application` - holds ROS 2 specific code and configurations. Namely where control, planning or any high level algoritms reside.
+* `ros_gz_example_application` - holds ROS 2 specific code and configurations. Namely where control, planning or any high level algorithms reside.
 
    <pre> ├── CMakeLists.txt
    ├── package.xml

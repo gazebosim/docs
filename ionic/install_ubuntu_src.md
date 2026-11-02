@@ -14,11 +14,6 @@ To compile all the different libraries and gz-sim in the right order
 [colcon](https://colcon.readthedocs.io/en/released/) is recommended.
 The colcon tool is available on all platforms using pip (or pip3, if pip fails).
 
-Some tools require Python 3.5 (or higher) which is not the default option on some
-platforms (like Ubuntu Focal). The Python
-[virtualenv](https://virtualenv.pypa.io/en/latest/) could be a useful solution in
-cases where the default option cannot be easily changed.
-
 ## Generic tools
 
 Install tools needed by this tutorial:
@@ -46,8 +41,8 @@ done above.
 An alternative method is to use the `.deb` packages available on Debian or Ubuntu:
 
 ```bash
-sudo sh -c 'echo "deb http://packages.ros.org/ros2/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros2-latest.list'
-curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+sudo curl -fsSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/ros2-latest.list > /dev/null
 sudo apt-get update
 sudo apt-get install python3-vcstool python3-colcon-common-extensions
 ```
@@ -62,21 +57,14 @@ The first step is to create a developer workspace in which `vcstool` and
 
 ```bash
 mkdir -p ~/workspace/src
-cd ~/workspace/src
-```
-
-All the sources of gazebo-ionic are declared in a yaml file. Download
-it to the workspace:
-
-```bash
-curl -O https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-ionic.yaml
+cd ~/workspace/
 ```
 
 Use `vcstool` to automatically retrieve all the Gazebo libraries sources from
 their repositories:
 
 ```bash
-vcs import < collection-ionic.yaml
+vcs import --input https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-ionic.yaml src
 ```
 
 The src subdirectory should contain all the sources ready to be built.

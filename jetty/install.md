@@ -32,8 +32,6 @@ Source installation is recommended for users planning on altering Gazebo's sourc
 The Jetty collection is composed of many different Gazebo libraries. The
 collection assures that all libraries are compatible and can be used together.
 
-This list of library versions may change up to the release date.
-
 | Library name       | Version       |
 | ------------------ |:-------------:|
 |   gz-cmake         |       5.x     |
@@ -55,12 +53,12 @@ This list of library versions may change up to the release date.
 
 ## Supported platforms
 
-Jetty is planned to be [supported](releases) on the platforms below.
-This list may change up to the release date.
+Jetty is [supported](releases) on the platforms below.
 
 These are the **officially** supported platforms:
 
 * Ubuntu Noble on amd64
+* Ubuntu Resolute on amd64
 
 Platforms supported at **best-effort** include arm architectures, Windows and
 macOS. See

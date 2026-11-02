@@ -16,5 +16,5 @@ to strike a balance between content deletion and the needs of other users.
   3. Content will be permanently removed after the soft-delete period.
 
 This policy provides time for users to copy content that is in the public
-domain, or make other arrangments before data is deleted. For additional
+domain, or make other arrangements before data is deleted. For additional
 help, please contact gazebo+support@openrobotics.org.

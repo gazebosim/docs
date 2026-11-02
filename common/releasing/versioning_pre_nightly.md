@@ -13,7 +13,7 @@ into the next release. Therefore nightlies need to have precedence over stable
 releases. Another use case for nightlies is to serve as continuous unstable
 releases when preparing a new version `X.Y.Z`. In this scenario the stable
 release should have precedence over the nightlies generated before it. To get
-this precedence, the nighlty version uses the trick of setting the version to
+this precedence, the nightly version uses the trick of setting the version to
 `{X-1.99.99}` (i.e: if the version to release is `9.0.0`, the nightlies used before
 the version will use `8.99.99`).
 

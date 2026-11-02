@@ -67,13 +67,8 @@ You will still be able to use `TPE` as a physics engine
 
 7. Then clone the repositories
   ```bash
-    # CMD
-    curl -sk https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-garden.yaml -o collection-garden
-    vcs import src < collection-garden
-
-    # PowerShell
-    curl https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-garden.yaml -o collection-garden
-    vcs import --input collection-garden src
+    # Both CMD and PowerShell
+    vcs import --input https://raw.githubusercontent.com/gazebo-tooling/gazebodistro/master/collection-garden.yaml src
   ```
 
 ## Building the Gazebo Libraries
