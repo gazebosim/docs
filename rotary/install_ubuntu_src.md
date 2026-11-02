@@ -14,11 +14,6 @@ To compile all the different libraries and gz-sim in the right order
 [colcon](https://colcon.readthedocs.io/en/released/) is recommended.
 The colcon tool is available on all platforms using pip (or pip3, if pip fails).
 
-Some tools require Python 3.5 (or higher) which is not the default option on some
-platforms (like Ubuntu Focal). The Python
-[virtualenv](https://virtualenv.pypa.io/en/latest/) could be a useful solution in
-cases where the default option cannot be easily changed.
-
 ## Generic tools
 
 Install tools needed by this tutorial:

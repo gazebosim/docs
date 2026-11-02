@@ -284,10 +284,10 @@ ROS integration through the
 
 Supported versions:
 
-* ROS 2 Jazzy (from binary) / Rolling (from source)
+* ROS 2 Jazzy (from binaries)
 
-For **ROS 2 Rolling**, the Rolling distribution moves with the next future release
-of ROS 2 defined in [REP-2000](https://www.ros.org/reps/rep-2000.html).
+See [Installing Gazebo with ROS](ros_installation) for all the supported
+combinations of ROS and Gazebo.
 
 ## Platforms
 
