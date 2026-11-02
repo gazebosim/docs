@@ -58,7 +58,7 @@ Error while loading the library [/Users/garden/garden_ws/install/lib//libgz-phys
 Escalating to SIGKILL on [Gazebo Sim Server]
 ```
 
-The issue is related to OSX System Integrity Protection (SIP). The workaround is to run `gz` with a different ruby then make sure that ruby is loaded.
+The issue is related to macOS System Integrity Protection (SIP). The workaround is to run `gz` with a different ruby then make sure that ruby is loaded.
 
 ```bash
 brew install ruby
