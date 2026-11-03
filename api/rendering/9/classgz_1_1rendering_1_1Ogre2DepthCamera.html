@@ -199,7 +199,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5328dbcc9da499b4c61a412746672f39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepare this object and any of its children for rendering. This should be called for each object in a scene just before rendering, which can be achieved by a single call to <a class="el" href="classgz_1_1rendering_1_1Scene.html#adffb56e0e545fefebf96b36f295396e9" title="Prepare scene for rendering. The scene will flushing any scene changes by traversing scene-graph,...">Scene::PreRender</a>.  <br /></td></tr>
 <tr class="separator:a5328dbcc9da499b4c61a412746672f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af927219a459a98bf0cf9cb0417245d8c" id="r_af927219a459a98bf0cf9cb0417245d8c"><td class="memItemLeft" align="right" valign="top">virtual <a class="elRef" href="https://gazebosim.org/api/math/8/namespacegz_1_1math.html#afe7ea008ee9e656fb34621264a42e04a">math::Matrix4d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1rendering_1_1Ogre2DepthCamera.html#af927219a459a98bf0cf9cb0417245d8c">ProjectionMatrix</a> () const override</td></tr>
-<tr class="memdesc:af927219a459a98bf0cf9cb0417245d8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the projection matrix for this camera.  <br /></td></tr>
+<tr class="memdesc:af927219a459a98bf0cf9cb0417245d8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the projection matrix for this camera. The depth rows of the returned matrix encode the configured near and far clip planes (see NearClipPlane and FarClipPlane). Internally the depth camera renders with slightly widened clip distances and clamps to the configured range in shaders; this is not exposed here.  <br /></td></tr>
 <tr class="separator:af927219a459a98bf0cf9cb0417245d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3d85b3aec0357ed2153e68e2e4baeb3" id="r_ae3d85b3aec0357ed2153e68e2e4baeb3"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1rendering_1_1Ogre2DepthCamera.html#ae3d85b3aec0357ed2153e68e2e4baeb3">Render</a> () override</td></tr>
 <tr class="memdesc:ae3d85b3aec0357ed2153e68e2e4baeb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Implementation of the render call.  <br /></td></tr>
@@ -211,7 +211,7 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ae1773c40bc14940eae6c351c40e51187"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the near clip distance.  <br /></td></tr>
 <tr class="separator:ae1773c40bc14940eae6c351c40e51187"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add04d9ad388704200a9530bdf688cf23" id="r_add04d9ad388704200a9530bdf688cf23"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1rendering_1_1Ogre2DepthCamera.html#add04d9ad388704200a9530bdf688cf23">SetProjectionMatrix</a> (const <a class="elRef" href="https://gazebosim.org/api/math/8/namespacegz_1_1math.html#afe7ea008ee9e656fb34621264a42e04a">math::Matrix4d</a> &amp;_matrix) override</td></tr>
-<tr class="memdesc:add04d9ad388704200a9530bdf688cf23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the projection matrix for this camera. This overrides the standard projection matrix computed based on camera parameters.  <br /></td></tr>
+<tr class="memdesc:add04d9ad388704200a9530bdf688cf23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the projection matrix for this camera. Only the image plane rows (0 and 1) of the given matrix, i.e. the focal lengths, principal point and skew, are used. The depth rows (2 and 3) are derived from the configured near and far clip planes so that depth rendering stays consistent with the camera frustum. Consequently <a class="el" href="classgz_1_1rendering_1_1Ogre2DepthCamera.html#af927219a459a98bf0cf9cb0417245d8c" title="Get the projection matrix for this camera. The depth rows of the returned matrix encode the configure...">ProjectionMatrix()</a> returns the given image plane rows together with depth rows encoding the configured clip planes.  <br /></td></tr>
 <tr class="separator:add04d9ad388704200a9530bdf688cf23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea9474fedc282aeddffab66424417716" id="r_aea9474fedc282aeddffab66424417716"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1rendering_1_1Ogre2DepthCamera.html#aea9474fedc282aeddffab66424417716">SetShadowsDirty</a> () override</td></tr>
 <tr class="separator:aea9474fedc282aeddffab66424417716"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -1330,7 +1330,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Get the projection matrix for this camera. </p>
+<p>Get the projection matrix for this camera. The depth rows of the returned matrix encode the configured near and far clip planes (see NearClipPlane and FarClipPlane). Internally the depth camera renders with slightly widened clip distances and clamps to the configured range in shaders; this is not exposed here. </p>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classgz_1_1rendering_1_1Camera.html" title="Posable camera used for rendering the scene graph.">Camera</a> projection matrix </dd></dl>
 
 <p>Implements <a class="el" href="classgz_1_1rendering_1_1Camera.html#ad3c843e108e9ada2fc38761b8f7a02d2">Camera</a>.</p>
@@ -1492,7 +1492,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Set the projection matrix for this camera. This overrides the standard projection matrix computed based on camera parameters. </p>
+<p>Set the projection matrix for this camera. Only the image plane rows (0 and 1) of the given matrix, i.e. the focal lengths, principal point and skew, are used. The depth rows (2 and 3) are derived from the configured near and far clip planes so that depth rendering stays consistent with the camera frustum. Consequently <a class="el" href="classgz_1_1rendering_1_1Ogre2DepthCamera.html#af927219a459a98bf0cf9cb0417245d8c" title="Get the projection matrix for this camera. The depth rows of the returned matrix encode the configure...">ProjectionMatrix()</a> returns the given image plane rows together with depth rows encoding the configured clip planes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">_matrix</td><td><a class="el" href="classgz_1_1rendering_1_1Camera.html" title="Posable camera used for rendering the scene graph.">Camera</a> projection matrix </td></tr>
