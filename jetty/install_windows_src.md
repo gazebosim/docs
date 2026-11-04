@@ -163,6 +163,11 @@ page to start using Gazebo!
 > ```
 > Remember to set the same partition in all other consoles.
 
+> **NOTE**
+> On Windows, Python from conda-forge provides `python.exe` but no `python3.exe`, so `python3`
+> does not run the Python from this environment (it may open the Microsoft Store instead).
+> When a tutorial uses `python3`, run the same command with `python`.
+
 ## Uninstalling source-based install
 
 A source-based install can be "uninstalled" using several methods, depending on

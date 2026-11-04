@@ -75,6 +75,11 @@ gz sim -g
 
 > Note, Gazebo Harmonic has a bug that it can not run the simulator in one session, it needs to be launched with the server and gui separately. This bug has been fixed in later versions of Gazebo (Jetty and up)
 
+> **NOTE**
+> On Windows, Python from conda-forge provides `python.exe` but no `python3.exe`, so `python3`
+> does not run the Python from this environment (it may open the Microsoft Store instead).
+> When a tutorial uses `python3`, run the same command with `python`.
+
 This is the end of the binary install instructions; head back to the [Getting started](getstarted)
 page to start using Gazebo!
 ## Uninstalling binary-based gazebo install

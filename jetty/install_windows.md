@@ -74,6 +74,11 @@ pixi run gz sim -v4 empty.sdf
 ```
 > Note, currently just running `gz sim` directly doesn't work due to [this issue](https://github.com/gazebosim/gz-sim/issues/3859), so make sure to to always assign a world sdf file until this has been solved. 
 
+> **NOTE**
+> On Windows, Python from conda-forge provides `python.exe` but no `python3.exe`, so `python3`
+> does not run the Python from this environment (it may open the Microsoft Store instead).
+> When a tutorial uses `python3`, run the same command with `python`.
+
 This is the end of the binary install instructions; head back to the [Getting started](getstarted)
 page to start using Gazebo!
 
