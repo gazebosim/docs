@@ -33,7 +33,7 @@ void cb(const gz::msgs::LaserScan &_msg)
   bool allMore = true;
   for (int i = 0; i < _msg.ranges_size(); i++)
   {
-    if (_msg.ranges(i) < 1.0) 
+    if (0.85<_msg.ranges(i) && _msg.ranges(i) < 1.5) 
     {
       allMore = false;
       break;
