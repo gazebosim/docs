@@ -1,1 +1,1 @@
-../../../libs/_sphinx_design_static/design-tabs.js
+../../../libs/_static/design-tabs.js
