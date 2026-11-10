@@ -43,7 +43,7 @@ Error while loading the library [/Users/dome/dome_ws/install/lib//libignition-ph
 Escalating to SIGKILL on [Gazebo Sim Server]
 ```
 
-The issue is related to OSX System Integrity Protection(SIP). The workaround is to run `ign` with a different ruby then make sure that ruby is loaded.
+The issue is related to macOS System Integrity Protection(SIP). The workaround is to run `ign` with a different ruby then make sure that ruby is loaded.
 
 ```bash
 brew install ruby
@@ -113,7 +113,7 @@ Error while loading the library [/Users/edifice/edifice_ws/install/lib//libignit
 Escalating to SIGKILL on [Gazebo Sim Server]
 ```
 
-The issue is related to OSX System Integrity Protection(SIP). The workaround is to run `ign` with a different ruby then make sure that ruby is loaded.
+The issue is related to macOS System Integrity Protection(SIP). The workaround is to run `ign` with a different ruby then make sure that ruby is loaded.
 
 ```bash
 brew install ruby
