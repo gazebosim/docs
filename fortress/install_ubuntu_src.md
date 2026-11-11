@@ -1,6 +1,6 @@
 # Source Installation on Ubuntu
 
-These instructions apply to Ubuntu Bionic (18.04), Focal (20.04) and Jammy (22.04).
+These instructions apply to Ubuntu Jammy (22.04).
 
 ## Install tools
 
@@ -13,11 +13,6 @@ The easiest way to get the sources of all libraries is to use
 To compile all the different libraries and ign-gazebo in the right order
 [colcon](https://colcon.readthedocs.io/en/released/) is recommended.
 The colcon tool is available on all platforms using pip (or pip3, if pip fails).
-
-Some tools require Python 3.5 (or higher) which is not the default option on some
-platforms (like Ubuntu Focal). The Python
-[virtualenv](https://virtualenv.pypa.io/en/latest/) could be a useful solution in
-cases where the default option cannot be easily changed.
 
 ## Generic tools
 
@@ -61,8 +56,8 @@ export PATH=$PATH:$HOME/.local/bin/
 An alternative method is to use the `.deb` packages available on Debian or Ubuntu:
 
 ```bash
-sudo sh -c 'echo "deb http://packages.ros.org/ros2/ubuntu $(lsb_release -sc) main" > /etc/apt/sources.list.d/ros2-latest.list'
-curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+sudo curl -fsSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/ros2-latest.list > /dev/null
 sudo apt-get update
 sudo apt-get install python3-vcstool python3-colcon-common-extensions
 ```
@@ -116,30 +111,7 @@ sudo apt -y install \
 The Ignition Libraries require the gcc compiler version 8 or higher.
 (Windows requires Visual Studio 2019).
 
-#### Ubuntu Bionic
-
-Ubuntu Bionic's default compiler version is not high enough, so the following
-steps are needed to upgrade. These are not needed on Ubuntu Focal or Jammy.
-
-To install `gcc` version 8 on Ubuntu Bionic:
-
-```bash
-sudo apt-get install g++-8
-```
-
-Set `gcc-8` and `g++-8` to be the default compilers.
-
-```bash
-sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /usr/bin/g++ g++ /usr/bin/g++-8 --slave /usr/bin/gcov gcov /usr/bin/gcov-8
-```
-
-At this point `gcc`  and `g++` should both report version 8. Test this with
-the following commands.
-
-```bash
-gcc -v
-g++ -v
-```
+The default compiler in Ubuntu Jammy already meets this requirement.
 
 ## Building the Ignition Libraries
 
