@@ -239,6 +239,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a4d3ba8d71efafd38e305f72da62ef057"><td class="memItemLeft" align="right" valign="top"><a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1transport_1_1Node.html#a4d3ba8d71efafd38e305f72da62ef057">AdvertisedTopics</a> () const</td></tr>
 <tr class="memdesc:a4d3ba8d71efafd38e305f72da62ef057"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the list of topics advertised by this node.  <a href="classgz_1_1transport_1_1Node.html#a4d3ba8d71efafd38e305f72da62ef057">More...</a><br /></td></tr>
 <tr class="separator:a4d3ba8d71efafd38e305f72da62ef057"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5a546541f71d9c20d1820632e8b3910"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgz_1_1transport_1_1Node.html#af5a546541f71d9c20d1820632e8b3910">AllTopicInfo</a> (<a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; <a class="el" href="structgz_1_1transport_1_1TopicInfo.html">TopicInfo</a> &gt; &amp;_topics) const</td></tr>
+<tr class="memdesc:af5a546541f71d9c20d1820632e8b3910"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the information about all topics.  <a href="classgz_1_1transport_1_1Node.html#af5a546541f71d9c20d1820632e8b3910">More...</a><br /></td></tr>
+<tr class="separator:af5a546541f71d9c20d1820632e8b3910"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83101247c17be80d60e942c1a7cdad45"><td class="memTemplParams" colspan="2">template&lt;typename ... Args&gt; </td></tr>
 <tr class="memitem:a83101247c17be80d60e942c1a7cdad45"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="classgz_1_1transport_1_1Node_1_1Subscriber.html">Node::Subscriber</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classgz_1_1transport_1_1Node.html#a83101247c17be80d60e942c1a7cdad45">CreateSubscriber</a> (const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;_topic, Args &amp;&amp;...args)</td></tr>
 <tr class="memdesc:a83101247c17be80d60e942c1a7cdad45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create a subscriber to a topic registering a callback This is function is overloaded with different variants of callback functions. It returns a <a class="el" href="classgz_1_1transport_1_1Node_1_1Subscriber.html" title="A class that is used to store information about an subscriber. An instance of this class is returned ...">Node::Subscriber</a> object that maintains the subscription while the object is alive. When the subscriber object goes out of scope, it automatically unsubscribes to the topic, removing just one single subscription handler from the node that it belongs to. Supported function callbacks are:  <a href="classgz_1_1transport_1_1Node.html#a83101247c17be80d60e942c1a7cdad45">More...</a><br /></td></tr>
@@ -1087,6 +1090,33 @@ Public Member Functions</h2></td></tr>
 
 <p>Get the list of topics advertised by this node. </p>
 <dl class="section return"><dt>Returns</dt><dd>A vector containing all the topics advertised by this node. </dd></dl>
+
+</div>
+</div>
+<a id="af5a546541f71d9c20d1820632e8b3910"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5a546541f71d9c20d1820632e8b3910">&#9670;&nbsp;</a></span>AllTopicInfo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AllTopicInfo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="elRef" href="http://en.cppreference.com/w/cpp/container/vector.html">std::vector</a>&lt; <a class="el" href="structgz_1_1transport_1_1TopicInfo.html">TopicInfo</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>_topics</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get the information about all topics. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[out]</td><td class="paramname">_topics</td><td>List of advertised topics. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>False if unable to get topic info. </dd></dl>
 
 </div>
 </div>
@@ -2237,7 +2267,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool TopicInfo </td>
+          <td class="memname">bool <a class="el" href="structgz_1_1transport_1_1TopicInfo.html">TopicInfo</a> </td>
           <td>(</td>
           <td class="paramtype">const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;&#160;</td>
           <td class="paramname"><em>_topic</em>, </td>
@@ -2275,7 +2305,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool TopicInfo </td>
+          <td class="memname">bool <a class="el" href="structgz_1_1transport_1_1TopicInfo.html">TopicInfo</a> </td>
           <td>(</td>
           <td class="paramtype">const <a class="elRef" href="http://en.cppreference.com/w/cpp/string/basic_string.html">std::string</a> &amp;&#160;</td>
           <td class="paramname"><em>_topic</em>, </td>
