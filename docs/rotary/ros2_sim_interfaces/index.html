@@ -540,6 +540,8 @@ will learn how to interact with a running Gazebo simulation for the following ta
 <li><p><a class="reference internal" href="#state-query">State Query</a></p></li>
 <li><p><a class="reference internal" href="#state-update">State Update</a></p></li>
 <li><p><a class="reference internal" href="#simulator-information">Simulator Information</a></p></li>
+<li><p><a class="reference internal" href="#dependencies-and-troubleshooting">Dependencies and Troubleshooting</a></p></li>
+<li><p><a class="reference internal" href="#known-limitations">Known Limitations</a></p></li>
 </ul>
 <section id="simulation-control">
 <h2>Simulation Control<a class="headerlink" href="#simulation-control" title="Link to this heading">#</a></h2>
@@ -803,6 +805,67 @@ supported features.</p>
 </div>
 </section>
 </section>
+<section id="dependencies-and-troubleshooting">
+<h2>Dependencies and Troubleshooting<a class="headerlink" href="#dependencies-and-troubleshooting" title="Link to this heading">#</a></h2>
+<section id="required-gazebo-systems">
+<h3>Required Gazebo Systems<a class="headerlink" href="#required-gazebo-systems" title="Link to this heading">#</a></h3>
+<p>Gazebo’s ROS 2 Simulation Interfaces rely on Gazebo Transport topics and services exposed by Gazebo’s world systems rather than reading simulation state directly.
+In particular, <a class="reference external" href="https://gazebosim.org/api/sim/10/classgz_1_1sim_1_1systems_1_1SceneBroadcaster.html"><code class="docutils literal notranslate"><span class="pre">SceneBroadcaster</span></code></a>
+(<code class="docutils literal notranslate"><span class="pre">gz::sim::systems::SceneBroadcaster</span></code>) is required to synchronize world state and detect
+simulation resets.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>By default, <code class="docutils literal notranslate"><span class="pre">SceneBroadcaster</span></code>, <code class="docutils literal notranslate"><span class="pre">UserCommands</span></code>, and <code class="docutils literal notranslate"><span class="pre">Physics</span></code> are loaded automatically from Gazebo’s server
+configuration (<code class="docutils literal notranslate"><span class="pre">server.config</span></code> or <code class="docutils literal notranslate"><span class="pre">GZ_SIM_SERVER_CONFIG_PATH</span></code>).
+However, if your world SDF disables server config plugins via
+<code class="docutils literal notranslate"><span class="pre">&lt;gz:policies&gt;&lt;include_server_config_plugins&gt;false&lt;/include_server_config_plugins&gt;&lt;/gz:policies&gt;</span></code> (while loading
+other world plugins) or if you use a custom <code class="docutils literal notranslate"><span class="pre">GZ_SIM_SERVER_CONFIG_PATH</span></code> that omits default systems, you must
+explicitly include:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">gz::sim::systems::SceneBroadcaster</span></code> — required for state synchronization and reset detection. Without it, initialization fails and state-dependent calls return <code class="docutils literal notranslate"><span class="pre">RESULT_OPERATION_FAILED</span></code> (<code class="docutils literal notranslate"><span class="pre">&quot;Required</span> <span class="pre">Gazebo</span> <span class="pre">system</span> <span class="pre">is</span> <span class="pre">missing&quot;</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gz::sim::systems::UserCommands</span></code> — required by <code class="docutils literal notranslate"><span class="pre">SpawnEntity</span></code> and <code class="docutils literal notranslate"><span class="pre">DeleteEntity</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gz::sim::systems::Physics</span></code> — required to compute dynamic entity poses and velocities for <code class="docutils literal notranslate"><span class="pre">GetEntityState</span></code> and <code class="docutils literal notranslate"><span class="pre">SetEntityState</span></code>.</p></li>
+</ul>
+</div>
+</section>
+<section id="update-rates-latency-and-timeouts">
+<h3>Update Rates, Latency, and Timeouts<a class="headerlink" href="#update-rates-latency-and-timeouts" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Nominal update rates and service latency:</strong>
+Most <code class="docutils literal notranslate"><span class="pre">simulation_interfaces</span></code> services wait for the next state update on <code class="docutils literal notranslate"><span class="pre">SceneBroadcaster</span></code>’s <code class="docutils literal notranslate"><span class="pre">/world/&lt;world&gt;/state</span></code> topic before responding.
+By default, <code class="docutils literal notranslate"><span class="pre">SceneBroadcaster</span></code> throttles these updates in wall-clock time to <strong>60 Hz</strong> (~16.7 ms period) when simulation is running and <strong>30 Hz</strong> (~33.3 ms period, half of the running rate) when paused.
+Expect up to one broadcast period of latency on these calls (including <code class="docutils literal notranslate"><span class="pre">GetSimulationState</span></code> and <code class="docutils literal notranslate"><span class="pre">SetSimulationState</span></code>, which read pause/iteration status from <code class="docutils literal notranslate"><span class="pre">/world/&lt;world&gt;/stats</span></code> but still synchronize with <code class="docutils literal notranslate"><span class="pre">SceneBroadcaster</span></code>).</p></li>
+<li><p><strong>Event-triggered (off-rate) updates:</strong>
+In addition to its periodic schedule, <code class="docutils literal notranslate"><span class="pre">SceneBroadcaster</span></code> immediately publishes an extra state
+message whenever simulation events occur, such as spawning or deleting entities,
+setting entity poses/twists, removing components, or resetting/rewinding time.
+During active events, the state publish rate can temporarily exceed 60 Hz / 30 Hz and service calls may unblock sooner than one nominal period.</p></li>
+<li><p><strong>Avoid setting <code class="docutils literal notranslate"><span class="pre">&lt;state_hertz&gt;</span></code> too low:</strong>
+If you override <code class="docutils literal notranslate"><span class="pre">&lt;state_hertz&gt;</span></code> on the <code class="docutils literal notranslate"><span class="pre">SceneBroadcaster</span></code> plugin in your SDF, keep in mind that the paused rate is half of <code class="docutils literal notranslate"><span class="pre">&lt;state_hertz&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">simulation_interfaces</span></code> times out after <strong>1 second</strong> (<code class="docutils literal notranslate"><span class="pre">1000</span> <span class="pre">ms</span></code>) while waiting for the next state message.
+Setting <code class="docutils literal notranslate"><span class="pre">&lt;state_hertz&gt;</span></code> ≤ <code class="docutils literal notranslate"><span class="pre">2.0</span></code> (when paused) or ≤ <code class="docutils literal notranslate"><span class="pre">1.0</span></code> (when running) can cause calls to fail with <code class="docutils literal notranslate"><span class="pre">&quot;Timed</span> <span class="pre">out</span> <span class="pre">while</span> <span class="pre">waiting</span> <span class="pre">for</span> <span class="pre">updated</span> <span class="pre">Gazebo</span> <span class="pre">state&quot;</span></code> whenever no simulation events occur.</p></li>
+<li><p><strong>Stepping feedback rate:</strong>
+<code class="docutils literal notranslate"><span class="pre">StepSimulation</span></code> and the <code class="docutils literal notranslate"><span class="pre">SimulateSteps</span></code> action track completed steps from <code class="docutils literal notranslate"><span class="pre">/world/&lt;world&gt;/stats</span></code>, which Gazebo publishes at <strong>10 Hz</strong> (100 ms period) independently of <code class="docutils literal notranslate"><span class="pre">SceneBroadcaster</span></code>.</p></li>
+</ul>
+</section>
+<section id="common-issues-and-quirks">
+<h3>Common Issues and Quirks<a class="headerlink" href="#common-issues-and-quirks" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Brief delay querying velocities after spawning an entity:</strong>
+Right after <code class="docutils literal notranslate"><span class="pre">SpawnEntity</span></code> succeeds, velocity tracking is enabled on the new model’s canonical link via <code class="docutils literal notranslate"><span class="pre">/world/&lt;world&gt;/control/state</span></code>.
+Calling <code class="docutils literal notranslate"><span class="pre">GetEntityState</span></code> immediately before the server processes that update, steps physics, and broadcasts the next state can temporarily fail or report zero velocity.
+Enabling velocity tracking on all canonical links can also add overhead in worlds with many models.</p></li>
+<li><p><strong>Avoid spawning entities concurrently with <code class="docutils literal notranslate"><span class="pre">ResetSimulation</span></code>:</strong>
+Reset completion is detected through <code class="docutils literal notranslate"><span class="pre">/world/&lt;world&gt;/scene/info</span></code>, which <code class="docutils literal notranslate"><span class="pre">SceneBroadcaster</span></code> also publishes whenever a new entity is added to the world.
+Spawning an entity at the same time as <code class="docutils literal notranslate"><span class="pre">ResetSimulation</span></code> can cause reset detection to trigger early.</p></li>
+<li><p><strong>Ensure the server steps on startup in custom setups:</strong>
+<code class="docutils literal notranslate"><span class="pre">SceneBroadcaster</span></code> only advertises its state topic and service after the first simulation update step, and initial state synchronization blocks until a step runs.
+The <code class="docutils literal notranslate"><span class="pre">gzserver</span></code> node handles this automatically; if you embed the simulation interfaces alongside a custom <code class="docutils literal notranslate"><span class="pre">gz::sim::Server</span></code>, make sure the server executes an initial step or is already running.</p></li>
+<li><p><strong>Single-world and top-level model scope:</strong>
+Only the first world reported by Gazebo (<code class="docutils literal notranslate"><span class="pre">/gazebo/worlds</span></code>) is managed.
+<code class="docutils literal notranslate"><span class="pre">GetEntities</span></code> and <code class="docutils literal notranslate"><span class="pre">GetEntitiesStates</span></code> return top-level models only (nested models are excluded), and <code class="docutils literal notranslate"><span class="pre">GetEntityState</span></code> expects a model entity.</p></li>
+</ul>
+</section>
+</section>
 <section id="known-limitations">
 <h2>Known Limitations<a class="headerlink" href="#known-limitations" title="Link to this heading">#</a></h2>
 <ul class="simple">
@@ -861,6 +924,12 @@ supported features.</p>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulator-information">Simulator Information</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#getsimulatorfeatures-service">GetSimulatorFeatures Service</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependencies-and-troubleshooting">Dependencies and Troubleshooting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#required-gazebo-systems">Required Gazebo Systems</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#update-rates-latency-and-timeouts">Update Rates, Latency, and Timeouts</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#common-issues-and-quirks">Common Issues and Quirks</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#known-limitations">Known Limitations</a></li>
