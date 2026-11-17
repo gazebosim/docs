@@ -677,15 +677,19 @@ colcon<span class="w"> </span>graph
 <a class="reference external" href="https://colcon.readthedocs.io/en/released/reference/verb/graph.html#example-output">interdependency diagram</a>.
 If that is the case, then you are ready
 to build the whole set of libraries:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--merge-install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--merge-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DCMAKE_MACOSX_RPATH<span class="o">=</span>FALSE<span class="w"> </span>-DCMAKE_INSTALL_NAME_DIR<span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/install/lib
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-DCMAKE_MACOSX_RPATH=FALSE</span></code> and <code class="docutils literal notranslate"><span class="pre">-DCMAKE_INSTALL_NAME_DIR=$(pwd)/install/lib</span></code> CMake arguments are only needed on Apple Silicon (ARM) Macs and can be omitted on Intel Macs.</p>
+</div>
 <p>To speed up the build process, you could also disable tests by using</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span>-DBUILD_TESTING<span class="o">=</span>OFF<span class="w"> </span>--merge-install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--merge-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DBUILD_TESTING<span class="o">=</span>OFF<span class="w"> </span>-DCMAKE_MACOSX_RPATH<span class="o">=</span>FALSE<span class="w"> </span>-DCMAKE_INSTALL_NAME_DIR<span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/install/lib
 </pre></div>
 </div>
 <p>To use debuggers activate debug symbols. Gazebo will run slower, but you’ll be able to use GDB:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--cmake-args<span class="w"> </span><span class="s1">' -DBUILD_TESTING=OFF'</span><span class="w"> </span><span class="s1">' -DCMAKE_BUILD_TYPE=Debug'</span><span class="w"> </span>--merge-install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>colcon<span class="w"> </span>build<span class="w"> </span>--merge-install<span class="w"> </span>--cmake-args<span class="w"> </span>-DBUILD_TESTING<span class="o">=</span>OFF<span class="w"> </span>-DCMAKE_BUILD_TYPE<span class="o">=</span>Debug<span class="w"> </span>-DCMAKE_MACOSX_RPATH<span class="o">=</span>FALSE<span class="w"> </span>-DCMAKE_INSTALL_NAME_DIR<span class="o">=</span><span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>/install/lib
 </pre></div>
 </div>
 <p>To build a specific package with all its dependent packages:</p>
