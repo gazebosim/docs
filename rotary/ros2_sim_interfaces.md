@@ -14,6 +14,8 @@ will learn how to interact with a running Gazebo simulation for the following ta
 - [State Query](#state-query)
 - [State Update](#state-update)
 - [Simulator Information](#simulator-information)
+- [Dependencies and Troubleshooting](#dependencies-and-troubleshooting)
+- [Known Limitations](#known-limitations)
 
 ## Simulation Control
 
@@ -197,6 +199,67 @@ Query which interface features are supported.
 ```bash
 ros2 service call /gzserver/get_simulator_features simulation_interfaces/srv/GetSimulationFeatures "{}"
 ```
+
+## Dependencies and Troubleshooting
+
+### Required Gazebo Systems
+
+Gazebo's ROS 2 Simulation Interfaces rely on Gazebo Transport topics and services exposed by Gazebo's world systems rather than reading simulation state directly.
+In particular, [`SceneBroadcaster`](https://gazebosim.org/api/sim/10/classgz_1_1sim_1_1systems_1_1SceneBroadcaster.html)
+(`gz::sim::systems::SceneBroadcaster`) is required to synchronize world state and detect
+simulation resets.
+
+:::{warning}
+By default, `SceneBroadcaster`, `UserCommands`, and `Physics` are loaded automatically from Gazebo's server
+configuration (`server.config` or `GZ_SIM_SERVER_CONFIG_PATH`).
+However, if your world SDF disables server config plugins via
+`<gz:policies><include_server_config_plugins>false</include_server_config_plugins></gz:policies>` (while loading
+other world plugins) or if you use a custom `GZ_SIM_SERVER_CONFIG_PATH` that omits default systems, you must
+explicitly include:
+
+- `gz::sim::systems::SceneBroadcaster` — required for state synchronization and reset detection. Without it, initialization fails and state-dependent calls return `RESULT_OPERATION_FAILED` (`"Required Gazebo system is missing"`).
+- `gz::sim::systems::UserCommands` — required by `SpawnEntity` and `DeleteEntity`.
+- `gz::sim::systems::Physics` — required to compute dynamic entity poses and velocities for `GetEntityState` and `SetEntityState`.
+:::
+
+### Update Rates, Latency, and Timeouts
+
+- **Nominal update rates and service latency:**
+  Most `simulation_interfaces` services wait for the next state update on `SceneBroadcaster`'s `/world/<world>/state` topic before responding.
+  By default, `SceneBroadcaster` throttles these updates in wall-clock time to **60 Hz** (~16.7 ms period) when simulation is running and **30 Hz** (~33.3 ms period, half of the running rate) when paused.
+  Expect up to one broadcast period of latency on these calls (including `GetSimulationState` and `SetSimulationState`, which read pause/iteration status from `/world/<world>/stats` but still synchronize with `SceneBroadcaster`).
+
+- **Event-triggered (off-rate) updates:**
+  In addition to its periodic schedule, `SceneBroadcaster` immediately publishes an extra state
+  message whenever simulation events occur, such as spawning or deleting entities,
+  setting entity poses/twists, removing components, or resetting/rewinding time.
+  During active events, the state publish rate can temporarily exceed 60 Hz / 30 Hz and service calls may unblock sooner than one nominal period.
+
+- **Avoid setting `<state_hertz>` too low:**
+  If you override `<state_hertz>` on the `SceneBroadcaster` plugin in your SDF, keep in mind that the paused rate is half of `<state_hertz>` and `simulation_interfaces` times out after **1 second** (`1000 ms`) while waiting for the next state message.
+  Setting `<state_hertz>` ≤ `2.0` (when paused) or ≤ `1.0` (when running) can cause calls to fail with `"Timed out while waiting for updated Gazebo state"` whenever no simulation events occur.
+
+- **Stepping feedback rate:**
+  `StepSimulation` and the `SimulateSteps` action track completed steps from `/world/<world>/stats`, which Gazebo publishes at **10 Hz** (100 ms period) independently of `SceneBroadcaster`.
+
+### Common Issues and Quirks
+
+- **Brief delay querying velocities after spawning an entity:**
+  Right after `SpawnEntity` succeeds, velocity tracking is enabled on the new model's canonical link via `/world/<world>/control/state`.
+  Calling `GetEntityState` immediately before the server processes that update, steps physics, and broadcasts the next state can temporarily fail or report zero velocity.
+  Enabling velocity tracking on all canonical links can also add overhead in worlds with many models.
+
+- **Avoid spawning entities concurrently with `ResetSimulation`:**
+  Reset completion is detected through `/world/<world>/scene/info`, which `SceneBroadcaster` also publishes whenever a new entity is added to the world.
+  Spawning an entity at the same time as `ResetSimulation` can cause reset detection to trigger early.
+
+- **Ensure the server steps on startup in custom setups:**
+  `SceneBroadcaster` only advertises its state topic and service after the first simulation update step, and initial state synchronization blocks until a step runs.
+  The `gzserver` node handles this automatically; if you embed the simulation interfaces alongside a custom `gz::sim::Server`, make sure the server executes an initial step or is already running.
+
+- **Single-world and top-level model scope:**
+  Only the first world reported by Gazebo (`/gazebo/worlds`) is managed.
+  `GetEntities` and `GetEntitiesStates` return top-level models only (nested models are excluded), and `GetEntityState` expects a model entity.
 
 ## Known Limitations
 

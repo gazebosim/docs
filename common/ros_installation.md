@@ -26,9 +26,14 @@ mistakes.
 
 At the time of writing, our recommendation is that new users install:
 
-* [Ubuntu Noble 24.04](https://www.releases.ubuntu.com/noble/)
-* [ROS 2 Jazzy Jalisco](https://www.ros.org/reps/rep-2000.html#jazzy-jalisco-may-2024-may-2029)
-* [Gazebo Harmonic](https://gazebosim.org/docs/harmonic/install)
+* [Ubuntu Resolute 26.04](https://releases.ubuntu.com/resolute/)
+* [ROS 2 Lyrical Luth](https://docs.ros.org/en/lyrical/Releases/Release-Lyrical-Luth.html)
+* [Gazebo Jetty](https://gazebosim.org/docs/jetty/install)
+
+Users that cannot move to Ubuntu Resolute yet can use the previous LTS
+combination: [Ubuntu Noble 24.04](https://www.releases.ubuntu.com/noble/),
+[ROS 2 Jazzy Jalisco](https://www.ros.org/reps/rep-2000.html#jazzy-jalisco-may-2024-may-2029)
+and [Gazebo Harmonic](https://gazebosim.org/docs/harmonic/install).
 
 ## Summary of Compatible ROS and Gazebo Combinations
 
@@ -36,13 +41,18 @@ This table includes all currently supported versions of ROS and Gazebo. All
 other ROS and Gazebo releases are end of life and we do not recommend their
 continued use.
 
-|                           | **GZ Fortress (LTS)**   | **GZ Harmonic (LTS)**   | **Gz Ionic**    | **Gz Jetty (LTS)**
-|---------------------------|-----------------------  | ----------------------  | --------------- | ------------
-| **ROS 2 Rolling**         | ❌                      | ⚡                       | ⚡               | ✅
-| **ROS 2 Lyrical (LTS)**   | ❌                      | ⚡                       | ⚡               | ✅
-| **ROS 2 Kilted**          | ❌                      | ⚡                       | ✅              | ❌
-| **ROS 2 Jazzy (LTS)**     | ❌                      | ✅                      | ❌              | ❌
-| **ROS 2 Humble (LTS)**    | ✅                      | ⚡                       | ❌              | ❌
+
+|                           | **GZ Fortress (LTS)**   | **GZ Harmonic (LTS)**  | **Gz Ionic**    | **Gz Jetty (LTS)** |
+|---------------------------|-------------------------|------------------------|-----------------|--------------------|
+| **ROS 2 Lyrical (LTS)**   | ❌                      | ⚡                     | ⚡              | ✅                 |
+| **ROS 2 Kilted**          | ❌                      | ⚡                     | ✅              | ❌                 | 
+| **ROS 2 Jazzy (LTS)**     | ❌                      | ✅                     | ❌              | ❌                 |
+| **ROS 2 Humble (LTS)**    | ✅                      | ⚡                     | ❌              | ❌                 |
+
+
+|                           | **GZ Rotary (rolling)** |
+|---------------------------|------------------------ |
+| **ROS 2 Rolling** (*)     | ✅                      |
 
 
 * ✅ - Recommended combination
@@ -50,17 +60,18 @@ continued use.
 * ⚡ - Possible, *but use with caution*. These combinations of ROS and Gazebo can
   be made to work together, but some effort is required.
 
-
-## Installing the Default Gazebo/ROS Pairing
+(*) ROS 2 Rolling tracks the development of the next Gazebo release: its
+vendor packages contain prereleases of the Gazebo libraries built from the
+`main` branches, the same code used by [Gazebo Rotary](https://gazebosim.org/docs/rotary/rotary).
 
 If you are planning on using a specific version of ROS and don't have a reason
 to use a specific version of Gazebo, we recommend using the default version of
 Gazebo available from the ROS repository when installing `ros_gz`. You can find 
 instructions on adding the ROS repository to your system in the 
-[ROS documentation](https://docs.ros.org/en/humble/Installation/Alternatives/Ubuntu-Development-Setup.html#add-the-ros-2-apt-repository). 
+[ROS documentation](https://docs.ros.org/en/lyrical/Get-Started/Installation/Ubuntu-Install-Debs.html#set-up-your-system). 
 The following command will install the correct version of Gazebo and `ros_gz` 
 for your ROS installation on a Linux system. You should replace `${ROS_DISTRO}` 
-with your ROS distribution (e.g. `humble`, `rolling`, `noetic`, etc).
+with your ROS distribution (e.g. `lyrical`, `jazzy`, `humble`, `rolling`, etc).
 
 ```bash
 sudo apt-get install ros-${ROS_DISTRO}-ros-gz
@@ -87,15 +98,15 @@ users.
 
 Gazebo is an independent project like Boost, Ogre, and many other projects used
 by ROS. Usually, the latest version of Gazebo is available at the beginning of
-each ROS release cycle (for example Gazebo Fortress for ROS 2 Humble). This
+each ROS release cycle (for example Gazebo Jetty for ROS 2 Lyrical). This
 version of Gazebo is selected as the official Gazebo release for that ROS Distro
 and is fully integrated, tested, and supported for the life of the ROS
 distribution.
 
 Note that all Gazebo libraries follow the [semantic
 versioning](http://semver.org/) philosophy for ABI stability. All Gazebo
-versions that have the same major number (`gz-sim7_7.0.0`, `gz-sim7_7.1.0`,
-`gz-sim7_7.0.1`, ...) are binary compatible and thus interchangeable with a
+versions that have the same major number (`gz-sim10_10.0.0`, `gz-sim10_10.1.0`,
+`gz-sim10_10.0.1`, ...) are binary compatible and thus interchangeable with a
 given ROS distro.
 
 ### Installing Gazebo
@@ -113,7 +124,7 @@ of writing the following packages are available on the following hosts:
    * ROS 2 Jazzy: Gazebo Harmonic (ROS vendor packages)
    * ROS 2 Kilted: Gazebo Ionic (ROS vendor packages)
    * ROS 2 Lyrical: Gazebo Jetty (ROS vendor packages)
-   * ROS 2 Rolling: Gazebo Jetty (ROS vendor packages, changing frequently)
+   * ROS 2 Rolling: prereleases of the next Gazebo release built from `main` (ROS vendor packages, changing frequently)
 
  * **packages.osrfoundation.org**
    * Gazebo Fortress
@@ -168,8 +179,8 @@ To install the binary Gazebo Harmonic/ROS 2 Humble packages:
 ## Using the Latest Gazebo Source Code for a Gazebo Distribution
 
 The Gazebo team usually backports and releases new versions of each of the
-supported Gazebo releases and libraries (i.e: bumping `gz-sim 7.0.0` to gz-sim
-`7.1.0`). These updates are hosted first in the `packages.osrfoundation.org`
+supported Gazebo releases and libraries (i.e: bumping `gz-sim 10.0.0` to gz-sim
+`10.1.0`). These updates are hosted first in the `packages.osrfoundation.org`
 repository. The ROS repository syncs from the `osrfoundation.org` repository
 frequently but versions can be different.
 
@@ -209,13 +220,13 @@ debian packages the ones installed by the package manager (usually apt).
 The best place is the Gazebo web page that hosts a list of the
 [main features available in each Gazebo distribution](release-features).
 
-Some notes are regularly posted on the [Gazebo community
-site](https://community.gazebosim.org/tags/c/release-announcements-and-discussions/10/release)
+Some notes are regularly posted on the [Gazebo category of the Open Robotics
+Discourse](https://discourse.openrobotics.org/c/gazebo/95)
 and special posts and videos are also posted there when a new release is out:
 See the one for
-[Garden](https://community.gazebosim.org/t/gazebo-garden-release/1627) or the
+[Jetty](https://discourse.openrobotics.org/t/gazebo-jetty-released/50349) or the
 one for
-[Fortress](https://community.gazebosim.org/t/ignition-fortress-release/1127) as
+[Harmonic](https://discourse.openrobotics.org/t/gazebo-harmonic-release/48175) as
 examples.
 
 Additionally, when navigating through the different versions of Gazebo there is a menu item

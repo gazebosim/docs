@@ -7,16 +7,16 @@ This section provides information on setting up a Gazebo in a continuous integra
 
 This action can also be used to install Gazebo alongside ROS 2 along with ROS-Gazebo bridge (`ros_gz`). It handles the installation of the correct version of Gazebo and `ros_gz` from all of all the recommended and supported combinations, along with possible combinations through ROS official binaries as ROS Gazebo vendor packages.
 
-The `setup-gazebo` GitHub Action can be found on the [Marketplace](https://github.com/marketplace/actions/setup-gazebo-environment) with its source code hosted at [github.com/gazebo-tooling/setup-gazebo](https://github.com/gazebo-tooling/setup-gazebo). Also check this [community post](https://community.gazebosim.org/t/introducing-the-setup-gazebo-github-action/3132) for more details.
+The `setup-gazebo` GitHub Action can be found on the [Marketplace](https://github.com/marketplace/actions/setup-gazebo-environment) with its source code hosted at [github.com/gazebo-tooling/setup-gazebo](https://github.com/gazebo-tooling/setup-gazebo). Also check this [community post](https://discourse.openrobotics.org/t/introducing-the-setup-gazebo-github-action/48787) for more details.
 
 ## Supported Gazebo Releases
 
 The action currently supports all the non-EOL Gazebo releases. See [releases](https://gazebosim.org/docs/all/releases/) for more information.
 
-* Citadel
 * Fortress
 * Harmonic
 * Ionic
+* Jetty
 
 ## Supported Platforms
 

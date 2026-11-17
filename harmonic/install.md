@@ -11,6 +11,38 @@ Binary installation is the recommended method of installing Gazebo.
  * [Binary Installation on macOS](install_osx)
  * [Binary Installation on Windows](install_windows)
 
+## Building documentation
+
+After completing a source installation, you can build the documentation for
+the Gazebo libraries from the root of the workspace.
+
+Install Doxygen and the documentation dependencies. On Ubuntu:
+
+```bash
+sudo apt-get install -y doxygen graphviz
+```
+
+**Note:** Building documentation for `sdformat` requires the additional
+`texlive-latex-extra` package. Install the documentation dependencies with:
+
+```bash
+sudo apt-get install -y doxygen graphviz texlive-latex-extra
+```
+
+Then run:
+
+```bash
+colcon build --merge-install \
+  --cmake-args -DBUILD_DOCS=ON -DBUILD_TESTING=OFF \
+  --cmake-target doc
+```
+
+The generated documentation for each library can be found under:
+
+```text
+build/<package>/doxygen/html/
+```
+
 ## Source Installation instructions
 
 Source installation is recommended for users planning on altering Gazebo's source code (advanced).
@@ -23,8 +55,6 @@ Source installation is recommended for users planning on altering Gazebo's sourc
 
 The Harmonic collection is composed of many different Gazebo libraries. The
 collection assures that all libraries are compatible and can be used together.
-
-This list of library versions may change up to the release date.
 
 | Library name       | Version       |
 | ------------------ |:-------------:|
