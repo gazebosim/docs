@@ -191,16 +191,16 @@ Additional Inherited Members</h2></td></tr>
 <h2><a class="anchor" id="system-parameters-32"></a>
 System Parameters</h2>
 <ul>
-<li><code>&lt;publish_link_pose&gt;</code>: Set to true to publish link pose</li>
-<li><code>&lt;publish_visual_pose&gt;</code>: Set to true to publish visual pose</li>
-<li><code>&lt;publish_collision_pose&gt;</code>: Set to true to publish collision pose</li>
-<li><code>&lt;publish_sensor_pose&gt;</code>: Set to true to publish sensor pose</li>
-<li><code>&lt;publish_model_pose&gt;</code>: Set to true to publish model pose.</li>
-<li><code>&lt;publish_nested_model_pose&gt;</code>: Set to true to publish nested model pose. The pose of the model that contains this system is also published unless publish_model_pose is set to false</li>
-<li><code>&lt;use_pose_vector_msg&gt;</code>: Set to true to publish a gz::msgs::Pose_V message instead of multiple gz::msgs::Pose messages.</li>
-<li><code>&lt;update_frequency&gt;</code>: Frequency of pose publications in Hz. A negative frequency publishes as fast as possible (i.e, at the rate of the simulation step)</li>
-<li><code>&lt;static_publisher&gt;</code>: Set to true to publish static poses on a "&lt;scoped_entity_name&gt;/pose_static" topic. This will cause only dynamic poses to be published on the "&lt;scoped_entity_name&gt;/pose" topic.</li>
-<li><code>&lt;static_update_frequency&gt;</code>: Frequency of static pose publications in Hz. A negative frequency publishes as fast as possible (i.e, at the rate of the simulation step).</li>
+<li><code>&lt;publish_link_pose&gt;</code>: Set to true to publish link pose. This element is optional, and the default value is true.</li>
+<li><code>&lt;publish_visual_pose&gt;</code>: Set to true to publish visual pose. This element is optional, and the default value is false.</li>
+<li><code>&lt;publish_collision_pose&gt;</code>: Set to true to publish collision pose. This element is optional, and the default value is false.</li>
+<li><code>&lt;publish_sensor_pose&gt;</code>: Set to true to publish sensor pose. This element is optional, and the default value is false.</li>
+<li><code>&lt;publish_model_pose&gt;</code>: Set to true to publish model pose. This element is optional. If it is not set, it takes the value of <code>&lt;publish_nested_model_pose&gt;</code>.</li>
+<li><code>&lt;publish_nested_model_pose&gt;</code>: Set to true to publish nested model pose. The pose of the model that contains this system is also published unless <code>&lt;publish_model_pose&gt;</code> is set to false. This element is optional, and the default value is false.</li>
+<li><code>&lt;use_pose_vector_msg&gt;</code>: Set to true to publish a gz::msgs::Pose_V message instead of multiple gz::msgs::Pose messages. This element is optional, and the default value is false.</li>
+<li><code>&lt;update_frequency&gt;</code>: Frequency of pose publications in Hz. A frequency of zero or less publishes as fast as possible (i.e., at the rate of the simulation step). This element is optional, and the default value is -1.</li>
+<li><code>&lt;static_publisher&gt;</code>: Set to true to publish static poses on a "&lt;scoped_entity_name&gt;/pose_static" topic. This will cause only dynamic poses to be published on the "&lt;scoped_entity_name&gt;/pose" topic. This element is optional, and the default value is false.</li>
+<li><code>&lt;static_update_frequency&gt;</code>: Frequency of static pose publications in Hz. A frequency of zero or less publishes as fast as possible (i.e., at the rate of the simulation step). Only used when <code>&lt;static_publisher&gt;</code> is true. This element is optional. If it is not set, it takes the value of <code>&lt;update_frequency&gt;</code>.</li>
 <li><code>&lt;topic&gt;</code>: Set a custom topic instead of default value </li>
 </ul>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>

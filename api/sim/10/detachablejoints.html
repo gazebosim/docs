@@ -36,7 +36,7 @@
         <h1 class="project_title">Gazebo Sim</h1>
         <h2>API Reference</h2>
         <div class="version">
-        10.6.0
+        10.7.0
         </div>
       </header>
       <!-- NOTE: If you add a link to a doxygen generated page, then make
@@ -139,7 +139,7 @@
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p>The <code>DetachableJoint</code> system allows two models to start off rigidly attached and then detach during simulation by publishing to a topic. The system internally uses a fixed joint between two links, each belonging to two separate models. Because the system uses joints to connect models, the resulting kinematic topology has to be a tree, i.e., kinematic loops are not currently supported. This affects the choice of the parent link, and therefore, the parent model, which is the model that contains the <code>DetachableJoint</code> system. Once detached, the joint can be re-attached by publishing to a topic. When reattaching, the child model will be attached to the parent model at its current pose/configuration. To achieve reattachment at a specific pose, the child model can be positioned accordingly through a set_pose service call prior to reattaching the joint.</p>
-<p>For example, <a href="https://github.com/gazebosim/gz-sim/blob/ign-gazebo2/examples/worlds/detachable_joint.sdf">detachable_joint.sdf</a> demonstrates a four wheel vehicle that holds three objects that are later detached from the vehicle. As seen in this example, the parent model is the vehicle. The kinematic topology is the following.</p>
+<p>For example, <a href="https://github.com/gazebosim/gz-sim/blob/main/examples/worlds/detachable_joint.sdf">detachable_joint.sdf</a> demonstrates a four wheel vehicle that holds three objects that are later detached from the vehicle. As seen in this example, the parent model is the vehicle. The kinematic topology is the following.</p>
 <div class="fragment"><div class="line">world---vehicle_blue---B1</div>
 <div class="line">                    \</div>
 <div class="line">                      ---B2</div>
@@ -158,9 +158,9 @@
 <li><code>&lt;child_model&gt;</code>: The name of the model containing the child link in the detachable joint.</li>
 <li><code>&lt;child_model_link&gt;</code>: Name of the link in the <code>&lt;child_model&gt;</code> that will be used as the child link in the detachable joint.</li>
 <li><code>topic</code> (optional): Topic name to be used for detaching connections. Using <code>&lt;detach_topic&gt;</code> is preferred. If empty, a default topic will be created with a pattern <code>/model/&lt;model_name&gt;/detachable_joint/detach</code>.</li>
-<li><code>detach_topic</code> (optional): Topic name to be used for detaching connections. If empty, a default topic will be created with a pattern <code>/model/&lt;model_name&gt;/detachable_joint/detach</code>. If multiple detachable plugin is used in one model, <code>detach_topic</code> is REQUIRED to detach child models individually.</li>
-<li><code>attach_topic</code> (optional): Topic name to be used for re-attaching connections. If empty, a default topic will be created with a pattern <code>/model/&lt;model_name&gt;/detachable_joint/attach</code>. If multiple detachable plugin is used in one model, <code>attach_topic</code> is REQUIRED to attach child models individually.</li>
-<li><code>output_topic</code> (optional): Topic name to be used for publishing the state of the detachment. If empty, a default topic will be created with a pattern <code>/model/&lt;child_model_name&gt;/detachable_joint/state</code>. If multiple detachable plugin is used in one model, <code>output_topic</code> is REQUIRED to publish child models state individually. </li>
+<li><code>&lt;detach_topic&gt;</code> (optional): Topic name to be used for detaching connections. If empty, a default topic will be created with a pattern <code>/model/&lt;model_name&gt;/detachable_joint/detach</code>. If multiple detachable plugins are used in one model, <code>detach_topic</code> is REQUIRED to detach child models individually.</li>
+<li><code>&lt;attach_topic&gt;</code> (optional): Topic name to be used for re-attaching connections. If empty, a default topic will be created with a pattern <code>/model/&lt;model_name&gt;/detachable_joint/attach</code>. If multiple detachable plugins are used in one model, <code>attach_topic</code> is REQUIRED to attach child models individually.</li>
+<li><code>&lt;output_topic&gt;</code> (optional): Topic name to be used for publishing the state of the detachment. If empty, a default topic will be created with a pattern <code>/model/&lt;child_model_name&gt;/detachable_joint/state</code>. If multiple detachable plugins are used in one model, <code>output_topic</code> is REQUIRED to publish child models' state individually. </li>
 </ul>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
