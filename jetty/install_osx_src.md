@@ -82,7 +82,7 @@ brew install --cask xquartz
 General dependencies:
 
 ```bash
-brew install assimp boost bullet cli11 cmake cppzmq dartsim doxygen eigen fcl ffmpeg flann freeimage freetype gdal gflags google-benchmark ipopt jsoncpp libccd libyaml libzzip libzip nlopt ode open-scene-graph ossp-uuid ogre1.9 ogre2.3-with-freeimage pkg-config protobuf qt@6 qwt rapidjson ruby tbb tinyxml2 urdfdom zeromq
+brew install assimp boost bullet cli11 cmake cppzmq dartsim doxygen eigen fcl ffmpeg flann freeimage freetype gdal gflags google-benchmark ipopt jsoncpp libccd libyaml libwebsockets libzzip libzip nlopt ode open-scene-graph ossp-uuid ogre1.9 ogre2.3-with-freeimage pkg-config protobuf qt@6 qwt rapidjson ruby tbb tinyxml2 urdfdom zeromq
 ```
 
 ## Building the Gazebo Libraries
@@ -102,25 +102,23 @@ If that is the case, then you are ready
 to build the whole set of libraries:
 
 ```bash
-colcon build --merge-install
+colcon build --merge-install --cmake-args -DCMAKE_MACOSX_RPATH=FALSE -DCMAKE_INSTALL_NAME_DIR=$(pwd)/install/lib
 ```
 
-Note if you are on an ARM based Apple Silicon Mac machine, you may need to set a couple more cmake args:
-
-```bash
-colcon build --cmake-args -DCMAKE_MACOSX_RPATH=FALSE -DCMAKE_INSTALL_NAME_DIR=$(pwd)/install/lib --merge-install
-```
+:::{note}
+The `-DCMAKE_MACOSX_RPATH=FALSE` and `-DCMAKE_INSTALL_NAME_DIR=$(pwd)/install/lib` CMake arguments are only needed on Apple Silicon (ARM) Macs and can be omitted on Intel Macs.
+:::
 
 To speed up the build process, you could also disable tests by using
 
 ```bash
-colcon build --cmake-args -DBUILD_TESTING=OFF --merge-install
+colcon build --merge-install --cmake-args -DBUILD_TESTING=OFF -DCMAKE_MACOSX_RPATH=FALSE -DCMAKE_INSTALL_NAME_DIR=$(pwd)/install/lib
 ```
 
 To use debuggers activate debug symbols. Gazebo will run slower, but you'll be able to use `lldb`:
 
 ```bash
-colcon build --cmake-args ' -DBUILD_TESTING=OFF' ' -DCMAKE_BUILD_TYPE=Debug' --merge-install
+colcon build --merge-install --cmake-args -DBUILD_TESTING=OFF -DCMAKE_BUILD_TYPE=Debug -DCMAKE_MACOSX_RPATH=FALSE -DCMAKE_INSTALL_NAME_DIR=$(pwd)/install/lib
 ```
 
 To build a specific package with all its dependent packages:
