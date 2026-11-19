@@ -112,7 +112,9 @@ document.
       ```
   The `Migration.md` document needs to be updated if some breaking changes are in the Changelog.
 
-  4. Open a pull request for reviewing ([example PR](https://github.com/gazebosim/gz-physics/pull/447)).
+  4. Bump the version in `package.xml`. 
+
+  5. Open a pull request for reviewing ([example PR](https://github.com/gazebosim/gz-physics/pull/447)).
   When opening a PR look for the "Release" section in the template and follow the instructions there.
 
 ### 3. Update packages version
