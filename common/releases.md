@@ -45,7 +45,7 @@ gantt
                           
     M                  :gz_m,      2027-03, 2028-12
     Jetty       :crit, :jetty,     2025-09, 2031-05
-    Ionic       :crit, :ionic,     2024-09, 2026-12
+    Ionic              :ionic,     2024-09, 2026-12
     Harmonic    :crit, :harmonic,  2023-09, 2029-05
     Garden             :garden,    2022-09, 2024-11
     Fortress    :crit, :fortress,  2021-09, 2027-05
