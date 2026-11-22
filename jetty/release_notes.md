@@ -77,7 +77,7 @@ Simple demo showing conveyor belt based test setup using Simulation Interfaces
 
 Occupancy grids are simple 2D maps that robots use for path planning. Open
 source navigation frameworks
-[like Nav2](https://docs.nav2.org/tutorials/docs/navigation2_with_slam.html) use
+[like Nav2](https://docs.nav2.org/rolling/tutorials/general_tutorials/navigation2_with_slam/navigation2_with_slam/) use
 these maps to guide robots safely to their destination. You can now easily
 export these occupancy grid maps from Gazebo using the `/scan_image` topic and
 running the following command:  
