@@ -188,11 +188,21 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p><a class="el" href="classgz_1_1sim_1_1Sensor.html" title="This class provides wrappers around entities and components which are more convenient and straight-fo...">Sensor</a> for reading environmental data loaded from outside world. To use, add this system to the world file, then instantiate sensors of custom type with gz:type="environmental_sensor/{field_name}", where field_name refers to the type of data you would like to output. Alternatively, if you would like to specify a custom field name you may do so using the &lt;environment_variable&gt; tag. </p>
 <p>Additionally, the environment sensor supports scenarios where the data is in the form of vector fields. For instance in the case of wind or ocean currents.</p>
-<p>Tags: &lt;output_format&gt; - Either "scalar" or "vector3" depending on type of output data desired. &lt;environment_variable&gt; - Only for scalar type. The name of the column of the CSV file to be used. &lt;environment_variable_x&gt; - The name of the field to be used as the x value in global frame for vector3 fields. Note: If this is left out and vector3 is set, then the x value defaults to zero. &lt;environment_variable_y&gt; - The name of the field to be used as the y value in global frame for vector3 fields. Note: If this is left out and vector3 is set, then the y value defaults to zero. &lt;environment_variable_z&gt; - The name of the field to be used as the z value in global frame vector3 fields. Note: If this is left out and vector3 is set, then the z value defaults to zero. &lt;transform_type&gt; - When handling vector2 or vector3 types it may be in our interest to transform them to local coordinate frames. For instance measurements of ocean currents or wind depend on the orientation and velocity of the sensor. This field can have 4 values:</p><ul>
+<h2><a class="anchor" id="autotoc_md459"></a>
+System Parameters</h2>
+<ul>
+<li><code>&lt;output_format&gt;</code>: Either "scalar" or "vector3" depending on type of output data desired.</li>
+<li><code>&lt;environment_variable&gt;</code>: Only for scalar type. The name of the column of the CSV file to be used.</li>
+<li><code>&lt;environment_variable_x&gt;</code>: The name of the field to be used as the x value in global frame for vector3 fields. Note: If this is left out and vector3 is set, then the x value defaults to zero.</li>
+<li><code>&lt;environment_variable_y&gt;</code>: The name of the field to be used as the y value in global frame for vector3 fields. Note: If this is left out and vector3 is set, then the y value defaults to zero.</li>
+<li><code>&lt;environment_variable_z&gt;</code>: The name of the field to be used as the z value in global frame vector3 fields. Note: If this is left out and vector3 is set, then the z value defaults to zero.</li>
+<li><code>&lt;transform_type&gt;</code>: When handling vector2 or vector3 types it may be in our interest to transform them to local coordinate frames. For instance measurements of ocean currents or wind depend on the orientation and velocity of the sensor. This field can have 4 values:<ul>
 <li>GLOBAL - Don't transform the vectors to a local frame.</li>
 <li>LOCAL - Transform the vector to a local frame.</li>
 <li>ADD_VELOCITY_GLOBAL - Don't transform to local frame but account for velocity change.</li>
 <li>ADD_VELOCITY_LOCAL - Transform to local frame and account for sensor velocity. If you're working with wind or ocean currents, this is probably the option you want. </li>
+</ul>
+</li>
 </ul>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aea34b81c66313ad5abfca875f9d7acbf"></a>
